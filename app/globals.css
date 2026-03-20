@@ -1,0 +1,98 @@
+@import 'tailwindcss';
+
+@layer base {
+  :root {
+    --primary: #0a0e17;
+    --secondary: #111827;
+    --card-bg: #151d2e;
+    --card-bg-hover: #1a2540;
+    --light-bg: #f8f9fc;
+    --off-white: #f1f3f8;
+    --primary-text: #ffffff;
+    --secondary-text: #94a3b8;
+    --muted-text: #64748b;
+    --dark-text: #0f172a;
+    --dark-text-secondary: #475569;
+    --accent: #3b82f6;
+    --accent-bright: #60a5fa;
+    --accent-glow: rgba(59, 130, 246, 0.15);
+    --accent-warm: #f59e0b;
+    --accent-warm-glow: rgba(245, 158, 11, 0.12);
+    --accent-green: #10b981;
+    --border-dark: rgba(255, 255, 255, 0.06);
+    --border-light: rgba(0, 0, 0, 0.08);
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--primary);
+    color: var(--primary-text);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .container-custom {
+    @apply mx-auto max-w-6xl px-6;
+  }
+
+  .container-wide {
+    @apply mx-auto max-w-7xl px-6;
+  }
+
+  .bg-gradient-hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, #0f1729 100%);
+  }
+
+  .shadow-card {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
+  }
+
+  .shadow-card-hover {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  .badge-base {
+    @apply inline-flex items-center gap-2 rounded-full bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 text-xs font-medium text-blue-400;
+  }
+
+  @keyframes pulse-dot {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.4;
+    }
+  }
+
+  .animate-pulse-dot {
+    animation: pulse-dot 2s infinite;
+  }
+
+  @keyframes grow-bar {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  .animate-grow-bar {
+    animation: grow-bar 1.5s ease forwards;
+    transform-origin: left;
+  }
+}
