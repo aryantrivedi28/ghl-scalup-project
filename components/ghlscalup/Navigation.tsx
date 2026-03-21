@@ -9,7 +9,7 @@ const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   return (
-    <header className="bg-[#1C2E4A] sticky top-0 z-[1000] shadow-[0_2px_20px_rgba(0,0,0,0.15)]">
+    <header className="bg-[#0B1421] sticky top-0 z-[1000] shadow-[0_2px_20px_rgba(0,0,0,0.15)]">
       <div className="max-w-[1200px] mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between h-[72px]">
           <Link href="/" className="flex-shrink-0">
