@@ -1,98 +1,83 @@
-@import 'tailwindcss';
+/* app/globals.css - Tailwind CSS v4 */
+@import "tailwindcss";
 
-@layer base {
-  :root {
-    --primary: #0a0e17;
-    --secondary: #111827;
-    --card-bg: #151d2e;
-    --card-bg-hover: #1a2540;
-    --light-bg: #f8f9fc;
-    --off-white: #f1f3f8;
-    --primary-text: #ffffff;
-    --secondary-text: #94a3b8;
-    --muted-text: #64748b;
-    --dark-text: #0f172a;
-    --dark-text-secondary: #475569;
-    --accent: #3b82f6;
-    --accent-bright: #60a5fa;
-    --accent-glow: rgba(59, 130, 246, 0.15);
-    --accent-warm: #f59e0b;
-    --accent-warm-glow: rgba(245, 158, 11, 0.12);
-    --accent-green: #10b981;
-    --border-dark: rgba(255, 255, 255, 0.06);
-    --border-light: rgba(0, 0, 0, 0.08);
-  }
+@theme {
+  --font-poppins: 'Poppins', sans-serif;
+  
+  /* Custom colors */
+  --color-space-blue: #1C2E4A;
+  --color-nurture-blue: #0E9BF0;
+  --color-capture-yellow: #F8D000;
+  --color-close-green: #25C97D;
+  --color-space-deep: #0B1421;
+  --color-space-dark: #111E30;
+  --color-yellow-lt: #FFE44D;
+  --color-off-white: #F4F7FA;
+  --color-light-gray: #E8EDF4;
+  --color-mid-gray: #8A9BB0;
+  --color-dark-gray: #4A5568;
+  --color-near-black: #1A202C;
+  
+  /* Custom container */
+  --breakpoint-*: initial;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+}
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  html {
-    scroll-behavior: smooth;
-    font-size: 16px;
-  }
-
-  body {
-    font-family: var(--font-sans);
-    background: var(--primary);
-    color: var(--primary-text);
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
+/* Custom utility for max-width 1200px */
+@utility container-custom {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  
+  @media (width < 768px) {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 }
 
-@layer utilities {
-  .container-custom {
-    @apply mx-auto max-w-6xl px-6;
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
-
-  .container-wide {
-    @apply mx-auto max-w-7xl px-6;
+  
+  html {
+    scroll-behavior: smooth;
   }
-
-  .bg-gradient-hero {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, #0f1729 100%);
+  
+  body {
+    color: var(--color-near-black);
+    background: white;
+    line-height: 1.6;
+    font-family: var(--font-poppins);
   }
-
-  .shadow-card {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
+  
+  a {
+    text-decoration: none;
+    color: inherit;
   }
-
-  .shadow-card-hover {
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  
+  img {
+    max-width: 100%;
+    display: block;
   }
+}
 
-  .badge-base {
-    @apply inline-flex items-center gap-2 rounded-full bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 text-xs font-medium text-blue-400;
+@layer components {
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
   }
-
-  @keyframes pulse-dot {
-    0%,
-    100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.4;
-    }
-  }
-
-  .animate-pulse-dot {
-    animation: pulse-dot 2s infinite;
-  }
-
-  @keyframes grow-bar {
-    from {
-      transform: scaleX(0);
-    }
-    to {
-      transform: scaleX(1);
-    }
-  }
-
-  .animate-grow-bar {
-    animation: grow-bar 1.5s ease forwards;
-    transform-origin: left;
+  
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

@@ -1,106 +1,67 @@
+// components/ghlscalup/Footer.tsx
 import Link from 'next/link'
+import Image from 'next/image'
 
-export default function Footer() {
-  const currentYear = new Date().getFullYear()
-
+const Footer = () => {
   return (
-    <footer className="bg-secondary border-t border-border-dark">
-      {/* Main Footer */}
-      <div className="container-custom py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          {/* Brand Column */}
+    <footer className="bg-[#0B1421] text-white pt-16 pb-0">
+      <div className="max-w-[1200px] mx-auto px-4 md:px-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-[2.2fr_1fr_1fr_1.3fr] gap-10 pb-10">
           <div>
-            <Link href="/" className="flex items-center gap-2.5 no-underline mb-4">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-r from-accent to-indigo-400 font-bold text-xs text-white tracking-wider">
-                GHL
-              </div>
-              <span className="font-bold text-lg text-primary-text">GHLScaleUp</span>
-            </Link>
-            <p className="text-sm text-muted-text leading-relaxed font-light max-w-xs mt-4">
-              The leading GHL growth partner for agencies and businesses worldwide. Scale faster. Earn more. Build better.
+            <div className="mb-4">
+              <Image src="/GHL_Scale_Up.svg" alt="GHL Scale Up" width={120} height={44} className="h-11 w-auto" />
+            </div>
+            <p className="text-[0.82rem] text-[#8A9BB0] font-light leading-relaxed max-w-[300px]">
+              The #1 GoHighLevel expert agency for marketing agencies and businesses. We build complete
+              GHL systems — CRM, automation, AI, funnels, SaaS — so you can scale without the tech headaches.
             </p>
+            <p className="text-[0.72rem] text-[#8A9BB0] mt-4">A service by <strong className="text-white/60">Finzie</strong> • finzie.co</p>
           </div>
-
-          {/* Product Column */}
           <div>
-            <h4 className="font-semibold text-sm uppercase tracking-widest text-secondary-text mb-4">
-              Product
-            </h4>
-            <ul className="space-y-3 list-none">
-              {['Features', 'Pricing', 'Security', 'API Docs'].map((item) => (
-                <li key={item}>
-                  <Link
-                    href="#"
-                    className="text-muted-text text-sm transition-colors hover:text-primary-text font-light no-underline"
-                  >
-                    {item}
-                  </Link>
-                </li>
-              ))}
+            <h4 className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#8A9BB0] mb-4.5">GHL Services</h4>
+            <ul className="list-none">
+              <li className="mb-2.5"><Link href="#" className="text-white/45 text-[0.82rem] font-light hover:text-[#0E9BF0] transition-colors">GHL CRM Setup</Link></li>
+              <li className="mb-2.5"><Link href="#" className="text-white/45 text-[0.82rem] font-light hover:text-[#0E9BF0] transition-colors">AI Workflow Automation</Link></li>
+              <li className="mb-2.5"><Link href="#" className="text-white/45 text-[0.82rem] font-light hover:text-[#0E9BF0] transition-colors">Funnel Development</Link></li>
+              <li className="mb-2.5"><Link href="#" className="text-white/45 text-[0.82rem] font-light hover:text-[#0E9BF0] transition-colors">Campaign Automation</Link></li>
+              <li className="mb-2.5"><Link href="#" className="text-white/45 text-[0.82rem] font-light hover:text-[#0E9BF0] transition-colors">White-Label SaaS</Link></li>
+              <li className="mb-2.5"><Link href="#" className="text-white/45 text-[0.82rem] font-light hover:text-[#0E9BF0] transition-colors">GHL Migration</Link></li>
+              <li className="mb-2.5"><Link href="#" className="text-white/45 text-[0.82rem] font-light hover:text-[#0E9BF0] transition-colors">Reporting Dashboards</Link></li>
             </ul>
           </div>
-
-          {/* Company Column */}
           <div>
-            <h4 className="font-semibold text-sm uppercase tracking-widest text-secondary-text mb-4">
-              Company
-            </h4>
-            <ul className="space-y-3 list-none">
-              {['About', 'Blog', 'Careers', 'Contact'].map((item) => (
-                <li key={item}>
-                  <Link
-                    href="#"
-                    className="text-muted-text text-sm transition-colors hover:text-primary-text font-light no-underline"
-                  >
-                    {item}
-                  </Link>
-                </li>
-              ))}
+            <h4 className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#8A9BB0] mb-4.5">Company</h4>
+            <ul className="list-none">
+              <li className="mb-2.5"><Link href="#" className="text-white/45 text-[0.82rem] font-light hover:text-[#0E9BF0] transition-colors">About Us</Link></li>
+              <li className="mb-2.5"><Link href="#" className="text-white/45 text-[0.82rem] font-light hover:text-[#0E9BF0] transition-colors">Case Studies</Link></li>
+              <li className="mb-2.5"><Link href="#" className="text-white/45 text-[0.82rem] font-light hover:text-[#0E9BF0] transition-colors">How We Work</Link></li>
+              <li className="mb-2.5"><Link href="#" className="text-white/45 text-[0.82rem] font-light hover:text-[#0E9BF0] transition-colors">Industries</Link></li>
+              <li className="mb-2.5"><Link href="#" className="text-white/45 text-[0.82rem] font-light hover:text-[#0E9BF0] transition-colors">Blog</Link></li>
+              <li className="mb-2.5"><Link href="#" className="text-white/45 text-[0.82rem] font-light hover:text-[#0E9BF0] transition-colors">Careers</Link></li>
+              <li className="mb-2.5"><Link href="#" className="text-white/45 text-[0.82rem] font-light hover:text-[#0E9BF0] transition-colors">Contact</Link></li>
             </ul>
           </div>
-
-          {/* Legal Column */}
           <div>
-            <h4 className="font-semibold text-sm uppercase tracking-widest text-secondary-text mb-4">
-              Legal
-            </h4>
-            <ul className="space-y-3 list-none">
-              {['Privacy', 'Terms', 'Cookies', 'Compliance'].map((item) => (
-                <li key={item}>
-                  <Link
-                    href="#"
-                    className="text-muted-text text-sm transition-colors hover:text-primary-text font-light no-underline"
-                  >
-                    {item}
-                  </Link>
-                </li>
-              ))}
+            <h4 className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#8A9BB0] mb-4.5">Get in Touch</h4>
+            <ul className="list-none">
+              <li className="mb-2.5"><a href="mailto:aryan@finzie.co" className="text-white/45 text-[0.82rem] font-light hover:text-[#0E9BF0] transition-colors">✉️ aryan@finzie.co</a></li>
+              <li className="mb-2.5"><a href="tel:+919893270210" className="text-white/45 text-[0.82rem] font-light hover:text-[#0E9BF0] transition-colors">📞 +91 98932 70210</a></li>
+              <li className="mb-2.5"><a href="https://www.ghlscaleup.com" className="text-white/45 text-[0.82rem] font-light hover:text-[#0E9BF0] transition-colors">🌐 www.ghlscaleup.com</a></li>
+              <li className="mb-2.5"><a href="https://www.finzie.co" className="text-white/45 text-[0.82rem] font-light hover:text-[#0E9BF0] transition-colors">🌐 www.finzie.co</a></li>
             </ul>
           </div>
         </div>
-
-        {/* Bottom Footer */}
-        <div className="py-8 border-t border-border-dark flex flex-col md:flex-row justify-between items-center">
-          <p className="text-xs text-muted-text font-light mb-4 md:mb-0">
-            © {currentYear} GHLScaleUp. All rights reserved. | Built with ❤️ for ambitious agencies
-          </p>
-          <div className="flex gap-6">
-            {[
-              { name: 'Twitter', url: '#' },
-              { name: 'LinkedIn', url: '#' },
-              { name: 'Facebook', url: '#' },
-            ].map((social) => (
-              <Link
-                key={social.name}
-                href={social.url}
-                className="text-muted-text text-xs transition-colors hover:text-secondary-text font-light no-underline"
-              >
-                {social.name}
-              </Link>
-            ))}
+        <div className="border-t border-white/5 py-5 flex flex-col md:flex-row justify-between items-center text-[0.72rem] text-[#8A9BB0] font-light">
+          <span>© 2026 GHL Scale Up. All rights reserved. A Finzie company.</span>
+          <div className="flex gap-5 mt-3 md:mt-0">
+            <Link href="#" className="text-[#8A9BB0] text-[0.72rem] hover:text-white/60 transition-colors">Privacy Policy</Link>
+            <Link href="#" className="text-[#8A9BB0] text-[0.72rem] hover:text-white/60 transition-colors">Terms of Service</Link>
+            <Link href="#" className="text-[#8A9BB0] text-[0.72rem] hover:text-white/60 transition-colors">Refund Policy</Link>
           </div>
         </div>
       </div>
     </footer>
   )
 }
+
+export default Footer

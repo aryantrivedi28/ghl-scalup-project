@@ -1,78 +1,90 @@
-export default function WhyChooseUs() {
+// components/ghlscalup/WhyChooseUs.tsx
+'use client'
+
+import { useEffect, useRef } from 'react'
+
+const WhyChooseUs = () => {
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    )
+
+    const fadeElements = sectionRef.current?.querySelectorAll('.fade-in')
+    fadeElements?.forEach((el) => observer.observe(el))
+
+    return () => observer.disconnect()
+  }, [])
+
   const reasons = [
     {
-      number: '01',
-      title: 'Deep GHL Expertise',
-      description: 'Our team has 100+ years of combined GHL platform experience and success stories.',
+      icon: '⚡',
+      bg: 'rgba(248,208,0,.12)',
+      title: 'GHL-Only Specialization',
+      description: 'GoHighLevel is all we do. Every team member works inside GHL daily. We know what breaks at 50 sub-accounts and how to architect systems that scale.',
     },
     {
-      number: '02',
-      title: 'Dedicated Account Manager',
-      description: 'Get a personal expert who understands your business and guides your growth strategy.',
+      icon: '🧠',
+      bg: 'rgba(14,155,240,.1)',
+      title: 'AI-First Approach',
+      description: 'Every system we build has AI automation at the core — from lead qualification bots to voice agents. AI as the engine that cuts manual work by 70%.',
     },
     {
-      number: '03',
-      title: 'Proven Success Framework',
-      description: 'Our proprietary methodology has helped agencies scale from $10K to $500K+ MRR.',
+      icon: '📈',
+      bg: 'rgba(37,201,125,.1)',
+      title: '200+ Projects. Real Outcomes.',
+      description: 'We\'ve built GHL systems for real estate, marketing agencies, SaaS founders, home services, and energy firms across 6 countries.',
     },
     {
-      number: '04',
-      title: 'Custom Solutions',
-      description: 'No cookie-cutter approaches. Every strategy is tailored to your unique situation.',
+      icon: '👥',
+      bg: 'rgba(248,208,0,.12)',
+      title: 'One Team. Full Stack. Done.',
+      description: 'CRM, funnels, automation, AI, dashboards, training — under one roof. One team that owns the entire outcome from start to finish.',
     },
   ]
 
   return (
-    <section id="why-us" className="py-24 bg-primary">
-      <div className="container-custom">
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <div className="w-6 h-px bg-accent" />
-            <span className="font-mono text-xs uppercase tracking-widest text-accent font-semibold">
-              Why Choose Us
-            </span>
-            <div className="w-6 h-px bg-accent" />
+    <section className="py-20 bg-white" id="why" ref={sectionRef}>
+      <div className="max-w-[1200px] mx-auto px-4 md:px-8">
+        <div className="text-center fade-in">
+          <div className="inline-flex items-center gap-2.5 text-[0.68rem] font-bold tracking-[0.12em] uppercase text-[#0E9BF0] mb-3.5 justify-center">
+            <span className="w-[22px] h-[2px] bg-[#0E9BF0] rounded"></span>
+            Why Hire GHL Scale Up
           </div>
-          <h2 className="font-serif text-5xl mb-4 text-primary-text font-light">
-            Partner With the Best
+          <h2 className="text-[clamp(1.8rem,3.5vw,2.5rem)] font-extrabold tracking-[-0.03em] leading-[1.12] mb-4 text-[#1C2E4A]">
+            We've the Infrastructure to<br />Grow Your <span className="text-[#0E9BF0]">GHL Revenue</span>
           </h2>
-          <p className="text-lg text-secondary-text leading-relaxed font-light">
-            Here's why thousands of agencies trust us to scale their GHL businesses.
+          <p className="text-[0.92rem] font-light text-[#4A5568] leading-relaxed max-w-[580px] mx-auto mb-10">
+            When you hire GoHighLevel experts from GHL Scale Up, you get a dedicated team —
+            not a freelancer juggling 15 platforms.
           </p>
         </div>
 
-        {/* Reasons Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-6">
           {reasons.map((reason, index) => (
-            <div
-              key={index}
-              className="group relative p-8 rounded-xl border border-border-dark bg-card-bg transition-all duration-300 hover:border-accent/12 overflow-hidden"
-            >
-              {/* Top border accent on hover */}
-              <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-accent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-              <p className="font-serif text-5xl text-accent/12 mb-4 leading-none">
-                {reason.number}
-              </p>
-              <h3 className="font-semibold text-xl text-primary-text mb-3">
-                {reason.title}
-              </h3>
-              <p className="text-sm text-secondary-text leading-relaxed font-light">
-                {reason.description}
-              </p>
+            <div key={index} className="bg-white border border-[#E8EDF4] rounded-2xl p-8 flex gap-5 hover:shadow-[0_8px_32px_rgba(28,46,74,0.08)] hover:-translate-y-1 transition-all fade-in">
+              <div className="w-14 h-14 min-w-[56px] rounded-xl flex items-center justify-center text-[1.4rem]" style={{ background: reason.bg }}>
+                {reason.icon}
+              </div>
+              <div>
+                <h3 className="text-[0.95rem] font-bold text-[#1C2E4A] mb-1.5">{reason.title}</h3>
+                <p className="text-[0.84rem] font-light text-[#4A5568] leading-relaxed">{reason.description}</p>
+              </div>
             </div>
           ))}
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="mt-16 text-center">
-          <p className="text-secondary-text mb-6 text-lg">Ready to transform your agency?</p>
-          <button className="px-8 py-3.5 bg-accent text-white text-base font-semibold rounded-lg transition-all hover:bg-accent-bright hover:shadow-xl hover:-translate-y-0.5">
-            Schedule Consultation
-          </button>
         </div>
       </div>
     </section>
   )
 }
+
+export default WhyChooseUs

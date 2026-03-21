@@ -1,74 +1,27 @@
-import type { Metadata, Viewport } from 'next'
-import { DM_Serif_Display, Outfit, JetBrains_Mono } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
+// app/layout.tsx - Updated to use the font properly
+import type { Metadata } from 'next'
+import { Poppins } from 'next/font/google'
 import './globals.css'
 
-const dmSerifDisplay = DM_Serif_Display({
+const poppins = Poppins({
   subsets: ['latin'],
-  variable: '--font-serif',
-  weight: ['400'],
-})
-
-const outfit = Outfit({
-  subsets: ['latin'],
-  variable: '--font-sans',
-  weight: ['300', '400', '500', '600', '700'],
-})
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-mono',
-  weight: ['400', '500'],
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-poppins',
 })
 
 export const metadata: Metadata = {
-  title: 'GHLScaleUp — The GHL Growth Partner for Agencies & Businesses',
-  description: 'Scale your GHL business with our expert growth solutions and proven strategies.',
-  generator: 'v0.app',
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
-  },
-}
-
-export const viewport: Viewport = {
-  width: 'device-width',
-  initialScale: 1,
-  maximumScale: 1,
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f8f9fc' },
-    { media: '(prefers-color-scheme: dark)', color: '#0a0e17' },
-  ],
+  title: 'GHL Scale Up | #1 GoHighLevel Expert Agency — CRM Setup, Automation & White-Label SaaS',
+  description: 'Hire GoHighLevel experts for CRM setup, workflow automation, funnel building, AI lead systems, and white-label SaaS. 200+ GHL projects delivered. Book a free strategy call today.',
 }
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={`${dmSerifDisplay.variable} ${outfit.variable} ${jetbrainsMono.variable}`}
-    >
-      <body className="overflow-x-hidden bg-primary text-primary-text antialiased">
-        {children}
-        <Analytics />
-      </body>
+    <html lang="en" className={poppins.variable}>
+      <body>{children}</body>
     </html>
   )
 }

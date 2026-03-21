@@ -1,102 +1,89 @@
-export default function Testimonials() {
+// components/ghlscalup/Testimonials.tsx
+'use client'
+
+import { useEffect, useRef } from 'react'
+
+const Testimonials = () => {
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    )
+
+    const fadeElements = sectionRef.current?.querySelectorAll('.fade-in')
+    fadeElements?.forEach((el) => observer.observe(el))
+
+    return () => observer.disconnect()
+  }, [])
+
   const testimonials = [
     {
       stars: '★★★★★',
-      quote:
-        'GHLScaleUp transformed our agency overnight. We went from $15K to $85K MRR in just 6 months. Their strategies are game-changing!',
-      author: 'Sarah Johnson',
-      role: 'Founder, Digital Growth Co',
-      initials: 'SJ',
+      quote: '“GHL Scale Up built our entire GoHighLevel brand setup — pipelines, workflows, triggers, and AI automations. Manual workload dropped 70% within the first month. Our team finally has time to focus on growth.”',
+      name: 'Capviax',
+      role: 'Performance Marketing Agency',
+      gradient: 'linear-gradient(135deg,#0E9BF0,#25C97D)',
+      initial: 'C',
     },
     {
       stars: '★★★★★',
-      quote:
-        'The support team is incredible. They genuinely care about your success and go above and beyond to help you reach your goals.',
-      author: 'Marcus Chen',
-      role: 'Agency Owner, Premium Services',
-      initials: 'MC',
+      quote: '“We needed multi-location GHL setups with dynamic property websites for each region. They delivered a system that simplified everything — automated lead capture across all locations.”',
+      name: 'BLLR',
+      role: 'Real Estate Brand',
+      gradient: 'linear-gradient(135deg,#F8D000,#0E9BF0)',
+      initial: 'B',
     },
     {
       stars: '★★★★★',
-      quote:
-        'Best investment we made for our business. The ROI has been phenomenal and the training is top-notch. Highly recommended!',
-      author: 'Jessica Williams',
-      role: 'CEO, Elite Agencies Network',
-      initials: 'JW',
+      quote: '“The AI receptionist handles 100% of our inbound calls. Lead response went from hours to under 10 seconds. For home-service businesses, this changed everything.”',
+      name: '1AISecretary',
+      role: 'AI for Home-Service Businesses',
+      gradient: 'linear-gradient(135deg,#25C97D,#0E9BF0)',
+      initial: '1',
     },
   ]
 
   return (
-    <section id="testimonials" className="py-24 bg-primary">
-      <div className="container-custom">
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <div className="w-6 h-px bg-accent" />
-            <span className="font-mono text-xs uppercase tracking-widest text-accent font-semibold">
-              Social Proof
-            </span>
-            <div className="w-6 h-px bg-accent" />
+    <section className="py-20 bg-[#F4F7FA]" id="results" ref={sectionRef}>
+      <div className="max-w-[1200px] mx-auto px-4 md:px-8">
+        <div className="text-center fade-in">
+          <div className="inline-flex items-center gap-2.5 text-[0.68rem] font-bold tracking-[0.12em] uppercase text-[#0E9BF0] mb-3.5 justify-center">
+            Client Testimonials
           </div>
-          <h2 className="font-serif text-5xl mb-4 text-primary-text font-light">
-            Loved by Agencies
+          <h2 className="text-[clamp(1.8rem,3.5vw,2.5rem)] font-extrabold tracking-[-0.03em] leading-[1.12] mb-4 text-[#1C2E4A]">
+            Stories from Agencies Who<br /><span className="text-[#0E9BF0]">Trust Our GHL Expertise</span>
           </h2>
-          <p className="text-lg text-secondary-text leading-relaxed font-light">
-            See what our clients are saying about their transformation journey with us.
-          </p>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className="p-8 rounded-xl border border-border-light bg-white transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
-            >
-              {/* Stars */}
-              <div className="text-accent-warm text-sm tracking-widest mb-4">
-                {testimonial.stars}
-              </div>
-
-              {/* Quote */}
-              <blockquote className="text-base text-dark-text-secondary leading-relaxed mb-6 font-light italic">
-                "{testimonial.quote}"
-              </blockquote>
-
-              {/* Author */}
-              <div className="flex items-center gap-3 pt-4 border-t border-border-light">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-accent to-indigo-400 flex items-center justify-center font-semibold text-xs text-white flex-shrink-0">
-                  {testimonial.initials}
+            <div key={index} className="bg-white border border-[#E8EDF4] rounded-2xl p-8 hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:-translate-y-1 transition-all fade-in">
+              <div className="text-[#F8D000] text-[0.8rem] mb-3.5 tracking-[2px]">{testimonial.stars}</div>
+              <blockquote className="text-[0.88rem] font-normal text-[#4A5568] leading-relaxed mb-5">{testimonial.quote}</blockquote>
+              <div className="flex items-center gap-3 pt-4 border-t border-[#E8EDF4]">
+                <div className="w-11 h-11 rounded-full flex items-center justify-center font-bold text-[0.85rem] text-white" style={{ background: testimonial.gradient }}>
+                  {testimonial.initial}
                 </div>
                 <div>
-                  <p className="font-semibold text-sm text-dark-text">
-                    {testimonial.author}
-                  </p>
-                  <p className="text-xs text-muted-text">
-                    {testimonial.role}
-                  </p>
+                  <div className="font-bold text-[0.82rem] text-[#1C2E4A]">{testimonial.name}</div>
+                  <div className="text-[0.72rem] text-[#8A9BB0] font-normal">{testimonial.role}</div>
                 </div>
               </div>
             </div>
           ))}
         </div>
-
-        {/* Stats */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          <div>
-            <p className="font-serif text-4xl text-primary-text mb-2">4.9/5</p>
-            <p className="text-secondary-text">Average Rating</p>
-          </div>
-          <div>
-            <p className="font-serif text-4xl text-primary-text mb-2">500+</p>
-            <p className="text-secondary-text">Happy Clients</p>
-          </div>
-          <div>
-            <p className="font-serif text-4xl text-primary-text mb-2">$200M+</p>
-            <p className="text-secondary-text">Total Client Revenue</p>
-          </div>
-        </div>
       </div>
     </section>
   )
 }
+
+export default Testimonials

@@ -1,131 +1,84 @@
+// components/ghlscalup/Hero.tsx
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect, useRef } from 'react'
+import Link from 'next/link'
 
-export default function Hero() {
-  const [activeSegment, setActiveSegment] = useState(0)
+const Hero = () => {
+  const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    const segments = [0, 1, 2, 3]
-    let currentIndex = 0
-    const interval = setInterval(() => {
-      currentIndex = (currentIndex + 1) % segments.length
-      setActiveSegment(currentIndex)
-    }, 3000)
-    return () => clearInterval(interval)
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    )
+
+    const fadeElements = sectionRef.current?.querySelectorAll('.fade-in')
+    fadeElements?.forEach((el) => observer.observe(el))
+
+    return () => observer.disconnect()
   }, [])
 
   return (
-    <section className="relative min-h-screen bg-gradient-hero overflow-hidden pt-32 pb-20 px-6">
-      {/* Gradient Orbs */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 rounded-full opacity-20 blur-3xl" style={{ background: 'radial-gradient(ellipse, var(--accent-glow), transparent 70%)' }} />
-      <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full opacity-15 blur-3xl" style={{ background: 'radial-gradient(ellipse, var(--accent-warm-glow), transparent 70%)' }} />
-
-      <div className="container-custom relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Left Content */}
+    <section className="bg-gradient-to-b from-[#1C2E4A] to-[#111E30] text-white py-[72px] md:py-20 relative overflow-hidden" ref={sectionRef}>
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_70%_30%,rgba(14,155,240,0.08),transparent)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_30%_40%_at_20%_80%,rgba(248,208,0,0.05),transparent)]"></div>
+      </div>
+      
+      <div className="max-w-[1200px] mx-auto px-4 md:px-8 relative z-10">
+        <div className="grid md:grid-cols-[1.1fr_0.9fr] gap-10 md:gap-15 items-center">
           <div>
-            {/* Badge */}
-            <div className="badge-base mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent-green animate-pulse-dot" />
-              <span>Trusted by 100+ Agencies</span>
+            <div className="inline-block bg-[rgba(248,208,0,0.12)] border border-[rgba(248,208,0,0.2)] text-[#F8D000] text-[0.68rem] font-bold tracking-[0.12em] uppercase px-4 py-1.5 rounded-full mb-6">
+              GoHighLevel Expert Agency
             </div>
-
-            {/* Heading */}
-            <h1 className="font-serif text-5xl lg:text-6xl leading-tight mb-6 font-light tracking-tight text-balance">
-              Scale Your GHL{' '}
-              <em className="not-italic bg-gradient-to-r from-accent-bright to-indigo-400 bg-clip-text text-transparent">
-                Business Effortlessly
-              </em>
+            <h1 className="text-[clamp(2.2rem,4.5vw,3.2rem)] font-extrabold leading-[1.1] tracking-[-0.03em] mb-5">
+              Hire Dedicated<br />
+              <span className="text-[#F8D000]">GoHighLevel Experts</span><br />
+              to Scale Your Agency
             </h1>
-
-            {/* Subtitle */}
-            <p className="text-lg text-secondary-text leading-relaxed mb-10 max-w-xl font-light">
-              Get proven strategies, expert support, and cutting-edge tools to scale your GHL agency and dominate your market.
+            <p className="text-base font-light text-white/60 leading-[1.8] max-w-[500px] mb-8">
+              We are a team of <strong className="text-white/90 font-medium">GoHighLevel specialists</strong> who set up, automate, and manage
+              your entire GHL system — from CRM and funnels to AI workflows and white-label SaaS —
+              so you can focus on selling while we handle the tech.
             </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <button className="px-8 py-3.5 bg-accent text-white text-base font-semibold rounded-lg transition-all hover:bg-accent-bright hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2">
-                Start Free Trial
-                <span>→</span>
-              </button>
-              <button className="px-8 py-3.5 bg-transparent text-primary-text border border-border-dark text-base font-medium rounded-lg transition-all hover:border-muted-text hover:bg-white/3%">
-                Watch Demo
-              </button>
+            <div className="flex flex-wrap gap-3.5 mb-8">
+              <Link href="#contact" className="bg-[#F8D000] text-[#0B1421] px-8 py-3.5 rounded-[10px] text-[0.88rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
+                Schedule My Discovery Call →
+              </Link>
+              <Link href="#services" className="bg-transparent text-white px-8 py-3.5 rounded-[10px] text-[0.88rem] font-medium border border-white/15 hover:border-white/30 hover:bg-white/5 transition-all">
+                Explore GHL Services
+              </Link>
             </div>
-
-            {/* Proof Points */}
-            <div className="flex flex-col sm:flex-row gap-8 pt-8 border-t border-border-dark">
-              <div>
-                <h4 className="font-serif text-3xl text-primary-text mb-0.5">500%</h4>
-                <p className="text-xs text-muted-text font-medium">Average Growth</p>
-              </div>
-              <div>
-                <h4 className="font-serif text-3xl text-primary-text mb-0.5">24/7</h4>
-                <p className="text-xs text-muted-text font-medium">Expert Support</p>
-              </div>
-              <div>
-                <h4 className="font-serif text-3xl text-primary-text mb-0.5">99.9%</h4>
-                <p className="text-xs text-muted-text font-medium">Uptime Guarantee</p>
-              </div>
-            </div>
+            <p className="text-[0.75rem] text-[#8A9BB0]">
+              Trusted by <b className="text-[#F8D000] font-bold">50+ agencies</b> across <b className="text-[#F8D000] font-bold">6 countries</b> &nbsp;•&nbsp; <b className="text-[#F8D000] font-bold">200+</b> GoHighLevel projects delivered
+            </p>
           </div>
 
-          {/* Right Visual - Card */}
-          <div className="relative flex justify-center items-center">
-            <div className="w-full max-w-lg rounded-2xl border border-border-dark bg-card-bg p-8 shadow-2xl">
-              {/* Card Header */}
-              <div className="flex items-center gap-3 mb-6">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-r from-accent to-indigo-400 text-lg">
-                  📊
-                </div>
-                <div>
-                  <h3 className="font-semibold text-base text-primary-text">Growth Metrics</h3>
-                  <p className="text-xs text-muted-text">Real-time tracking</p>
-                </div>
+          <div className="relative fade-in">
+            <div className="bg-white/5 border border-white/10 rounded-[20px] aspect-[4/3] flex flex-col items-center justify-center gap-3 text-center p-10">
+              <div className="w-20 h-20 rounded-full bg-[rgba(14,155,240,0.1)] flex items-center justify-center text-3xl">
+                👥
               </div>
+              <p className="text-[0.9rem] font-semibold text-white">Our GHL Team at Work</p>
+              <p className="text-[0.78rem] text-[#8A9BB0] font-light max-w-[240px]">Real people. Real GoHighLevel expertise. Working on your systems every day.</p>
+            </div>
 
-              {/* Metrics Grid */}
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="rounded-lg bg-white/3% border border-border-dark p-4">
-                  <p className="text-xs uppercase tracking-wider text-muted-text mb-1">Monthly Revenue</p>
-                  <p className="font-serif text-2xl text-accent-bright">$24.5K</p>
-                </div>
-                <div className="rounded-lg bg-white/3% border border-border-dark p-4">
-                  <p className="text-xs uppercase tracking-wider text-muted-text mb-1">Active Clients</p>
-                  <p className="font-serif text-2xl text-accent-green">127</p>
-                </div>
-              </div>
+            <div className="absolute -top-2.5 -right-2.5 bg-white rounded-xl p-3 shadow-lg flex items-center gap-2.5">
+              <div className="text-[1.3rem] font-extrabold text-[#25C97D] tracking-[-0.03em]">200+</div>
+              <div className="text-[0.68rem] text-[#4A5568] font-medium leading-tight">GHL Projects<br />Delivered</div>
+            </div>
 
-              {/* Pipeline Bar */}
-              <div>
-                <p className="text-xs text-muted-text mb-2.5">Client Pipeline</p>
-                <div className="h-2 bg-white/6% rounded-full overflow-hidden flex gap-0.5">
-                  <div className="flex-1 bg-accent animate-grow-bar" style={{ animationDelay: '0.3s' }} />
-                  <div className="flex-1 bg-accent-green animate-grow-bar" style={{ animationDelay: '0.5s' }} />
-                  <div className="flex-1 bg-accent-warm animate-grow-bar" style={{ animationDelay: '0.7s' }} />
-                  <div className="flex-1 bg-indigo-400 animate-grow-bar" style={{ animationDelay: '0.9s' }} />
-                </div>
-                <div className="flex gap-4 mt-3">
-                  <span className="text-xs text-muted-text flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-accent" />
-                    Leads
-                  </span>
-                  <span className="text-xs text-muted-text flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-accent-green" />
-                    Qualified
-                  </span>
-                  <span className="text-xs text-muted-text flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-accent-warm" />
-                    Proposals
-                  </span>
-                  <span className="text-xs text-muted-text flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-indigo-400" />
-                    Closed
-                  </span>
-                </div>
-              </div>
+            <div className="absolute bottom-5 -left-2.5 bg-white rounded-xl p-3 shadow-lg flex items-center gap-2.5">
+              <div className="text-[1.3rem] font-extrabold text-[#0E9BF0] tracking-[-0.03em]">70%</div>
+              <div className="text-[0.68rem] text-[#4A5568] font-medium leading-tight">Less Manual<br />Work for Clients</div>
             </div>
           </div>
         </div>
@@ -133,3 +86,5 @@ export default function Hero() {
     </section>
   )
 }
+
+export default Hero
