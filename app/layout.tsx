@@ -10,8 +10,32 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: 'GHL Scale Up | #1 GoHighLevel Expert Agency — CRM Setup, Automation & White-Label SaaS',
-  description: 'Hire GoHighLevel experts for CRM setup, workflow automation, funnel building, AI lead systems, and white-label SaaS. 200+ GHL projects delivered. Book a free strategy call today.',
+  title: 'GHL Scale Up | GoHighLevel Expert Agency — CRM Setup, Automation & White-Label SaaS',
+  description:
+    'Hire GoHighLevel experts for CRM setup, workflow automation, funnel building, AI lead systems, and white-label SaaS. 200+ GHL projects delivered. Book a free strategy call today.',
+
+  icons: {
+    icon: '/ghlscalicon.png',              // main favicon
+    shortcut: '/favicon.ico',          // optional fallback
+    apple: '/apple-touch-icon.png',    // for iOS devices
+  },
+
+  openGraph: {
+    title: 'GHL Scale Up',
+    description:
+      'GoHighLevel experts for CRM setup, automation, funnels, and SaaS.',
+    url: 'https://www.ghlscaleup.com', // 🔥 replace with your actual domain
+    siteName: 'GHL Scale Up',
+    images: [
+      {
+        url: '/og-image.png', // 🔥 add this in /public
+        width: 1200,
+        height: 630,
+        alt: 'GHL Scale Up',
+      },
+    ],
+    type: 'website',
+  },
 }
 
 export default function RootLayout({
