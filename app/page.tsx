@@ -16,7 +16,7 @@ import Footer from '@/components/ghlscalup/Footer'
 export default function Home() {
   return (
     <main>
-      <Navigation />
+      {/* <Navigation /> */}
       <Hero />
       <StatsBar />
       <About />

@@ -2,6 +2,7 @@
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 import './globals.css'
+import Navigation from '@/components/ghlscalup/Navigation'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -49,7 +50,8 @@ export default function RootLayout({
       className={poppins.variable}
       data-scroll-behavior="smooth"
     >
-      <body>{children}</body>
+      <Navigation /> {/* This will appear on EVERY page */}
+      {children}
     </html>
   )
 }
