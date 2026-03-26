@@ -28,7 +28,7 @@ export default function Home() {
       <Testimonials />
       <Blog />
       <FinalCTA />
-      <Footer />
+      {/* <Footer /> */}
     </main>
   )
 }

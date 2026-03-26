@@ -107,7 +107,7 @@ const Navigation = () => {
               </div>
             </li>
 
-            <li><Link href="/process" className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors">How We Work</Link></li>
+            <li><Link href="/how-we-work" className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors">How We Work</Link></li>
             
             <li className="relative group">
               <Link href="/results" className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors flex items-center gap-1">
@@ -147,7 +147,7 @@ const Navigation = () => {
               <li><Link href="/about" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link></li>
               <li><Link href="/services" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>GHL Services</Link></li>
               <li><Link href="/marketing" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>Marketing</Link></li>
-              <li><Link href="/process" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>How We Work</Link></li>
+              <li><Link href="/how-we-work" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>How We Work</Link></li>
               <li><Link href="/case-studies" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>Case Studies</Link></li>
               <li><Link href="/blog" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>Blog</Link></li>
               <li><a href="tel:+919893270210" className="text-white text-base block py-2">+91 98932 70210</a></li>
