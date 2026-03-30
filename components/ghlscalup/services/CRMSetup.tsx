@@ -3,8 +3,6 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
-import Navigation from '@/components/ghlscalup/Navigation'
 import Footer from '@/components/ghlscalup/Footer'
 
 const ServiceCRMSetup = () => {
@@ -68,8 +66,6 @@ const ServiceCRMSetup = () => {
 
   return (
     <>
-      <Navigation />
-      
       {/* Breadcrumb */}
       <div className="bg-[#F4F7FA] py-3.5 border-b border-[#E8EDF4]">
         <div className="max-w-[1200px] mx-auto px-4 md:px-8">
