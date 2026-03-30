@@ -16,7 +16,7 @@ const Navigation = () => {
     { icon: '📧', iconBg: 'green', title: 'Email, SMS & WhatsApp Automation', desc: 'Drip campaigns, nurture sequences', link: '/services/campaign-automation' },
     { icon: '🤖', iconBg: 'yellow', title: 'AI Chatbot & Conversation AI', desc: 'Lead qualification, booking bots', link: '/services/ai-chatbot' },
     { icon: '📞', iconBg: 'blue', title: 'AI Voice Agent & Call Handling', desc: '24/7 AI receptionist, missed-call text-back', link: '/services/ai-voice-agent' },
-    { icon: '📅', iconBg: 'green', title: 'Calendar & Booking Setup', desc: 'Scheduling, reminders, round-robin', link: '/services/booking-setup' },
+    { icon: '📅', iconBg: 'green', title: 'Calendar & Booking Setup', desc: 'Scheduling, reminders, round-robin', link: '/services/calendar-booking' },
     { icon: '⭐', iconBg: 'yellow', title: 'Reputation & Review Management', desc: 'Automated review requests, monitoring', link: '/services/reputation-management' },
     { icon: '⚙️', iconBg: 'blue', title: 'White-Label SaaS Setup', desc: 'Branded domains, snapshots, billing', link: '/services/saas-setup' },
     { icon: '🔗', iconBg: 'green', title: 'Integrations & API Development', desc: 'Zapier, Make, Stripe, webhooks', link: '/services/integrations' },
