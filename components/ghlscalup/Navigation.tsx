@@ -27,18 +27,18 @@ const Navigation = () => {
   ]
 
   const marketingServices = [
-    { icon: '🔍', iconBg: 'blue', title: 'Search Engine Optimization (SEO)', desc: 'On-page, off-page, technical, local', link: '/services/seo' },
-    { icon: '📣', iconBg: 'yellow', title: 'Google Ads Management', desc: 'Search, display, PMax, remarketing', link: '/services/google-ads' },
-    { icon: '📱', iconBg: 'blue', title: 'Meta Ads (Facebook & Instagram)', desc: 'Lead gen, retargeting, creatives', link: '/services/meta-ads' },
-    { icon: '🎵', iconBg: 'green', title: 'TikTok Ads', desc: 'Video ads, spark ads, lead forms', link: '/services/tiktok-ads' },
-    { icon: '📲', iconBg: 'yellow', title: 'Social Media Management', desc: 'Content, posting, engagement, analytics', link: '/services/social-media' },
-    { icon: '✏️', iconBg: 'blue', title: 'Content Creation & Copywriting', desc: 'Blogs, ad copy, emails, web copy', link: '/services/content-creation' },
-    { icon: '🎬', iconBg: 'green', title: 'Video Editing & Production', desc: 'Reels, YouTube, ads, UGC editing', link: '/services/video-editing' },
-    { icon: '🎨', iconBg: 'yellow', title: 'Graphic Design', desc: 'Social graphics, ads, brand collateral', link: '/services/graphic-design' },
-    { icon: '🏷️', iconBg: 'blue', title: 'Brand Building & Strategy', desc: 'Identity, positioning, messaging', link: '/services/brand-building' },
-    { icon: '🤖', iconBg: 'green', title: 'AI Marketing Automation', desc: 'AI content, scoring, predictive', link: '/services/ai-marketing' },
-    { icon: '🎯', iconBg: 'yellow', title: 'Lead Generation Systems', desc: 'Full funnel: traffic to booked call', link: '/services/lead-generation' },
-    { icon: '💌', iconBg: 'blue', title: 'Email Marketing', desc: 'Newsletters, list building, segmentation', link: '/services/email-marketing' },
+    { icon: '🔍', iconBg: 'blue', title: 'Search Engine Optimization (SEO)', desc: 'On-page, off-page, technical, local', link: '/marketing/seo' },
+    { icon: '📣', iconBg: 'yellow', title: 'Google Ads Management', desc: 'Search, display, PMax, remarketing', link: '/marketing/google-ads' },
+    { icon: '📱', iconBg: 'blue', title: 'Meta Ads (Facebook & Instagram)', desc: 'Lead gen, retargeting, creatives', link: '/marketing/meta-ads' },
+    { icon: '🎵', iconBg: 'green', title: 'TikTok Ads', desc: 'Video ads, spark ads, lead forms', link: '/marketing/tiktok-ads' },
+    { icon: '📲', iconBg: 'yellow', title: 'Social Media Management', desc: 'Content, posting, engagement, analytics', link: '/marketing/social-media' },
+    { icon: '✏️', iconBg: 'blue', title: 'Content Creation & Copywriting', desc: 'Blogs, ad copy, emails, web copy', link: '/marketing/content-creation' },
+    { icon: '🎬', iconBg: 'green', title: 'Video Editing & Production', desc: 'Reels, YouTube, ads, UGC editing', link: '/marketing/video-editing' },
+    { icon: '🎨', iconBg: 'yellow', title: 'Graphic Design', desc: 'Social graphics, ads, brand collateral', link: '/marketing/graphic-design' },
+    { icon: '🏷️', iconBg: 'blue', title: 'Brand Building & Strategy', desc: 'Identity, positioning, messaging', link: '/marketing/brand-building' },
+    { icon: '🤖', iconBg: 'green', title: 'AI Marketing Automation', desc: 'AI content, scoring, predictive', link: '/marketing/ai-marketing' },
+    { icon: '🎯', iconBg: 'yellow', title: 'Lead Generation Systems', desc: 'Full funnel: traffic to booked call', link: '/marketing/lead-generation' },
+    { icon: '💌', iconBg: 'blue', title: 'Email Marketing', desc: 'Newsletters, list building, segmentation', link: '/marketing/email-marketing' },
   ]
 
   return (
