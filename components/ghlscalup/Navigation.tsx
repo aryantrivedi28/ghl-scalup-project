@@ -47,7 +47,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-[72px]">
           <Link href="/" className="flex-shrink-0">
             <Image 
-              src="/GHL_Scale_Up.svg" 
+              src="/ghlscalup.png" 
               alt="GHL Scale Up - GoHighLevel Expert Agency" 
               width={120} 
               height={100}
@@ -125,7 +125,7 @@ const Navigation = () => {
 
           <div className="hidden md:flex items-center gap-5">
             <a href="tel:+919893270210" className="text-white/60 text-[0.8rem]">+91 98932 70210</a>
-            <Link href="#contact" className="bg-[#F8D000] text-[#0B1421] px-6 py-2.5 rounded-lg text-[0.82rem] font-bold hover:bg-[#FFE44D] hover:-translate-y-[1px] transition-all">
+            <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-6 py-2.5 rounded-lg text-[0.82rem] font-bold hover:bg-[#FFE44D] hover:-translate-y-[1px] transition-all">
               Get in Touch
             </Link>
           </div>

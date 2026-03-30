@@ -50,6 +50,7 @@ export default function RootLayout({
       lang="en"
       className={poppins.variable}
       data-scroll-behavior="smooth"
+      suppressHydrationWarning
     >
       <body>
         <Navigation /> {/* ✅ Now correct */}
