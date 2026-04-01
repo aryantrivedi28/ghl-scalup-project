@@ -5,7 +5,7 @@ import CtaBand from '@/components/sections/CtaBand';
 
 export const metadata = {
   title: 'GHL Training & Onboarding Services | GHL Scale Up',
-  description: 'End-to-end GHL training for your team — CRM, automations, reporting, funnels. SOPs, videos, and live training. 200+ teams trained.',
+  description: 'End-to-end GHL training for your team CRM, automations, reporting, funnels. SOPs, videos, and live training. 200+ teams trained.',
   keywords: 'GHL training, GoHighLevel onboarding, team training, SOPs, GHL certification'
 };
 
@@ -28,7 +28,7 @@ export default function TrainingOnboardingPage() {
                 <span className="text-[#F8D000]">Onboarding</span>
               </h1>
               <p className="text-[0.95rem] font-light text-white/60 leading-relaxed max-w-[520px] mb-8">
-                We provide <strong className="text-white/90 font-medium">end-to-end training and onboarding for your team — CRM, automations, reporting, funnels, and best practices</strong> — so your team knows exactly how to use GHL from day one.
+                We provide <strong className="text-white/90 font-medium">end-to-end training and onboarding for your team CRM, automations, reporting, funnels, and best practices</strong> so your team knows exactly how to use GHL from day one.
               </p>
               <div className="flex gap-3.5 flex-wrap">
                 <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-8 py-3.5 rounded-[10px] text-[0.88rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
@@ -83,12 +83,12 @@ export default function TrainingOnboardingPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              { icon: '👥', color: 'blue', title: 'Live Team Training', description: 'Live, interactive training sessions with your team. We cover exactly what they need to know based on their role — sales, marketing, admin, or leadership.' },
-              { icon: '📋', color: 'green', title: 'Custom SOPs', description: 'Written standard operating procedures for every process — adding leads, managing pipelines, sending campaigns, running reports. Your team has a reference guide.' },
+              { icon: '👥', color: 'blue', title: 'Live Team Training', description: 'Live, interactive training sessions with your team. We cover exactly what they need to know based on their role sales, marketing, admin, or leadership.' },
+              { icon: '📋', color: 'green', title: 'Custom SOPs', description: 'Written standard operating procedures for every process adding leads, managing pipelines, sending campaigns, running reports. Your team has a reference guide.' },
               { icon: '🎥', color: 'yellow', title: 'Recorded Video Training', description: 'Recorded sessions your team can watch anytime. Perfect for new hires or refresher training. Accessible on demand.' },
-              { icon: '📚', color: 'blue', title: 'Role-Based Training', description: 'Different training for different roles — sales reps, marketing managers, admins, and executives. Everyone learns what they need.' },
+              { icon: '📚', color: 'blue', title: 'Role-Based Training', description: 'Different training for different roles sales reps, marketing managers, admins, and executives. Everyone learns what they need.' },
               { icon: '❓', color: 'green', title: 'Q&A Sessions', description: 'Dedicated Q&A time for your team to ask questions about their specific workflows. We make sure everyone leaves confident.' },
-              { icon: '🔄', color: 'yellow', title: 'Ongoing Support', description: 'Follow-up support after training. Questions that come up as your team starts using GHL — we are here to help.' },
+              { icon: '🔄', color: 'yellow', title: 'Ongoing Support', description: 'Follow-up support after training. Questions that come up as your team starts using GHL we are here to help.' },
             ].map((item, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-[1.2rem] mb-3.5 ${
@@ -119,7 +119,7 @@ export default function TrainingOnboardingPage() {
                 <span className="text-[#0E9BF0]">Right for Your Team?</span>
               </h2>
               <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-                You've invested in GHL — now make sure your team knows how to use it. Without proper training, even the best system won't deliver results. We bridge the gap between setup and adoption.
+                You've invested in GHL now make sure your team knows how to use it. Without proper training, even the best system won't deliver results. We bridge the gap between setup and adoption.
               </p>
               <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
                 <strong className="font-semibold text-[#1C2E4A]">Training makes sense if you are:</strong>
@@ -172,7 +172,7 @@ export default function TrainingOnboardingPage() {
           <div className="flex flex-col">
             {[
               { title: 'Needs Assessment', description: 'We understand your team structure, roles, and responsibilities. We identify what each role needs to know and where the gaps are.' },
-              { title: 'Custom Curriculum', description: 'We build a training plan tailored to your business — sales processes, marketing workflows, reporting needs. No generic training.' },
+              { title: 'Custom Curriculum', description: 'We build a training plan tailored to your business sales processes, marketing workflows, reporting needs. No generic training.' },
               { title: 'Live Training Sessions', description: 'We deliver live, interactive training to your team. Role-based sessions ensure everyone learns what they need. Recordings for future reference.' },
               { title: 'SOP Creation', description: 'We document every process in clear, step-by-step SOPs. Your team has a reference guide for everything they need to do.' },
               { title: 'Q&A & Follow-up', description: 'We answer questions, review progress, and provide follow-up support. Your team gets confident using GHL.' },
@@ -230,10 +230,10 @@ export default function TrainingOnboardingPage() {
           <div className="max-w-[800px] mx-auto">
             {[
               { q: 'How long does training take?', a: 'Basic training for small teams takes 2-3 hours. Comprehensive training with SOPs and recordings takes 1-2 days. We work around your schedule.' },
-              { q: 'Can you train different roles separately?', a: 'Yes. We provide role-based training — sales reps, marketing managers, admins, executives. Each group learns what they need for their role.' },
+              { q: 'Can you train different roles separately?', a: 'Yes. We provide role-based training sales reps, marketing managers, admins, executives. Each group learns what they need for their role.' },
               { q: 'Do you provide documentation?', a: 'Yes. We provide written SOPs for every process we cover. Your team has a reference guide they can use anytime.' },
               { q: 'What if we have new hires later?', a: 'You will have recordings and SOPs to onboard new team members. We also offer refresher training if needed.' },
-              { q: 'Can you train on our specific processes?', a: 'Yes. Training is 100% customized to your business — your pipelines, your automations, your workflows. No generic training.' },
+              { q: 'Can you train on our specific processes?', a: 'Yes. Training is 100% customized to your business your pipelines, your automations, your workflows. No generic training.' },
               { q: 'Is training done live or recorded?', a: 'Live training with your team. We record everything so you have videos for future reference. Q&A included.' },
             ].map((faq, index) => (
               <div key={index} className="border-b border-[#E8EDF4]">

@@ -45,10 +45,10 @@ export default function ContactPage() {
                       Email
                     </div>
                     <Link 
-                      href="mailto:aryan@finzie.co" 
+                      href="mailto:aryan@ghlscaleup.com" 
                       className="text-[0.95rem] font-semibold text-[#1C2E4A] hover:text-[#0E9BF0] transition-colors"
                     >
-                      aryan@finzie.co
+                      aryan@ghlscaleup.com
                     </Link>
                   </div>
                 </div>
@@ -79,7 +79,7 @@ export default function ContactPage() {
                       Location
                     </div>
                     <span className="text-[0.95rem] font-semibold text-[#1C2E4A]">
-                      Indore, India (Remote-first)
+                      Gurgoan, India (Remote-first)
                     </span>
                   </div>
                 </div>

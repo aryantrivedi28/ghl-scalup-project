@@ -29,16 +29,16 @@ const ServiceCRMSetup = () => {
   }, [])
 
   const includedItems = [
-    { icon: '🔧', iconBg: 'blue', title: 'Custom Pipeline Design', description: 'Sales pipelines with stages mapped to your actual deal flow — from new lead to closed won. Multiple pipelines for different services or teams.' },
+    { icon: '🔧', iconBg: 'blue', title: 'Custom Pipeline Design', description: 'Sales pipelines with stages mapped to your actual deal flow from new lead to closed won. Multiple pipelines for different services or teams.' },
     { icon: '👤', iconBg: 'green', title: 'Contact & Lead Management', description: 'Contact profiles, custom fields, smart lists, tag architecture, lead source tracking. Every lead organized and searchable from day one.' },
-    { icon: '🏷️', iconBg: 'yellow', title: 'Tag & Segmentation Architecture', description: 'A structured tagging system so your contacts are segmented by source, interest, status, and behavior — not random labels nobody remembers.' },
+    { icon: '🏷️', iconBg: 'yellow', title: 'Tag & Segmentation Architecture', description: 'A structured tagging system so your contacts are segmented by source, interest, status, and behavior not random labels nobody remembers.' },
     { icon: '👥', iconBg: 'blue', title: 'User Roles & Permissions', description: 'Team members, admins, and client users with role-based access. Control who sees what, who can edit, and who has view-only access.' },
-    { icon: '🔗', iconBg: 'green', title: 'Third-Party Integrations', description: 'Stripe for payments, Google Calendar sync, Facebook Lead Ads, Google My Business, Zapier, Make.com — connected and tested.' },
-    { icon: '🔄', iconBg: 'yellow', title: 'CRM Data Migration', description: 'Full migration from HubSpot, Salesforce, Zoho, Keap, ActiveCampaign, or spreadsheets. Contacts, deals, notes, and tags — all moved cleanly.' },
+    { icon: '🔗', iconBg: 'green', title: 'Third-Party Integrations', description: 'Stripe for payments, Google Calendar sync, Facebook Lead Ads, Google My Business, Zapier, Make.com connected and tested.' },
+    { icon: '🔄', iconBg: 'yellow', title: 'CRM Data Migration', description: 'Full migration from HubSpot, Salesforce, Zoho, Keap, ActiveCampaign, or spreadsheets. Contacts, deals, notes, and tags all moved cleanly.' },
   ]
 
   const processSteps = [
-    { number: '01', title: 'Discovery & Sales Process Mapping', description: 'We start by understanding how your team actually sells — lead sources, qualification steps, handoff points, deal stages, and reporting needs. This determines the entire CRM architecture.' },
+    { number: '01', title: 'Discovery & Sales Process Mapping', description: 'We start by understanding how your team actually sells lead sources, qualification steps, handoff points, deal stages, and reporting needs. This determines the entire CRM architecture.' },
     { number: '02', title: 'Pipeline & Field Configuration', description: 'We build your pipelines, custom fields, opportunity stages, and contact properties inside GoHighLevel. Every field has a purpose. Every stage reflects a real action in your sales process.' },
     { number: '03', title: 'Data Migration & Cleanup', description: 'We import your existing contacts, deals, notes, and tags from your previous CRM or spreadsheets. Duplicate removal, field mapping, and data validation included.' },
     { number: '04', title: 'Integrations & Automation Wiring', description: 'We connect Stripe, Google Calendar, lead sources, Zapier, and any third-party tools. Basic automations for lead assignment, stage changes, and notifications are configured here.' },
@@ -48,14 +48,14 @@ const ServiceCRMSetup = () => {
   const faqs = [
     { question: 'How long does a GoHighLevel CRM setup take?', answer: 'A standard GHL CRM setup takes 5 to 10 business days depending on the complexity of your sales process, number of pipelines, and whether we are migrating data from another platform. Simple setups for single-location businesses can be done in under a week. Multi-location or multi-pipeline setups with heavy migration typically take 2 weeks.' },
     { question: 'Can you migrate my data from HubSpot, Salesforce, or Zoho into GoHighLevel?', answer: 'Yes. We handle full CRM migrations from HubSpot, Salesforce, Zoho, Keap, ActiveCampaign, Ontraport, and spreadsheets. This includes contacts, deals, notes, tags, custom fields, and deal stage history. We clean duplicate records and validate data integrity before import to ensure nothing breaks.' },
-    { question: 'I already have a GoHighLevel account but it\'s a mess. Can you fix it?', answer: 'Absolutely. Many of our clients come to us with existing GHL accounts that were set up from templates or by someone without CRM strategy experience. We audit your current setup, identify structural issues (broken automations, redundant tags, misconfigured pipelines), and rebuild or restructure what needs fixing — without losing your existing data.' },
-    { question: 'What is the difference between GoHighLevel CRM and HubSpot or Salesforce?', answer: 'GoHighLevel is an all-in-one platform that combines CRM, marketing automation, funnel building, SMS, email, calendars, and reputation management in a single tool. HubSpot and Salesforce are more established enterprise CRMs but require multiple add-ons and integrations to match GHL\'s built-in features. GHL is typically more cost-effective for agencies and small-to-mid businesses — especially those who want to white-label the platform.' },
-    { question: 'Do I need GoHighLevel\'s Unlimited plan for CRM setup?', answer: 'Not necessarily. The Starter plan at $97/month supports up to 3 sub-accounts and includes full CRM functionality. If you are managing more than 3 clients or plan to offer white-label SaaS, you will need the Unlimited plan at $297/month. We recommend the right plan based on your business stage during our discovery call — we never upsell you on features you don\'t need yet.' },
-    { question: 'Will my team be trained on how to use the CRM after setup?', answer: 'Yes. Every CRM setup includes a live training session with your team, written SOPs (standard operating procedures), and a recorded video walkthrough. We make sure your team knows how to add contacts, move deals through pipelines, use filters and smart lists, and interpret the dashboard — so you are not dependent on us for day-to-day operations.' },
-    { question: 'What if I need automations and funnels along with CRM setup?', answer: 'Most clients combine CRM setup with workflow automation and funnel development. We offer these as separate services that integrate directly with your CRM architecture. Your pipelines, tags, and contact fields are designed from the start to work with automations — so adding AI workflows, email sequences, or sales funnels later is straightforward, not a rebuild.' },
-    { question: 'How much does GoHighLevel CRM setup cost?', answer: 'Pricing depends on the scope: number of pipelines, whether migration is needed, integration requirements, and the complexity of your sales process. We provide a clear, fixed-price quote after a free 30-minute discovery call — no hourly billing surprises. Most standard CRM setups fall in a range that pays for itself within the first month through time savings alone.' },
+    { question: 'I already have a GoHighLevel account but it\'s a mess. Can you fix it?', answer: 'Absolutely. Many of our clients come to us with existing GHL accounts that were set up from templates or by someone without CRM strategy experience. We audit your current setup, identify structural issues (broken automations, redundant tags, misconfigured pipelines), and rebuild or restructure what needs fixing without losing your existing data.' },
+    { question: 'What is the difference between GoHighLevel CRM and HubSpot or Salesforce?', answer: 'GoHighLevel is an all-in-one platform that combines CRM, marketing automation, funnel building, SMS, email, calendars, and reputation management in a single tool. HubSpot and Salesforce are more established enterprise CRMs but require multiple add-ons and integrations to match GHL\'s built-in features. GHL is typically more cost-effective for agencies and small-to-mid businesses especially those who want to white-label the platform.' },
+    { question: 'Do I need GoHighLevel\'s Unlimited plan for CRM setup?', answer: 'Not necessarily. The Starter plan at $97/month supports up to 3 sub-accounts and includes full CRM functionality. If you are managing more than 3 clients or plan to offer white-label SaaS, you will need the Unlimited plan at $297/month. We recommend the right plan based on your business stage during our discovery call we never upsell you on features you don\'t need yet.' },
+    { question: 'Will my team be trained on how to use the CRM after setup?', answer: 'Yes. Every CRM setup includes a live training session with your team, written SOPs (standard operating procedures), and a recorded video walkthrough. We make sure your team knows how to add contacts, move deals through pipelines, use filters and smart lists, and interpret the dashboard so you are not dependent on us for day-to-day operations.' },
+    { question: 'What if I need automations and funnels along with CRM setup?', answer: 'Most clients combine CRM setup with workflow automation and funnel development. We offer these as separate services that integrate directly with your CRM architecture. Your pipelines, tags, and contact fields are designed from the start to work with automations so adding AI workflows, email sequences, or sales funnels later is straightforward, not a rebuild.' },
+    { question: 'How much does GoHighLevel CRM setup cost?', answer: 'Pricing depends on the scope: number of pipelines, whether migration is needed, integration requirements, and the complexity of your sales process. We provide a clear, fixed-price quote after a free 30-minute discovery call no hourly billing surprises. Most standard CRM setups fall in a range that pays for itself within the first month through time savings alone.' },
     { question: 'Do you offer ongoing CRM support after the initial setup?', answer: 'Yes. We offer monthly maintenance plans for businesses that want ongoing optimization, new pipeline additions, reporting updates, and troubleshooting. Many clients start with a one-time setup and add ongoing support once they see the results and want to expand their GHL system.' },
-    { question: 'What industries have you built GoHighLevel CRM systems for?', answer: 'We have built GHL CRM systems for marketing agencies, real estate firms, home-service businesses (HVAC, plumbing, roofing), coaches and consultants, SaaS companies, energy providers, legal firms, healthcare clinics, and e-commerce brands. Each setup is tailored to the industry\'s sales process — there is no one-size-fits-all template.' },
+    { question: 'What industries have you built GoHighLevel CRM systems for?', answer: 'We have built GHL CRM systems for marketing agencies, real estate firms, home-service businesses (HVAC, plumbing, roofing), coaches and consultants, SaaS companies, energy providers, legal firms, healthcare clinics, and e-commerce brands. Each setup is tailored to the industry\'s sales process there is no one-size-fits-all template.' },
   ]
 
   const relatedServices = [
@@ -92,10 +92,10 @@ const ServiceCRMSetup = () => {
                 GoHighLevel CRM Setup<br />&amp; <span className="text-[#F8D000]">Configuration</span>
               </h1>
               <p className="text-[0.95rem] font-light text-white/60 leading-relaxed max-w-[520px] mb-8">
-                We set up your GoHighLevel CRM from scratch — <strong className="text-white/90 font-medium">custom pipelines, deal stages, contact management, tag architecture, and user permissions</strong> — built around how your business actually sells. Already on HubSpot, Salesforce, or Zoho? We handle the full migration.
+                We set up your GoHighLevel CRM from scratch <strong className="text-white/90 font-medium">custom pipelines, deal stages, contact management, tag architecture, and user permissions</strong> built around how your business actually sells. Already on HubSpot, Salesforce, or Zoho? We handle the full migration.
               </p>
               <div className="flex gap-3.5 flex-wrap">
-                <Link href="#contact" className="bg-[#F8D000] text-[#0B1421] px-8 py-3.5 rounded-[10px] text-[0.88rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
+                <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-8 py-3.5 rounded-[10px] text-[0.88rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
                   Get a Free CRM Audit →
                 </Link>
                 <Link href="#included" className="bg-transparent text-white px-8 py-3.5 rounded-[10px] text-[0.88rem] font-medium border border-white/15 hover:border-white/30 hover:bg-white/5 transition-all">
@@ -174,7 +174,7 @@ const ServiceCRMSetup = () => {
                 Is GoHighLevel CRM<br /><span className="text-[#0E9BF0]">Right for Your Business?</span>
               </h2>
               <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-                GoHighLevel CRM works best for businesses that rely on lead generation, follow-ups, and appointment booking. If your team is juggling spreadsheets, missing follow-ups, or paying for 5 different tools that don't talk to each other — this is for you.
+                GoHighLevel CRM works best for businesses that rely on lead generation, follow-ups, and appointment booking. If your team is juggling spreadsheets, missing follow-ups, or paying for 5 different tools that don't talk to each other this is for you.
               </p>
               <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4"><strong className="font-semibold text-[#1C2E4A]">GHL CRM setup makes sense if you are:</strong></p>
               <ul className="list-none flex flex-col gap-2.5 mt-5">
@@ -190,7 +190,7 @@ const ServiceCRMSetup = () => {
               <div className="bg-[#1C2E4A] rounded-2xl p-10 text-white">
                 <h3 className="text-[1.1rem] font-bold mb-4">What Most Agencies Get Wrong</h3>
                 <p className="text-[0.85rem] font-light text-white/60 leading-relaxed mb-3">Most GHL setups fail because they're built from templates with no strategy behind them. Pipelines don't match the real sales process. Tags are random. Automations break at 50 contacts.</p>
-                <p className="text-[0.85rem] font-light text-white/60 leading-relaxed mb-5">We build CRM systems that are tested in production — across 200+ projects. Every pipeline stage, every tag, every automation has a reason.</p>
+                <p className="text-[0.85rem] font-light text-white/60 leading-relaxed mb-5">We build CRM systems that are tested in production across 200+ projects. Every pipeline stage, every tag, every automation has a reason.</p>
                 <div className="flex items-center gap-3 py-3 border-t border-white/10">
                   <div className="text-[1.3rem] font-extrabold text-[#F8D000]">3x</div>
                   <div className="text-[0.78rem] text-white/50">Faster client onboarding after CRM setup</div>
@@ -243,10 +243,10 @@ const ServiceCRMSetup = () => {
             Book a free 30-minute CRM audit. We'll review your current setup (or lack of one), identify what's missing, and map out exactly what your GHL CRM needs to look like.
           </p>
           <div className="flex gap-3.5 justify-center flex-wrap">
-            <Link href="mailto:aryan@finzie.co" className="bg-[#F8D000] text-[#0B1421] px-10 py-4 rounded-[10px] text-[0.92rem] font-bold hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
+            <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-10 py-4 rounded-[10px] text-[0.92rem] font-bold hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
               Book Your Free CRM Audit →
             </Link>
-            <Link href="mailto:aryan@finzie.co" className="bg-transparent text-white px-10 py-4 rounded-[10px] text-[0.92rem] font-medium border border-white/15 hover:border-white/30 hover:bg-white/5 transition-all">
+            <Link href="mailto:aryan@ghlscaleup.com" className="bg-transparent text-white px-10 py-4 rounded-[10px] text-[0.92rem] font-medium border border-white/15 hover:border-white/30 hover:bg-white/5 transition-all">
               Or Email Us Directly
             </Link>
           </div>
@@ -319,7 +319,7 @@ const ServiceCRMSetup = () => {
             Stop Losing Leads to a<br /><span className="text-[#F8D000]">Broken CRM Setup.</span>
           </h2>
           <p className="text-[0.9rem] font-light text-white/50 max-w-[520px] mx-auto mb-7 leading-relaxed">
-            Your GoHighLevel CRM should work as hard as your sales team. Let our GHL experts build it right — so every lead is tracked, every follow-up is automated, and nothing falls through the cracks.
+            Your GoHighLevel CRM should work as hard as your sales team. Let our GHL experts build it right so every lead is tracked, every follow-up is automated, and nothing falls through the cracks.
           </p>
           <div className="flex gap-3.5 justify-center flex-wrap">
             <Link href="mailto:aryan@finzie.co" className="bg-[#F8D000] text-[#0B1421] px-10 py-4 rounded-[10px] text-[0.92rem] font-bold hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">

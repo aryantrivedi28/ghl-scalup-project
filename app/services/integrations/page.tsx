@@ -28,7 +28,7 @@ export default function IntegrationsAPIPage() {
                 <span className="text-[#F8D000]">API Development</span>
               </h1>
               <p className="text-[0.95rem] font-light text-white/60 leading-relaxed max-w-[520px] mb-8">
-                We build <strong className="text-white/90 font-medium">custom integrations with Zapier, Make.com, Stripe, Google, webhooks, and custom APIs</strong> — connecting your GoHighLevel CRM to the tools you already use.
+                We build <strong className="text-white/90 font-medium">custom integrations with Zapier, Make.com, Stripe, Google, webhooks, and custom APIs</strong> connecting your GoHighLevel CRM to the tools you already use.
               </p>
               <div className="flex gap-3.5 flex-wrap">
                 <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-8 py-3.5 rounded-[10px] text-[0.88rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
@@ -172,9 +172,9 @@ export default function IntegrationsAPIPage() {
           <div className="flex flex-col">
             {[
               { title: 'Discovery & Architecture', description: 'We map your current tools, data flows, and integration needs. We identify which systems need to sync and what data should flow between them.' },
-              { title: 'Platform Selection', description: 'We choose the right integration platform for your needs — Zapier, Make.com, custom code, or direct API connections. We match the solution to your budget and requirements.' },
-              { title: 'Connection & Authentication', description: 'We securely connect all your tools, set up API keys, and configure authentication. Security is our priority — your data stays protected.' },
-              { title: 'Workflow Configuration', description: 'We build the integration workflows — triggers, actions, filters, and data mapping. We test every path to ensure reliability.' },
+              { title: 'Platform Selection', description: 'We choose the right integration platform for your needs Zapier, Make.com, custom code, or direct API connections. We match the solution to your budget and requirements.' },
+              { title: 'Connection & Authentication', description: 'We securely connect all your tools, set up API keys, and configure authentication. Security is our priority your data stays protected.' },
+              { title: 'Workflow Configuration', description: 'We build the integration workflows triggers, actions, filters, and data mapping. We test every path to ensure reliability.' },
               { title: 'Testing & Monitoring', description: 'We test integrations with real data, monitor performance, and set up error alerts. Your integrations work consistently, not just on test day.' },
             ].map((step, index) => (
               <div key={index} className="grid md:grid-cols-[80px_1fr] gap-6 py-8 border-b border-[#E8EDF4] last:border-b-0">

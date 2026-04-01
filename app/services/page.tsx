@@ -153,7 +153,7 @@ export default function ServicesPage() {
               <span className="text-[#F8D000]">Services for Your Business</span>
             </h1>
             <p className="text-[0.95rem] font-light text-white/60 leading-relaxed max-w-2xl mx-auto">
-              From CRM setup to AI voice agents, white-label SaaS to team training — we provide end-to-end 
+              From CRM setup to AI voice agents, white-label SaaS to team training we provide end-to-end 
               GoHighLevel services that help you scale your business. 200+ projects delivered across 6 countries.
             </p>
           </div>
@@ -253,7 +253,7 @@ export default function ServicesPage() {
               </div>
               <h3 className="text-lg font-bold text-[#1C2E4A] mb-2">AI-First Approach</h3>
               <p className="text-[0.85rem] text-[#4A5568]">
-                Every system we build has AI automation at the core — cutting manual work by up to 70%.
+                Every system we build has AI automation at the core cutting manual work by up to 70%.
               </p>
             </div>
             <div className="text-center p-6">

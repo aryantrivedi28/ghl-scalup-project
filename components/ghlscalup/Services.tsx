@@ -37,7 +37,7 @@ const Services = () => {
       icon: '🧠',
       iconBg: 'green',
       title: 'AI Workflow & Marketing Automation',
-      description: 'AI chatbots, smart lead qualification, instant routing, and multi-channel follow-up sequences across email, SMS, and WhatsApp — responding in seconds, not hours.',
+      description: 'AI chatbots, smart lead qualification, instant routing, and multi-channel follow-up sequences across email, SMS, and WhatsApp responding in seconds, not hours.',
     },
     {
       icon: '📄',
@@ -61,7 +61,7 @@ const Services = () => {
       icon: '⚙️',
       iconBg: 'yellow',
       title: 'White-Label SaaS & Agency Scaling',
-      description: 'Full GHL SaaS mode configuration — branded domains, reusable snapshots, automated sub-account provisioning, Stripe, Twilio, and Mailgun integration.',
+      description: 'Full GHL SaaS mode configuration branded domains, reusable snapshots, automated sub-account provisioning, Stripe, Twilio, and Mailgun integration.',
     },
   ]
 

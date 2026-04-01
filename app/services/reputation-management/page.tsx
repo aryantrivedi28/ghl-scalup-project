@@ -28,7 +28,7 @@ export default function ReputationManagementPage() {
                 <span className="text-[#F8D000]">Review Management</span>
               </h1>
               <p className="text-[0.95rem] font-light text-white/60 leading-relaxed max-w-[520px] mb-8">
-                We set up <strong className="text-white/90 font-medium">automated review requests, Google/Facebook monitoring, AI-powered review responses, and reputation tracking</strong> — so you get more 5-star reviews and your online reputation works for you.
+                We set up <strong className="text-white/90 font-medium">automated review requests, Google/Facebook monitoring, AI-powered review responses, and reputation tracking</strong> so you get more 5-star reviews and your online reputation works for you.
               </p>
               <div className="flex gap-3.5 flex-wrap">
                 <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-8 py-3.5 rounded-[10px] text-[0.88rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
@@ -84,7 +84,7 @@ export default function ReputationManagementPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
               { icon: '⭐', color: 'blue', title: 'Automated Review Requests', description: 'Send review requests via email and SMS after purchase or service delivery. Ask happy customers for reviews when they are most satisfied.' },
-              { icon: '📍', color: 'green', title: 'Google & Facebook Monitoring', description: 'Track new reviews across Google, Facebook, and other platforms. Get instant alerts when someone leaves a review — good or bad.' },
+              { icon: '📍', color: 'green', title: 'Google & Facebook Monitoring', description: 'Track new reviews across Google, Facebook, and other platforms. Get instant alerts when someone leaves a review good or bad.' },
               { icon: '🤖', color: 'yellow', title: 'AI Review Responses', description: 'AI-powered responses to reviews. Thank positive reviewers professionally. Respond to negative reviews with empathy and solutions.' },
               { icon: '📊', color: 'blue', title: 'Reputation Dashboard', description: 'Central dashboard showing your ratings, review count, sentiment analysis, and trends. See your reputation at a glance.' },
               { icon: '📈', color: 'green', title: 'Review Widgets', description: 'Display your best reviews on your website. Social proof that builds trust and converts visitors into customers.' },
@@ -175,7 +175,7 @@ export default function ReputationManagementPage() {
               { title: 'Platform Integration', description: 'We connect to Google, Facebook, and other review platforms. Monitor all your reviews from one dashboard.' },
               { title: 'AI Response Setup', description: 'We configure AI-powered review responses. Positive reviews get thanked professionally. Negative reviews get empathetic responses that show you care.' },
               { title: 'Widget & Display Setup', description: 'We create review widgets for your website. Display your best reviews as social proof to convert visitors.' },
-              { title: 'Monitoring & Alerts', description: 'We set up instant alerts for new reviews. You never miss a review — good or bad.' },
+              { title: 'Monitoring & Alerts', description: 'We set up instant alerts for new reviews. You never miss a review good or bad.' },
             ].map((step, index) => (
               <div key={index} className="grid md:grid-cols-[80px_1fr] gap-6 py-8 border-b border-[#E8EDF4] last:border-b-0">
                 <div className="w-16 h-16 rounded-full bg-[#1C2E4A] flex items-center justify-center text-[0.9rem] font-extrabold text-[#F8D000] flex-shrink-0">

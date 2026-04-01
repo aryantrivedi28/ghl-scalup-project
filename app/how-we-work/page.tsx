@@ -18,12 +18,12 @@ export default function HowWeWorkPage() {
     {
       number: '02',
       title: 'Design Systems',
-      description: 'Pipeline stages, automation logic, funnel structure, integration mapping — all planned before building.'
+      description: 'Pipeline stages, automation logic, funnel structure, integration mapping all planned before building.'
     },
     {
       number: '03',
       title: 'Build & Integrate',
-      description: 'CRM, workflows, pages, calendars, AI agents — all implemented inside GHL with third-party connections.'
+      description: 'CRM, workflows, pages, calendars, AI agents all implemented inside GHL with third-party connections.'
     },
     {
       number: '04',

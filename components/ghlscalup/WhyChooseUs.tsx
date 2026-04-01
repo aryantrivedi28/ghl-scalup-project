@@ -36,7 +36,7 @@ const WhyChooseUs = () => {
       icon: '🧠',
       bg: 'rgba(14,155,240,.1)',
       title: 'AI-First Approach',
-      description: 'Every system we build has AI automation at the core — from lead qualification bots to voice agents. AI as the engine that cuts manual work by 70%.',
+      description: 'Every system we build has AI automation at the core from lead qualification bots to voice agents. AI as the engine that cuts manual work by 70%.',
     },
     {
       icon: '📈',
@@ -48,7 +48,7 @@ const WhyChooseUs = () => {
       icon: '👥',
       bg: 'rgba(248,208,0,.12)',
       title: 'One Team. Full Stack. Done.',
-      description: 'CRM, funnels, automation, AI, dashboards, training — under one roof. One team that owns the entire outcome from start to finish.',
+      description: 'CRM, funnels, automation, AI, dashboards, training under one roof. One team that owns the entire outcome from start to finish.',
     },
   ]
 

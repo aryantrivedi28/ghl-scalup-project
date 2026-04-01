@@ -46,14 +46,14 @@ const Hero = () => {
             </h1>
             <p className="text-base font-light text-white/60 leading-[1.8] max-w-[500px] mb-8">
               We are a team of <strong className="text-white/90 font-medium">GoHighLevel specialists</strong> who set up, automate, and manage
-              your entire GHL system — from CRM and funnels to AI workflows and white-label SaaS —
+              your entire GHL system from CRM and funnels to AI workflows and white-label SaaS
               so you can focus on selling while we handle the tech.
             </p>
             <div className="flex flex-wrap gap-3.5 mb-8">
-              <Link href="#contact" className="bg-[#F8D000] text-[#0B1421] px-8 py-3.5 rounded-[10px] text-[0.88rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
+              <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-8 py-3.5 rounded-[10px] text-[0.88rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
                 Schedule My Discovery Call →
               </Link>
-              <Link href="#services" className="bg-transparent text-white px-8 py-3.5 rounded-[10px] text-[0.88rem] font-medium border border-white/15 hover:border-white/30 hover:bg-white/5 transition-all">
+              <Link href="/services" className="bg-transparent text-white px-8 py-3.5 rounded-[10px] text-[0.88rem] font-medium border border-white/15 hover:border-white/30 hover:bg-white/5 transition-all">
                 Explore GHL Services
               </Link>
             </div>

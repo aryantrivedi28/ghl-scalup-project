@@ -28,7 +28,7 @@ export default function ReportingDashboardsPage() {
                 <span className="text-[#F8D000]">Dashboards</span>
               </h1>
               <p className="text-[0.95rem] font-light text-white/60 leading-relaxed max-w-[520px] mb-8">
-                We build <strong className="text-white/90 font-medium">custom dashboards for leads, pipeline value, conversion rates, and team performance</strong> — so you always know exactly how your business is performing.
+                We build <strong className="text-white/90 font-medium">custom dashboards for leads, pipeline value, conversion rates, and team performance</strong> so you always know exactly how your business is performing.
               </p>
               <div className="flex gap-3.5 flex-wrap">
                 <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-8 py-3.5 rounded-[10px] text-[0.88rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
@@ -85,9 +85,9 @@ export default function ReportingDashboardsPage() {
             {[
               { icon: '📊', color: 'blue', title: 'Pipeline & Deal Dashboards', description: 'Visual dashboards showing deal volume, pipeline value, stage distribution, and win rates. See exactly where your revenue is coming from and where deals are stuck.' },
               { icon: '👥', color: 'green', title: 'Lead Source Analytics', description: 'Track which marketing channels generate the most leads and highest conversion rates. Allocate budget to what works. Cut what doesn\'t.' },
-              { icon: '📈', color: 'yellow', title: 'Conversion Funnel Reports', description: 'See conversion rates at every stage — from lead to qualified to booked to closed. Identify bottlenecks and optimize your sales process.' },
+              { icon: '📈', color: 'yellow', title: 'Conversion Funnel Reports', description: 'See conversion rates at every stage from lead to qualified to booked to closed. Identify bottlenecks and optimize your sales process.' },
               { icon: '⏱️', color: 'blue', title: 'Response Time Tracking', description: 'Measure how quickly your team responds to leads. Track average response time, first reply time, and follow-up consistency.' },
-              { icon: '👥', color: 'green', title: 'Team Performance Dashboards', description: 'Individual and team performance metrics — deals closed, calls made, appointments booked. Motivate your team with clear visibility.' },
+              { icon: '👥', color: 'green', title: 'Team Performance Dashboards', description: 'Individual and team performance metrics deals closed, calls made, appointments booked. Motivate your team with clear visibility.' },
               { icon: '📅', color: 'yellow', title: 'Automated Report Delivery', description: 'Schedule daily, weekly, or monthly reports delivered to your inbox. Get key metrics without logging into GHL.' },
             ].map((item, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
@@ -172,9 +172,9 @@ export default function ReportingDashboardsPage() {
           <div className="flex flex-col">
             {[
               { title: 'KPI Definition', description: 'We identify the key performance indicators that matter to your business. What metrics drive revenue? What data will help you make better decisions?' },
-              { title: 'Data Architecture', description: 'We map how data flows through your GHL account — pipelines, tags, custom fields, and events. We ensure all the data you need is being captured.' },
-              { title: 'Dashboard Design', description: 'We design custom dashboards tailored to your role and needs. Executive dashboards, sales dashboards, marketing dashboards — each with relevant metrics.' },
-              { title: 'Report Automation', description: 'We set up automated reports delivered on your schedule — daily, weekly, monthly. Key metrics delivered to your inbox without logging in.' },
+              { title: 'Data Architecture', description: 'We map how data flows through your GHL account pipelines, tags, custom fields, and events. We ensure all the data you need is being captured.' },
+              { title: 'Dashboard Design', description: 'We design custom dashboards tailored to your role and needs. Executive dashboards, sales dashboards, marketing dashboards each with relevant metrics.' },
+              { title: 'Report Automation', description: 'We set up automated reports delivered on your schedule daily, weekly, monthly. Key metrics delivered to your inbox without logging in.' },
               { title: 'Training & Handover', description: 'We train your team on how to use the dashboards, interpret the data, and make data-driven decisions. You become self-sufficient.' },
             ].map((step, index) => (
               <div key={index} className="grid md:grid-cols-[80px_1fr] gap-6 py-8 border-b border-[#E8EDF4] last:border-b-0">

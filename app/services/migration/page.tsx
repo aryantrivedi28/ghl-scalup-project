@@ -28,7 +28,7 @@ export default function MigrationPage() {
                 <span className="text-[#F8D000]">Services</span>
               </h1>
               <p className="text-[0.95rem] font-light text-white/60 leading-relaxed max-w-[520px] mb-8">
-                We handle <strong className="text-white/90 font-medium">complete migration from ClickFunnels, Kajabi, HubSpot, ActiveCampaign, Infusionsoft, and any CRM to GoHighLevel</strong> — with zero data loss and zero downtime.
+                We handle <strong className="text-white/90 font-medium">complete migration from ClickFunnels, Kajabi, HubSpot, ActiveCampaign, Infusionsoft, and any CRM to GoHighLevel</strong> with zero data loss and zero downtime.
               </p>
               <div className="flex gap-3.5 flex-wrap">
                 <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-8 py-3.5 rounded-[10px] text-[0.88rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
@@ -83,9 +83,9 @@ export default function MigrationPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              { icon: '📋', color: 'blue', title: 'Pre-Migration Audit', description: 'We analyze your current platform — contacts, deals, tags, funnels, emails, and automations. We identify what to migrate, what to clean, and what to rebuild better.' },
+              { icon: '📋', color: 'blue', title: 'Pre-Migration Audit', description: 'We analyze your current platform contacts, deals, tags, funnels, emails, and automations. We identify what to migrate, what to clean, and what to rebuild better.' },
               { icon: '🔧', color: 'green', title: 'Data Mapping & Cleanup', description: 'We map fields from your old platform to GHL. We clean duplicate contacts, fix formatting issues, and ensure data integrity before migration.' },
-              { icon: '🔄', color: 'yellow', title: 'Full Data Migration', description: 'We migrate contacts, deals, notes, tags, custom fields, deal stages, and history. Everything moves over exactly as it was — no data loss.' },
+              { icon: '🔄', color: 'yellow', title: 'Full Data Migration', description: 'We migrate contacts, deals, notes, tags, custom fields, deal stages, and history. Everything moves over exactly as it was no data loss.' },
               { icon: '🏗️', color: 'blue', title: 'Funnel & Page Migration', description: 'We rebuild your funnels, landing pages, and websites inside GHL. Same design, better performance. Your customers won\'t notice the switch.' },
               { icon: '⚙️', color: 'green', title: 'Automation Rebuild', description: 'We rebuild your email sequences, SMS workflows, and automations in GHL. Better logic, more reliable triggers, same customer experience.' },
               { icon: '✅', color: 'yellow', title: 'Post-Migration Validation', description: 'We test every contact, deal, funnel, and automation. We compare old vs new data to ensure 100% accuracy. Your new system works flawlessly.' },
@@ -119,7 +119,7 @@ export default function MigrationPage() {
                 <span className="text-[#0E9BF0]">Right for Your Business?</span>
               </h2>
               <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-                If you're using multiple tools that don't work together, paying too much for your stack, or struggling with limited features — moving to GoHighLevel is the answer. We make the transition seamless.
+                If you're using multiple tools that don't work together, paying too much for your stack, or struggling with limited features moving to GoHighLevel is the answer. We make the transition seamless.
               </p>
               <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
                 <strong className="font-semibold text-[#1C2E4A]">Migration makes sense if you are:</strong>
@@ -172,8 +172,8 @@ export default function MigrationPage() {
           <div className="flex flex-col">
             {[
               { title: 'Discovery & Assessment', description: 'We analyze your current platform, data structure, and business processes. We identify what needs to move and create a detailed migration plan.' },
-              { title: 'Data Extraction & Cleanup', description: 'We export all your data — contacts, deals, notes, tags, custom fields. We clean duplicates, fix formatting, and prepare data for import.' },
-              { title: 'GHL Setup & Configuration', description: 'We set up your GHL account with the right structure — pipelines, tags, fields, and settings. Ready to receive your data.' },
+              { title: 'Data Extraction & Cleanup', description: 'We export all your data contacts, deals, notes, tags, custom fields. We clean duplicates, fix formatting, and prepare data for import.' },
+              { title: 'GHL Setup & Configuration', description: 'We set up your GHL account with the right structure pipelines, tags, fields, and settings. Ready to receive your data.' },
               { title: 'Data Import & Validation', description: 'We import all your data into GHL and validate every record. We compare old vs new to ensure 100% accuracy.' },
               { title: 'Funnel & Automation Rebuild', description: 'We rebuild your funnels, email sequences, and automations. We test everything before you go live. Zero disruption to your business.' },
             ].map((step, index) => (
@@ -283,7 +283,7 @@ export default function MigrationPage() {
 
       <CtaBand 
         title='Stop Paying for Multiple Tools.<br /><span class="hl-yellow">Consolidate with GHL.</span>'
-        description="GoHighLevel replaces 5+ tools — CRM, funnels, email, SMS, calendars, and more. Let us migrate your business seamlessly. Book your free assessment today."
+        description="GoHighLevel replaces 5+ tools CRM, funnels, email, SMS, calendars, and more. Let us migrate your business seamlessly. Book your free assessment today."
         primaryText="Book Your Free Migration Assessment →"
         primaryHref="/contact"
       />

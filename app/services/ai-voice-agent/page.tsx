@@ -28,7 +28,7 @@ export default function AIVoiceAgentPage() {
                 <span className="text-[#F8D000]">Call Handling</span>
               </h1>
               <p className="text-[0.95rem] font-light text-white/60 leading-relaxed max-w-[520px] mb-8">
-                We deploy <strong className="text-white/90 font-medium">24/7 AI receptionists that answer inbound calls, qualify leads, book appointments, and trigger missed-call text-backs</strong> — so you never miss a call, day or night.
+                We deploy <strong className="text-white/90 font-medium">24/7 AI receptionists that answer inbound calls, qualify leads, book appointments, and trigger missed-call text-backs</strong> so you never miss a call, day or night.
               </p>
               <div className="flex gap-3.5 flex-wrap">
                 <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-8 py-3.5 rounded-[10px] text-[0.88rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
@@ -77,7 +77,7 @@ export default function AIVoiceAgentPage() {
               <span className="text-[#0E9BF0]">Intelligent Call Handling</span>
             </h2>
             <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed max-w-[580px] mx-auto">
-              Your AI voice agent handles calls like a human receptionist — but works 24/7, never gets tired, and always follows your script.
+              Your AI voice agent handles calls like a human receptionist but works 24/7, never gets tired, and always follows your script.
             </p>
           </div>
 
@@ -171,7 +171,7 @@ export default function AIVoiceAgentPage() {
           </div>
           <div className="flex flex-col">
             {[
-              { title: 'Call Flow Design', description: 'We map out every call scenario — new leads, existing customers, appointment requests, questions, and escalations. Your AI voice agent follows a script designed for your business.' },
+              { title: 'Call Flow Design', description: 'We map out every call scenario new leads, existing customers, appointment requests, questions, and escalations. Your AI voice agent follows a script designed for your business.' },
               { title: 'Voice & Personality Training', description: 'We train your AI voice agent with your brand voice. Choose from natural voices that sound human, not robotic. We customize greetings, tone, and conversation style.' },
               { title: 'Integration Setup', description: 'We connect your AI voice agent to GoHighLevel CRM, calendar systems, and phone lines. Calls are logged, leads are captured, and appointments are booked automatically.' },
               { title: 'Testing & Calibration', description: 'We test every call path, edge case, and integration. We fine-tune responses, improve accuracy, and ensure the AI handles calls naturally and effectively.' },
@@ -234,7 +234,7 @@ export default function AIVoiceAgentPage() {
               { q: 'What happens if the AI can\'t answer a question?', a: 'You can set up escalation rules. The AI can offer to transfer to a human, collect contact info for follow-up, or email the question to your team. You control how it handles every scenario.' },
               { q: 'Does the AI work with my existing phone number?', a: 'Yes. We can set up the AI voice agent to answer calls to your existing business number, or provide a new number. No phone system changes required.' },
               { q: 'How long does setup take?', a: 'Basic voice agent setup takes 1-2 weeks. More complex setups with multiple call flows, custom integrations, and advanced logic take 2-3 weeks.' },
-              { q: 'What about missed calls?', a: 'The AI voice agent answers every call — there are no missed calls. If it can\'t help, it collects caller info for follow-up or transfers to your team if available.' },
+              { q: 'What about missed calls?', a: 'The AI voice agent answers every call there are no missed calls. If it can\'t help, it collects caller info for follow-up or transfers to your team if available.' },
             ].map((faq, index) => (
               <div key={index} className="border-b border-[#E8EDF4]">
                 <details className="group py-5">
@@ -266,7 +266,7 @@ export default function AIVoiceAgentPage() {
           <div className="grid md:grid-cols-3 gap-5">
             {[
               { title: 'CRM Setup', description: 'Capture leads from your AI voice agent and manage them effectively with a properly configured GHL CRM system.', href: '/services/ghl/crm-setup' },
-              { title: 'Workflow Automation', description: 'Trigger follow-up automations based on voice agent conversations — assign tasks, send emails, update pipelines.', href: '/services/ghl/workflow-automation' },
+              { title: 'Workflow Automation', description: 'Trigger follow-up automations based on voice agent conversations assign tasks, send emails, update pipelines.', href: '/services/ghl/workflow-automation' },
               { title: 'AI Chatbot', description: 'Combine voice AI with text-based chatbots for complete 24/7 omnichannel lead capture and support.', href: '/services/ghl/ai-chatbot' },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">

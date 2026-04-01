@@ -28,7 +28,7 @@ export default function MembershipCoursesPage() {
                 <span className="text-[#F8D000]">Course Sites</span>
               </h1>
               <p className="text-[0.95rem] font-light text-white/60 leading-relaxed max-w-[520px] mb-8">
-                We build <strong className="text-white/90 font-medium">fully functional membership platforms and online course sites inside GoHighLevel</strong> — with drip content, gated access, payment integration, and student management.
+                We build <strong className="text-white/90 font-medium">fully functional membership platforms and online course sites inside GoHighLevel</strong> with drip content, gated access, payment integration, and student management.
               </p>
               <div className="flex gap-3.5 flex-wrap">
                 <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-8 py-3.5 rounded-[10px] text-[0.88rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
@@ -84,7 +84,7 @@ export default function MembershipCoursesPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
               { icon: '🔒', color: 'blue', title: 'Gated Content Areas', description: 'Password-protected pages and content that only members can access. Restrict content by membership level or subscription plan.' },
-              { icon: '⏰', color: 'green', title: 'Drip Content Scheduling', description: 'Release content on a schedule — daily, weekly, or based on signup date. Keep members engaged and prevent overwhelm.' },
+              { icon: '⏰', color: 'green', title: 'Drip Content Scheduling', description: 'Release content on a schedule daily, weekly, or based on signup date. Keep members engaged and prevent overwhelm.' },
               { icon: '💳', color: 'yellow', title: 'Subscription Payments', description: 'Connect Stripe for monthly or annual subscriptions. One-time payments, trial periods, and payment plans all supported.' },
               { icon: '👥', color: 'blue', title: 'Student Management', description: 'Track member progress, engagement, and activity. Manage student accounts, reset passwords, and handle cancellations.' },
               { icon: '📧', color: 'green', title: 'Automated Emails', description: 'Welcome sequences, progress reminders, renewal notices, and re-engagement campaigns for your members.' },
@@ -119,7 +119,7 @@ export default function MembershipCoursesPage() {
                 <span className="text-[#0E9BF0]">Right for Your Business?</span>
               </h2>
               <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-                If you have knowledge to share, a community to build, or recurring revenue to generate — a membership site or course platform is the answer. GHL gives you everything you need in one place.
+                If you have knowledge to share, a community to build, or recurring revenue to generate a membership site or course platform is the answer. GHL gives you everything you need in one place.
               </p>
               <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
                 <strong className="font-semibold text-[#1C2E4A]">Membership sites make sense if you are:</strong>
@@ -136,7 +136,7 @@ export default function MembershipCoursesPage() {
               <div className="bg-[#1C2E4A] rounded-2xl p-8 text-white">
                 <h3 className="text-[1.1rem] font-bold mb-4">The Membership Economy</h3>
                 <p className="text-[0.85rem] font-light text-white/60 leading-relaxed mb-3">The subscription economy is growing 5x faster than traditional businesses. Membership sites create predictable, recurring revenue that builds wealth over time.</p>
-                <p className="text-[0.85rem] font-light text-white/60 leading-relaxed mb-5">With GHL, you get course hosting, membership management, payments, email marketing, and community features — all in one platform. No more paying for multiple tools.</p>
+                <p className="text-[0.85rem] font-light text-white/60 leading-relaxed mb-5">With GHL, you get course hosting, membership management, payments, email marketing, and community features all in one platform. No more paying for multiple tools.</p>
                 <div className="flex items-center gap-3 py-3 border-t border-white/10">
                   <div className="text-[1.3rem] font-extrabold text-[#F8D000] min-w-[70px]">5x</div>
                   <div className="text-[0.78rem] text-white/50">Subscription economy growth rate</div>
@@ -171,10 +171,10 @@ export default function MembershipCoursesPage() {
           </div>
           <div className="flex flex-col">
             {[
-              { title: 'Content Strategy', description: 'We map your course content — modules, lessons, videos, worksheets. We design the learning path and decide drip schedule to keep students engaged.' },
-              { title: 'Platform Architecture', description: 'We set up your membership structure — free vs paid tiers, content access levels, and member management system.' },
+              { title: 'Content Strategy', description: 'We map your course content modules, lessons, videos, worksheets. We design the learning path and decide drip schedule to keep students engaged.' },
+              { title: 'Platform Architecture', description: 'We set up your membership structure free vs paid tiers, content access levels, and member management system.' },
               { title: 'Course Build & Design', description: 'We build your course pages, video hosting, and lesson structure inside GHL. Clean, professional design that showcases your content.' },
-              { title: 'Payment Integration', description: 'We connect Stripe for payments — subscriptions, one-time, trials, and payment plans. Automated billing and member provisioning.' },
+              { title: 'Payment Integration', description: 'We connect Stripe for payments subscriptions, one-time, trials, and payment plans. Automated billing and member provisioning.' },
               { title: 'Launch & Support', description: 'We launch your membership site and train you on managing members, adding content, and tracking engagement. Ongoing support available.' },
             ].map((step, index) => (
               <div key={index} className="grid md:grid-cols-[80px_1fr] gap-6 py-8 border-b border-[#E8EDF4] last:border-b-0">

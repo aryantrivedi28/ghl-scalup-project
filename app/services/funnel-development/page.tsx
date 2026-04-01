@@ -28,7 +28,7 @@ export default function SalesFunnelsPage() {
                 <span className="text-[#F8D000]">Development</span>
               </h1>
               <p className="text-[0.95rem] font-light text-white/60 leading-relaxed max-w-[520px] mb-8">
-                We build <strong className="text-white/90 font-medium">high-converting landing pages, opt-in forms, sales pages, order bumps, upsells, and thank-you pages</strong> inside GoHighLevel — designed to turn traffic into paying customers.
+                We build <strong className="text-white/90 font-medium">high-converting landing pages, opt-in forms, sales pages, order bumps, upsells, and thank-you pages</strong> inside GoHighLevel designed to turn traffic into paying customers.
               </p>
               <div className="flex gap-3.5 flex-wrap">
                 <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-8 py-3.5 rounded-[10px] text-[0.88rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
@@ -135,8 +135,8 @@ export default function SalesFunnelsPage() {
             <div>
               <div className="bg-[#1C2E4A] rounded-2xl p-8 text-white">
                 <h3 className="text-[1.1rem] font-bold mb-4">The Cost of a Bad Funnel</h3>
-                <p className="text-[0.85rem] font-light text-white/60 leading-relaxed mb-3">A poorly designed funnel leaks leads at every stage. High bounce rates, abandoned carts, and missed upsell opportunities mean you're leaving money on the table — sometimes 70% of potential revenue.</p>
-                <p className="text-[0.85rem] font-light text-white/60 leading-relaxed mb-5">Our funnels are built for conversion. Every element — from headline to button color — is optimized to move visitors to the next step. The result: more leads, more sales, higher average order value.</p>
+                <p className="text-[0.85rem] font-light text-white/60 leading-relaxed mb-3">A poorly designed funnel leaks leads at every stage. High bounce rates, abandoned carts, and missed upsell opportunities mean you're leaving money on the table sometimes 70% of potential revenue.</p>
+                <p className="text-[0.85rem] font-light text-white/60 leading-relaxed mb-5">Our funnels are built for conversion. Every element from headline to button color is optimized to move visitors to the next step. The result: more leads, more sales, higher average order value.</p>
                 <div className="flex items-center gap-3 py-3 border-t border-white/10">
                   <div className="text-[1.3rem] font-extrabold text-[#F8D000] min-w-[70px]">30%</div>
                   <div className="text-[0.78rem] text-white/50">Average increase in conversion rate</div>
@@ -173,7 +173,7 @@ export default function SalesFunnelsPage() {
             {[
               { title: 'Offer & Audience Analysis', description: 'We start by understanding your offer, target audience, and conversion goals. What problem do you solve? Who is your ideal customer? Whats the path to purchase?' },
               { title: 'Funnel Architecture Design', description: 'We map out the entire funnel: landing page → opt-in → sales page → order form → upsell → thank you. Every step is designed with one goal: move visitors forward.' },
-              { title: 'Copywriting & Design', description: 'Our team crafts persuasive copy and designs high-converting pages. Headlines, subheadlines, bullet points, social proof, calls-to-action — all optimized for conversions.' },
+              { title: 'Copywriting & Design', description: 'Our team crafts persuasive copy and designs high-converting pages. Headlines, subheadlines, bullet points, social proof, calls-to-action all optimized for conversions.' },
               { title: 'Development & Integration', description: 'We build your funnel inside GoHighLevel with payment processing, email automation, and CRM integration. Everything connected and tested.' },
               { title: 'Testing & Optimization', description: 'We test every page, form, and button with live data. Then we optimize based on performance to maximize conversion rates before launch.' },
             ].map((step, index) => (
@@ -266,7 +266,7 @@ export default function SalesFunnelsPage() {
           <div className="grid md:grid-cols-3 gap-5">
             {[
               { title: 'CRM Setup', description: 'Capture leads from your funnel and manage them effectively with a properly configured GHL CRM system.', href: '/services/ghl/crm-setup' },
-              { title: 'Workflow Automation', description: 'Automate follow-ups triggered by funnel actions — lead magnets, purchases, and cart abandonment.', href: '/services/ghl/workflow-automation' },
+              { title: 'Workflow Automation', description: 'Automate follow-ups triggered by funnel actions lead magnets, purchases, and cart abandonment.', href: '/services/ghl/workflow-automation' },
               { title: 'Email & SMS Campaigns', description: 'Nurture leads captured through your funnel with automated email and SMS sequences.', href: '/services/ghl/email-sms-whatsapp' },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">

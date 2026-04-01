@@ -28,7 +28,7 @@ export default function WorkflowAutomationPage() {
                 <span className="text-[#F8D000]">Marketing Automation</span>
               </h1>
               <p className="text-[0.95rem] font-light text-white/60 leading-relaxed max-w-[520px] mb-8">
-                We build <strong className="text-white/90 font-medium">trigger-based workflows, multi-step sequences, and conditional automations</strong> that respond in seconds — not hours. From lead qualification to appointment booking, your entire follow-up system runs on autopilot.
+                We build <strong className="text-white/90 font-medium">trigger-based workflows, multi-step sequences, and conditional automations</strong> that respond in seconds not hours. From lead qualification to appointment booking, your entire follow-up system runs on autopilot.
               </p>
               <div className="flex gap-3.5 flex-wrap">
                 <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-8 py-3.5 rounded-[10px] text-[0.88rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
@@ -77,7 +77,7 @@ export default function WorkflowAutomationPage() {
               <span className="text-[#0E9BF0]">Smart Marketing Automation</span>
             </h2>
             <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed max-w-[580px] mx-auto">
-              Custom workflows that respond to your leads instantly, nurture them automatically, and book more appointments — without your team lifting a finger.
+              Custom workflows that respond to your leads instantly, nurture them automatically, and book more appointments without your team lifting a finger.
             </p>
           </div>
 
@@ -85,7 +85,7 @@ export default function WorkflowAutomationPage() {
             {[
               { icon: '⚡', color: 'blue', title: 'Trigger-Based Workflows', description: 'Fire workflows instantly on form submissions, tag changes, pipeline moves, or calendar bookings. Set up triggers that respond before your lead even finishes reading your confirmation page.' },
               { icon: '🔀', color: 'green', title: 'Conditional Logic', description: 'If/else branching, wait steps, goal triggers, and split testing. Create sophisticated automation paths that adapt based on lead behavior, location, or interest.' },
-              { icon: '📨', color: 'yellow', title: 'Multi-Channel Sequences', description: 'Email, SMS, WhatsApp, voicemail drops, and ringless voicemail — all in one workflow. Reach leads where they respond best.' },
+              { icon: '📨', color: 'yellow', title: 'Multi-Channel Sequences', description: 'Email, SMS, WhatsApp, voicemail drops, and ringless voicemail all in one workflow. Reach leads where they respond best.' },
               { icon: '🎯', color: 'blue', title: 'Lead Routing & Assignment', description: 'Auto-assign leads based on source, location, or round-robin distribution. Ensure every lead gets to the right person instantly.' },
               { icon: '🔔', color: 'green', title: 'Internal Notifications', description: 'Slack alerts, email notifications, task creation, and calendar events. Keep your team informed without manual updates.' },
               { icon: '📊', color: 'yellow', title: 'Performance Tracking', description: 'Open rates, click-through rates, response rates, and conversion data per step. Know exactly what works and optimize accordingly.' },
@@ -119,7 +119,7 @@ export default function WorkflowAutomationPage() {
                 <span className="text-[#0E9BF0]">Right for Your Business?</span>
               </h2>
               <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-                If you're still manually following up with leads, sending individual emails, or missing opportunities because responses are too slow — automation is your answer. GHL workflows can handle 95% of your follow-up process automatically.
+                If you're still manually following up with leads, sending individual emails, or missing opportunities because responses are too slow automation is your answer. GHL workflows can handle 95% of your follow-up process automatically.
               </p>
               <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
                 <strong className="font-semibold text-[#1C2E4A]">Workflow automation makes sense if you are:</strong>
@@ -136,7 +136,7 @@ export default function WorkflowAutomationPage() {
               <div className="bg-[#1C2E4A] rounded-2xl p-8 text-white">
                 <h3 className="text-[1.1rem] font-bold mb-4">The Cost of No Automation</h3>
                 <p className="text-[0.85rem] font-light text-white/60 leading-relaxed mb-3">Without automation, your team spends hours on repetitive follow-ups that could be handled by a workflow. Leads slip through the cracks. Response times vary. Revenue leaks.</p>
-                <p className="text-[0.85rem] font-light text-white/60 leading-relaxed mb-5">With our automation systems, leads get an instant response, follow-ups happen like clockwork, and your team focuses on closing deals — not chasing leads.</p>
+                <p className="text-[0.85rem] font-light text-white/60 leading-relaxed mb-5">With our automation systems, leads get an instant response, follow-ups happen like clockwork, and your team focuses on closing deals not chasing leads.</p>
                 <div className="flex items-center gap-3 py-3 border-t border-white/10">
                   <div className="text-[1.3rem] font-extrabold text-[#F8D000] min-w-[70px]">95%</div>
                   <div className="text-[0.78rem] text-white/50">Follow-ups automated</div>
@@ -167,13 +167,13 @@ export default function WorkflowAutomationPage() {
               How We Build Your<br />
               <span className="text-[#0E9BF0]">Automation System</span>
             </h2>
-            <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed">A systematic approach to building workflows that actually convert — tested across 200+ projects.</p>
+            <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed">A systematic approach to building workflows that actually convert tested across 200+ projects.</p>
           </div>
           <div className="flex flex-col">
             {[
-              { title: 'Customer Journey Mapping', description: 'We map your entire customer journey — from first touch to closed deal. Every trigger point, every follow-up, every decision branch is documented before a single workflow is built.' },
+              { title: 'Customer Journey Mapping', description: 'We map your entire customer journey from first touch to closed deal. Every trigger point, every follow-up, every decision branch is documented before a single workflow is built.' },
               { title: 'Workflow Architecture Design', description: 'We design the automation structure: triggers, actions, conditions, delays, and goals. This blueprint ensures your workflows are efficient and scalable.' },
-              { title: 'Multi-Channel Setup', description: 'We build your email sequences, SMS campaigns, WhatsApp messages, and voicemail drops — all connected through conditional logic that adapts to lead behavior.' },
+              { title: 'Multi-Channel Setup', description: 'We build your email sequences, SMS campaigns, WhatsApp messages, and voicemail drops all connected through conditional logic that adapts to lead behavior.' },
               { title: 'Integration & Testing', description: 'We connect to your CRM, calendars, payment processors, and third-party tools. Then we test every path with live data to ensure 100% reliability.' },
               { title: 'Monitoring & Optimization', description: 'After launch, we track performance metrics and optimize based on data. Open rates, click rates, and conversion rates guide continuous improvement.' },
             ].map((step, index) => (
@@ -230,9 +230,9 @@ export default function WorkflowAutomationPage() {
           <div className="max-w-[800px] mx-auto">
             {[
               { q: 'What automations can you build?', a: 'We build lead follow-up sequences, appointment booking flows, review request campaigns, re-engagement workflows, internal notifications, lead scoring systems, and complex multi-channel nurture sequences. If it can be automated in GHL, we can build it.' },
-              { q: 'How fast do follow-ups respond?', a: 'Our workflows trigger in 5-10 seconds after a form submission, call, or tag change. Leads get an instant response — before they even leave your website or hang up the phone.' },
-              { q: 'Can automations span email, SMS, and WhatsApp?', a: 'Yes. One workflow can include email, SMS, WhatsApp, voicemail drops, and ringless voicemail — with conditional logic that chooses the best channel based on lead behavior.' },
-              { q: 'Will automations break at scale?', a: 'Not if built properly. We architect workflows with scalability in mind — proper error handling, rate limiting, and fallback paths. Our systems handle thousands of leads without breaking.' },
+              { q: 'How fast do follow-ups respond?', a: 'Our workflows trigger in 5-10 seconds after a form submission, call, or tag change. Leads get an instant response before they even leave your website or hang up the phone.' },
+              { q: 'Can automations span email, SMS, and WhatsApp?', a: 'Yes. One workflow can include email, SMS, WhatsApp, voicemail drops, and ringless voicemail with conditional logic that chooses the best channel based on lead behavior.' },
+              { q: 'Will automations break at scale?', a: 'Not if built properly. We architect workflows with scalability in mind proper error handling, rate limiting, and fallback paths. Our systems handle thousands of leads without breaking.' },
               { q: 'How long does automation setup take?', a: 'Simple automation suites (3-5 workflows) take 1-2 weeks. Complex systems with multiple branches and integrations take 2-3 weeks. We give you a clear timeline before we start.' },
               { q: 'Can you fix my broken automations?', a: 'Yes. We audit your existing workflows, identify broken triggers, failed actions, and logic errors. Then we rebuild them to work reliably.' },
             ].map((faq, index) => (
@@ -266,7 +266,7 @@ export default function WorkflowAutomationPage() {
           <div className="grid md:grid-cols-3 gap-5">
             {[
               { title: 'CRM Setup', description: 'A solid CRM foundation with clean pipelines and proper tagging makes automations more powerful and easier to manage.', href: '/services/ghl/crm-setup' },
-              { title: 'AI Chatbot & Voice Agent', description: 'Add AI-powered chat and voice to your automation flows — qualify leads and book appointments 24/7 without human intervention.', href: '/services/ghl/ai-chatbot' },
+              { title: 'AI Chatbot & Voice Agent', description: 'Add AI-powered chat and voice to your automation flows qualify leads and book appointments 24/7 without human intervention.', href: '/services/ghl/ai-chatbot' },
               { title: 'Email, SMS & WhatsApp Campaigns', description: 'Advanced campaign-level automation for newsletters, promotional sequences, and broadcast messages to your entire list.', href: '/services/ghl/email-sms-whatsapp' },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
@@ -283,7 +283,7 @@ export default function WorkflowAutomationPage() {
 
       <CtaBand 
         title='Stop Chasing Leads.<br /><span class="hl-yellow">Let Automation Do the Work.</span>'
-        description="Your leads expect an instant response. Our automation systems deliver it — every time. Book your free audit and see how we can automate your follow-ups."
+        description="Your leads expect an instant response. Our automation systems deliver it every time. Book your free audit and see how we can automate your follow-ups."
         primaryText="Book Your Free Automation Audit →"
         primaryHref="/contact"
       />

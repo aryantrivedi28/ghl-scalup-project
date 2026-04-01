@@ -28,7 +28,7 @@ export default function CalendarBookingPage() {
                 <span className="text-[#F8D000]">Booking Setup</span>
               </h1>
               <p className="text-[0.95rem] font-light text-white/60 leading-relaxed max-w-[520px] mb-8">
-                We configure <strong className="text-white/90 font-medium">professional booking systems, round-robin calendars, service calendars, and automated reminders</strong> — so your clients can book appointments 24/7 and actually show up.
+                We configure <strong className="text-white/90 font-medium">professional booking systems, round-robin calendars, service calendars, and automated reminders</strong> so your clients can book appointments 24/7 and actually show up.
               </p>
               <div className="flex gap-3.5 flex-wrap">
                 <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-8 py-3.5 rounded-[10px] text-[0.88rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
@@ -119,7 +119,7 @@ export default function CalendarBookingPage() {
                 <span className="text-[#0E9BF0]">Right for Your Business?</span>
               </h2>
               <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-                If you're still scheduling appointments by email or phone, you're wasting time and losing opportunities. A professional booking system lets clients book themselves 24/7 — and ensures they actually show up.
+                If you're still scheduling appointments by email or phone, you're wasting time and losing opportunities. A professional booking system lets clients book themselves 24/7 and ensures they actually show up.
               </p>
               <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
                 <strong className="font-semibold text-[#1C2E4A]">Calendar setup makes sense if you are:</strong>
@@ -136,7 +136,7 @@ export default function CalendarBookingPage() {
               <div className="bg-[#1C2E4A] rounded-2xl p-8 text-white">
                 <h3 className="text-[1.1rem] font-bold mb-4">The Cost of Manual Booking</h3>
                 <p className="text-[0.85rem] font-light text-white/60 leading-relaxed mb-3">Email back-and-forth to find a time. Phone tag. Double-bookings. No-shows. Manual booking costs you hours every week and loses you appointments.</p>
-                <p className="text-[0.85rem] font-light text-white/60 leading-relaxed mb-5">Our booking system handles everything automatically — clients book themselves, reminders are sent, calendars stay synced. Your team focuses on delivering service, not scheduling it.</p>
+                <p className="text-[0.85rem] font-light text-white/60 leading-relaxed mb-5">Our booking system handles everything automatically clients book themselves, reminders are sent, calendars stay synced. Your team focuses on delivering service, not scheduling it.</p>
                 <div className="flex items-center gap-3 py-3 border-t border-white/10">
                   <div className="text-[1.3rem] font-extrabold text-[#F8D000] min-w-[70px]">10+</div>
                   <div className="text-[0.78rem] text-white/50">Hours saved weekly on scheduling</div>
@@ -171,7 +171,7 @@ export default function CalendarBookingPage() {
           </div>
           <div className="flex flex-col">
             {[
-              { title: 'Booking Flow Analysis', description: 'We analyze your booking needs — services offered, duration, buffer times, team availability, and payment requirements. We design a flow that matches your business.' },
+              { title: 'Booking Flow Analysis', description: 'We analyze your booking needs services offered, duration, buffer times, team availability, and payment requirements. We design a flow that matches your business.' },
               { title: 'Calendar Configuration', description: 'We configure your calendars in GoHighLevel: availability, working hours, time zones, and booking limits. Round-robin rules are set up for teams.' },
               { title: 'Reminder Setup', description: 'We create automated email and SMS reminders at custom intervals. Confirmations, reminders, and follow-ups are all automated.' },
               { title: 'Integration & Testing', description: 'We sync with Google Calendar, Outlook, or iCloud. We test booking flows, reminders, and calendar updates to ensure everything works perfectly.' },
@@ -232,7 +232,7 @@ export default function CalendarBookingPage() {
               { q: 'Can I set different availability for different services?', a: 'Yes. You can create separate calendars for different services, each with its own availability, duration, and buffer times. Clients see only the services relevant to them.' },
               { q: 'How does round-robin scheduling work?', a: 'Round-robin distributes appointments evenly across your team. When a client books, the system assigns the appointment to the team member who has the fewest bookings or the next in rotation.' },
               { q: 'Can I collect payments at booking?', a: 'Yes. We can integrate Stripe or PayPal to collect deposits or full payments at booking. Perfect for services that require upfront payment.' },
-              { q: 'What about reminders?', a: 'You can set up email and SMS reminders at any interval — 24 hours, 2 hours, 30 minutes. Reminders are automated and customizable. No-shows drop by 50% or more.' },
+              { q: 'What about reminders?', a: 'You can set up email and SMS reminders at any interval 24 hours, 2 hours, 30 minutes. Reminders are automated and customizable. No-shows drop by 50% or more.' },
               { q: 'Will this sync with my existing Google Calendar?', a: 'Yes. Your GoHighLevel calendar can sync with Google Calendar, Outlook, and iCloud. Appointments booked through your system appear in your personal calendar automatically.' },
               { q: 'Can clients reschedule or cancel themselves?', a: 'Yes. Every booking confirmation includes links for clients to reschedule or cancel. This reduces phone calls and emails to your team.' },
             ].map((faq, index) => (
@@ -266,7 +266,7 @@ export default function CalendarBookingPage() {
           <div className="grid md:grid-cols-3 gap-5">
             {[
               { title: 'CRM Setup', description: 'Capture leads from your booking system and manage them effectively with a properly configured GHL CRM.', href: '/services/ghl/crm-setup' },
-              { title: 'Workflow Automation', description: 'Trigger follow-up automations based on bookings — send intake forms, assign tasks, update pipelines.', href: '/services/ghl/workflow-automation' },
+              { title: 'Workflow Automation', description: 'Trigger follow-up automations based on bookings send intake forms, assign tasks, update pipelines.', href: '/services/ghl/workflow-automation' },
               { title: 'Email & SMS Campaigns', description: 'Send pre-appointment and post-appointment communications to improve client experience and retention.', href: '/services/ghl/email-sms-whatsapp' },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">

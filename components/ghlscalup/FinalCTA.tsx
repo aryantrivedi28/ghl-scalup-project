@@ -13,7 +13,7 @@ const FinalCTA = () => {
           Whether you need CRM setup, AI automation, sales funnels, or a complete white-label SaaS — our dedicated GoHighLevel team is ready.
         </p>
         <div className="flex gap-3.5 justify-center flex-wrap">
-          <Link href="mailto:aryan@finzie.co" className="bg-[#F8D000] text-[#0B1421] px-10 py-4 rounded-[10px] text-[0.92rem] font-bold hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
+          <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-10 py-4 rounded-[10px] text-[0.92rem] font-bold hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
             Schedule Your Free Strategy Call →
           </Link>
         </div>

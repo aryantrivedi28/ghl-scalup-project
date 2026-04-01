@@ -5,7 +5,7 @@ import CtaBand from '@/components/sections/CtaBand';
 
 export const metadata = {
   title: 'GHL White-Label SaaS Setup Services | GHL Scale Up',
-  description: 'Complete white-label SaaS setup on GoHighLevel — branded domains, snapshots, Stripe billing, sub-account provisioning. 200+ projects. Get a free consultation.',
+  description: 'Complete white-label SaaS setup on GoHighLevel branded domains, snapshots, Stripe billing, sub-account provisioning. 200+ projects. Get a free consultation.',
   keywords: 'GHL white-label SaaS, GoHighLevel SaaS mode, white-label agency, SaaS setup, branded CRM platform'
 };
 
@@ -28,7 +28,7 @@ export default function WhiteLabelSaaSPage() {
                 <span className="text-[#F8D000]">SaaS Setup</span>
               </h1>
               <p className="text-[0.95rem] font-light text-white/60 leading-relaxed max-w-[520px] mb-8">
-                We configure <strong className="text-white/90 font-medium">your own white-label SaaS platform on GoHighLevel</strong> — branded domains, reusable snapshots, automated sub-account provisioning, Stripe billing, and Twilio/Mailgun integration. Launch your agency SaaS in weeks, not months.
+                We configure <strong className="text-white/90 font-medium">your own white-label SaaS platform on GoHighLevel</strong> branded domains, reusable snapshots, automated sub-account provisioning, Stripe billing, and Twilio/Mailgun integration. Launch your agency SaaS in weeks, not months.
               </p>
               <div className="flex gap-3.5 flex-wrap">
                 <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-8 py-3.5 rounded-[10px] text-[0.88rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
@@ -44,7 +44,7 @@ export default function WhiteLabelSaaSPage() {
                 <h3 className="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-white/50 mb-5">SaaS Results</h3>
                 <div className="flex items-center gap-4 py-3 border-b border-white/10">
                   <div className="text-[1.4rem] font-extrabold text-[#F8D000] tracking-[-0.03em] min-w-[80px]">100%</div>
-                  <div className="text-[0.78rem] text-white/50">White-label — your brand only</div>
+                  <div className="text-[0.78rem] text-white/50">White-label your brand only</div>
                 </div>
                 <div className="flex items-center gap-4 py-3 border-b border-white/10">
                   <div className="text-[1.4rem] font-extrabold text-[#F8D000] tracking-[-0.03em] min-w-[80px]">$0</div>
@@ -83,7 +83,7 @@ export default function WhiteLabelSaaSPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              { icon: '🏷️', color: 'blue', title: 'Branded Domain & Login', description: 'Your own branded subdomain (app.yourbrand.com) or custom domain. Clients log in to a platform that looks 100% like yours — no GoHighLevel branding anywhere.' },
+              { icon: '🏷️', color: 'blue', title: 'Branded Domain & Login', description: 'Your own branded subdomain (app.yourbrand.com) or custom domain. Clients log in to a platform that looks 100% like yours no GoHighLevel branding anywhere.' },
               { icon: '📸', color: 'green', title: 'Reusable Snapshots', description: 'Master snapshots that contain your pre-built CRM setup, funnels, automations, and templates. Deploy to new clients with one click. Scale without rebuilding.' },
               { icon: '💰', color: 'yellow', title: 'Stripe Billing Integration', description: 'Connect Stripe Connect to charge clients directly. Set up subscription plans, one-time payments, and automated invoicing. You keep 100% of revenue.' },
               { icon: '📱', color: 'blue', title: 'Twilio & Mailgun Setup', description: 'Configure Twilio for SMS and Mailgun for email deliverability. Your clients get reliable communication channels without your team managing it.' },
@@ -136,7 +136,7 @@ export default function WhiteLabelSaaSPage() {
               <div className="bg-[#1C2E4A] rounded-2xl p-8 text-white">
                 <h3 className="text-[1.1rem] font-bold mb-4">The Agency to SaaS Opportunity</h3>
                 <p className="text-[0.85rem] font-light text-white/60 leading-relaxed mb-3">Service-based agencies are capped by time and headcount. SaaS businesses scale infinitely. With GHL white-label, you keep 100% of client revenue while GHL handles the infrastructure.</p>
-                <p className="text-[0.85rem] font-light text-white/60 leading-relaxed mb-5">Our clients typically charge $197-$997/month per client. With 50 clients, that's $10k-$50k in monthly recurring revenue — without hiring developers or building software from scratch.</p>
+                <p className="text-[0.85rem] font-light text-white/60 leading-relaxed mb-5">Our clients typically charge $197-$997/month per client. With 50 clients, that's $10k-$50k in monthly recurring revenue without hiring developers or building software from scratch.</p>
                 <div className="flex items-center gap-3 py-3 border-t border-white/10">
                   <div className="text-[1.3rem] font-extrabold text-[#F8D000] min-w-[70px]">$10k+</div>
                   <div className="text-[0.78rem] text-white/50">Monthly MRR potential with 50 clients</div>
@@ -171,9 +171,9 @@ export default function WhiteLabelSaaSPage() {
           </div>
           <div className="flex flex-col">
             {[
-              { title: 'SaaS Strategy & Pricing', description: 'We help define your SaaS offering — what features to include, pricing tiers, and target market. We analyze competitors and identify your unique value proposition.' },
+              { title: 'SaaS Strategy & Pricing', description: 'We help define your SaaS offering what features to include, pricing tiers, and target market. We analyze competitors and identify your unique value proposition.' },
               { title: 'Snapshot & Template Creation', description: 'We build your master snapshot with all your pre-configured CRM pipelines, automations, funnels, and client templates. This becomes your deployable product.' },
-              { title: 'Branding & Domain Setup', description: 'We configure your branded domain, custom login page, and white-label everything. Your platform looks 100% like your brand — no GHL logos anywhere.' },
+              { title: 'Branding & Domain Setup', description: 'We configure your branded domain, custom login page, and white-label everything. Your platform looks 100% like your brand no GHL logos anywhere.' },
               { title: 'Billing & Payment Integration', description: 'We set up Stripe Connect to charge clients automatically. Configure subscription plans, trials, and automated invoicing.' },
               { title: 'Deployment & Onboarding', description: 'We set up automated sub-account provisioning. When clients sign up, their account is created instantly with your snapshot applied. Ready for launch.' },
             ].map((step, index) => (
@@ -230,9 +230,9 @@ export default function WhiteLabelSaaSPage() {
           <div className="max-w-[800px] mx-auto">
             {[
               { q: 'Do I need a GoHighLevel agency account?', a: 'Yes. You will need a GoHighLevel agency account (Unlimited plan) to white-label. We can help you set this up if you do not have one yet.' },
-              { q: 'Can I charge clients whatever I want?', a: 'Yes. You set your own pricing and keep 100% of client revenue. GHL only charges you for the agency account — your clients pay you directly.' },
+              { q: 'Can I charge clients whatever I want?', a: 'Yes. You set your own pricing and keep 100% of client revenue. GHL only charges you for the agency account your clients pay you directly.' },
               { q: 'How do clients sign up?', a: 'We set up a branded signup page. Clients enter their details, pay you via Stripe, and their sub-account is created automatically. Zero manual work for you.' },
-              { q: 'What can I include in my snapshot?', a: 'Everything — CRM pipelines, automation workflows, funnels, email templates, SMS sequences, calendars, and reporting dashboards. Whatever you want your clients to start with.' },
+              { q: 'What can I include in my snapshot?', a: 'Everything CRM pipelines, automation workflows, funnels, email templates, SMS sequences, calendars, and reporting dashboards. Whatever you want your clients to start with.' },
               { q: 'Can I update snapshots after launch?', a: 'Yes. You can update your master snapshot and push updates to existing clients or set them for new clients only. We help you manage version control.' },
               { q: 'How long does setup take?', a: 'Basic SaaS setup takes 2-3 weeks. More complex setups with custom branding and multiple pricing tiers take 3-4 weeks. We provide a timeline during consultation.' },
             ].map((faq, index) => (
