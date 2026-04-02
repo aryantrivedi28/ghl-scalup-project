@@ -2,12 +2,14 @@
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
+import ContactForm from '@/components/ContactForm';
 
 export const metadata = {
   title: 'How We Work — Our GoHighLevel Delivery Process | GHL Scale Up',
   description: '5-step delivery process: Understand, Design, Build, Test, Train. Fixed pricing, weekly updates, no surprises.'
 };
-
+// At the top of your HowWeWorkPage function
+console.log('ContactForm component:', ContactForm);
 export default function HowWeWorkPage() {
   const processSteps = [
     {
@@ -79,7 +81,7 @@ export default function HowWeWorkPage() {
   return (
     <>
       <Breadcrumb items={[{ label: 'How We Work' }]} />
-      
+
       {/* Page Hero */}
       <section className="bg-gradient-to-b from-[#1C2E4A] to-[#111E30] text-white py-16 md:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_60%_30%,rgba(14,155,240,0.1),transparent)] pointer-events-none"></div>
@@ -134,7 +136,7 @@ export default function HowWeWorkPage() {
               From First Call to <span className="text-[#0E9BF0]">Working System</span>
             </h2>
           </div>
-          
+
           <div className="flex flex-col">
             {processSteps.map((step, index) => (
               <div key={index} className="grid md:grid-cols-[80px_1fr] gap-6 py-8 border-b border-[#E8EDF4] last:border-b-0">
@@ -163,14 +165,13 @@ export default function HowWeWorkPage() {
               Every Project <span className="text-[#0E9BF0]">Includes</span>
             </h2>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {standards.map((standard, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-2xl p-8 text-center hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:-translate-y-1 transition-all">
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-[1.4rem] mx-auto mb-4 ${
-                  standard.iconBg === 'yellow' ? 'bg-[rgba(248,208,0,0.12)]' :
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-[1.4rem] mx-auto mb-4 ${standard.iconBg === 'yellow' ? 'bg-[rgba(248,208,0,0.12)]' :
                   standard.iconBg === 'blue' ? 'bg-[rgba(14,155,240,0.1)]' : 'bg-[rgba(37,201,125,0.1)]'
-                }`}>
+                  }`}>
                   {standard.icon}
                 </div>
                 <h3 className="text-[0.95rem] font-bold text-[#1C2E4A] mb-2">{standard.title}</h3>
@@ -193,7 +194,7 @@ export default function HowWeWorkPage() {
               What to Expect <span className="text-[#0E9BF0]">Week by Week</span>
             </h2>
           </div>
-          
+
           <div className="grid md:grid-cols-4 gap-4">
             <div className="bg-[#F4F7FA] rounded-xl p-5 text-center">
               <div className="w-12 h-12 rounded-full bg-[#F8D000] text-[#0B1421] flex items-center justify-center text-xl font-bold mx-auto mb-3">1</div>
@@ -216,7 +217,7 @@ export default function HowWeWorkPage() {
               <p className="text-[0.72rem] text-[#4A5568]">Go-live + Handover</p>
             </div>
           </div>
-          
+
           <div className="mt-8 text-center">
             <p className="text-[0.82rem] text-[#8A9BB0]">
               *Timelines vary based on project complexity. We'll give you a clear estimate during discovery.
@@ -279,12 +280,40 @@ export default function HowWeWorkPage() {
         </div>
       </section>
 
-      <CtaBand 
-        title='Ready to Start? <span class="hl-yellow">Book Your Free Call.</span>'
-        description="We understand your needs, design a plan, and give you a fixed-price quote."
-        primaryText="Book Your Free Strategy Call →"
-        primaryHref="/contact"
-      />
+
+      <section className="py-16 md:py-20 bg-gradient-to-b from-[#1C2E4A] to-[#111E30]">
+        <div className="max-w-[1200px] mx-auto px-4 md:px-8">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+            <div className="">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight mb-4">
+                Want to Work With a Team<br />
+                That <span className="text-[#F8D000]">Actually Gets GHL?</span>
+              </h2>
+              <p className="text-white/60 text-base leading-relaxed mb-6">
+                We are a small team on purpose — so every client gets senior-level attention,
+                not a junior passed off as an expert. Fill out the form and let's see if we're a good fit.
+              </p>
+              <div className="flex items-center gap-3 text-white/40 text-sm">
+                <span className="flex items-center gap-1">✓ No obligation</span>
+                <span className="w-1 h-1 bg-white/20 rounded-full"></span>
+                <span className="flex items-center gap-1">✓ Free consultation</span>
+                <span className="w-1 h-1 bg-white/20 rounded-full"></span>
+                <span className="flex items-center gap-1">✓ Response within 24h</span>
+              </div>
+            </div>
+            <div>
+              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-8">
+                <ContactForm
+                  variant="dark"
+                  title="Let's Talk"
+                  subtitle=""
+                  buttonText="Send Message →"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

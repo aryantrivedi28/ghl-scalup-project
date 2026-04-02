@@ -328,8 +328,6 @@ const ServiceCRMSetup = () => {
           </div>
         </div>
       </div>
-
-      <Footer />
     </>
   )
 }

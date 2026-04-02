@@ -4,6 +4,7 @@
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import CtaBand from '@/components/sections/CtaBand';
+import ContactForm from '@/components/ContactForm';
 
 export default function AboutClient() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -424,7 +425,7 @@ export default function AboutClient() {
         </div>
       </section>
 
-      <CtaBand 
+      {/* <CtaBand 
         title='Want to Work With a Team<br />That <span class="hl-yellow">Actually Gets GHL?</span>'
         description="We are a small team on purpose — so every client gets senior-level attention, not a junior passed off as an expert. Book a call and see the difference."
         primaryText="Book a Free Strategy Call →"
@@ -432,6 +433,40 @@ export default function AboutClient() {
         secondaryText="Email Us Directly"
         secondaryHref="mailto:aryan@ghlscaleup.com"
       />
+       */}
+      <section className="py-16 md:py-20 bg-gradient-to-b from-[#1C2E4A] to-[#111E30]">
+        <div className="max-w-[1200px] mx-auto px-4 md:px-8">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+            <div className="fade-in">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight mb-4">
+                Want to Work With a Team<br />
+                That <span className="text-[#F8D000]">Actually Gets GHL?</span>
+              </h2>
+              <p className="text-white/60 text-base leading-relaxed mb-6">
+                We are a small team on purpose — so every client gets senior-level attention,
+                not a junior passed off as an expert. Fill out the form and let's see if we're a good fit.
+              </p>
+              <div className="flex items-center gap-3 text-white/40 text-sm">
+                <span className="flex items-center gap-1">✓ No obligation</span>
+                <span className="w-1 h-1 bg-white/20 rounded-full"></span>
+                <span className="flex items-center gap-1">✓ Free consultation</span>
+                <span className="w-1 h-1 bg-white/20 rounded-full"></span>
+                <span className="flex items-center gap-1">✓ Response within 24h</span>
+              </div>
+            </div>
+            <div className="fade-in">
+              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-8">
+                <ContactForm
+                  variant="dark"
+                  title="Let's Talk"
+                  subtitle="Fill out the form and our team will reach out within 24 hours."
+                  buttonText="Send Message →"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
