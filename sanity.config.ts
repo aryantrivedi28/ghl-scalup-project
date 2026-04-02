@@ -1,19 +1,16 @@
-// sanity/sanity.config.ts
-import { defineConfig } from 'sanity';
-import { deskTool } from 'sanity/desk';
-import { visionTool } from '@sanity/vision';
-import { schemaTypes } from './sanity/schemaTypes';
+import { defineConfig } from "sanity";
+import { structureTool } from "sanity/structure";
+import { visionTool } from "@sanity/vision";
 
 export default defineConfig({
-  name: 'default',
-  title: 'GHL Scale Up',
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 't2htf078',
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
-  plugins: [deskTool(), visionTool()],
-  schema: {
-    types: schemaTypes,
-  },
-  studio: {
-    components: {},
-  },
+  name: "default",
+  title: "GHL Scalup CMS",
+
+  projectId: "t2htf078",
+  dataset: "production",
+
+  plugins: [
+    structureTool(), // ✅ replaced deskTool
+    visionTool(),
+  ],
 });
