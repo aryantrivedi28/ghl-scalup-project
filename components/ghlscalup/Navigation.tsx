@@ -1,4 +1,4 @@
-// components/ghlscalup/Navigation.tsx - Update with service page links
+// components/ghlscalup/Navigation.tsx - Updated with direct Case Studies & Testimonials
 'use client'
 
 import { useState } from 'react'
@@ -109,16 +109,11 @@ const Navigation = () => {
 
             <li><Link href="/how-we-work" className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors">How We Work</Link></li>
             
-            <li className="relative group">
-              <Link href="/results" className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors flex items-center gap-1">
-                Results <span className="text-[0.5rem] mt-0.5 group-hover:rotate-180 transition-transform">▼</span>
-              </Link>
-              <div className="absolute top-full left-0 bg-white rounded-b-xl shadow-[0_12px_40px_rgba(0,0,0,0.12)] py-3 min-w-[200px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all pointer-events-none group-hover:pointer-events-auto border-t-3 border-t-[#F8D000]">
-                <Link href="/case-studies" className="block px-3.5 py-2 rounded-md text-[0.82rem] font-medium text-[#1C2E4A] hover:bg-[#F4F7FA]">Case Studies</Link>
-                <Link href="/testimonials" className="block px-3.5 py-2 rounded-md text-[0.82rem] font-medium text-[#1C2E4A] hover:bg-[#F4F7FA]">Testimonials</Link>
-                <Link href="/portfolio" className="block px-3.5 py-2 rounded-md text-[0.82rem] font-medium text-[#1C2E4A] hover:bg-[#F4F7FA]">Portfolio</Link>
-              </div>
-            </li>
+            {/* Case Studies - Direct Link */}
+            <li><Link href="/case-studies" className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors">Case Studies</Link></li>
+            
+            {/* Testimonials - Direct Link */}
+            <li><Link href="/testimonials" className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors">Testimonials</Link></li>
             
             <li><Link href="/blog" className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors">Blog</Link></li>
           </ul>
@@ -149,9 +144,10 @@ const Navigation = () => {
               <li><Link href="/marketing" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>Marketing</Link></li>
               <li><Link href="/how-we-work" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>How We Work</Link></li>
               <li><Link href="/case-studies" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>Case Studies</Link></li>
+              <li><Link href="/testimonials" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>Testimonials</Link></li>
               <li><Link href="/blog" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>Blog</Link></li>
               <li><a href="tel:+919893270210" className="text-white text-base block py-2">+91 98932 70210</a></li>
-              <li><Link href="#contact" className="bg-[#F8D000] text-[#0B1421] px-6 py-3 rounded-lg text-center font-bold block mt-2" onClick={() => setIsMobileMenuOpen(false)}>Get in Touch</Link></li>
+              <li><Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-6 py-3 rounded-lg text-center font-bold block mt-2" onClick={() => setIsMobileMenuOpen(false)}>Get in Touch</Link></li>
             </ul>
           </div>
         )}

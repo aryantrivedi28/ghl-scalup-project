@@ -107,7 +107,7 @@ export default function ContactForm({
           
           <div>
             <label className="block text-xs font-medium text-white/70 mb-1.5">
-              Phone Number (Optional)
+              Phone Number
             </label>
             <input
               type="tel"

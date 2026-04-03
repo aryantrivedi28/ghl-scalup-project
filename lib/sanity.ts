@@ -15,7 +15,7 @@ export function urlFor(source: any) {
   return builder.image(source);
 }
 
-// Fetch all case studies
+// Case Study Functions
 export async function getAllCaseStudies() {
   const query = `*[_type == "caseStudy"] | order(publishedDate desc) {
     _id,
@@ -32,7 +32,6 @@ export async function getAllCaseStudies() {
   return await client.fetch(query);
 }
 
-// Fix: Properly pass the slug parameter
 export async function getCaseStudyBySlug(slug: string) {
   const query = `*[_type == "caseStudy" && slug.current == $slug][0] {
     _id,
@@ -50,28 +49,59 @@ export async function getCaseStudyBySlug(slug: string) {
     seoTitle,
     seoDescription
   }`;
-  // Pass the slug parameter correctly
   return await client.fetch(query, { slug });
 }
 
-// Fetch featured case studies
-export async function getFeaturedCaseStudies() {
-  const query = `*[_type == "caseStudy" && featured == true] | order(publishedDate desc)[0...3] {
+// Testimonial Functions
+export async function getAllTestimonials() {
+  const query = `*[_type == "testimonial"] | order(publishedDate desc) {
     _id,
-    title,
-    slug,
     clientName,
-    industry,
-    mainImage,
+    clientRole,
+    companyName,
+    companyLogo,
+    clientImage,
+    testimonial,
+    rating,
+    serviceUsed,
+    projectOutcome,
+    featured,
     publishedDate
   }`;
   return await client.fetch(query);
 }
 
-// Get all case study slugs for static generation
-export async function getAllCaseStudySlugs() {
-  const query = `*[_type == "caseStudy"] {
-    "slug": slug.current
+export async function getFeaturedTestimonials() {
+  const query = `*[_type == "testimonial" && featured == true] | order(publishedDate desc)[0...6] {
+    _id,
+    clientName,
+    clientRole,
+    companyName,
+    companyLogo,
+    clientImage,
+    testimonial,
+    rating,
+    serviceUsed,
+    projectOutcome
   }`;
   return await client.fetch(query);
+}
+
+export async function getTestimonialById(id: string) {
+  const query = `*[_type == "testimonial" && _id == $id][0] {
+    _id,
+    clientName,
+    clientRole,
+    companyName,
+    companyLogo,
+    clientImage,
+    testimonial,
+    rating,
+    serviceUsed,
+    projectOutcome,
+    publishedDate,
+    seoTitle,
+    seoDescription
+  }`;
+  return await client.fetch(query, { id });
 }
