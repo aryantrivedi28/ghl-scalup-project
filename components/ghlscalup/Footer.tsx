@@ -17,9 +17,9 @@ const Footer = () => {
               The #1 GoHighLevel expert agency for marketing agencies and businesses. We build complete
               GHL systems CRM, automation, AI, funnels, SaaS so you can scale without the tech headaches.
             </p>
-            <p className="text-[0.72rem] text-[#8A9BB0] mt-4">
+            {/* <p className="text-[0.72rem] text-[#8A9BB0] mt-4">
               A service by <Link href="https://www.finzie.co" target="_blank" className="text-white/60 hover:text-[#0E9BF0] transition-colors">Finzie</Link> • finzie.co
-            </p>
+            </p> */}
           </div>
           
           <div>
@@ -77,16 +77,16 @@ const Footer = () => {
             <div className="mt-6">
               <h4 className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#8A9BB0] mb-3">Follow Us</h4>
               <div className="flex gap-3">
-                <Link href="https://linkedin.com/company/ghlscaleup" target="_blank" className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#0E9BF0] hover:text-white hover:border-[#0E9BF0] transition-all">
+                <Link href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#0E9BF0] hover:text-white hover:border-[#0E9BF0] transition-all">
                   in
                 </Link>
-                <Link href="https://twitter.com/ghlscaleup" target="_blank" className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#0E9BF0] hover:text-white hover:border-[#0E9BF0] transition-all">
+                <Link href="https://x.com/GHLScaleUp" target="_blank" className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#0E9BF0] hover:text-white hover:border-[#0E9BF0] transition-all">
                   𝕏
                 </Link>
                 <Link href="https://facebook.com/ghlscaleup" target="_blank" className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#0E9BF0] hover:text-white hover:border-[#0E9BF0] transition-all">
                   f
                 </Link>
-                <Link href="https://instagram.com/ghlscaleup" target="_blank" className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#0E9BF0] hover:text-white hover:border-[#0E9BF0] transition-all">
+                <Link href="https://www.instagram.com/ghl_scale_up/?utm_source=ig_web_button_share_sheet" target="_blank" className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#0E9BF0] hover:text-white hover:border-[#0E9BF0] transition-all">
                   📷
                 </Link>
               </div>
