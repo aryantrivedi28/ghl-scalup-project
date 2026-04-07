@@ -26,27 +26,23 @@ export async function POST(request: NextRequest) {
       requirement: 'General Inquiry',
     };
 
-    // Send thank you email to CUSTOMER
-    console.log('Sending thank you email to customer:', email);
+    // 1. Send THANK YOU email to CUSTOMER (Template 17)
+    console.log('📧 Sending THANK YOU email to customer:', email);
     await sendTemplateEmail({
-      to: {
-        email: email,  // Make sure this is a string
-        name: name,
-      },
+      to: { email: email, name: name },
       templateId: Number(process.env.BREVO_CUSTOMER_TEMPLATE_ID || '17'),
       params: templateParams,
     });
 
-    // Send notification to ADMIN
-    console.log('Sending notification to admin:', process.env.BREVO_ADMIN_EMAIL);
+    // 2. Send NOTIFICATION email to ADMIN (Template 16)
+    const adminEmail = process.env.BREVO_ADMIN_EMAIL || 'aryan@ghlscaleup.com';
+    console.log('📧 Sending NOTIFICATION to admin:', adminEmail);
+    
     await sendTemplateEmail({
-      to: {
-        email: process.env.BREVO_ADMIN_EMAIL!,
-        name: 'Admin',
-      },
+      to: { email: adminEmail, name: 'GHL Scale Up Admin' },
       templateId: Number(process.env.BREVO_ADMIN_TEMPLATE_ID || '16'),
       params: templateParams,
-      replyTo: email,  // This should be a string email, not an object
+      replyTo: email,
     });
 
     return NextResponse.json({ 

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   description:
     'Hire GoHighLevel experts for CRM setup, workflow automation, funnel building, AI lead systems, and white-label SaaS.',
   icons: {
-    icon: '/ghlscaleupicon.png',
+    icon: '/ghlscalicon.png',
   },
   openGraph: {
     title: 'GHL Scale Up',

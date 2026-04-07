@@ -9,15 +9,7 @@ export async function POST(request: NextRequest) {
 
     console.log('Contact Page Submission:', { name, email, phone, service, message });
 
-    // Validate required fields
-    if (!name || !email || !message) {
-      return NextResponse.json(
-        { error: 'Name, email, and message are required' },
-        { status: 400 }
-      );
-    }
-
-    // Prepare template parameters matching your HTML template
+    // Prepare template parameters
     const templateParams = {
       name: name,
       email: email,
@@ -26,34 +18,24 @@ export async function POST(request: NextRequest) {
       message: message,
     };
 
-    // Send thank you email to CUSTOMER using your beautiful template
-    console.log('Sending thank you email to customer:', email);
+    // 1. Send THANK YOU email to CUSTOMER
+    console.log('📧 Sending THANK YOU email to customer:', email);
     await sendTemplateEmail({
-      to: {
-        email: email,
-        name: name,
-      },
-      templateId: Number(process.env.BREVO_CONTACT_CUSTOMER_TEMPLATE_ID || '18'),
+      to: { email: email, name: name },
+      templateId: Number(process.env.BREVO_CUSTOMER_TEMPLATE_ID || '18'),
       params: templateParams,
     });
 
-    // Send notification to ADMIN
-    const adminEmail = process.env.BREVO_ADMIN_EMAIL;
+    // 2. Send NOTIFICATION email to ADMIN
+    const adminEmail = process.env.BREVO_ADMIN_EMAIL || 'aryan@ghlscaleup.com';
+    console.log('📧 Sending NOTIFICATION to admin:', adminEmail);
     
-    if (!adminEmail) {
-      console.error('⚠️ BREVO_ADMIN_EMAIL is not set');
-    } else {
-      console.log('Sending notification to admin:', adminEmail);
-      await sendTemplateEmail({
-        to: {
-          email: adminEmail,
-          name: 'Admin',
-        },
-        templateId: Number(process.env.BREVO_CONTACT_ADMIN_TEMPLATE_ID || '19'),
-        params: templateParams,
-        replyTo: email,
-      });
-    }
+    await sendTemplateEmail({
+      to: { email: adminEmail, name: 'GHL Scale Up Admin' },
+      templateId: Number(process.env.BREVO_ADMIN_TEMPLATE_ID || '19'),
+      params: templateParams,
+      replyTo: email, // Important: So you can reply directly to customer
+    });
 
     return NextResponse.json({ 
       success: true, 
