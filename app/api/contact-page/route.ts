@@ -9,6 +9,14 @@ export async function POST(request: NextRequest) {
 
     console.log('Contact Page Submission:', { name, email, phone, service, message });
 
+    // Validate required fields
+    if (!name || !email || !message) {
+      return NextResponse.json(
+        { error: 'Name, email, and message are required' },
+        { status: 400 }
+      );
+    }
+
     // Prepare template parameters
     const templateParams = {
       name: name,
@@ -18,7 +26,7 @@ export async function POST(request: NextRequest) {
       message: message,
     };
 
-    // 1. Send THANK YOU email to CUSTOMER
+    // 1. Send THANK YOU email to CUSTOMER (Template 18 - Customer Thank You)
     console.log('📧 Sending THANK YOU email to customer:', email);
     await sendTemplateEmail({
       to: { email: email, name: name },
@@ -26,7 +34,7 @@ export async function POST(request: NextRequest) {
       params: templateParams,
     });
 
-    // 2. Send NOTIFICATION email to ADMIN
+    // 2. Send NOTIFICATION email to ADMIN (Template 19 - Admin Notification)
     const adminEmail = process.env.BREVO_ADMIN_EMAIL || 'aryan@ghlscaleup.com';
     console.log('📧 Sending NOTIFICATION to admin:', adminEmail);
     
@@ -34,7 +42,7 @@ export async function POST(request: NextRequest) {
       to: { email: adminEmail, name: 'GHL Scale Up Admin' },
       templateId: Number(process.env.BREVO_ADMIN_TEMPLATE_ID || '19'),
       params: templateParams,
-      replyTo: email, // Important: So you can reply directly to customer
+      replyTo: email,
     });
 
     return NextResponse.json({ 
