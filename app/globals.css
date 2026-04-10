@@ -82,37 +82,3 @@
   }
 }
 
-
-/* Better image rendering */
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Prose styling for case study content */
-.prose {
-  max-width: 100%;
-}
-
-.prose p {
-  margin-bottom: 1rem;
-  line-height: 1.7;
-}
-
-.prose ul, .prose ol {
-  margin: 1rem 0;
-  padding-left: 1.5rem;
-}
-
-.prose li {
-  margin: 0.5rem 0;
-}
-
-/* Responsive images */
-.aspect-video {
-  aspect-ratio: 16 / 9;
-}
-
-.aspect-square {
-  aspect-ratio: 1 / 1;
-}
