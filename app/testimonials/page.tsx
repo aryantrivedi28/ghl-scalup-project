@@ -1,5 +1,5 @@
 // app/testimonials/page.tsx
-import { getAllTestimonials, getFeaturedTestimonials } from '@/lib/sanity';
+// import { getAllTestimonials, getFeaturedTestimonials } from '@/lib/sanity';
 import TestimonialsPage from '@/components/testimonials/TestimonialsPage';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 
@@ -15,13 +15,13 @@ export const metadata = {
 };
 
 export default async function Testimonials() {
-  const testimonials = await getAllTestimonials();
-  const featuredTestimonials = await getFeaturedTestimonials();
+  // const testimonials = await getAllTestimonials();
+  // const featuredTestimonials = await getFeaturedTestimonials();
 
   return (
     <>
       <Breadcrumb items={[{ label: 'Testimonials' }]} />
-      <TestimonialsPage testimonials={testimonials} featuredTestimonials={featuredTestimonials} />
+      {/* <TestimonialsPage testimonials={testimonials} featuredTestimonials={featuredTestimonials} /> */}
     </>
   );
 }
