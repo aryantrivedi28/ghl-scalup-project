@@ -16,6 +16,8 @@ export function urlFor(source: any) {
   return builder.image(source);
 }
 
+// ============= CASE STUDIES =============
+
 // Fetch all visible case studies (ordered by ranking and order)
 export async function getAllCaseStudies() {
   const query = `*[_type == "caseStudy" && isHidden != true] | order(ranking asc, order asc, _createdAt desc) {
@@ -78,4 +80,168 @@ export async function getFeaturedCaseStudies(limit: number = 3) {
     "videoUrl": video.videoUrl
   }`;
   return await client.fetch(query);
+}
+
+// ============= TESTIMONIALS =============
+
+// Fetch all testimonials (ordered by published date - newest first)
+export async function getAllTestimonials() {
+  const query = `*[_type == "testimonial"] | order(publishedDate desc, rating desc) {
+    _id,
+    clientName,
+    clientRole,
+    companyName,
+    "companyLogo": companyLogo.asset->url,
+    "clientImage": clientImage.asset->url,
+    testimonial,
+    rating,
+    serviceUsed,
+    projectOutcome,
+    featured,
+    publishedDate,
+    seoTitle,
+    seoDescription
+  }`;
+  return await client.fetch(query);
+}
+
+// Fetch featured testimonials (for homepage)
+export async function getFeaturedTestimonials(limit: number = 3) {
+  const query = `*[_type == "testimonial" && featured == true] | order(publishedDate desc, rating desc)[0...${limit}] {
+    _id,
+    clientName,
+    clientRole,
+    companyName,
+    "companyLogo": companyLogo.asset->url,
+    "clientImage": clientImage.asset->url,
+    testimonial,
+    rating,
+    serviceUsed,
+    projectOutcome,
+    publishedDate
+  }`;
+  return await client.fetch(query);
+}
+
+// Fetch testimonials by rating (e.g., 5-star testimonials)
+export async function getTestimonialsByRating(minRating: number = 4) {
+  const query = `*[_type == "testimonial" && rating >= $minRating] | order(rating desc, publishedDate desc) {
+    _id,
+    clientName,
+    clientRole,
+    companyName,
+    "companyLogo": companyLogo.asset->url,
+    "clientImage": clientImage.asset->url,
+    testimonial,
+    rating,
+    serviceUsed,
+    projectOutcome,
+    publishedDate
+  }`;
+  return await client.fetch(query, { minRating });
+}
+
+// Fetch testimonials by service used
+export async function getTestimonialsByService(service: string) {
+  const query = `*[_type == "testimonial" && $service in serviceUsed] | order(publishedDate desc, rating desc) {
+    _id,
+    clientName,
+    clientRole,
+    companyName,
+    "companyLogo": companyLogo.asset->url,
+    "clientImage": clientImage.asset->url,
+    testimonial,
+    rating,
+    serviceUsed,
+    projectOutcome,
+    publishedDate
+  }`;
+  return await client.fetch(query, { service });
+}
+
+// Get a single testimonial by ID
+export async function getTestimonialById(id: string) {
+  const query = `*[_type == "testimonial" && _id == $id][0] {
+    _id,
+    clientName,
+    clientRole,
+    companyName,
+    "companyLogo": companyLogo.asset->url,
+    "clientImage": clientImage.asset->url,
+    testimonial,
+    rating,
+    serviceUsed,
+    projectOutcome,
+    featured,
+    publishedDate,
+    seoTitle,
+    seoDescription
+  }`;
+  return await client.fetch(query, { id });
+}
+
+// Get testimonials statistics (average rating, total count)
+export async function getTestimonialsStats() {
+  const query = `{
+    "total": count(*[_type == "testimonial"]),
+    "averageRating": round(avg(*[_type == "testimonial"].rating), 1),
+    "fiveStarCount": count(*[_type == "testimonial" && rating == 5]),
+    "fourStarCount": count(*[_type == "testimonial" && rating == 4]),
+    "threeStarCount": count(*[_type == "testimonial" && rating == 3]),
+    "featuredCount": count(*[_type == "testimonial" && featured == true])
+  }`;
+  return await client.fetch(query);
+}
+
+// Get unique services used across testimonials
+export async function getUniqueServices() {
+  const query = `*[_type == "testimonial"] | {
+    "services": serviceUsed
+  }`;
+  const result = await client.fetch(query);
+  
+  // Extract unique services
+  const services = new Set<string>();
+  result.forEach((item: any) => {
+    if (item.services && Array.isArray(item.services)) {
+      item.services.forEach((service: string) => services.add(service));
+    }
+  });
+  
+  return Array.from(services).sort();
+}
+
+// Get recent testimonials with pagination
+export async function getRecentTestimonials(page: number = 1, pageSize: number = 9) {
+  const start = (page - 1) * pageSize;
+  const end = start + pageSize;
+  
+  const query = `*[_type == "testimonial"] | order(publishedDate desc) [${start}...${end}] {
+    _id,
+    clientName,
+    clientRole,
+    companyName,
+    "companyLogo": companyLogo.asset->url,
+    "clientImage": clientImage.asset->url,
+    testimonial,
+    rating,
+    serviceUsed,
+    projectOutcome,
+    publishedDate
+  }`;
+  
+  const countQuery = `count(*[_type == "testimonial"])`;
+  
+  const [testimonials, total] = await Promise.all([
+    client.fetch(query),
+    client.fetch(countQuery)
+  ]);
+  
+  return {
+    testimonials,
+    total,
+    page,
+    pageSize,
+    totalPages: Math.ceil(total / pageSize)
+  };
 }
