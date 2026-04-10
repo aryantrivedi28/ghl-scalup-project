@@ -1,5 +1,5 @@
 {
-  "createdAt": "2026-04-03T22:51:26.544Z",
+  "createdAt": "2026-04-10T07:48:50.284Z",
   "studioVersion": "5.19.0",
   "version": 3,
   "workspaces": [
@@ -13,7 +13,7 @@
       },
       "name": "default",
       "projectId": "t2htf078",
-      "schema": "d484b8bc.create-schema.json",
+      "schema": "420d9141.create-schema.json",
       "title": "GHL Scalup CMS",
       "tools": "a1fd46b5.create-tools.json"
     }

@@ -2,11 +2,10 @@
 import { getAllCaseStudies } from '@/lib/sanity';
 import CaseStudyCard from '@/components/case-studies/CaseStudyCard';
 import Breadcrumb from '@/components/layout/Breadcrumb';
-import Link from 'next/link';
 
 export const metadata = {
   title: 'Case Studies | GHL Scale Up',
-  description: 'See how we\'ve helped businesses scale with GoHighLevel. Real results, real ROI.',
+  description: 'See how we\'ve helped businesses scale with GoHighLevel. Real results, real ROI from our expert team.',
 };
 
 export default async function CaseStudiesPage() {
