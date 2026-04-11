@@ -12,8 +12,18 @@ import Testimonials from '@/components/ghlscalup/Testimonials'
 import Blog from '@/components/ghlscalup/Blog'
 import FinalCTA from '@/components/ghlscalup/FinalCTA'
 import Footer from '@/components/ghlscalup/Footer'
+import { getAllTestimonialsForHomepage } from '@/lib/sanity'
 
-export default function Home() {
+export default async function Home() {
+  // Fetch testimonials from Sanity
+  let testimonials = [];
+  try {
+    testimonials = await getAllTestimonialsForHomepage();
+    console.log('Loaded testimonials:', testimonials.length);
+  } catch (error) {
+    console.error('Failed to load testimonials:', error);
+  }
+
   return (
     <main>
       {/* <Navigation /> */}
@@ -25,7 +35,8 @@ export default function Home() {
       <Process />
       <ContactCTA />
       <Industries />
-      <Testimonials />
+      {/* Pass testimonials data to the component */}
+      <Testimonials testimonials={testimonials} />
       <Blog />
       <FinalCTA />
       {/* <Footer /> */}
