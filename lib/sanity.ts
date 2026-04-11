@@ -84,45 +84,6 @@ export async function getFeaturedCaseStudies(limit: number = 3) {
 
 // ============= TESTIMONIALS =============
 
-// Fetch all testimonials (ordered by published date - newest first)
-export async function getAllTestimonials() {
-  const query = `*[_type == "testimonial"] | order(publishedDate desc, rating desc) {
-    _id,
-    clientName,
-    clientRole,
-    companyName,
-    "companyLogo": companyLogo.asset->url,
-    "clientImage": clientImage.asset->url,
-    testimonial,
-    rating,
-    serviceUsed,
-    projectOutcome,
-    featured,
-    publishedDate,
-    seoTitle,
-    seoDescription
-  }`;
-  return await client.fetch(query);
-}
-
-// Fetch featured testimonials (for homepage)
-export async function getFeaturedTestimonials(limit: number = 3) {
-  const query = `*[_type == "testimonial" && featured == true] | order(publishedDate desc, rating desc)[0...${limit}] {
-    _id,
-    clientName,
-    clientRole,
-    companyName,
-    "companyLogo": companyLogo.asset->url,
-    "clientImage": clientImage.asset->url,
-    testimonial,
-    rating,
-    serviceUsed,
-    projectOutcome,
-    publishedDate
-  }`;
-  return await client.fetch(query);
-}
-
 // Fetch testimonials by rating (e.g., 5-star testimonials)
 export async function getTestimonialsByRating(minRating: number = 4) {
   const query = `*[_type == "testimonial" && rating >= $minRating] | order(rating desc, publishedDate desc) {
@@ -159,26 +120,6 @@ export async function getTestimonialsByService(service: string) {
   return await client.fetch(query, { service });
 }
 
-// Get a single testimonial by ID
-export async function getTestimonialById(id: string) {
-  const query = `*[_type == "testimonial" && _id == $id][0] {
-    _id,
-    clientName,
-    clientRole,
-    companyName,
-    "companyLogo": companyLogo.asset->url,
-    "clientImage": clientImage.asset->url,
-    testimonial,
-    rating,
-    serviceUsed,
-    projectOutcome,
-    featured,
-    publishedDate,
-    seoTitle,
-    seoDescription
-  }`;
-  return await client.fetch(query, { id });
-}
 
 // Get testimonials statistics (average rating, total count)
 export async function getTestimonialsStats() {
@@ -244,4 +185,85 @@ export async function getRecentTestimonials(page: number = 1, pageSize: number =
     pageSize,
     totalPages: Math.ceil(total / pageSize)
   };
+}
+
+// Fetch all testimonials
+export async function getAllTestimonials() {
+  const query = `*[_type == "testimonial"] | order(publishedDate desc) {
+    _id,
+    clientName,
+    clientRole,
+    companyName,
+    companyLogo,
+    clientImage,
+    testimonial,
+    rating,
+    serviceUsed,
+    projectOutcome,
+    featured,
+    publishedDate
+  }`;
+  const result = await client.fetch(query);
+  return result || [];
+}
+
+// Fetch featured testimonials for homepage
+export async function getFeaturedTestimonials(limit: number = 6) {
+  const query = `*[_type == "testimonial" && featured == true] | order(publishedDate desc)[0...${limit}] {
+    _id,
+    clientName,
+    clientRole,
+    companyName,
+    companyLogo,
+    clientImage,
+    testimonial,
+    rating,
+    serviceUsed,
+    projectOutcome
+  }`;
+  const result = await client.fetch(query);
+  return result || [];
+}
+
+// Fetch single testimonial by ID
+export async function getTestimonialById(id: string) {
+  const query = `*[_type == "testimonial" && _id == $id][0] {
+    _id,
+    clientName,
+    clientRole,
+    companyName,
+    companyLogo,
+    clientImage,
+    testimonial,
+    rating,
+    serviceUsed,
+    projectOutcome,
+    featured,
+    publishedDate,
+    seoTitle,
+    seoDescription
+  }`;
+  const result = await client.fetch(query, { id });
+  return result || null;
+}
+
+
+// Fetch all testimonials without featured filter
+export async function getAllTestimonialsForHomepage() {
+  const query = `*[_type == "testimonial"] | order(publishedDate desc) {
+    _id,
+    clientName,
+    clientRole,
+    companyName,
+    companyLogo,
+    clientImage,
+    testimonial,
+    rating,
+    serviceUsed,
+    projectOutcome,
+    featured,
+    publishedDate
+  }`;
+  const result = await client.fetch(query);
+  return result || [];
 }
