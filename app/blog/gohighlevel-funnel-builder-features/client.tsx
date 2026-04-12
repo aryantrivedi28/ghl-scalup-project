@@ -354,7 +354,7 @@ export default function GHLFunnelBuilderClient() {
       </div>
 
       {/* Related Posts */}
-      <section className="border-t border-[#DDE1E9] py-12 md:py-16 px-4 md:px-6">
+      {/* <section className="border-t border-[#DDE1E9] py-12 md:py-16 px-4 md:px-6">
         <div className="max-w-[1080px] mx-auto">
           <h2 className="text-xl md:text-2xl font-bold text-[#1C2E4A] mb-6 md:mb-8">Related articles</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
@@ -372,7 +372,7 @@ export default function GHLFunnelBuilderClient() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 }
