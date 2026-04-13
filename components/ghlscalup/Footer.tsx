@@ -66,11 +66,6 @@ const Footer = () => {
                   🌐 www.ghlscaleup.com
                 </Link>
               </li>
-              <li className="mb-2.5">
-                <Link href="https://www.finzie.co" target="_blank" className="text-white/45 text-[0.82rem] font-light hover:text-[#0E9BF0] transition-colors flex items-center gap-2">
-                  🌐 www.finzie.co
-                </Link>
-              </li>
             </ul>
             
             {/* Social Media Links */}
