@@ -3,6 +3,33 @@
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { 
+  Clock, 
+  GraduationCap, 
+  CheckCircle2, 
+  Star, 
+  LayoutTemplate, 
+  Globe, 
+  CreditCard, 
+  Users, 
+  TrendingUp,
+  ArrowRight,
+  Copy,
+  Linkedin,
+  Twitter,
+  Menu,
+  X,
+  Zap,
+  Shield,
+  DollarSign,
+  Rocket,
+  Target,
+  BarChart3,
+  Settings,
+  Sparkles,
+  BookOpen,
+  ChevronRight
+} from 'lucide-react';
 import CopyButton from '@/components/blog/CopyButton';
 
 export default function GHLWhiteLabelSaaSClient() {
@@ -24,7 +51,6 @@ export default function GHLWhiteLabelSaaSClient() {
 
     headings.forEach((heading) => observer.observe(heading));
 
-    // Progress bar
     const progressBar = document.getElementById('progress-bar');
     const updateProgress = () => {
       const scrollTop = window.scrollY;
@@ -74,9 +100,9 @@ export default function GHLWhiteLabelSaaSClient() {
       <nav className="bg-[#F8F9FB] border-b border-[#DDE1E9] py-3 px-4 md:px-6">
         <div className="max-w-[1080px] mx-auto flex items-center gap-2 text-xs md:text-sm text-[#5C6880] overflow-x-auto whitespace-nowrap">
           <Link href="/" className="hover:text-[#0E9BF0] transition-colors">Home</Link>
-          <span className="text-[#96A0B5]">›</span>
+          <ChevronRight className="w-3 h-3 text-[#96A0B5]" />
           <Link href="/blog" className="hover:text-[#0E9BF0] transition-colors">Blog</Link>
-          <span className="text-[#96A0B5]">›</span>
+          <ChevronRight className="w-3 h-3 text-[#96A0B5]" />
           <span className="text-[#1A2236] font-medium">GHL White-Label SaaS Guide</span>
         </div>
       </nav>
@@ -88,7 +114,7 @@ export default function GHLWhiteLabelSaaSClient() {
         
         <div className="max-w-[760px] mx-auto relative z-10">
           <div className="inline-flex items-center gap-1.5 bg-[rgba(14,155,240,0.15)] border border-[rgba(14,155,240,0.3)] text-[#0E9BF0] text-[11px] md:text-xs font-semibold tracking-wide uppercase px-2.5 py-1 md:px-3 md:py-1.5 rounded-full mb-4 md:mb-6">
-            <span className="w-1.5 h-1.5 bg-[#0E9BF0] rounded-full" />
+            <Sparkles className="w-3 h-3" />
             GHL SaaS · Complete Guide
           </div>
           
@@ -114,11 +140,11 @@ export default function GHLWhiteLabelSaaSClient() {
             <div className="w-px h-6 md:h-8 bg-white/15" />
             <div className="flex gap-3 md:gap-5">
               <span className="flex items-center gap-1 text-[10px] md:text-xs text-white/50">
-                <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.5"/><path d="M7 4v3.5l2 2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
+                <Clock className="w-3 h-3" />
                 12 min read
               </span>
               <span className="flex items-center gap-1 text-[10px] md:text-xs text-white/50">
-                <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M7 1.5C4 1.5 1.5 4 1.5 7s2.5 5.5 5.5 5.5 5.5-2.5 5.5-5.5S10 1.5 7 1.5z" stroke="currentColor" strokeWidth="1.5"/><path d="M5 7l1.5 1.5L9 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                <GraduationCap className="w-3 h-3" />
                 Advanced
               </span>
             </div>
@@ -141,14 +167,17 @@ export default function GHLWhiteLabelSaaSClient() {
             {/* Stats Row */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 my-8 md:my-10">
               <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-4 md:p-6 text-center">
+                <Rocket className="w-8 h-8 text-[#0E9BF0] mx-auto mb-2" />
                 <div className="text-3xl md:text-4xl font-extrabold text-[#1C2E4A] mb-1 md:mb-2"><span className="text-[#0E9BF0]">3</span>x</div>
                 <div className="text-xs md:text-sm text-[#5C6880] leading-relaxed">higher MRR compared to one-off GHL projects</div>
               </div>
               <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-4 md:p-6 text-center">
+                <Zap className="w-8 h-8 text-[#0E9BF0] mx-auto mb-2" />
                 <div className="text-3xl md:text-4xl font-extrabold text-[#1C2E4A] mb-1 md:mb-2"><span className="text-[#0E9BF0]">10</span>min</div>
                 <div className="text-xs md:text-sm text-[#5C6880] leading-relaxed">average setup time for a new client sub-account</div>
               </div>
               <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-4 md:p-6 text-center sm:col-span-2 lg:col-span-1">
+                <Shield className="w-8 h-8 text-[#0E9BF0] mx-auto mb-2" />
                 <div className="text-3xl md:text-4xl font-extrabold text-[#1C2E4A] mb-1 md:mb-2"><span className="text-[#0E9BF0]">100</span>%</div>
                 <div className="text-xs md:text-sm text-[#5C6880] leading-relaxed">brandable — your logo, domain, colors on every page</div>
               </div>
@@ -164,7 +193,7 @@ export default function GHLWhiteLabelSaaSClient() {
               <div className="absolute top-0 left-0 w-1 h-full bg-[#0E9BF0] rounded-l" />
               <div className="inline-flex items-center gap-2 text-[10px] md:text-xs font-bold tracking-wider uppercase text-[#0E9BF0] mb-2 md:mb-3">
                 <div className="w-4 h-4 md:w-5 md:h-5 bg-[#E8F5FE] rounded flex items-center justify-center">
-                  <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><rect x="1" y="1" width="4" height="4" rx="1" fill="#0E9BF0"/><rect x="7" y="1" width="4" height="4" rx="1" fill="#0E9BF0"/><rect x="1" y="7" width="4" height="4" rx="1" fill="#0E9BF0"/><rect x="7" y="7" width="4" height="4" rx="1" fill="#0E9BF0"/></svg>
+                  <Target className="w-3 h-3 text-[#0E9BF0]" />
                 </div>
                 Why Go SaaS?
               </div>
@@ -185,9 +214,7 @@ export default function GHLWhiteLabelSaaSClient() {
                 'At least one snapshot ready (a pre-built GHL setup you\'ll sell as a template)',
               ].map((item, idx) => (
                 <li key={idx} className="flex items-start gap-2 md:gap-3 text-sm md:text-base text-[#5C6880]">
-                  <span className="w-4 h-4 md:w-5 md:h-5 bg-[#E8FAF2] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <svg width="10" height="8" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="#25C97D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                  </span>
+                  <CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" />
                   {item}
                 </li>
               ))}
@@ -195,7 +222,7 @@ export default function GHLWhiteLabelSaaSClient() {
 
             <div className="bg-[#0B1628] rounded-xl p-5 md:p-7 lg:p-8 my-8 md:my-9 flex gap-3 md:gap-4 items-start">
               <div className="w-7 h-7 md:w-9 md:h-9 bg-[rgba(248,208,0,0.15)] rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 md:mt-1">
-                <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><path d="M9 2L11.5 7H16.5L12.5 10.5L14 16L9 13L4 16L5.5 10.5L1.5 7H6.5L9 2Z" fill="#F8D000"/></svg>
+                <Star className="w-4 h-4 text-[#F8D000]" />
               </div>
               <div>
                 <div className="text-xs md:text-sm font-bold text-[#F8D000] mb-1">Important Note</div>
@@ -214,7 +241,7 @@ export default function GHLWhiteLabelSaaSClient() {
               <div className="absolute top-0 left-0 w-1 h-full bg-[#F8D000] rounded-l" />
               <div className="inline-flex items-center gap-2 text-[10px] md:text-xs font-bold tracking-wider uppercase text-[#a07a00] mb-2 md:mb-3">
                 <div className="w-4 h-4 md:w-5 md:h-5 bg-[#FFFBE6] rounded flex items-center justify-center">
-                  <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><rect x="1" y="3" width="10" height="2" rx="1" fill="#a07a00"/><rect x="1" y="7" width="7" height="2" rx="1" fill="#a07a00"/></svg>
+                  <Globe className="w-3 h-3 text-[#a07a00]" />
                 </div>
                 Pro Tip
               </div>
@@ -235,9 +262,7 @@ export default function GHLWhiteLabelSaaSClient() {
                 'Custom checkout flow settings',
               ].map((item, idx) => (
                 <li key={idx} className="flex items-start gap-2 md:gap-3 text-sm md:text-base text-[#5C6880]">
-                  <span className="w-4 h-4 md:w-5 md:h-5 bg-[#E8FAF2] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <svg width="10" height="8" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="#25C97D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                  </span>
+                  <CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" />
                   {item}
                 </li>
               ))}
@@ -278,9 +303,7 @@ export default function GHLWhiteLabelSaaSClient() {
                 'Track MRR, churn, and LTV directly in GHL',
               ].map((item, idx) => (
                 <li key={idx} className="flex items-start gap-2 md:gap-3 text-sm md:text-base text-[#5C6880]">
-                  <span className="w-4 h-4 md:w-5 md:h-5 bg-[#E8FAF2] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <svg width="10" height="8" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="#25C97D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                  </span>
+                  <CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" />
                   {item}
                 </li>
               ))}
@@ -341,9 +364,7 @@ export default function GHLWhiteLabelSaaSClient() {
                 'Creating case studies and testimonials from early clients',
               ].map((item, idx) => (
                 <li key={idx} className="flex items-start gap-2 md:gap-3 text-sm md:text-base text-[#5C6880]">
-                  <span className="w-4 h-4 md:w-5 md:h-5 bg-[#E8FAF2] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <svg width="10" height="8" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="#25C97D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                  </span>
+                  <TrendingUp className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" />
                   {item}
                 </li>
               ))}
@@ -367,7 +388,7 @@ export default function GHLWhiteLabelSaaSClient() {
                 <div className="flex flex-wrap gap-3 justify-center">
                   <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1628] font-bold px-5 md:px-7 py-2.5 md:py-3.5 rounded-lg text-sm md:text-base hover:bg-[#FFE44D] hover:-translate-y-0.5 transition-all">
                     Book a free strategy call
-                    <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    <ArrowRight className="w-4 h-4" />
                   </Link>
                   <Link href="/case-studies" className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white font-semibold px-5 md:px-7 py-2.5 md:py-3.5 rounded-lg text-sm md:text-base hover:bg-white/20 transition-all">See our work</Link>
                 </div>
@@ -379,7 +400,10 @@ export default function GHLWhiteLabelSaaSClient() {
           <aside className="lg:sticky lg:top-24 space-y-6">
             {/* Table of Contents */}
             <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6">
-              <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4">In this guide</div>
+              <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
+                <BookOpen className="w-3 h-3" />
+                In this guide
+              </div>
               <ul className="space-y-0.5">
                 {tocItems.map((item) => (
                   <li key={item.id}>
@@ -400,11 +424,14 @@ export default function GHLWhiteLabelSaaSClient() {
 
             {/* CTA Card */}
             <div className="bg-[#0B1628] rounded-xl p-5 md:p-6">
-              <div className="text-sm md:text-base font-bold text-white mb-2">Want us to set up your GHL SaaS?</div>
+              <div className="text-sm md:text-base font-bold text-white mb-2 flex items-center gap-2">
+                <Settings className="w-4 h-4 text-[#F8D000]" />
+                Want us to set up your GHL SaaS?
+              </div>
               <div className="text-xs md:text-sm text-white/60 leading-relaxed mb-4 md:mb-5">We've done this for 50+ agencies. Domains, snapshots, Stripe, onboarding — all done for you.</div>
               <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1628] font-bold py-2.5 md:py-3 rounded-lg text-sm md:text-base hover:bg-[#FFE44D] transition-all">
                 Get a quote
-                <svg width="12" height="12" viewBox="0 0 13 13" fill="none"><path d="M2.5 6.5h8M8 3.5l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
 
@@ -413,11 +440,11 @@ export default function GHLWhiteLabelSaaSClient() {
               <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Share this guide</div>
               <div className="flex gap-2 flex-wrap">
                 <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://ghlscaleup.com/blog/ghl-white-label-saas-guide" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 transition-opacity">
-                  <svg width="12" height="12" viewBox="0 0 13 13" fill="currentColor"><path d="M1.5 4.5h2V11h-2zM2.5 3.5a1 1 0 110-2 1 1 0 010 2zM5 4.5h1.9v.9h.02C7.2 4.8 8 4.3 9.1 4.3c2.1 0 2.4 1.4 2.4 3.1V11H9.6V7.8c0-.8 0-1.8-1.1-1.8-1.1 0-1.3.9-1.3 1.7V11H5V4.5z"/></svg>
+                  <Linkedin className="w-3 h-3" />
                   LinkedIn
                 </a>
                 <a href="https://twitter.com/intent/tweet?url=https://ghlscaleup.com/blog/ghl-white-label-saas-guide&text=How+to+Set+Up+GoHighLevel+White-Label+SaaS%3A+Complete+Guide" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 transition-opacity">
-                  <svg width="12" height="12" viewBox="0 0 13 13" fill="currentColor"><path d="M10.2 1.5h1.9L7.9 5.9 12.8 12H8.6L5.3 7.8 1.6 12H-.3l4.5-4.8L-.3 1.5h4.3l3 3.9 3.2-3.9zm-.7 9.4h1L3.6 2.6H2.5l7 8.3z"/></svg>
+                  <Twitter className="w-3 h-3" />
                   X
                 </a>
                 <CopyButton />
@@ -435,17 +462,17 @@ export default function GHLWhiteLabelSaaSClient() {
             <Link href="/blog/gohighlevel-funnel-builder-features" className="group block bg-white border border-[#DDE1E9] rounded-xl p-5 md:p-6 hover:-translate-y-1 hover:shadow-lg transition-all">
               <div className="text-[10px] md:text-xs font-bold tracking-wider uppercase text-[#0E9BF0] mb-2 md:mb-3">GoHighLevel</div>
               <h4 className="text-sm md:text-base font-semibold text-[#1A2236] mb-2 md:mb-3 group-hover:text-[#0E9BF0] transition-colors line-clamp-2">GoHighLevel Funnel Builder: 7 Features Top Agencies Use to Build Faster</h4>
-              <div className="inline-flex items-center gap-1 text-xs md:text-sm font-semibold text-[#0E9BF0] group-hover:gap-2 transition-all">Read article →</div>
+              <div className="inline-flex items-center gap-1 text-xs md:text-sm font-semibold text-[#0E9BF0] group-hover:gap-2 transition-all">Read article <ArrowRight className="w-3 h-3" /></div>
             </Link>
             <Link href="/blog/ghl-ai-workflows-lead-response" className="group block bg-white border border-[#DDE1E9] rounded-xl p-5 md:p-6 hover:-translate-y-1 hover:shadow-lg transition-all">
               <div className="text-[10px] md:text-xs font-bold tracking-wider uppercase text-[#0E9BF0] mb-2 md:mb-3">AI</div>
               <h4 className="text-sm md:text-base font-semibold text-[#1A2236] mb-2 md:mb-3 group-hover:text-[#0E9BF0] transition-colors line-clamp-2">GHL AI Workflows to Respond to Leads in Under 10 Seconds</h4>
-              <div className="inline-flex items-center gap-1 text-xs md:text-sm font-semibold text-[#0E9BF0] group-hover:gap-2 transition-all">Read article →</div>
+              <div className="inline-flex items-center gap-1 text-xs md:text-sm font-semibold text-[#0E9BF0] group-hover:gap-2 transition-all">Read article <ArrowRight className="w-3 h-3" /></div>
             </Link>
             <Link href="/blog/freelancer-to-ghl-saas-founder" className="group block bg-white border border-[#DDE1E9] rounded-xl p-5 md:p-6 hover:-translate-y-1 hover:shadow-lg transition-all">
               <div className="text-[10px] md:text-xs font-bold tracking-wider uppercase text-[#0E9BF0] mb-2 md:mb-3">Business</div>
               <h4 className="text-sm md:text-base font-semibold text-[#1A2236] mb-2 md:mb-3 group-hover:text-[#0E9BF0] transition-colors line-clamp-2">From Freelancer to GHL SaaS Founder: Recurring Revenue</h4>
-              <div className="inline-flex items-center gap-1 text-xs md:text-sm font-semibold text-[#0E9BF0] group-hover:gap-2 transition-all">Read article →</div>
+              <div className="inline-flex items-center gap-1 text-xs md:text-sm font-semibold text-[#0E9BF0] group-hover:gap-2 transition-all">Read article <ArrowRight className="w-3 h-3" /></div>
             </Link>
           </div>
         </div>
