@@ -9,16 +9,16 @@ export const metadata = {
 };
 
 const blogPosts = [
-  // {
-  //   icon: '🚀',
-  //   tag: 'GHL SaaS',
-  //   title: 'How to Set Up GoHighLevel White-Label SaaS: Complete Guide',
-  //   excerpt: 'Domains, snapshots, Stripe billing, sub-account provisioning, and pricing strategies.',
-  //   slug: 'ghl-white-label-saas-guide',
-  //   date: 'April 7, 2026',
-  //   readTime: '8 min read',
-  //   featured: true,
-  // },
+   {
+    icon: '🚀',
+    tag: 'GHL SaaS',
+    title: 'How to Set Up GoHighLevel White-Label SaaS: Complete Guide',
+    excerpt: 'Domains, snapshots, Stripe billing, sub-account provisioning, and pricing strategies.',
+    slug: 'ghl-white-label-saas-guide',
+    date: 'April 7, 2026',
+    readTime: '8 min read',
+    featured: true,
+   },
   // {
   //   icon: '🧠',
   //   tag: 'AI',
