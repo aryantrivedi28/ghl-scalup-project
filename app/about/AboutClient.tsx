@@ -32,7 +32,7 @@ export default function AboutClient() {
   const coreTeam = [
     {
       initials: 'KS',
-      image: '/images/team/kunal-sharma.jpg',
+      image: '/team/kunal.png',
       gradient: 'linear-gradient(135deg, #0E9BF0, #818cf8)',
       name: 'Kunal Sharma',
       role: 'Tech Lead',
@@ -40,26 +40,26 @@ export default function AboutClient() {
     },
     {
       initials: 'RD',
-      image: '/images/team/radhika.jpg',
+      image: '/team/radhika.jpg',
       gradient: 'linear-gradient(135deg, #F8D000, #f59e0b)',
       name: 'Radhika',
       role: 'Growth Associate',
       bio: 'Drives client acquisition, partnerships, and brand growth for GHL Scale Up. Radhika connects the dots between what clients need and what we deliver — handling outreach, onboarding coordination, and making sure every project starts with clear goals and ends with measurable outcomes. She is the first person most clients speak with.'
     },
-    {
-      initials: 'SO',
-      image: '/images/team/shivansh-ojha.jpg',
-      gradient: 'linear-gradient(135deg, #25C97D, #0d9488)',
-      name: 'Shivansh Ojha',
-      role: 'Operations Manager',
-      bio: 'Keeps every project on track, on time, and on scope. Shivansh manages the delivery pipeline — from client kickoff calls and sprint planning to QA checks and final handover. He coordinates between the core team and subject matter experts to make sure nothing falls through the cracks.'
-    }
+    // {
+    //   initials: 'SO',
+    //   image: '/images/team/shivansh-ojha.jpg',
+    //   gradient: 'linear-gradient(135deg, #25C97D, #0d9488)',
+    //   name: 'Shivansh Ojha',
+    //   role: 'Operations Manager',
+    //   bio: 'Keeps every project on track, on time, and on scope. Shivansh manages the delivery pipeline — from client kickoff calls and sprint planning to QA checks and final handover. He coordinates between the core team and subject matter experts to make sure nothing falls through the cracks.'
+    // }
   ];
 
   const experts = [
     {
       initials: 'SG',
-      image: '/images/team/sangram.jpg',
+      image: '/team/sangram.png',
       gradient: 'linear-gradient(135deg, #0E9BF0, #0878C4)',
       name: 'Sangram',
       role: 'SEO Expert',
@@ -73,7 +73,7 @@ export default function AboutClient() {
     },
     {
       initials: 'KP',
-      image: '/images/team/kunal-ppc.jpg',
+      image: '/team/kunal_image.jpeg',
       gradient: 'linear-gradient(135deg, #F8D000, #C9AB00)',
       name: 'Kunal',
       role: 'PPC & Performance Marketing',
@@ -87,7 +87,7 @@ export default function AboutClient() {
     },
     {
       initials: 'AB',
-      image: '/images/team/apoorv-bhaat.jpg',
+      image: '/team/apoorv.jpg',
       gradient: 'linear-gradient(135deg, #25C97D, #1A9A5E)',
       name: 'Apoorv Bhaat',
       role: 'GHL & Shopify Expert',
@@ -215,7 +215,7 @@ export default function AboutClient() {
               <div className="max-w-[280px] sm:max-w-[320px] md:max-w-[380px] mx-auto bg-[#F4F7FA] border border-[#E8EDF4] rounded-2xl flex flex-col items-center justify-center gap-3 p-6 sm:p-8 md:p-10 text-center">
                 <div className="relative w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full overflow-hidden bg-gradient-to-br from-[#0E9BF0] to-[#25C97D] flex items-center justify-center">
                   <Image
-                    src="/images/team/aryan-trivedi.jpg"
+                    src="/team/aryan_t.jpg"
                     alt="Aryan Trivedi - Founder & CEO"
                     fill
                     className="object-cover"
@@ -274,10 +274,10 @@ export default function AboutClient() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-10 md:gap-14">
             {coreTeam.map((member, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-2xl overflow-hidden hover:-translate-y-1.5 hover:shadow-[0_16px_48px_rgba(28,46,74,0.1)] hover:border-[#0E9BF0] transition-all fade-in">
-                <div className="relative w-full aspect-square bg-[#F4F7FA] border-b border-[#E8EDF4] overflow-hidden">
+                <div className="relative w-full h-[450px] md:h-[420px] bg-[#F4F7FA] border-b border-[#E8EDF4] overflow-hidden">
                   <Image
                     src={member.image}
                     alt={member.name}
