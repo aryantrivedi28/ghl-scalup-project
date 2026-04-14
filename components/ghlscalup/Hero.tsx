@@ -67,15 +67,11 @@ const Hero = () => {
               </Link>
             </div>
             
-            <p className="text-white/50 text-xs">
-              Trusted by <span className="text-[#F8D000] font-semibold">50+ agencies</span> across{" "}
-              <span className="text-[#F8D000] font-semibold">6 countries</span> •{" "}
-              <span className="text-[#F8D000] font-semibold">200+</span> projects delivered
-            </p>
+            
           </div>
 
           {/* Right Side - Simple Image Container */}
-          <div className="fade-in flex justify-center md:justify-end">
+          <div className="fade-in flex flex-col justify-center md:justify-end">
             <div className="w-full max-w-[500px]">
               <img 
                 src="/hero_image.png" 
@@ -83,6 +79,12 @@ const Hero = () => {
                 className="w-full h-auto rounded-lg shadow-xl"
               />
             </div>
+
+            <p className="mt-4 text-white/60 text-sm text-center leading-relaxed">
+              Trusted by <span className="text-[#F8D000] font-semibold">50+ agencies</span> across{" "}
+              <span className="text-[#F8D000] font-semibold">6 countries</span> •{" "}
+              <span className="text-[#F8D000] font-semibold">200+</span> projects delivered
+            </p>
           </div>
           
         </div>
