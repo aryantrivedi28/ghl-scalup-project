@@ -90,7 +90,7 @@ export default function AboutClient() {
     },
     {
       initials: 'JV',
-      image: '/images/team/jaanvi.jpg',
+      image: '/team/jaanvi.jpeg',
       linkedin: 'https://www.linkedin.com/in/jaanvi',
       name: 'Jaanvi',
       role: 'Social Media Expert',
