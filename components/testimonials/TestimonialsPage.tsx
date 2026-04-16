@@ -25,6 +25,8 @@ export default function TestimonialsPage({ testimonials, featuredTestimonials }:
     setVisibleCount(prev => prev + 6);
   };
 
+  console.log("TESTIMONIALS:", testimonials);
+
   // Calculate average rating
   const averageRating = testimonials.reduce((acc, t) => acc + t.rating, 0) / testimonials.length;
   const totalTestimonials = testimonials.length;
