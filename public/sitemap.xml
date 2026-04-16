@@ -1,0 +1,101 @@
+// app/sitemap.ts
+import { MetadataRoute } from 'next'
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = 'https://ghlscaleup.com'
+
+  // Main Pages
+  const mainPages = [
+    { url: '', lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
+    { url: '/about', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+    { url: '/contact', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+    { url: '/blog', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: '/case-studies', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: '/testimonials', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: '/process', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+  ]
+
+  // GHL Services
+  const ghlServices = [
+    '/services/crm-setup',
+    '/services/ai-workflow-automation',
+    '/services/funnel-development',
+    '/services/campaign-automation',
+    '/services/ai-chatbot',
+    '/services/ai-voice-agent',
+    '/services/calendar-booking',
+    '/services/reputation-management',
+    '/services/saas-setup',
+    '/services/integrations',
+    '/services/reporting',
+    '/services/migration',
+    '/services/membership-sites',
+    '/services/training',
+  ]
+
+  // Marketing Services
+  const marketingServices = [
+    '/marketing/seo',
+    '/marketing/google-ads',
+    '/marketing/meta-ads',
+    '/marketing/tiktok-ads',
+    '/marketing/social-media',
+    '/marketing/content-creation',
+    '/marketing/video-editing',
+    '/marketing/graphic-design',
+    '/marketing/brand-building',
+    '/marketing/ai-marketing',
+    '/marketing/lead-generation',
+    '/marketing/email-marketing',
+  ]
+
+  // Paid Ads Services
+  const adsServices = [
+    '/services/ads/google-ads',
+    '/services/ads/linkedin-ads',
+    '/services/ads/meta-ads',
+    '/services/ads/retargeting',
+    '/services/ads/tiktok-ads',
+    '/services/ads/twitter-ads',
+    '/services/ads/youtube-ads',
+  ]
+
+  // Shopify Services
+  const shopifyServices = [
+    '/services/shopify/aov-strategy',
+    '/services/shopify/app-integration',
+    '/services/shopify/checkout-optimization',
+    '/services/shopify/cro',
+    '/services/shopify/liquid-development',
+    '/services/shopify/shopify-plus',
+    '/services/shopify/store-setup',
+    '/services/shopify/theme-development',
+  ]
+
+  // Blog Posts
+  const blogPosts = [
+    '/blog/gohighlevel-funnel-builder-features',
+    '/blog/ghl-white-label-saas-guide',
+    '/blog/ghl-ai-workflows-lead-response',
+    '/blog/freelancer-to-ghl-saas-founder',
+    '/blog/ghl-lead-generation-strategies',
+    '/blog/ghl-pipeline-management',
+  ]
+
+  // Combine all URLs
+  const allUrls = [
+    ...mainPages,
+    ...ghlServices.map(url => ({ url, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 })),
+    ...marketingServices.map(url => ({ url, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 })),
+    ...adsServices.map(url => ({ url, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 })),
+    ...shopifyServices.map(url => ({ url, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 })),
+    ...blogPosts.map(url => ({ url, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 })),
+  ]
+
+  return allUrls.map(({ url, lastModified, changeFrequency, priority }) => ({
+    url: `${baseUrl}${url}`,
+    lastModified,
+    changeFrequency: changeFrequency as 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never',
+    priority,
+  }))
+}
