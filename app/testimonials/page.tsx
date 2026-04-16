@@ -57,7 +57,7 @@ export default async function TestimonialsPageWrapper() {
             {/* Video 1: Company Introduction */}
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20">
               <InfoVideo
-                videoSrc="/radhi29.mp4"
+                videoSrc="https://res.cloudinary.com/dbx1s2lib/video/upload/v1776346188/radhi29_u9molw.mp4"
                 title="How GHL Scale Up Works"
                 description="Learn about our process and success stories"
               />
@@ -70,7 +70,7 @@ export default async function TestimonialsPageWrapper() {
             {/* Video 2: Client Testimonial */}
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20">
               <InfoVideo
-                videoSrc="/video2.mp4"
+                videoSrc="https://res.cloudinary.com/dbx1s2lib/video/upload/v1776346007/video2_afrby7.mp4"
                 title="Client Success Story"
                 description="Hear from one of our satisfied clients"
               />
