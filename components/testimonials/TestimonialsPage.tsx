@@ -34,7 +34,7 @@ export default function TestimonialsPage({ testimonials, featuredTestimonials }:
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-[#1C2E4A] to-[#111E30] text-white py-16 md:py-20 relative overflow-hidden">
+      {/* <section className="bg-gradient-to-b from-[#1C2E4A] to-[#111E30] text-white py-16 md:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_50%_20%,rgba(14,155,240,0.1),transparent)] pointer-events-none"></div>
         <div className="max-w-[1200px] mx-auto px-4 md:px-8 text-center relative z-10">
           <div className="inline-flex items-center gap-2 bg-[rgba(248,208,0,0.12)] border border-[rgba(248,208,0,0.2)] text-[#F8D000] text-[0.65rem] font-bold tracking-[0.12em] uppercase px-4 py-1.5 rounded-full mb-5">
@@ -47,7 +47,7 @@ export default function TestimonialsPage({ testimonials, featuredTestimonials }:
             Real results from real businesses. See how we've helped agencies and companies scale with GoHighLevel.
           </p>
           
-          {/* Stats */}
+          {/* Stats *
           <div className="flex justify-center gap-8 md:gap-12">
             <div>
               <div className="text-2xl md:text-3xl font-bold text-[#F8D000]">{totalTestimonials}+</div>
@@ -65,7 +65,7 @@ export default function TestimonialsPage({ testimonials, featuredTestimonials }:
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Featured Testimonials */}
       {featuredTestimonials.length > 0 && (
