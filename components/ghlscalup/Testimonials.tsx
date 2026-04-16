@@ -145,6 +145,7 @@ export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
           </div>
         )}
 
+<<<<<<< HEAD
         {/* Video Section - Two Videos Side by Side */}
         <div className="mb-12 md:mb-16 fade-in">
           <div className="grid md:grid-cols-2 gap-8 md:gap-10">
@@ -176,6 +177,43 @@ export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
                 <h4 className="text-lg font-bold text-[#1C2E4A] mb-2">Client Testimonial</h4>
                 <p className="text-sm text-[#4A5568]">Real results from a real client</p>
               </div>
+=======
+        {/* Video Section - Always visible */}
+        <div className="mb-12 md:mb-16 fade-in">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-10 items-center">
+            <div className="order-2 md:order-1">
+              <div className="inline-flex items-center gap-2.5 text-[0.68rem] font-bold tracking-[0.12em] uppercase text-[#0E9BF0] mb-3">
+                <span className="w-[22px] h-[2px] bg-[#0E9BF0] rounded"></span>
+                Watch Our Story
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold text-[#1C2E4A] mb-3 md:mb-4">
+                See How We Help Businesses<br />
+                <span className="text-[#0E9BF0]">Scale with GoHighLevel</span>
+              </h3>
+              <p className="text-[#4A5568] text-sm md:text-base leading-relaxed mb-4 md:mb-6">
+                Watch this short video to understand our approach, process, and how we've helped over 50+ agencies
+                transform their operations using GoHighLevel automation and AI.
+              </p>
+              <div className="flex flex-wrap items-center gap-4">
+                <div className="flex -space-x-2">
+                  {[1, 2, 3, 4].map((i) => (
+                    <div key={i} className="w-8 h-8 rounded-full bg-[#F8D000]/20 border-2 border-white flex items-center justify-center text-xs font-bold text-[#F8D000]">
+                      {String.fromCharCode(64 + i)}
+                    </div>
+                  ))}
+                </div>
+                <p className="text-xs md:text-sm text-[#8A9BB0]">
+                  <span className="font-bold text-[#F8D000]">200+</span> projects delivered
+                </p>
+              </div>
+            </div>
+            <div className="order-1 md:order-2">
+              <InfoVideo
+                videoSrc="/radhi29.mp4"
+                title="How GHL Scale Up Works"
+                description="Learn about our process and success stories"
+              />
+>>>>>>> 35ca31f8259fccc27fd3c1a0bdb5a965ea7080d5
             </div>
           </div>
         </div>
