@@ -1,4 +1,3 @@
-// app/page.tsx
 import Navigation from '@/components/ghlscalup/Navigation'
 import Hero from '@/components/ghlscalup/Hero'
 import StatsBar from '@/components/ghlscalup/StatsBar'
@@ -11,7 +10,9 @@ import Industries from '@/components/ghlscalup/Industries'
 import Testimonials from '@/components/ghlscalup/Testimonials'
 import Blog from '@/components/ghlscalup/Blog'
 import FinalCTA from '@/components/ghlscalup/FinalCTA'
-import Footer from '@/components/ghlscalup/Footer'
+// Import FAQ components
+import FAQ from '@/components/ghlscalup/FAQ'
+import FAQSchema from '@/components/ghlscalup/FAQSchema'
 import { getAllTestimonialsForHomepage } from '@/lib/sanity'
 
 export default async function Home() {
@@ -26,6 +27,9 @@ export default async function Home() {
 
   return (
     <main>
+      {/* FAQ Schema for SEO - This adds structured data to head */}
+      <FAQSchema />
+      
       {/* <Navigation /> */}
       <Hero />
       <StatsBar />
@@ -38,6 +42,10 @@ export default async function Home() {
       {/* Pass testimonials data to the component */}
       <Testimonials testimonials={testimonials} />
       <Blog />
+      
+      {/* FAQ Section - Visible on homepage */}
+      <FAQ />
+      
       <FinalCTA />
       {/* <Footer /> */}
     </main>
