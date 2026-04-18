@@ -55,14 +55,14 @@ export async function POST(request: NextRequest) {
     // ✅ SEND EMAILS
     await sendTemplateEmail({
       to: { email, name },
-      templateId: Number(process.env.BREVO_CUSTOMER_TEMPLATE_ID || '16'),
+      templateId: Number(process.env.BREVO_CUSTOMER_TEMPLATE_ID),
       params: templateParams,
     });
 
     const adminEmail = process.env.BREVO_ADMIN_EMAIL!;
     await sendTemplateEmail({
       to: { email: adminEmail, name: 'Admin' },
-      templateId: Number(process.env.BREVO_ADMIN_TEMPLATE_ID || '17'),
+      templateId: Number(process.env.BREVO_ADMIN_TEMPLATE_ID),
       params: templateParams,
       replyTo: email,
     });
