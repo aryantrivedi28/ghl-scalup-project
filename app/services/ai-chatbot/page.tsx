@@ -265,9 +265,9 @@ export default function AIChatbotPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { title: 'CRM Setup', description: 'Capture leads from your AI chatbot and manage them effectively with a properly configured GHL CRM system.', href: '/services/ghl/crm-setup' },
-              { title: 'Workflow Automation', description: 'Trigger follow-up automations based on chatbot conversations assign tasks, send emails, update pipelines.', href: '/services/ghl/workflow-automation' },
-              { title: 'AI Voice Agent', description: 'Extend AI to phone calls with voice agents that answer calls, qualify leads, and book appointments just like your chatbot.', href: '/services/ghl/ai-voice-agent' },
+              { title: 'CRM Setup', description: 'Capture leads from your AI chatbot and manage them effectively with a properly configured GHL CRM system.', href: '/services/crm-setup' },
+              { title: 'Workflow Automation', description: 'Trigger follow-up automations based on chatbot conversations assign tasks, send emails, update pipelines.', href: '/services/workflow-automation' },
+              { title: 'AI Voice Agent', description: 'Extend AI to phone calls with voice agents that answer calls, qualify leads, and book appointments just like your chatbot.', href: '/services/ai-voice-agent' },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
                 <h3 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1.5">{service.title}</h3>

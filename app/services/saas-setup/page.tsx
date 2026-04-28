@@ -265,9 +265,9 @@ export default function WhiteLabelSaaSPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { title: 'CRM Setup', description: 'Build the core CRM experience your clients will use. Custom pipelines, tags, and fields that become your product.', href: '/services/ghl/crm-setup' },
-              { title: 'Workflow Automation', description: 'Create automation templates that your clients can deploy. Your SaaS value proposition built into workflows.', href: '/services/ghl/workflow-automation' },
-              { title: 'Sales Funnel Development', description: 'Build funnels that your clients can use to generate leads. A core feature of most GHL SaaS offerings.', href: '/services/ghl/sales-funnels' },
+              { title: 'CRM Setup', description: 'Build the core CRM experience your clients will use. Custom pipelines, tags, and fields that become your product.', href: '/services/crm-setup' },
+              { title: 'Workflow Automation', description: 'Create automation templates that your clients can deploy. Your SaaS value proposition built into workflows.', href: '/services/workflow-automation' },
+              { title: 'Sales Funnel Development', description: 'Build funnels that your clients can use to generate leads. A core feature of most GHL SaaS offerings.', href: '/services/funnel-development' },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
                 <h3 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1.5">{service.title}</h3>

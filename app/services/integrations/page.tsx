@@ -265,9 +265,9 @@ export default function IntegrationsAPIPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { title: 'CRM Setup', description: 'A clean CRM structure ensures integrations work properly and data maps correctly.', href: '/services/ghl/crm-setup' },
-              { title: 'Workflow Automation', description: 'Combine integrations with GHL workflows for powerful end-to-end automation.', href: '/services/ghl/workflow-automation' },
-              { title: 'Reporting & Dashboards', description: 'Pull data from integrated tools into unified dashboards for better insights.', href: '/services/ghl/reporting-dashboards' },
+              { title: 'CRM Setup', description: 'A clean CRM structure ensures integrations work properly and data maps correctly.', href: '/services/crm-setup' },
+              { title: 'Workflow Automation', description: 'Combine integrations with GHL workflows for powerful end-to-end automation.', href: '/services/workflow-automation' },
+              { title: 'Reporting & Dashboards', description: 'Pull data from integrated tools into unified dashboards for better insights.', href: '/services/reporting' },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
                 <h3 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1.5">{service.title}</h3>

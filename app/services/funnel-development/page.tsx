@@ -265,9 +265,9 @@ export default function SalesFunnelsPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { title: 'CRM Setup', description: 'Capture leads from your funnel and manage them effectively with a properly configured GHL CRM system.', href: '/services/ghl/crm-setup' },
-              { title: 'Workflow Automation', description: 'Automate follow-ups triggered by funnel actions lead magnets, purchases, and cart abandonment.', href: '/services/ghl/workflow-automation' },
-              { title: 'Email & SMS Campaigns', description: 'Nurture leads captured through your funnel with automated email and SMS sequences.', href: '/services/ghl/email-sms-whatsapp' },
+              { title: 'CRM Setup', description: 'Capture leads from your funnel and manage them effectively with a properly configured GHL CRM system.', href: '/services/crm-setup' },
+              { title: 'Workflow Automation', description: 'Automate follow-ups triggered by funnel actions lead magnets, purchases, and cart abandonment.', href: '/services/workflow-automation' },
+              { title: 'Email & SMS Campaigns', description: 'Nurture leads captured through your funnel with automated email and SMS sequences.', href: '/services/campaign-automation' },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
                 <h3 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1.5">{service.title}</h3>

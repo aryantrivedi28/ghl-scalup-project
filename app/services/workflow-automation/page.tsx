@@ -265,9 +265,9 @@ export default function WorkflowAutomationPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { title: 'CRM Setup', description: 'A solid CRM foundation with clean pipelines and proper tagging makes automations more powerful and easier to manage.', href: '/services/ghl/crm-setup' },
-              { title: 'AI Chatbot & Voice Agent', description: 'Add AI-powered chat and voice to your automation flows qualify leads and book appointments 24/7 without human intervention.', href: '/services/ghl/ai-chatbot' },
-              { title: 'Email, SMS & WhatsApp Campaigns', description: 'Advanced campaign-level automation for newsletters, promotional sequences, and broadcast messages to your entire list.', href: '/services/ghl/email-sms-whatsapp' },
+              { title: 'CRM Setup', description: 'A solid CRM foundation with clean pipelines and proper tagging makes automations more powerful and easier to manage.', href: '/services/crm-setup' },
+              { title: 'AI Chatbot & Voice Agent', description: 'Add AI-powered chat and voice to your automation flows qualify leads and book appointments 24/7 without human intervention.', href: '/services/ai-chatbot' },
+              { title: 'Email, SMS & WhatsApp Campaigns', description: 'Advanced campaign-level automation for newsletters, promotional sequences, and broadcast messages to your entire list.', href: '/services/campaign-automation' },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
                 <h3 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1.5">{service.title}</h3>

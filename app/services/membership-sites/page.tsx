@@ -265,9 +265,9 @@ export default function TrainingOnboardingPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { title: 'CRM Setup', description: 'Start with a properly configured CRM that makes training easier and processes clear.', href: '/services/ghl/crm-setup' },
-              { title: 'Workflow Automation', description: 'Train your team on automation workflows that save time and ensure consistency.', href: '/services/ghl/workflow-automation' },
-              { title: 'Reporting & Dashboards', description: 'Teach your team how to use dashboards to track performance and make data-driven decisions.', href: '/services/ghl/reporting-dashboards' },
+              { title: 'CRM Setup', description: 'Start with a properly configured CRM that makes training easier and processes clear.', href: '/services/crm-setup' },
+              { title: 'Workflow Automation', description: 'Train your team on automation workflows that save time and ensure consistency.', href: '/services/workflow-automation' },
+              { title: 'Reporting & Dashboards', description: 'Teach your team how to use dashboards to track performance and make data-driven decisions.', href: '/services/reporting' },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
                 <h3 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1.5">{service.title}</h3>

@@ -27,8 +27,8 @@ export default function MarketingServicesPage() {
       description: 'Build sustainable traffic and authority with organic strategies',
       services: [
         { icon: '🔍', title: 'SEO Services', description: 'Technical SEO, on-page optimization, link building, local SEO.', link: '/marketing/seo', popular: true },
-        { icon: '📲', title: 'Social Media Management', description: 'Content calendars, posting, and community engagement.', link: '/marketing/social-media-management' },
-        { icon: '✏️', title: 'Content Creation & Copywriting', description: 'Blogs, ad copy, email sequences, website copy.', link: '/marketing/content-copywriting' },
+        { icon: '📲', title: 'Social Media Management', description: 'Content calendars, posting, and community engagement.', link: '/marketing/social-media' },
+        { icon: '✏️', title: 'Content Creation & Copywriting', description: 'Blogs, ad copy, email sequences, website copy.', link: '/marketing/content-creation' },
       ]
     },
     {
@@ -46,7 +46,7 @@ export default function MarketingServicesPage() {
       icon: '🤖',
       description: 'Leverage AI and automation to scale your marketing',
       services: [
-        { icon: '🤖', title: 'AI Marketing Automation', description: 'Predictive scoring, AI content, chatbot marketing.', link: '/marketing/ai-marketing-automation' },
+        { icon: '🤖', title: 'AI Marketing Automation', description: 'Predictive scoring, AI content, chatbot marketing.', link: '/marketing/ai-marketing' },
         { icon: '🎯', title: 'Lead Generation Systems', description: 'Complete funnel: traffic to booked call.', link: '/marketing/lead-generation', popular: true },
         { icon: '💌', title: 'Email Marketing', description: 'List building, segmentation, drip campaigns, newsletters.', link: '/marketing/email-marketing' },
       ]

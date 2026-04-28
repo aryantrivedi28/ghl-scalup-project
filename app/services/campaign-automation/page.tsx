@@ -265,9 +265,9 @@ export default function EmailSMSWhatsAppPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { title: 'CRM Setup', description: 'Clean, organized contact data is essential for effective segmentation and personalization.', href: '/services/ghl/crm-setup' },
-              { title: 'Workflow Automation', description: 'Combine email, SMS, and WhatsApp campaigns with trigger-based workflows for even better results.', href: '/services/ghl/workflow-automation' },
-              { title: 'Sales Funnel Development', description: 'Capture more leads through high-converting landing pages that feed into your campaigns.', href: '/services/ghl/sales-funnels' },
+              { title: 'CRM Setup', description: 'Clean, organized contact data is essential for effective segmentation and personalization.', href: '/services/crm-setup' },
+              { title: 'Workflow Automation', description: 'Combine email, SMS, and WhatsApp campaigns with trigger-based workflows for even better results.', href: '/services/workflow-automation' },
+              { title: 'Sales Funnel Development', description: 'Capture more leads through high-converting landing pages that feed into your campaigns.', href: '/services/funnel-development' },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
                 <h3 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1.5">{service.title}</h3>

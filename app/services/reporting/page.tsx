@@ -265,9 +265,9 @@ export default function ReportingDashboardsPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { title: 'CRM Setup', description: 'Proper CRM structure ensures your data is clean and reports are accurate from day one.', href: '/services/ghl/crm-setup' },
-              { title: 'Workflow Automation', description: 'Automate data capture and ensure every lead and deal is properly tagged for reporting.', href: '/services/ghl/workflow-automation' },
-              { title: 'Integrations & API', description: 'Pull data from external tools into your GHL dashboards for unified reporting.', href: '/services/ghl/integrations-api' },
+              { title: 'CRM Setup', description: 'Proper CRM structure ensures your data is clean and reports are accurate from day one.', href: '/services/crm-setup' },
+              { title: 'Workflow Automation', description: 'Automate data capture and ensure every lead and deal is properly tagged for reporting.', href: '/services/workflow-automation' },
+              { title: 'Integrations & API', description: 'Pull data from external tools into your GHL dashboards for unified reporting.', href: '/services/integrations' },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
                 <h3 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1.5">{service.title}</h3>
