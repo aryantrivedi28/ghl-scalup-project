@@ -267,9 +267,9 @@ export default function ContentCopywritingPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { title: 'SEO Services', description: 'Optimize your content for search engines to drive organic traffic and visibility.', href: '/services/marketing/seo' },
-              { title: 'Social Media Management', description: 'Distribute your content across social platforms to reach a wider audience.', href: '/services/marketing/social-media-management' },
-              { title: 'Graphic Design', description: 'Visual assets that complement your written content and increase engagement.', href: '/services/marketing/graphic-design' },
+              { title: 'SEO Services', description: 'Optimize your content for search engines to drive organic traffic and visibility.', href: '/marketing/seo' },
+              { title: 'Social Media Management', description: 'Distribute your content across social platforms to reach a wider audience.', href: '/marketing/social-media' },
+              { title: 'Graphic Design', description: 'Visual assets that complement your written content and increase engagement.', href: '/marketing/graphic-design' },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
                 <h3 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1.5">{service.title}</h3>

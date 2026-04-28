@@ -267,9 +267,9 @@ export default function SocialMediaManagementPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { title: 'Content Creation & Copywriting', description: 'High-quality content that stops the scroll and drives engagement.', href: '/services/marketing/content-copywriting' },
-              { title: 'Graphic Design', description: 'Professional visual assets that elevate your brand presence across platforms.', href: '/services/marketing/graphic-design' },
-              { title: 'Brand Building & Strategy', description: 'Strategic brand positioning that guides your social media voice and messaging.', href: '/services/marketing/brand-building' },
+              { title: 'Content Creation & Copywriting', description: 'High-quality content that stops the scroll and drives engagement.', href: '/marketing/content-creation' },
+              { title: 'Graphic Design', description: 'Professional visual assets that elevate your brand presence across platforms.', href: '/marketing/graphic-design' },
+              { title: 'Brand Building & Strategy', description: 'Strategic brand positioning that guides your social media voice and messaging.', href: '/marketing/brand-building' },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
                 <h3 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1.5">{service.title}</h3>

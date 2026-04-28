@@ -267,9 +267,9 @@ export default function GraphicDesignPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { title: 'Brand Building & Strategy', description: 'Strategic brand positioning that guides your visual identity and messaging.', href: '/services/marketing/brand-building' },
-              { title: 'Social Media Management', description: 'Consistent visual content that maintains your brand identity across platforms.', href: '/services/marketing/social-media-management' },
-              { title: 'Content Creation & Copywriting', description: 'Compelling copy that complements your visual design and drives action.', href: '/services/marketing/content-copywriting' },
+              { title: 'Brand Building & Strategy', description: 'Strategic brand positioning that guides your visual identity and messaging.', href: '/marketing/brand-building' },
+              { title: 'Social Media Management', description: 'Consistent visual content that maintains your brand identity across platforms.', href: '/marketing/social-media' },
+              { title: 'Content Creation & Copywriting', description: 'Compelling copy that complements your visual design and drives action.', href: '/marketing/content-creation' },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
                 <h3 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1.5">{service.title}</h3>

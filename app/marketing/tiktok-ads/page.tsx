@@ -267,9 +267,9 @@ export default function TikTokAdsPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { title: 'Video Editing & Production', description: 'Professional short-form video ads optimized for TikTok\'s native format and algorithm.', href: '/services/marketing/video-editing' },
-              { title: 'Content Creation & Copywriting', description: 'Scripts and captions that hook viewers and drive action within the first 3 seconds.', href: '/services/marketing/content-copywriting' },
-              { title: 'Lead Generation Systems', description: 'Capture and convert TikTok traffic with optimized funnels that continue the conversation.', href: '/services/marketing/lead-generation' },
+              { title: 'Video Editing & Production', description: 'Professional short-form video ads optimized for TikTok\'s native format and algorithm.', href: '/marketing/video-editing' },
+              { title: 'Content Creation & Copywriting', description: 'Scripts and captions that hook viewers and drive action within the first 3 seconds.', href: '/marketing/content-creation' },
+              { title: 'Lead Generation Systems', description: 'Capture and convert TikTok traffic with optimized funnels that continue the conversation.', href: '/marketing/lead-generation' },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
                 <h3 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1.5">{service.title}</h3>

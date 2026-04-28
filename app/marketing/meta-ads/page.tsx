@@ -267,9 +267,9 @@ export default function MetaAdsPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { title: 'Lead Generation Systems', description: 'Capture and convert Meta Ads traffic with optimized funnels, landing pages, and lead magnets.', href: '/services/marketing/lead-generation' },
-              { title: 'Content Creation & Copywriting', description: 'High-converting ad copy and creative that stops the scroll and drives clicks.', href: '/services/marketing/content-copywriting' },
-              { title: 'Video Editing & Production', description: 'Professional video ads optimized for Facebook and Instagram feeds and stories.', href: '/services/marketing/video-editing' },
+              { title: 'Lead Generation Systems', description: 'Capture and convert Meta Ads traffic with optimized funnels, landing pages, and lead magnets.', href: '/marketing/lead-generation' },
+              { title: 'Content Creation & Copywriting', description: 'High-converting ad copy and creative that stops the scroll and drives clicks.', href: '/marketing/content-creation' },
+              { title: 'Video Editing & Production', description: 'Professional video ads optimized for Facebook and Instagram feeds and stories.', href: '/marketing/video-editing' },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
                 <h3 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1.5">{service.title}</h3>

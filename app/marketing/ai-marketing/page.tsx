@@ -267,9 +267,9 @@ export default function AIMarketingAutomationPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { title: 'Workflow Automation', description: 'Combine AI with automated workflows for complete end-to-end marketing automation.', href: '/services/ghl/workflow-automation' },
-              { title: 'AI Chatbot & Voice Agent', description: 'Add AI-powered conversation to your marketing stack for 24/7 lead engagement.', href: '/services/ghl/ai-chatbot' },
-              { title: 'Lead Generation Systems', description: 'Capture and convert leads with AI-optimized funnels and personalization.', href: '/services/marketing/lead-generation' },
+              { title: 'Workflow Automation', description: 'Combine AI with automated workflows for complete end-to-end marketing automation.', href: '/services/workflow-automation' },
+              { title: 'AI Chatbot & Voice Agent', description: 'Add AI-powered conversation to your marketing stack for 24/7 lead engagement.', href: '/services/ai-chatbot' },
+              { title: 'Lead Generation Systems', description: 'Capture and convert leads with AI-optimized funnels and personalization.', href: '/marketing/lead-generation' },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
                 <h3 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1.5">{service.title}</h3>

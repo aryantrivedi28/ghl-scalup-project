@@ -267,9 +267,9 @@ export default function GoogleAdsPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { title: 'Conversion Rate Optimization', description: 'Optimize landing pages and checkout flows to convert more of your Google Ads traffic into customers.', href: '/services/marketing/cro' },
-              { title: 'SEO Services', description: 'Combine paid and organic search strategies to dominate search results for your most valuable keywords.', href: '/services/marketing/seo' },
-              { title: 'GHL CRM Setup', description: 'Connect Google Ads directly to your CRM. Track every lead from click to closed deal.', href: '/services/ghl/crm-setup' },
+              { title: 'Conversion Rate Optimization', description: 'Optimize landing pages and checkout flows to convert more of your Google Ads traffic into customers.', href: '/marketing/google-ads' },
+              { title: 'SEO Services', description: 'Combine paid and organic search strategies to dominate search results for your most valuable keywords.', href: '/marketing/seo' },
+              { title: 'GHL CRM Setup', description: 'Connect Google Ads directly to your CRM. Track every lead from click to closed deal.', href: '/services/crm-setup' },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
                 <h3 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1.5">{service.title}</h3>

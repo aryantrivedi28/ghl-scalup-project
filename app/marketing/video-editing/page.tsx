@@ -267,9 +267,9 @@ export default function VideoEditingPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { title: 'Social Media Management', description: 'Distribute your video content across platforms to maximize reach and engagement.', href: '/services/marketing/social-media-management' },
-              { title: 'Content Creation & Copywriting', description: 'Scriptwriting and captions that hook viewers and drive action.', href: '/services/marketing/content-copywriting' },
-              { title: 'TikTok Ads Management', description: 'Turn your video content into high-performing ad campaigns.', href: '/services/marketing/tiktok-ads' },
+              { title: 'Social Media Management', description: 'Distribute your video content across platforms to maximize reach and engagement.', href: '/marketing/social-media' },
+              { title: 'Content Creation & Copywriting', description: 'Scriptwriting and captions that hook viewers and drive action.', href: '/marketing/content-creation' },
+              { title: 'TikTok Ads Management', description: 'Turn your video content into high-performing ad campaigns.', href: '/marketing/tiktok-ads' },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
                 <h3 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1.5">{service.title}</h3>

@@ -267,9 +267,9 @@ export default function SEOPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { title: 'Content Creation & Copywriting', description: 'SEO-optimized content that ranks and converts. Blogs, landing pages, product descriptions, and service pages.', href: '/services/marketing/content-copywriting' },
-              { title: 'Lead Generation Systems', description: 'Capture and convert your SEO traffic with optimized funnels, landing pages, and lead magnets.', href: '/services/marketing/lead-generation' },
-              { title: 'GHL CRM Setup', description: 'Track every lead from search to sale. Connect your SEO traffic directly to your CRM for end-to-end attribution.', href: '/services/ghl/crm-setup' },
+              { title: 'Content Creation & Copywriting', description: 'SEO-optimized content that ranks and converts. Blogs, landing pages, product descriptions, and service pages.', href: '/marketing/content-creation' },
+              { title: 'Lead Generation Systems', description: 'Capture and convert your SEO traffic with optimized funnels, landing pages, and lead magnets.', href: '/marketing/lead-generation' },
+              { title: 'GHL CRM Setup', description: 'Track every lead from search to sale. Connect your SEO traffic directly to your CRM for end-to-end attribution.', href: '/services/crm-setup' },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
                 <h3 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1.5">{service.title}</h3>

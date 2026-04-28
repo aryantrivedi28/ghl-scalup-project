@@ -267,9 +267,9 @@ export default function EmailMarketingPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { title: 'Content Creation & Copywriting', description: 'Compelling email copy that engages readers and drives clicks.', href: '/services/marketing/content-copywriting' },
-              { title: 'Lead Generation Systems', description: 'Build your email list with strategic lead magnets and landing pages.', href: '/services/marketing/lead-generation' },
-              { title: 'CRM Setup', description: 'Manage your email list and track engagement with a properly configured CRM.', href: '/services/ghl/crm-setup' },
+              { title: 'Content Creation & Copywriting', description: 'Compelling email copy that engages readers and drives clicks.', href: '/marketing/content-creation' },
+              { title: 'Lead Generation Systems', description: 'Build your email list with strategic lead magnets and landing pages.', href: '/marketing/lead-generation' },
+              { title: 'CRM Setup', description: 'Manage your email list and track engagement with a properly configured CRM.', href: '/services/crm-setup' },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
                 <h3 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1.5">{service.title}</h3>

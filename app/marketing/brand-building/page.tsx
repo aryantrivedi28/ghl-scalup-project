@@ -267,9 +267,9 @@ export default function BrandBuildingPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { title: 'Graphic Design', description: 'Visual assets that express your brand identity consistently across all channels.', href: '/services/marketing/graphic-design' },
-              { title: 'Content Creation & Copywriting', description: 'Messaging that communicates your brand voice and value proposition.', href: '/services/marketing/content-copywriting' },
-              { title: 'Social Media Management', description: 'Build your brand presence and engage your audience across platforms.', href: '/services/marketing/social-media-management' },
+              { title: 'Graphic Design', description: 'Visual assets that express your brand identity consistently across all channels.', href: '/marketing/graphic-design' },
+              { title: 'Content Creation & Copywriting', description: 'Messaging that communicates your brand voice and value proposition.', href: '/marketing/content-creation' },
+              { title: 'Social Media Management', description: 'Build your brand presence and engage your audience across platforms.', href: '/marketing/social-media' },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
                 <h3 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1.5">{service.title}</h3>
