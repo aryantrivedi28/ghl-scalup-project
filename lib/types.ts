@@ -131,3 +131,34 @@ export type ColorVariant =
   | 'cyan'
 
 export type BreakPoint = 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+
+
+export interface FreelancerApplication {
+  id?: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  phone: string;
+  country: string;
+  experience_level: string;
+  resume_url?: string;
+  portfolio_url?: string;
+  portfolio_link?: string;
+  specialisations?: string;
+  case_studies: CaseStudy[];
+  availability?: string;
+  extra_info?: string;
+  status?: 'pending' | 'reviewed' | 'approved' | 'rejected';
+  created_at?: string;
+}
+
+export interface CaseStudy {
+  id: string;
+  description: string;
+}
+
+export interface ApiResponse {
+  success: boolean;
+  message: string;
+  data?: any;
+}
