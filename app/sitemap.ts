@@ -37,18 +37,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
-    {
-      url: `${baseUrl}/testimonials`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/process`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
+    // {
+    //   url: `${baseUrl}/testimonials`,
+    //   lastModified: currentDate,
+    //   changeFrequency: 'monthly',
+    //   priority: 0.7,
+    // },
   ]
 
   // GHL Services
@@ -60,7 +54,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/services/ai-workflow-automation`,
+      url: `${baseUrl}/services/workflow-automation`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/services/website-development`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,
@@ -257,32 +257,32 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
 
   // Legal Pages
-  const legalPages: MetadataRoute.Sitemap = [
-    {
-      url: `${baseUrl}/privacy-policy`,
-      lastModified: currentDate,
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/terms-of-service`,
-      lastModified: currentDate,
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/refund-policy`,
-      lastModified: currentDate,
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-  ]
+  // const legalPages: MetadataRoute.Sitemap = [
+  //   {
+  //     url: `${baseUrl}/privacy-policy`,
+  //     lastModified: currentDate,
+  //     changeFrequency: 'yearly',
+  //     priority: 0.3,
+  //   },
+  //   {
+  //     url: `${baseUrl}/terms-of-service`,
+  //     lastModified: currentDate,
+  //     changeFrequency: 'yearly',
+  //     priority: 0.3,
+  //   },
+  //   {
+  //     url: `${baseUrl}/refund-policy`,
+  //     lastModified: currentDate,
+  //     changeFrequency: 'yearly',
+  //     priority: 0.3,
+  //   },
+  // ]
 
   return [
     ...mainPages,
     ...ghlServices,
     ...marketingServices,
     ...blogPosts,
-    ...legalPages,
+    // ...legalPages,
   ]
 }
