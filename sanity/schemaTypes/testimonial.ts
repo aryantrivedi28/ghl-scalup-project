@@ -15,7 +15,7 @@ export default {
       title: 'Client Role/Title',
       type: 'string',
       description: 'e.g., CEO, Marketing Director, Founder',
-      validation: (Rule: any) => Rule.required(),
+      // validation: (Rule: any) => Rule.required(),
     },
     {
       name: 'companyName',
@@ -59,6 +59,7 @@ export default {
       of: [{ type: 'string' }],
       options: {
         list: [
+          { title: 'GHL', value: 'GHL'},
           { title: 'GHL CRM Setup', value: 'GHL CRM Setup' },
           { title: 'AI Workflow Automation', value: 'AI Workflow Automation' },
           { title: 'Funnel Development', value: 'Funnel Development' },

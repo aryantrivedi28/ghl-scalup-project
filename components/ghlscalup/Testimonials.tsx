@@ -136,15 +136,6 @@ export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
           </div>
         )}
 
-        {/* Show a message when only one type exists */}
-        {hasFeaturedTestimonials && !hasNonFeaturedTestimonials && (
-          <div className="text-center mb-8">
-            <p className="text-[#4A5568] text-sm">
-              Showing {featuredTestimonials.length} featured {featuredTestimonials.length === 1 ? 'story' : 'stories'}
-            </p>
-          </div>
-        )}
-
         {/* Video Section - Two Videos Side by Side */}
         <div className="mb-12 md:mb-16 fade-in">
           <div className="grid md:grid-cols-2 gap-8 md:gap-10">
