@@ -198,9 +198,6 @@ export default function WorkWithUsPage() {
           <div className="bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md overflow-hidden">
             {/* Form Header */}
             <div className="bg-gradient-to-br from-[#0d2444] to-[#122d56] px-6 md:px-10 py-8 border-b border-white/10 flex items-center gap-4">
-              <div className="w-12 h-12 bg-[#F5C518] rounded-xl flex items-center justify-center text-xl flex-shrink-0">
-                🚀
-              </div>
               <div>
                 <h2 className="font-poppins font-bold text-xl">Developer Application</h2>
                 <p className="text-sm text-white/50">Takes about 3 minutes — projects match quickly</p>
