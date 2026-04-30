@@ -61,10 +61,6 @@ export default async function TestimonialsPageWrapper() {
                 title="How GHL Scale Up Works"
                 description="Learn about our process and success stories"
               />
-              <div className="p-5 text-center">
-                <h4 className="text-lg font-bold text-white mb-2">Company Introduction</h4>
-                <p className="text-sm text-white/60">Learn how we help businesses scale with GoHighLevel</p>
-              </div>
             </div>
 
             {/* Video 2: Client Testimonial */}
@@ -74,10 +70,6 @@ export default async function TestimonialsPageWrapper() {
                 title="Client Success Story"
                 description="Hear from one of our satisfied clients"
               />
-              <div className="p-5 text-center">
-                <h4 className="text-lg font-bold text-white mb-2">Client Testimonial</h4>
-                <p className="text-sm text-white/60">Real results from a real client</p>
-              </div>
             </div>
           </div>
         </div>

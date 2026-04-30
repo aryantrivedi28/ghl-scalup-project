@@ -157,10 +157,6 @@ export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
                   description="Learn about our process and success stories"
                 />
               </div>
-              <div className="p-5 text-center">
-                <h4 className="text-lg font-bold text-[#1C2E4A] mb-2">Company Introduction</h4>
-                <p className="text-sm text-[#4A5568]">Learn how we help businesses scale with GoHighLevel</p>
-              </div>
             </div>
 
             {/* Video 2: Client Testimonial */}
@@ -171,10 +167,6 @@ export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
                   title="Client Success Story"
                   description="Hear from one of our satisfied clients"
                 />
-              </div>
-              <div className="p-5 text-center">
-                <h4 className="text-lg font-bold text-[#1C2E4A] mb-2">Client Testimonial</h4>
-                <p className="text-sm text-[#4A5568]">Real results from a real client</p>
               </div>
             </div>
           </div>

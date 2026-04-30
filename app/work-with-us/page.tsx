@@ -140,7 +140,7 @@ export default function WorkWithUsPage() {
         <h1 className="font-poppins font-extrabold text-4xl md:text-6xl lg:text-7xl leading-tight md:leading-[1.08] mb-6 text-white/80">
           Join the Army of<br />
           <span className="text-[#3B9EE8]">GHL Developers</span><br />
-          at <span className="text-[#2ECC71]">GHL ScaleUp</span>
+          at <span className="text-white/80">GHL</span><span className="text-[#3B9EE8]">Scale</span><span className="text-[#2ECC71]">Up</span>
         </h1>
         <p className="text-base md:text-lg text-white/50 max-w-xl mx-auto leading-relaxed font-light">
           We work with the best GoHighLevel builders in the world. Projects come in constantly — and we need developers who are ready to move fast and build right.
