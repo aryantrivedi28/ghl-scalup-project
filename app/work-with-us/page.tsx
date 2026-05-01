@@ -125,13 +125,6 @@ export default function WorkWithUsPage() {
 
   return (
     <div className="min-h-screen bg-[#071833] overflow-x-hidden relative">
-      {/* Animated background orbs */}
-      <div className="fixed w-[500px] h-[500px] bg-[#3B9EE8] rounded-full blur-[120px] pointer-events-none z-0 opacity-20 -top-[100px] -right-[100px]"></div>
-      <div className="fixed w-[400px] h-[400px] bg-[#2ECC71] rounded-full blur-[120px] pointer-events-none z-0 opacity-20 -bottom-[50px] -left-[80px]"></div>
-      <div className="fixed w-[300px] h-[300px] bg-[#F5C518] rounded-full blur-[120px] pointer-events-none z-0 opacity-10 top-[40%] left-[30%]"></div>
-
-      {/* Background Grid */}
-      <div className="fixed inset-0 bg-[linear-gradient(rgba(245,197,24,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(245,197,24,0.03)_1px,transparent_1px)] bg-[60px_60px] pointer-events-none z-0"></div>
       {/* Hero Section */}
       <div className="relative z-5 max-w-4xl mx-auto text-center px-5 md:px-12 pt-16 md:pt-20 pb-12">
         <div className="inline-flex items-center gap-2 bg-[#F5C518]/10 border border-[#F5C518]/40 text-[#F5C518] text-xs md:text-sm font-medium tracking-wider uppercase px-4 py-1.5 rounded-full mb-8">
