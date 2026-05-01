@@ -143,32 +143,6 @@ export default function WorkWithUsPage() {
 
   return (
     <div className="min-h-screen bg-[#1C2E4A] overflow-x-hidden relative">
-      {/* Animated background orbs - Brand Colors */}
-      <div className="fixed w-[500px] h-[500px] bg-[#0E9BF0] rounded-full blur-[120px] pointer-events-none z-0 opacity-20 -top-[100px] -right-[100px]"></div>
-      <div className="fixed w-[400px] h-[400px] bg-[#25C97D] rounded-full blur-[120px] pointer-events-none z-0 opacity-20 -bottom-[50px] -left-[80px]"></div>
-      <div className="fixed w-[300px] h-[300px] bg-[#F8D000] rounded-full blur-[120px] pointer-events-none z-0 opacity-10 top-[40%] left-[30%]"></div>
-
-      {/* Background Grid */}
-      <div className="fixed inset-0 bg-[linear-gradient(rgba(248,208,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(248,208,0,0.03)_1px,transparent_1px)] bg-[60px_60px] pointer-events-none z-0"></div>
-
-      {/* Navigation */}
-      <nav className="relative z-10 flex items-center justify-between px-5 md:px-12 py-5 md:py-6 border-b border-white/10 backdrop-blur-md bg-[#1C2E4A]/80">
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="bg-[#F8D000] w-10 h-10 rounded-lg flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-200">
-            <TrendingUp className="w-5 h-5 text-[#1C2E4A]" />
-          </div>
-          <div className="font-poppins font-bold text-base md:text-lg text-white">
-            GHL <span className="text-[#0E9BF0]">Scale</span><span className="text-[#25C97D]">Up</span>
-          </div>
-        </Link>
-        <button
-          onClick={scrollToForm}
-          className="bg-[#F8D000] text-[#1C2E4A] font-poppins font-bold text-xs md:text-sm px-5 md:px-6 py-2.5 rounded-md hover:translate-y-[-2px] hover:shadow-lg transition-all duration-200 flex items-center gap-2"
-        >
-          Register Now <ArrowRight className="w-3.5 h-3.5" />
-        </button>
-      </nav>
-
       {/* Hero Section */}
       <div className="relative z-5 max-w-4xl mx-auto text-center px-5 md:px-12 pt-16 md:pt-20 pb-12">
         <div className="inline-flex items-center gap-2 bg-[#F8D000]/10 border border-[#F8D000]/40 text-[#F8D000] text-xs md:text-sm font-medium tracking-wider uppercase px-4 py-1.5 rounded-full mb-8">
