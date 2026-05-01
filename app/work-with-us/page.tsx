@@ -378,11 +378,11 @@ export default function WorkWithUsPage() {
             <p className="text-white/50 text-base max-w-md mx-auto mb-8">
               We've got your application. Projects drop in constantly — we'll reach out the moment something fits your profile.
             </p>
-            <div className="flex flex-wrap gap-3 justify-center">
+            {/* <div className="flex flex-wrap gap-3 justify-center">
               <div className="bg-white/5 border border-white/10 rounded-full px-4 py-1.5 text-xs text-white/60">📬 Email confirmation sent</div>
               <div className="bg-white/5 border border-white/10 rounded-full px-4 py-1.5 text-xs text-white/60">⚡ Projects matched fast</div>
               <div className="bg-white/5 border border-white/10 rounded-full px-4 py-1.5 text-xs text-white/60">🌍 Global clients</div>
-            </div>
+            </div> */}
           </div>
         )}
       </div>
