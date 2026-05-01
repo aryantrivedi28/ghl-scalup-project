@@ -236,11 +236,11 @@ export default function WorkWithUsPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-xs font-medium tracking-wide text-white/50 uppercase mb-2">First Name</label>
-                        <input type="text" name="firstName" value={formData.firstName} onChange={handleInputChange} className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:border-[#0E9BF0] focus:outline-none transition-all" placeholder="Aryan" />
+                        <input type="text" name="firstName" value={formData.firstName} onChange={handleInputChange} className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:border-[#0E9BF0] focus:outline-none transition-all" placeholder="first name" />
                       </div>
                       <div>
                         <label className="block text-xs font-medium tracking-wide text-white/50 uppercase mb-2">Last Name</label>
-                        <input type="text" name="lastName" value={formData.lastName} onChange={handleInputChange} className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:border-[#0E9BF0] focus:outline-none transition-all" placeholder="Sharma" />
+                        <input type="text" name="lastName" value={formData.lastName} onChange={handleInputChange} className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:border-[#0E9BF0] focus:outline-none transition-all" placeholder="last name" />
                       </div>
                     </div>
 
