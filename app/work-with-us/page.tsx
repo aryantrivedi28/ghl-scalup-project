@@ -252,7 +252,7 @@ export default function WorkWithUsPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-xs font-medium tracking-wide text-white/50 uppercase mb-2">WhatsApp / Phone</label>
-                        <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:border-[#0E9BF0] focus:outline-none transition-all" placeholder="+91 98765 43210" />
+                        <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:border-[#0E9BF0] focus:outline-none transition-all" placeholder="98765 43210" />
                       </div>
                       <div>
                         <label className="block text-xs font-medium tracking-wide text-white/50 uppercase mb-2">Country</label>
