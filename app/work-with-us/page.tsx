@@ -149,10 +149,10 @@ export default function WorkWithUsPage() {
           <TrendingUp className="w-3.5 h-3.5" />
           Now Onboarding Developers
         </div>
-        <h1 className="font-poppins font-extrabold text-4xl md:text-6xl lg:text-7xl leading-tight md:leading-[1.08] mb-6">
+        <h1 className="font-poppins font-extrabold text-4xl md:text-6xl lg:text-7xl leading-tight md:leading-[1.08] mb-6 text-white">
           Join the Army of<br />
           <span className="text-[#0E9BF0]">GHL Developers</span><br />
-          at <span className="text-white">GHL</span><span className="text-[#0E9BF0]">Scale</span><span className="text-[#25C97D]">Up</span>
+          at <span className="text-white">GHL </span><span className="text-[#0E9BF0]">Scale</span><span className="text-[#25C97D]">Up</span>
         </h1>
         <p className="text-base md:text-lg text-white/60 max-w-xl mx-auto leading-relaxed font-light">
           We work with the best GoHighLevel builders in the world. Projects come in constantly — and we need developers who are ready to move fast and build right.
