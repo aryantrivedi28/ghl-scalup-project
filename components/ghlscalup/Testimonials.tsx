@@ -1,4 +1,4 @@
-// components/ghlscalup/Testimonials.tsx
+// components/ghlscalup/Testimonials.tsx - CORRECTED VERSION
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
@@ -26,7 +26,6 @@ interface TestimonialsProps {
 export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [visibleCount, setVisibleCount] = useState(6);
-  const [activeFilter, setActiveFilter] = useState<'all' | 'featured'>('all');
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -47,36 +46,15 @@ export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
     return () => observer.disconnect();
   }, []);
 
+  // Ensure testimonials is an array
   const testimonialsArray = Array.isArray(testimonials) ? testimonials : [];
   
-  // Separate featured and non-featured testimonials
-  const featuredTestimonials = testimonialsArray.filter(t => t.featured === true);
-  const nonFeaturedTestimonials = testimonialsArray.filter(t => t.featured !== true);
-  
-  // Determine what to show based on active filter
-  const getDisplayedTestimonials = () => {
-    if (activeFilter === 'featured') {
-      return featuredTestimonials;
-    }
-    // If no non-featured testimonials exist, show featured ones in 'all' as well
-    if (nonFeaturedTestimonials.length === 0) {
-      return featuredTestimonials;
-    }
-    return nonFeaturedTestimonials;
-  };
-  
-  const displayedTestimonials = getDisplayedTestimonials();
+  // Show ALL testimonials (no filtering)
+  const displayedTestimonials = testimonialsArray;
   const hasMoreTestimonials = displayedTestimonials.length > visibleCount;
-  const hasFeaturedTestimonials = featuredTestimonials.length > 0;
-  const hasNonFeaturedTestimonials = nonFeaturedTestimonials.length > 0;
 
   const loadMore = () => {
     setVisibleCount(prev => prev + 6);
-  };
-
-  const handleFilterChange = (filter: 'all' | 'featured') => {
-    setActiveFilter(filter);
-    setVisibleCount(6);
   };
 
   // If no testimonials at all
@@ -110,32 +88,6 @@ export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
           </p>
         </div>
 
-        {/* Filter Tabs - Show both tabs if there are featured testimonials */}
-        {hasFeaturedTestimonials && hasNonFeaturedTestimonials && (
-          <div className="flex justify-center gap-3 mb-8 md:mb-12 fade-in">
-            <button
-              onClick={() => handleFilterChange('all')}
-              className={`px-4 md:px-6 py-2 rounded-full text-sm md:text-base font-medium transition-all ${
-                activeFilter === 'all'
-                  ? 'bg-[#F8D000] text-[#0B1421] shadow-md'
-                  : 'bg-white text-[#4A5568] hover:bg-gray-100'
-              }`}
-            >
-              Client Stories ({nonFeaturedTestimonials.length})
-            </button>
-            <button
-              onClick={() => handleFilterChange('featured')}
-              className={`px-4 md:px-6 py-2 rounded-full text-sm md:text-base font-medium transition-all ${
-                activeFilter === 'featured'
-                  ? 'bg-[#F8D000] text-[#0B1421] shadow-md'
-                  : 'bg-white text-[#4A5568] hover:bg-gray-100'
-              }`}
-            >
-              Featured Stories ({featuredTestimonials.length})
-            </button>
-          </div>
-        )}
-
         {/* Video Section - Two Videos Side by Side */}
         <div className="mb-12 md:mb-16 fade-in">
           <div className="grid md:grid-cols-2 gap-8 md:gap-10">
@@ -163,25 +115,12 @@ export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
           </div>
         </div>
 
-        {/* Testimonials Grid Section */}
+        {/* Testimonials Grid Section - Show ALL testimonials */}
         {displayedTestimonials.length > 0 && (
           <div className="fade-in">
-            {/* Section Title based on filter and content */}
-            {activeFilter === 'featured' && (
-              <h3 className="text-lg md:text-xl font-bold text-[#1C2E4A] mb-6 text-center">
-                ⭐ Featured Success Stories
-              </h3>
-            )}
-            {activeFilter === 'all' && hasNonFeaturedTestimonials && (
-              <h3 className="text-lg md:text-xl font-bold text-[#1C2E4A] mb-6 text-center">
-                What Our Clients Say
-              </h3>
-            )}
-            {activeFilter === 'all' && !hasNonFeaturedTestimonials && hasFeaturedTestimonials && (
-              <h3 className="text-lg md:text-xl font-bold text-[#1C2E4A] mb-6 text-center">
-                ⭐ Featured Success Stories
-              </h3>
-            )}
+            <h3 className="text-lg md:text-xl font-bold text-[#1C2E4A] mb-6 text-center">
+              What Our Clients Say
+            </h3>
             
             {/* Grid Layout */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
