@@ -17,6 +17,9 @@ export const metadata: Metadata = {
     title: 'Blog — GoHighLevel Tips & Marketing Insights | GHL Scale Up',
     description: 'Practical GHL guides, automation tips, SaaS strategies, and marketing insights.',
   },
+  alternates: {
+    canonical: 'https://ghlscaleup.com/blog',
+  },
 };
 
 export default function BlogPage() {

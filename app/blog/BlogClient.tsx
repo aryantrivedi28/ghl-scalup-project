@@ -18,10 +18,22 @@ import {
   Calendar,
   Star,
   CheckCircle,
-  XCircle
+  XCircle,
+  BookOpen
 } from 'lucide-react';
 
 const blogPosts = [
+  {
+    icon: BookOpen,
+    tag: 'GoHighLevel',
+    title: 'What Is GoHighLevel? The Complete Guide for 2026',
+    excerpt: 'GoHighLevel (GHL) is an all-in-one CRM and marketing platform built for agencies and service businesses. This plain-English guide explains what it does, who it\'s for, and how it\'s priced.',
+    slug: 'what-is-gohighlevel',
+    date: 'May 2, 2026',
+    readTime: '12 min read',
+    featured: true,
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+  },
   {
     icon: Rocket,
     tag: 'GHL SaaS',
@@ -75,7 +87,7 @@ const blogPosts = [
     date: 'March 20, 2026',
     readTime: '6 min read',
     featured: false,
-    image: 'https://www.chillreptile.com/wp-content/uploads/2023/06/GoHighLevel-Automation.png',
+    image: 'https://tse4.mm.bing.net/th/id/OIP.om2obSqXtvYBhVLPnSYgbgHaEe?rs=1&pid=ImgDetMain&o=7&rm=3',
   },
   {
     icon: Target,
