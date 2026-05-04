@@ -6,7 +6,10 @@ import CtaBand from '@/components/sections/CtaBand';
 export const metadata = {
   title: 'Lead Generation Systems | GHL Scale Up',
   description: 'Complete lead generation systems including traffic, landing pages, CRM, follow-ups, and booking. Build a predictable lead generation machine.',
-  keywords: 'lead generation, lead generation systems, marketing funnels, lead capture, sales pipeline'
+  keywords: 'lead generation, lead generation systems, marketing funnels, lead capture, sales pipeline',
+  alternates: {
+    canonical: '/marketing/lead-generation'
+  }
 };
 
 export default function LeadGenerationPage() {

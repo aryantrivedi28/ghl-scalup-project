@@ -1,4 +1,4 @@
-// app/services/ghl/workflow-automation/page.tsx
+// app/services/workflow-automation/page.tsx
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
@@ -6,7 +6,10 @@ import CtaBand from '@/components/sections/CtaBand';
 export const metadata = {
   title: 'GHL Workflow Automation & Marketing Automation Services | GHL Scale Up',
   description: 'Expert GHL workflow automation with triggers, sequences, conditional logic, AI follow-ups. 70% manual work reduction. Get a free automation audit today.',
-  keywords: 'GoHighLevel workflow automation, GHL marketing automation, trigger-based workflows, AI follow-up sequences'
+  keywords: 'GoHighLevel workflow automation, GHL marketing automation, trigger-based workflows, AI follow-up sequences',
+  alternates: {
+    canonical: '/services/workflow-automation',
+  },
 };
 
 export default function WorkflowAutomationPage() {

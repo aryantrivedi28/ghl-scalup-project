@@ -22,6 +22,9 @@ export const metadata: Metadata = {
     description: 'Transition from one-off projects to a scalable SaaS business using GHL white-label.',
     images: ['https://ghlscaleup.com/images/blog/freelancer-to-saas-og.jpg'],
   },
+  alternates: {
+    canonical: '/blog/freelancer-to-ghl-saas-founder'
+  }
 };
 
 export default function FreelancerToSaaSFounderPage() {

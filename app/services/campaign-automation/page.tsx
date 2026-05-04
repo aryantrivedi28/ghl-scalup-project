@@ -1,4 +1,4 @@
-// app/services/ghl/email-sms-whatsapp/page.tsx
+// app/services/campaign-automation/page.tsx
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
@@ -6,7 +6,10 @@ import CtaBand from '@/components/sections/CtaBand';
 export const metadata = {
   title: 'GHL Email, SMS & WhatsApp Automation Services | GHL Scale Up',
   description: 'Multi-channel drip campaigns, nurture sequences, appointment reminders, and re-engagement workflows. 200+ projects delivered. Get a free audit.',
-  keywords: 'GHL email automation, SMS marketing, WhatsApp automation, multi-channel campaigns, drip sequences'
+  keywords: 'GHL email automation, SMS marketing, WhatsApp automation, multi-channel campaigns, drip sequences',
+  alternates: {
+    canonical: '/services/campaign-automation',
+  },
 };
 
 export default function EmailSMSWhatsAppPage() {

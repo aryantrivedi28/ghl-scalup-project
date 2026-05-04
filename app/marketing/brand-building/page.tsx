@@ -6,7 +6,10 @@ import CtaBand from '@/components/sections/CtaBand';
 export const metadata = {
   title: 'Brand Building & Strategy Services | GHL Scale Up',
   description: 'Strategic brand building services including brand strategy, visual identity, messaging frameworks, and positioning. Build a brand that resonates.',
-  keywords: 'brand building, brand strategy, brand identity, brand positioning, messaging framework'
+  keywords: 'brand building, brand strategy, brand identity, brand positioning, messaging framework',
+  alternates: {
+    canonical: '/marketing/brand-building'
+  }
 };
 
 export default function BrandBuildingPage() {

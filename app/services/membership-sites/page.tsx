@@ -1,4 +1,4 @@
-// app/services/ghl/training-onboarding/page.tsx
+// app/services/membership-sites/page.tsx
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
@@ -6,7 +6,10 @@ import CtaBand from '@/components/sections/CtaBand';
 export const metadata = {
   title: 'GHL Training & Onboarding Services | GHL Scale Up',
   description: 'End-to-end GHL training for your team CRM, automations, reporting, funnels. SOPs, videos, and live training. 200+ teams trained.',
-  keywords: 'GHL training, GoHighLevel onboarding, team training, SOPs, GHL certification'
+  keywords: 'GHL training, GoHighLevel onboarding, team training, SOPs, GHL certification',
+  alternates: {
+    canonical: '/services/membership-sites',
+  },
 };
 
 export default function TrainingOnboardingPage() {

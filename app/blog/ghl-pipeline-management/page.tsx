@@ -22,6 +22,9 @@ export const metadata: Metadata = {
     description: 'Master the art of pipeline management in GoHighLevel to track and convert more leads.',
     images: ['https://ghlscaleup.com/images/blog/ghl-pipeline-og.jpg'],
   },
+  alternates: {
+    canonical: '/blog/ghl-pipeline-management'
+  }
 };
 
 export default function GHLPipelineManagementPage() {

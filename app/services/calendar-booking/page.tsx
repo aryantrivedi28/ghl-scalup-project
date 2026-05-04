@@ -1,4 +1,4 @@
-// app/services/ghl/calendar-booking/page.tsx
+// app/services/calendar-booking/page.tsx
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
@@ -6,7 +6,10 @@ import CtaBand from '@/components/sections/CtaBand';
 export const metadata = {
   title: 'GHL Calendar & Booking Setup Services | GHL Scale Up',
   description: 'Professional calendar configuration, round-robin scheduling, service calendars, and automated reminders. 200+ projects. Get a free consultation.',
-  keywords: 'GHL calendar setup, booking system, round-robin scheduling, appointment reminders, service calendars'
+  keywords: 'GHL calendar setup, booking system, round-robin scheduling, appointment reminders, service calendars',
+  alternates: {
+    canonical: '/services/calendar-booking',
+  },
 };
 
 export default function CalendarBookingPage() {

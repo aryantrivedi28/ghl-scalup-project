@@ -3,9 +3,12 @@ import ServiceCRMSetup from '@/components/ghlscalup/services/CRMSetup'
 
 
 export const metadata = {
-  title: 'GHL CRM Setup | GHL Scale Up',
-  description: 'Multi-channel drip campaigns, nurture sequences, appointment reminders, and re-engagement workflows. 200+ projects delivered. Get a free audit.',
-  keywords: 'GHL CRM Setup, CRM Setup, CRM Automation,'
+  title: 'CRM Setup Service | GHL Scale Up',
+  description: 'Hire a GoHighLevel CRM expert. We configure pipelines, automations, speed-to-lead workflows & sub-accounts for agencies and service businesses.',
+  keywords: 'GHL CRM Setup, CRM Setup, CRM Automation,',
+  alternates: {
+    canonical: '/services/crm-setup',
+  },
 };
 
 export default function CRMSetupPage() {

@@ -1,4 +1,4 @@
-// app/services/ghl/white-label-saas/page.tsx
+// app/services/saas-setup/page.tsx
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
@@ -6,7 +6,10 @@ import CtaBand from '@/components/sections/CtaBand';
 export const metadata = {
   title: 'GHL White-Label SaaS Setup Services | GHL Scale Up',
   description: 'Complete white-label SaaS setup on GoHighLevel branded domains, snapshots, Stripe billing, sub-account provisioning. 200+ projects. Get a free consultation.',
-  keywords: 'GHL white-label SaaS, GoHighLevel SaaS mode, white-label agency, SaaS setup, branded CRM platform'
+  keywords: 'GHL white-label SaaS, GoHighLevel SaaS mode, white-label agency, SaaS setup, branded CRM platform',
+  alternates: {
+    canonical: '/services/saas-setup',
+  },
 };
 
 export default function WhiteLabelSaaSPage() {

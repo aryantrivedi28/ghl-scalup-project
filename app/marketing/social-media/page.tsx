@@ -6,7 +6,10 @@ import CtaBand from '@/components/sections/CtaBand';
 export const metadata = {
   title: 'Social Media Management Services | GHL Scale Up',
   description: 'Full social media management including content calendars, daily posting, community engagement, and analytics. Build your brand presence across platforms.',
-  keywords: 'social media management, content calendars, community management, social media strategy, brand engagement'
+  keywords: 'social media management, content calendars, community management, social media strategy, brand engagement',
+  alternates: {
+    canonical: '/marketing/social-media'
+  }
 };
 
 export default function SocialMediaManagementPage() {

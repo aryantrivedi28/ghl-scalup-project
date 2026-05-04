@@ -1,4 +1,4 @@
-// app/services/ghl/ai-voice-agent/page.tsx
+// app/services/ai-voice-agent/page.tsx
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
@@ -6,7 +6,10 @@ import CtaBand from '@/components/sections/CtaBand';
 export const metadata = {
   title: 'GHL AI Voice Agent & Call Handling Services | GHL Scale Up',
   description: '24/7 AI receptionist that answers calls, qualifies leads, books appointments, and handles missed calls. 200+ projects. Get a free AI voice consultation.',
-  keywords: 'AI voice agent, GHL call handling, AI receptionist, missed call text back, voice AI automation'
+  keywords: 'AI voice agent, GHL call handling, AI receptionist, missed call text back, voice AI automation',
+  alternates: {
+    canonical: '/services/ai-voice-agent',
+  },
 };
 
 export default function AIVoiceAgentPage() {

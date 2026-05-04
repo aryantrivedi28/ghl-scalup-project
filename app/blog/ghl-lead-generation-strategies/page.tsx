@@ -22,6 +22,9 @@ export const metadata: Metadata = {
     description: 'Learn the proven strategies to attract, capture, and convert leads using GoHighLevel automation.',
     images: ['https://ghlscaleup.com/images/blog/ghl-lead-generation-og.jpg'],
   },
+  alternates: {
+    canonical: '/blog/ghl-lead-generation-strategies'
+  }
 };
 
 export default function GHLLeadGenerationPage() {

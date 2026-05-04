@@ -1,4 +1,4 @@
-// app/services/ghl/sales-funnels/page.tsx
+// app/services/funnel-development/page.tsx
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
@@ -6,7 +6,10 @@ import CtaBand from '@/components/sections/CtaBand';
 export const metadata = {
   title: 'GHL Sales Funnel Development & Landing Page Builder | GHL Scale Up',
   description: 'Expert GHL sales funnel development with high-converting landing pages, opt-in forms, order bumps, and upsells. 200+ projects delivered. Get a free funnel audit today.',
-  keywords: 'GoHighLevel sales funnel, GHL landing page builder, funnel development, sales funnel design, high-converting funnels'
+  keywords: 'GoHighLevel sales funnel, GHL landing page builder, funnel development, sales funnel design, high-converting funnels',
+  alternates: {
+    canonical: '/services/funnel-development',
+  },
 };
 
 export default function SalesFunnelsPage() {

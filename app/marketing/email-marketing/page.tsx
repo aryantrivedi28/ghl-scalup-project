@@ -6,7 +6,10 @@ import CtaBand from '@/components/sections/CtaBand';
 export const metadata = {
   title: 'Email Marketing Services | GHL Scale Up',
   description: 'Professional email marketing services including list building, segmentation, drip campaigns, newsletters, and deliverability optimization.',
-  keywords: 'email marketing, email campaigns, drip sequences, newsletter management, email deliverability'
+  keywords: 'email marketing, email campaigns, drip sequences, newsletter management, email deliverability',
+  alternates: {
+    canonical: '/marketing/email-marketing'
+  }
 };
 
 export default function EmailMarketingPage() {

@@ -1,4 +1,4 @@
-// app/services/ghl/migration/page.tsx
+// app/services/migration/page.tsx
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
@@ -6,7 +6,10 @@ import CtaBand from '@/components/sections/CtaBand';
 export const metadata = {
   title: 'GHL Migration Services | GHL Scale Up',
   description: 'Expert migration from ClickFunnels, Kajabi, HubSpot, ActiveCampaign, and any CRM to GoHighLevel. 200+ successful migrations. Get a free migration assessment.',
-  keywords: 'GHL migration, migrate to GoHighLevel, ClickFunnels to GHL, HubSpot migration, CRM migration'
+  keywords: 'GHL migration, migrate to GoHighLevel, ClickFunnels to GHL, HubSpot migration, CRM migration',
+  alternates: {
+    canonical: '/services/migration',
+  },
 };
 
 export default function MigrationPage() {

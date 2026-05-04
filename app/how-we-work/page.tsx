@@ -6,7 +6,11 @@ import ContactForm from '@/components/ContactForm';
 
 export const metadata = {
   title: 'How We Work — Our GoHighLevel Delivery Process | GHL Scale Up',
-  description: '5-step delivery process: Understand, Design, Build, Test, Train. Fixed pricing, weekly updates, no surprises.'
+  description: '5-step delivery process: Understand, Design, Build, Test, Train. Fixed pricing, weekly updates, no surprises.',
+  keywords: 'GoHighLevel delivery process, project workflow, fixed-price projects, CRM implementation, automation setup, training and support',
+  alternates: {
+    canonical: '/how-we-work'
+  }
 };
 // At the top of your HowWeWorkPage function
 console.log('ContactForm component:', ContactForm);

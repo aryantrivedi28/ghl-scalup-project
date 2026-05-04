@@ -22,6 +22,9 @@ export const metadata: Metadata = {
     description: 'Build an AI-powered lead response system that qualifies, books, and follows up automatically.',
     images: ['https://ghlscaleup.com/images/blog/ghl-ai-workflows-og.jpg'],
   },
+  alternates: {
+    canonical: '/blog/ghl-ai-workflows-lead-response'
+  }
 };
 
 export default function GHLAIWorkflowsPage() {

@@ -1,4 +1,4 @@
-// app/services/ghl/reputation-management/page.tsx
+// app/services/reputation-management/page.tsx
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
@@ -6,7 +6,10 @@ import CtaBand from '@/components/sections/CtaBand';
 export const metadata = {
   title: 'GHL Reputation & Review Management Services | GHL Scale Up',
   description: 'Automated review requests, Google/Facebook monitoring, AI review responses, and reputation tracking. 200+ projects. Get a free reputation audit.',
-  keywords: 'GHL reputation management, review management, automated review requests, Google reviews, reputation monitoring'
+  keywords: 'GHL reputation management, review management, automated review requests, Google reviews, reputation monitoring',
+  alternates: {
+    canonical: '/services/reputation-management',
+  },
 };
 
 export default function ReputationManagementPage() {

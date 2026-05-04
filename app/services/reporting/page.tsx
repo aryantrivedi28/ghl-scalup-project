@@ -1,4 +1,4 @@
-// app/services/ghl/reporting-dashboards/page.tsx
+// app/services/reporting/page.tsx
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
@@ -6,7 +6,10 @@ import CtaBand from '@/components/sections/CtaBand';
 export const metadata = {
   title: 'GHL Reporting & Dashboards Services | GHL Scale Up',
   description: 'Custom dashboards for leads, pipeline value, conversion rates, and team performance. 200+ projects. Get a free reporting consultation.',
-  keywords: 'GHL reporting, custom dashboards, pipeline analytics, conversion tracking, team performance dashboards'
+  keywords: 'GHL reporting, custom dashboards, pipeline analytics, conversion tracking, team performance dashboards',
+  alternates: {
+    canonical: '/services/reporting',
+  },
 };
 
 export default function ReportingDashboardsPage() {

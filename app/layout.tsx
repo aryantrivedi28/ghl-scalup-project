@@ -14,10 +14,10 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.ghlscaleup.com'),
 
-  title: 'GHL Scale Up | GoHighLevel Expert Agency — CRM Setup, Automation & White-Label SaaS',
+  title: 'GoHighLevel Expert Agency | GHL Scale Up',
 
   description:
-    'Hire GoHighLevel experts for CRM setup, workflow automation, funnel building, AI lead systems, and white-label SaaS.',
+    'GHL Scale Up builds complete GoHighLevel systems - CRM setup, automation, AI agents & white-lebel SaaS. 200+ projects. 6 countries. Het a free strategy call.',
 
   alternates: {
     canonical: '/',

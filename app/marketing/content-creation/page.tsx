@@ -1,4 +1,4 @@
-// app/services/marketing/content-copywriting/page.tsx
+// app/marketing/content-creation/page.tsx
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
@@ -6,7 +6,10 @@ import CtaBand from '@/components/sections/CtaBand';
 export const metadata = {
   title: 'Content Creation & Copywriting Services | GHL Scale Up',
   description: 'Professional content creation and copywriting services. Blogs, ad copy, email sequences, website copy, and social media content. Written by humans, optimized for conversions.',
-  keywords: 'content creation, copywriting, blog writing, ad copy, email copywriting, website content'
+  keywords: 'content creation, copywriting, blog writing, ad copy, email copywriting, website content',
+  alternates: {
+    canonical: '/marketing/content-creation'
+  }
 };
 
 export default function ContentCopywritingPage() {

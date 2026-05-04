@@ -6,7 +6,10 @@ import CtaBand from '@/components/sections/CtaBand';
 export const metadata = {
   title: 'Graphic Design Services | GHL Scale Up',
   description: 'Professional graphic design services for social media, ads, presentations, and brand collateral. Consistent, high-quality visuals that elevate your brand.',
-  keywords: 'graphic design, social media graphics, ad creatives, brand design, visual identity'
+  keywords: 'graphic design, social media graphics, ad creatives, brand design, visual identity',
+  alternates: {
+    canonical: '/marketing/graphic-design'
+  }
 };
 
 export default function GraphicDesignPage() {

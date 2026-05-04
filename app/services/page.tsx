@@ -6,7 +6,10 @@ import CtaBand from '@/components/sections/CtaBand';
 export const metadata = {
   title: 'GoHighLevel Services | Expert GHL Solutions for Agencies & Businesses',
   description: 'Complete GoHighLevel services including CRM setup, automation, funnels, AI chatbots, voice agents, white-label SaaS, and more. 200+ projects delivered. Get a free consultation.',
-  keywords: 'GoHighLevel services, GHL experts, marketing automation, CRM setup, sales funnels, AI chatbot'
+  keywords: 'GoHighLevel services, GHL experts, marketing automation, CRM setup, sales funnels, AI chatbot',
+  alternates: {
+    canonical: '/services',
+  },
 };
 
 export default function ServicesPage() {

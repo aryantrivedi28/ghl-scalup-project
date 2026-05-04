@@ -1,4 +1,4 @@
-// app/services/ghl/integrations-api/page.tsx
+// app/services/integrations/page.tsx
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
@@ -6,7 +6,10 @@ import CtaBand from '@/components/sections/CtaBand';
 export const metadata = {
   title: 'GHL Integrations & API Development Services | GHL Scale Up',
   description: 'Custom integrations with Zapier, Make, Stripe, Google, webhooks, and custom APIs. 200+ projects. Get a free consultation.',
-  keywords: 'GHL integrations, API development, Zapier integration, Make.com, webhooks, custom API'
+  keywords: 'GHL integrations, API development, Zapier integration, Make.com, webhooks, custom API',
+  alternates: {
+    canonical: '/services/integrations',
+  },
 };
 
 export default function IntegrationsAPIPage() {

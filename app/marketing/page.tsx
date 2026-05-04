@@ -1,4 +1,4 @@
-// app/services/marketing/page.tsx
+// app/marketing/page.tsx
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
@@ -6,7 +6,10 @@ import CtaBand from '@/components/sections/CtaBand';
 export const metadata = {
   title: 'Marketing Services | GHL Scale Up',
   description: 'Complete marketing services including SEO, Google Ads, Meta Ads, TikTok Ads, social media management, content creation, and more. Data-driven marketing that delivers ROI.',
-  keywords: 'marketing services, digital marketing, SEO services, PPC management, social media marketing, content marketing'
+  keywords: 'marketing services, digital marketing, SEO services, PPC management, social media marketing, content marketing',
+  alternates: {
+    canonical: '/marketing',
+  },
 };
 
 export default function MarketingServicesPage() {

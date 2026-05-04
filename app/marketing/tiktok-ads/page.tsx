@@ -6,7 +6,10 @@ import CtaBand from '@/components/sections/CtaBand';
 export const metadata = {
   title: 'TikTok Ads Management Services | GHL Scale Up',
   description: 'Expert TikTok Ads management with video ads, spark ads, lead forms, and creator partnerships. Reach Gen Z and Millennial audiences. Get a free TikTok audit.',
-  keywords: 'TikTok Ads management, TikTok advertising, spark ads, video ads, influencer marketing'
+  keywords: 'TikTok Ads management, TikTok advertising, spark ads, video ads, influencer marketing',
+  alternates: {
+    canonical: '/marketing/tiktok-ads'
+  }
 };
 
 export default function TikTokAdsPage() {

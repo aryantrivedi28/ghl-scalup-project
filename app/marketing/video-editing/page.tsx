@@ -6,7 +6,10 @@ import CtaBand from '@/components/sections/CtaBand';
 export const metadata = {
   title: 'Video Editing & Production Services | GHL Scale Up',
   description: 'Professional video editing and production services. Reels, YouTube videos, ad creative, UGC editing, and promotional videos. Get a free video consultation.',
-  keywords: 'video editing, video production, reel editing, YouTube editing, ad creative, UGC editing'
+  keywords: 'video editing, video production, reel editing, YouTube editing, ad creative, UGC editing',
+  alternates: {
+    canonical: '/marketing/video-editing'
+  }
 };
 
 export default function VideoEditingPage() {

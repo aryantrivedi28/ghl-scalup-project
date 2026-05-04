@@ -1,4 +1,4 @@
-// app/services/ghl/website-development/page.tsx
+// app/services/website-development/page.tsx
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
@@ -6,7 +6,10 @@ import CtaBand from '@/components/sections/CtaBand';
 export const metadata = {
   title: 'GHL Website Development Services | GHL Scale Up',
   description: 'Professional GHL website development with custom designs, SEO optimization, mobile responsiveness, and CRM integration. 200+ websites built. Get a free consultation.',
-  keywords: 'GHL website development, GoHighLevel website builder, custom GHL websites, GHL landing pages, GHL web design'
+  keywords: 'GHL website development, GoHighLevel website builder, custom GHL websites, GHL landing pages, GHL web design',
+  alternates: {
+    canonical: '/services/website-development',
+  },
 };
 
 export default function WebsiteDevelopmentPage() {

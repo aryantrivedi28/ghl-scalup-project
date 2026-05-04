@@ -6,7 +6,10 @@ import CtaBand from '@/components/sections/CtaBand';
 export const metadata = {
   title: 'SEO Services | GHL Scale Up',
   description: 'Strategic SEO services including technical SEO, on-page optimization, link building, and local SEO. Drive organic traffic that converts. Get a free SEO audit.',
-  keywords: 'SEO services, technical SEO, local SEO, link building, organic traffic growth'
+  keywords: 'SEO services, technical SEO, local SEO, link building, organic traffic growth',
+  alternates: {
+    canonical: '/marketing/seo'
+  }
 };
 
 export default function SEOPage() {

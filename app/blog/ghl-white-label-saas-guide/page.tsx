@@ -22,6 +22,9 @@ export const metadata: Metadata = {
     description: 'Domains, snapshots, Stripe billing, sub-account provisioning, and pricing strategies.',
     images: ['https://ghlscaleup.com/images/blog/ghl-saas-guide-og.jpg'],
   },
+  alternates: {
+    canonical: '/blog/ghl-white-label-saas-guide'
+  }
 };
 
 export default function GHLWhiteLabelSaaSGuidePage() {

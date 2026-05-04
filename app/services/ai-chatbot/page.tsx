@@ -1,4 +1,4 @@
-// app/services/ghl/ai-chatbot/page.tsx
+// app/services/ai-chatbot/page.tsx
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
@@ -6,7 +6,10 @@ import CtaBand from '@/components/sections/CtaBand';
 export const metadata = {
   title: 'GHL AI Chatbot & Conversation AI Services | GHL Scale Up',
   description: 'AI-powered chatbots for lead qualification, FAQ handling, appointment booking, and 24/7 customer support. 200+ projects. Get a free AI consultation.',
-  keywords: 'GHL AI chatbot, conversation AI, lead qualification chatbot, AI appointment booking, GoHighLevel AI'
+  keywords: 'GHL AI chatbot, conversation AI, lead qualification chatbot, AI appointment booking, GoHighLevel AI',
+  alternates: {
+    canonical: '/services/ai-chatbot',
+  },
 };
 
 export default function AIChatbotPage() {

@@ -1,4 +1,4 @@
-// app/services/marketing/ai-marketing-automation/page.tsx
+// app/marketing/ai-marketing/page.tsx
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
@@ -6,7 +6,10 @@ import CtaBand from '@/components/sections/CtaBand';
 export const metadata = {
   title: 'AI Marketing Automation Services | GHL Scale Up',
   description: 'AI-powered marketing automation including predictive scoring, AI content, chatbot marketing, and intelligent workflows. Get a free AI consultation.',
-  keywords: 'AI marketing automation, predictive scoring, AI content generation, chatbot marketing, intelligent workflows'
+  keywords: 'AI marketing automation, predictive scoring, AI content generation, chatbot marketing, intelligent workflows',
+  alternates: {
+    canonical: '/marketing/ai-marketing'
+  }
 };
 
 export default function AIMarketingAutomationPage() {

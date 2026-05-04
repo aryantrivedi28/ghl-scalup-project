@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     description: 'Most agencies use 20% of GHL\'s funnel builder. Here\'s what the other 80% looks like.',
     images: ['https://ghlscaleup.com/images/blog/ghl-funnel-builder-og.jpg'],
   },
+  alternates: {
+    canonical: '/blog/gohighlevel-funnel-builder-features'
+  }
 };
 
 export default function GHLFunnelBuilderPage() {
