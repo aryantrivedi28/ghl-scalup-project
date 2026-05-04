@@ -50,6 +50,26 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.ghlscaleup.com/#organization",
+        "name": "GHL Scale Up",
+        "url": "https://www.ghlscaleup.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.ghlscaleup.com/ghlscalicon.png"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/ghlscaleup"
+        ]
+      },
+    ]
+  }
+
   return (
     <html
       lang="en"
@@ -57,6 +77,13 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
     >
       <body className="font-sans">
+        
+        {/* ✅ Schema Markup */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+        />
+
         <Navigation />
         {children}
         <Footer />
