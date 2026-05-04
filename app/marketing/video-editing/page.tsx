@@ -12,7 +12,7 @@ export const metadata = {
 export default function VideoEditingPage() {
   return (
     <>
-      <Breadcrumb items={[{ label: 'Marketing Services', href: '/services/marketing' }, { label: 'Video Editing & Production' }]} />
+      <Breadcrumb items={[{ label: 'Marketing Services', href: '/marketing' }, { label: 'Video Editing & Production' }]} />
 
       {/* Page Hero */}
       <section className="bg-gradient-to-b from-[#1C2E4A] to-[#111E30] text-white py-16 md:py-20 relative overflow-hidden">

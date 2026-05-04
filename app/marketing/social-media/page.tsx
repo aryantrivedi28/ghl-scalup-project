@@ -12,7 +12,7 @@ export const metadata = {
 export default function SocialMediaManagementPage() {
   return (
     <>
-      <Breadcrumb items={[{ label: 'Marketing Services', href: '/services/marketing' }, { label: 'Social Media Management' }]} />
+      <Breadcrumb items={[{ label: 'Marketing Services', href: '/marketing' }, { label: 'Social Media Management' }]} />
 
       {/* Page Hero */}
       <section className="bg-gradient-to-b from-[#1C2E4A] to-[#111E30] text-white py-16 md:py-20 relative overflow-hidden">
