@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
-    
+
     // Extract form fields
     const firstName = formData.get('firstName') as string;
     const lastName = formData.get('lastName') as string;
@@ -19,52 +19,52 @@ export async function POST(request: NextRequest) {
     const extraInfo = formData.get('extraInfo') as string;
     const caseStudiesRaw = formData.get('caseStudies') as string;
     const caseStudies = caseStudiesRaw ? JSON.parse(caseStudiesRaw) : [];
-    
+
     // Handle file uploads
     let resumeUrl = null;
     let portfolioUrl = null;
-    
+
     const resumeFile = formData.get('resume') as File;
     const portfolioFile = formData.get('portfolio') as File;
-    
-// Upload resume to Supabase Storage
-if (resumeFile && resumeFile.size > 0) {
-  const fileExt = resumeFile.name.split('.').pop();
-  const fileName = `${uuidv4()}.${fileExt}`;
-  const filePath = `resumes/${fileName}`;
-  
-  const { data: uploadData, error: uploadError } = await supabaseServer.storage
-    .from('ghl_freelancer_documents')  // Updated bucket name
-    .upload(filePath, resumeFile);
-  
-  if (uploadError) throw uploadError;
-  
-  const { data: urlData } = supabaseServer.storage
-    .from('ghl_freelancer_documents')  // Updated bucket name
-    .getPublicUrl(filePath);
-  
-  resumeUrl = urlData.publicUrl;
-}
 
-// Upload portfolio to Supabase Storage
-if (portfolioFile && portfolioFile.size > 0) {
-  const fileExt = portfolioFile.name.split('.').pop();
-  const fileName = `${uuidv4()}.${fileExt}`;
-  const filePath = `portfolios/${fileName}`;
-  
-  const { data: uploadData, error: uploadError } = await supabaseServer.storage
-    .from('ghl_freelancer_documents')  // Updated bucket name
-    .upload(filePath, portfolioFile);
-  
-  if (uploadError) throw uploadError;
-  
-  const { data: urlData } = supabaseServer.storage
-    .from('ghl_freelancer_documents')  // Updated bucket name
-    .getPublicUrl(filePath);
-  
-  portfolioUrl = urlData.publicUrl;
-}
-    
+    // Upload resume to Supabase Storage
+    if (resumeFile && resumeFile.size > 0) {
+      const fileExt = resumeFile.name.split('.').pop();
+      const fileName = `${uuidv4()}.${fileExt}`;
+      const filePath = `resumes/${fileName}`;
+
+      const { data: uploadData, error: uploadError } = await supabaseServer.storage
+        .from('ghl_freelancer_documents')  // Updated bucket name
+        .upload(filePath, resumeFile);
+
+      if (uploadError) throw uploadError;
+
+      const { data: urlData } = supabaseServer.storage
+        .from('ghl_freelancer_documents')  // Updated bucket name
+        .getPublicUrl(filePath);
+
+      resumeUrl = urlData.publicUrl;
+    }
+
+    // Upload portfolio to Supabase Storage
+    if (portfolioFile && portfolioFile.size > 0) {
+      const fileExt = portfolioFile.name.split('.').pop();
+      const fileName = `${uuidv4()}.${fileExt}`;
+      const filePath = `portfolios/${fileName}`;
+
+      const { data: uploadData, error: uploadError } = await supabaseServer.storage
+        .from('ghl_freelancer_documents')  // Updated bucket name
+        .upload(filePath, portfolioFile);
+
+      if (uploadError) throw uploadError;
+
+      const { data: urlData } = supabaseServer.storage
+        .from('ghl_freelancer_documents')  // Updated bucket name
+        .getPublicUrl(filePath);
+
+      portfolioUrl = urlData.publicUrl;
+    }
+
     // Insert into database
     const { data, error } = await supabaseServer
       .from('ghl_freelancer_onboarding')
@@ -86,15 +86,37 @@ if (portfolioFile && portfolioFile.size > 0) {
       })
       .select()
       .single();
-    
+
     if (error) throw error;
-    
+
+    await fetch(process.env.GHL_WEBHOOK_URL as string, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        firstName,
+        lastName,
+        email,
+        phone,
+        country,
+        experienceLevel,
+        specialisations,
+        availability,
+        portfolioLink,
+        resumeUrl,
+        portfolioUrl,
+        caseStudies,
+        source: "Freelancer Onboarding"
+      })
+    });
+
     return NextResponse.json({
       success: true,
       message: 'Application submitted successfully!',
       data
     });
-    
+
   } catch (error) {
     console.error('Error submitting application:', error);
     return NextResponse.json(

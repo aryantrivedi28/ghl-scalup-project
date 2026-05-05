@@ -1,4 +1,4 @@
-// app/services/marketing/brand-building/page.tsx
+// app/marketing/brand-building/page.tsx
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
