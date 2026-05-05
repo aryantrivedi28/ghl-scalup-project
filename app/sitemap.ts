@@ -254,6 +254,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.6,
     },
+    {
+      url: `${baseUrl}/blog/what-is-gohighlevel`,
+      lastModified: new Date('2026-04-03'),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
   ]
 
   // Legal Pages

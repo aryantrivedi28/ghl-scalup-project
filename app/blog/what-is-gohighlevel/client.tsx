@@ -46,7 +46,7 @@ export default function WhatIsGoHighLevelClient() {
     { id: 'who-is-it-for', title: '2. Who Is GoHighLevel Built For?' },
     { id: 'tools-it-replaces', title: '3. What Tools Does GoHighLevel Replace?' },
     { id: 'core-features', title: '4. The Core GoHighLevel Features' },
-    { id: 'pricing', title: '5. GoHighLevel Pricing — All 3 Plans' },
+    { id: 'pricing', title: '5. GoHighLevel Pricing All 3 Plans' },
     { id: 'why-setups-fail', title: '6. Why Most GoHighLevel Setups Underperform' },
     { id: 'faq', title: '7. Frequently Asked Questions' },
   ];
@@ -69,12 +69,12 @@ export default function WhatIsGoHighLevelClient() {
   ];
 
   const commonMistakes = [
-    'No conditional logic in workflows — every lead gets the same message',
+    'No conditional logic in workflows every lead gets the same message',
     'Pipelines that don\'t match the real sales process',
     'Missed call text-back not activated',
-    'Sub-accounts built without Snapshots — every new client starts from zero',
+    'Sub-accounts built without Snapshots every new client starts from zero',
     'AI features completely untouched (Voice Agent, Conversation AI, Review AI)',
-    'No tagging or segmentation system — automations misfire',
+    'No tagging or segmentation system automations misfire',
   ];
 
   return (
@@ -123,9 +123,9 @@ export default function WhatIsGoHighLevelClient() {
           
           {/* Introductory Paragraph */}
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
-            You've heard the name everywhere — agency owners, fellow business owners, YouTube ads. 
+            You've heard the name everywhere agency owners, fellow business owners, YouTube ads. 
             But what does GoHighLevel actually do? And if you're already using it, is your setup 
-            working the way it should? This guide covers both — in plain English.
+            working the way it should? This guide covers both in plain English.
           </p>
         </div>
       </section>
@@ -186,7 +186,7 @@ export default function WhatIsGoHighLevelClient() {
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
               GoHighLevel was built to fix exactly that. It's a single platform that handles your entire customer 
-              journey — from when someone first hears about your business to when they become a loyal, paying client.
+              journey from when someone first hears about your business to when they become a loyal, paying client.
             </p>
 
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-5 md:p-6 my-6">
@@ -228,7 +228,7 @@ export default function WhatIsGoHighLevelClient() {
                   <Building2 className="w-5 h-5 text-[#25C97D]" />
                 </div>
                 <h3 className="font-bold text-[#1A2236] mb-1">Service Businesses</h3>
-                <p className="text-xs text-[#5C6880] leading-relaxed">Real estate, home services, healthcare, legal — AI Voice Agent, appointment reminders, and reputation management are core features.</p>
+                <p className="text-xs text-[#5C6880] leading-relaxed">Real estate, home services, healthcare, legal AI Voice Agent, appointment reminders, and reputation management are core features.</p>
               </div>
               <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
                 <div className="w-10 h-10 rounded-lg bg-[rgba(248,208,0,0.1)] flex items-center justify-center mb-3">
@@ -292,7 +292,7 @@ export default function WhatIsGoHighLevelClient() {
               4. The Core GoHighLevel Features
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
-              GHL has a lot of features — here is what actually matters, explained simply:
+              GHL has a lot of features here is what actually matters, explained simply:
             </p>
 
             <div className="grid sm:grid-cols-2 gap-4 my-6">
@@ -329,7 +329,7 @@ export default function WhatIsGoHighLevelClient() {
                   <MessageCircle className="w-5 h-5 text-[#25C97D]" />
                   <h3 className="font-bold text-[#1A2236]">AI Chatbot</h3>
                 </div>
-                <p className="text-xs text-[#5C6880] leading-relaxed">A bot that chats with website visitors, answers questions, qualifies leads, and books appointments — automatically, including at 2am.</p>
+                <p className="text-xs text-[#5C6880] leading-relaxed">A bot that chats with website visitors, answers questions, qualifies leads, and books appointments automatically, including at 2am.</p>
               </div>
               <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
                 <div className="flex items-center gap-2 mb-2">
@@ -347,14 +347,14 @@ export default function WhatIsGoHighLevelClient() {
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
                 The AI Voice Agent is activated in a small fraction of GHL accounts. For any business getting inbound calls 
-                — real estate, home services, dental, legal — this feature alone answers 100% of calls, qualifies leads, 
+                real estate, home services, dental, legal this feature alone answers 100% of calls, qualifies leads, 
                 and books appointments. Most clients see ROI within their first week of activating it.
               </p>
             </div>
 
             {/* Section 5: GoHighLevel Pricing */}
             <h2 id="pricing" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              5. GoHighLevel Pricing — All 3 Plans
+              5. GoHighLevel Pricing All 3 Plans
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
               GoHighLevel has flat-rate pricing with three plans. Unlimited contacts and unlimited users are included on every plan:
@@ -497,7 +497,7 @@ export default function WhatIsGoHighLevelClient() {
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Ready to Get GoHighLevel Built Properly?</h3>
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
                   We've built 200+ GHL systems for agencies across 6 countries. Let's set up your account 
-                  the right way — pipelines, automations, AI, and all.
+                  the right way pipelines, automations, AI, and all.
                 </p>
                 <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
                   Book a Free Strategy Call
@@ -548,7 +548,7 @@ export default function WhatIsGoHighLevelClient() {
             {/* CTA Card */}
             <div className="bg-[#1C2E4A] rounded-xl p-5">
               <div className="text-sm font-bold text-white mb-2">Need Your GHL Built Right?</div>
-              <p className="text-xs text-white/60 leading-relaxed mb-4">From CRM setup to AI voice agents — we build complete GHL systems that actually work.</p>
+              <p className="text-xs text-white/60 leading-relaxed mb-4">From CRM setup to AI voice agents we build complete GHL systems that actually work.</p>
               <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] transition-all">
                 Talk to Us
                 <ArrowRight className="w-3 h-3" />
