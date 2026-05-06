@@ -24,7 +24,15 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: '/ghlscalicon.png',
+    icon: [
+      { url: '/favicon.ico' },
+      {
+        url: '/favicon-96x96.png',
+        sizes: '96x96',
+        type: 'image/png',
+      },
+    ],
+    apple: '/apple-touch-icon.png',
   },
 
   openGraph: {
@@ -35,7 +43,7 @@ export const metadata: Metadata = {
     siteName: 'GHL Scale Up',
     images: [
       {
-        url: '/og-image.png',
+        url: '/ghlscalicon.png',
         width: 1200,
         height: 630,
         alt: 'GHL Scale Up',
@@ -77,7 +85,7 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
     >
       <body className="font-sans">
-        
+
         {/* ✅ Schema Markup */}
         <script
           type="application/ld+json"
