@@ -19,7 +19,8 @@ import {
   Star,
   CheckCircle,
   XCircle,
-  BookOpen
+  BookOpen,
+  Zap
 } from 'lucide-react';
 
 const blogPosts = [
@@ -33,6 +34,17 @@ const blogPosts = [
     readTime: '12 min read',
     featured: true,
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+  },
+  {
+    icon: Zap,
+    tag: 'Workflow',
+    title: 'How to Set Up GoHighLevel Workflow Automation for Beginners (Step-by-Step 2026)',
+    excerpt: 'A step-by-step beginner\'s guide to GoHighLevel workflow automation. Learn what workflows are, how triggers and actions work, and build your first GHL automation in under 30 minutes.',
+    slug: 'how-to-set-up-gohighlevel-workflow-automation',
+    date: 'May 6, 2026',
+    readTime: '19 min read',
+    featured: true,
+    image: 'https://t4.ftcdn.net/jpg/02/90/21/01/360_F_290210126_es32StucJSEqrBmzphC6e7v4hAzmLHup.jpg',
   },
   {
     icon: Rocket,
@@ -100,6 +112,7 @@ const blogPosts = [
     featured: false,
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
   },
+  
 ];
 
 const getCategoryColor = (tag: string) => {

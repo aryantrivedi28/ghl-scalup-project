@@ -20,7 +20,6 @@ export default async function Home() {
   let testimonials = [];
   try {
     testimonials = await getAllTestimonialsForHomepage();
-    console.log('Loaded testimonials:', testimonials.length);
   } catch (error) {
     console.error('Failed to load testimonials:', error);
   }
