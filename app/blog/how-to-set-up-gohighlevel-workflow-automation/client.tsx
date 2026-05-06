@@ -145,7 +145,13 @@ export default function WorkflowAutomationClient() {
 
                               {/* Author Byline */}
                               <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#0E9BF0] to-[#25C97D] flex items-center justify-center font-bold text-white text-sm">GS</div>
+                                    <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
+                                          <img
+                                                src="/favicon.ico"
+                                                alt="GHL Scale Up"
+                                                className="w-full h-full object-cover"
+                                          />
+                                    </div>
                                     <div>
                                           <div className="text-sm font-medium text-white">GHL Scale Up Team</div>
                                           <div className="text-xs text-white/50">GoHighLevel Specialists · 200+ Builds Delivered · Updated May 2026</div>
@@ -618,8 +624,8 @@ export default function WorkflowAutomationClient() {
                                                             <button
                                                                   onClick={() => scrollToHeading(item.id)}
                                                                   className={`block w-full text-left text-xs md:text-sm py-2 px-3 rounded transition-all duration-200 ${activeId === item.id
-                                                                              ? 'bg-[#0E9BF0] text-white font-medium shadow-sm'
-                                                                              : 'text-[#5C6880] hover:text-[#0E9BF0] hover:bg-white'
+                                                                        ? 'bg-[#0E9BF0] text-white font-medium shadow-sm'
+                                                                        : 'text-[#5C6880] hover:text-[#0E9BF0] hover:bg-white'
                                                                         }`}
                                                             >
                                                                   <span className={`flex items-start gap-2`}>
@@ -637,7 +643,13 @@ export default function WorkflowAutomationClient() {
                                     {/* About the Author */}
                                     <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-2">
                                           <div className="flex items-center gap-3 mb-4">
-                                                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#0E9BF0] to-[#25C97D] flex items-center justify-center font-bold text-white text-base">GS</div>
+                                                <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
+                                                      <img
+                                                            src="/favicon.ico"
+                                                            alt="GHL Scale Up"
+                                                            className="w-full h-full object-cover"
+                                                      />
+                                                </div>
                                                 <div>
                                                       <div className="text-sm font-bold text-white">GHL Scale Up Team</div>
                                                       <div className="text-xs text-white/50">GoHighLevel Expert Agency</div>
