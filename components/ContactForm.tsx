@@ -28,6 +28,9 @@ export default function ContactForm({
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState('');
 
+  // Get webhook URL from environment variable
+  const GHL_WEBHOOK_URL = process.env.NEXT_PUBLIC_GHL_WEBHOOK_URL || '';
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
@@ -61,24 +64,58 @@ export default function ContactForm({
       return;
     }
 
+    // Check if webhook URL is configured
+    if (!GHL_WEBHOOK_URL) {
+      setError('Form configuration error. Please contact support.');
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
-      const response = await fetch('/api/contact', {
+      // Split name into first and last name for better CRM data
+      const nameParts = formData.name.trim().split(' ');
+      const firstName = nameParts[0];
+      const lastName = nameParts.slice(1).join(' ') || '';
+
+      // Prepare payload for GoHighLevel webhook (matching the contact page format)
+      const payload = {
+        first_name: firstName,
+        last_name: lastName,
+        email: formData.email,
+        phone: formData.phone || '',
+        service: 'General Inquiry', // Default service since this component doesn't have service field
+        message: formData.message,
+        source: 'Website Contact Form Component',
+        timestamp: new Date().toISOString(),
+      };
+
+      // Send to GoHighLevel Webhook
+      const response = await fetch(GHL_WEBHOOK_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
 
-      const data = await response.json();
-
+      // GoHighLevel webhook returns 200 OK if successful
       if (response.ok) {
         setIsSuccess(true);
         setFormData({ name: '', email: '', phone: '', message: '' });
         // Auto-hide success message after 5 seconds
         setTimeout(() => setIsSuccess(false), 5000);
+        
+        // Optional: Track conversion in Google Analytics
+        if (typeof window !== 'undefined' && (window as any).gtag) {
+          (window as any).gtag('event', 'generate_lead', {
+            event_category: 'form',
+            event_label: 'contact_form_component_submission',
+          });
+        }
       } else {
-        setError(data.error || 'Something went wrong. Please try again.');
+        const errorData = await response.text();
+        console.error('Webhook error:', errorData);
+        setError('Something went wrong. Please try again.');
       }
     } catch (err) {
       console.error('Form submission error:', err);
@@ -119,7 +156,7 @@ export default function ContactForm({
 
         <div className="space-y-4">
           <div>
-            <label className="block text-xs font-medium text-white/70 mb-1">
+            <label className="block text-xs font-medium text-white/70 mb-1.5">
               Full Name *
             </label>
             <input
