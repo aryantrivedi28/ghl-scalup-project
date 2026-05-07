@@ -142,11 +142,11 @@ export default function WhatIsGoHighLevelClient() {
 
           {/* Author Byline */}
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
+            <div className="w-8 h-8 rounded-full overflow-hidden bg-white flex items-center justify-center">
               <img
                 src="/favicon.ico"
                 alt="GHL Scale Up"
-                className="w-full h-full object-cover"
+                className="w-8 h-8 object-cover"
               />
             </div>
             <div>

@@ -20,7 +20,8 @@ import {
   CheckCircle,
   XCircle,
   BookOpen,
-  Zap
+  Zap,
+  Phone
 } from 'lucide-react';
 
 const blogPosts = [
@@ -45,6 +46,17 @@ const blogPosts = [
     readTime: '19 min read',
     featured: true,
     image: 'https://t4.ftcdn.net/jpg/02/90/21/01/360_F_290210126_es32StucJSEqrBmzphC6e7v4hAzmLHup.jpg',
+  },
+  {
+    icon: Phone,
+    tag: 'SMS Automation',
+    title: 'GoHighLevel Missed Call Text Back: How It Works + Full Setup Guide (2026)',
+    excerpt: 'GoHighLevel\'s missed call text back sends an automatic SMS within 15 seconds of a missed call — recovering leads before they call a competitor. Here\'s how it works and how to set it up in 5 minutes.',
+    slug: 'gohighlevel-missed-call-text-back',
+    date: 'May 7, 2026',
+    readTime: '16 min read',
+    featured: true,
+    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=500&fit=crop',
   },
   {
     icon: Rocket,
