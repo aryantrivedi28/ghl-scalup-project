@@ -88,7 +88,7 @@ export default function MissedCallTextBackClient() {
             {
                   industry: 'Dental / Healthcare Practice',
                   icon: Heart,
-                  template: 'Hi — thanks for calling [Practice Name]. We\'re with a patient right now. Are you a new or existing patient and what can we help you with? We\'ll return your call today.',
+                  template: 'Hi thanks for calling [Practice Name]. We\'re with a patient right now. Are you a new or existing patient and what can we help you with? We\'ll return your call today.',
             },
             {
                   industry: 'Home Services (HVAC, Plumbing, Roofing)',
@@ -98,7 +98,7 @@ export default function MissedCallTextBackClient() {
             {
                   industry: 'Real Estate Agent',
                   icon: Users,
-                  template: 'Hi, this is [Name] from [Agency] — I\'m showing a property right now. Were you calling about buying, selling, or renting? I\'ll call you back within the hour.',
+                  template: 'Hi, this is [Name] from [Agency] I\'m showing a property right now. Were you calling about buying, selling, or renting? I\'ll call you back within the hour.',
             },
             {
                   industry: 'After-Hours Message',
@@ -187,7 +187,7 @@ export default function MissedCallTextBackClient() {
                               <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
                                     Every time your phone rings and no one answers, you're not just missing a call.
                                     You're losing a lead who is about to Google '[your service] near me' and call whoever picks up.
-                                    GoHighLevel's missed call text back feature fixes this — automatically, in 15 seconds,
+                                    GoHighLevel's missed call text back feature fixes this automatically, in 15 seconds,
                                     without any manual effort from your team.
                               </p>
                         </div>
@@ -204,10 +204,10 @@ export default function MissedCallTextBackClient() {
                                     <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
                                           <div className="flex items-center gap-2 mb-3">
                                                 <Zap className="w-5 h-5 text-[#F8D000]" />
-                                                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Quick Answer — Read This First</span>
+                                                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Quick Answer Read This First</span>
                                           </div>
                                           <p className="text-base font-semibold text-[#1A2236] mb-2">
-                                                GoHighLevel's missed call text back automatically sends a pre-written SMS to any caller whose call goes unanswered — within 15 seconds.
+                                                GoHighLevel's missed call text back automatically sends a pre-written SMS to any caller whose call goes unanswered within 15 seconds.
                                           </p>
                                           <p className="text-sm text-[#5C6880] leading-relaxed">
                                                 To set it up: go to Settings → Business Profile → scroll to Missed Call Text Back → toggle it on → write your message → save.
@@ -240,10 +240,10 @@ export default function MissedCallTextBackClient() {
                                     </h2>
                                     <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
                                           <strong className="text-[#1A2236]">GoHighLevel missed call text back is a built-in feature that sends an automatic SMS to a caller the moment their call goes unanswered.</strong>
-                                          No workflow needed. No staff required. The text fires within <strong className="text-[#0E9BF0]">15 seconds</strong> — fast enough that the person is still looking at their phone when it arrives.
+                                          No workflow needed. No staff required. The text fires within <strong className="text-[#0E9BF0]">15 seconds</strong> fast enough that the person is still looking at their phone when it arrives.
                                     </p>
                                     <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-                                          The message is sent from your GHL phone number — the same number they just called — and replies land directly in your GHL Conversations inbox for your team to respond.
+                                          The message is sent from your GHL phone number the same number they just called and replies land directly in your GHL Conversations inbox for your team to respond.
                                     </p>
 
                                     <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-5 my-6">
@@ -252,7 +252,7 @@ export default function MissedCallTextBackClient() {
                                                 <span className="text-sm font-bold text-[#0E9BF0]">Why This Matters for Service Businesses</span>
                                           </div>
                                           <p className="text-sm text-[#1A2236] leading-relaxed mb-2">
-                                                According to GoHighLevel's own data, <strong>62% of inbound calls go unanswered.</strong> When callers hit voicemail, most of them don't leave a message and don't call back — they call the next business in their search results.
+                                                According to GoHighLevel's own data, <strong>62% of inbound calls go unanswered.</strong> When callers hit voicemail, most of them don't leave a message and don't call back they call the next business in their search results.
                                           </p>
                                           <p className="text-sm text-[#1A2236] leading-relaxed">
                                                 US businesses lose an estimated <strong>\$75 billion annually</strong> to missed calls and poor follow-up. Missed call text back closes this gap.
@@ -265,7 +265,7 @@ export default function MissedCallTextBackClient() {
                                                 <span className="text-sm font-bold text-[#25C97D]">Real Example</span>
                                           </div>
                                           <p className="text-sm text-[#1A2236] leading-relaxed">
-                                                A dental practice client of ours was missing an average of 14 inbound calls per day — most of them from new patient enquiries.
+                                                A dental practice client of ours was missing an average of 14 inbound calls per day most of them from new patient enquiries.
                                                 After activating missed call text back with a booking link in the message, they booked <strong>9 new patient appointments in their first week</strong> from calls they would previously have lost entirely.
                                           </p>
                                     </div>
@@ -282,12 +282,12 @@ export default function MissedCallTextBackClient() {
                                     <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-5 mb-6">
                                           <div className="flex items-center gap-2 mb-2">
                                                 <Shield className="w-5 h-5 text-[#F8D000]" />
-                                                <span className="text-sm font-bold text-[#F8D000]">Important — A2P 10DLC</span>
+                                                <span className="text-sm font-bold text-[#F8D000]">Important A2P 10DLC</span>
                                           </div>
                                           <p className="text-sm text-[#1A2236] leading-relaxed">
                                                 If you're in the US and your missed call texts are not delivering, the most common reason is <strong>incomplete A2P 10DLC registration.</strong>
                                                 US carriers require this for all business SMS. Check Settings → Phone Numbers → Compliance. If your status shows 'Pending' or 'Unregistered',
-                                                complete registration first — approval takes 1-5 business days and is required for SMS to send reliably.
+                                                complete registration first approval takes 1-5 business days and is required for SMS to send reliably.
                                           </p>
                                     </div>
 
@@ -365,7 +365,7 @@ export default function MissedCallTextBackClient() {
                                                       <Target className="w-5 h-5 text-[#25C97D]" />
                                                 </div>
                                                 <h3 className="text-sm font-bold text-[#1A2236] mb-1">One Clear Next Step</h3>
-                                                <p className="text-xs text-[#5C6880] leading-relaxed">Ask a question or include your booking link. Don't do both — pick one.</p>
+                                                <p className="text-xs text-[#5C6880] leading-relaxed">Ask a question or include your booking link. Don't do both pick one.</p>
                                           </div>
                                           <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-4 text-center">
                                                 <div className="w-10 h-10 rounded-full bg-[rgba(248,208,0,0.1)] flex items-center justify-center mx-auto mb-3">
@@ -411,8 +411,8 @@ export default function MissedCallTextBackClient() {
                                           5. How to Connect Missed Call Text Back to a Booking Workflow
                                     </h2>
                                     <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-                                          The native missed call text back sends one message and stops. If you want to do more — add the contact to your CRM,
-                                          send a follow-up if they don't reply, or route them into a booking sequence — build a workflow instead.
+                                          The native missed call text back sends one message and stops. If you want to do more add the contact to your CRM,
+                                          send a follow-up if they don't reply, or route them into a booking sequence build a workflow instead.
                                     </p>
 
                                     <div className="bg-[#1C2E4A] rounded-xl p-5 my-6 text-white">
@@ -423,11 +423,11 @@ export default function MissedCallTextBackClient() {
                                           <div className="space-y-2 text-sm text-white/80">
                                                 <p>1. Go to Automation → Workflows → Create Workflow</p>
                                                 <p>2. Set the trigger: Inbound Call → filter by Call Status: Missed</p>
-                                                <p>3. Add action — Send SMS: Your personalised missed call message with booking link</p>
+                                                <p>3. Add action Send SMS: Your personalised missed call message with booking link</p>
                                                 <p>4. Add Wait: Wait 20 minutes (prevents duplicate texts)</p>
                                                 <p>5. Add If/Else: Did the contact reply? If YES → end workflow. If NO → send follow-up SMS after 2 hours</p>
-                                                <p>6. Add action — Add to Pipeline: Create opportunity in 'Missed Call' pipeline stage</p>
-                                                <p>7. Add action — Create Task: Call back <span>{'{{'}</span>contact.name<span>{'}}'}</span> assigned to team member</p>
+                                                <p>6. Add action Add to Pipeline: Create opportunity in 'Missed Call' pipeline stage</p>
+                                                <p>7. Add action Create Task: Call back <span>{'{{'}</span>contact.name<span>{'}}'}</span> assigned to team member</p>
                                           </div>
                                     </div>
 
@@ -451,7 +451,7 @@ export default function MissedCallTextBackClient() {
                                           6. Why Your Missed Call Text Back Might Not Be Sending
                                     </h2>
                                     <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
-                                          These are the four most common reasons the feature fails — in order of frequency from our audits.
+                                          These are the four most common reasons the feature fails in order of frequency from our audits.
                                     </p>
 
                                     <div className="space-y-4">
@@ -478,7 +478,7 @@ export default function MissedCallTextBackClient() {
                                           {[
                                                 {
                                                       q: "What is GoHighLevel missed call text back?",
-                                                      a: "GoHighLevel missed call text back is a built-in feature that automatically sends a pre-written SMS to any caller whose call goes unanswered. The text fires within 15 seconds — while the caller is still looking at their phone — and replies land in your GHL Conversations inbox. It requires no workflow to activate and works 24/7."
+                                                      a: "GoHighLevel missed call text back is a built-in feature that automatically sends a pre-written SMS to any caller whose call goes unanswered. The text fires within 15 seconds while the caller is still looking at their phone and replies land in your GHL Conversations inbox. It requires no workflow to activate and works 24/7."
                                                 },
                                                 {
                                                       q: "How fast does GoHighLevel send the missed call text back?",
@@ -486,7 +486,7 @@ export default function MissedCallTextBackClient() {
                                                 },
                                                 {
                                                       q: "Does missed call text back work after business hours?",
-                                                      a: "Yes. Missed call text back fires 24 hours a day, 7 days a week, regardless of your business hours settings. For after-hours calls, customise the message to set appropriate expectations — for example: 'Our office is closed right now but we'll call you first thing tomorrow morning.'"
+                                                      a: "Yes. Missed call text back fires 24 hours a day, 7 days a week, regardless of your business hours settings. For after-hours calls, customise the message to set appropriate expectations for example: 'Our office is closed right now but we'll call you first thing tomorrow morning.'"
                                                 },
                                                 {
                                                       q: "How much does GoHighLevel missed call text back cost?",
@@ -521,7 +521,7 @@ export default function MissedCallTextBackClient() {
                                           <div className="flex flex-wrap gap-3">
                                                 <Link href="/blog/what-is-gohighlevel" className="text-sm text-[#0E9BF0] hover:underline">What Is GoHighLevel? Complete 2026 Guide →</Link>
                                                 <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-sm text-[#0E9BF0] hover:underline">How to Set Up GoHighLevel Workflow Automation for Beginners →</Link>
-                                                <Link href="/blog/how-to-create-gohighlevel-snapshot" className="text-sm text-[#0E9BF0] hover:underline">How to Create a GoHighLevel Snapshot →</Link>
+                                                {/* <Link href="/blog/how-to-create-gohighlevel-snapshot" className="text-sm text-[#0E9BF0] hover:underline">How to Create a GoHighLevel Snapshot →</Link> */}
                                                 <Link href="/services/crm-setup" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel CRM Setup Service →</Link>
                                                 <Link href="/services/workflow-automation" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Workflow Automation Service →</Link>
                                           </div>
@@ -533,7 +533,7 @@ export default function MissedCallTextBackClient() {
                                                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Already on GoHighLevel?</h3>
                                                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
                                                       Not sure if your GHL is set up to catch every lead? We audit GHL accounts every week.
-                                                      Missed call text back, workflows, pipelines — we'll review your whole setup and show you what's missing in 30 minutes.
+                                                      Missed call text back, workflows, pipelines we'll review your whole setup and show you what's missing in 30 minutes.
                                                 </p>
                                                 <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
                                                       Book Your Free GHL Audit
