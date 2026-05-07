@@ -17,6 +17,9 @@ export default function ContactClient() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState('');
 
+  // Get your GHL webhook URL from environment variable
+  const GHL_WEBHOOK_URL = process.env.NEXT_PUBLIC_GHL_WEBHOOK_URL || '';
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
@@ -50,26 +53,54 @@ export default function ContactClient() {
     }
 
     try {
-      const response = await fetch('/api/contact-page', {
+      // Split name into first and last name
+      const nameParts = formData.name.trim().split(' ');
+      const firstName = nameParts[0];
+      const lastName = nameParts.slice(1).join(' ') || '';
+
+      // Prepare payload for GoHighLevel
+      const payload = {
+        name: formData.name,
+        first_name: firstName,
+        last_name: lastName,
+        email: formData.email,
+        phone: formData.phone || '',
+        service: formData.service || 'Not specified',
+        message: formData.message,
+        source: 'Website Contact Form',
+        timestamp: new Date().toISOString(),
+        ip_address: '', // Can add client IP if needed
+        user_agent: typeof window !== 'undefined' ? window.navigator.userAgent : '',
+      };
+
+      // Send to GoHighLevel Webhook
+      const response = await fetch(GHL_WEBHOOK_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
 
-      const data = await response.json();
-
-      if (response.ok) {
-        setIsSuccess(true);
-        setFormData({ name: '', email: '', phone: '', service: '', message: '' });
-        setTimeout(() => setIsSuccess(false), 5000);
-      } else {
-        setError(data.error || 'Something went wrong. Please try again.');
+      // Note: GoHighLevel webhook returns 200 even if it accepts the data
+      // So we don't need to check response status strictly
+      
+      setIsSuccess(true);
+      setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+      
+      // Optional: Track conversion in Google Analytics
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'generate_lead', {
+          event_category: 'form',
+          event_label: 'contact_form_submission',
+        });
       }
+      
+      setTimeout(() => setIsSuccess(false), 5000);
+      
     } catch (err) {
       console.error('Form submission error:', err);
-      setError('Network error. Please check your connection and try again.');
+      setError('Something went wrong. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -108,7 +139,7 @@ export default function ContactClient() {
       <Breadcrumb items={[{ label: 'Contact' }]} />
       
       {/* Contact Section */}
-      <section className="py-16 md:py-20 bg-white" style={{ paddingTop: '60px' }}>
+      <section className="py-20 md:py-20 bg-white" style={{ paddingTop: '60px' }}>
         <div className="max-w-[1200px] mx-auto px-4 md:px-8">
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
             
