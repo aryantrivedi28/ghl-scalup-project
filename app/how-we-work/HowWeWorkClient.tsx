@@ -149,7 +149,7 @@ export default function HowWeWorkClient() {
       <Breadcrumb items={[{ label: 'How We Work' }]} />
 
       {/* Page Hero */}
-      <section className="bg-gradient-to-b from-[#1C2E4A] to-[#111E30] text-white py-12 sm:py-16 md:py-20 relative overflow-hidden">
+      <section className="bg-linear-to-b from-[#1C2E4A] to-space-dark text-white py-12 sm:py-16 md:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_60%_30%,rgba(14,155,240,0.1),transparent)] pointer-events-none"></div>
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8 relative z-10">
           <div className="grid md:grid-cols-[1.2fr_0.8fr] gap-8 md:gap-14 items-center">
