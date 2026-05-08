@@ -2,6 +2,16 @@
 'use client';
 
 import { useState } from 'react';
+import { 
+  Mail, 
+  Phone, 
+  User, 
+  MessageSquare, 
+  CheckCircle, 
+  Calendar,
+  ArrowRight
+} from 'lucide-react';
+import BookingModal from './BookingModal';
 
 interface ContactFormProps {
   variant?: 'light' | 'dark';
@@ -9,6 +19,7 @@ interface ContactFormProps {
   subtitle?: string;
   buttonText?: string;
   successMessage?: string;
+  showDirectBooking?: boolean;
 }
 
 export default function ContactForm({
@@ -16,7 +27,8 @@ export default function ContactForm({
   title = 'Get in Touch',
   subtitle = 'Fill out the form and our team will get back to you within 24 hours.',
   buttonText = 'Send Message →',
-  successMessage = 'Thanks! We\'ll get back to you soon.'
+  successMessage = 'Thanks! We\'ll get back to you soon.',
+  showDirectBooking = true
 }: ContactFormProps) {
   const [formData, setFormData] = useState({
     name: '',
@@ -27,6 +39,7 @@ export default function ContactForm({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState('');
+  const [openBooking, setOpenBooking] = useState(false);
 
   // Get webhook URL from environment variable
   const GHL_WEBHOOK_URL = process.env.NEXT_PUBLIC_GHL_WEBHOOK_URL || '';
@@ -83,7 +96,7 @@ export default function ContactForm({
         last_name: lastName,
         email: formData.email,
         phone: formData.phone || '',
-        service: 'General Inquiry', // Default service since this component doesn't have service field
+        service: 'General Inquiry',
         message: formData.message,
         source: 'Website Contact Form Component',
         timestamp: new Date().toISOString(),
@@ -125,6 +138,10 @@ export default function ContactForm({
     }
   };
 
+  const handleOpenBooking = () => {
+    setOpenBooking(true);
+  };
+
   // Loading spinner component
   const LoadingSpinner = () => (
     <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
@@ -138,7 +155,7 @@ export default function ContactForm({
     if (isSuccess) {
       return (
         <div className="bg-green-500/20 border border-green-500/30 rounded-xl p-6 text-center">
-          <div className="text-3xl mb-2">✓</div>
+          <CheckCircle className="w-12 h-12 text-green-400 mx-auto mb-3" />
           <p className="text-white font-medium">{successMessage}</p>
           <p className="text-white/40 text-xs mt-2">We'll get back to you within 24 hours.</p>
         </div>
@@ -146,94 +163,131 @@ export default function ContactForm({
     }
 
     return (
-      <form onSubmit={handleSubmit} className="w-full">
-        {title && (
-          <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
-        )}
-        {subtitle && (
-          <p className="text-sm text-white/50 mb-5">{subtitle}</p>
-        )}
-
-        <div className="space-y-4">
-          <div>
-            <label className="block text-xs font-medium text-white/70 mb-1.5">
-              Full Name *
-            </label>
-            <input
-              type="text"
-              name="name"
-              required
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 focus:border-[#F8D000] focus:outline-none focus:ring-2 focus:ring-[#F8D000] focus:ring-opacity-50 text-white placeholder:text-white/30 transition-all"
-              placeholder="John Doe"
-            />
-          </div>
-
-          <div>
-            <label className="block text-xs font-medium text-white/70 mb-1.5">
-              Email Address *
-            </label>
-            <input
-              type="email"
-              name="email"
-              required
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 focus:border-[#F8D000] focus:outline-none focus:ring-2 focus:ring-[#F8D000] focus:ring-opacity-50 text-white placeholder:text-white/30 transition-all"
-              placeholder="john@example.com"
-            />
-          </div>
-
-          <div>
-            <label className="block text-xs font-medium text-white/70 mb-1.5">
-              Phone Number
-            </label>
-            <input
-              type="tel"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 focus:border-[#F8D000] focus:outline-none focus:ring-2 focus:ring-[#F8D000] focus:ring-opacity-50 text-white placeholder:text-white/30 transition-all"
-              placeholder="+1 234 567 8900"
-            />
-          </div>
-
-          <div>
-            <label className="block text-xs font-medium text-white/70 mb-1.5">
-              Message *
-            </label>
-            <textarea
-              name="message"
-              required
-              rows={4}
-              value={formData.message}
-              onChange={handleChange}
-              className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 focus:border-[#F8D000] focus:outline-none focus:ring-2 focus:ring-[#F8D000] focus:ring-opacity-50 text-white placeholder:text-white/30 transition-all resize-none"
-              placeholder="Tell us about your project..."
-            />
-          </div>
-
-          {error && (
-            <p className="text-red-400 text-sm">{error}</p>
-          )}
-
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="w-full py-3 rounded-lg font-semibold bg-[#F8D000] text-[#0B1421] hover:bg-[#FFE44D] hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
-          >
-            {isSubmitting ? (
-              <span className="flex items-center justify-center gap-2">
-                <LoadingSpinner />
-                Sending...
-              </span>
-            ) : (
-              buttonText
+      <>
+        <div className="w-full">
+          <form onSubmit={handleSubmit} className="w-full">
+            {title && (
+              <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
             )}
-          </button>
+            {subtitle && (
+              <p className="text-sm text-white/50 mb-5">{subtitle}</p>
+            )}
+
+            <div className="space-y-4">
+              <div>
+                <label className="block text-xs font-medium text-white/70 mb-1.5 flex items-center gap-1.5">
+                  <User className="w-3 h-3" />
+                  Full Name *
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 focus:border-[#F8D000] focus:outline-none focus:ring-2 focus:ring-[#F8D000] focus:ring-opacity-50 text-white placeholder:text-white/30 transition-all"
+                  placeholder="John Doe"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-medium text-white/70 mb-1.5 flex items-center gap-1.5">
+                  <Mail className="w-3 h-3" />
+                  Email Address *
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 focus:border-[#F8D000] focus:outline-none focus:ring-2 focus:ring-[#F8D000] focus:ring-opacity-50 text-white placeholder:text-white/30 transition-all"
+                  placeholder="john@example.com"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-medium text-white/70 mb-1.5 flex items-center gap-1.5">
+                  <Phone className="w-3 h-3" />
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 focus:border-[#F8D000] focus:outline-none focus:ring-2 focus:ring-[#F8D000] focus:ring-opacity-50 text-white placeholder:text-white/30 transition-all"
+                  placeholder="+1 234 567 8900"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-medium text-white/70 mb-1.5 flex items-center gap-1.5">
+                  <MessageSquare className="w-3 h-3" />
+                  Message *
+                </label>
+                <textarea
+                  name="message"
+                  required
+                  rows={4}
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 focus:border-[#F8D000] focus:outline-none focus:ring-2 focus:ring-[#F8D000] focus:ring-opacity-50 text-white placeholder:text-white/30 transition-all resize-none"
+                  placeholder="Tell us about your project..."
+                />
+              </div>
+
+              {error && (
+                <p className="text-red-400 text-sm">{error}</p>
+              )}
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full py-3 rounded-lg font-semibold bg-[#F8D000] text-[#0B1421] hover:bg-[#FFE44D] hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+              >
+                {isSubmitting ? (
+                  <span className="flex items-center justify-center gap-2">
+                    <LoadingSpinner />
+                    Sending...
+                  </span>
+                ) : (
+                  buttonText
+                )}
+              </button>
+            </div>
+          </form>
+
+          {/* Direct Booking Button - At the bottom */}
+          {showDirectBooking && (
+            <>
+              <div className="relative my-6">
+                <div className="absolute inset-0 flex items-center">
+                  <div className="w-full border-t border-white/10"></div>
+                </div>
+                <div className="relative flex justify-center">
+                  <span className="px-3 bg-transparent text-xs text-white/40">OR</span>
+                </div>
+              </div>
+
+              <button
+                onClick={handleOpenBooking}
+                className="w-full bg-[#0E9BF0] text-white px-5 py-3 rounded-xl text-sm font-bold hover:bg-[#0E9BF0]/90 hover:-translate-y-0.5 transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group"
+              >
+                <Calendar className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                Book Your Free Strategy Call Instantly
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+              <p className="text-xs text-center text-white/30 mt-3">
+                No form filling • Instant calendar booking • 30-min free consultation
+              </p>
+            </>
+          )}
         </div>
-      </form>
+
+        {/* Booking Modal */}
+        <BookingModal open={openBooking} setOpen={setOpenBooking} />
+      </>
     );
   }
 
@@ -241,7 +295,7 @@ export default function ContactForm({
   if (isSuccess) {
     return (
       <div className="bg-green-50 border border-green-200 rounded-xl p-6 text-center">
-        <div className="text-3xl mb-2">✓</div>
+        <CheckCircle className="w-12 h-12 text-green-500 mx-auto mb-3" />
         <p className="text-[#1C2E4A] font-medium">{successMessage}</p>
         <p className="text-[#4A5568] text-xs mt-2">We'll respond within 24 hours.</p>
       </div>
@@ -249,93 +303,130 @@ export default function ContactForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="w-full">
-      {title && (
-        <h3 className="text-xl font-bold text-[#1C2E4A] mb-2">{title}</h3>
-      )}
-      {subtitle && (
-        <p className="text-sm text-[#8A9BB0] mb-5">{subtitle}</p>
-      )}
-
-      <div className="space-y-4">
-        <div>
-          <label className="block text-xs font-medium text-[#4A5568] mb-1.5">
-            Full Name *
-          </label>
-          <input
-            type="text"
-            name="name"
-            required
-            value={formData.name}
-            onChange={handleChange}
-            className="w-full px-4 py-2.5 rounded-lg bg-white border border-[#E8EDF4] focus:border-[#0E9BF0] focus:outline-none focus:ring-2 focus:ring-[#0E9BF0] focus:ring-opacity-50 text-[#1C2E4A] placeholder:text-[#8A9BB0] transition-all"
-            placeholder="John Doe"
-          />
-        </div>
-
-        <div>
-          <label className="block text-xs font-medium text-[#4A5568] mb-1.5">
-            Email Address *
-          </label>
-          <input
-            type="email"
-            name="email"
-            required
-            value={formData.email}
-            onChange={handleChange}
-            className="w-full px-4 py-2.5 rounded-lg bg-white border border-[#E8EDF4] focus:border-[#0E9BF0] focus:outline-none focus:ring-2 focus:ring-[#0E9BF0] focus:ring-opacity-50 text-[#1C2E4A] placeholder:text-[#8A9BB0] transition-all"
-            placeholder="john@example.com"
-          />
-        </div>
-
-        <div>
-          <label className="block text-xs font-medium text-[#4A5568] mb-1.5">
-            Phone Number (Optional)
-          </label>
-          <input
-            type="tel"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            className="w-full px-4 py-2.5 rounded-lg bg-white border border-[#E8EDF4] focus:border-[#0E9BF0] focus:outline-none focus:ring-2 focus:ring-[#0E9BF0] focus:ring-opacity-50 text-[#1C2E4A] placeholder:text-[#8A9BB0] transition-all"
-            placeholder="+1 234 567 8900"
-          />
-        </div>
-
-        <div>
-          <label className="block text-xs font-medium text-[#4A5568] mb-1.5">
-            Message *
-          </label>
-          <textarea
-            name="message"
-            required
-            rows={4}
-            value={formData.message}
-            onChange={handleChange}
-            className="w-full px-4 py-2.5 rounded-lg bg-white border border-[#E8EDF4] focus:border-[#0E9BF0] focus:outline-none focus:ring-2 focus:ring-[#0E9BF0] focus:ring-opacity-50 text-[#1C2E4A] placeholder:text-[#8A9BB0] transition-all resize-none"
-            placeholder="Tell us about your project..."
-          />
-        </div>
-
-        {error && (
-          <p className="text-red-500 text-sm">{error}</p>
-        )}
-
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="w-full py-3 rounded-lg font-semibold bg-[#0E9BF0] text-white hover:bg-[#0C88D4] hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
-        >
-          {isSubmitting ? (
-            <span className="flex items-center justify-center gap-2">
-              <LoadingSpinner />
-              Sending...
-            </span>
-          ) : (
-            buttonText
+    <>
+      <div className="w-full">
+        <form onSubmit={handleSubmit} className="w-full">
+          {title && (
+            <h3 className="text-xl font-bold text-[#1C2E4A] mb-2">{title}</h3>
           )}
-        </button>
+          {subtitle && (
+            <p className="text-sm text-[#8A9BB0] mb-5">{subtitle}</p>
+          )}
+
+          <div className="space-y-4">
+            <div>
+              <label className="block text-xs font-medium text-[#4A5568] mb-1.5 flex items-center gap-1.5">
+                <User className="w-3 h-3" />
+                Full Name *
+              </label>
+              <input
+                type="text"
+                name="name"
+                required
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full px-4 py-2.5 rounded-lg bg-white border border-[#E8EDF4] focus:border-[#0E9BF0] focus:outline-none focus:ring-2 focus:ring-[#0E9BF0] focus:ring-opacity-50 text-[#1C2E4A] placeholder:text-[#8A9BB0] transition-all"
+                placeholder="John Doe"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-medium text-[#4A5568] mb-1.5 flex items-center gap-1.5">
+                <Mail className="w-3 h-3" />
+                Email Address *
+              </label>
+              <input
+                type="email"
+                name="email"
+                required
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full px-4 py-2.5 rounded-lg bg-white border border-[#E8EDF4] focus:border-[#0E9BF0] focus:outline-none focus:ring-2 focus:ring-[#0E9BF0] focus:ring-opacity-50 text-[#1C2E4A] placeholder:text-[#8A9BB0] transition-all"
+                placeholder="john@example.com"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-medium text-[#4A5568] mb-1.5 flex items-center gap-1.5">
+                <Phone className="w-3 h-3" />
+                Phone Number (Optional)
+              </label>
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                className="w-full px-4 py-2.5 rounded-lg bg-white border border-[#E8EDF4] focus:border-[#0E9BF0] focus:outline-none focus:ring-2 focus:ring-[#0E9BF0] focus:ring-opacity-50 text-[#1C2E4A] placeholder:text-[#8A9BB0] transition-all"
+                placeholder="+1 234 567 8900"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-medium text-[#4A5568] mb-1.5 flex items-center gap-1.5">
+                <MessageSquare className="w-3 h-3" />
+                Message *
+              </label>
+              <textarea
+                name="message"
+                required
+                rows={4}
+                value={formData.message}
+                onChange={handleChange}
+                className="w-full px-4 py-2.5 rounded-lg bg-white border border-[#E8EDF4] focus:border-[#0E9BF0] focus:outline-none focus:ring-2 focus:ring-[#0E9BF0] focus:ring-opacity-50 text-[#1C2E4A] placeholder:text-[#8A9BB0] transition-all resize-none"
+                placeholder="Tell us about your project..."
+              />
+            </div>
+
+            {error && (
+              <p className="text-red-500 text-sm">{error}</p>
+            )}
+
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full py-3 rounded-lg font-semibold bg-[#0E9BF0] text-white hover:bg-[#0C88D4] hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+            >
+              {isSubmitting ? (
+                <span className="flex items-center justify-center gap-2">
+                  <LoadingSpinner />
+                  Sending...
+                </span>
+              ) : (
+                buttonText
+              )}
+            </button>
+          </div>
+        </form>
+
+        {/* Direct Booking Button - At the bottom */}
+        {showDirectBooking && (
+          <>
+            <div className="relative my-6">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-[#E8EDF4]"></div>
+              </div>
+              <div className="relative flex justify-center">
+                <span className="px-3 bg-white text-xs text-[#8A9BB0]">OR</span>
+              </div>
+            </div>
+
+            <button
+              onClick={handleOpenBooking}
+              className="w-full bg-[#0E9BF0] text-white px-5 py-3 rounded-xl text-sm font-bold hover:bg-[#0E9BF0]/90 hover:-translate-y-0.5 transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group"
+            >
+              <Calendar className="w-4 h-4 group-hover:scale-110 transition-transform" />
+              Book Your Free Strategy Call Instantly
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+            <p className="text-xs text-center text-[#8A9BB0] mt-3">
+              No form filling • Instant calendar booking • 30-min free consultation
+            </p>
+          </>
+        )}
       </div>
-    </form>
+
+      {/* Booking Modal */}
+      <BookingModal open={openBooking} setOpen={setOpenBooking} />
+    </>
   );
 }

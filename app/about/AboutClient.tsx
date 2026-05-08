@@ -1,14 +1,39 @@
 // app/about/AboutClient.tsx
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { 
+  Mail, 
+  Linkedin, 
+  Calendar, 
+  ArrowRight, 
+  CheckCircle, 
+  Target, 
+  Zap, 
+  TrendingUp, 
+  Users, 
+  Globe, 
+  Clock, 
+  Award, 
+  Briefcase,
+  Sparkles,
+  MessageCircle,
+  Phone,
+  Heart,
+  Eye,
+  Rocket,
+  Shield,
+  Star
+} from 'lucide-react';
 import CtaBand from '@/components/sections/CtaBand';
 import ContactForm from '@/components/ContactForm';
+import BookingModal from '@/components/BookingModal';
 
 export default function AboutClient() {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const [openBooking, setOpenBooking] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -28,6 +53,10 @@ export default function AboutClient() {
 
     return () => observer.disconnect();
   }, []);
+
+  const handleOpenBooking = () => {
+    setOpenBooking(true);
+  };
 
   const coreTeam = [
     {
@@ -53,15 +82,14 @@ export default function AboutClient() {
       initials: 'SG',
       image: '/team/sangram.png',
       linkedin: 'https://www.linkedin.com/in/sangram-singh-shekhawat-b045a4132',
-      // website: 'https://sangram-bits-seo-consultant.netlify.app/',
       name: 'Sangram',
       role: 'SEO Expert',
       bio: 'Specialist in technical SEO, on-page optimization, keyword strategy, and organic growth for agencies and businesses. Sangram builds SEO systems that deliver consistent, compounding traffic — not one-time spikes.',
       skills: ['Technical SEO', 'On-Page', 'Keyword Research', 'Local SEO', 'Link Building'],
       results: [
-        '11.5x ROAS for a US electronics retailer ($1.17M revenue)',
-        '90% CPA reduction for US home services in 2 months',
-        '5.44x ROAS for 8-figure German e-commerce in 30 days'
+        '11.5x ROAS for a US electronics retailer',
+        '90% CPA reduction for US home services',
+        '5.44x ROAS for German e-commerce'
       ]
     },
     {
@@ -73,9 +101,9 @@ export default function AboutClient() {
       bio: '4+ years managing Google Ads and Meta Ads across agency and freelance roles. Specializes in diagnosing underperforming ad accounts and fixing what is actually broken — whether it is tracking, structure, or bidding strategy.',
       skills: ['Google Ads', 'Meta Ads', 'GA4', 'GTM', 'Shopping Ads'],
       results: [
-        '11.5x ROAS for a US electronics retailer ($1.17M revenue)',
-        '90% CPA reduction for US home services in 2 months',
-        '5.44x ROAS for 8-figure German e-commerce in 30 days'
+        '11.5x ROAS for a US electronics retailer',
+        '90% CPA reduction for US home services',
+        '5.44x ROAS for German e-commerce'
       ]
     },
     {
@@ -85,7 +113,7 @@ export default function AboutClient() {
       name: 'Apoorv Bhaat',
       role: 'GHL & Shopify Expert',
       bio: 'Detail-oriented developer specializing in custom Liquid coding, Shopify Online Store 2.0 theme development, and GoHighLevel configurations. Experienced in building dynamic storefronts with custom sections, metafields, and responsive design for startups and growing brands.',
-      skills: ['Shopify Liquid', 'GoHighLevel', 'Store 2.0', 'HTML/CSS/JS', 'GA4', 'Git'],
+      skills: ['Shopify Liquid', 'GoHighLevel', 'Store 2.0', 'HTML/CSS/JS', 'GA4'],
       results: []
     },
     {
@@ -101,10 +129,10 @@ export default function AboutClient() {
   ];
 
   const stats = [
-    { value: '200+', label: 'GHL Projects' },
-    { value: '50+', label: 'Active Clients' },
-    { value: '6', label: 'Countries' },
-    { value: '5+', label: 'Years on GHL' },
+    { value: '200+', label: 'GHL Projects', icon: Briefcase },
+    { value: '50+', label: 'Active Clients', icon: Users },
+    { value: '6', label: 'Countries', icon: Globe },
+    { value: '5+', label: 'Years on GHL', icon: Clock },
   ];
 
   const timeline = [
@@ -116,10 +144,10 @@ export default function AboutClient() {
   ];
 
   const values = [
-    { icon: '⚡', title: 'GHL-Native First', description: 'We live inside GoHighLevel. Every team member, every day. That depth is why our systems hold up at scale.' },
-    { icon: '📈', title: 'Revenue Over Vanity', description: 'We don\'t measure success by tickets closed. We measure it by whether your MRR goes up.' },
-    { icon: '🔍', title: 'No-Fluff Communication', description: 'Short sentences. Strong verbs. We say what we mean and deliver what we promise.' },
-    { icon: '🤝', title: 'Partner, Not Vendor', description: 'We care about your business growing, not just closing the project. That\'s why clients stay.' },
+    { icon: Zap, title: 'GHL-Native First', description: 'We live inside GoHighLevel. Every team member, every day. That depth is why our systems hold up at scale.' },
+    { icon: TrendingUp, title: 'Revenue Over Vanity', description: 'We don\'t measure success by tickets closed. We measure it by whether your MRR goes up.' },
+    { icon: MessageCircle, title: 'No-Fluff Communication', description: 'Short sentences. Strong verbs. We say what we mean and deliver what we promise.' },
+    { icon: Heart, title: 'Partner, Not Vendor', description: 'We care about your business growing, not just closing the project. That\'s why clients stay.' },
   ];
 
   return (
@@ -130,6 +158,7 @@ export default function AboutClient() {
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8 relative z-10">
           <div className="text-center max-w-[720px] mx-auto">
             <div className="inline-flex items-center gap-2 bg-[rgba(248,208,0,0.12)] border border-[rgba(248,208,0,0.2)] text-[#F8D000] text-[0.65rem] font-bold tracking-[0.12em] uppercase px-3 sm:px-4 py-1.5 rounded-full mb-4 sm:mb-5">
+              <Star className="w-3 h-3" />
               About GHL Scale Up
             </div>
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-[-0.04em] leading-[1.2] md:leading-[1.05] mb-3 sm:mb-4">
@@ -198,12 +227,16 @@ export default function AboutClient() {
       <div className="bg-[#0B1421] py-6 sm:py-8 md:py-10">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 text-center">
-            {stats.map((stat, idx) => (
-              <div key={idx}>
-                <div className="text-xl sm:text-2xl md:text-[2.2rem] font-black text-[#F8D000] tracking-[-0.04em] leading-none">{stat.value}</div>
-                <div className="text-[0.6rem] sm:text-[0.7rem] md:text-[0.72rem] text-[#8A9BB0] font-medium mt-1 sm:mt-1.5 uppercase tracking-[0.05em]">{stat.label}</div>
-              </div>
-            ))}
+            {stats.map((stat, idx) => {
+              const Icon = stat.icon;
+              return (
+                <div key={idx} className="fade-in">
+                  <Icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-[#F8D000] mx-auto mb-2" />
+                  <div className="text-xl sm:text-2xl md:text-[2.2rem] font-black text-[#F8D000] tracking-[-0.04em] leading-none">{stat.value}</div>
+                  <div className="text-[0.6rem] sm:text-[0.7rem] md:text-[0.72rem] text-[#8A9BB0] font-medium mt-1 sm:mt-1.5 uppercase tracking-[0.05em]">{stat.label}</div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -251,8 +284,12 @@ export default function AboutClient() {
                 </p>
               </div>
               <div className="flex justify-center md:justify-start gap-2.5 mt-5">
-                <Link href="https://www.linkedin.com/in/aryantrivedi" target="_blank" className="w-10 h-10 rounded-lg bg-[#F8D000] border border-[#E8EDF4] flex items-center justify-center text-[1.5rem] font-semibold text-[#4A5568] hover:bg-[#0E9BF0] hover:text-white transition-all">in</Link>
-                <Link href="mailto:aryan@ghlscaleup.com" className="w-10 h-10 rounded-lg bg-[#F8D000] border border-[#E8EDF4] flex items-center justify-center text-[1.5rem] font-semibold text-black hover:bg-[#0E9BF0] hover:text-white transition-all">✉</Link>
+                <Link href="https://www.linkedin.com/in/aryantrivedi" target="_blank" className="w-10 h-10 rounded-lg bg-[#F4F7FA] border border-[#E8EDF4] flex items-center justify-center text-[#4A5568] hover:bg-[#0E9BF0] hover:text-white transition-all">
+                  <Linkedin className="w-4 h-4" />
+                </Link>
+                <Link href="mailto:aryan@ghlscaleup.com" className="w-10 h-10 rounded-lg bg-[#F4F7FA] border border-[#E8EDF4] flex items-center justify-center text-[#4A5568] hover:bg-[#0E9BF0] hover:text-white transition-all">
+                  <Mail className="w-4 h-4" />
+                </Link>
               </div>
             </div>
           </div>
@@ -272,7 +309,7 @@ export default function AboutClient() {
               <span className="text-[#0E9BF0]">GHL Scale Up</span>
             </h2>
             <p className="text-sm sm:text-[0.85rem] md:text-[0.9rem] font-light text-[#4A5568] leading-relaxed max-w-[580px] mx-auto px-4">
-              The internal team that drives strategy, technology, operations, and growth across every project we take on. These are the people who make sure the machine runs.
+              The internal team that drives strategy, technology, operations, and growth across every project we take on.
             </p>
           </div>
 
@@ -293,7 +330,9 @@ export default function AboutClient() {
                   <div className="text-[0.7rem] sm:text-[0.75rem] md:text-[0.78rem] font-medium text-[#0E9BF0] mb-2 md:mb-3">{member.role}</div>
                   <p className="text-[0.7rem] sm:text-[0.75rem] md:text-[0.82rem] font-light text-[#4A5568] leading-relaxed line-clamp-4">{member.bio}</p>
                   <div className="flex justify-center gap-2 mt-3 md:mt-4">
-                    <Link href={member.linkedin} target="_blank" className="w-10 h-10 rounded-md bg-[#F4F7FA] border border-[#E8EDF4] flex items-center justify-center text-[1.2rem] font-bold text-[#4A5568] hover:bg-[#0E9BF0] hover:text-white transition-all">in</Link>
+                    <Link href={member.linkedin} target="_blank" className="w-10 h-10 rounded-md bg-[#F4F7FA] border border-[#E8EDF4] flex items-center justify-center text-[#4A5568] hover:bg-[#0E9BF0] hover:text-white transition-all">
+                      <Linkedin className="w-4 h-4" />
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -315,7 +354,7 @@ export default function AboutClient() {
               <span className="text-[#F8D000]">Execute Your Projects</span>
             </h2>
             <p className="text-sm sm:text-[0.85rem] md:text-[0.9rem] font-light text-[#4A5568] leading-relaxed max-w-[580px] mx-auto px-4">
-              These are the hands-on experts who work directly on client deliverables. Each one is a domain specialist — vetted, tested, and trusted across dozens of projects.
+              These are the hands-on experts who work directly on client deliverables. Each one is a domain specialist — vetted, tested, and trusted.
             </p>
           </div>
 
@@ -339,18 +378,21 @@ export default function AboutClient() {
                     <div className="flex flex-col gap-1 mb-2 pt-2 border-t border-[#E8EDF4]">
                       {expert.results.slice(0, 2).map((result, idx) => (
                         <div key={idx} className="text-[0.55rem] sm:text-[0.6rem] md:text-[0.7rem] font-normal text-[#4A5568] flex gap-1.5">
-                          <span className="text-[#25C97D] font-bold">✓</span> {result}
+                          <CheckCircle className="w-3 h-3 text-[#25C97D] flex-shrink-0 mt-0.5" />
+                          <span>{result}</span>
                         </div>
                       ))}
                     </div>
                   )}
                   <div className="flex flex-wrap gap-1 mb-2">
                     {expert.skills.slice(0, 4).map((skill, idx) => (
-                      <span key={idx} className="bg-[#F4F7FA] border border-[#E8EDF4] px-1 py-0.5 rounded-full text-[0.45rem] sm:text-[0.5rem] md:text-[0.55rem] font-medium text-[#4A5568]">{skill}</span>
+                      <span key={idx} className="bg-[#F4F7FA] border border-[#E8EDF4] px-1.5 py-0.5 rounded-full text-[0.45rem] sm:text-[0.5rem] md:text-[0.55rem] font-medium text-[#4A5568]">{skill}</span>
                     ))}
                   </div>
                   <div className="flex justify-center gap-2 mt-2">
-                    <Link href={expert.linkedin} target="_blank" className="w-10 h-10 rounded-md bg-[#F4F7FA] border border-[#E8EDF4] flex items-center justify-center text-[1rem] font-bold text-[#4A5568] hover:bg-[#0E9BF0] hover:text-white transition-all">in</Link>
+                    <Link href={expert.linkedin} target="_blank" className="w-10 h-10 rounded-md bg-[#F4F7FA] border border-[#E8EDF4] flex items-center justify-center text-[#4A5568] hover:bg-[#0E9BF0] hover:text-white transition-all">
+                      <Linkedin className="w-4 h-4" />
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -359,7 +401,9 @@ export default function AboutClient() {
 
           {/* Expert Network Banner */}
           <div className="mt-8 sm:mt-10 md:mt-12 bg-gradient-to-br from-[rgba(14,155,240,0.06)] to-[rgba(37,201,125,0.04)] border border-[rgba(14,155,240,0.12)] rounded-2xl p-5 sm:p-6 md:p-8 lg:p-10 flex flex-col md:flex-row items-center gap-5 md:gap-6 lg:gap-8 fade-in">
-            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#1C2E4A] flex items-center justify-center text-xl sm:text-2xl flex-shrink-0">👥</div>
+            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#1C2E4A] flex items-center justify-center flex-shrink-0">
+              <Users className="w-6 h-6 sm:w-7 sm:h-7 text-[#F8D000]" />
+            </div>
             <div className="text-center md:text-left">
               <h3 className="text-base sm:text-lg font-bold text-[#1C2E4A] mb-1.5">Our Vetted Expert Network</h3>
               <p className="text-xs sm:text-sm md:text-[0.85rem] font-light text-[#4A5568] leading-relaxed">
@@ -385,12 +429,12 @@ export default function AboutClient() {
 
           <div className="grid md:grid-cols-2 gap-5 md:gap-6">
             <div className="bg-[#1C2E4A] rounded-2xl p-5 sm:p-6 md:p-8 lg:p-10 text-white relative overflow-hidden fade-in">
-              <div className="text-2xl sm:text-3xl mb-3 sm:mb-4">🎯</div>
+              <Target className="w-6 h-6 sm:w-7 sm:h-7 mb-3 sm:mb-4 text-[#F8D000]" />
               <h3 className="text-base sm:text-lg md:text-[1.2rem] font-extrabold tracking-[-0.02em] mb-2 md:mb-3 text-[#F8D000]">Our Mission</h3>
               <p className="text-sm sm:text-[0.88rem] font-light text-white/60 leading-relaxed">To help ambitious agencies and businesses build real recurring revenue on GoHighLevel — not through generic playbooks, but through proven systems tailored to their niche, their market, and their goals. Every deliverable we ship is benchmarked against one metric: does it grow your MRR?</p>
             </div>
             <div className="bg-gradient-to-br from-[rgba(14,155,240,0.08)] to-[rgba(37,201,125,0.05)] border border-[rgba(14,155,240,0.12)] rounded-2xl p-5 sm:p-6 md:p-8 lg:p-10 fade-in">
-              <div className="text-2xl sm:text-3xl mb-3 sm:mb-4">🔭</div>
+              <Eye className="w-6 h-6 sm:w-7 sm:h-7 mb-3 sm:mb-4 text-[#0E9BF0]" />
               <h3 className="text-base sm:text-lg md:text-[1.2rem] font-extrabold tracking-[-0.02em] mb-2 md:mb-3 text-[#0E9BF0]">Our Vision</h3>
               <p className="text-sm sm:text-[0.88rem] font-light text-[#4A5568] leading-relaxed">To be the most trusted GoHighLevel partner in the world — the team agencies call when they are ready to stop duct-taping tools and start building a system that scales. We want every client who works with us to look back and say: "That's when things actually started working."</p>
             </div>
@@ -412,36 +456,67 @@ export default function AboutClient() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
-            {values.map((value, idx) => (
-              <div key={idx} className="bg-white/5 border border-white/10 rounded-2xl p-5 md:p-7 text-center hover:border-[rgba(248,208,0,0.25)] hover:-translate-y-1 transition-all fade-in">
-                <div className="text-2xl sm:text-[1.5rem] md:text-[1.8rem] mb-2 md:mb-3">{value.icon}</div>
-                <h4 className="text-sm sm:text-[0.85rem] md:text-[0.88rem] font-bold mb-1.5">{value.title}</h4>
-                <p className="text-xs sm:text-[0.7rem] md:text-[0.75rem] text-[#8A9BB0] font-light leading-relaxed">{value.description}</p>
-              </div>
-            ))}
+            {values.map((value, idx) => {
+              const Icon = value.icon;
+              return (
+                <div key={idx} className="bg-white/5 border border-white/10 rounded-2xl p-5 md:p-7 text-center hover:border-[rgba(248,208,0,0.25)] hover:-translate-y-1 transition-all fade-in">
+                  <Icon className="w-6 h-6 sm:w-7 sm:h-7 mx-auto mb-2 md:mb-3 text-[#F8D000]" />
+                  <h4 className="text-sm sm:text-[0.85rem] md:text-[0.88rem] font-bold mb-1.5">{value.title}</h4>
+                  <p className="text-xs sm:text-[0.7rem] md:text-[0.75rem] text-[#8A9BB0] font-light leading-relaxed">{value.description}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* Contact Section with Booking Button */}
       <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-[#1C2E4A] to-[#111E30]">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8">
           <div className="grid md:grid-cols-2 gap-8 md:gap-10 lg:gap-16 items-center">
             <div className="fade-in text-center md:text-left">
+              <div className="inline-flex items-center gap-2 bg-[rgba(248,208,0,0.12)] border border-[rgba(248,208,0,0.2)] text-[#F8D000] text-[0.65rem] font-bold tracking-[0.12em] uppercase px-3 py-1.5 rounded-full mb-4">
+                <Sparkles className="w-3 h-3" />
+                Limited Availability
+              </div>
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight mb-3 sm:mb-4">
                 Want to Work With a Team<br />
                 That <span className="text-[#F8D000]">Actually Gets GHL?</span>
               </h2>
               <p className="text-white/60 text-sm sm:text-base leading-relaxed mb-4 sm:mb-6">
                 We are a small team on purpose — so every client gets senior-level attention,
-                not a junior passed off as an expert. Fill out the form and let's see if we're a good fit.
+                not a junior passed off as an expert.
               </p>
+              
+              {/* Direct Booking Button */}
+              <button
+                onClick={handleOpenBooking}
+                className="w-full sm:w-auto mb-4 bg-gradient-to-r from-[#0E9BF0] to-[#0878C4] text-white px-6 py-3 rounded-xl text-sm font-bold hover:from-[#0878C4] hover:to-[#0E9BF0] hover:-translate-y-0.5 transition-all shadow-xl hover:shadow-2xl flex items-center justify-center gap-2 group"
+              >
+                <Calendar className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                Book Your Free Strategy Call Instantly
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+              
+              <p className="text-xs text-white/40 mb-6">
+                ⚡ Instant booking • 30-min free consultation • No commitment
+              </p>
+
               <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 sm:gap-3 text-white/40 text-xs sm:text-sm">
-                <span className="flex items-center gap-1">✓ No obligation</span>
+                <span className="flex items-center gap-1">
+                  <CheckCircle className="w-3 h-3 text-[#25C97D]" />
+                  No obligation
+                </span>
                 <span className="w-1 h-1 bg-white/20 rounded-full hidden sm:block"></span>
-                <span className="flex items-center gap-1">✓ Free consultation</span>
+                <span className="flex items-center gap-1">
+                  <CheckCircle className="w-3 h-3 text-[#25C97D]" />
+                  Free consultation
+                </span>
                 <span className="w-1 h-1 bg-white/20 rounded-full hidden sm:block"></span>
-                <span className="flex items-center gap-1">✓ Response within 24h</span>
+                <span className="flex items-center gap-1">
+                  <CheckCircle className="w-3 h-3 text-[#25C97D]" />
+                  Response within 24h
+                </span>
               </div>
             </div>
             <div className="fade-in">
@@ -451,12 +526,16 @@ export default function AboutClient() {
                   title="Let's Talk"
                   subtitle="Fill out the form and our team will reach out within 24 hours."
                   buttonText="Send Message →"
+                  showDirectBooking={false}
                 />
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Booking Modal */}
+      <BookingModal open={openBooking} setOpen={setOpenBooking} />
     </>
   );
 }
