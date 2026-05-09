@@ -1,4 +1,3 @@
-// app/blog/BlogClient.tsx
 'use client';
 
 import Link from 'next/link';
@@ -22,7 +21,8 @@ import {
   BookOpen,
   Zap,
   Phone,
-  Camera
+  Camera,
+  Trophy
 } from 'lucide-react';
 
 const blogPosts = [
@@ -52,7 +52,7 @@ const blogPosts = [
     icon: Phone,
     tag: 'SMS Automation',
     title: 'GoHighLevel Missed Call Text Back: How It Works + Full Setup Guide (2026)',
-    excerpt: 'GoHighLevel\'s missed call text back sends an automatic SMS within 15 seconds of a missed call recovering leads before they call a competitor. Here\'s how it works and how to set it up in 5 minutes.',
+    excerpt: 'GoHighLevel\'s missed call text back sends an automatic SMS within 15 seconds of a missed call — recovering leads before they call a competitor. Here\'s how it works and how to set it up in 5 minutes.',
     slug: 'gohighlevel-missed-call-text-back',
     date: 'May 7, 2026',
     readTime: '16 min read',
@@ -63,12 +63,23 @@ const blogPosts = [
     icon: Camera,
     tag: 'Snapshot',
     title: 'How to Create and Use a GoHighLevel Snapshot to Onboard Clients Faster (2026)',
-    excerpt: 'A GoHighLevel Snapshot is a reusable template of an entire sub-account setup funnels, workflows, pipelines, and more. Learn what\'s included, how to create one in 5 steps, and how to deploy it to client accounts in minutes.',
+    excerpt: 'A GoHighLevel Snapshot is a reusable template of an entire sub-account setup — funnels, workflows, pipelines, and more. Learn what\'s included, how to create one in 5 steps, and how to deploy it to client accounts in minutes.',
     slug: 'how-to-create-gohighlevel-snapshot',
     date: 'May 8, 2026',
     readTime: '18 min read',
     featured: true,
-    image: 'https://bylukekelly.com/wp-content/uploads/2023/06/Go-High-Level-Review-2-1.png',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+  },
+  {
+    icon: Trophy,
+    tag: '★ Recommended',
+    title: 'Best GHL Expert Agency to Hire in 2026 (Honest Comparison)',
+    excerpt: 'Looking for the best GoHighLevel expert agency to hire? We compared the top GHL agencies in 2026 — covering specialisations, pricing, and who each one is best for — so you can choose the right partner without wasting time.',
+    slug: 'best-ghl-expert-agency',
+    date: 'May 9, 2026',
+    readTime: '20 min read',
+    featured: true,
+    image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=500&fit=crop',
   },
   {
     icon: Rocket,
@@ -107,7 +118,7 @@ const blogPosts = [
     icon: Settings,
     tag: 'Automation',
     title: 'GoHighLevel Funnel Builder: 7 Features Top Agencies Use to Build Faster',
-    excerpt: 'Discover the GoHighLevel funnel builder features most agencies overlook version control, global sections, custom values, real-time collaboration and more.',
+    excerpt: 'Discover the GoHighLevel funnel builder features most agencies overlook — version control, global sections, custom values, real-time collaboration and more.',
     slug: 'gohighlevel-funnel-builder-features',
     date: 'April 7, 2026',
     readTime: '9 min read',
@@ -150,6 +161,7 @@ const getCategoryColor = (tag: string) => {
     'Workflow': 'bg-[rgba(37,201,125,0.12)] text-[#25C97D] border-[rgba(37,201,125,0.2)]',
     'SMS Automation': 'bg-[rgba(248,208,0,0.12)] text-[#F8D000] border-[rgba(248,208,0,0.2)]',
     'GoHighLevel': 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]',
+    '★ Recommended': 'bg-[rgba(248,208,0,0.12)] text-[#F8D000] border-[rgba(248,208,0,0.2)]',
   };
   return colors[tag] || 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]';
 };
