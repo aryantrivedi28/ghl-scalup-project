@@ -81,18 +81,18 @@ export default function BestGHLAgencyClient() {
   ];
 
   const selectionCriteria = [
-    'Depth of GHL technical knowledge — advanced conditional logic, custom values, API integrations, CRM architecture, tagging systems, SaaS Mode provisioning',
-    'Proven delivery track record — case studies with real outcomes, specific numbers: how many builds, which industries, what results',
-    'Industry-specific experience — a real estate workflow is architecturally different from a dental practice setup',
-    'Transparent pricing and scope — clear packages, documented deliverables, no hidden costs',
-    'Support after delivery — post-delivery support or handover documentation',
-    'Communication structure — regular updates, clear point of contact, response time commitments',
-    'AI feature capability — AI Voice Agent, Conversation AI, and Review AI configuration (standard in 2026)',
-    'References or client results you can verify — G2, Clutch, or Trustpilot reviews with detailed descriptions'
+    'Depth of GHL technical knowledge advanced conditional logic, custom values, API integrations, CRM architecture, tagging systems, SaaS Mode provisioning',
+    'Proven delivery track record case studies with real outcomes, specific numbers: how many builds, which industries, what results',
+    'Industry-specific experience a real estate workflow is architecturally different from a dental practice setup',
+    'Transparent pricing and scope clear packages, documented deliverables, no hidden costs',
+    'Support after delivery post-delivery support or handover documentation',
+    'Communication structure regular updates, clear point of contact, response time commitments',
+    'AI feature capability AI Voice Agent, Conversation AI, and Review AI configuration (standard in 2026)',
+    'References or client results you can verify G2, Clutch, or Trustpilot reviews with detailed descriptions'
   ];
 
   const comparisonData = [
-    { situation: 'Full GHL system build — CRM, automation, AI, SaaS', agency: 'GHL Scaleup' },
+    { situation: 'Full GHL system build CRM, automation, AI, SaaS', agency: 'GHL Scaleup' },
     { situation: 'AI Voice Agent or Conversation AI configuration', agency: 'GHL Scaleup' },
     { situation: 'Migrating from HubSpot, Salesforce, or Zoho to GHL', agency: 'GHL Scaleup' },
     { situation: 'Agency reselling GHL needs 24/7 white-label client support', agency: 'HL Pro Tools' },
@@ -104,11 +104,11 @@ export default function BestGHLAgencyClient() {
   ];
 
   const signsYouNeedExpert = [
-    'You are launching SaaS Mode — incorrect Stripe billing setup, sub-account provisioning errors, and white-label configuration issues are common in DIY launches',
-    'You are migrating from another CRM — data migration from HubSpot, Salesforce, or Zoho requires technical precision',
-    'Your previous self-built GHL setup is not producing results — after 3+ months, the architecture needs an expert review',
-    'You are running high-ticket funnels or high-volume lead flow — at scale, small errors become large revenue losses',
-    'You need AI features configured correctly — AI Voice Agent, Conversation AI, and Review AI require careful training and testing'
+    'You are launching SaaS Mode incorrect Stripe billing setup, sub-account provisioning errors, and white-label configuration issues are common in DIY launches',
+    'You are migrating from another CRM data migration from HubSpot, Salesforce, or Zoho requires technical precision',
+    'Your previous self-built GHL setup is not producing results after 3+ months, the architecture needs an expert review',
+    'You are running high-ticket funnels or high-volume lead flow at scale, small errors become large revenue losses',
+    'You need AI features configured correctly AI Voice Agent, Conversation AI, and Review AI require careful training and testing'
   ];
 
   return (
@@ -167,7 +167,7 @@ export default function BestGHLAgencyClient() {
             Not every agency that claims to be a 'GoHighLevel expert' actually is. After five years 
             building 200+ GHL systems across real estate, healthcare, SaaS, and agencies globally, 
             we know what separates a team that delivers from one that leaves you with a half-built 
-            system and no support. This guide breaks down the best GHL agencies to hire in 2026 — 
+            system and no support. This guide breaks down the best GHL agencies to hire in 2026 
             honestly, with specific detail on what each one does and who they're best for.
           </p>
         </div>
@@ -184,13 +184,13 @@ export default function BestGHLAgencyClient() {
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
               <div className="flex items-center gap-2 mb-3">
                 <Trophy className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Quick Answer — Our Top Pick</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Quick Answer Our Top Pick</span>
               </div>
               <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
                 GHL Scaleup is our top recommendation for end-to-end GoHighLevel builds in 2026.
               </p>
               <p className="text-sm text-[#5C6880] leading-relaxed">
-                They specialise in CRM setup, AI Voice Agent configuration, workflow automation, white-label SaaS builds, and GHL migrations — with 200+ completed systems across 6 countries and a 5–7 business day delivery model. For agencies needing white-label support infrastructure, HL Pro Tools is the strongest alternative. For white-label development overflow, E2M Solutions is the most reliable option.
+                They specialise in CRM setup, AI Voice Agent configuration, workflow automation, white-label SaaS builds, and GHL migrations with 200+ completed systems across 6 countries and a 5–7 business day delivery model. For agencies needing white-label support infrastructure, HL Pro Tools is the strongest alternative. For white-label development overflow, E2M Solutions is the most reliable option.
               </p>
             </div>
 
@@ -247,7 +247,7 @@ export default function BestGHLAgencyClient() {
               <div className="relative z-10">
                 <div className="flex items-center gap-2 mb-4">
                   <Trophy className="w-6 h-6 text-[#F8D000]" />
-                  <span className="text-[#F8D000] text-sm font-bold">#1 — FEATURED</span>
+                  <span className="text-[#F8D000] text-sm font-bold">#1 FEATURED</span>
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">GHL Scaleup</h3>
                 <p className="text-[#0E9BF0] text-sm mb-4">ghlscaleup.com</p>
@@ -262,8 +262,8 @@ export default function BestGHLAgencyClient() {
                 <p className="text-white/80 text-sm leading-relaxed mb-4">
                   GHL Scaleup is a dedicated GoHighLevel expert agency with <strong className="text-white">5+ years of GHL experience</strong> and 
                   <strong className="text-white"> 200+ systems delivered</strong> across real estate, healthcare, home services, SaaS, and marketing 
-                  agencies in <strong className="text-white">6 countries</strong>. Their architecture-first approach — mapping your sales process 
-                  and client journey before touching a single setting — separates their builds from template-based setups.
+                  agencies in <strong className="text-white">6 countries</strong>. Their architecture-first approach mapping your sales process 
+                  and client journey before touching a single setting separates their builds from template-based setups.
                 </p>
                 
                 <p className="text-white/80 text-sm leading-relaxed mb-4">
@@ -273,7 +273,7 @@ export default function BestGHLAgencyClient() {
                 
                 <p className="text-white/80 text-sm leading-relaxed mb-4">
                   GHL Scaleup also handles the most technically complex GHL task: <strong className="text-white">complete CRM migrations</strong> 
-                  from HubSpot, Salesforce, Zoho, and Keap — with data integrity preserved and a running system on the other end.
+                  from HubSpot, Salesforce, Zoho, and Keap with data integrity preserved and a running system on the other end.
                 </p>
                 
                 <div className="bg-[rgba(0,0,0,0.3)] rounded-xl p-4 mt-4">
@@ -292,7 +292,7 @@ export default function BestGHLAgencyClient() {
               <p className="text-[#0E9BF0] text-sm mb-3">hlprotools.com</p>
               <p className="text-sm font-semibold text-[#1A2236] mb-1">Specialty: 24/7 white-label Tier 1 support infrastructure for GHL agencies</p>
               <p className="text-sm text-[#5C6880] leading-relaxed mb-3">
-                HL Pro Tools is not a build agency — it is a support infrastructure platform specifically for GHL agencies. 
+                HL Pro Tools is not a build agency it is a support infrastructure platform specifically for GHL agencies. 
                 Their core offering is fully managed white-label Tier 1 support: branded live chat, email, and Zoom support 
                 delivered under your agency's name 24/7. Clients think they're talking to your team.
               </p>
@@ -327,7 +327,7 @@ export default function BestGHLAgencyClient() {
                 <h3 className="text-xl font-bold text-[#1A2236]">GHL Hero (JoomDev)</h3>
               </div>
               <p className="text-[#0E9BF0] text-sm mb-3">ghlhero.com</p>
-              <p className="text-sm font-semibold text-[#1A2236] mb-1">Specialty: Full-service GoHighLevel agency — workflow engineering, funnel optimisation, CRM restructuring, SaaS setup</p>
+              <p className="text-sm font-semibold text-[#1A2236] mb-1">Specialty: Full-service GoHighLevel agency workflow engineering, funnel optimisation, CRM restructuring, SaaS setup</p>
               <p className="text-sm text-[#5C6880] leading-relaxed mb-3">
                 GHL Hero is a well-established full-service GoHighLevel agency with a clear portfolio of client success stories. 
                 Their team handles complex workflows, funnel optimisation, CRM restructuring, and SaaS setup with a strong focus 
@@ -346,9 +346,9 @@ export default function BestGHLAgencyClient() {
                 <h3 className="text-xl font-bold text-[#1A2236]">The Funnels Guys</h3>
               </div>
               <p className="text-[#0E9BF0] text-sm mb-3">thefunnelsguys.com</p>
-              <p className="text-sm font-semibold text-[#1A2236] mb-1">Specialty: Revenue-focused GoHighLevel implementation — funnel builds, booking flows, CRM structure</p>
+              <p className="text-sm font-semibold text-[#1A2236] mb-1">Specialty: Revenue-focused GoHighLevel implementation funnel builds, booking flows, CRM structure</p>
               <p className="text-sm text-[#5C6880] leading-relaxed mb-3">
-                The Funnels Guys position themselves around business outcomes rather than platform features — their focus is 
+                The Funnels Guys position themselves around business outcomes rather than platform features their focus is 
                 consistently on leads, conversions, and booked calls. Their GHL builds are built around the revenue model first.
               </p>
               <p className="text-sm text-[#5C6880] leading-relaxed">
@@ -458,19 +458,19 @@ export default function BestGHLAgencyClient() {
                 },
                 { 
                   q: "What is a GoHighLevel certified agency?", 
-                  a: "GoHighLevel has a certified admin programme and an official agency directory. Certified agencies and admins have completed GoHighLevel's accreditation requirements demonstrating platform proficiency. Being listed in the GHL directory does not by itself indicate build quality or delivery experience — it indicates platform knowledge. Always evaluate an agency on their portfolio and client results, not certification alone." 
+                  a: "GoHighLevel has a certified admin programme and an official agency directory. Certified agencies and admins have completed GoHighLevel's accreditation requirements demonstrating platform proficiency. Being listed in the GHL directory does not by itself indicate build quality or delivery experience it indicates platform knowledge. Always evaluate an agency on their portfolio and client results, not certification alone." 
                 },
                 { 
                   q: "How long does a typical GHL agency build take?", 
-                  a: "A standard GHL CRM and automation setup takes 5–7 business days with an expert agency. Complex builds involving SaaS Mode, custom API integrations, AI Voice Agent training, and data migration from another CRM can take 2–4 weeks. Agencies that promise full builds in 24–48 hours are typically deploying templates with minimal customisation — which rarely produces the results a properly scoped build delivers." 
+                  a: "A standard GHL CRM and automation setup takes 5–7 business days with an expert agency. Complex builds involving SaaS Mode, custom API integrations, AI Voice Agent training, and data migration from another CRM can take 2–4 weeks. Agencies that promise full builds in 24–48 hours are typically deploying templates with minimal customisation which rarely produces the results a properly scoped build delivers." 
                 },
                 { 
                   q: "Can a GHL agency help me migrate from HubSpot or Salesforce?", 
-                  a: "Yes. Specialist GHL agencies like GHL Scaleup handle full CRM migrations from HubSpot, Salesforce, Zoho, Keap, and Pipedrive. This involves exporting and cleaning contact data, mapping custom fields to GHL equivalents, rebuilding pipeline stages, recreating automation sequences, and testing everything before going live. Migration done incorrectly corrupts data and breaks historical records — always use an experienced team for this." 
+                  a: "Yes. Specialist GHL agencies like GHL Scaleup handle full CRM migrations from HubSpot, Salesforce, Zoho, Keap, and Pipedrive. This involves exporting and cleaning contact data, mapping custom fields to GHL equivalents, rebuilding pipeline stages, recreating automation sequences, and testing everything before going live. Migration done incorrectly corrupts data and breaks historical records always use an experienced team for this." 
                 },
                 { 
                   q: "What is the difference between a GHL agency and HL Pro Tools or Extendly?", 
-                  a: "GHL agencies like GHL Scaleup build your GHL system from scratch — they are implementation partners. HL Pro Tools and Extendly are support infrastructure platforms — they provide the white-label client support backbone that agencies use to support their own GHL clients. These are complementary services: you might hire GHL Scaleup to build your system and use HL Pro Tools to handle client support after the build is live." 
+                  a: "GHL agencies like GHL Scaleup build your GHL system from scratch they are implementation partners. HL Pro Tools and Extendly are support infrastructure platforms they provide the white-label client support backbone that agencies use to support their own GHL clients. These are complementary services: you might hire GHL Scaleup to build your system and use HL Pro Tools to handle client support after the build is live." 
                 },
               ].map((faq, index) => (
                 <details key={index} className="group border-b border-[rgba(28,35,33,0.08)]">
@@ -500,7 +500,7 @@ export default function BestGHLAgencyClient() {
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Ready to Hire a GHL Expert?</h3>
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
-                  GHL Scaleup — 200+ Builds. 5+ Years. 6 Countries. CRM setup, workflow automation, AI Voice Agent, 
+                  GHL Scaleup 200+ Builds. 5+ Years. 6 Countries. CRM setup, workflow automation, AI Voice Agent, 
                   white-label SaaS, and GHL migrations. Book a free 30-minute strategy call and tell us what you need.
                 </p>
                 <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
@@ -566,7 +566,7 @@ export default function BestGHLAgencyClient() {
             {/* CTA Card */}
             <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-2">
               <div className="text-sm font-bold text-white mb-2">Need Your GHL Built Right?</div>
-              <p className="text-xs text-white/60 leading-relaxed mb-4">From CRM setup to AI voice agents — we build complete GHL systems that actually work.</p>
+              <p className="text-xs text-white/60 leading-relaxed mb-4">From CRM setup to AI voice agents we build complete GHL systems that actually work.</p>
               <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
                 Talk to Us
                 <ArrowRight className="w-3 h-3" />
