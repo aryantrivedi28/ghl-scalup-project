@@ -103,7 +103,7 @@ export default function WorkflowAutomationClient() {
             { mistake: 'No exit conditions', fix: 'Add an exit condition when someone books an appointment so nurture sequences stop.' },
             { mistake: 'One giant workflow for everything', fix: 'Keep workflows small and focused. One workflow per job, connected by tags.' },
             { mistake: 'Forgetting trigger filters', fix: 'Add a filter specifying the exact form name so the workflow only fires when intended.' },
-            { mistake: 'Not testing all branches', fix: 'Test every branch — the Yes path, No path, and timeout path — before publishing.' },
+            { mistake: 'Not testing all branches', fix: 'Test every branch the Yes path, No path, and timeout path before publishing.' },
       ];
 
       return (
@@ -145,7 +145,7 @@ export default function WorkflowAutomationClient() {
 
                               {/* Author Byline */}
                               <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
+                                    <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
                                           <img
                                                 src="/ghlscalicon.png"
                                                 alt="GHL Scale Up"
@@ -160,7 +160,7 @@ export default function WorkflowAutomationClient() {
 
                               {/* Introductory Paragraph */}
                               <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
-                                    If you're logging into GoHighLevel and not sure where to start with automation — this guide is for you.
+                                    If you're logging into GoHighLevel and not sure where to start with automation this guide is for you.
                                     In the next 10 minutes, you'll understand exactly what GHL workflows are, how they work, and how to build
                                     your very first one from scratch.
                               </p>
@@ -178,7 +178,7 @@ export default function WorkflowAutomationClient() {
                                     <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
                                           <div className="flex items-center gap-2 mb-3">
                                                 <Zap className="w-5 h-5 text-[#F8D000]" />
-                                                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Quick Answer — Read This First</span>
+                                                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Quick Answer Read This First</span>
                                           </div>
                                           <p className="text-base font-semibold text-[#1A2236] mb-2">
                                                 A GoHighLevel workflow is an automated sequence that runs when a specific event happens.
@@ -211,11 +211,11 @@ export default function WorkflowAutomationClient() {
 
                                     {/* Section 1: What Is a GoHighLevel Workflow? */}
                                     <h2 id="what-is-workflow" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-8 mb-4">
-                                          1. What Is a GoHighLevel Workflow? (Plain English)
+                                          1. What Is a GoHighLevel Workflow?
                                     </h2>
                                     <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
                                           A workflow is your <strong className="text-[#1A2236]">digital team member that never sleeps, never forgets, and never needs a day off.</strong>
-                                          You define a set of rules — "when this happens, do that" — and GHL follows them automatically for every contact, every time.
+                                          You define a set of rules "when this happens, do that" and GHL follows them automatically for every contact, every time.
                                     </p>
                                     <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
                                           Most GHL users do the same manual tasks on repeat: sending a welcome text after someone fills out a form,
@@ -241,7 +241,7 @@ export default function WorkflowAutomationClient() {
                                           </div>
                                           <p className="text-sm text-white/80 leading-relaxed">
                                                 The majority of GHL accounts we audit are running 2-3 basic workflows at best. Businesses running
-                                                8-10 properly configured workflows typically reduce manual follow-up time by <strong className="text-[#F8D000]">60-70%</strong> —
+                                                8-10 properly configured workflows typically reduce manual follow-up time by <strong className="text-[#F8D000]">60-70%</strong>
                                                 not because they're doing more, but because they've stopped doing things manually that GHL can handle automatically.
                                           </p>
                                     </div>
@@ -251,7 +251,7 @@ export default function WorkflowAutomationClient() {
                                           2. The 4 Building Blocks of Every GHL Workflow
                                     </h2>
                                     <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
-                                          Before you build anything, understand these four elements. Every workflow in GoHighLevel — simple or complex —
+                                          Before you build anything, understand these four elements. Every workflow in GoHighLevel simple or complex
                                           is made from the same components.
                                     </p>
 
@@ -261,7 +261,7 @@ export default function WorkflowAutomationClient() {
                                                 <div className="w-8 h-8 rounded-lg bg-[rgba(14,155,240,0.1)] flex items-center justify-center">
                                                       <GitBranch className="w-4 h-4 text-[#0E9BF0]" />
                                                 </div>
-                                                <h3 className="text-lg font-bold text-[#1A2236]">1. Trigger — What Starts the Workflow</h3>
+                                                <h3 className="text-lg font-bold text-[#1A2236]">1. Trigger What Starts the Workflow</h3>
                                           </div>
                                           <p className="text-sm text-[#5C6880] leading-relaxed mb-3">
                                                 The trigger is the event that fires the workflow. GHL has <strong className="text-[#1A2236]">30+ trigger types</strong> in 2026.
@@ -286,7 +286,7 @@ export default function WorkflowAutomationClient() {
                                                 <div className="w-8 h-8 rounded-lg bg-[rgba(37,201,125,0.1)] flex items-center justify-center">
                                                       <Zap className="w-4 h-4 text-[#25C97D]" />
                                                 </div>
-                                                <h3 className="text-lg font-bold text-[#1A2236]">2. Actions — What the Workflow Does</h3>
+                                                <h3 className="text-lg font-bold text-[#1A2236]">2. Actions What the Workflow Does</h3>
                                           </div>
                                           <p className="text-sm text-[#5C6880] leading-relaxed mb-3">
                                                 Actions are the tasks that execute after the trigger fires. GHL has <strong className="text-[#1A2236]">100+ action types.</strong>
@@ -311,15 +311,15 @@ export default function WorkflowAutomationClient() {
                                                 <div className="w-8 h-8 rounded-lg bg-[rgba(248,208,0,0.1)] flex items-center justify-center">
                                                       <Clock className="w-4 h-4 text-[#F8D000]" />
                                                 </div>
-                                                <h3 className="text-lg font-bold text-[#1A2236]">3. Wait Steps — Timing and Spacing</h3>
+                                                <h3 className="text-lg font-bold text-[#1A2236]">3. Wait Steps Timing and Spacing</h3>
                                           </div>
                                           <p className="text-sm text-[#5C6880] leading-relaxed">
-                                                Wait steps control the timing between actions. Without them, your entire workflow fires in seconds —
+                                                Wait steps control the timing between actions. Without them, your entire workflow fires in seconds
                                                 and your contact gets three texts and two emails within 60 seconds of filling out a form. That feels like spam.
                                           </p>
                                           <p className="text-sm text-[#5C6880] leading-relaxed mt-2">
                                                 Good rule of thumb: wait 5-10 minutes before a follow-up text, and 24-48 hours before a follow-up email.
-                                                You can also set waits to trigger <strong>based on an event</strong> — for example, 'wait until the contact replies'
+                                                You can also set waits to trigger <strong>based on an event</strong> for example, 'wait until the contact replies'
                                                 or 'wait until 1 hour before their appointment.'
                                           </p>
                                     </div>
@@ -330,7 +330,7 @@ export default function WorkflowAutomationClient() {
                                                 <div className="w-8 h-8 rounded-lg bg-[rgba(14,155,240,0.1)] flex items-center justify-center">
                                                       <GitMerge className="w-4 h-4 text-[#0E9BF0]" />
                                                 </div>
-                                                <h3 className="text-lg font-bold text-[#1A2236]">4. If/Else Conditions — Smart Branching</h3>
+                                                <h3 className="text-lg font-bold text-[#1A2236]">4. If/Else Conditions Smart Branching</h3>
                                           </div>
                                           <p className="text-sm text-[#5C6880] leading-relaxed">
                                                 If/Else conditions are where workflows get powerful. Instead of treating every lead the same,
@@ -349,8 +349,8 @@ export default function WorkflowAutomationClient() {
                                                 <span className="text-sm font-bold text-[#F8D000]">2026 Tip</span>
                                           </div>
                                           <p className="text-sm text-[#1A2236] leading-relaxed">
-                                                GHL now has a <strong>Workflow AI Builder</strong> — you describe your automation in plain English and GHL builds
-                                                the workflow for you. It's still worth understanding the basics so you can review and edit what the AI generates —
+                                                GHL now has a <strong>Workflow AI Builder</strong> you describe your automation in plain English and GHL builds
+                                                the workflow for you. It's still worth understanding the basics so you can review and edit what the AI generates
                                                 but it dramatically speeds up the building process.
                                           </p>
                                     </div>
@@ -382,7 +382,7 @@ export default function WorkflowAutomationClient() {
                                                 <div className="w-8 h-8 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center font-bold text-sm flex-shrink-0">3</div>
                                                 <div>
                                                       <h3 className="text-base font-bold text-[#1A2236] mb-1">Name your workflow</h3>
-                                                      <p className="text-sm text-[#5C6880] leading-relaxed">Click the title at the top and give it a clear name. Example: 'New Lead Follow-Up — Form Submission'. Good naming prevents confusion when you have 20+ workflows running.</p>
+                                                      <p className="text-sm text-[#5C6880] leading-relaxed">Click the title at the top and give it a clear name. Example: 'New Lead Follow-Up Form Submission'. Good naming prevents confusion when you have 20+ workflows running.</p>
                                                 </div>
                                           </div>
                                           <div className="flex gap-4">
@@ -395,7 +395,7 @@ export default function WorkflowAutomationClient() {
                                           <div className="flex gap-4">
                                                 <div className="w-8 h-8 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center font-bold text-sm flex-shrink-0">5</div>
                                                 <div>
-                                                      <h3 className="text-base font-bold text-[#1A2236] mb-1">Add your first action — Send SMS</h3>
+                                                      <h3 className="text-base font-bold text-[#1A2236] mb-1">Add your first action Send SMS</h3>
                                                       <p className="text-sm text-[#5C6880] leading-relaxed">Click the '+' icon below your trigger. Select 'Send SMS'. Write a short, friendly text message. Use personalisation tokens: {'{{contact.first_name}}'} pulls their first name automatically.</p>
                                                 </div>
                                           </div>
@@ -442,7 +442,7 @@ export default function WorkflowAutomationClient() {
                                                 <span className="text-sm font-bold text-[#25C97D]">Important</span>
                                           </div>
                                           <p className="text-sm text-[#1A2236] leading-relaxed">
-                                                Always test with yourself first. Send a test submission through your actual form, not just the built-in workflow test —
+                                                Always test with yourself first. Send a test submission through your actual form, not just the built-in workflow test
                                                 this confirms the trigger fires correctly in real conditions. Check your phone for the SMS and your email inbox for the
                                                 confirmation email before going live with real leads.
                                           </p>
@@ -453,7 +453,7 @@ export default function WorkflowAutomationClient() {
                                           4. The 3 Most Important Workflows to Build First
                                     </h2>
                                     <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
-                                          Every GHL account has dozens of possible automations. These are the three to build first — they produce the most impact for the least complexity.
+                                          Every GHL account has dozens of possible automations. These are the three to build first they produce the most impact for the least complexity.
                                     </p>
 
                                     <div className="space-y-4 mb-6">
@@ -541,11 +541,11 @@ export default function WorkflowAutomationClient() {
                                           {[
                                                 {
                                                       q: "What is a workflow in GoHighLevel?",
-                                                      a: "A GoHighLevel workflow is an automated sequence of actions triggered by a specific event. When a defined trigger occurs — such as a form submission, missed call, or appointment booking — GHL automatically executes the actions you've configured, like sending SMS messages, emails, assigning to a pipeline, or tagging the contact. Workflows run 24/7 without any manual input."
+                                                      a: "A GoHighLevel workflow is an automated sequence of actions triggered by a specific event. When a defined trigger occurs such as a form submission, missed call, or appointment booking GHL automatically executes the actions you've configured, like sending SMS messages, emails, assigning to a pipeline, or tagging the contact. Workflows run 24/7 without any manual input."
                                                 },
                                                 {
                                                       q: "Do I need coding or technical skills to build GHL workflows?",
-                                                      a: "No. GoHighLevel's workflow builder is a visual drag-and-drop interface with no coding required. In 2026, GHL also added the Workflow AI Builder — you describe what you want in plain English and it generates the workflow for you to review and customise. Beginners can build their first working workflow in under 30 minutes."
+                                                      a: "No. GoHighLevel's workflow builder is a visual drag-and-drop interface with no coding required. In 2026, GHL also added the Workflow AI Builder you describe what you want in plain English and it generates the workflow for you to review and customise. Beginners can build their first working workflow in under 30 minutes."
                                                 },
                                                 {
                                                       q: "How many workflows can I create in GoHighLevel?",
@@ -553,7 +553,7 @@ export default function WorkflowAutomationClient() {
                                                 },
                                                 {
                                                       q: "What is the difference between a trigger and an action in GHL?",
-                                                      a: "A trigger is the event that starts the workflow — for example, someone submitting a form or missing a call. An action is what happens after the trigger fires — for example, sending an SMS, adding a tag, or creating a pipeline opportunity. Every workflow needs at least one trigger and one action."
+                                                      a: "A trigger is the event that starts the workflow for example, someone submitting a form or missing a call. An action is what happens after the trigger fires for example, sending an SMS, adding a tag, or creating a pipeline opportunity. Every workflow needs at least one trigger and one action."
                                                 },
                                                 {
                                                       q: "What is an If/Else condition in a GoHighLevel workflow?",
@@ -561,7 +561,7 @@ export default function WorkflowAutomationClient() {
                                                 },
                                                 {
                                                       q: "Why is my GoHighLevel workflow not firing?",
-                                                      a: "The most common reasons are: (1) the workflow is not published — make sure it is set to Active; (2) the trigger filter is too narrow and excluding contacts; (3) the contact already went through the workflow and the 'Allow Re-entry' setting is off; (4) the form connected to your trigger is not the same form you're testing with. Check each of these in order before troubleshooting further."
+                                                      a: "The most common reasons are: (1) the workflow is not published make sure it is set to Active; (2) the trigger filter is too narrow and excluding contacts; (3) the contact already went through the workflow and the 'Allow Re-entry' setting is off; (4) the form connected to your trigger is not the same form you're testing with. Check each of these in order before troubleshooting further."
                                                 },
                                                 {
                                                       q: "What are GoHighLevel workflow recipes?",
@@ -569,7 +569,7 @@ export default function WorkflowAutomationClient() {
                                                 },
                                                 {
                                                       q: "How do I test a GoHighLevel workflow before going live?",
-                                                      a: "In the workflow builder, click 'Test Workflow' in the top bar and add your own contact details. GHL will run the workflow against your test contact, compressing wait timers to seconds. After the test, open the History tab and check each step — green means success, red means error. Fix all errors before publishing, and always run a real form submission test to confirm the trigger fires correctly in live conditions."
+                                                      a: "In the workflow builder, click 'Test Workflow' in the top bar and add your own contact details. GHL will run the workflow against your test contact, compressing wait timers to seconds. After the test, open the History tab and check each step green means success, red means error. Fix all errors before publishing, and always run a real form submission test to confirm the trigger fires correctly in live conditions."
                                                 },
                                           ].map((faq, index) => (
                                                 <details key={index} className="group border-b border-[rgba(28,35,33,0.08)]">
@@ -664,7 +664,7 @@ export default function WorkflowAutomationClient() {
                                     {/* CTA Card */}
                                     <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-2">
                                           <div className="text-sm font-bold text-white mb-2">Need Help with GHL Workflows?</div>
-                                          <p className="text-xs text-white/60 leading-relaxed mb-4">From basic automations to complex AI workflows — we build complete GHL systems that actually work.</p>
+                                          <p className="text-xs text-white/60 leading-relaxed mb-4">From basic automations to complex AI workflows we build complete GHL systems that actually work.</p>
                                           <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
                                                 Talk to Us
                                                 <ArrowRight className="w-3 h-3" />
