@@ -33,6 +33,7 @@ interface FormData {
   email: string;
   phone: string;
   country: string;
+  phoneCode: string;
   experienceLevel: string;
   expertiseArea: string;
   otherExpertise: string;
@@ -43,6 +44,63 @@ interface FormData {
   availability: string;
   extraInfo: string;
 }
+
+// Country data with phone codes
+interface CountryOption {
+  code: string;
+  name: string;
+  phoneCode: string;
+}
+
+const countries: CountryOption[] = [
+  { code: 'IN', name: 'India', phoneCode: '+91' },
+  { code: 'US', name: 'United States', phoneCode: '+1' },
+  { code: 'GB', name: 'United Kingdom', phoneCode: '+44' },
+  { code: 'CA', name: 'Canada', phoneCode: '+1' },
+  { code: 'AU', name: 'Australia', phoneCode: '+61' },
+  { code: 'AE', name: 'UAE', phoneCode: '+971' },
+  // { code: 'DE', name: 'Germany', phoneCode: '+49' },
+  // { code: 'FR', name: 'France', phoneCode: '+33' },
+  // { code: 'ES', name: 'Spain', phoneCode: '+34' },
+  // { code: 'IT', name: 'Italy', phoneCode: '+39' },
+  // { code: 'NL', name: 'Netherlands', phoneCode: '+31' },
+  // { code: 'SE', name: 'Sweden', phoneCode: '+46' },
+  // { code: 'NO', name: 'Norway', phoneCode: '+47' },
+  // { code: 'DK', name: 'Denmark', phoneCode: '+45' },
+  // { code: 'BE', name: 'Belgium', phoneCode: '+32' },
+  // { code: 'CH', name: 'Switzerland', phoneCode: '+41' },
+  // { code: 'AT', name: 'Austria', phoneCode: '+43' },
+  // { code: 'NZ', name: 'New Zealand', phoneCode: '+64' },
+  // { code: 'SG', name: 'Singapore', phoneCode: '+65' },
+  // { code: 'MY', name: 'Malaysia', phoneCode: '+60' },
+  // { code: 'TH', name: 'Thailand', phoneCode: '+66' },
+  // { code: 'VN', name: 'Vietnam', phoneCode: '+84' },
+  // { code: 'ID', name: 'Indonesia', phoneCode: '+62' },
+  // { code: 'PH', name: 'Philippines', phoneCode: '+63' },
+  // { code: 'PK', name: 'Pakistan', phoneCode: '+92' },
+  // { code: 'BD', name: 'Bangladesh', phoneCode: '+880' },
+  // { code: 'LK', name: 'Sri Lanka', phoneCode: '+94' },
+  // { code: 'NP', name: 'Nepal', phoneCode: '+977' },
+  // { code: 'ZA', name: 'South Africa', phoneCode: '+27' },
+  // { code: 'NG', name: 'Nigeria', phoneCode: '+234' },
+  // { code: 'KE', name: 'Kenya', phoneCode: '+254' },
+  // { code: 'EG', name: 'Egypt', phoneCode: '+20' },
+  // { code: 'SA', name: 'Saudi Arabia', phoneCode: '+966' },
+  // { code: 'QA', name: 'Qatar', phoneCode: '+974' },
+  // { code: 'KW', name: 'Kuwait', phoneCode: '+965' },
+  // { code: 'OM', name: 'Oman', phoneCode: '+968' },
+  // { code: 'BH', name: 'Bahrain', phoneCode: '+973' },
+  // { code: 'TR', name: 'Turkey', phoneCode: '+90' },
+  // { code: 'RU', name: 'Russia', phoneCode: '+7' },
+  // { code: 'BR', name: 'Brazil', phoneCode: '+55' },
+  // { code: 'MX', name: 'Mexico', phoneCode: '+52' },
+  // { code: 'AR', name: 'Argentina', phoneCode: '+54' },
+  // { code: 'CL', name: 'Chile', phoneCode: '+56' },
+  // { code: 'CO', name: 'Colombia', phoneCode: '+57' },
+  // { code: 'PE', name: 'Peru', phoneCode: '+51' },
+  { code: 'PE', name: 'Other', phoneCode: '0' },
+
+];
 
 export default function WorkWithUsPage() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -56,6 +114,7 @@ export default function WorkWithUsPage() {
     email: '',
     phone: '',
     country: '',
+    phoneCode: '+91',
     experienceLevel: '',
     expertiseArea: '',
     otherExpertise: '',
@@ -71,6 +130,24 @@ export default function WorkWithUsPage() {
   const [portfolioFile, setPortfolioFile] = useState<File | null>(null);
   const [resumeFileName, setResumeFileName] = useState('');
   const [portfolioFileName, setPortfolioFileName] = useState('');
+
+  // Handle country change - auto update phone code
+  const handleCountryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const countryName = e.target.value;
+    const selectedCountry = countries.find(c => c.name === countryName);
+    
+    setFormData(prev => ({
+      ...prev,
+      country: countryName,
+      phoneCode: selectedCountry ? selectedCountry.phoneCode : '+91'
+    }));
+  };
+
+  // Handle phone input change - only digits
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.replace(/\D/g, '');
+    setFormData(prev => ({ ...prev, phone: value }));
+  };
 
   // Expertise options
   const expertiseOptions = [
@@ -137,7 +214,9 @@ export default function WorkWithUsPage() {
     submitData.append('firstName', formData.firstName);
     submitData.append('lastName', formData.lastName);
     submitData.append('email', formData.email);
-    submitData.append('phone', formData.phone);
+    // Send full phone number with code
+    const fullPhoneNumber = `${formData.phoneCode}${formData.phone}`;
+    submitData.append('phone', fullPhoneNumber);
     submitData.append('country', formData.country);
     submitData.append('experienceLevel', formData.experienceLevel);
     
@@ -212,15 +291,12 @@ export default function WorkWithUsPage() {
         <div className="flex flex-row items-start justify-between gap-1 sm:gap-2 md:gap-4">
           {steps.map((step, index) => (
             <div key={step.id} className="flex flex-1 flex-col items-center gap-1.5 sm:gap-2 relative">
-              {/* Circle with icon */}
               <div className={`w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center shadow-lg ${step.bgColor} ${step.textColor} z-10 transition-all duration-300 ${currentStep >= step.id ? 'scale-100' : 'scale-95 opacity-70'}`}>
                 <step.icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
               </div>
-              {/* Title */}
               <div className="font-poppins font-semibold text-[10px] sm:text-xs md:text-sm text-white/80 text-center leading-tight">
                 {step.title}
               </div>
-              {/* Connecting line */}
               {index < steps.length - 1 && (
                 <>
                   <div className={`absolute top-5 sm:top-6 md:top-7 left-[60%] right-[-60%] h-0.5 transition-all duration-300 z-0 hidden sm:block ${currentStep > step.id ? 'bg-gradient-to-r from-[#25C97D] to-[#0E9BF0]' : 'bg-white/20'}`}></div>
@@ -236,7 +312,7 @@ export default function WorkWithUsPage() {
       <div id="application-form" className="relative z-5 max-w-2xl mx-auto px-4 sm:px-6 md:px-12 pb-16 sm:pb-20">
         {!isSuccess ? (
           <div className="bg-white/5 border border-white/15 rounded-xl sm:rounded-2xl backdrop-blur-md overflow-hidden shadow-xl">
-            {/* Form Header with Step Indicator */}
+            {/* Form Header */}
             <div className="bg-gradient-to-br from-[#1C2E4A] to-[#0d1b2e] px-4 sm:px-6 md:px-10 py-5 sm:py-6 md:py-8 border-b border-white/10">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3 sm:gap-4">
@@ -248,7 +324,6 @@ export default function WorkWithUsPage() {
                     <p className="text-xs sm:text-sm text-white/50">Step {currentStep} of 3</p>
                   </div>
                 </div>
-                {/* Step badge */}
                 <div className="hidden sm:flex items-center gap-2">
                   {[1, 2, 3].map(step => (
                     <div
@@ -317,38 +392,42 @@ export default function WorkWithUsPage() {
                       />
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                      <div>
-                        <label className="block text-xs font-medium tracking-wide text-white/50 uppercase mb-1.5 sm:mb-2">WhatsApp / Phone *</label>
+                    <div>
+                      <label className="block text-xs font-medium tracking-wide text-white/50 uppercase mb-1.5 sm:mb-2">Country *</label>
+                      <select
+                        name="country"
+                        value={formData.country}
+                        onChange={handleCountryChange}
+                        className="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base focus:border-[#0E9BF0] focus:outline-none transition-all cursor-pointer"
+                        required
+                      >
+                        <option value="" className="bg-[#1C2E4A] text-white">Select country</option>
+                        {countries.map(country => (
+                          <option key={country.code} value={country.name} className="bg-[#1C2E4A] text-white">
+                            {country.name} ({country.phoneCode})
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {/* Phone Section - Clean and Simple */}
+                    <div>
+                      <label className="block text-xs font-medium tracking-wide text-white/50 uppercase mb-1.5 sm:mb-2">WhatsApp / Phone Number *</label>
+                      <div className="relative">
+                        <div className="absolute left-3 top-1/2 -translate-y-1/2 text-white/70 text-sm sm:text-base pointer-events-none">
+                          {formData.phoneCode}
+                        </div>
                         <input
                           type="tel"
                           name="phone"
                           value={formData.phone}
-                          onChange={handleInputChange}
-                          className="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base placeholder-white/30 focus:border-[#0E9BF0] focus:outline-none transition-all"
-                          placeholder="98765 43210"
+                          onChange={handlePhoneChange}
+                          className="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-xl pl-16 sm:pl-20 pr-3 sm:pr-4 py-2.5 sm:py-3 text-white text-sm sm:text-base placeholder-white/30 focus:border-[#0E9BF0] focus:outline-none transition-all"
+                          placeholder="9876543210"
                           required
                         />
                       </div>
-                      <div>
-                        <label className="block text-xs font-medium tracking-wide text-white/50 uppercase mb-1.5 sm:mb-2">Country *</label>
-                        <select
-                          name="country"
-                          value={formData.country}
-                          onChange={handleInputChange}
-                          className="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base focus:border-[#0E9BF0] focus:outline-none transition-all cursor-pointer"
-                          required
-                        >
-                          <option value="" className="bg-[#1C2E4A] text-white">Select country</option>
-                          <option value="India" className="bg-[#1C2E4A] text-white">India</option>
-                          <option value="United States" className="bg-[#1C2E4A] text-white">United States</option>
-                          <option value="United Kingdom" className="bg-[#1C2E4A] text-white">United Kingdom</option>
-                          <option value="Canada" className="bg-[#1C2E4A] text-white">Canada</option>
-                          <option value="Australia" className="bg-[#1C2E4A] text-white">Australia</option>
-                          <option value="UAE" className="bg-[#1C2E4A] text-white">UAE</option>
-                          <option value="Other" className="bg-[#1C2E4A] text-white">Other</option>
-                        </select>
-                      </div>
+                      <p className="text-xs text-white/30 mt-1">Enter number without country code</p>
                     </div>
 
                     <div>
@@ -390,7 +469,6 @@ export default function WorkWithUsPage() {
                   <div className="text-xs sm:text-sm text-white/50 mb-5 sm:mb-7">Tell us about your skills and specialisations.</div>
 
                   <div className="space-y-4 sm:space-y-6">
-                    {/* Area of Expertise */}
                     <div>
                       <label className="block text-xs font-medium tracking-wide text-white/50 uppercase mb-1.5 sm:mb-2">Area of Expertise *</label>
                       <select
@@ -420,7 +498,6 @@ export default function WorkWithUsPage() {
                       )}
                     </div>
 
-                    {/* Looking For */}
                     <div>
                       <label className="block text-xs font-medium tracking-wide text-white/50 uppercase mb-1.5 sm:mb-2">Are you looking for *</label>
                       <select
@@ -437,7 +514,6 @@ export default function WorkWithUsPage() {
                       </select>
                     </div>
 
-                    {/* Specialisations */}
                     <div>
                       <label className="block text-xs font-medium tracking-wide text-white/50 uppercase mb-1.5 sm:mb-2">Your GHL specialisations</label>
                       <textarea
@@ -478,7 +554,6 @@ export default function WorkWithUsPage() {
                   <div className="text-xs sm:text-sm text-white/50 mb-5 sm:mb-7">Share your expectations and supporting documents.</div>
 
                   <div className="space-y-4 sm:space-y-6">
-                    {/* Rate */}
                     <div>
                       <label className="block text-xs font-medium tracking-wide text-white/50 uppercase mb-1.5 sm:mb-2">Rate Expectation *</label>
                       <input
@@ -493,7 +568,6 @@ export default function WorkWithUsPage() {
                       <p className="text-xs text-white/30 mt-1">Expected salary or hourly rate</p>
                     </div>
 
-                    {/* Availability */}
                     <div>
                       <label className="block text-xs font-medium tracking-wide text-white/50 uppercase mb-1.5 sm:mb-2">Availability *</label>
                       <select
@@ -511,7 +585,6 @@ export default function WorkWithUsPage() {
                       </select>
                     </div>
 
-                    {/* Resume Upload */}
                     <div>
                       <label className="block text-xs font-medium tracking-wide text-white/50 uppercase mb-1.5 sm:mb-2">Upload Resume / CV *</label>
                       <div className="border-2 border-dashed border-white/20 rounded-lg sm:rounded-xl p-6 sm:p-8 text-center hover:border-[#F8D000] transition-all cursor-pointer relative bg-white/5">
@@ -529,7 +602,6 @@ export default function WorkWithUsPage() {
                       </div>
                     </div>
 
-                    {/* Portfolio Upload */}
                     <div>
                       <label className="block text-xs font-medium tracking-wide text-white/50 uppercase mb-1.5 sm:mb-2">Upload Portfolio (optional)</label>
                       <div className="border-2 border-dashed border-white/20 rounded-lg sm:rounded-xl p-6 sm:p-8 text-center hover:border-[#F8D000] transition-all cursor-pointer relative bg-white/5">
@@ -546,7 +618,6 @@ export default function WorkWithUsPage() {
                       </div>
                     </div>
 
-                    {/* Portfolio URL */}
                     <div>
                       <label className="block text-xs font-medium tracking-wide text-white/50 uppercase mb-1.5 sm:mb-2">Portfolio / LinkedIn URL (optional)</label>
                       <input
@@ -559,7 +630,6 @@ export default function WorkWithUsPage() {
                       />
                     </div>
 
-                    {/* Extra Info */}
                     <div>
                       <label className="block text-xs font-medium tracking-wide text-white/50 uppercase mb-1.5 sm:mb-2">Anything else? (optional)</label>
                       <textarea
@@ -593,7 +663,6 @@ export default function WorkWithUsPage() {
             </div>
           </div>
         ) : (
-          // Success Card
           <div className="bg-white/5 border border-white/15 rounded-xl sm:rounded-2xl backdrop-blur-md p-6 sm:p-8 md:p-16 text-center shadow-xl">
             <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-[#25C97D] to-[#1a9a5e] rounded-full flex items-center justify-center mx-auto mb-5 sm:mb-6 shadow-lg">
               <CheckCircle className="w-8 h-8 sm:w-10 sm:h-10 text-[#1C2E4A]" />
