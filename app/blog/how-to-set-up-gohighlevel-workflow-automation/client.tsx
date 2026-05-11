@@ -587,8 +587,8 @@ export default function WorkflowAutomationClient() {
                                           <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles in This Series</h3>
                                           <div className="flex flex-wrap gap-3">
                                                 <Link href="/blog/what-is-gohighlevel" className="text-sm text-[#0E9BF0] hover:underline">What Is GoHighLevel? Complete 2026 Guide →</Link>
-                                                {/* <Link href="/blog/gohighlevel-missed-call-text-back" className="text-sm text-[#0E9BF0] hover:underline">How Does GHL Missed Call Text-Back Work? →</Link> */}
-                                                {/* <Link href="/blog/how-to-create-gohighlevel-snapshot" className="text-sm text-[#0E9BF0] hover:underline">How to Create a GoHighLevel Snapshot →</Link> */}
+                                                <Link href="/blog/gohighlevel-missed-call-text-back" className="text-sm text-[#0E9BF0] hover:underline">How Does GHL Missed Call Text-Back Work? →</Link>
+                                                <Link href="/blog/how-to-create-gohighlevel-snapshot" className="text-sm text-[#0E9BF0] hover:underline">How to Create a GoHighLevel Snapshot →</Link>
                                                 <Link href="/services/crm-setup" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel CRM Setup Service →</Link>
                                                 <Link href="/services/workflow-automation" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Workflow Automation Service →</Link>
                                           </div>
