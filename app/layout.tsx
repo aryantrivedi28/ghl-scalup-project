@@ -33,7 +33,7 @@ export const metadata: Metadata = {
         type: 'image/png',
       },
     ],
-    apple: '/apple-touch-icon.png',
+    apple: '/favicon.png',
   },
 
   openGraph: {
