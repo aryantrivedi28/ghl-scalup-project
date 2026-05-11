@@ -201,6 +201,7 @@ const Navigation = () => {
                 href="https://wa.me/919893270210?text=Hello"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="text-white/60 text-[0.8rem] hover:text-white transition-colors"
               >
                 +91 98932 70210
               </a></li>
