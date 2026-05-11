@@ -158,7 +158,7 @@ const Navigation = () => {
 
           <div className="hidden md:flex items-center gap-5">
             <a
-              href="https://wa.me/919893270210?text=Hello%20Thank%20you%20to%20reach%20out%20us.%20What%20is%20your%20requirements?"
+              href="https://wa.me/919893270210?text=Hello"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white/60 text-[0.8rem] hover:text-white transition-colors"
@@ -198,10 +198,9 @@ const Navigation = () => {
               <li><Link href="/testimonials" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>Testimonials</Link></li>
               <li><Link href="/blog" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>Blog</Link></li>
               <li><a
-                href="https://wa.me/919893270210?text=Hello%20Thank%20you%20to%20reach%20out%20us.%20What%20is%20your%20requirements?"
+                href="https://wa.me/919893270210?text=Hello"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white text-base block py-2"
               >
                 +91 98932 70210
               </a></li>
