@@ -4,7 +4,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { 
+import {
   ChevronDown,
   Wrench,
   Settings,
@@ -57,7 +57,7 @@ const Navigation = () => {
     { icon: RefreshCw, iconBg: 'blue', title: 'GHL Migration Services', desc: 'Move from any CRM to GoHighLevel', link: '/services/migration' },
     { icon: GraduationCap, iconBg: 'green', title: 'Membership & Course Sites', desc: 'Online courses, gated content, drip', link: '/services/membership-sites' },
     { icon: Users, iconBg: 'yellow', title: 'GHL Training & Onboarding', desc: 'Team training, SOPs, documentation', link: '/services/training' },
-    { icon: Briefcase, iconBg: 'blue', title: 'Virtual Assistant for GHL Management', desc: 'Dedicated GHL VA to manage your account, run campaigns, update pipelines, and handle day-to-day tasks.', link: '/services/virtual-assistant'}
+    { icon: Briefcase, iconBg: 'blue', title: 'Virtual Assistant for GHL Management', desc: 'Dedicated GHL VA to manage your account, run campaigns, update pipelines, and handle day-to-day tasks.', link: '/services/virtual-assistant' }
   ]
 
   const marketingServices = [
@@ -80,10 +80,10 @@ const Navigation = () => {
       <div className="max-w-[1200px] mx-auto px-2 md:px-4">
         <div className="flex items-center justify-between h-[72px]">
           <Link href="/" className="flex-shrink-0">
-            <Image 
-              src="/ghlscalup.png" 
-              alt="GHL Scale Up - GoHighLevel Expert Agency" 
-              width={120} 
+            <Image
+              src="/ghlscalup.png"
+              alt="GHL Scale Up - GoHighLevel Expert Agency"
+              width={120}
               height={100}
               priority
               className="h-12 w-auto"
@@ -104,10 +104,9 @@ const Navigation = () => {
                   const Icon = service.icon
                   return (
                     <Link key={idx} href={service.link} className="flex items-center gap-2.5 p-2 rounded-lg hover:bg-[#F4F7FA] transition-colors group">
-                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                        service.iconBg === 'blue' ? 'bg-[rgba(14,155,240,0.1)]' : 
+                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${service.iconBg === 'blue' ? 'bg-[rgba(14,155,240,0.1)]' :
                         service.iconBg === 'green' ? 'bg-[rgba(37,201,125,0.1)]' : 'bg-[rgba(248,208,0,0.12)]'
-                      }`}>
+                        }`}>
                         <Icon className="h-4 w-4 text-[#1C2E4A]" />
                       </div>
                       <div>
@@ -131,10 +130,9 @@ const Navigation = () => {
                   const Icon = service.icon
                   return (
                     <Link key={idx} href={service.link} className="flex items-center gap-2.5 p-2 rounded-lg hover:bg-[#F4F7FA] transition-colors group">
-                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                        service.iconBg === 'blue' ? 'bg-[rgba(14,155,240,0.1)]' : 
+                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${service.iconBg === 'blue' ? 'bg-[rgba(14,155,240,0.1)]' :
                         service.iconBg === 'green' ? 'bg-[rgba(37,201,125,0.1)]' : 'bg-[rgba(248,208,0,0.12)]'
-                      }`}>
+                        }`}>
                         <Icon className="h-4 w-4 text-[#1C2E4A]" />
                       </div>
                       <div>
@@ -148,24 +146,31 @@ const Navigation = () => {
             </li>
 
             <li><Link href="/how-we-work" className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors">How We Work</Link></li>
-            
+
             {/* Case Studies - Direct Link */}
             <li><Link href="/case-studies" className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors">Case Studies</Link></li>
-            
+
             {/* Testimonials - Direct Link */}
             <li><Link href="/testimonials" className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors">Testimonials</Link></li>
-            
+
             <li><Link href="/blog" className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors">Blog</Link></li>
           </ul>
 
           <div className="hidden md:flex items-center gap-5">
-            <a href="tel:+919893270210" className="text-white/60 text-[0.8rem] hover:text-white transition-colors">+91 98932 70210</a>
+            <a
+              href="https://wa.me/919893270210?text=Hello%20Thank%20you%20to%20reach%20out%20us.%20What%20is%20your%20requirements?"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/60 text-[0.8rem] hover:text-white transition-colors"
+            >
+              +91 98932 70210
+            </a>
             <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-6 py-2.5 rounded-lg text-[0.82rem] font-bold hover:bg-[#FFE44D] hover:-translate-y-[1px] transition-all">
               Get in Touch
             </Link>
           </div>
 
-          <button 
+          <button
             className="md:hidden flex flex-col gap-1.5 bg-transparent border-none cursor-pointer"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
@@ -192,7 +197,14 @@ const Navigation = () => {
               <li><Link href="/case-studies" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>Case Studies</Link></li>
               <li><Link href="/testimonials" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>Testimonials</Link></li>
               <li><Link href="/blog" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>Blog</Link></li>
-              <li><a href="tel:+919893270210" className="text-white text-base block py-2">+91 98932 70210</a></li>
+              <li><a
+                href="https://wa.me/919893270210?text=Hello%20Thank%20you%20to%20reach%20out%20us.%20What%20is%20your%20requirements?"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white text-base block py-2"
+              >
+                +91 98932 70210
+              </a></li>
               <li><Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-6 py-3 rounded-lg text-center font-bold block mt-2" onClick={() => setIsMobileMenuOpen(false)}>Get in Touch</Link></li>
             </ul>
           </div>
