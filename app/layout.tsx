@@ -29,7 +29,6 @@ export const metadata: Metadata = {
       { url: '/favicon.ico' },
       {
         url: '/icon1.png',
-        sizes: '96x96',
         type: 'image/png',
       },
     ],
@@ -44,7 +43,7 @@ export const metadata: Metadata = {
     siteName: 'GHL Scale Up',
     images: [
       {
-        url: '/ghlscalicon.png',
+        url: '/icon1.png',
         width: 1200,
         height: 630,
         alt: 'GHL Scale Up',
