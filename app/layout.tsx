@@ -1,6 +1,7 @@
 // app/layout.tsx
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 import Navigation from '@/components/ghlscalup/Navigation'
 import Footer from '@/components/ghlscalup/Footer'
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
   title: 'GoHighLevel Expert Agency | GHL Scale Up',
 
   description:
-    'GHL Scale Up builds complete GoHighLevel systems - CRM setup, automation, AI agents & white-lebel SaaS. 200+ projects. 6 countries. Het a free strategy call.',
+    'GHL Scale Up builds complete GoHighLevel systems - CRM setup, automation, AI agents & white-label SaaS.',
 
   alternates: {
     canonical: '/',
@@ -58,24 +59,21 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-
   const schemaData = {
-    "@context": "https://schema.org",
-    "@graph": [
+    '@context': 'https://schema.org',
+    '@graph': [
       {
-        "@type": "Organization",
-        "@id": "https://www.ghlscaleup.com/#organization",
-        "name": "GHL Scale Up",
-        "url": "https://www.ghlscaleup.com",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://www.ghlscaleup.com/ghlscalicon.png"
+        '@type': 'Organization',
+        '@id': 'https://www.ghlscaleup.com/#organization',
+        name: 'GHL Scale Up',
+        url: 'https://www.ghlscaleup.com',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://www.ghlscaleup.com/ghlscalicon.png',
         },
-        "sameAs": [
-          "https://www.linkedin.com/company/ghlscaleup"
-        ]
+        sameAs: ['https://www.linkedin.com/company/ghlscaleup'],
       },
-    ]
+    ],
   }
 
   return (
@@ -86,11 +84,32 @@ export default function RootLayout({
     >
       <body className="font-sans">
 
-        {/* ✅ Schema Markup */}
+        {/* Schema Markup */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(schemaData),
+          }}
         />
+
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-MY2RD6PW46"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag(){
+              dataLayer.push(arguments);
+            }
+
+            gtag('js', new Date());
+            gtag('config', 'G-MY2RD6PW46');
+          `}
+        </Script>
 
         <Navigation />
         {children}

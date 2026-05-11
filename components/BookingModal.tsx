@@ -42,7 +42,7 @@ export default function BookingModal({ open, setOpen }: BookingModalProps) {
             </div>
             <div>
               <h2 className="text-lg font-bold text-[#1C2E4A]">Schedule Your Free Consultation</h2>
-              <p className="text-xs text-gray-500">30-min session • No commitment</p>
+              <p className="text-xs text-gray-500">45-min session • No commitment</p>
             </div>
           </div>
           <button

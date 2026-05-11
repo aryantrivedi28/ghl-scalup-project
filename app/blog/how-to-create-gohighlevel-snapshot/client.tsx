@@ -418,7 +418,8 @@ export default function CreateSnapshotClient() {
               </div>
               <p className="text-sm text-white/80 leading-relaxed">
                 If you use Agency Pro (SaaS Mode), you can assign a Snapshot to a pricing plan so it deploys <strong>automatically when a client pays</strong>
-                zero manual work needed. See our guide: <Link href="/blog/gohighlevel-saas-mode" className="text-[#0E9BF0] hover:underline">GoHighLevel SaaS Mode Setup →</Link>
+                zero manual work needed. See our guide: 
+                {/* <Link href="/blog/gohighlevel-saas-mode" className="text-[#0E9BF0] hover:underline">GoHighLevel SaaS Mode Setup →</Link> */}
               </p>
             </div>
 
