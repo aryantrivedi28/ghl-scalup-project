@@ -26,14 +26,14 @@ export const metadata: Metadata = {
 
   icons: {
     icon: [
-      { url: '/favicon.png' },
+      { url: '/favicon.ico' },
       {
-        url: '/favicon.png',
+        url: '/icon1.png',
         sizes: '96x96',
         type: 'image/png',
       },
     ],
-    apple: '/favicon.png',
+    apple: '/apple-icon.png',
   },
 
   openGraph: {
