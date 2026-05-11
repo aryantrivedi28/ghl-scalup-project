@@ -5,6 +5,8 @@ import Script from 'next/script'
 import './globals.css'
 import Navigation from '@/components/ghlscalup/Navigation'
 import Footer from '@/components/ghlscalup/Footer'
+import WhatsAppButton from '@/components/WhatsAppButton'
+import ChatBot from '@/components/ChatBot'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -14,28 +16,18 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.ghlscaleup.com'),
-
   title: 'GoHighLevel Expert Agency | GHL Scale Up',
-
-  description:
-    'GHL Scale Up builds complete GoHighLevel systems - CRM setup, automation, AI agents & white-label SaaS.',
-
+  description: 'GHL Scale Up builds complete GoHighLevel systems - CRM setup, automation, AI agents & white-label SaaS.',
   alternates: {
     canonical: '/',
   },
-
   icons: {
-    icon: [
-      { url: '/favicon.ico' },
-      
-    ],
+    icon: [{ url: '/favicon.ico' }],
     apple: '/apple-icon.png',
   },
-
   openGraph: {
     title: 'GHL Scale Up',
-    description:
-      'GoHighLevel experts for CRM setup, automation, funnels, and SaaS.',
+    description: 'GoHighLevel experts for CRM setup, automation, funnels, and SaaS.',
     url: 'https://www.ghlscaleup.com',
     siteName: 'GHL Scale Up',
     images: [
@@ -73,13 +65,8 @@ export default function RootLayout({
   }
 
   return (
-    <html
-      lang="en"
-      className={poppins.variable}
-      data-scroll-behavior="smooth"
-    >
+    <html lang="en" className={poppins.variable} data-scroll-behavior="smooth">
       <body className="font-sans">
-
         {/* Schema Markup */}
         <script
           type="application/ld+json"
@@ -97,11 +84,9 @@ export default function RootLayout({
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
-
             function gtag(){
               dataLayer.push(arguments);
             }
-
             gtag('js', new Date());
             gtag('config', 'G-MY2RD6PW46');
           `}
@@ -109,6 +94,14 @@ export default function RootLayout({
 
         <Navigation />
         {children}
+
+        {/* Floating Buttons Container - Stacked */}
+        {/* Floating Buttons Container */}
+        <div className="fixed bottom-5 right-5 flex flex-col items-end gap-4 z-50">
+          {/* <ChatBot /> */}
+          <WhatsAppButton />
+        </div>
+
         <Footer />
       </body>
     </html>
