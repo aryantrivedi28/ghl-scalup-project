@@ -22,7 +22,8 @@ import {
   Zap,
   Phone,
   Camera,
-  Trophy
+  Trophy,
+  MapPin
 } from 'lucide-react';
 
 const blogPosts = [
@@ -80,6 +81,17 @@ const blogPosts = [
     readTime: '20 min read',
     featured: true,
     image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=500&fit=crop',
+  },
+  {
+    icon: MapPin,
+    tag: 'Hire Guide',
+    title: 'Where to Hire GoHighLevel Experts in 2026: 6 Best Places (+ How to Vet Them)',
+    excerpt: 'Looking for a GoHighLevel expert? Here are the 6 best places to find GHL professionals in 2026 from the official GHL directory to Upwork, Fiverr, and specialist agencies with a vetting checklist and red flags to avoid.',
+    slug: 'where-to-hire-gohighlevel-experts',
+    date: 'May 11, 2026',
+    readTime: '21 min read',
+    featured: true,
+    image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&h=500&fit=crop',
   },
   {
     icon: Rocket,
@@ -162,6 +174,7 @@ const getCategoryColor = (tag: string) => {
     'SMS Automation': 'bg-[rgba(248,208,0,0.12)] text-[#F8D000] border-[rgba(248,208,0,0.2)]',
     'GoHighLevel': 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]',
     '★ Recommended': 'bg-[rgba(248,208,0,0.12)] text-[#F8D000] border-[rgba(248,208,0,0.2)]',
+    'Hire Guide': 'bg-[rgba(37,201,125,0.12)] text-[#25C97D] border-[rgba(37,201,125,0.2)]',
   };
   return colors[tag] || 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]';
 };

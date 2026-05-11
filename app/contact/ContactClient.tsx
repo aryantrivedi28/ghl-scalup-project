@@ -188,7 +188,7 @@ export default function ContactClient() {
                   Book Your Free Strategy Call Now →
                 </button>
                 <p className="text-xs text-center text-[#8A9BB0] mt-3">
-                  Instant calendar booking • 30-min session • Free consultation
+                  Instant calendar booking • 45-min session • Free consultation
                 </p>
               </div>
 
