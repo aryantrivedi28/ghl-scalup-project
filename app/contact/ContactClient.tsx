@@ -3,12 +3,12 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Calendar, 
-  CheckCircle, 
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Calendar,
+  CheckCircle,
   Clock,
   MessageCircle,
   User,
@@ -96,10 +96,10 @@ export default function ContactClient() {
         },
         body: JSON.stringify(payload),
       });
-      
+
       setIsSuccess(true);
       setFormData({ name: '', email: '', phone: '', service: '', message: '' });
-      
+
       // Optional: Track conversion in Google Analytics
       if (typeof window !== 'undefined' && (window as any).gtag) {
         (window as any).gtag('event', 'generate_lead', {
@@ -107,9 +107,9 @@ export default function ContactClient() {
           event_label: 'contact_form_submission',
         });
       }
-      
+
       setTimeout(() => setIsSuccess(false), 5000);
-      
+
     } catch (err) {
       console.error('Form submission error:', err);
       setError('Something went wrong. Please try again.');
@@ -155,12 +155,12 @@ export default function ContactClient() {
   return (
     <>
       <Breadcrumb items={[{ label: 'Contact' }]} />
-      
+
       {/* Contact Section */}
       <section className="py-20 md:py-20 bg-white" style={{ paddingTop: '60px' }}>
         <div className="max-w-[1200px] mx-auto px-4 md:px-8">
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
-            
+
             {/* Left Column - Contact Info */}
             <div className="space-y-6">
               <div>
@@ -173,11 +173,11 @@ export default function ContactClient() {
                   <span className="text-[#0E9BF0]">GHL Project</span>
                 </h1>
                 <p className="text-[0.92rem] font-light text-[#4A5568] leading-relaxed mb-6">
-                  Book a free 30-minute strategy call. We learn your business, review your setup, 
+                  Book a free 45-minute strategy call. We learn your business, review your setup,
                   identify gaps, and outline a clear plan. No pitch — just a technical conversation.
                 </p>
               </div>
-              
+
               {/* Direct Booking Button */}
               <div className="mb-8">
                 <button
@@ -201,7 +201,7 @@ export default function ContactClient() {
                   <span className="px-4 bg-white text-sm text-[#8A9BB0]">OR</span>
                 </div>
               </div>
-              
+
               {/* Contact Details */}
               <div className="space-y-5 mt-8">
                 <div className="flex items-center gap-4">
@@ -212,15 +212,15 @@ export default function ContactClient() {
                     <div className="text-[0.72rem] font-bold text-[#8A9BB0] uppercase tracking-[0.1em] mb-0.5">
                       Email
                     </div>
-                    <Link 
-                      href="mailto:aryan@ghlscaleup.com" 
+                    <Link
+                      href="mailto:aryan@ghlscaleup.com"
                       className="text-[0.95rem] font-semibold text-[#1C2E4A] hover:text-[#0E9BF0] transition-colors"
                     >
                       aryan@ghlscaleup.com
                     </Link>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center gap-4">
                   <div className="w-11 h-11 rounded-xl bg-[rgba(37,201,125,0.1)] flex items-center justify-center flex-shrink-0">
                     <Phone className="w-5 h-5 text-[#25C97D]" />
@@ -229,15 +229,17 @@ export default function ContactClient() {
                     <div className="text-[0.72rem] font-bold text-[#8A9BB0] uppercase tracking-[0.1em] mb-0.5">
                       Phone
                     </div>
-                    <Link 
-                      href="tel:+919893270210" 
+                    <Link
+                      href="https://wa.me/919893270210?text=Hello"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-[0.95rem] font-semibold text-[#1C2E4A] hover:text-[#0E9BF0] transition-colors"
                     >
                       +91 98932 70210
                     </Link>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center gap-4">
                   <div className="w-11 h-11 rounded-xl bg-[rgba(248,208,0,0.12)] flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-5 h-5 text-[#F8D000]" />
@@ -277,7 +279,7 @@ export default function ContactClient() {
                 </div>
               </div>
             </div>
-            
+
             {/* Right Column - Contact Form */}
             <div className="bg-[#F4F7FA] border border-[#E8EDF4] rounded-2xl p-6 md:p-10">
               <h3 className="text-[1.1rem] font-bold text-[#1C2E4A] mb-2">
@@ -286,35 +288,35 @@ export default function ContactClient() {
               <p className="text-[0.84rem] font-light text-[#4A5568] leading-relaxed mb-6">
                 Submit your details and we'll get back to you within 24 hours.
               </p>
-              
+
               <form onSubmit={handleSubmit} className="flex flex-col gap-3.5">
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="Your Name *" 
+                  placeholder="Your Name *"
                   required
                   className="w-full px-4 py-3 rounded-[10px] border border-[#E8EDF4] bg-white text-[0.85rem] text-[#1C2E4A] placeholder:text-[#8A9BB0] focus:outline-none focus:border-[#0E9BF0] transition-colors"
                 />
-                <input 
-                  type="email" 
+                <input
+                  type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="Email Address *" 
+                  placeholder="Email Address *"
                   required
                   className="w-full px-4 py-3 rounded-[10px] border border-[#E8EDF4] bg-white text-[0.85rem] text-[#1C2E4A] placeholder:text-[#8A9BB0] focus:outline-none focus:border-[#0E9BF0] transition-colors"
                 />
-                <input 
-                  type="tel" 
+                <input
+                  type="tel"
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  placeholder="Phone Number" 
+                  placeholder="Phone Number"
                   className="w-full px-4 py-3 rounded-[10px] border border-[#E8EDF4] bg-white text-[0.85rem] text-[#1C2E4A] placeholder:text-[#8A9BB0] focus:outline-none focus:border-[#0E9BF0] transition-colors"
                 />
-                <select 
+                <select
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
@@ -330,21 +332,21 @@ export default function ContactClient() {
                   <option value="Shopify / Ecommerce">Shopify / Ecommerce</option>
                   <option value="Other">Other</option>
                 </select>
-                <textarea 
+                <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Tell us about your project... *" 
+                  placeholder="Tell us about your project... *"
                   rows={4}
                   required
                   className="w-full px-4 py-3 rounded-[10px] border border-[#E8EDF4] bg-white text-[0.85rem] text-[#1C2E4A] placeholder:text-[#8A9BB0] focus:outline-none focus:border-[#0E9BF0] transition-colors resize-vertical"
                 />
-                
+
                 {error && (
                   <p className="text-red-500 text-sm">{error}</p>
                 )}
-                
-                <button 
+
+                <button
                   type="submit"
                   disabled={isSubmitting}
                   className="bg-[#F8D000] text-[#0B1421] px-6 py-3.5 rounded-[10px] text-[0.88rem] font-bold hover:bg-[#FFE44D] hover:-translate-y-[1px] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -361,7 +363,7 @@ export default function ContactClient() {
                     'Submit & We Will Reach Out →'
                   )}
                 </button>
-                
+
                 <p className="text-[0.7rem] text-center text-[#8A9BB0] mt-2">
                   We'll respond within 24 hours • No spam, ever
                 </p>
@@ -400,7 +402,7 @@ export default function ContactClient() {
               </div>
               <div className="mt-6 p-4 bg-white rounded-xl border border-[#E8EDF4]">
                 <p className="text-[0.82rem] text-[#4A5568] leading-relaxed">
-                  <strong className="font-semibold text-[#1C2E4A]">📌 Note:</strong> All strategy calls are scheduled within 24-48 hours. 
+                  <strong className="font-semibold text-[#1C2E4A]">📌 Note:</strong> All strategy calls are scheduled within 24-48 hours.
                   We'll send you a calendar invite with a Google Meet link.
                 </p>
               </div>

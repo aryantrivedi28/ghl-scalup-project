@@ -1,14 +1,14 @@
 // components/ghlscalup/Footer.tsx
 import Link from 'next/link'
 import Image from 'next/image'
-import { 
-  Mail, 
-  Phone, 
-  Globe, 
-  Linkedin, 
-  Twitter, 
-  Facebook, 
-  Instagram, 
+import {
+  Mail,
+  Phone,
+  Globe,
+  Linkedin,
+  Twitter,
+  Facebook,
+  Instagram,
   Youtube,
   ExternalLink
 } from 'lucide-react'
@@ -29,7 +29,7 @@ const Footer = () => {
               GHL systems CRM, automation, AI, funnels, SaaS so you can scale without the tech headaches.
             </p>
           </div>
-          
+
           <div>
             <h4 className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#8A9BB0] mb-4.5">GHL Services</h4>
             <ul className="list-none">
@@ -42,7 +42,7 @@ const Footer = () => {
               <li className="mb-2.5"><Link href="/services/reporting" className="text-white/45 text-[0.82rem] font-light hover:text-[#0E9BF0] transition-colors">Reporting Dashboards</Link></li>
             </ul>
           </div>
-          
+
           <div>
             <h4 className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#8A9BB0] mb-4.5">Company</h4>
             <ul className="list-none">
@@ -53,7 +53,7 @@ const Footer = () => {
               <li className="mb-2.5"><Link href="/contact" className="text-white/45 text-[0.82rem] font-light hover:text-[#0E9BF0] transition-colors">Contact</Link></li>
             </ul>
           </div>
-          
+
           <div>
             <h4 className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#8A9BB0] mb-4.5">Get in Touch</h4>
             <ul className="list-none">
@@ -64,7 +64,9 @@ const Footer = () => {
                 </a>
               </li>
               <li className="mb-2.5">
-                <a href="tel:+919893270210" className="text-white/45 text-[0.82rem] font-light hover:text-[#0E9BF0] transition-colors flex items-center gap-2 group">
+                <a href="https://wa.me/919893270210?text=Hello"
+                  target="_blank"
+                  rel="noopener noreferrer" className="text-white/45 text-[0.82rem] font-light hover:text-[#0E9BF0] transition-colors flex items-center gap-2 group">
                   <Phone className="h-3.5 w-3.5 text-white/45 group-hover:text-[#0E9BF0] transition-colors" />
                   <span>+91 98932 70210</span>
                 </a>
@@ -77,30 +79,30 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
-            
+
             {/* Social Media Links */}
             <div className="mt-6">
               <h4 className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#8A9BB0] mb-3">Follow Us</h4>
               <div className="flex gap-3">
-                <Link 
-                  href="https://www.linkedin.com/company/ghl-scale-up" 
-                  target="_blank" 
+                <Link
+                  href="https://www.linkedin.com/company/ghl-scale-up"
+                  target="_blank"
                   className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#0E9BF0] hover:text-white hover:border-[#0E9BF0] transition-all group"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="h-4 w-4" />
                 </Link>
-                <Link 
-                  href="https://x.com/GHLScaleUp" 
-                  target="_blank" 
+                <Link
+                  href="https://x.com/GHLScaleUp"
+                  target="_blank"
                   className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#0E9BF0] hover:text-white hover:border-[#0E9BF0] transition-all group"
                   aria-label="X (Twitter)"
                 >
                   <Twitter className="h-4 w-4" />
                 </Link>
-                <Link 
-                  href="https://facebook.com/ghlscaleup" 
-                  target="_blank" 
+                <Link
+                  href="https://facebook.com/ghlscaleup"
+                  target="_blank"
                   className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#0E9BF0] hover:text-white hover:border-[#0E9BF0] transition-all group"
                   aria-label="Facebook"
                 >
@@ -114,9 +116,9 @@ const Footer = () => {
                 >
                   <Instagram className="h-4 w-4" />
                 </Link> */}
-                <Link 
-                  href="https://www.youtube.com/@scaleghlsystems" 
-                  target="_blank" 
+                <Link
+                  href="https://www.youtube.com/@scaleghlsystems"
+                  target="_blank"
                   className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#0E9BF0] hover:text-white hover:border-[#0E9BF0] transition-all group"
                   aria-label="YouTube"
                 >
@@ -126,7 +128,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="border-t border-white/5 py-5 flex flex-col md:flex-row justify-between items-center text-[0.72rem] text-[#8A9BB0] font-light">
           <span>© 2026 GHL Scale Up. All rights reserved.</span>
           <div className="flex gap-5 mt-3 md:mt-0">

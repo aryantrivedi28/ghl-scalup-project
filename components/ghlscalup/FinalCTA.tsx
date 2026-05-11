@@ -3,13 +3,13 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
-import { 
-  Mail, 
-  Calendar, 
-  CheckCircle, 
-  ArrowRight, 
-  Clock, 
-  Target, 
+import {
+  Mail,
+  Calendar,
+  CheckCircle,
+  ArrowRight,
+  Clock,
+  Target,
   MessageCircle,
   Phone,
   Sparkles
@@ -30,7 +30,7 @@ const FinalCTA = () => {
 
         <div className="max-w-[1200px] mx-auto px-4 md:px-8 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-start">
-            
+
             {/* Left Side - Form */}
             <div>
               <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-8 hover:border-white/20 transition-all">
@@ -43,22 +43,22 @@ const FinalCTA = () => {
                 />
               </div>
             </div>
-            
+
             {/* Right Side - Text Content */}
             <div>
-              
+
               <h2 className="text-[clamp(1.6rem,3vw,2rem)] font-extrabold tracking-[-0.03em] leading-[1.2] mb-4">
                 Stop Struggling with GoHighLevel.
                 Let Our Experts <span className="text-[#F8D000]">
                   Handle It for You.
                 </span>
               </h2>
-              
+
               <p className="text-[0.9rem] font-light text-white/50 leading-relaxed mb-8">
-                Whether you need CRM setup, AI automation, sales funnels, or a complete white-label SaaS 
+                Whether you need CRM setup, AI automation, sales funnels, or a complete white-label SaaS
                 our dedicated GoHighLevel team is ready to help you scale.
               </p>
-              
+
               {/* Direct Booking Button - Instant Action */}
               <button
                 onClick={handleOpenBooking}
@@ -68,11 +68,11 @@ const FinalCTA = () => {
                 Book Your Free Strategy Call Instantly
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
-              
+
               <p className="text-xs text-center text-white/40 mb-8">
                 ⚡ Instant calendar booking • 30-min free consultation • No commitment
               </p>
-              
+
               {/* OR Divider */}
               <div className="relative my-6">
                 <div className="absolute inset-0 flex items-center">
@@ -82,7 +82,7 @@ const FinalCTA = () => {
                   <span className="px-3 bg-transparent text-xs text-white/40">OR</span>
                 </div>
               </div>
-              
+
               {/* Benefits Section */}
               <div className="space-y-4 mb-6">
                 <div className="flex items-start gap-3 group hover:translate-x-1 transition-transform">
@@ -94,7 +94,7 @@ const FinalCTA = () => {
                     <p className="text-sm text-white/40">30-minute consultation with our GHL expert</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start gap-3 group hover:translate-x-1 transition-transform">
                   <div className="w-10 h-10 rounded-full bg-[#0E9BF0]/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                     <Target className="w-5 h-5 text-[#0E9BF0]" />
@@ -104,7 +104,7 @@ const FinalCTA = () => {
                     <p className="text-sm text-white/40">Tailored to your business needs and goals</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start gap-3 group hover:translate-x-1 transition-transform">
                   <div className="w-10 h-10 rounded-full bg-[#25C97D]/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                     <MessageCircle className="w-5 h-5 text-[#25C97D]" />
@@ -115,20 +115,22 @@ const FinalCTA = () => {
                   </div>
                 </div>
               </div>
-              
+
               {/* Contact Options */}
               <div className="pt-6 border-t border-white/10">
-                <p className="text-sm text-white/40 mb-3">📞 Prefer to talk or email?</p>
+                <p className="text-sm text-white/40 mb-3">📞 Prefer to WhatsApp, Call or email?</p>
                 <div className="flex flex-col sm:flex-row gap-3">
-                  <Link 
-                    href="tel:+919893270210" 
+                  <Link
+                    href="https://wa.me/919893270210?text=Hello"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 bg-white/5 border border-white/10 hover:bg-white/10 transition-all px-4 py-2 rounded-lg text-sm text-white/70 hover:text-white group"
                   >
                     <Phone className="w-3.5 h-3.5" />
                     +91 98932 70210
                   </Link>
-                  <Link 
-                    href="mailto:aryan@ghlscaleup.com" 
+                  <Link
+                    href="mailto:aryan@ghlscaleup.com"
                     className="inline-flex items-center justify-center gap-2 bg-white/5 border border-white/10 hover:bg-white/10 transition-all px-4 py-2 rounded-lg text-sm text-white/70 hover:text-white group"
                   >
                     <Mail className="w-3.5 h-3.5" />
@@ -138,7 +140,7 @@ const FinalCTA = () => {
                 </div>
               </div>
             </div>
-            
+
           </div>
         </div>
       </div>
