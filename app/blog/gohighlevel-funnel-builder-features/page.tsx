@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     images: ['https://ghlscaleup.com/images/blog/ghl-funnel-builder-og.jpg'],
   },
   alternates: {
-    canonical: '/blog/gohighlevel-funnel-builder-features'
+    canonical: 'https://www.ghlscaleup.com/blog/gohighlevel-funnel-builder-features'
   }
 };
 

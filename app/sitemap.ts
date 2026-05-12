@@ -2,7 +2,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://ghlscaleup.com'
+  const baseUrl = 'https://www.ghlscaleup.com'
   const currentDate = new Date()
 
   // Main Pages

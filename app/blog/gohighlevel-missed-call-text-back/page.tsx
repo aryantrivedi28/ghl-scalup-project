@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     images: ['https://ghlscaleup.com/images/blog/ghl-missed-call-text-back-og.jpg'],
   },
   alternates: {
-    canonical: 'https://ghlscaleup.com/blog/gohighlevel-missed-call-text-back',
+    canonical: 'https://www.ghlscaleup.com/blog/gohighlevel-missed-call-text-back',
   },
 };
 

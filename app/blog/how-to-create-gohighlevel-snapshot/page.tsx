@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     images: ['https://ghlscaleup.com/images/blog/ghl-snapshot-guide-og.jpg'],
   },
   alternates: {
-    canonical: 'https://ghlscaleup.com/blog/how-to-create-gohighlevel-snapshot',
+    canonical: 'https://www.ghlscaleup.com/blog/how-to-create-gohighlevel-snapshot',
   },
 };
 

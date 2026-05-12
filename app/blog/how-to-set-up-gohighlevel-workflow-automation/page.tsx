@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     images: ['https://ghlscaleup.com/images/blog/ghl-workflow-automation-og.jpg'],
   },
   alternates: {
-    canonical: 'https://ghlscaleup.com/blog/how-to-set-up-gohighlevel-workflow-automation',
+    canonical: 'https://www.ghlscaleup.com/blog/how-to-set-up-gohighlevel-workflow-automation',
   },
 };
 

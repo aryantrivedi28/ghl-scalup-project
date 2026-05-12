@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     images: ['https://ghlscaleup.com/images/blog/best-ghl-agency-og.jpg'],
   },
   alternates: {
-    canonical: 'https://ghlscaleup.com/blog/best-ghl-expert-agency',
+    canonical: 'https://www.ghlscaleup.com/blog/best-ghl-expert-agency',
   },
 };
 
