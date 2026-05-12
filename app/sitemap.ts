@@ -37,12 +37,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
-    // {
-    //   url: `${baseUrl}/testimonials`,
-    //   lastModified: currentDate,
-    //   changeFrequency: 'monthly',
-    //   priority: 0.7,
-    // },
+    {
+      url: `${baseUrl}/services`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/marketing`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/how-we-work`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/testimonials`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
   ]
 
   // GHL Services
@@ -137,6 +155,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.7,
     },
+    {
+      url: `${baseUrl}/services/virtual-assistant`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
   ]
 
   // Marketing Services
@@ -218,15 +242,53 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
+    // May 2026 Blogs (Newest)
     {
-      url: `${baseUrl}/blog/gohighlevel-funnel-builder-features`,
-      lastModified: new Date('2026-04-07'),
+      url: `${baseUrl}/blog/where-to-hire-gohighlevel-experts`,
+      lastModified: new Date('2026-05-11'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/blog/best-ghl-expert-agency`,
+      lastModified: new Date('2026-05-09'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/blog/how-to-create-gohighlevel-snapshot`,
+      lastModified: new Date('2026-05-08'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/blog/gohighlevel-missed-call-text-back`,
+      lastModified: new Date('2026-05-07'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/blog/how-to-set-up-gohighlevel-workflow-automation`,
+      lastModified: new Date('2026-05-06'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/blog/what-is-gohighlevel`,
+      lastModified: new Date('2026-05-02'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    // April 2026 Blogs
+    {
+      url: `${baseUrl}/blog/ghl-white-label-saas-guide`,
+      lastModified: new Date('2026-04-10'),
       changeFrequency: 'monthly',
       priority: 0.6,
     },
     {
-      url: `${baseUrl}/blog/ghl-white-label-saas-guide`,
-      lastModified: new Date('2026-04-10'),
+      url: `${baseUrl}/blog/gohighlevel-funnel-builder-features`,
+      lastModified: new Date('2026-04-07'),
       changeFrequency: 'monthly',
       priority: 0.6,
     },
@@ -236,6 +298,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.6,
     },
+    // March 2026 Blogs
     {
       url: `${baseUrl}/blog/freelancer-to-ghl-saas-founder`,
       lastModified: new Date('2026-03-25'),
@@ -254,13 +317,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.6,
     },
-    {
-      url: `${baseUrl}/blog/what-is-gohighlevel`,
-      lastModified: new Date('2026-04-03'),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-  ]
+  ];
 
   // Legal Pages
   // const legalPages: MetadataRoute.Sitemap = [
