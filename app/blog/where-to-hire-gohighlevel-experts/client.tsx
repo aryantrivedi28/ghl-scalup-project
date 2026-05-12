@@ -154,7 +154,7 @@ export default function WhereToHireGHLExpertsClient() {
           <div className="flex items-center gap-3 mb-6">
             <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
               <img
-                src="/ghlscalicon.png"
+                src="/web-app-manifest-192x192.png"
                 alt="GHL Scaleup"
                 className="w-8 h-8 object-cover"
               />
@@ -585,7 +585,7 @@ export default function WhereToHireGHLExpertsClient() {
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
                   <img
-                    src="/ghlscalicon.png"
+                    src="/web-app-manifest-192x192.png"
                     alt="GHL Scaleup"
                     className="w-full h-full object-cover"
                   />

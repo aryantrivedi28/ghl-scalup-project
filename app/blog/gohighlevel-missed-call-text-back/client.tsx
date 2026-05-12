@@ -172,7 +172,7 @@ export default function MissedCallTextBackClient() {
                               <div className="flex items-center gap-3 mb-6">
                                                                         <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
                                                       <img
-                                                            src="/ghlscalicon.png"
+                                                            src="/web-app-manifest-192x192.png"
                                                             alt="GHL Scale Up"
                                                             className="w-full h-full object-cover"
                                                       />
@@ -580,7 +580,7 @@ export default function MissedCallTextBackClient() {
                                           <div className="flex items-center gap-3 mb-4">
                                                 <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
                                                       <img
-                                                            src="/ghlscalicon.png"
+                                                            src="/web-app-manifest-192x192.png"
                                                             alt="GHL Scale Up"
                                                             className="w-full h-full object-cover"
                                                       />

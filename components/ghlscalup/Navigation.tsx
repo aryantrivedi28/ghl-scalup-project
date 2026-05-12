@@ -151,7 +151,7 @@ const Navigation = () => {
             <li><Link href="/case-studies" className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors">Case Studies</Link></li>
 
             {/* Testimonials - Direct Link */}
-            <li><Link href="/testimonials" className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors">Testimonials</Link></li>
+            {/* <li><Link href="/testimonials" className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors">Testimonials</Link></li> */}
 
             <li><Link href="/blog" className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors">Blog</Link></li>
           </ul>
@@ -195,7 +195,7 @@ const Navigation = () => {
               <li><Link href="/marketing" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>Marketing</Link></li>
               <li><Link href="/how-we-work" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>How We Work</Link></li>
               <li><Link href="/case-studies" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>Case Studies</Link></li>
-              <li><Link href="/testimonials" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>Testimonials</Link></li>
+              {/* <li><Link href="/testimonials" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>Testimonials</Link></li> */}
               <li><Link href="/blog" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>Blog</Link></li>
               <li><a
                 href="https://wa.me/919893270210?text=Hello"
