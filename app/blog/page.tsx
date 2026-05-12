@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: 'Blog — GoHighLevel Tips & Marketing Insights | GHL Scale Up',
     description: 'Practical GHL guides, automation tips, SaaS strategies, and marketing insights to help you scale your business.',
     type: 'website',
-    url: 'https://ghlscaleup.com/blog',
+    url: 'https://www.ghlscaleup.com/blog',
   },
   twitter: {
     card: 'summary_large_image',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description: 'Practical GHL guides, automation tips, SaaS strategies, and marketing insights.',
   },
   alternates: {
-    canonical: 'https://ghlscaleup.com/blog',
+    canonical: 'https://www.ghlscaleup.com/blog',
   },
 };
 

@@ -244,6 +244,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const blogPosts: MetadataRoute.Sitemap = [
     // May 2026 Blogs (Newest)
     {
+      url: `${baseUrl}/blog/gohighlevel-conversational-ai-data-storage`,
+      lastModified: new Date('2026-05-12'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/blog/where-to-hire-gohighlevel-experts`,
       lastModified: new Date('2026-05-11'),
       changeFrequency: 'monthly',
@@ -320,7 +326,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
 
-  
+
 
   // Legal Pages
   // const legalPages: MetadataRoute.Sitemap = [
