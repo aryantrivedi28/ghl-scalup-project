@@ -319,6 +319,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
+
+  
+
   // Legal Pages
   // const legalPages: MetadataRoute.Sitemap = [
   //   {
