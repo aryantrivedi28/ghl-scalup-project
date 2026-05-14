@@ -1,16 +1,16 @@
-// app/ghl-saas-hunt/[slug]/page.tsx (Updated with useAuth)
+// app/ghl-saas-hunt/[slug]/page.tsx (Final Updated)
 'use client';
 
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import { 
+import {
   Heart, MessageCircle, Share2, ExternalLink, X, CheckCircle,
-  AlertCircle, User, Mail, Phone, ThumbsUp, Loader2, ArrowLeft
+  AlertCircle, User, Mail, Phone, ThumbsUp, Loader2, ArrowLeft,
+  Image as ImageIcon, ChevronLeft, ChevronRight
 } from 'lucide-react';
 import Link from 'next/link';
 import { useAuth } from '@/hooks/useAuth';
 import VerificationPopup from '@/components/directory/auth/VerificationPopup';
-
 
 interface Product {
   id: string;
@@ -18,6 +18,7 @@ interface Product {
   slug: string;
   logo_url: string;
   category: string;
+  custom_category?: string;
   short_description: string;
   website_url: string;
   views_count: number;
@@ -26,6 +27,7 @@ interface Product {
   submitter_name: string;
   submitter_email: string;
   published_at: string;
+  screenshots?: string[];
 }
 
 interface Comment {
@@ -40,8 +42,8 @@ interface Comment {
   createdAt: string;
 }
 
-function CommentComponent({ comment, onLike, isLiked }: { 
-  comment: Comment; 
+function CommentComponent({ comment, onLike, isLiked }: {
+  comment: Comment;
   onLike: (id: string) => void;
   isLiked: boolean;
 }) {
@@ -62,7 +64,7 @@ function CommentComponent({ comment, onLike, isLiked }: {
             </span>
           </div>
         </div>
-        <button 
+        <button
           onClick={() => onLike(comment.id)}
           className={`flex items-center gap-1 text-xs transition-colors ${isLiked ? 'text-[#0E9BF0]' : 'text-gray-400 hover:text-[#0E9BF0]'}`}
         >
@@ -75,12 +77,123 @@ function CommentComponent({ comment, onLike, isLiked }: {
   );
 }
 
+// Image Gallery Component - Only renders if images exist
+function ImageGallery({ images }: { images: string[] }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  if (!images || images.length === 0) return null;
+
+  const nextImage = () => {
+    setCurrentIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  return (
+    <>
+      <div className="space-y-3">
+        <div className="flex items-center justify-between">
+          <h3 className="text-sm font-bold text-gray-900">Screenshots</h3>
+          <span className="text-xs text-gray-400">{images.length} images</span>
+        </div>
+
+        <div
+          className="relative aspect-video bg-gray-100 rounded-xl overflow-hidden cursor-pointer group"
+          onClick={() => setIsModalOpen(true)}
+        >
+          <img
+            src={images[currentIndex]}
+            alt={`Screenshot ${currentIndex + 1}`}
+            className="w-full h-full object-cover"
+          />
+
+          {images.length > 1 && (
+            <>
+              <button
+                onClick={(e) => { e.stopPropagation(); prevImage(); }}
+                className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/50 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={(e) => { e.stopPropagation(); nextImage(); }}
+                className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/50 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </>
+          )}
+        </div>
+
+        {images.length > 1 && (
+          <div className="flex gap-2 overflow-x-auto pb-2">
+            {images.map((img, idx) => (
+              <div
+                key={idx}
+                onClick={() => setCurrentIndex(idx)}
+                className={`w-16 h-16 rounded-lg overflow-hidden cursor-pointer border-2 transition-all ${currentIndex === idx ? 'border-[#0E9BF0]' : 'border-transparent hover:border-gray-300'
+                  }`}
+              >
+                <img src={img} alt={`Thumbnail ${idx + 1}`} className="w-full h-full object-cover" />
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {isModalOpen && (
+        <div
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center"
+          onClick={() => setIsModalOpen(false)}
+        >
+          <button
+            onClick={() => setIsModalOpen(false)}
+            className="absolute top-4 right-4 w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors"
+          >
+            <X className="w-5 h-5" />
+          </button>
+
+          <img
+            src={images[currentIndex]}
+            alt="Full size screenshot"
+            className="max-w-[90vw] max-h-[90vh] object-contain"
+          />
+
+          {images.length > 1 && (
+            <>
+              <button
+                onClick={(e) => { e.stopPropagation(); prevImage(); }}
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+              <button
+                onClick={(e) => { e.stopPropagation(); nextImage(); }}
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+            </>
+          )}
+
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/60 text-sm">
+            {currentIndex + 1} / {images.length}
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
+
 export default function ProductDetailPage() {
   const params = useParams();
   const router = useRouter();
   const slug = params.slug as string;
-  const { sessionToken, isAuthenticated, sendOTP, verifyOTP, isVerifying } = useAuth();
-  
+  const { sessionToken, isAuthenticated, isLoading: authLoading, user, sendOTP, verifyOTP, isVerifying } = useAuth();
+
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [liked, setLiked] = useState(false);
@@ -91,20 +204,31 @@ export default function ProductDetailPage() {
   const [verificationAction, setVerificationAction] = useState<'comment' | 'like'>('comment');
   const [commentLikes, setCommentLikes] = useState<Record<string, boolean>>({});
   const [actionLoading, setActionLoading] = useState(false);
+  const [pendingAction, setPendingAction] = useState<{ type: 'like' | 'comment'; data?: string } | null>(null);
 
   // Fetch product data
+  // In the fetchProduct useEffect, add sessionToken to headers and set liked state
+
   useEffect(() => {
     const fetchProduct = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`/api/ghl-saas-hunt/products/${slug}`);
+        const headers: HeadersInit = {};
+        if (sessionToken) {
+          headers['Authorization'] = `Bearer ${sessionToken}`;
+        }
+
+        const response = await fetch(`/api/ghl-saas-hunt/products/${slug}`, {
+          headers,
+        });
         const data = await response.json();
-        
+
         if (data.success) {
           setProduct(data.data);
           setLikesCount(data.data.likes_count || 0);
+          setLiked(data.data.hasLiked || false); // Set liked from API
           setComments(data.data.comments || []);
-          
+
           await fetch(`/api/ghl-saas-hunt/products/${slug}/increment-view`, {
             method: 'POST',
           });
@@ -115,44 +239,56 @@ export default function ProductDetailPage() {
         setLoading(false);
       }
     };
-    
+
     if (slug) {
       fetchProduct();
     }
-  }, [slug]);
+  }, [slug, sessionToken]); // Add sessionToken to dependency array
 
   const handleLike = async () => {
     if (!product) return;
-    
+
     if (!isAuthenticated || !sessionToken) {
+      setPendingAction({ type: 'like' });
       setVerificationAction('like');
       setShowVerification(true);
       return;
     }
-    
+
     const action = liked ? 'unlike' : 'like';
+    // Optimistically update UI
     setLiked(!liked);
     setLikesCount(prev => action === 'like' ? prev + 1 : prev - 1);
     setActionLoading(true);
-    
+
     try {
       const response = await fetch(`/api/ghl-saas-hunt/products/${slug}/like`, {
         method: 'POST',
-        headers: { 
+        headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${sessionToken}`
         },
         body: JSON.stringify({ action }),
       });
-      
+
       const data = await response.json();
       if (!data.success) {
+        // Revert on error - don't show alert for duplicate likes
         setLiked(liked);
         setLikesCount(likesCount);
+        // Only show alert for non-like errors
+        if (!data.error?.includes('already liked') && !data.error?.includes('not liked')) {
+          console.error(data.error);
+        }
+      } else {
+        // Update with server response
+        setLiked(data.data.hasLiked);
+        setLikesCount(data.data.likesCount);
       }
     } catch (error) {
       setLiked(liked);
       setLikesCount(likesCount);
+      console.error('Network error:', error);
     } finally {
       setActionLoading(false);
     }
@@ -160,32 +296,27 @@ export default function ProductDetailPage() {
 
   const handleVerificationSuccess = () => {
     setShowVerification(false);
-    // Execute the pending action after verification
-    if (verificationAction === 'like') {
+    // Execute pending action after successful verification
+    if (pendingAction?.type === 'like') {
       handleLike();
+    } else if (pendingAction?.type === 'comment' && pendingAction.data) {
+      submitComment(pendingAction.data);
     }
+    setPendingAction(null);
   };
 
-  const handleAddComment = async () => {
-    if (!newComment.trim()) return;
-    
-    if (!isAuthenticated || !sessionToken) {
-      setVerificationAction('comment');
-      setShowVerification(true);
-      return;
-    }
-    
+  const submitComment = async (commentText: string) => {
     setActionLoading(true);
     try {
       const response = await fetch(`/api/ghl-saas-hunt/products/${slug}/comments`, {
         method: 'POST',
-        headers: { 
+        headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${sessionToken}`
         },
-        body: JSON.stringify({ comment: newComment }),
+        body: JSON.stringify({ comment: commentText }),
       });
-      
+
       const data = await response.json();
       if (data.success) {
         setComments([data.data, ...comments]);
@@ -200,37 +331,51 @@ export default function ProductDetailPage() {
     }
   };
 
+  const handleAddComment = () => {
+    if (!newComment.trim()) return;
+
+    // If not authenticated, store pending action and show verification
+    if (!isAuthenticated || !sessionToken) {
+      setPendingAction({ type: 'comment', data: newComment });
+      setVerificationAction('comment');
+      setShowVerification(true);
+      return;
+    }
+
+    submitComment(newComment);
+  };
+
   const handleCommentLike = async (commentId: string) => {
     const isCurrentlyLiked = commentLikes[commentId];
     const action = isCurrentlyLiked ? 'unlike' : 'like';
-    
+
     setCommentLikes(prev => ({ ...prev, [commentId]: !isCurrentlyLiked }));
-    setComments(prev => prev.map(c => 
-      c.id === commentId 
+    setComments(prev => prev.map(c =>
+      c.id === commentId
         ? { ...c, likes: action === 'like' ? c.likes + 1 : c.likes - 1 }
         : c
     ));
-    
+
     try {
       const response = await fetch(`/api/ghl-saas-hunt/products/${slug}/comments/${commentId}/like`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action, sessionToken }),
       });
-      
+
       const data = await response.json();
       if (!data.success) {
         setCommentLikes(prev => ({ ...prev, [commentId]: isCurrentlyLiked }));
-        setComments(prev => prev.map(c => 
-          c.id === commentId 
+        setComments(prev => prev.map(c =>
+          c.id === commentId
             ? { ...c, likes: isCurrentlyLiked ? c.likes - 1 : c.likes + 1 }
             : c
         ));
       }
     } catch (error) {
       setCommentLikes(prev => ({ ...prev, [commentId]: isCurrentlyLiked }));
-      setComments(prev => prev.map(c => 
-        c.id === commentId 
+      setComments(prev => prev.map(c =>
+        c.id === commentId
           ? { ...c, likes: isCurrentlyLiked ? c.likes - 1 : c.likes + 1 }
           : c
       ));
@@ -254,7 +399,7 @@ export default function ProductDetailPage() {
     return bgMap[category] || 'rgba(14,155,240,0.14)';
   };
 
-  if (loading) {
+  if (loading || authLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <Loader2 className="w-12 h-12 animate-spin text-[#0E9BF0]" />
@@ -277,6 +422,7 @@ export default function ProductDetailPage() {
   }
 
   const isImageLogo = product.logo_url && (product.logo_url.startsWith('http://') || product.logo_url.startsWith('https://'));
+  const displayCategory = product.custom_category || product.category;
 
   return (
     <>
@@ -301,12 +447,12 @@ export default function ProductDetailPage() {
               <div className="flex-1">
                 <div className="flex flex-wrap items-center gap-3 mb-3">
                   <h1 className="text-2xl md:text-4xl font-black text-white">{product.name}</h1>
-                  <span className="text-sm bg-white/10 text-white/80 px-3 py-1 rounded-full">{product.category}</span>
+                  <span className="text-sm bg-white/10 text-white/80 px-3 py-1 rounded-full">{displayCategory}</span>
                 </div>
                 <p className="text-white/60 text-sm md:text-base leading-relaxed max-w-2xl">
                   {product.short_description}
                 </p>
-                
+
                 <div className="flex items-center gap-6 mt-4">
                   <div className="flex items-center gap-1 text-white/40 text-sm">
                     <Heart className="w-4 h-4" />
@@ -338,7 +484,12 @@ export default function ProductDetailPage() {
                 <p className="text-gray-600 leading-relaxed">{product.short_description}</p>
               </div>
 
-              {/* Comments Section */}
+              {product.screenshots && product.screenshots.length > 0 && (
+                <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                  <ImageGallery images={product.screenshots} />
+                </div>
+              )}
+
               <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
                 <div className="flex items-center justify-between mb-6">
                   <h2 className="text-xl font-bold text-gray-900">Comments ({comments.length})</h2>
@@ -368,14 +519,17 @@ export default function ProductDetailPage() {
                   {!isAuthenticated && (
                     <p className="text-xs text-gray-400 mt-2">You'll need to verify your identity before posting.</p>
                   )}
+                  {isAuthenticated && user && (
+                    <p className="text-xs text-green-600 mt-2">✓ Verified as {user.name}</p>
+                  )}
                 </div>
 
                 <div className="space-y-4">
                   {comments.length > 0 ? (
                     comments.map((comment) => (
-                      <CommentComponent 
-                        key={comment.id} 
-                        comment={comment} 
+                      <CommentComponent
+                        key={comment.id}
+                        comment={comment}
                         onLike={handleCommentLike}
                         isLiked={commentLikes[comment.id] || false}
                       />
@@ -394,7 +548,7 @@ export default function ProductDetailPage() {
             <div className="lg:col-span-1">
               <div className="space-y-6">
                 <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-                  <button 
+                  <button
                     onClick={() => window.open(product.website_url, '_blank')}
                     className="w-full bg-[#0E9BF0] hover:bg-[#0E9BF0]/90 text-white font-semibold py-3 rounded-lg transition-all flex items-center justify-center gap-2"
                   >
@@ -403,17 +557,16 @@ export default function ProductDetailPage() {
                   </button>
 
                   <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-100">
-                    <button 
+                    <button
                       onClick={handleLike}
                       disabled={actionLoading}
-                      className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all ${
-                        liked ? 'bg-red-50 text-red-500' : 'bg-gray-50 text-gray-600 hover:bg-gray-100'
-                      } disabled:opacity-50`}
+                      className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all ${liked ? 'bg-red-50 text-red-500' : 'bg-gray-50 text-gray-600 hover:bg-gray-100'
+                        } disabled:opacity-50`}
                     >
                       <Heart className={`w-5 h-5 ${liked ? 'fill-red-500 text-red-500' : ''}`} />
                       {likesCount} Likes
                     </button>
-                    <button 
+                    <button
                       onClick={() => {
                         navigator.clipboard.writeText(window.location.href);
                         alert('Link copied to clipboard!');
@@ -448,10 +601,13 @@ export default function ProductDetailPage() {
         </div>
       </div>
 
-      {/* Verification Popup - Reused for both comment and like */}
+      {/* Verification Popup - Only shown when user is not authenticated */}
       <VerificationPopup
         isOpen={showVerification}
-        onClose={() => setShowVerification(false)}
+        onClose={() => {
+          setShowVerification(false);
+          setPendingAction(null);
+        }}
         onSuccess={handleVerificationSuccess}
         onSendOTP={sendOTP}
         onVerifyOTP={verifyOTP}

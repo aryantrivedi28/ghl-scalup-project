@@ -5,7 +5,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { 
   CheckCircle, AlertCircle, Upload, Mail, User, Globe, Tag, 
-  X, ImageIcon, Loader2 
+  X, ImageIcon, Loader2, Plus, Trash2
 } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import VerificationPopup from '@/components/directory/auth/VerificationPopup';
@@ -25,22 +25,32 @@ const CATEGORIES = [
   'Other',
 ];
 
+interface Screenshot {
+  id: string;
+  url: string;
+  file?: File;
+  uploading?: boolean;
+}
+
 export default function SubmitSaaSPage() {
   const router = useRouter();
-  const { sessionToken, isAuthenticated, isLoading, sendOTP, verifyOTP, isVerifying } = useAuth();
+  const { sessionToken, isAuthenticated, isLoading, user, sendOTP, verifyOTP, isVerifying } = useAuth();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
   const [showVerification, setShowVerification] = useState(false);
   const [uploadingLogo, setUploadingLogo] = useState(false);
+  const [uploadingScreenshots, setUploadingScreenshots] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [customCategory, setCustomCategory] = useState('');
+  const [showCustomCategoryInput, setShowCustomCategoryInput] = useState(false);
+  const [screenshots, setScreenshots] = useState<Screenshot[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const screenshotInputRef = useRef<HTMLInputElement>(null);
   
   const [formData, setFormData] = useState({
-    founderName: '',
-    email: '',
     productName: '',
     websiteUrl: '',
-    category: '',
     logoUrl: '',
     description: '',
   });
@@ -55,10 +65,6 @@ export default function SubmitSaaSPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.founderName.trim()) {
-      setError('Founder name is required');
-      return;
-    }
     if (!formData.productName.trim()) {
       setError('Product name is required');
       return;
@@ -67,14 +73,20 @@ export default function SubmitSaaSPage() {
       setError('Website URL is required');
       return;
     }
-    if (!formData.category) {
+    
+    // Determine final category
+    let finalCategory = selectedCategory;
+    if (selectedCategory === 'Other') {
+      if (!customCategory.trim()) {
+        setError('Please enter a custom category name');
+        return;
+      }
+      finalCategory = customCategory;
+    } else if (!selectedCategory) {
       setError('Please select a category');
       return;
     }
-    if (!formData.logoUrl.trim()) {
-      setError('Product logo is required');
-      return;
-    }
+    
     if (!formData.description.trim()) {
       setError('Product description is required');
       return;
@@ -90,7 +102,15 @@ export default function SubmitSaaSPage() {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${sessionToken}`
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          productName: formData.productName,
+          websiteUrl: formData.websiteUrl,
+          logoUrl: formData.logoUrl,
+          description: formData.description,
+          category: finalCategory,
+          customCategory: selectedCategory === 'Other' ? customCategory : null,
+          screenshots: screenshots.map(s => s.url),
+        }),
       });
       
       const data = await response.json();
@@ -110,7 +130,6 @@ export default function SubmitSaaSPage() {
 
   const handleVerificationSuccess = () => {
     setShowVerification(false);
-    // Form will now be visible since isAuthenticated becomes true
   };
 
   // Logo upload function
@@ -160,6 +179,69 @@ export default function SubmitSaaSPage() {
     }
   };
 
+  // Screenshot upload function
+  const handleScreenshotUpload = async (file: File) => {
+    if (!file) return;
+    
+    const allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
+    if (!allowedTypes.includes(file.type)) {
+      setError('Only JPEG, PNG, and WEBP images are allowed for screenshots');
+      return;
+    }
+    
+    if (file.size > 5 * 1024 * 1024) {
+      setError('File size must be less than 5MB');
+      return;
+    }
+    
+    const tempId = `temp_${Date.now()}_${Math.random().toString(36).substring(7)}`;
+    setScreenshots(prev => [...prev, { id: tempId, url: '', file, uploading: true }]);
+    
+    try {
+      const fileExt = file.name.split('.').pop();
+      const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
+      const filePath = `screenshots/${fileName}`;
+      
+      const formDataUpload = new FormData();
+      formDataUpload.append('file', file);
+      formDataUpload.append('path', filePath);
+      
+      const response = await fetch('/api/ghl-saas-hunt/upload/logo', {
+        method: 'POST',
+        body: formDataUpload,
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        setScreenshots(prev => prev.map(s => 
+          s.id === tempId ? { ...s, url: data.url, uploading: false } : s
+        ));
+      } else {
+        setScreenshots(prev => prev.filter(s => s.id !== tempId));
+        setError(data.error || 'Failed to upload screenshot');
+      }
+    } catch (err) {
+      console.error('Upload error:', err);
+      setScreenshots(prev => prev.filter(s => s.id !== tempId));
+      setError('Failed to upload screenshot. Please try again.');
+    }
+  };
+
+  const removeScreenshot = (id: string) => {
+    setScreenshots(prev => prev.filter(s => s.id !== id));
+  };
+
+  const handleCategoryChange = (value: string) => {
+    setSelectedCategory(value);
+    if (value === 'Other') {
+      setShowCustomCategoryInput(true);
+    } else {
+      setShowCustomCategoryInput(false);
+      setCustomCategory('');
+    }
+  };
+
   if (success) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center py-20 px-4">
@@ -183,14 +265,15 @@ export default function SubmitSaaSPage() {
                 onClick={() => {
                   setSuccess(false);
                   setFormData({
-                    founderName: '',
-                    email: '',
                     productName: '',
                     websiteUrl: '',
-                    category: '',
                     logoUrl: '',
                     description: '',
                   });
+                  setSelectedCategory('');
+                  setCustomCategory('');
+                  setShowCustomCategoryInput(false);
+                  setScreenshots([]);
                 }}
                 className="border border-gray-300 hover:bg-gray-50 text-gray-700 font-semibold px-6 py-2 rounded-lg transition-all"
               >
@@ -239,46 +322,13 @@ export default function SubmitSaaSPage() {
               <p className="text-gray-500 text-sm mt-1">Fill in the details below to get listed in the directory.</p>
               <div className="mt-2 text-xs text-green-600 flex items-center gap-1">
                 <CheckCircle className="w-3 h-3" />
-                Verified account - Your submission will be published immediately
+                Verified account - {user?.name} ({user?.email})
               </div>
             </div>
             
             <form onSubmit={handleSubmit} className="p-6 space-y-5">
               <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
-                    Founder Name <span className="text-red-500">*</span>
-                  </label>
-                  <div className="relative">
-                    <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                    <input
-                      type="text"
-                      placeholder="James Carter"
-                      value={formData.founderName}
-                      onChange={(e) => setFormData({ ...formData, founderName: e.target.value })}
-                      className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:border-[#0E9BF0] focus:ring-2 focus:ring-[#0E9BF0]/20 transition-all"
-                      required
-                    />
-                  </div>
-                </div>
-                
-                <div>
-                  <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
-                    Email Address
-                  </label>
-                  <div className="relative">
-                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                    <input
-                      type="email"
-                      placeholder="james@yoursaas.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:border-[#0E9BF0] focus:ring-2 focus:ring-[#0E9BF0]/20 transition-all"
-                    />
-                  </div>
-                </div>
-                
-                <div>
+                <div className="md:col-span-2">
                   <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
                     Product Name <span className="text-red-500">*</span>
                   </label>
@@ -295,7 +345,7 @@ export default function SubmitSaaSPage() {
                   </div>
                 </div>
                 
-                <div>
+                <div className="md:col-span-2">
                   <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
                     Website URL <span className="text-red-500">*</span>
                   </label>
@@ -312,13 +362,13 @@ export default function SubmitSaaSPage() {
                   </div>
                 </div>
                 
-                <div>
+                <div className="md:col-span-2">
                   <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
                     Category <span className="text-red-500">*</span>
                   </label>
                   <select
-                    value={formData.category}
-                    onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                    value={selectedCategory}
+                    onChange={(e) => handleCategoryChange(e.target.value)}
                     className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:border-[#0E9BF0] focus:ring-2 focus:ring-[#0E9BF0]/20 transition-all bg-white"
                     required
                   >
@@ -327,11 +377,21 @@ export default function SubmitSaaSPage() {
                       <option key={cat} value={cat}>{cat}</option>
                     ))}
                   </select>
+                  {showCustomCategoryInput && (
+                    <input
+                      type="text"
+                      placeholder="Enter your custom category name"
+                      value={customCategory}
+                      onChange={(e) => setCustomCategory(e.target.value)}
+                      className="mt-2 w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:border-[#0E9BF0] focus:ring-2 focus:ring-[#0E9BF0]/20 transition-all"
+                      required
+                    />
+                  )}
                 </div>
                 
                 <div className="md:col-span-2">
                   <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
-                    Product Logo <span className="text-red-500">*</span>
+                    Product Logo (Optional)
                   </label>
                   <div className="flex gap-3">
                     <input
@@ -392,7 +452,7 @@ export default function SubmitSaaSPage() {
                     )}
                   </div>
                   <p className="text-xs text-gray-400 mt-1">
-                    Upload JPG, PNG, WEBP, or SVG (max 5MB) or paste a URL
+                    Upload JPG, PNG, WEBP, or SVG (max 5MB) or paste a URL (optional)
                   </p>
                 </div>
               </div>
@@ -409,6 +469,72 @@ export default function SubmitSaaSPage() {
                   className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:border-[#0E9BF0] focus:ring-2 focus:ring-[#0E9BF0]/20 transition-all resize-vertical"
                   required
                 />
+              </div>
+
+              {/* Screenshots Upload Section */}
+              <div>
+                <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
+                  Product Screenshots (Optional)
+                </label>
+                <div className="flex gap-3 mb-3">
+                  <input
+                    ref={screenshotInputRef}
+                    type="file"
+                    accept="image/jpeg,image/png,image/webp"
+                    multiple
+                    onChange={(e) => {
+                      const files = e.target.files;
+                      if (files) {
+                        Array.from(files).forEach(file => handleScreenshotUpload(file));
+                      }
+                      if (screenshotInputRef.current) screenshotInputRef.current.value = '';
+                    }}
+                    className="hidden"
+                  />
+                  
+                  <button
+                    type="button"
+                    onClick={() => screenshotInputRef.current?.click()}
+                    disabled={uploadingScreenshots}
+                    className="flex items-center gap-2 px-4 py-2.5 border-2 border-dashed border-gray-300 rounded-lg hover:border-[#0E9BF0] hover:bg-[#0E9BF0]/5 transition-all"
+                  >
+                    <Plus className="w-5 h-5 text-gray-400" />
+                    <span className="text-sm text-gray-600">Add Screenshots</span>
+                  </button>
+                </div>
+
+                {/* Screenshots Grid */}
+                {screenshots.length > 0 && (
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-3">
+                    {screenshots.map((screenshot) => (
+                      <div key={screenshot.id} className="relative group">
+                        <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden border border-gray-200">
+                          {screenshot.uploading ? (
+                            <div className="w-full h-full flex items-center justify-center">
+                              <Loader2 className="w-6 h-6 animate-spin text-[#0E9BF0]" />
+                            </div>
+                          ) : (
+                            <img 
+                              src={screenshot.url} 
+                              alt="Screenshot"
+                              className="w-full h-full object-cover"
+                            />
+                          )}
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => removeScreenshot(screenshot.id)}
+                          className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center hover:bg-red-600 transition-colors opacity-0 group-hover:opacity-100"
+                        >
+                          <Trash2 className="w-3 h-3" />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                <p className="text-xs text-gray-400 mt-1">
+                  Upload screenshots to showcase your product (JPEG, PNG, WEBP, max 5MB each)
+                </p>
               </div>
               
               {error && (
@@ -430,7 +556,7 @@ export default function SubmitSaaSPage() {
         </div>
       </div>
 
-      {/* Verification Popup - Shows immediately if not authenticated */}
+      {/* Verification Popup */}
       <VerificationPopup
         isOpen={showVerification}
         onClose={() => {

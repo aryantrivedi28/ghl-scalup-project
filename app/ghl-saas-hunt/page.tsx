@@ -1,11 +1,10 @@
-// app/ghl-saas-hunt/page.tsx (Updated with List SaaS button)
+// app/ghl-saas-hunt/page.tsx (Updated with proper custom category handling)
 'use client';
 
 import { useState, useEffect } from 'react';
 import { Search, ExternalLink, X, Loader2, Plus } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import ProductModal from '@/components/directory/ProductModal';
 import ProductCard from '@/components/directory/ProductCard';
 
 interface Product {
@@ -41,7 +40,6 @@ export default function GHLSaaSDirectory() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [sortBy, setSortBy] = useState('newest');
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
@@ -123,7 +121,7 @@ export default function GHLSaaSDirectory() {
         
         <div className="max-w-[1240px] mx-auto px-4 md:px-8 py-16 md:py-20 text-center relative z-10">
           {/* List Your SaaS Button - Top Right */}
-          <div className="absolute top-4 md:top-8 md:right-4">
+          <div className="absolute top-4 right-4 md:top-8 md:right-8">
             <button
               onClick={() => router.push('/ghl-saas-hunt/submit')}
               className="flex items-center gap-2 bg-[#F8D000] hover:bg-[#FFE44D] text-[#0B1421] font-semibold px-4 py-2 rounded-lg transition-all shadow-lg hover:shadow-xl text-sm"
@@ -338,14 +336,6 @@ export default function GHLSaaSDirectory() {
           </div>
         </div>
       </div>
-
-      {/* Product Modal */}
-      {selectedProduct && (
-        <ProductModal 
-          product={selectedProduct} 
-          onClose={() => setSelectedProduct(null)} 
-        />
-      )}
     </div>
   );
 }
