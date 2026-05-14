@@ -151,36 +151,36 @@ export async function POST(request: NextRequest) {
   try {
     const sessionToken = request.headers.get('authorization')?.replace('Bearer ', '');
     const body = await request.json();
-    const { 
-      productName, 
-      category, 
+    const {
+      productName,
+      category,
       customCategory,
-      logoUrl, 
-      description, 
+      logoUrl,
+      description,
       websiteUrl,
       screenshots = []
     } = body;
 
-    console.log('Submit product request:', { 
-      productName, 
-      category, 
+    console.log('Submit product request:', {
+      productName,
+      category,
       customCategory,
       screenshotsCount: screenshots.length,
-      sessionToken: !!sessionToken 
+      sessionToken: !!sessionToken
     });
 
     // Get user from session token
     let userId = null;
     let userName = '';
     let userEmail = '';
-    
+
     if (sessionToken) {
       const { data: user, error: userError } = await supabase
         .from('gsu_users')
         .select('id, name, email')
         .eq('session_token', sessionToken)
         .single();
-      
+
       if (userError) {
         console.error('User fetch error:', userError);
         return NextResponse.json(
@@ -188,7 +188,7 @@ export async function POST(request: NextRequest) {
           { status: 401 }
         );
       }
-      
+
       if (user) {
         userId = user.id;
         userName = user.name;
@@ -214,14 +214,14 @@ export async function POST(request: NextRequest) {
     let slug = generateSlug(productName);
     let isUnique = false;
     let counter = 0;
-    
+
     while (!isUnique && counter < 5) {
       const { data: existing } = await supabase
         .from('gsu_products')
         .select('slug')
         .eq('slug', slug)
         .single();
-      
+
       if (!existing) {
         isUnique = true;
       } else {
@@ -273,6 +273,56 @@ export async function POST(request: NextRequest) {
       .eq('id', userId);
 
     console.log('Product submitted successfully:', data.id);
+
+    try {
+      const ghlWebhookUrl = "https://services.leadconnectorhq.com/hooks/tLgocxm8SbQdnP97RnEb/webhook-trigger/fa6069e1-ca63-46b6-903e-cb51671fd54d";
+
+      const ghlPayload = {
+
+        // SOURCE
+        source: "GHL SaaS Hunt Marketplace",
+
+        // USER DETAILS
+        userId,
+        userName,
+        userEmail,
+
+        // PRODUCT DETAILS
+        productId: data.id,
+        productName,
+        category: finalCategory,
+        customCategory: customCategory || "",
+        description,
+        websiteUrl,
+        logoUrl,
+        slug,
+        screenshots,
+
+        // PRODUCT STATUS
+        status: "published",
+
+        // EXTRA DETAILS
+        submittedAt: new Date().toISOString(),
+
+        // COUNTS
+        screenshotsCount: screenshots.length,
+      };
+
+      const ghlResponse = await fetch(ghlWebhookUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(ghlPayload),
+      });
+
+      const ghlResult = await ghlResponse.text();
+
+      console.log("GHL webhook success:", ghlResult);
+
+    } catch (ghlError) {
+      console.error("GHL webhook error:", ghlError);
+    }
 
     return NextResponse.json({
       success: true,

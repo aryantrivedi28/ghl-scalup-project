@@ -560,7 +560,7 @@ export default function SubmitSaaSPage() {
         isOpen={showVerification}
         onClose={() => {
           setShowVerification(false);
-          router.push('/ghl-saas-hunt');
+          router.push('/ghl-saas-hunt/submit');
         }}
         onSuccess={handleVerificationSuccess}
         onSendOTP={sendOTP}
