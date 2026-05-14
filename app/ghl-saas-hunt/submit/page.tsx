@@ -1,4 +1,4 @@
-// app/ghl-saas-hunt/submit/page.tsx
+// app/ghl-saas-hunt/submit/page.tsx (Updated - Website URL Optional)
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
@@ -69,10 +69,6 @@ export default function SubmitSaaSPage() {
       setError('Product name is required');
       return;
     }
-    if (!formData.websiteUrl.trim()) {
-      setError('Website URL is required');
-      return;
-    }
     
     // Determine final category
     let finalCategory = selectedCategory;
@@ -104,7 +100,7 @@ export default function SubmitSaaSPage() {
         },
         body: JSON.stringify({
           productName: formData.productName,
-          websiteUrl: formData.websiteUrl,
+          websiteUrl: formData.websiteUrl || null,
           logoUrl: formData.logoUrl,
           description: formData.description,
           category: finalCategory,
@@ -347,7 +343,7 @@ export default function SubmitSaaSPage() {
                 
                 <div className="md:col-span-2">
                   <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
-                    Website URL <span className="text-red-500">*</span>
+                    Website URL (Optional)
                   </label>
                   <div className="relative">
                     <Globe className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
@@ -359,6 +355,7 @@ export default function SubmitSaaSPage() {
                       className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:border-[#0E9BF0] focus:ring-2 focus:ring-[#0E9BF0]/20 transition-all"
                     />
                   </div>
+                  <p className="text-xs text-gray-400 mt-1">Optional - Add your product website URL</p>
                 </div>
                 
                 <div className="md:col-span-2">
