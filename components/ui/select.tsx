@@ -2,14 +2,45 @@
 
 import * as React from 'react'
 import * as SelectPrimitive from '@radix-ui/react-select'
-import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from 'lucide-react'
+import { CheckIcon, ChevronDown, ChevronDownIcon, ChevronUpIcon } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 
-function Select({
-  ...props
-}: React.ComponentProps<typeof SelectPrimitive.Root>) {
-  return <SelectPrimitive.Root data-slot="select" {...props} />
+interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
+  label?: string;
+  error?: string;
+  options: { value: string; label: string }[];
+}
+
+
+function Select({ className, label, error, options, ...props }: SelectProps) {
+  return (
+    <div className="w-full">
+      {label && (
+        <label className="block text-sm font-semibold text-space-blue mb-1.5">
+          {label}
+        </label>
+      )}
+      <div className="relative">
+        <select
+          className={cn(
+            'w-full appearance-none rounded-xl border border-light-gray bg-white px-4 py-2.5 text-dark-gray text-sm shadow-sm transition-all outline-none focus:border-nurture-blue focus:ring-2 focus:ring-nurture-blue/20 disabled:opacity-50',
+            error && 'border-red-500 focus:border-red-500',
+            className
+          )}
+          {...props}
+        >
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+        <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-mid-gray pointer-events-none" />
+      </div>
+      {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
+    </div>
+  )
 }
 
 function SelectGroup({
@@ -63,7 +94,7 @@ function SelectContent({
         className={cn(
           'bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 relative z-50 max-h-(--radix-select-content-available-height) min-w-[8rem] origin-(--radix-select-content-transform-origin) overflow-x-hidden overflow-y-auto rounded-md border shadow-md',
           position === 'popper' &&
-            'data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1',
+          'data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1',
           className,
         )}
         position={position}
@@ -74,7 +105,7 @@ function SelectContent({
           className={cn(
             'p-1',
             position === 'popper' &&
-              'h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)] scroll-my-1',
+            'h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)] scroll-my-1',
           )}
         >
           {children}

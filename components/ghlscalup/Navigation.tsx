@@ -6,13 +6,11 @@ import Link from 'next/link'
 import Image from 'next/image'
 import {
   ChevronDown,
-  Wrench,
   Settings,
   Bot,
   FileText,
   Globe,
   Mail,
-  MessageSquare,
   Phone,
   Calendar,
   Star,
@@ -33,7 +31,6 @@ import {
   Tag,
   Target,
   Heart,
-  Menu,
   X,
   Zap
 } from 'lucide-react'
@@ -153,7 +150,7 @@ const Navigation = () => {
             {/* Testimonials - Direct Link */}
             {/* <li><Link href="/testimonials" className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors">Testimonials</Link></li> */}
 
-            <li><Link href="/blog" className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors">Blog</Link></li>
+            <li><Link href="/blog" className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors">Blogs</Link></li>
           </ul>
 
           <div className="hidden md:flex items-center gap-5">
@@ -196,7 +193,7 @@ const Navigation = () => {
               <li><Link href="/how-we-work" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>How We Work</Link></li>
               <li><Link href="/case-studies" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>Case Studies</Link></li>
               {/* <li><Link href="/testimonials" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>Testimonials</Link></li> */}
-              <li><Link href="/blog" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>Blog</Link></li>
+              <li><Link href="/blog" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>Blogs</Link></li>
               <li><a
                 href="https://wa.me/919893270210?text=Hello"
                 target="_blank"
