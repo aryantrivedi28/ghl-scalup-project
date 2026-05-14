@@ -1,9 +1,10 @@
-// app/ghl-saas-directory/page.tsx (Updated with API integration)
+// app/ghl-saas-directory/page.tsx (Updated with List SaaS button)
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Search, ExternalLink, X, Loader2 } from 'lucide-react';
+import { Search, ExternalLink, X, Loader2, Plus } from 'lucide-react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import ProductModal from '@/components/directory/ProductModal';
 import ProductCard from '@/components/directory/ProductCard';
 
@@ -32,6 +33,7 @@ interface Category {
 }
 
 export default function GHLSaaSDirectory() {
+  const router = useRouter();
   const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [stats, setStats] = useState({ totalProducts: 0, totalCategories: 0, monthlyVisitors: 0 });
@@ -120,6 +122,17 @@ export default function GHLSaaSDirectory() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_80%_at_50%_-5%,rgba(14,155,240,0.18)_0%,transparent_65%),radial-gradient(ellipse_40%_50%_at_80%_90%,rgba(37,201,125,0.10)_0%,transparent_55%),radial-gradient(ellipse_40%_50%_at_15%_80%,rgba(248,208,0,0.07)_0%,transparent_55%)] pointer-events-none"></div>
         
         <div className="max-w-[1240px] mx-auto px-4 md:px-8 py-16 md:py-20 text-center relative z-10">
+          {/* List Your SaaS Button - Top Right */}
+          <div className="absolute top-4 md:top-8 md:right-4">
+            <button
+              onClick={() => router.push('/ghl-saas-directory/submit')}
+              className="flex items-center gap-2 bg-[#F8D000] hover:bg-[#FFE44D] text-[#0B1421] font-semibold px-4 py-2 rounded-lg transition-all shadow-lg hover:shadow-xl text-sm"
+            >
+              <Plus className="w-4 h-4" />
+              List Your SaaS
+            </button>
+          </div>
+
           <div className="inline-flex items-center gap-2 bg-[rgba(248,208,0,0.12)] border border-[rgba(248,208,0,0.28)] rounded-full px-3 py-1 text-sm mb-6">
             <div className="w-1.5 h-1.5 rounded-full bg-[#F8D000] animate-pulse"></div>
             <span className="text-[#F8D000] text-xs font-semibold tracking-wider">GoHighLevel Ecosystem</span>
