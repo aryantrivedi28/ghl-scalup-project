@@ -357,7 +357,6 @@ export default function SubmitSaaSPage() {
                       value={formData.websiteUrl}
                       onChange={(e) => setFormData({ ...formData, websiteUrl: e.target.value })}
                       className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:border-[#0E9BF0] focus:ring-2 focus:ring-[#0E9BF0]/20 transition-all"
-                      required
                     />
                   </div>
                 </div>
