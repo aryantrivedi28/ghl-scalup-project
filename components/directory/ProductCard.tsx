@@ -130,7 +130,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             ↗ Site
           </button>
           <Link 
-            href={`/ghl-saas-directory/${product.slug}`}
+            href={`/ghl-saas-hunt/${product.slug}`}
             className="bg-[#0E9BF0] hover:bg-[#0E9BF0]/90 text-white text-xs font-semibold px-3 py-1 rounded transition-all cursor-pointer"
           >
             View Details
