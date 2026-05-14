@@ -174,27 +174,38 @@ export async function POST(request: NextRequest) {
     let userName = '';
     let userEmail = '';
 
-    if (sessionToken) {
-      const { data: user, error: userError } = await supabase
-        .from('gsu_users')
-        .select('id, name, email')
-        .eq('session_token', sessionToken)
-        .single();
+    if (!sessionToken) {
+      return NextResponse.json(
+        { success: false, error: 'No session token. Please verify OTP first.' },
+        { status: 401 }
+      );
+    }
 
-      if (userError) {
-        console.error('User fetch error:', userError);
+    const { data: user, error: userError } = await supabase
+      .from('gsu_users')
+      .select('id, name, email')
+      .eq('session_token', sessionToken)
+      .single();
+
+    if (userError) {
+      console.error('User fetch error:', userError);
+      if (userError.code === 'PGRST116') {
         return NextResponse.json(
-          { success: false, error: 'Invalid session. Please verify again.' },
+          { success: false, error: 'Session expired. Please verify again.' },
           { status: 401 }
         );
       }
+      return NextResponse.json(
+        { success: false, error: 'Invalid session. Please verify again.' },
+        { status: 401 }
+      );
+    }
 
-      if (user) {
-        userId = user.id;
-        userName = user.name;
-        userEmail = user.email;
-        console.log('User found via session:', { userId, name: userName, email: userEmail });
-      }
+    if (user) {
+      userId = user.id;
+      userName = user.name;
+      userEmail = user.email;
+      console.log('User found via session:', { userId, name: userName, email: userEmail });
     }
 
     if (!userId) {
@@ -230,7 +241,7 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Prepare product data - using user_id instead of submitter_name/email
+    // Prepare product data - website_url can be null
     const insertData: any = {
       user_id: userId,
       name: productName,
@@ -238,11 +249,10 @@ export async function POST(request: NextRequest) {
       logo_url: logoUrl || null,
       category: finalCategory,
       short_description: description,
-      website_url: websiteUrl,
+      website_url: (websiteUrl && websiteUrl.trim() !== '') ? websiteUrl : null,
       status: 'published',
       published_at: new Date().toISOString(),
       screenshots: screenshots,
-      // Set submitter_name and email from user data (for backward compatibility)
       submitter_name: userName,
       submitter_email: userEmail,
     };
@@ -274,52 +284,37 @@ export async function POST(request: NextRequest) {
 
     console.log('Product submitted successfully:', data.id);
 
+    // Send to GoHighLevel Webhook
     try {
       const ghlWebhookUrl = "https://services.leadconnectorhq.com/hooks/tLgocxm8SbQdnP97RnEb/webhook-trigger/fa6069e1-ca63-46b6-903e-cb51671fd54d";
 
       const ghlPayload = {
-
-        // SOURCE
         source: "GHL SaaS Hunt Marketplace",
-
-        // USER DETAILS
         userId,
         userName,
         userEmail,
-
-        // PRODUCT DETAILS
         productId: data.id,
         productName,
         category: finalCategory,
         customCategory: customCategory || "",
         description,
-        websiteUrl,
-        logoUrl,
+        websiteUrl: websiteUrl || "",
+        logoUrl: logoUrl || "",
         slug,
         screenshots,
-
-        // PRODUCT STATUS
         status: "published",
-
-        // EXTRA DETAILS
         submittedAt: new Date().toISOString(),
-
-        // COUNTS
         screenshotsCount: screenshots.length,
       };
 
       const ghlResponse = await fetch(ghlWebhookUrl, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(ghlPayload),
       });
 
       const ghlResult = await ghlResponse.text();
-
       console.log("GHL webhook success:", ghlResult);
-
     } catch (ghlError) {
       console.error("GHL webhook error:", ghlError);
     }
