@@ -1,4 +1,4 @@
-// app/ghl-saas-directory/submit/page.tsx
+// app/ghl-saas-hunt/submit/page.tsx
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
@@ -174,7 +174,7 @@ export default function SubmitSaaSPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <button 
-                onClick={() => router.push('/ghl-saas-directory')}
+                onClick={() => router.push('/ghl-saas-hunt')}
                 className="bg-[#0E9BF0] hover:bg-[#0E9BF0]/90 text-white font-semibold px-6 py-2 rounded-lg transition-all"
               >
                 View Directory
@@ -435,7 +435,7 @@ export default function SubmitSaaSPage() {
         isOpen={showVerification}
         onClose={() => {
           setShowVerification(false);
-          router.push('/ghl-saas-directory');
+          router.push('/ghl-saas-hunt');
         }}
         onSuccess={handleVerificationSuccess}
         onSendOTP={sendOTP}

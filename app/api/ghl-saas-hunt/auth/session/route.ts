@@ -31,11 +31,6 @@ export async function GET(request: NextRequest) {
     const nowUTC = new Date();
     const expiresAtUTC = new Date(user.session_expires_at);
     
-    console.log('Session check:', {
-      now: nowUTC.toISOString(),
-      expires: expiresAtUTC.toISOString(),
-      isValid: nowUTC.getTime() <= expiresAtUTC.getTime()
-    });
     
     if (nowUTC.getTime() > expiresAtUTC.getTime()) {
       return NextResponse.json(

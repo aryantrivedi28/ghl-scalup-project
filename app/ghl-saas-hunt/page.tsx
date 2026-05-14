@@ -1,4 +1,4 @@
-// app/ghl-saas-directory/page.tsx (Updated with List SaaS button)
+// app/ghl-saas-hunt/page.tsx (Updated with List SaaS button)
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -125,7 +125,7 @@ export default function GHLSaaSDirectory() {
           {/* List Your SaaS Button - Top Right */}
           <div className="absolute top-4 md:top-8 md:right-4">
             <button
-              onClick={() => router.push('/ghl-saas-directory/submit')}
+              onClick={() => router.push('/ghl-saas-hunt/submit')}
               className="flex items-center gap-2 bg-[#F8D000] hover:bg-[#FFE44D] text-[#0B1421] font-semibold px-4 py-2 rounded-lg transition-all shadow-lg hover:shadow-xl text-sm"
             >
               <Plus className="w-4 h-4" />
@@ -241,7 +241,7 @@ export default function GHLSaaSDirectory() {
                   We build, configure & launch your GHL SaaS in 14 days. You sell. We handle everything.
                 </p>
                 <Link 
-                  href="/ghl-saas-directory/submit"
+                  href="/ghl-saas-hunt/submit"
                   className="w-full bg-[#F8D000] hover:bg-[#FFE44D] text-gray-900 font-bold py-2 rounded-lg text-xs transition-all block text-center"
                 >
                   List Your SaaS →
@@ -329,7 +329,7 @@ export default function GHLSaaSDirectory() {
             <div className="mt-8 text-center">
               <p className="text-gray-500 text-sm mb-3">Don't see your product?</p>
               <Link 
-                href="/ghl-saas-directory/submit"
+                href="/ghl-saas-hunt/submit"
                 className="inline-block bg-transparent border border-gray-300 text-gray-700 hover:bg-gray-50 px-6 py-2 rounded-lg text-sm font-semibold transition-all"
               >
                 List Your SaaS →

@@ -45,16 +45,16 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Get current UTC time
-    const nowUTC = new Date();
-    const expiresAtUTC = new Date(user.otp_expires_at);
+    // Check OTP expiry using timestamps
+    const nowUTC = Date.now();
+    const expiresAtUTC = new Date(user.otp_expires_at).getTime();
     
-    console.log('Current UTC:', nowUTC.toISOString());
-    console.log('Expires UTC:', expiresAtUTC.toISOString());
-    console.log('Time diff (ms):', expiresAtUTC.getTime() - nowUTC.getTime());
-    console.log('Is expired:', nowUTC.getTime() > expiresAtUTC.getTime());
+    console.log('Current timestamp:', nowUTC);
+    console.log('Expires timestamp:', expiresAtUTC);
+    console.log('Time remaining (seconds):', Math.floor((expiresAtUTC - nowUTC) / 1000));
+    console.log('Is expired:', nowUTC > expiresAtUTC);
 
-    if (nowUTC.getTime() > expiresAtUTC.getTime()) {
+    if (nowUTC > expiresAtUTC) {
       console.log('OTP expired');
       await supabase
         .from('gsu_users')
@@ -77,24 +77,24 @@ export async function POST(request: NextRequest) {
 
     console.log('OTP verified successfully');
 
-    // Generate session token (30 days expiry in UTC)
+    // Generate session token (30 days expiry)
     const sessionToken = crypto.randomBytes(64).toString('hex');
     const sessionExpiresAt = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000);
 
     console.log('Session token generated');
-    console.log('Session expires UTC:', sessionExpiresAt.toISOString());
+    console.log('Session expires at:', sessionExpiresAt.toISOString());
 
     // Update user as verified
     const { error: updateError } = await supabase
       .from('gsu_users')
       .update({
         is_verified: true,
-        verified_at: nowUTC.toISOString(),
+        verified_at: new Date().toISOString(),
         session_token: sessionToken,
         session_expires_at: sessionExpiresAt.toISOString(),
         otp: null,
         otp_expires_at: null,
-        updated_at: nowUTC.toISOString(),
+        updated_at: new Date().toISOString(),
       })
       .eq('email', email);
 

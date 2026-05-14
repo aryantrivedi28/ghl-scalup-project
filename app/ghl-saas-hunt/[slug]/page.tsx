@@ -1,4 +1,4 @@
-// app/ghl-saas-directory/[slug]/page.tsx (Updated with useAuth)
+// app/ghl-saas-hunt/[slug]/page.tsx (Updated with useAuth)
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -268,7 +268,7 @@ export default function ProductDetailPage() {
         <div className="text-center">
           <h1 className="text-2xl font-bold text-gray-900 mb-2">Product Not Found</h1>
           <p className="text-gray-500 mb-4">The product you're looking for doesn't exist.</p>
-          <Link href="/ghl-saas-directory" className="bg-[#0E9BF0] text-white px-6 py-2 rounded-lg inline-block">
+          <Link href="/ghl-saas-hunt" className="bg-[#0E9BF0] text-white px-6 py-2 rounded-lg inline-block">
             Back to Directory
           </Link>
         </div>
@@ -438,7 +438,7 @@ export default function ProductDetailPage() {
                 <div className="bg-gradient-to-r from-[#0E9BF0]/10 to-[#25C97D]/10 border border-[#0E9BF0]/20 rounded-xl p-5">
                   <h4 className="text-sm font-bold text-gray-900 mb-1">Want to build something similar?</h4>
                   <p className="text-xs text-gray-500 mb-3">Get a free GHL SaaS audit from GHL Scale Up</p>
-                  <Link href="/ghl-saas-directory/submit" className="w-full bg-[#F8D000] hover:bg-[#FFE44D] text-gray-900 font-bold py-2 rounded-lg text-sm transition-all block text-center">
+                  <Link href="/ghl-saas-hunt/submit" className="w-full bg-[#F8D000] hover:bg-[#FFE44D] text-gray-900 font-bold py-2 rounded-lg text-sm transition-all block text-center">
                     List Your SaaS →
                   </Link>
                 </div>

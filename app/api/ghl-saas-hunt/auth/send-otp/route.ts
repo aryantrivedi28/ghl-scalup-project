@@ -29,9 +29,8 @@ export async function POST(request: NextRequest) {
     const nowUTC = new Date();
     const expiresAtUTC = new Date(nowUTC.getTime() + 5 * 60 * 1000);
 
-    console.log('Current UTC:', nowUTC.toISOString());
     console.log('Generated OTP:', otp);
-    console.log('Expires UTC:', expiresAtUTC.toISOString());
+    console.log('Expires at UTC:', expiresAtUTC.toISOString());
 
     // Check if user exists
     const { data: existingUser } = await supabase
@@ -78,8 +77,37 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Send email via GHL Webhook
+    const ghlEmailWebhook = process.env.GHL_EMAIL_WEBHOOK_URL;
+    
+    if (ghlEmailWebhook) {
+      console.log('Calling GHL webhook to send email...');
+      try {
+        const emailResponse = await fetch(ghlEmailWebhook, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: email,
+            otp: otp,
+            name: name,
+            source: 'ghl-saas-directory-auth',
+          }),
+        });
+        
+        if (emailResponse.ok) {
+          console.log('Email sent successfully via GHL webhook');
+        } else {
+          console.error('GHL webhook failed:', emailResponse.status, await emailResponse.text());
+        }
+      } catch (webhookError) {
+        console.error('Failed to call GHL webhook:', webhookError);
+      }
+    } else {
+      console.log('GHL_EMAIL_WEBHOOK_URL not configured. OTP:', otp);
+    }
+
+    // Always log OTP for development/debugging
     console.log(`📧 OTP for ${email}: ${otp}`);
-    console.log(`OTP expires at: ${expiresAtUTC.toISOString()}`);
 
     return NextResponse.json({
       success: true,
