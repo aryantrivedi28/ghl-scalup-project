@@ -30,17 +30,6 @@ import {
 
 const blogPosts = [
   {
-    icon: CreditCard,
-    tag: 'Pricing',
-    title: 'GoHighLevel Pricing 2026: All Plans, Real Costs & Hidden Fees Explained',
-    excerpt: 'GoHighLevel costs $97, $297, or $497/month depending on your plan. But that\'s not your real cost. This guide covers every plan, every usage fee, AI pricing, and which plan is right for your business in 2026.',
-    slug: 'gohighlevel-pricing',
-    date: 'May 13, 2026',
-    readTime: '20 min read',
-    featured: true,
-    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&h=500&fit=crop',
-  },
-  {
     icon: BookOpen,
     tag: 'GoHighLevel',
     title: 'What Is GoHighLevel? The Complete Guide for 2026',
@@ -116,6 +105,17 @@ const blogPosts = [
     readTime: '15 min read',
     featured: true,
     image: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&h=500&fit=crop',
+  },
+  {
+    icon: CreditCard,
+    tag: 'Pricing',
+    title: 'GoHighLevel Pricing 2026: All Plans, Real Costs & Hidden Fees Explained',
+    excerpt: 'GoHighLevel costs $97, $297, or $497/month depending on your plan. But that\'s not your real cost. This guide covers every plan, every usage fee, AI pricing, and which plan is right for your business in 2026.',
+    slug: 'gohighlevel-pricing',
+    date: 'May 13, 2026',
+    readTime: '20 min read',
+    featured: true,
+    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&h=500&fit=crop',
   },
   {
     icon: Rocket,
