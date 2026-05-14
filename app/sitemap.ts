@@ -241,89 +241,95 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
 
   // Blog Posts
-  const blogPosts: MetadataRoute.Sitemap = [
-    // May 2026 Blogs (Newest)
-    {
-      url: `${baseUrl}/blog/gohighlevel-conversational-ai-data-storage`,
-      lastModified: new Date('2026-05-12'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog/where-to-hire-gohighlevel-experts`,
-      lastModified: new Date('2026-05-11'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog/best-ghl-expert-agency`,
-      lastModified: new Date('2026-05-09'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog/how-to-create-gohighlevel-snapshot`,
-      lastModified: new Date('2026-05-08'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog/gohighlevel-missed-call-text-back`,
-      lastModified: new Date('2026-05-07'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog/how-to-set-up-gohighlevel-workflow-automation`,
-      lastModified: new Date('2026-05-06'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog/what-is-gohighlevel`,
-      lastModified: new Date('2026-05-02'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    // April 2026 Blogs
-    {
-      url: `${baseUrl}/blog/ghl-white-label-saas-guide`,
-      lastModified: new Date('2026-04-10'),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/blog/gohighlevel-funnel-builder-features`,
-      lastModified: new Date('2026-04-07'),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/blog/ghl-ai-workflows-lead-response`,
-      lastModified: new Date('2026-04-01'),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    // March 2026 Blogs
-    {
-      url: `${baseUrl}/blog/freelancer-to-ghl-saas-founder`,
-      lastModified: new Date('2026-03-25'),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/blog/ghl-lead-generation-strategies`,
-      lastModified: new Date('2026-03-20'),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/blog/ghl-pipeline-management`,
-      lastModified: new Date('2026-03-15'),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-  ];
+const blogPosts: MetadataRoute.Sitemap = [
+  // May 2026 Blogs (Newest)
+  {
+    url: `${baseUrl}/blog/gohighlevel-pricing`,
+    lastModified: new Date('2026-05-13'),
+    changeFrequency: 'monthly',
+    priority: 0.8,
+  },
+  {
+    url: `${baseUrl}/blog/gohighlevel-conversational-ai-data-storage`,
+    lastModified: new Date('2026-05-12'),
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  },
+  {
+    url: `${baseUrl}/blog/where-to-hire-gohighlevel-experts`,
+    lastModified: new Date('2026-05-11'),
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  },
+  {
+    url: `${baseUrl}/blog/best-ghl-expert-agency`,
+    lastModified: new Date('2026-05-09'),
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  },
+  {
+    url: `${baseUrl}/blog/how-to-create-gohighlevel-snapshot`,
+    lastModified: new Date('2026-05-08'),
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  },
+  {
+    url: `${baseUrl}/blog/gohighlevel-missed-call-text-back`,
+    lastModified: new Date('2026-05-07'),
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  },
+  {
+    url: `${baseUrl}/blog/how-to-set-up-gohighlevel-workflow-automation`,
+    lastModified: new Date('2026-05-06'),
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  },
+  {
+    url: `${baseUrl}/blog/what-is-gohighlevel`,
+    lastModified: new Date('2026-05-02'),
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  },
+  // April 2026 Blogs
+  {
+    url: `${baseUrl}/blog/ghl-white-label-saas-guide`,
+    lastModified: new Date('2026-04-10'),
+    changeFrequency: 'monthly',
+    priority: 0.6,
+  },
+  {
+    url: `${baseUrl}/blog/gohighlevel-funnel-builder-features`,
+    lastModified: new Date('2026-04-07'),
+    changeFrequency: 'monthly',
+    priority: 0.6,
+  },
+  {
+    url: `${baseUrl}/blog/ghl-ai-workflows-lead-response`,
+    lastModified: new Date('2026-04-01'),
+    changeFrequency: 'monthly',
+    priority: 0.6,
+  },
+  // March 2026 Blogs
+  {
+    url: `${baseUrl}/blog/freelancer-to-ghl-saas-founder`,
+    lastModified: new Date('2026-03-25'),
+    changeFrequency: 'monthly',
+    priority: 0.6,
+  },
+  {
+    url: `${baseUrl}/blog/ghl-lead-generation-strategies`,
+    lastModified: new Date('2026-03-20'),
+    changeFrequency: 'monthly',
+    priority: 0.6,
+  },
+  {
+    url: `${baseUrl}/blog/ghl-pipeline-management`,
+    lastModified: new Date('2026-03-15'),
+    changeFrequency: 'monthly',
+    priority: 0.6,
+  },
+];
 
 
 

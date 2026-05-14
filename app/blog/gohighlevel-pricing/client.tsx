@@ -79,10 +79,10 @@ export default function GoHighLevelPricingClient() {
 
   const tocItems = [
     { id: 'plans-side-by-side', title: '1. The Three GoHighLevel Plans Side-by-Side' },
-    { id: 'starter-plan', title: '2. Starter Plan ($97/month) — What\'s Included' },
-    { id: 'unlimited-plan', title: '3. Unlimited Plan ($297/month) — What\'s Included' },
-    { id: 'agency-pro-plan', title: '4. Agency Pro / SaaS Plan ($497/month) — What\'s Included' },
-    { id: 'annual-vs-monthly', title: '5. Annual vs Monthly Billing — The Savings Breakdown' },
+    { id: 'starter-plan', title: '2. Starter Plan ($97/month) What\'s Included' },
+    { id: 'unlimited-plan', title: '3. Unlimited Plan ($297/month) What\'s Included' },
+    { id: 'agency-pro-plan', title: '4. Agency Pro / SaaS Plan ($497/month) What\'s Included' },
+    { id: 'annual-vs-monthly', title: '5. Annual vs Monthly Billing The Savings Breakdown' },
     { id: 'usage-fees', title: '6. The Real Costs: Usage Fees Explained' },
     { id: 'ai-pricing', title: '7. GoHighLevel AI Pricing in 2026' },
     { id: 'real-cost-scenarios', title: '8. Real Monthly Cost Scenarios' },
@@ -92,13 +92,13 @@ export default function GoHighLevelPricingClient() {
 
   const usageFees = [
     { service: 'SMS (outbound & inbound)', cost: '$0.0079 per segment', notes: '1 segment = 160 characters. Emojis force Unicode encoding (70 chars/segment) and cost more' },
-    { service: 'MMS (images/media)', cost: '$0.0200 per message', notes: 'Significantly more expensive than SMS — use sparingly' },
+    { service: 'MMS (images/media)', cost: '$0.0200 per message', notes: 'Significantly more expensive than SMS use sparingly' },
     { service: 'Outbound phone calls', cost: '$0.014 per minute', notes: 'Two-leg billing: ~$0.018/min total (outbound + app leg)' },
     { service: 'Inbound phone calls', cost: '$0.0085 per minute', notes: 'Separate rate from outbound' },
     { service: 'Local phone number', cost: '$1.15 per month', notes: 'Includes SMS and voice capabilities' },
-    { service: 'Email sending (LC Email)', cost: '$0.675 per 1,000 emails', notes: 'Very low cost — typically under $10–15/month for most users' },
+    { service: 'Email sending (LC Email)', cost: '$0.675 per 1,000 emails', notes: 'Very low cost typically under $10–15/month for most users' },
     { service: 'Email validation', cost: '$2.50 per 1,000 verifications', notes: 'Optional but recommended for list hygiene' },
-    { service: 'A2P 10DLC registration', cost: '$4–$19 one-time + ~$2/mo', notes: 'Required for all US business SMS. Not a GHL fee — carrier regulation' },
+    { service: 'A2P 10DLC registration', cost: '$4–$19 one-time + ~$2/mo', notes: 'Required for all US business SMS. Not a GHL fee carrier regulation' },
     { service: 'WhatsApp messaging', cost: '$10/month per sub-account', notes: 'Optional add-on' },
     { service: 'HIPAA compliance', cost: '$297/month add-on', notes: 'Required if handling protected health information' },
   ];
@@ -108,8 +108,8 @@ export default function GoHighLevelPricingClient() {
     { feature: 'Voice AI (inbound calls)', paygo: '~$0.13 per minute', unlimited: 'Included in $97/mo AI Employee Unlimited' },
     { feature: 'Reviews AI', paygo: '$0.08 per automated response', unlimited: 'Included in $97/mo AI Employee Unlimited' },
     { feature: 'Content AI', paygo: 'Per token usage', unlimited: 'Included in $97/mo AI Employee Unlimited' },
-    { feature: 'Voice AI Outbound', paygo: 'Per minute usage', unlimited: 'Not included in Unlimited — billed separately' },
-    { feature: 'Agent Studio / Voice AI Widget', paygo: 'Per usage', unlimited: 'Not included in Unlimited — billed separately' },
+    { feature: 'Voice AI Outbound', paygo: 'Per minute usage', unlimited: 'Not included in Unlimited billed separately' },
+    { feature: 'Agent Studio / Voice AI Widget', paygo: 'Per usage', unlimited: 'Not included in Unlimited billed separately' },
   ];
 
   const scenarios = [
@@ -166,9 +166,9 @@ export default function GoHighLevelPricingClient() {
 
           {/* Author Byline */}
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-8 h-8 rounded-full overflow-hidden bg-white flex items-center justify-center">
+            <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
               <img
-                src="/ghlscalicon.png"
+                src="/web-app-manifest-512x512.png"
                 alt="GHL Scaleup"
                 className="w-8 h-8 object-cover"
               />
@@ -182,7 +182,7 @@ export default function GoHighLevelPricingClient() {
           {/* Introductory Paragraph */}
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
             Most GoHighLevel pricing guides stop at three numbers: $97, $297, $497. 
-            That's a good start — but it's not what you'll actually pay. SMS, calls, 
+            That's a good start but it's not what you'll actually pay. SMS, calls, 
             email sends, and AI tools are all billed on top of your base plan. This 
             guide covers every cost, every plan, and exactly which tier is right for 
             your business in 2026.
@@ -201,7 +201,7 @@ export default function GoHighLevelPricingClient() {
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
               <div className="flex items-center gap-2 mb-3">
                 <Zap className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Quick Answer — GoHighLevel Pricing at a Glance</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Quick Answer GoHighLevel Pricing at a Glance</span>
               </div>
               <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
                 GoHighLevel has three plans: Starter at $97/month, Unlimited at $297/month, and Agency Pro (SaaS) at $497/month.
@@ -269,24 +269,24 @@ export default function GoHighLevelPricingClient() {
 
             {/* Section 2: Starter Plan */}
             <h2 id="starter-plan" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              2. GoHighLevel Starter Plan — $97/month
+              2. GoHighLevel Starter Plan $97/month
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               <strong className="text-[#1A2236]">Best for:</strong> Solo operators, single-location service businesses, coaches, 
-              and freelancers who want an all-in-one platform for their own business — not client management.
+              and freelancers who want an all-in-one platform for their own business not client management.
             </p>
 
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-5 mb-4">
               <p className="text-sm font-semibold text-[#1A2236] mb-2">What's included:</p>
               <ul className="space-y-1 text-sm text-[#5C6880] list-disc list-inside">
-                <li>Full CRM with unlimited contacts — pipelines, tags, custom fields, smart lists, unified conversation inbox</li>
-                <li>Funnel & website builder — unlimited funnels, landing pages, and a full website builder</li>
-                <li>Email & SMS marketing — broadcast campaigns and automated drip sequences</li>
-                <li>Workflow automation — triggers, actions, If/Else conditions, and wait steps</li>
-                <li>Booking calendar — appointment scheduling with automated reminders and Google Calendar sync</li>
-                <li>Reputation management — automated review requests and response tools</li>
-                <li>Course/membership hosting — drip content, quizzes, and progress tracking</li>
-                <li>Social media planner — schedule posts across Facebook, Instagram, Google Business, and LinkedIn</li>
+                <li>Full CRM with unlimited contacts pipelines, tags, custom fields, smart lists, unified conversation inbox</li>
+                <li>Funnel & website builder unlimited funnels, landing pages, and a full website builder</li>
+                <li>Email & SMS marketing broadcast campaigns and automated drip sequences</li>
+                <li>Workflow automation triggers, actions, If/Else conditions, and wait steps</li>
+                <li>Booking calendar appointment scheduling with automated reminders and Google Calendar sync</li>
+                <li>Reputation management automated review requests and response tools</li>
+                <li>Course/membership hosting drip content, quizzes, and progress tracking</li>
+                <li>Social media planner schedule posts across Facebook, Instagram, Google Business, and LinkedIn</li>
               </ul>
             </div>
 
@@ -295,13 +295,13 @@ export default function GoHighLevelPricingClient() {
               <p className="text-sm text-[#5C6880] leading-relaxed">
                 You run one business and want to replace your CRM, funnel builder, email tool, and calendar in one subscription. 
                 At $97/month, Starter replaces tools that typically cost $300–$500/month separately: Calendly ($12), Mailchimp ($50), 
-                ClickFunnels ($97), and Pipedrive ($49) — all at once.
+                ClickFunnels ($97), and Pipedrive ($49) all at once.
               </p>
             </div>
 
             {/* Section 3: Unlimited Plan */}
             <h2 id="unlimited-plan" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              3. GoHighLevel Unlimited Plan — $297/month
+              3. GoHighLevel Unlimited Plan $297/month
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               <strong className="text-[#1A2236]">Best for:</strong> Marketing agencies managing multiple client accounts. 
@@ -311,11 +311,11 @@ export default function GoHighLevelPricingClient() {
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-5 mb-4">
               <p className="text-sm font-semibold text-[#1A2236] mb-2">Everything in Starter, plus:</p>
               <ul className="space-y-1 text-sm text-[#5C6880] list-disc list-inside">
-                <li>Unlimited sub-accounts — no ceiling on how many clients you can manage</li>
-                <li>White-label desktop app — brand the login portal with your logo, colors, and domain</li>
-                <li>Snapshot system — create a master setup once and deploy it to new client accounts in minutes</li>
-                <li>Enhanced API access — connect GHL to external tools and data sources</li>
-                <li>Re-billing capability — charge clients for their SMS, email, and call usage with a small markup</li>
+                <li>Unlimited sub-accounts no ceiling on how many clients you can manage</li>
+                <li>White-label desktop app brand the login portal with your logo, colors, and domain</li>
+                <li>Snapshot system create a master setup once and deploy it to new client accounts in minutes</li>
+                <li>Enhanced API access connect GHL to external tools and data sources</li>
+                <li>Re-billing capability charge clients for their SMS, email, and call usage with a small markup</li>
               </ul>
             </div>
 
@@ -323,28 +323,28 @@ export default function GoHighLevelPricingClient() {
               <p className="text-sm font-semibold text-[#1A2236] mb-1">THE AGENCY MATH:</p>
               <p className="text-sm text-[#5C6880] leading-relaxed">
                 At $297/month, you have unlimited client accounts. If you charge 5 clients $300/month each for their GHL sub-account 
-                and management — you're earning $1,500/month against a $297 platform cost. The plan pays for itself with the first client.
+                and management you're earning $1,500/month against a $297 platform cost. The plan pays for itself with the first client.
               </p>
             </div>
 
             {/* Section 4: Agency Pro Plan */}
             <h2 id="agency-pro-plan" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              4. GoHighLevel Agency Pro (SaaS Plan) — $497/month
+              4. GoHighLevel Agency Pro (SaaS Plan) $497/month
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Best for:</strong> Agencies that want to run a software business — reselling 
+              <strong className="text-[#1A2236]">Best for:</strong> Agencies that want to run a software business reselling 
               GoHighLevel under their own brand as their own SaaS product.
             </p>
 
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-5 mb-4">
               <p className="text-sm font-semibold text-[#1A2236] mb-2">Everything in Unlimited, plus:</p>
               <ul className="space-y-1 text-sm text-[#5C6880] list-disc list-inside">
-                <li>SaaS Mode activated — build a full white-label software product with your own pricing tiers</li>
-                <li>SaaS Configurator — create Starter/Pro/Enterprise plans under your brand</li>
-                <li>Automated sub-account provisioning — when a client pays, their account is created automatically</li>
-                <li>White-label mobile app — your own branded iOS/Android app for clients ($49/month add-on)</li>
-                <li>Full markup control — set your own prices for client SMS, email, AI, and call usage</li>
-                <li>AI Employee rebilling — only Agency Pro can rebill AI usage to clients</li>
+                <li>SaaS Mode activated build a full white-label software product with your own pricing tiers</li>
+                <li>SaaS Configurator create Starter/Pro/Enterprise plans under your brand</li>
+                <li>Automated sub-account provisioning when a client pays, their account is created automatically</li>
+                <li>White-label mobile app your own branded iOS/Android app for clients ($49/month add-on)</li>
+                <li>Full markup control set your own prices for client SMS, email, AI, and call usage</li>
+                <li>AI Employee rebilling only Agency Pro can rebill AI usage to clients</li>
               </ul>
             </div>
 
@@ -355,21 +355,21 @@ export default function GoHighLevelPricingClient() {
               </div>
               <p className="text-sm text-white/80 leading-relaxed">
                 Agency Pro breaks even at 2 clients paying $297/month for their sub-account access. At 10 clients paying $197/month each: 
-                $1,970 revenue against $497 fixed cost. <strong className="text-white">That's $1,473/month net — before any service fees.</strong> 
+                $1,970 revenue against $497 fixed cost. <strong className="text-white">That's $1,473/month net before any service fees.</strong> 
                 The plan transforms GHL from a cost into a revenue centre.
               </p>
             </div>
 
             <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              → Need help setting up SaaS Mode correctly? <Link href="/contact" className="text-[#0E9BF0] hover:underline">Book a free call with GHL Scaleup</Link> — we've built 200+ GHL systems including SaaS Mode setups.
+              → Need help setting up SaaS Mode correctly? <Link href="/contact" className="text-[#0E9BF0] hover:underline">Book a free call with GHL Scaleup</Link> we've built 200+ GHL systems including SaaS Mode setups.
             </p>
 
             {/* Section 5: Annual vs Monthly */}
             <h2 id="annual-vs-monthly" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              5. Annual vs Monthly Billing — The Savings Breakdown
+              5. Annual vs Monthly Billing The Savings Breakdown
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              GoHighLevel annual billing saves approximately 17% compared to monthly — the equivalent of two months free.
+              GoHighLevel annual billing saves approximately 17% compared to monthly the equivalent of two months free.
             </p>
 
             <div className="overflow-x-auto my-6">
@@ -395,7 +395,7 @@ export default function GoHighLevelPricingClient() {
               <p className="text-sm font-semibold text-[#1A2236] mb-1">WHEN TO PAY ANNUALLY:</p>
               <p className="text-sm text-[#5C6880] leading-relaxed">
                 Annual billing makes sense when you have validated the platform works for your business (past your first 60–90 days) 
-                and are confident in the plan you're on. Do not pay annually while still testing — GHL does not offer refunds on subscriptions.
+                and are confident in the plan you're on. Do not pay annually while still testing GHL does not offer refunds on subscriptions.
               </p>
             </div>
 
@@ -432,7 +432,7 @@ export default function GoHighLevelPricingClient() {
             <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
               <div className="flex items-center gap-2 mb-2">
                 <Info className="w-4 h-4 text-[#0E9BF0]" />
-                <span className="text-sm font-bold text-[#0E9BF0]">2026 UPDATE — CARRIER FEE INCREASES</span>
+                <span className="text-sm font-bold text-[#0E9BF0]">2026 UPDATE CARRIER FEE INCREASES</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
                 AT&T increased carrier surcharges effective April 1, 2026. Verizon followed May 1, 2026. These apply to all US business 
@@ -445,7 +445,7 @@ export default function GoHighLevelPricingClient() {
               7. GoHighLevel AI Pricing in 2026
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              GoHighLevel's AI features — Conversation AI, Voice AI, Reviews AI, Content AI — are <strong>not included in the base plan price.</strong>
+              GoHighLevel's AI features Conversation AI, Voice AI, Reviews AI, Content AI are <strong>not included in the base plan price.</strong>
             </p>
 
             <div className="overflow-x-auto my-6">
@@ -475,7 +475,7 @@ export default function GoHighLevelPricingClient() {
                 <span className="text-sm font-bold text-[#F8D000]">IMPORTANT</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                The $97/mo AI Employee Unlimited is <strong>per sub-account — not per agency.</strong> If you have 10 clients each with 
+                The $97/mo AI Employee Unlimited is <strong>per sub-account not per agency.</strong> If you have 10 clients each with 
                 AI Employee Unlimited, that's $970/month in AI costs on top of your platform subscription. For most agencies, the 
                 pay-as-you-go model is more cost-effective unless a specific client sub-account uses AI heavily every day.
               </p>
@@ -559,7 +559,7 @@ export default function GoHighLevelPricingClient() {
                 },
                 { 
                   q: "Does GoHighLevel offer annual billing?", 
-                  a: "Yes. Annual billing saves approximately 17%, equivalent to two months free. The annual rates are $970/year (Starter), $2,970/year (Unlimited), and $4,970/year (Agency Pro). The discount applies to the base subscription only — usage fees for SMS, email, calls, and AI are billed separately regardless of billing cycle. Annual billing is not refundable, so confirm you are on the right plan before committing." 
+                  a: "Yes. Annual billing saves approximately 17%, equivalent to two months free. The annual rates are $970/year (Starter), $2,970/year (Unlimited), and $4,970/year (Agency Pro). The discount applies to the base subscription only usage fees for SMS, email, calls, and AI are billed separately regardless of billing cycle. Annual billing is not refundable, so confirm you are on the right plan before committing." 
                 },
                 { 
                   q: "What are GoHighLevel's hidden costs?", 
@@ -567,7 +567,7 @@ export default function GoHighLevelPricingClient() {
                 },
                 { 
                   q: "Does GoHighLevel have a free trial?", 
-                  a: "Yes. GoHighLevel offers a standard 14-day free trial with full access to all features on your chosen plan. No credit card is required to start. Some agency partners provide extended 30-day trials. Use the trial to set up one complete workflow, one funnel, and one calendar sequence — this gives you a realistic sense of what the platform can do before committing." 
+                  a: "Yes. GoHighLevel offers a standard 14-day free trial with full access to all features on your chosen plan. No credit card is required to start. Some agency partners provide extended 30-day trials. Use the trial to set up one complete workflow, one funnel, and one calendar sequence this gives you a realistic sense of what the platform can do before committing." 
                 },
                 { 
                   q: "What is GoHighLevel AI Employee pricing?", 
@@ -575,11 +575,11 @@ export default function GoHighLevelPricingClient() {
                 },
                 { 
                   q: "What is the difference between GoHighLevel Unlimited and Agency Pro?", 
-                  a: "The Unlimited plan ($297/mo) includes unlimited sub-accounts, white-label desktop branding, snapshots, and enhanced API access. Agency Pro ($497/mo) adds SaaS Mode — the ability to resell GHL as your own branded software product, with automated client provisioning, a white-label mobile app, tiered client pricing, and full markup control on all usage fees including AI. If you want to charge clients a monthly fee for access to 'your software,' you need Agency Pro." 
+                  a: "The Unlimited plan ($297/mo) includes unlimited sub-accounts, white-label desktop branding, snapshots, and enhanced API access. Agency Pro ($497/mo) adds SaaS Mode the ability to resell GHL as your own branded software product, with automated client provisioning, a white-label mobile app, tiered client pricing, and full markup control on all usage fees including AI. If you want to charge clients a monthly fee for access to 'your software,' you need Agency Pro." 
                 },
                 { 
                   q: "Is GoHighLevel pricing worth it?", 
-                  a: "For agencies and service businesses that set it up properly, yes. GoHighLevel at $97–$297/month replaces 6–8 tools that typically cost $400–$1,200/month combined. The risk is paying for a subscription and using only 10–20% of the platform — which is why professional setup matters. Businesses that invest in proper configuration from day one consistently see faster ROI than those who self-build slowly over months." 
+                  a: "For agencies and service businesses that set it up properly, yes. GoHighLevel at $97–$297/month replaces 6–8 tools that typically cost $400–$1,200/month combined. The risk is paying for a subscription and using only 10–20% of the platform which is why professional setup matters. Businesses that invest in proper configuration from day one consistently see faster ROI than those who self-build slowly over months." 
                 },
               ].map((faq, index) => (
                 <details key={index} className="group border-b border-[rgba(28,35,33,0.08)]">
@@ -654,9 +654,9 @@ export default function GoHighLevelPricingClient() {
             {/* About the Author */}
             <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-2">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
+                <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
                   <img
-                    src="/ghlscalicon.png"
+                    src="/web-app-manifest-512x512.png"
                     alt="GHL Scaleup"
                     className="w-full h-full object-cover"
                   />
@@ -670,7 +670,7 @@ export default function GoHighLevelPricingClient() {
                 5+ years GHL experience · 200+ systems built globally across real estate, healthcare, SaaS, and agencies. 
                 All pricing in this guide verified against GoHighLevel's official documentation as of May 2026.
               </p>
-              <Link href="https://ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
+              <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
             </div>
 
             {/* CTA Card */}
@@ -685,7 +685,7 @@ export default function GoHighLevelPricingClient() {
 
             {/* Share Buttons */}
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-2">
-              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Share this guide</div>
+              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
               <div className="flex gap-2 flex-wrap">
                 <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
                   <Linkedin className="w-3 h-3" />

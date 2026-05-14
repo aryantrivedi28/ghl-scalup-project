@@ -24,10 +24,22 @@ import {
   Camera,
   Trophy,
   MapPin,
-  Database
+  Database,
+  CreditCard
 } from 'lucide-react';
 
 const blogPosts = [
+  {
+    icon: CreditCard,
+    tag: 'Pricing',
+    title: 'GoHighLevel Pricing 2026: All Plans, Real Costs & Hidden Fees Explained',
+    excerpt: 'GoHighLevel costs $97, $297, or $497/month depending on your plan. But that\'s not your real cost. This guide covers every plan, every usage fee, AI pricing, and which plan is right for your business in 2026.',
+    slug: 'gohighlevel-pricing',
+    date: 'May 13, 2026',
+    readTime: '20 min read',
+    featured: true,
+    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&h=500&fit=crop',
+  },
   {
     icon: BookOpen,
     tag: 'GoHighLevel',
@@ -54,7 +66,7 @@ const blogPosts = [
     icon: Phone,
     tag: 'SMS Automation',
     title: 'GoHighLevel Missed Call Text Back: How It Works + Full Setup Guide (2026)',
-    excerpt: 'GoHighLevel\'s missed call text back sends an automatic SMS within 15 seconds of a missed call recovering leads before they call a competitor. Here\'s how it works and how to set it up in 5 minutes.',
+    excerpt: 'GoHighLevel\'s missed call text back sends an automatic SMS within 15 seconds of a missed call — recovering leads before they call a competitor. Here\'s how it works and how to set it up in 5 minutes.',
     slug: 'gohighlevel-missed-call-text-back',
     date: 'May 7, 2026',
     readTime: '16 min read',
@@ -65,7 +77,7 @@ const blogPosts = [
     icon: Camera,
     tag: 'Snapshot',
     title: 'How to Create and Use a GoHighLevel Snapshot to Onboard Clients Faster (2026)',
-    excerpt: 'A GoHighLevel Snapshot is a reusable template of an entire sub-account setup funnels, workflows, pipelines, and more. Learn what\'s included, how to create one in 5 steps, and how to deploy it to client accounts in minutes.',
+    excerpt: 'A GoHighLevel Snapshot is a reusable template of an entire sub-account setup — funnels, workflows, pipelines, and more. Learn what\'s included, how to create one in 5 steps, and how to deploy it to client accounts in minutes.',
     slug: 'how-to-create-gohighlevel-snapshot',
     date: 'May 8, 2026',
     readTime: '18 min read',
@@ -76,7 +88,7 @@ const blogPosts = [
     icon: Trophy,
     tag: '★ Recommended',
     title: 'Best GHL Expert Agency to Hire in 2026 (Honest Comparison)',
-    excerpt: 'Looking for the best GoHighLevel expert agency to hire? We compared the top GHL agencies in 2026 covering specialisations, pricing, and who each one is best for so you can choose the right partner without wasting time.',
+    excerpt: 'Looking for the best GoHighLevel expert agency to hire? We compared the top GHL agencies in 2026 — covering specialisations, pricing, and who each one is best for — so you can choose the right partner without wasting time.',
     slug: 'best-ghl-expert-agency',
     date: 'May 9, 2026',
     readTime: '20 min read',
@@ -87,7 +99,7 @@ const blogPosts = [
     icon: MapPin,
     tag: 'Hire Guide',
     title: 'Where to Hire GoHighLevel Experts in 2026: 6 Best Places (+ How to Vet Them)',
-    excerpt: 'Looking for a GoHighLevel expert? Here are the 6 best places to find GHL professionals in 2026 from the official GHL directory to Upwork, Fiverr, and specialist agencies with a vetting checklist and red flags to avoid.',
+    excerpt: 'Looking for a GoHighLevel expert? Here are the 6 best places to find GHL professionals in 2026 — from the official GHL directory to Upwork, Fiverr, and specialist agencies — with a vetting checklist and red flags to avoid.',
     slug: 'where-to-hire-gohighlevel-experts',
     date: 'May 11, 2026',
     readTime: '21 min read',
@@ -98,7 +110,7 @@ const blogPosts = [
     icon: Database,
     tag: 'Conversation AI',
     title: 'Does GoHighLevel Conversation AI Save Data to Your CRM? (2026 Answer)',
-    excerpt: 'GoHighLevel Conversation AI does save some data to your CRM but not all of it, and not automatically. Here\'s exactly what gets captured, what doesn\'t, and how to build a clean data capture system that actually works.',
+    excerpt: 'GoHighLevel Conversation AI does save some data to your CRM — but not all of it, and not automatically. Here\'s exactly what gets captured, what doesn\'t, and how to build a clean data capture system that actually works.',
     slug: 'gohighlevel-conversational-ai-data-storage',
     date: 'May 12, 2026',
     readTime: '15 min read',
@@ -142,7 +154,7 @@ const blogPosts = [
     icon: Settings,
     tag: 'Automation',
     title: 'GoHighLevel Funnel Builder: 7 Features Top Agencies Use to Build Faster',
-    excerpt: 'Discover the GoHighLevel funnel builder features most agencies overlook version control, global sections, custom values, real-time collaboration and more.',
+    excerpt: 'Discover the GoHighLevel funnel builder features most agencies overlook — version control, global sections, custom values, real-time collaboration and more.',
     slug: 'gohighlevel-funnel-builder-features',
     date: 'April 7, 2026',
     readTime: '9 min read',
@@ -175,6 +187,7 @@ const blogPosts = [
 
 const getCategoryColor = (tag: string) => {
   const colors: Record<string, string> = {
+    'Pricing': 'bg-[rgba(248,208,0,0.12)] text-[#F8D000] border-[rgba(248,208,0,0.2)]',
     'GHL SaaS': 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]',
     'AI': 'bg-[rgba(37,201,125,0.12)] text-[#25C97D] border-[rgba(37,201,125,0.2)]',
     'Business': 'bg-[rgba(248,208,0,0.12)] text-[#F8D000] border-[rgba(248,208,0,0.2)]',
