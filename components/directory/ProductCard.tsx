@@ -119,12 +119,6 @@ export default function ProductCard({ product }: ProductCardProps) {
 
       {/* Footer with actions */}
       <div className="flex items-center justify-between pt-2 border-t border-gray-100">
-        {product.viewsCount !== undefined && (
-          <div className="flex items-center gap-1 text-gray-400 text-xs">
-            <Eye className="w-3 h-3" />
-            <span>{product.viewsCount}</span>
-          </div>
-        )}
         <div className="flex items-center gap-2 ml-auto">
           <button 
             className="text-gray-400 hover:text-gray-600 text-xs font-medium px-2 py-1 rounded transition-colors"
