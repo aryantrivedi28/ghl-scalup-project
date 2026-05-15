@@ -65,7 +65,7 @@ export default function AboutClient() {
       linkedin: 'https://www.linkedin.com/in/kunal-kumar-2ab402263',
       name: 'Kunal Sharma',
       role: 'Tech Lead',
-      bio: 'Kunal is the technical brain behind GHL Scale Up. He owns the architecture decisions, internal tooling, system design, and engineering standards across the organization. He does not work on client projects directly — instead, he builds the frameworks, templates, and processes that every client project is built on top of. When a system scales without breaking, it is because Kunal designed the foundation.'
+      bio: 'Kunal is the technical brain behind GHL Scale Up. He owns the architecture decisions, internal tooling, system design, and engineering standards across the organization. He does not work on client projects directly instead, he builds the frameworks, templates, and processes that every client project is built on top of. When a system scales without breaking, it is because Kunal designed the foundation.'
     },
     {
       initials: 'RD',
@@ -73,7 +73,7 @@ export default function AboutClient() {
       linkedin: 'https://www.linkedin.com/in/radhika-agrawal-22238a201',
       name: 'Radhika',
       role: 'Growth Associate',
-      bio: 'Drives client acquisition, partnerships, and brand growth for GHL Scale Up. Radhika connects the dots between what clients need and what we deliver — handling outreach, onboarding coordination, and making sure every project starts with clear goals and ends with measurable outcomes. She is the first person most clients speak with.'
+      bio: 'Drives client acquisition, partnerships, and brand growth for GHL Scale Up. Radhika connects the dots between what clients need and what we deliver handling outreach, onboarding coordination, and making sure every project starts with clear goals and ends with measurable outcomes. She is the first person most clients speak with.'
     },
   ];
 
@@ -84,7 +84,7 @@ export default function AboutClient() {
       linkedin: 'https://www.linkedin.com/in/sangram-singh-shekhawat-b045a4132',
       name: 'Sangram',
       role: 'SEO Expert',
-      bio: 'Specialist in technical SEO, on-page optimization, keyword strategy, and organic growth for agencies and businesses. Sangram builds SEO systems that deliver consistent, compounding traffic — not one-time spikes.',
+      bio: 'Specialist in technical SEO, on-page optimization, keyword strategy, and organic growth for agencies and businesses. Sangram builds SEO systems that deliver consistent, compounding traffic not one-time spikes.',
       skills: ['Technical SEO', 'On-Page', 'Keyword Research', 'Local SEO', 'Link Building'],
       results: [
         '11.5x ROAS for a US electronics retailer',
@@ -98,7 +98,7 @@ export default function AboutClient() {
       linkedin: 'https://www.linkedin.com/in/kunal-p',
       name: 'Kunal',
       role: 'PPC & Performance Marketing',
-      bio: '4+ years managing Google Ads and Meta Ads across agency and freelance roles. Specializes in diagnosing underperforming ad accounts and fixing what is actually broken — whether it is tracking, structure, or bidding strategy.',
+      bio: '4+ years managing Google Ads and Meta Ads across agency and freelance roles. Specializes in diagnosing underperforming ad accounts and fixing what is actually broken whether it is tracking, structure, or bidding strategy.',
       skills: ['Google Ads', 'Meta Ads', 'GA4', 'GTM', 'Shopping Ads'],
       results: [
         '11.5x ROAS for a US electronics retailer',
@@ -122,7 +122,7 @@ export default function AboutClient() {
       linkedin: 'https://www.linkedin.com/in/jaanvi',
       name: 'Jaanvi',
       role: 'Social Media Expert',
-      bio: 'Manages social media strategy and execution for client accounts — from content calendar creation and daily posting to community management, engagement, and performance reporting across Instagram, Facebook, LinkedIn, and TikTok.',
+      bio: 'Manages social media strategy and execution for client accounts from content calendar creation and daily posting to community management, engagement, and performance reporting across Instagram, Facebook, LinkedIn, and TikTok.',
       skills: ['Instagram', 'Facebook', 'LinkedIn', 'TikTok', 'Content Strategy'],
       results: []
     }
@@ -138,7 +138,7 @@ export default function AboutClient() {
   const timeline = [
     { year: '2020', text: 'Started as a freelance network for startups' },
     { year: '2022', text: 'First GoHighLevel project delivered for an agency in the US' },
-    { year: '2023', text: '50+ GHL projects completed — AI automation becomes core offering' },
+    { year: '2023', text: '50+ GHL projects completed AI automation becomes core offering' },
     { year: '2024', text: 'Crossed 150 projects. Clients across 6 countries.' },
     { year: '2025', text: 'GHL Scale Up launched as a dedicated GoHighLevel brand' }
   ];
@@ -187,13 +187,13 @@ export default function AboutClient() {
               </h2>
               <div className="space-y-3 sm:space-y-4">
                 <p className="text-sm sm:text-[0.9rem] font-light text-[#4A5568] leading-relaxed">
-                  GHL Scale Up started from a problem we kept seeing again and again — businesses and agencies were investing in GoHighLevel but their setups were a mess. Pipelines that didn't match their sales process. Automations that broke at 50 contacts. Tags nobody could remember. Templates copied from YouTube tutorials that fell apart in production.
+                  GHL Scale Up started from a problem we kept seeing again and again businesses and agencies were investing in GoHighLevel but their setups were a mess. Pipelines that didn't match their sales process. Automations that broke at 50 contacts. Tags nobody could remember. Templates copied from YouTube tutorials that fell apart in production.
                 </p>
                 <p className="text-sm sm:text-[0.9rem] font-light text-[#4A5568] leading-relaxed">
                   We were already solving this as an execution-first agency based in Indore, India, serving startups and agencies across 6 countries. After delivering 200+ GoHighLevel projects, we realized this problem was too big and too common to solve on the side.
                 </p>
                 <p className="text-sm sm:text-[0.9rem] font-light text-[#4A5568] leading-relaxed">
-                  So in 2025, we launched <strong className="font-semibold text-[#1C2E4A]">GHL Scale Up</strong> as a dedicated brand focused entirely on one thing: helping businesses get GoHighLevel right — from first setup to full-scale SaaS.
+                  So in 2025, we launched <strong className="font-semibold text-[#1C2E4A]">GHL Scale Up</strong> as a dedicated brand focused entirely on one thing: helping businesses get GoHighLevel right from first setup to full-scale SaaS.
                 </p>
                 <p className="text-sm sm:text-[0.9rem] font-light text-[#4A5568] leading-relaxed">
                   Today, we work with marketing agencies, SaaS founders, real estate firms, home-service businesses, coaches, and enterprises across the US, UK, Australia, and India. Every system we build is designed around a single question: <strong className="font-semibold text-[#1C2E4A]">does this grow your revenue?</strong>
@@ -206,9 +206,9 @@ export default function AboutClient() {
                   GHL
                 </div>
                 <blockquote className="text-sm sm:text-[0.9rem] md:text-[1rem] lg:text-[1.05rem] italic font-normal text-white/75 leading-relaxed border-l-4 border-[#F8D000] pl-4 sm:pl-5 mb-4 sm:mb-5 relative z-10">
-                  We don't just set up GoHighLevel. We build the growth engine that sits underneath your entire business — from lead capture to closed deal.
+                  We don't just set up GoHighLevel. We build the growth engine that sits underneath your entire business from lead capture to closed deal.
                 </blockquote>
-                <cite className="text-[0.7rem] sm:text-[0.78rem] font-semibold text-[#F8D000] not-italic relative z-10">— Aryan Trivedi, Founder</cite>
+                <cite className="text-[0.7rem] sm:text-[0.78rem] font-semibold text-[#F8D000] not-italic relative z-10"> Aryan Trivedi, Founder</cite>
                 <div className="flex flex-col gap-0 mt-4 sm:mt-6 relative z-10">
                   {timeline.map((item, idx) => (
                     <div key={idx} className="flex flex-col sm:flex-row gap-1 sm:gap-3 py-2 sm:py-2.5 border-t border-white/10">
@@ -271,13 +271,13 @@ export default function AboutClient() {
               <div className="text-[0.75rem] sm:text-[0.8rem] md:text-[0.85rem] font-medium text-[#0E9BF0] mb-3 md:mb-4">Founder & CEO, GHL Scale Up</div>
               <div className="space-y-3">
                 <p className="text-sm sm:text-[0.85rem] md:text-[0.9rem] font-light text-[#4A5568] leading-relaxed">
-                  Aryan is a product strategist and entrepreneur who built GHL Scale Up from the ground up — starting as a freelancer network for startups and evolving it into a full-stack execution partner specializing in GoHighLevel CRM systems, automation, and white-label agency delivery.
+                  Aryan is a product strategist and entrepreneur who built GHL Scale Up from the ground up starting as a freelancer network for startups and evolving it into a full-stack execution partner specializing in GoHighLevel CRM systems, automation, and white-label agency delivery.
                 </p>
                 <p className="text-sm sm:text-[0.85rem] md:text-[0.9rem] font-light text-[#4A5568] leading-relaxed">
                   After personally overseeing 200+ GoHighLevel projects across real estate, home services, SaaS, energy, and marketing agencies in 6 countries, Aryan launched <strong className="font-semibold text-[#1C2E4A]">GHL Scale Up</strong> to solve a recurring problem: most businesses invest in GoHighLevel but never get the architecture right.
                 </p>
                 <p className="text-sm sm:text-[0.85rem] md:text-[0.9rem] font-light text-[#4A5568] leading-relaxed">
-                  His approach is simple — <strong className="font-semibold text-[#1C2E4A]">understand how the business sells, then build the GHL system that makes that process faster and more automated.</strong> No generic templates. No overengineered setups. Just systems that hold up at scale and grow revenue.
+                  His approach is simple <strong className="font-semibold text-[#1C2E4A]">understand how the business sells, then build the GHL system that makes that process faster and more automated.</strong> No generic templates. No overengineered setups. Just systems that hold up at scale and grow revenue.
                 </p>
                 <p className="text-sm sm:text-[0.85rem] md:text-[0.9rem] font-light text-[#4A5568] leading-relaxed">
                   Based in Indore, India, Aryan leads a team of GHL specialists, automation engineers, and marketing strategists who work inside GoHighLevel every single day.
@@ -354,7 +354,7 @@ export default function AboutClient() {
               <span className="text-[#F8D000]">Execute Your Projects</span>
             </h2>
             <p className="text-sm sm:text-[0.85rem] md:text-[0.9rem] font-light text-[#4A5568] leading-relaxed max-w-[580px] mx-auto px-4">
-              These are the hands-on experts who work directly on client deliverables. Each one is a domain specialist — vetted, tested, and trusted.
+              These are the hands-on experts who work directly on client deliverables. Each one is a domain specialist vetted, tested, and trusted.
             </p>
           </div>
 
@@ -407,7 +407,7 @@ export default function AboutClient() {
             <div className="text-center md:text-left">
               <h3 className="text-base sm:text-lg font-bold text-[#1C2E4A] mb-1.5">Our Vetted Expert Network</h3>
               <p className="text-xs sm:text-sm md:text-[0.85rem] font-light text-[#4A5568] leading-relaxed">
-                Beyond our subject matter experts, GHL Scale Up operates through a vetted expert network — one of India's most agile talent networks for automation, development, and marketing. Every expert in our network is pre-screened, tested on real projects, and matched to your specific requirements. This gives us the ability to scale teams up or down instantly — so whether you need a single GHL build or a 10-person sprint, we deliver without delays or quality drops.
+                Beyond our subject matter experts, GHL Scale Up operates through a vetted expert network one of India's most agile talent networks for automation, development, and marketing. Every expert in our network is pre-screened, tested on real projects, and matched to your specific requirements. This gives us the ability to scale teams up or down instantly so whether you need a single GHL build or a 10-person sprint, we deliver without delays or quality drops.
               </p>
             </div>
           </div>
@@ -431,12 +431,12 @@ export default function AboutClient() {
             <div className="bg-[#1C2E4A] rounded-2xl p-5 sm:p-6 md:p-8 lg:p-10 text-white relative overflow-hidden fade-in">
               <Target className="w-6 h-6 sm:w-7 sm:h-7 mb-3 sm:mb-4 text-[#F8D000]" />
               <h3 className="text-base sm:text-lg md:text-[1.2rem] font-extrabold tracking-[-0.02em] mb-2 md:mb-3 text-[#F8D000]">Our Mission</h3>
-              <p className="text-sm sm:text-[0.88rem] font-light text-white/60 leading-relaxed">To help ambitious agencies and businesses build real recurring revenue on GoHighLevel — not through generic playbooks, but through proven systems tailored to their niche, their market, and their goals. Every deliverable we ship is benchmarked against one metric: does it grow your MRR?</p>
+              <p className="text-sm sm:text-[0.88rem] font-light text-white/60 leading-relaxed">To help ambitious agencies and businesses build real recurring revenue on GoHighLevel not through generic playbooks, but through proven systems tailored to their niche, their market, and their goals. Every deliverable we ship is benchmarked against one metric: does it grow your MRR?</p>
             </div>
             <div className="bg-gradient-to-br from-[rgba(14,155,240,0.08)] to-[rgba(37,201,125,0.05)] border border-[rgba(14,155,240,0.12)] rounded-2xl p-5 sm:p-6 md:p-8 lg:p-10 fade-in">
               <Eye className="w-6 h-6 sm:w-7 sm:h-7 mb-3 sm:mb-4 text-[#0E9BF0]" />
               <h3 className="text-base sm:text-lg md:text-[1.2rem] font-extrabold tracking-[-0.02em] mb-2 md:mb-3 text-[#0E9BF0]">Our Vision</h3>
-              <p className="text-sm sm:text-[0.88rem] font-light text-[#4A5568] leading-relaxed">To be the most trusted GoHighLevel partner in the world — the team agencies call when they are ready to stop duct-taping tools and start building a system that scales. We want every client who works with us to look back and say: "That's when things actually started working."</p>
+              <p className="text-sm sm:text-[0.88rem] font-light text-[#4A5568] leading-relaxed">To be the most trusted GoHighLevel partner in the world the team agencies call when they are ready to stop duct-taping tools and start building a system that scales. We want every client who works with us to look back and say: "That's when things actually started working."</p>
             </div>
           </div>
         </div>
@@ -484,7 +484,7 @@ export default function AboutClient() {
                 That <span className="text-[#F8D000]">Actually Gets GHL?</span>
               </h2>
               <p className="text-white/60 text-sm sm:text-base leading-relaxed mb-4 sm:mb-6">
-                We are a small team on purpose — so every client gets senior-level attention,
+                We are a small team on purpose so every client gets senior-level attention,
                 not a junior passed off as an expert.
               </p>
               

@@ -155,12 +155,12 @@ export default function WhereToHireGHLExpertsClient() {
             <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
               <img
                 src="/web-app-manifest-192x192.png"
-                alt="GHL Scaleup"
+                alt="GHL Scale Up"
                 className="w-8 h-8 object-cover"
               />
             </div>
             <div>
-              <div className="text-sm font-medium text-white">GHL Scaleup Team</div>
+              <div className="text-sm font-medium text-white">GHL Scale Up Team</div>
               <div className="text-xs text-white/50">GoHighLevel Specialists · 200+ Builds Delivered · Updated May 2026</div>
             </div>
           </div>
@@ -195,7 +195,7 @@ export default function WhereToHireGHLExpertsClient() {
               <p className="text-sm text-[#5C6880] leading-relaxed">
                 (1) GoHighLevel's official Certified Admin Directory at directory.gohighlevel.com, (2) Upwork, 
                 (3) Fiverr, (4) GoHighLevel and agency Facebook Groups, (5) Clutch.co and B2B review platforms, 
-                and (6) dedicated GHL specialist agencies like GHL Scaleup. For a complete, end-to-end GHL build, 
+                and (6) dedicated GHL specialist agencies like GHL Scale Up. For a complete, end-to-end GHL build, 
                 a specialist agency is the most reliable option. For small, defined tasks, vetted freelancers on 
                 Upwork are cost-effective.
               </p>
@@ -386,10 +386,10 @@ export default function WhereToHireGHLExpertsClient() {
             <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-5 my-6 text-white">
               <div className="flex items-center gap-2 mb-3">
                 <Trophy className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">GHL SCALEUP</span>
+                <span className="text-sm font-bold text-[#F8D000]">GHL Scale Up</span>
               </div>
               <p className="text-sm text-white/80 leading-relaxed mb-2">
-                <strong className="text-white">GHL Scaleup (ghlscaleup.com)</strong> is a dedicated GoHighLevel specialist agency with 
+                <strong className="text-white">GHL Scale Up (ghlscaleup.com)</strong> is a dedicated GoHighLevel specialist agency with 
                 5+ years of GHL experience and 200+ builds delivered globally. Services: CRM setup, workflow automation, 
                 AI Voice Agent configuration, white-label SaaS builds, and CRM migration.
               </p>
@@ -485,7 +485,7 @@ export default function WhereToHireGHLExpertsClient() {
               {[
                 { 
                   q: "Where is the best place to hire a GoHighLevel expert?", 
-                  a: "The GoHighLevel Official Certified Admin Directory (directory.gohighlevel.com) is the best starting point for finding verified professionals. For defined tasks with a budget, Upwork with a Job Success Score filter of 90%+ is the most reliable freelance option. For complete system builds involving CRM, automation, AI features, and SaaS Mode, a dedicated GHL specialist agency like GHL Scaleup provides the most comprehensive delivery." 
+                  a: "The GoHighLevel Official Certified Admin Directory (directory.gohighlevel.com) is the best starting point for finding verified professionals. For defined tasks with a budget, Upwork with a Job Success Score filter of 90%+ is the most reliable freelance option. For complete system builds involving CRM, automation, AI features, and SaaS Mode, a dedicated GHL specialist agency like GHL Scale Up provides the most comprehensive delivery." 
                 },
                 { 
                   q: "How much does it cost to hire a GoHighLevel expert?", 
@@ -539,7 +539,7 @@ export default function WhereToHireGHLExpertsClient() {
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Already searched? Skip the guesswork.</h3>
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
-                  GHL Scaleup has built 200+ GHL systems. Yours could be next. CRM setup, workflow automation, 
+                  GHL Scale Up has built 200+ GHL systems. Yours could be next. CRM setup, workflow automation, 
                   AI Voice Agent, SaaS Mode, and GHL migrations. 5–7 business day delivery, full documentation included.
                 </p>
                 <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
@@ -586,12 +586,12 @@ export default function WhereToHireGHLExpertsClient() {
                 <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
                   <img
                     src="/web-app-manifest-192x192.png"
-                    alt="GHL Scaleup"
+                    alt="GHL Scale Up"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-white">GHL Scaleup Team</div>
+                  <div className="text-sm font-bold text-white">GHL Scale Up Team</div>
                   <div className="text-xs text-white/50">GoHighLevel Expert Agency</div>
                 </div>
               </div>

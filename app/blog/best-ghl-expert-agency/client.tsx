@@ -92,9 +92,9 @@ export default function BestGHLAgencyClient() {
   ];
 
   const comparisonData = [
-    { situation: 'Full GHL system build CRM, automation, AI, SaaS', agency: 'GHL Scaleup' },
-    { situation: 'AI Voice Agent or Conversation AI configuration', agency: 'GHL Scaleup' },
-    { situation: 'Migrating from HubSpot, Salesforce, or Zoho to GHL', agency: 'GHL Scaleup' },
+    { situation: 'Full GHL system build CRM, automation, AI, SaaS', agency: 'GHL Scale Up' },
+    { situation: 'AI Voice Agent or Conversation AI configuration', agency: 'GHL Scale Up' },
+    { situation: 'Migrating from HubSpot, Salesforce, or Zoho to GHL', agency: 'GHL Scale Up' },
     { situation: 'Agency reselling GHL needs 24/7 white-label client support', agency: 'HL Pro Tools' },
     { situation: 'Training resources, SaaS snapshot, and GHL coaching', agency: 'HL Pro Tools' },
     { situation: 'Agency selling GHL builds needs white-label delivery team', agency: 'E2M Solutions' },
@@ -152,12 +152,12 @@ export default function BestGHLAgencyClient() {
             <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
               <img
                 src="/web-app-manifest-192x192.png"
-                alt="GHL Scaleup"
+                alt="GHL Scale Up"
                 className="w-8 h-8 object-cover"
               />
             </div>
             <div>
-              <div className="text-sm font-medium text-white">GHL Scaleup Team</div>
+              <div className="text-sm font-medium text-white">GHL Scale Up Team</div>
               <div className="text-xs text-white/50">Updated April 2026 · 5+ years building GHL systems · 200+ builds delivered</div>
             </div>
           </div>
@@ -187,7 +187,7 @@ export default function BestGHLAgencyClient() {
                 <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Quick Answer Our Top Pick</span>
               </div>
               <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
-                GHL Scaleup is our top recommendation for end-to-end GoHighLevel builds in 2026.
+                GHL Scale Up is our top recommendation for end-to-end GoHighLevel builds in 2026.
               </p>
               <p className="text-sm text-[#5C6880] leading-relaxed">
                 They specialise in CRM setup, AI Voice Agent configuration, workflow automation, white-label SaaS builds, and GHL migrations with 200+ completed systems across 6 countries and a 5–7 business day delivery model. For agencies needing white-label support infrastructure, HL Pro Tools is the strongest alternative. For white-label development overflow, E2M Solutions is the most reliable option.
@@ -241,7 +241,7 @@ export default function BestGHLAgencyClient() {
               specificity, and honest positioning. This is not a sponsored list.
             </p>
 
-            {/* Agency #1 - GHL Scaleup (Featured) */}
+            {/* Agency #1 - GHL Scale Up (Featured) */}
             <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-2xl p-6 md:p-8 mb-8 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#F8D000]/5 rounded-full blur-2xl" />
               <div className="relative z-10">
@@ -249,7 +249,7 @@ export default function BestGHLAgencyClient() {
                   <Trophy className="w-6 h-6 text-[#F8D000]" />
                   <span className="text-[#F8D000] text-sm font-bold">#1 FEATURED</span>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-2">GHL Scaleup</h3>
+                <h3 className="text-2xl font-bold text-white mb-2">GHL Scale Up</h3>
                 <p className="text-[#0E9BF0] text-sm mb-4">ghlscaleup.com</p>
                 
                 <div className="flex flex-wrap gap-2 mb-4">
@@ -260,7 +260,7 @@ export default function BestGHLAgencyClient() {
                 </div>
                 
                 <p className="text-white/80 text-sm leading-relaxed mb-4">
-                  GHL Scaleup is a dedicated GoHighLevel expert agency with <strong className="text-white">5+ years of GHL experience</strong> and 
+                  GHL Scale Up is a dedicated GoHighLevel expert agency with <strong className="text-white">5+ years of GHL experience</strong> and 
                   <strong className="text-white"> 200+ systems delivered</strong> across real estate, healthcare, home services, SaaS, and marketing 
                   agencies in <strong className="text-white">6 countries</strong>. Their architecture-first approach mapping your sales process 
                   and client journey before touching a single setting separates their builds from template-based setups.
@@ -272,7 +272,7 @@ export default function BestGHLAgencyClient() {
                 </p>
                 
                 <p className="text-white/80 text-sm leading-relaxed mb-4">
-                  GHL Scaleup also handles the most technically complex GHL task: <strong className="text-white">complete CRM migrations</strong> 
+                  GHL Scale Up also handles the most technically complex GHL task: <strong className="text-white">complete CRM migrations</strong> 
                   from HubSpot, Salesforce, Zoho, and Keap with data integrity preserved and a running system on the other end.
                 </p>
                 
@@ -426,7 +426,7 @@ export default function BestGHLAgencyClient() {
                 <span className="text-sm font-bold text-[#F8D000]">THE REAL COST OF A BAD SETUP</span>
               </div>
               <p className="text-sm text-white/80 leading-relaxed">
-                Most businesses that come to GHL Scaleup for an audit have been on GoHighLevel for 4–8 months. 
+                Most businesses that come to GHL Scale Up for an audit have been on GoHighLevel for 4–8 months. 
                 They've paid $97–$297/month in subscription fees and lost an unknown amount in missed leads from 
                 broken automations or unconfigured features. The average audit reveals 3–5 critical gaps that have 
                 been silently losing leads since day one. <strong className="text-white">A week of expert setup typically costs less than one month of that invisible revenue leak.</strong>
@@ -466,11 +466,11 @@ export default function BestGHLAgencyClient() {
                 },
                 { 
                   q: "Can a GHL agency help me migrate from HubSpot or Salesforce?", 
-                  a: "Yes. Specialist GHL agencies like GHL Scaleup handle full CRM migrations from HubSpot, Salesforce, Zoho, Keap, and Pipedrive. This involves exporting and cleaning contact data, mapping custom fields to GHL equivalents, rebuilding pipeline stages, recreating automation sequences, and testing everything before going live. Migration done incorrectly corrupts data and breaks historical records always use an experienced team for this." 
+                  a: "Yes. Specialist GHL agencies like GHL Scale Up handle full CRM migrations from HubSpot, Salesforce, Zoho, Keap, and Pipedrive. This involves exporting and cleaning contact data, mapping custom fields to GHL equivalents, rebuilding pipeline stages, recreating automation sequences, and testing everything before going live. Migration done incorrectly corrupts data and breaks historical records always use an experienced team for this." 
                 },
                 { 
                   q: "What is the difference between a GHL agency and HL Pro Tools or Extendly?", 
-                  a: "GHL agencies like GHL Scaleup build your GHL system from scratch they are implementation partners. HL Pro Tools and Extendly are support infrastructure platforms they provide the white-label client support backbone that agencies use to support their own GHL clients. These are complementary services: you might hire GHL Scaleup to build your system and use HL Pro Tools to handle client support after the build is live." 
+                  a: "GHL agencies like GHL Scale Up build your GHL system from scratch they are implementation partners. HL Pro Tools and Extendly are support infrastructure platforms they provide the white-label client support backbone that agencies use to support their own GHL clients. These are complementary services: you might hire GHL Scale Up to build your system and use HL Pro Tools to handle client support after the build is live." 
                 },
               ].map((faq, index) => (
                 <details key={index} className="group border-b border-[rgba(28,35,33,0.08)]">
@@ -500,7 +500,7 @@ export default function BestGHLAgencyClient() {
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Ready to Hire a GHL Expert?</h3>
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
-                  GHL Scaleup 200+ Builds. 5+ Years. 6 Countries. CRM setup, workflow automation, AI Voice Agent, 
+                  GHL Scale Up 200+ Builds. 5+ Years. 6 Countries. CRM setup, workflow automation, AI Voice Agent, 
                   white-label SaaS, and GHL migrations. Book a free 30-minute strategy call and tell us what you need.
                 </p>
                 <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
@@ -547,12 +547,12 @@ export default function BestGHLAgencyClient() {
                 <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
                   <img
                     src="/web-app-manifest-192x192.png"
-                    alt="GHL Scaleup"
+                    alt="GHL Scale Up"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-white">GHL Scaleup Team</div>
+                  <div className="text-sm font-bold text-white">GHL Scale Up Team</div>
                   <div className="text-xs text-white/50">GoHighLevel Expert Agency</div>
                 </div>
               </div>

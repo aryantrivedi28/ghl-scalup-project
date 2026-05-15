@@ -139,12 +139,12 @@ export default function ConversationAIDataStorageClient() {
             <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
               <img
                 src="/web-app-manifest-192x192.png"
-                alt="GHL Scaleup"
+                alt="GHL Scale Up"
                 className="w-8 h-8 object-cover"
               />
             </div>
             <div>
-              <div className="text-sm font-medium text-white">GHL Scaleup Team</div>
+              <div className="text-sm font-medium text-white">GHL Scale Up Team</div>
               <div className="text-xs text-white/50">GoHighLevel Specialists · 200+ Builds Delivered · Updated May 2026</div>
             </div>
           </div>
@@ -225,7 +225,7 @@ export default function ConversationAIDataStorageClient() {
                   <div className="bg-[#0B1628] rounded-xl p-4 border border-[#2A3F5F] overflow-hidden">
                     <Image
                       src="/reddit-answer.png"
-                      alt="GHL Scaleup team leader answering the question on Reddit"
+                      alt="GHL Scale Up team leader answering the question on Reddit"
                       width={800}
                       height={400}
                       className="w-full h-auto rounded-lg"
@@ -441,11 +441,11 @@ export default function ConversationAIDataStorageClient() {
             <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-5 my-6 text-white">
               <div className="flex items-center gap-2 mb-3">
                 <Star className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">GHL SCALEUP</span>
+                <span className="text-sm font-bold text-[#F8D000]">GHL Scale Up</span>
               </div>
               <p className="text-sm text-white/80 leading-relaxed mb-3">
                 For agencies running this type of setup for clients, this is something we configure regularly at 
-                <strong className="text-white"> GHL Scaleup (ghlscaleup.com)</strong>. If your AI conversations are happening but the data 
+                <strong className="text-white"> GHL Scale Up (ghlscaleup.com)</strong>. If your AI conversations are happening but the data 
                 isn't landing cleanly in your CRM, this is usually a configuration issue not a platform limitation.
               </p>
               <Link href="/contact" className="inline-flex items-center gap-2 text-[#F8D000] text-sm font-semibold hover:gap-3 transition-all">
@@ -611,12 +611,12 @@ export default function ConversationAIDataStorageClient() {
                 <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
                   <img
                     src="/web-app-manifest-192x192.png"
-                    alt="GHL Scaleup"
+                    alt="GHL Scale Up"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-white">GHL Scaleup Team</div>
+                  <div className="text-sm font-bold text-white">GHL Scale Up Team</div>
                   <div className="text-xs text-white/50">GoHighLevel Expert Agency</div>
                 </div>
               </div>

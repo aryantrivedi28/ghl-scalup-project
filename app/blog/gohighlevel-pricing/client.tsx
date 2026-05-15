@@ -169,12 +169,12 @@ export default function GoHighLevelPricingClient() {
             <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
               <img
                 src="/web-app-manifest-512x512.png"
-                alt="GHL Scaleup"
+                alt="GHL Scale Up"
                 className="w-8 h-8 object-cover"
               />
             </div>
             <div>
-              <div className="text-sm font-medium text-white">GHL Scaleup Team</div>
+              <div className="text-sm font-medium text-white">GHL Scale Up Team</div>
               <div className="text-xs text-white/50">GoHighLevel Specialists · 200+ Builds Delivered · Updated May 2026</div>
             </div>
           </div>
@@ -662,7 +662,7 @@ export default function GoHighLevelPricingClient() {
                   />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-white">GHL Scaleup Team</div>
+                  <div className="text-sm font-bold text-white">GHL Scale Up Team</div>
                   <div className="text-xs text-white/50">GoHighLevel Expert Agency</div>
                 </div>
               </div>

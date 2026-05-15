@@ -98,7 +98,7 @@ export default function GHLFunnelBuilderClient() {
           </h1>
           
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 md:mb-9 max-w-[620px]">
-            Most agencies use 20% of what GHL's funnel builder can do — and wonder why things feel slow. 
+            Most agencies use 20% of what GHL's funnel builder can do and wonder why things feel slow. 
             Here's what the other 80% looks like, and how to use it every day.
           </p>
           
@@ -132,7 +132,7 @@ export default function GHLFunnelBuilderClient() {
           {/* Article Content */}
           <main className="min-w-0">
             <p className="text-base md:text-[19px] leading-relaxed text-[#2D3748] mb-8 md:mb-12 pb-6 md:pb-10 border-b border-[#DDE1E9]">
-              GoHighLevel's funnel builder gets talked about a lot. But most of the conversation stays surface-level — 
+              GoHighLevel's funnel builder gets talked about a lot. But most of the conversation stays surface-level 
               drag and drop, templates, basic pages. <strong className="text-[#1A2236]">The agencies that actually build faster and convert better 
               aren't using a different tool.</strong> They're using the same tool, but going deeper than everyone else.
             </p>
@@ -155,7 +155,7 @@ export default function GHLFunnelBuilderClient() {
 
             {/* Feature 1 */}
             <h2 id="template-library" className="text-xl md:text-2xl lg:text-[26px] font-bold text-[#1C2E4A] mt-10 md:mt-14 mb-3 md:mb-4">1. The Template Library Most Agencies Walk Right Past</h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4 md:mb-5">When you go to <span className="bg-[#E8F5FE] text-[#0870b0] px-1.5 py-0.5 rounded font-medium">Sites → Funnels → New Funnel</span>, the fastest move is the one most people skip: the Template Library. GHL has an organised collection of vertical and industry-specific funnels — not just generic designs, but actual offer funnels, sales pages, calendar funnels, and agency-specific layouts.</p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4 md:mb-5">When you go to <span className="bg-[#E8F5FE] text-[#0870b0] px-1.5 py-0.5 rounded font-medium">Sites → Funnels → New Funnel</span>, the fastest move is the one most people skip: the Template Library. GHL has an organised collection of vertical and industry-specific funnels not just generic designs, but actual offer funnels, sales pages, calendar funnels, and agency-specific layouts.</p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6 md:mb-8">Instead of starting from a blank canvas and building for two hours, you pick a template that's close to what your client needs, add it to the account in seconds, and start editing from a working structure. For a busy agency, that alone changes the timeline on a project.</p>
 
             <div className="bg-white border border-[#DDE1E9] rounded-xl md:rounded-2xl p-5 md:p-8 lg:p-10 my-8 md:my-9 relative overflow-hidden">
@@ -168,12 +168,12 @@ export default function GHLFunnelBuilderClient() {
                 Template Library
               </div>
               <h3 className="text-base md:text-xl font-bold text-[#1A2236] mb-2 md:mb-3">Go from brief to live funnel in under 10 minutes</h3>
-              <p className="text-sm md:text-base text-[#5C6880] leading-relaxed">Browse by industry, pick the closest match, add to account, and start editing. No blank canvas. No wasted setup time. The library is organised by vertical — so if you're building for a real estate client or a marketing agency, there's already a starting point.</p>
+              <p className="text-sm md:text-base text-[#5C6880] leading-relaxed">Browse by industry, pick the closest match, add to account, and start editing. No blank canvas. No wasted setup time. The library is organised by vertical so if you're building for a real estate client or a marketing agency, there's already a starting point.</p>
             </div>
 
             {/* Feature 2 */}
-            <h2 id="version-two" className="text-xl md:text-2xl lg:text-[26px] font-bold text-[#1C2E4A] mt-10 md:mt-14 mb-3 md:mb-4">2. Upgrade to Version Two — Before You Do Anything Else</h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4 md:mb-5">When you open a funnel in GHL, look for the <span className="bg-[#FFFBE6] text-[#1A2236] px-1.5 py-0.5 rounded font-medium">Upgrade to Version 2</span> button in the top right. This migrates the funnel to GHL's newer builder — one that uses a faster CDN, supports one-step order forms, PayPal integration, Stripe Connect, and Global Products.</p>
+            <h2 id="version-two" className="text-xl md:text-2xl lg:text-[26px] font-bold text-[#1C2E4A] mt-10 md:mt-14 mb-3 md:mb-4">2. Upgrade to Version Two Before You Do Anything Else</h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4 md:mb-5">When you open a funnel in GHL, look for the <span className="bg-[#FFFBE6] text-[#1A2236] px-1.5 py-0.5 rounded font-medium">Upgrade to Version 2</span> button in the top right. This migrates the funnel to GHL's newer builder one that uses a faster CDN, supports one-step order forms, PayPal integration, Stripe Connect, and Global Products.</p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6 md:mb-8">It's a quick migration, not a rebuild. Old funnels come across cleanly. And the performance improvement on load times alone is worth doing it immediately on every funnel you touch.</p>
 
             <div className="bg-[#0B1628] rounded-xl p-5 md:p-7 lg:p-8 my-8 md:my-9 flex gap-3 md:gap-4 items-start">
@@ -182,14 +182,14 @@ export default function GHLFunnelBuilderClient() {
               </div>
               <div>
                 <div className="text-xs md:text-sm font-bold text-[#F8D000] mb-1">Operator tip</div>
-                <p className="text-xs md:text-sm text-white/70 leading-relaxed">Make upgrading to Version 2 a standard step in your funnel onboarding checklist. Never build on the old version for a new client — you're creating technical debt before the project even starts.</p>
+                <p className="text-xs md:text-sm text-white/70 leading-relaxed">Make upgrading to Version 2 a standard step in your funnel onboarding checklist. Never build on the old version for a new client you're creating technical debt before the project even starts.</p>
               </div>
             </div>
 
             {/* Feature 3 */}
-            <h2 id="version-control" className="text-xl md:text-2xl lg:text-[26px] font-bold text-[#1C2E4A] mt-10 md:mt-14 mb-3 md:mb-4">3. Version Control — Your Safety Net for Every Build</h2>
+            <h2 id="version-control" className="text-xl md:text-2xl lg:text-[26px] font-bold text-[#1C2E4A] mt-10 md:mt-14 mb-3 md:mb-4">3. Version Control Your Safety Net for Every Build</h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4 md:mb-5">This is one of those features that sounds like a nice-to-have until the first time you need it. Inside the GoHighLevel funnel builder, every edit you make is tracked. You can see the full version history and revert to any previous state with one click.</p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6 md:mb-8">For agencies working fast — especially with multiple team members in the same account — this is essential. You no longer have to fear making changes, testing things, or trying something different. You can always go back.</p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6 md:mb-8">For agencies working fast especially with multiple team members in the same account this is essential. You no longer have to fear making changes, testing things, or trying something different. You can always go back.</p>
 
             <div className="bg-white border border-[#DDE1E9] rounded-xl md:rounded-2xl p-5 md:p-8 lg:p-10 my-8 md:my-9 relative overflow-hidden">
               <div className="absolute top-4 right-4 md:top-7 md:right-7 text-3xl md:text-5xl font-extrabold text-[#F0F2F5]">03</div>
@@ -201,13 +201,13 @@ export default function GHLFunnelBuilderClient() {
                 Version Control
               </div>
               <h3 className="text-base md:text-xl font-bold text-[#1A2236] mb-2 md:mb-3">Every edit tracked. Every mistake reversible.</h3>
-              <p className="text-sm md:text-base text-[#5C6880] leading-relaxed">Accidentally delete a section? Realised the old layout was better? Revert in one click. Version history means you can build with confidence — and your clients don't have to worry about what happens when someone on your team makes an error mid-project.</p>
+              <p className="text-sm md:text-base text-[#5C6880] leading-relaxed">Accidentally delete a section? Realised the old layout was better? Revert in one click. Version history means you can build with confidence and your clients don't have to worry about what happens when someone on your team makes an error mid-project.</p>
             </div>
 
             {/* Feature 4 */}
-            <h2 id="global-sections" className="text-xl md:text-2xl lg:text-[26px] font-bold text-[#1C2E4A] mt-10 md:mt-14 mb-3 md:mb-4">4. Global Sections — Change One Thing, Update Everything</h2>
+            <h2 id="global-sections" className="text-xl md:text-2xl lg:text-[26px] font-bold text-[#1C2E4A] mt-10 md:mt-14 mb-3 md:mb-4">4. Global Sections Change One Thing, Update Everything</h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4 md:mb-5">This is one of the biggest time-savers in the GoHighLevel funnel builder, and most agencies don't use it. When you hover over a section in the editor, you'll see a small save icon on the left. Click it and you can turn that section into a <span className="bg-[#E8FAF2] text-[#0f7a4a] px-1.5 py-0.5 rounded font-medium">Global Section</span>.</p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6 md:mb-8">Once a section is global, any change you make to it automatically applies to every page it appears on. Headers, footers, offer stacks, pricing sections — anything that appears across multiple pages in a funnel becomes a single source of truth.</p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6 md:mb-8">Once a section is global, any change you make to it automatically applies to every page it appears on. Headers, footers, offer stacks, pricing sections anything that appears across multiple pages in a funnel becomes a single source of truth.</p>
 
             <div className="border-l-4 border-[#0E9BF0] my-8 md:my-10 pl-4 md:pl-7 py-1">
               <p className="text-base md:text-[22px] font-semibold text-[#1C2E4A] leading-relaxed italic">"Edit in one place, show up correctly everywhere. That's the difference between a 30-minute update and a 3-hour one."</p>
@@ -216,9 +216,9 @@ export default function GHLFunnelBuilderClient() {
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6 md:mb-8">For agencies building funnels for multiple clients, this is particularly powerful. You can standardise elements across a client's funnel while still customising the parts that need to be unique per page.</p>
 
             {/* Feature 5 */}
-            <h2 id="custom-values" className="text-xl md:text-2xl lg:text-[26px] font-bold text-[#1C2E4A] mt-10 md:mt-14 mb-3 md:mb-4">5. Custom Values — One Funnel, Infinitely Personalised</h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4 md:mb-5">Inside GHL's funnel builder, you can reference <span className="bg-[#FFFBE6] text-[#1A2236] px-1.5 py-0.5 rounded font-medium">custom values</span> and <span className="bg-[#FFFBE6] text-[#1A2236] px-1.5 py-0.5 rounded font-medium">location values</span> directly in your text elements. The syntax looks like <code className="bg-[#F0F2F5] px-1.5 py-0.5 rounded text-xs md:text-sm">{'{{location.name}}'}</code> or <code className="bg-[#F0F2F5] px-1.5 py-0.5 rounded text-xs md:text-sm">{'{{today}}'}</code> — and these pull in real data on the front end automatically.</p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6 md:mb-8">What this means in practice: you can build one funnel template and deploy it across multiple clients. Each client's location name, logo, brand colour, and contact details are stored in their subaccount as custom values — and the funnel pulls them in automatically. You're not rebuilding anything. You're just filling in values.</p>
+            <h2 id="custom-values" className="text-xl md:text-2xl lg:text-[26px] font-bold text-[#1C2E4A] mt-10 md:mt-14 mb-3 md:mb-4">5. Custom Values One Funnel, Infinitely Personalised</h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4 md:mb-5">Inside GHL's funnel builder, you can reference <span className="bg-[#FFFBE6] text-[#1A2236] px-1.5 py-0.5 rounded font-medium">custom values</span> and <span className="bg-[#FFFBE6] text-[#1A2236] px-1.5 py-0.5 rounded font-medium">location values</span> directly in your text elements. The syntax looks like <code className="bg-[#F0F2F5] px-1.5 py-0.5 rounded text-xs md:text-sm">{'{{location.name}}'}</code> or <code className="bg-[#F0F2F5] px-1.5 py-0.5 rounded text-xs md:text-sm">{'{{today}}'}</code> and these pull in real data on the front end automatically.</p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6 md:mb-8">What this means in practice: you can build one funnel template and deploy it across multiple clients. Each client's location name, logo, brand colour, and contact details are stored in their subaccount as custom values and the funnel pulls them in automatically. You're not rebuilding anything. You're just filling in values.</p>
 
             <div className="bg-white border border-[#DDE1E9] rounded-xl md:rounded-2xl p-5 md:p-8 lg:p-10 my-8 md:my-9 relative overflow-hidden">
               <div className="absolute top-4 right-4 md:top-7 md:right-7 text-3xl md:text-5xl font-extrabold text-[#F0F2F5]">05</div>
@@ -230,12 +230,12 @@ export default function GHLFunnelBuilderClient() {
                 Custom Values
               </div>
               <h3 className="text-base md:text-xl font-bold text-[#1A2236] mb-2 md:mb-3">Build once. Deploy for any client, automatically personalised.</h3>
-              <p className="text-sm md:text-base text-[#5C6880] leading-relaxed">Custom values and location values let you reference client-specific information directly inside funnel text, images, and even SVG elements. Colours, logos, names, dates — all dynamic, all automatic. The result is a funnel that feels bespoke, built from a template.</p>
+              <p className="text-sm md:text-base text-[#5C6880] leading-relaxed">Custom values and location values let you reference client-specific information directly inside funnel text, images, and even SVG elements. Colours, logos, names, dates all dynamic, all automatic. The result is a funnel that feels bespoke, built from a template.</p>
             </div>
 
             {/* Feature 6 */}
-            <h2 id="collaboration" className="text-xl md:text-2xl lg:text-[26px] font-bold text-[#1C2E4A] mt-10 md:mt-14 mb-3 md:mb-4">6. Real-Time Collaboration — See Who's In the Funnel</h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4 md:mb-5">If you run a team, you've probably experienced the moment where two people were working on the same funnel at the same time and one person's changes disappeared. GHL now shows you who is inside a funnel in real time — both at the funnel overview level and inside the page editor itself.</p>
+            <h2 id="collaboration" className="text-xl md:text-2xl lg:text-[26px] font-bold text-[#1C2E4A] mt-10 md:mt-14 mb-3 md:mb-4">6. Real-Time Collaboration See Who's In the Funnel</h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4 md:mb-5">If you run a team, you've probably experienced the moment where two people were working on the same funnel at the same time and one person's changes disappeared. GHL now shows you who is inside a funnel in real time both at the funnel overview level and inside the page editor itself.</p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6 md:mb-8">It sounds like a small thing. It prevents a surprisingly large amount of chaos, especially when you're managing multiple team members across different client funnels simultaneously.</p>
 
             <ul className="list-none my-6 md:my-8 space-y-2 md:space-y-3">
@@ -255,9 +255,9 @@ export default function GHLFunnelBuilderClient() {
             </ul>
 
             {/* Feature 7 */}
-            <h2 id="html-rendering" className="text-xl md:text-2xl lg:text-[26px] font-bold text-[#1C2E4A] mt-10 md:mt-14 mb-3 md:mb-4">7. In-Editor HTML Rendering — See Custom Code Without Previewing</h2>
+            <h2 id="html-rendering" className="text-xl md:text-2xl lg:text-[26px] font-bold text-[#1C2E4A] mt-10 md:mt-14 mb-3 md:mb-4">7. In-Editor HTML Rendering See Custom Code Without Previewing</h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4 md:mb-5">If you use custom HTML, custom JavaScript, or embed code inside GHL funnels, you'll know the old pain: paste in your code, then toggle to preview just to see if it actually works. For complex elements, this adds up fast.</p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6 md:mb-8">GHL's funnel builder now has a <span className="bg-[#E8F5FE] text-[#0870b0] px-1.5 py-0.5 rounded font-medium">render toggle</span> inside the editor. Click it and your custom HTML renders directly in the builder — exactly as it will appear on the live page. No preview tab. No back-and-forth. You see what you get, in real time, while you're editing.</p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6 md:mb-8">GHL's funnel builder now has a <span className="bg-[#E8F5FE] text-[#0870b0] px-1.5 py-0.5 rounded font-medium">render toggle</span> inside the editor. Click it and your custom HTML renders directly in the builder exactly as it will appear on the live page. No preview tab. No back-and-forth. You see what you get, in real time, while you're editing.</p>
 
             <div className="bg-white border border-[#DDE1E9] rounded-xl md:rounded-2xl p-5 md:p-8 lg:p-10 my-8 md:my-9 relative overflow-hidden">
               <div className="absolute top-4 right-4 md:top-7 md:right-7 text-3xl md:text-5xl font-extrabold text-[#F0F2F5]">07</div>
@@ -268,20 +268,20 @@ export default function GHLFunnelBuilderClient() {
                 </div>
                 In-Editor HTML Rendering
               </div>
-              <h3 className="text-base md:text-xl font-bold text-[#1A2236] mb-2 md:mb-3">Custom code rendered live — no preview tab needed.</h3>
+              <h3 className="text-base md:text-xl font-bold text-[#1A2236] mb-2 md:mb-3">Custom code rendered live no preview tab needed.</h3>
               <p className="text-sm md:text-base text-[#5C6880] leading-relaxed">Paste in custom HTML or JavaScript and toggle the render button. GHL shows you exactly what it will look like on the published page, right inside the editor. For developers and advanced builders, this alone saves significant time on every custom build.</p>
             </div>
 
             {/* Bonus */}
-            <h2 id="bonus" className="text-xl md:text-2xl lg:text-[26px] font-bold text-[#1C2E4A] mt-10 md:mt-14 mb-3 md:mb-4">Bonus: Page Toggle — The Small Feature That Changes Your Editing Speed</h2>
+            <h2 id="bonus" className="text-xl md:text-2xl lg:text-[26px] font-bold text-[#1C2E4A] mt-10 md:mt-14 mb-3 md:mb-4">Bonus: Page Toggle The Small Feature That Changes Your Editing Speed</h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4 md:mb-5">This one barely gets mentioned, but it deserves a spot: in the top right of the funnel editor, there's a page toggle that lets you jump between every page in your funnel without leaving the editor.</p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6 md:mb-8">No navigating back to the overview. No clicking into a different step. Just switch pages and keep editing. When you're deep in a multi-page funnel build and need to check consistency across steps, this saves more time than you'd expect.</p>
 
             {/* Conclusion */}
             <h2 id="conclusion" className="text-xl md:text-2xl lg:text-[26px] font-bold text-[#1C2E4A] mt-10 md:mt-14 mb-3 md:mb-4">The Agencies That Win on GHL Aren't Using a Different Tool</h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4 md:mb-5">Everything in this article is already inside GoHighLevel. There's nothing to add, no plugin to buy, no workaround required. These features are built in — and most agencies never touch them.</p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4 md:mb-5">Everything in this article is already inside GoHighLevel. There's nothing to add, no plugin to buy, no workaround required. These features are built in and most agencies never touch them.</p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4 md:mb-5">The agencies that build faster, make fewer mistakes, and deliver better results are the ones who've gone deep into a platform they're already paying for. That's the edge.</p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6 md:mb-8">If you're using GoHighLevel and still building funnels the slow way — that's worth fixing.</p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6 md:mb-8">If you're using GoHighLevel and still building funnels the slow way that's worth fixing.</p>
 
             {/* CTA Block */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl md:rounded-3xl p-6 md:p-10 lg:p-12 text-center relative overflow-hidden my-12 md:my-16">
@@ -289,7 +289,7 @@ export default function GHLFunnelBuilderClient() {
               <div className="relative z-10">
                 <div className="inline-block bg-[rgba(248,208,0,0.15)] text-[#F8D000] text-[10px] md:text-xs font-bold tracking-wider uppercase px-3 md:px-3.5 py-1 md:py-1.5 rounded-full mb-4 md:mb-5">GHL Scale Up</div>
                 <h2 className="text-xl md:text-2xl lg:text-3xl font-extrabold text-white mb-2 md:mb-3">We Build GHL Systems That Actually Work</h2>
-                <p className="text-sm md:text-base text-white/65 max-w-md mx-auto mb-6 md:mb-8">From full funnel builds to complete CRM automation — we set up GoHighLevel for agencies and businesses that want results, not just a platform.</p>
+                <p className="text-sm md:text-base text-white/65 max-w-md mx-auto mb-6 md:mb-8">From full funnel builds to complete CRM automation we set up GoHighLevel for agencies and businesses that want results, not just a platform.</p>
                 <div className="flex flex-wrap gap-3 justify-center">
                   <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1628] font-bold px-5 md:px-7 py-2.5 md:py-3.5 rounded-lg text-sm md:text-base hover:bg-[#FFE44D] hover:-translate-y-0.5 transition-all">
                     Book a free strategy call
@@ -327,7 +327,7 @@ export default function GHLFunnelBuilderClient() {
             {/* CTA Card */}
             <div className="bg-[#0B1628] rounded-xl p-5 md:p-6">
               <div className="text-sm md:text-base font-bold text-white mb-2">Need your GHL built right?</div>
-              <div className="text-xs md:text-sm text-white/60 leading-relaxed mb-4 md:mb-5">We've set up GoHighLevel for 50+ agencies across 6 countries. Funnels, automations, CRM, AI workflows — done properly.</div>
+              <div className="text-xs md:text-sm text-white/60 leading-relaxed mb-4 md:mb-5">We've set up GoHighLevel for 50+ agencies across 6 countries. Funnels, automations, CRM, AI workflows done properly.</div>
               <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1628] font-bold py-2.5 md:py-3 rounded-lg text-sm md:text-base hover:bg-[#FFE44D] transition-all">
                 Talk to us
                 <svg width="12" height="12" viewBox="0 0 13 13" fill="none"><path d="M2.5 6.5h8M8 3.5l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
