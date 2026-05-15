@@ -52,7 +52,7 @@ const Hero = () => {
               <p className="text-white/70 text-base leading-relaxed mb-6">
                 We are a team of <strong className="text-white">GoHighLevel specialists</strong> who set up,
                 automate, and manage your entire GHL system. From CRM and funnels to AI workflows
-                and white-label SaaS — you focus on selling, we handle the tech.
+                and white-label SaaS you focus on selling, we handle the tech.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-6">
