@@ -51,6 +51,7 @@ const Footer = () => {
               <li className="mb-2.5"><Link href="/how-we-work" className="text-white/45 text-[0.82rem] font-light hover:text-[#0E9BF0] transition-colors">How We Work</Link></li>
               <li className="mb-2.5"><Link href="/blog" className="text-white/45 text-[0.82rem] font-light hover:text-[#0E9BF0] transition-colors">Blog</Link></li>
               <li className="mb-2.5"><Link href="/contact" className="text-white/45 text-[0.82rem] font-light hover:text-[#0E9BF0] transition-colors">Contact</Link></li>
+              <li className="mb-2.5"><Link href="/work-with-us" className="text-white/45 text-[0.82rem] font-light hover:text-[#0E9BF0] transition-colors">Work with us</Link></li>
             </ul>
           </div>
 
@@ -100,22 +101,22 @@ const Footer = () => {
                 >
                   <Twitter className="h-4 w-4" />
                 </Link>
-                <Link
+                {/* <Link
                   href="https://facebook.com/ghlscaleup"
                   target="_blank"
                   className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#0E9BF0] hover:text-white hover:border-[#0E9BF0] transition-all group"
                   aria-label="Facebook"
                 >
                   <Facebook className="h-4 w-4" />
-                </Link>
-                {/* <Link 
-                  href="https://www.instagram.com/ghl_scale_up/?utm_source=ig_web_button_share_sheet" 
+                </Link> */}
+                <Link 
+                  href="https://www.instagram.com/ghl_scale_up" 
                   target="_blank" 
                   className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#0E9BF0] hover:text-white hover:border-[#0E9BF0] transition-all group"
                   aria-label="Instagram"
                 >
                   <Instagram className="h-4 w-4" />
-                </Link> */}
+                </Link>
                 <Link
                   href="https://www.youtube.com/@scaleghlsystems"
                   target="_blank"
