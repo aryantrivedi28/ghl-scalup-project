@@ -600,7 +600,7 @@ export default function WhereToHireGHLExpertsClient() {
                 and evaluated hundreds of GHL freelancers and agencies. This guide is based on direct experience, 
                 not affiliate incentives.
               </p>
-              <Link href="https://ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
+              <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
             </div>
 
             {/* CTA Card */}

@@ -658,7 +658,7 @@ export default function WorkflowAutomationClient() {
                                           <p className="text-xs text-white/60 leading-relaxed mb-3">
                                                 5+ years GHL experience · 200+ workflow builds delivered across real estate, healthcare, SaaS, agencies, and home services globally.
                                           </p>
-                                          <Link href="https://ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
+                                          <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
                                     </div>
 
                                     {/* CTA Card */}

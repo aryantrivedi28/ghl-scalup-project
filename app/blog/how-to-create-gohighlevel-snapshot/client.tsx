@@ -631,7 +631,7 @@ export default function CreateSnapshotClient() {
                 5+ years GHL experience · 200+ systems built across dental, real estate, home services, SaaS, and agencies globally.
                 We have built and deployed Snapshots in 6 countries.
               </p>
-              <Link href="https://ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
+              <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
             </div>
 
             {/* CTA Card */}

@@ -15,14 +15,14 @@ export const metadata: Metadata = {
     modifiedTime: '2026-05-06T00:00:00Z',
     authors: ['GHL Scale Up Team'],
     tags: ['GoHighLevel', 'Workflow Automation', 'GHL Tutorial', 'Marketing Automation'],
-    images: [{ url: 'https://ghlscaleup.com/images/blog/ghl-workflow-automation-og.jpg', width: 1200, height: 630 }],
+    images: [{ url: '/images/blog/ghl-workflow-automation-og.jpg', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
     site: '@ghlscaleup',
     title: 'How to Set Up GoHighLevel Workflow Automation for Beginners',
     description: 'Step-by-step beginner\'s guide to GHL workflow automation. Build your first automation in under 30 minutes.',
-    images: ['https://ghlscaleup.com/images/blog/ghl-workflow-automation-og.jpg'],
+    images: ['/images/blog/ghl-workflow-automation-og.jpg'],
   },
   alternates: {
     canonical: 'https://www.ghlscaleup.com/blog/how-to-set-up-gohighlevel-workflow-automation',
