@@ -555,7 +555,7 @@ export default function ConversationAIDataStorageClient() {
                 <Link href="/blog/gohighlevel-missed-call-text-back" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Missed Call Text Back: How It Works + Full Setup →</Link>
                 <Link href="/blog/what-is-gohighlevel" className="text-sm text-[#0E9BF0] hover:underline">What Is GoHighLevel? Complete 2026 Guide →</Link>
                 <Link href="/services/crm-setup" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel CRM Setup Service →</Link>
-                <Link href="/services/ai-setup" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel AI Features Setup →</Link>
+                <Link href="/services/ai-chatbot" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel AI Chatbot Setup →</Link>
               </div>
             </div>
 

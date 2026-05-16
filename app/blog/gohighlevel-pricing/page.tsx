@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     images: ['https://ghlscaleup.com/images/blog/ghl-pricing-og.jpg'],
   },
   alternates: {
-    canonical: 'https://ghlscaleup.com/blog/gohighlevel-pricing',
+    canonical: 'https://www.ghlscaleup.com/blog/gohighlevel-pricing',
   },
 };
 
