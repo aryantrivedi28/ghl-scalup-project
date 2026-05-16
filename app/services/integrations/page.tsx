@@ -8,7 +8,7 @@ export const metadata = {
   description: 'Custom integrations with Zapier, Make, Stripe, Google, webhooks, and custom APIs. 200+ projects. Get a free consultation.',
   keywords: 'GHL integrations, API development, Zapier integration, Make.com, webhooks, custom API',
   alternates: {
-    canonical: '/services/integrations',
+    canonical: 'https://www.ghlscaleup.com/services/integrations',
   },
 };
 

@@ -34,6 +34,21 @@ import { cn } from '@/lib/utils'
 import CtaBand from '@/components/sections/CtaBand'
 import Link from 'next/link'
 
+
+
+import type { Metadata } from 'next'
+
+export const metadata ={
+  title:
+    'Hire a GoHighLevel Virtual Assistant | Expert GHL VA Services',
+  description:
+    'Hire a dedicated GoHighLevel virtual assistant to manage workflows, CRM pipelines, automations, campaigns, funnels, and lead responses inside your GHL account.',
+  alternates: {
+    canonical:
+      'https://www.yourdomain.com/go-highlevel-virtual-assistant',
+  },
+}
+
 // FAQ Component
 interface FAQItem {
       q: string

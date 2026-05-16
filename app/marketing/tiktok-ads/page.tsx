@@ -8,7 +8,7 @@ export const metadata = {
   description: 'Expert TikTok Ads management with video ads, spark ads, lead forms, and creator partnerships. Reach Gen Z and Millennial audiences. Get a free TikTok audit.',
   keywords: 'TikTok Ads management, TikTok advertising, spark ads, video ads, influencer marketing',
   alternates: {
-    canonical: '/marketing/tiktok-ads'
+    canonical: 'https://www.ghlscaleup.com/marketing/tiktok-ads'
   }
 };
 

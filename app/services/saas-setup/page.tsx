@@ -8,7 +8,7 @@ export const metadata = {
   description: 'Complete white-label SaaS setup on GoHighLevel branded domains, snapshots, Stripe billing, sub-account provisioning. 200+ projects. Get a free consultation.',
   keywords: 'GHL white-label SaaS, GoHighLevel SaaS mode, white-label agency, SaaS setup, branded CRM platform',
   alternates: {
-    canonical: '/services/saas-setup',
+    canonical: 'https://www.ghlscaleup.com/services/saas-setup',
   },
 };
 

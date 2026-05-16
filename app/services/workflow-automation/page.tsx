@@ -8,7 +8,7 @@ export const metadata = {
   description: 'Expert GHL workflow automation with triggers, sequences, conditional logic, AI follow-ups. 70% manual work reduction. Get a free automation audit today.',
   keywords: 'GoHighLevel workflow automation, GHL marketing automation, trigger-based workflows, AI follow-up sequences',
   alternates: {
-    canonical: '/services/workflow-automation',
+    canonical: 'https://www.ghlscaleup.com/services/workflow-automation',
   },
 };
 

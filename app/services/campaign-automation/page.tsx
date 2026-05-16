@@ -8,7 +8,7 @@ export const metadata = {
   description: 'Multi-channel drip campaigns, nurture sequences, appointment reminders, and re-engagement workflows. 200+ projects delivered. Get a free audit.',
   keywords: 'GHL email automation, SMS marketing, WhatsApp automation, multi-channel campaigns, drip sequences',
   alternates: {
-    canonical: '/services/campaign-automation',
+    canonical: 'https://www.ghlscaleup.com/services/campaign-automation',
   },
 };
 

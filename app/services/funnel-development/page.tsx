@@ -8,7 +8,7 @@ export const metadata = {
   description: 'Expert GHL sales funnel development with high-converting landing pages, opt-in forms, order bumps, and upsells. 200+ projects delivered. Get a free funnel audit today.',
   keywords: 'GoHighLevel sales funnel, GHL landing page builder, funnel development, sales funnel design, high-converting funnels',
   alternates: {
-    canonical: '/services/funnel-development',
+    canonical: 'https://www.ghlscaleup.com/services/funnel-development',
   },
 };
 

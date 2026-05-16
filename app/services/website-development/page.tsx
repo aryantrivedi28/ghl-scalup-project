@@ -8,7 +8,7 @@ export const metadata = {
   description: 'Professional GHL website development with custom designs, SEO optimization, mobile responsiveness, and CRM integration. 200+ websites built. Get a free consultation.',
   keywords: 'GHL website development, GoHighLevel website builder, custom GHL websites, GHL landing pages, GHL web design',
   alternates: {
-    canonical: '/services/website-development',
+    canonical: 'https://www.ghlscaleup.com/services/website-development',
   },
 };
 

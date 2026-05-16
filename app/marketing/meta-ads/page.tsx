@@ -8,7 +8,7 @@ export const metadata = {
   description: 'Expert Meta Ads management for Facebook and Instagram. Lead generation, retargeting, creative testing, and audience building. Get a free Meta Ads audit.',
   keywords: 'Facebook Ads management, Instagram Ads, Meta advertising, lead generation ads, retargeting campaigns',
   alternates: {
-    canonical: '/marketing/meta-ads'
+    canonical: 'https://www.ghlscaleup.com/marketing/meta-ads'
   }
 };
 
