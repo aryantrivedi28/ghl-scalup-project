@@ -126,7 +126,7 @@ const blogPosts = [
     date: 'May 15, 2026',
     readTime: '19 min read',
     featured: true,
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+    image: 'https://iloveghl.com/wp-content/uploads/2023/08/Difference-And-Comparison-Between-Coffee-And-Tea-Facebook-Post-1280-%C3%97-720-px-1.png',
   },
   {
     icon: Rocket,

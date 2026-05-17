@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   // Open Graph for social media (Facebook, LinkedIn, etc.)
   openGraph: {
     title: 'GoHighLevel Expert Agency | GHL Scale Up',
-    description: 'GHL Scale Up builds complete GoHighLevel systems - CRM setup, automation, AI agents & white-label SaaS.',
+    description: 'GHL Scale Up builds complete GoHighLevel systems CRM setup, automation, AI agents & white-label SaaS.',
     url: 'https://www.ghlscaleup.com',
     siteName: 'GHL Scale Up',
     images: [
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'GoHighLevel Expert Agency | GHL Scale Up',
-    description: 'GHL Scale Up builds complete GoHighLevel systems - CRM setup, automation, AI agents & white-label SaaS.',
+    description: 'GHL Scale Up builds complete GoHighLevel systems CRM setup, automation, AI agents & white-label SaaS.',
     images: ['/web-app-manifest-512x512.png'],
     creator: '@ghlscaleup',
     site: '@ghlscaleup',
