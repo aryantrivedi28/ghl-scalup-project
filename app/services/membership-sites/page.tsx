@@ -4,9 +4,9 @@ import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
 
 export const metadata = {
-  title: 'GHL Training & Onboarding Services | GHL Scale Up',
-  description: 'End-to-end GHL training for your team CRM, automations, reporting, funnels. SOPs, videos, and live training. 200+ teams trained.',
-  keywords: 'GHL training, GoHighLevel onboarding, team training, SOPs, GHL certification',
+  title: 'GHL Membership & Course Sites | GHL Scale Up',
+  description: 'Build membership platforms and online course sites inside GoHighLevel. Drip content, gated access, payments, and student management. 200+ projects.',
+  keywords: 'GHL membership site, online courses, drip content, course platform, membership management',
   alternates: {
     canonical: '/services/membership-sites',
   },
