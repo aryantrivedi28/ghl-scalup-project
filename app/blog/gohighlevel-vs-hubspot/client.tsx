@@ -28,6 +28,7 @@ import {
   X,
   BarChart3
 } from 'lucide-react';
+import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export default function GoHighLevelVsHubSpotClient() {
   const [activeId, setActiveId] = useState<string>('');
@@ -70,6 +71,39 @@ export default function GoHighLevelVsHubSpotClient() {
       window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     }
   };
+
+  const faqs = [
+    {
+      q: "Is GoHighLevel better than HubSpot?",
+      a: "GoHighLevel is better than HubSpot for marketing agencies managing multiple client accounts, service businesses needing native SMS and AI features, and agencies that want to white-label or resell a platform. HubSpot is better for enterprise B2B companies with complex sales cycles, large in-house marketing teams, and businesses that need deep third-party integrations. The answer depends entirely on your business model, not on which platform is objectively superior."
+    },
+    {
+      q: "How much does GoHighLevel cost compared to HubSpot?",
+      a: "GoHighLevel costs $97, $297, or $497/month flat unlimited contacts and unlimited users on every plan. HubSpot starts free but scales quickly: Marketing Hub Professional is $890/month for 2,000 contacts and 3 seats, plus a mandatory $3,000 onboarding fee. For a 10-client agency, GoHighLevel Unlimited costs $297/month total versus $8,900+ per month on HubSpot. The pricing gap is not marginal."
+    },
+    {
+      q: "Can GoHighLevel replace HubSpot?",
+      a: "For most agencies and service businesses, yes. GoHighLevel covers CRM, pipeline management, email marketing, SMS, automation, booking, funnels, reputation management, and AI features all areas where HubSpot requires multiple hubs at significantly higher cost. The main scenarios where HubSpot cannot be replaced by GHL: enterprises requiring deep third-party integrations, complex B2B lifecycle reporting, or predictive AI features at the Enterprise tier."
+    },
+    {
+      q: "Does GoHighLevel have better automation than HubSpot?",
+      a: "For agency use cases, GoHighLevel's automation covers more channels at a lower price point. GHL includes native SMS, AI Voice Agent, missed call text-back, and AI chatbot automation that HubSpot requires third-party tools to match. HubSpot's automation is deeper for enterprise marketing workflows behavioral scoring, smart content, multi-touch attribution but these features require Marketing Hub Professional at $890/month minimum."
+    },
+    {
+      q: "Does HubSpot have a white-label option?",
+      a: "No. HubSpot does not offer white-labelling at any pricing tier. There is no option to brand HubSpot with your agency's logo, remove HubSpot branding from client-facing interfaces, or resell HubSpot under your own name. GoHighLevel offers white-label desktop branding on the Unlimited plan ($297/month) and full SaaS Mode with a white-label mobile app on the Agency Pro plan ($497/month)."
+    },
+    {
+      q: "What does HubSpot do better than GoHighLevel?",
+      a: "HubSpot is stronger than GoHighLevel in: third-party integrations (1,500+ vs 200+), enterprise reporting and multi-touch attribution, predictive lead scoring, contact timeline depth, advanced segmentation, enterprise-grade user permissions and governance, and deep product integrations for SaaS and complex B2B sales cycles. For large organisations with dedicated marketing and sales teams, HubSpot's depth in these areas justifies its higher cost."
+    },
+    {
+      q: "Can I migrate from HubSpot to GoHighLevel?",
+      a: "Yes. Migrating from HubSpot to GoHighLevel involves exporting contact data, rebuilding pipeline stages and custom fields in GHL, recreating automation workflows, rebuilding email templates, and reconnecting integrations. The migration typically takes 1–3 weeks depending on account complexity. Most agencies that migrate report recouping the migration cost within the first month through subscription savings alone. GHL Scaleup specialises in HubSpot-to-GHL migrations with data integrity preserved throughout."
+    },
+  ];
+
+  useFaqSchema(faqs);
 
   const tocItems = [
     { id: 'what-platforms-built-for', title: '1. What Each Platform Is Actually Built For' },
@@ -159,9 +193,9 @@ export default function GoHighLevelVsHubSpotClient() {
 
           {/* Introductory Paragraph */}
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
-            GoHighLevel and HubSpot are two of the most-discussed platforms in marketing and CRM. 
-            They overlap significantly on paper but they were designed for completely different buyers, 
-            and choosing the wrong one will cost you thousands per year. This guide cuts through the 
+            GoHighLevel and HubSpot are two of the most-discussed platforms in marketing and CRM.
+            They overlap significantly on paper but they were designed for completely different buyers,
+            and choosing the wrong one will cost you thousands per year. This guide cuts through the
             noise with a direct comparison based on real pricing, real features, and real use cases.
           </p>
         </div>
@@ -184,7 +218,7 @@ export default function GoHighLevelVsHubSpotClient() {
                 GoHighLevel wins for marketing agencies managing multiple client accounts. HubSpot wins for enterprise B2B businesses with dedicated in-house marketing, sales, and service teams.
               </p>
               <p className="text-sm text-[#5C6880] leading-relaxed">
-                For a 10-client agency, GHL costs $297/month total vs HubSpot at $8,000+/month for the same setup. 
+                For a 10-client agency, GHL costs $297/month total vs HubSpot at $8,000+/month for the same setup.
                 That gap usually ends the comparison.
               </p>
               <p className="text-sm text-[#5C6880] leading-relaxed mt-2">
@@ -216,7 +250,7 @@ export default function GoHighLevelVsHubSpotClient() {
               1. What Each Platform Is Actually Built For
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Before comparing features line by line, understand this: GoHighLevel and HubSpot were designed 
+              Before comparing features line by line, understand this: GoHighLevel and HubSpot were designed
               for fundamentally different buyers. Running them through the same criteria misses the point.
             </p>
 
@@ -224,16 +258,16 @@ export default function GoHighLevelVsHubSpotClient() {
               <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-5">
                 <h3 className="text-base font-bold text-[#0E9BF0] mb-2">GoHighLevel: Built for agencies running client accounts</h3>
                 <p className="text-sm text-[#1A2236] leading-relaxed">
-                  GoHighLevel's architecture is agency-first by design. The sub-account model, Snapshots, SaaS Mode, 
-                  white-labelling every major structural decision exists to help agencies manage multiple clients 
+                  GoHighLevel's architecture is agency-first by design. The sub-account model, Snapshots, SaaS Mode,
+                  white-labelling every major structural decision exists to help agencies manage multiple clients
                   efficiently and profitably. Unlimited contacts. Unlimited users. One price regardless of how many clients you add.
                 </p>
               </div>
               <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5">
                 <h3 className="text-base font-bold text-[#1A2236] mb-2">HubSpot: Built for in-house marketing and sales teams</h3>
                 <p className="text-sm text-[#5C6880] leading-relaxed">
-                  HubSpot was designed for a single company's internal team. Its Hubs model maps to internal departments 
-                  it excels when you have dedicated marketing staff, an outbound sales team, and a support function all 
+                  HubSpot was designed for a single company's internal team. Its Hubs model maps to internal departments
+                  it excels when you have dedicated marketing staff, an outbound sales team, and a support function all
                   operating on shared contact data. It is not designed with multi-client agency delivery in mind.
                 </p>
               </div>
@@ -242,8 +276,8 @@ export default function GoHighLevelVsHubSpotClient() {
             <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
               <p className="text-sm font-semibold text-[#1A2236] mb-1">THE PRACTICAL TEST:</p>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                Ask yourself: <strong>Am I building marketing systems for other businesses, or running marketing for my own?</strong> 
-                If you manage multiple clients GHL. If you are a business marketing to your own customers HubSpot or GHL both work, 
+                Ask yourself: <strong>Am I building marketing systems for other businesses, or running marketing for my own?</strong>
+                If you manage multiple clients GHL. If you are a business marketing to your own customers HubSpot or GHL both work,
                 but HubSpot offers more depth at significantly higher cost.
               </p>
             </div>
@@ -253,7 +287,7 @@ export default function GoHighLevelVsHubSpotClient() {
               2. GoHighLevel vs HubSpot: Pricing Comparison (Real Numbers)
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              This is where most comparison articles stop at the headline numbers. We're going further showing what 
+              This is where most comparison articles stop at the headline numbers. We're going further showing what
               each platform actually costs for a real agency scenario.
             </p>
 
@@ -285,11 +319,11 @@ export default function GoHighLevelVsHubSpotClient() {
                 <span className="text-sm font-bold text-[#25C97D]">THE AGENCY SCENARIO: 10 CLIENTS</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed mb-2">
-                <strong className="text-[#1A2236]">GoHighLevel Unlimited ($297/mo):</strong> $297/month total. All 10 clients in sub-accounts. 
+                <strong className="text-[#1A2236]">GoHighLevel Unlimited ($297/mo):</strong> $297/month total. All 10 clients in sub-accounts.
                 Unlimited contacts across all. Snapshot-based onboarding. Zero per-client cost increase.
               </p>
               <p className="text-sm text-[#1A2236] leading-relaxed mb-2">
-                <strong className="text-[#1A2236]">HubSpot Marketing Hub Pro ($890/mo):</strong> To give 10 clients equivalent isolated environments, 
+                <strong className="text-[#1A2236]">HubSpot Marketing Hub Pro ($890/mo):</strong> To give 10 clients equivalent isolated environments,
                 you would need 10 separate HubSpot accounts. At $890/month each: <strong className="text-[#DC3545]">$8,900/month.</strong>
               </p>
               <p className="text-sm text-[#1A2236] leading-relaxed">
@@ -337,14 +371,14 @@ export default function GoHighLevelVsHubSpotClient() {
               4. Agency Use Case: Why GHL Wins for Client Management
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              If you run a marketing agency any model where you build, configure, or manage marketing systems for other businesses 
+              If you run a marketing agency any model where you build, configure, or manage marketing systems for other businesses
               GoHighLevel's architecture solves problems that HubSpot was not designed to address.
             </p>
 
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-5 mb-4">
               <h3 className="text-base font-bold text-[#1A2236] mb-2">Sub-accounts: the fundamental structural difference</h3>
               <p className="text-sm text-[#5C6880] leading-relaxed">
-                GoHighLevel's sub-account model gives every client <strong>their own isolated environment</strong> their own CRM, funnels, 
+                GoHighLevel's sub-account model gives every client <strong>their own isolated environment</strong> their own CRM, funnels,
                 contacts, automations, phone numbers, and reporting. You manage all of them from one agency dashboard without data bleeding between clients.
                 HubSpot has no equivalent.
               </p>
@@ -353,7 +387,7 @@ export default function GoHighLevelVsHubSpotClient() {
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-5 mb-4">
               <h3 className="text-base font-bold text-[#1A2236] mb-2">Snapshots: the agency multiplier</h3>
               <p className="text-sm text-[#5C6880] leading-relaxed">
-                GoHighLevel's Snapshot system lets you build one perfect client setup and deploy it to any new account in minutes. 
+                GoHighLevel's Snapshot system lets you build one perfect client setup and deploy it to any new account in minutes.
                 For an agency onboarding 5 new clients per month, this is the difference between 2-hour onboarding and 40-hour onboarding.
               </p>
               <p className="text-sm text-[#5C6880] leading-relaxed mt-2">
@@ -364,7 +398,7 @@ export default function GoHighLevelVsHubSpotClient() {
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-5 mb-4">
               <h3 className="text-base font-bold text-[#1A2236] mb-2">Workflow automation: parallel but different in depth</h3>
               <p className="text-sm text-[#5C6880] leading-relaxed">
-                GHL handles triggers from SMS, calls, AI conversations, form submissions, missed calls, and 30+ other events 
+                GHL handles triggers from SMS, calls, AI conversations, form submissions, missed calls, and 30+ other events
                 with 100+ action types including AI steps, webhooks, and custom integrations.
               </p>
               <p className="text-sm text-[#5C6880] leading-relaxed mt-2">
@@ -375,7 +409,7 @@ export default function GoHighLevelVsHubSpotClient() {
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-5 mb-4">
               <h3 className="text-base font-bold text-[#1A2236] mb-2">SaaS resale: GHL's unique capability</h3>
               <p className="text-sm text-[#5C6880] leading-relaxed">
-                Only GoHighLevel allows you to white-label the entire platform and resell it as your own branded software product. 
+                Only GoHighLevel allows you to white-label the entire platform and resell it as your own branded software product.
                 <strong>HubSpot offers no white-label option at any tier.</strong>
               </p>
             </div>
@@ -386,7 +420,7 @@ export default function GoHighLevelVsHubSpotClient() {
                 <span className="text-sm font-bold text-[#F8D000]">FROM 200+ GHL BUILDS</span>
               </div>
               <p className="text-sm text-white/80 leading-relaxed mb-3">
-                At GHL Scaleup, we've helped agencies migrate from HubSpot to GoHighLevel dozens of times. The consistent pattern: 
+                At GHL Scaleup, we've helped agencies migrate from HubSpot to GoHighLevel dozens of times. The consistent pattern:
                 <strong className="text-white"> the migration pays for itself within the first month</strong> in subscription savings alone.
               </p>
               <Link href="/contact" className="inline-flex items-center gap-2 text-[#F8D000] text-sm font-semibold hover:gap-3 transition-all">
@@ -446,36 +480,7 @@ export default function GoHighLevelVsHubSpotClient() {
             </h2>
 
             <div className="space-y-3">
-              {[
-                { 
-                  q: "Is GoHighLevel better than HubSpot?", 
-                  a: "GoHighLevel is better than HubSpot for marketing agencies managing multiple client accounts, service businesses needing native SMS and AI features, and agencies that want to white-label or resell a platform. HubSpot is better for enterprise B2B companies with complex sales cycles, large in-house marketing teams, and businesses that need deep third-party integrations. The answer depends entirely on your business model, not on which platform is objectively superior." 
-                },
-                { 
-                  q: "How much does GoHighLevel cost compared to HubSpot?", 
-                  a: "GoHighLevel costs $97, $297, or $497/month flat unlimited contacts and unlimited users on every plan. HubSpot starts free but scales quickly: Marketing Hub Professional is $890/month for 2,000 contacts and 3 seats, plus a mandatory $3,000 onboarding fee. For a 10-client agency, GoHighLevel Unlimited costs $297/month total versus $8,900+ per month on HubSpot. The pricing gap is not marginal." 
-                },
-                { 
-                  q: "Can GoHighLevel replace HubSpot?", 
-                  a: "For most agencies and service businesses, yes. GoHighLevel covers CRM, pipeline management, email marketing, SMS, automation, booking, funnels, reputation management, and AI features all areas where HubSpot requires multiple hubs at significantly higher cost. The main scenarios where HubSpot cannot be replaced by GHL: enterprises requiring deep third-party integrations, complex B2B lifecycle reporting, or predictive AI features at the Enterprise tier." 
-                },
-                { 
-                  q: "Does GoHighLevel have better automation than HubSpot?", 
-                  a: "For agency use cases, GoHighLevel's automation covers more channels at a lower price point. GHL includes native SMS, AI Voice Agent, missed call text-back, and AI chatbot automation that HubSpot requires third-party tools to match. HubSpot's automation is deeper for enterprise marketing workflows behavioral scoring, smart content, multi-touch attribution but these features require Marketing Hub Professional at $890/month minimum." 
-                },
-                { 
-                  q: "Does HubSpot have a white-label option?", 
-                  a: "No. HubSpot does not offer white-labelling at any pricing tier. There is no option to brand HubSpot with your agency's logo, remove HubSpot branding from client-facing interfaces, or resell HubSpot under your own name. GoHighLevel offers white-label desktop branding on the Unlimited plan ($297/month) and full SaaS Mode with a white-label mobile app on the Agency Pro plan ($497/month)." 
-                },
-                { 
-                  q: "What does HubSpot do better than GoHighLevel?", 
-                  a: "HubSpot is stronger than GoHighLevel in: third-party integrations (1,500+ vs 200+), enterprise reporting and multi-touch attribution, predictive lead scoring, contact timeline depth, advanced segmentation, enterprise-grade user permissions and governance, and deep product integrations for SaaS and complex B2B sales cycles. For large organisations with dedicated marketing and sales teams, HubSpot's depth in these areas justifies its higher cost." 
-                },
-                { 
-                  q: "Can I migrate from HubSpot to GoHighLevel?", 
-                  a: "Yes. Migrating from HubSpot to GoHighLevel involves exporting contact data, rebuilding pipeline stages and custom fields in GHL, recreating automation workflows, rebuilding email templates, and reconnecting integrations. The migration typically takes 1–3 weeks depending on account complexity. Most agencies that migrate report recouping the migration cost within the first month through subscription savings alone. GHL Scaleup specialises in HubSpot-to-GHL migrations with data integrity preserved throughout." 
-                },
-              ].map((faq, index) => (
+              {faqs.map((faq, index) => (
                 <details key={index} className="group border-b border-[rgba(28,35,33,0.08)]">
                   <summary className="flex justify-between items-center cursor-pointer list-none py-4 text-[0.92rem] font-semibold text-[#1A2236] hover:text-[#0E9BF0] transition-colors">
                     {faq.q}
@@ -504,8 +509,8 @@ export default function GoHighLevelVsHubSpotClient() {
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Considering switching from HubSpot to GoHighLevel?</h3>
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
-                  We've done this migration dozens of times. GHL Scaleup handles full HubSpot-to-GHL migrations 
-                  contact data, pipelines, automations, and integrations with zero data loss. 5+ years of experience. 
+                  We've done this migration dozens of times. GHL Scaleup handles full HubSpot-to-GHL migrations
+                  contact data, pipelines, automations, and integrations with zero data loss. 5+ years of experience.
                   200+ systems built.
                 </p>
                 <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
@@ -562,7 +567,7 @@ export default function GoHighLevelVsHubSpotClient() {
                 </div>
               </div>
               <p className="text-xs text-white/60 leading-relaxed mb-3">
-                5+ years GHL experience · 200+ systems built globally. We have migrated dozens of businesses from HubSpot to GoHighLevel. 
+                5+ years GHL experience · 200+ systems built globally. We have migrated dozens of businesses from HubSpot to GoHighLevel.
                 HubSpot pricing verified from official HubSpot documentation May 2026. GoHighLevel pricing verified from official GHL documentation May 2026.
               </p>
               <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">www.ghlscaleup.com</Link>

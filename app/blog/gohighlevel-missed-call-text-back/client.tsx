@@ -27,6 +27,7 @@ import {
       FileText,
       Target
 } from 'lucide-react';
+import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export default function MissedCallTextBackClient() {
       const [activeId, setActiveId] = useState<string>('');
@@ -68,6 +69,39 @@ export default function MissedCallTextBackClient() {
                   window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
             }
       };
+
+      const faqs = [
+            {
+                  q: "What is GoHighLevel missed call text back?",
+                  a: "GoHighLevel missed call text back is a built-in feature that automatically sends a pre-written SMS to any caller whose call goes unanswered. The text fires within 15 seconds while the caller is still looking at their phone and replies land in your GHL Conversations inbox. It requires no workflow to activate and works 24/7."
+            },
+            {
+                  q: "How fast does GoHighLevel send the missed call text back?",
+                  a: "GoHighLevel sends the missed call text back within 15 seconds of the call going unanswered. This is intentionally fast enough to reach the caller while they are still holding their phone, before they open a search engine to find a competitor."
+            },
+            {
+                  q: "Does missed call text back work after business hours?",
+                  a: "Yes. Missed call text back fires 24 hours a day, 7 days a week, regardless of your business hours settings. For after-hours calls, customise the message to set appropriate expectations for example: 'Our office is closed right now but we'll call you first thing tomorrow morning.'"
+            },
+            {
+                  q: "How much does GoHighLevel missed call text back cost?",
+                  a: "The feature itself is included on all GoHighLevel plans at no extra cost. You pay the standard GHL SMS usage rate for each text sent, which is approximately $0.0079 per SMS segment (160 characters). For a business receiving 50 missed calls per month, that's under $0.50 per month in SMS costs."
+            },
+            {
+                  q: "Can I use missed call text back with my own Twilio number?",
+                  a: "Yes. Missed call text back works with both GoHighLevel's native LC Phone numbers and your own Twilio numbers. Whichever number the caller dials, the text will be sent from that same number if the feature is enabled on it."
+            },
+            {
+                  q: "What is the difference between the native missed call text back and building a workflow for it?",
+                  a: "The native feature sends one text and stops. A workflow version gives you more control: you can add the contact to a CRM pipeline, send a follow-up if they don't reply, assign a task to your team, and add conditional logic. For most businesses, start with the native feature for speed, then upgrade to a workflow once you understand the basics."
+            },
+            {
+                  q: "Why is my GoHighLevel missed call text back not sending?",
+                  a: "The most common reasons are: (1) incomplete A2P 10DLC registration for US numbers, (2) the feature is not enabled for the specific phone number the caller dialed, (3) the caller has previously opted out of SMS, or (4) you have both the native feature and a workflow running simultaneously, causing conflicts. Check each in order."
+            },
+      ];
+
+      useFaqSchema(faqs);
 
       const tocItems = [
             { id: 'what-is-missed-call-text-back', title: '1. What Is GoHighLevel Missed Call Text Back?' },
@@ -170,13 +204,13 @@ export default function MissedCallTextBackClient() {
 
                               {/* Author Byline */}
                               <div className="flex items-center gap-3 mb-6">
-                                                                        <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
-                                                      <img
-                                                            src="/web-app-manifest-192x192.png"
-                                                            alt="GHL Scale Up"
-                                                            className="w-full h-full object-cover"
-                                                      />
-                                                </div>
+                                    <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
+                                          <img
+                                                src="/web-app-manifest-192x192.png"
+                                                alt="GHL Scale Up"
+                                                className="w-full h-full object-cover"
+                                          />
+                                    </div>
                                     <div>
                                           <div className="text-sm font-medium text-white">GHL Scale Up Team</div>
                                           <div className="text-xs text-white/50">GoHighLevel Specialists · 200+ Builds Delivered · Updated May 2026</div>
@@ -475,36 +509,7 @@ export default function MissedCallTextBackClient() {
                                     </h2>
 
                                     <div className="space-y-3">
-                                          {[
-                                                {
-                                                      q: "What is GoHighLevel missed call text back?",
-                                                      a: "GoHighLevel missed call text back is a built-in feature that automatically sends a pre-written SMS to any caller whose call goes unanswered. The text fires within 15 seconds while the caller is still looking at their phone and replies land in your GHL Conversations inbox. It requires no workflow to activate and works 24/7."
-                                                },
-                                                {
-                                                      q: "How fast does GoHighLevel send the missed call text back?",
-                                                      a: "GoHighLevel sends the missed call text back within 15 seconds of the call going unanswered. This is intentionally fast enough to reach the caller while they are still holding their phone, before they open a search engine to find a competitor."
-                                                },
-                                                {
-                                                      q: "Does missed call text back work after business hours?",
-                                                      a: "Yes. Missed call text back fires 24 hours a day, 7 days a week, regardless of your business hours settings. For after-hours calls, customise the message to set appropriate expectations for example: 'Our office is closed right now but we'll call you first thing tomorrow morning.'"
-                                                },
-                                                {
-                                                      q: "How much does GoHighLevel missed call text back cost?",
-                                                      a: "The feature itself is included on all GoHighLevel plans at no extra cost. You pay the standard GHL SMS usage rate for each text sent, which is approximately $0.0079 per SMS segment (160 characters). For a business receiving 50 missed calls per month, that's under $0.50 per month in SMS costs."
-                                                },
-                                                {
-                                                      q: "Can I use missed call text back with my own Twilio number?",
-                                                      a: "Yes. Missed call text back works with both GoHighLevel's native LC Phone numbers and your own Twilio numbers. Whichever number the caller dials, the text will be sent from that same number if the feature is enabled on it."
-                                                },
-                                                {
-                                                      q: "What is the difference between the native missed call text back and building a workflow for it?",
-                                                      a: "The native feature sends one text and stops. A workflow version gives you more control: you can add the contact to a CRM pipeline, send a follow-up if they don't reply, assign a task to your team, and add conditional logic. For most businesses, start with the native feature for speed, then upgrade to a workflow once you understand the basics."
-                                                },
-                                                {
-                                                      q: "Why is my GoHighLevel missed call text back not sending?",
-                                                      a: "The most common reasons are: (1) incomplete A2P 10DLC registration for US numbers, (2) the feature is not enabled for the specific phone number the caller dialed, (3) the caller has previously opted out of SMS, or (4) you have both the native feature and a workflow running simultaneously, causing conflicts. Check each in order."
-                                                },
-                                          ].map((faq, index) => (
+                                          {faqs.map((faq, index) => (
                                                 <details key={index} className="group border-b border-[rgba(28,35,33,0.08)]">
                                                       <summary className="flex justify-between items-center cursor-pointer list-none py-4 text-[0.92rem] font-semibold text-[#1A2236] hover:text-[#0E9BF0] transition-colors">
                                                             {faq.q}

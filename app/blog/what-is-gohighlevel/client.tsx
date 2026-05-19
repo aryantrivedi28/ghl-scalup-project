@@ -26,6 +26,7 @@ import {
   Award,
   TrendingUp
 } from 'lucide-react';
+import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export default function WhatIsGoHighLevelClient() {
   const [activeId, setActiveId] = useState<string>('');
@@ -68,6 +69,43 @@ export default function WhatIsGoHighLevelClient() {
       window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     }
   };
+
+  const faqs = [
+    {
+      q: "What is GoHighLevel used for?",
+      a: "GoHighLevel is used by marketing agencies and service businesses to manage leads, automate follow-ups, build funnels, run email and SMS campaigns, handle bookings, collect reviews, and build white-label SaaS products. It replaces 8+ separate marketing and CRM tools in one platform."
+    },
+    {
+      q: "Is GoHighLevel a CRM?",
+      a: "Yes. GoHighLevel has a full CRM with contact management, pipeline tracking, tagging, segmentation, and a unified inbox that pulls messages from email, SMS, WhatsApp, and social channels. It replaces HubSpot, Salesforce, and Pipedrive for the majority of agency and service business use cases."
+    },
+    {
+      q: "How much does GoHighLevel cost?",
+      a: "GoHighLevel costs $97/month for the Starter plan, $297/month for the Unlimited plan (most popular for agencies), and $497/month for the Agency Pro SaaS plan. All plans include unlimited contacts and users. Usage fees for SMS, email, and phone calls apply separately."
+    },
+    {
+      q: "What is a GoHighLevel sub-account?",
+      a: "A sub-account is a separate client workspace inside your agency account. Each sub-account has its own CRM, funnels, automations, contacts, and settings, fully isolated from other clients. The Starter plan includes 3 sub-accounts. Unlimited and Agency Pro include unlimited sub-accounts."
+    },
+    {
+      q: "What is a GoHighLevel Snapshot?",
+      a: "A Snapshot is a pre-built copy of a complete sub-account including all workflows, funnels, pipelines, and settings. Agencies create one master Snapshot and deploy it to new clients in minutes, eliminating the need to rebuild from scratch for every new client."
+    },
+    {
+      q: "Does GoHighLevel have a free trial?",
+      a: "Yes. GoHighLevel offers a 14-day free trial with full access to all platform features on your chosen plan. No credit card is required to start. Use the trial to set up one pipeline, build one automation, and run a real lead through the system."
+    },
+    {
+      q: "How is GoHighLevel different from HubSpot?",
+      a: "HubSpot is built for a single company's internal marketing and sales team. GoHighLevel is built for agencies managing multiple client accounts. GoHighLevel has flat-rate pricing with unlimited contacts and users, white-labelling, and sub-accounts. A 10-client agency setup on HubSpot can exceed $8,000/month compared to $297/month on GHL Unlimited."
+    },
+    {
+      q: "Is GoHighLevel worth it?",
+      a: "For agencies and service businesses that set it up properly, yes. GoHighLevel at $97-$297/month replaces 8+ tools that typically cost $600-$1,500/month combined. The main risk is paying for a subscription and only using 15-20% of the platform, which is why a proper setup from day one matters."
+    },
+  ];
+
+  useFaqSchema(faqs);
 
   const tocItems = [
     { id: 'what-is-gohighlevel', title: '1. What GoHighLevel Actually Is' },
@@ -524,40 +562,7 @@ export default function WhatIsGoHighLevelClient() {
             </h2>
 
             <div className="space-y-3">
-              {[
-                {
-                  q: "What is GoHighLevel used for?",
-                  a: "GoHighLevel is used by marketing agencies and service businesses to manage leads, automate follow-ups, build funnels, run email and SMS campaigns, handle bookings, collect reviews, and build white-label SaaS products. It replaces 8+ separate marketing and CRM tools in one platform."
-                },
-                {
-                  q: "Is GoHighLevel a CRM?",
-                  a: "Yes. GoHighLevel has a full CRM with contact management, pipeline tracking, tagging, segmentation, and a unified inbox that pulls messages from email, SMS, WhatsApp, and social channels. It replaces HubSpot, Salesforce, and Pipedrive for the majority of agency and service business use cases."
-                },
-                {
-                  q: "How much does GoHighLevel cost?",
-                  a: "GoHighLevel costs $97/month for the Starter plan, $297/month for the Unlimited plan (most popular for agencies), and $497/month for the Agency Pro SaaS plan. All plans include unlimited contacts and users. Usage fees for SMS, email, and phone calls apply separately."
-                },
-                {
-                  q: "What is a GoHighLevel sub-account?",
-                  a: "A sub-account is a separate client workspace inside your agency account. Each sub-account has its own CRM, funnels, automations, contacts, and settings, fully isolated from other clients. The Starter plan includes 3 sub-accounts. Unlimited and Agency Pro include unlimited sub-accounts."
-                },
-                {
-                  q: "What is a GoHighLevel Snapshot?",
-                  a: "A Snapshot is a pre-built copy of a complete sub-account including all workflows, funnels, pipelines, and settings. Agencies create one master Snapshot and deploy it to new clients in minutes, eliminating the need to rebuild from scratch for every new client."
-                },
-                {
-                  q: "Does GoHighLevel have a free trial?",
-                  a: "Yes. GoHighLevel offers a 14-day free trial with full access to all platform features on your chosen plan. No credit card is required to start. Use the trial to set up one pipeline, build one automation, and run a real lead through the system."
-                },
-                {
-                  q: "How is GoHighLevel different from HubSpot?",
-                  a: "HubSpot is built for a single company's internal marketing and sales team. GoHighLevel is built for agencies managing multiple client accounts. GoHighLevel has flat-rate pricing with unlimited contacts and users, white-labelling, and sub-accounts. A 10-client agency setup on HubSpot can exceed $8,000/month compared to $297/month on GHL Unlimited."
-                },
-                {
-                  q: "Is GoHighLevel worth it?",
-                  a: "For agencies and service businesses that set it up properly, yes. GoHighLevel at $97-$297/month replaces 8+ tools that typically cost $600-$1,500/month combined. The main risk is paying for a subscription and only using 15-20% of the platform, which is why a proper setup from day one matters."
-                },
-              ].map((faq, index) => (
+              {faqs.map((faq, index) => (
                 <details key={index} className="group border-b border-[rgba(28,35,33,0.08)]">
                   <summary className="flex justify-between items-center cursor-pointer list-none py-4 text-[0.92rem] font-semibold text-[#1A2236] hover:text-[#0E9BF0] transition-colors">
                     {faq.q}

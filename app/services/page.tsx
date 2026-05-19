@@ -373,13 +373,6 @@ export default function ServicesPage() {
           </div>
         </div>
       </div>
-
-      <CtaBand 
-        title="Not Sure Which Service You Need?<br /><span class='hl-yellow'>Let's Talk.</span>"
-        description="We'll help you identify the right services to achieve your business goals. Book a free consultation today."
-        primaryText="Book Your Free Consultation →"
-        primaryHref="/contact"
-      />
     </>
   );
 }

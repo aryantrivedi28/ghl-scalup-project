@@ -37,6 +37,7 @@ import {
   Linkedin as LinkedInIcon,
   Trophy
 } from 'lucide-react';
+import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export default function WhereToHireGHLExpertsClient() {
   const [activeId, setActiveId] = useState<string>('');
@@ -82,6 +83,39 @@ export default function WhereToHireGHLExpertsClient() {
       window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     }
   };
+
+  const faqs = [
+    {
+      q: "Where is the best place to hire a GoHighLevel expert?",
+      a: "The GoHighLevel Official Certified Admin Directory (directory.gohighlevel.com) is the best starting point for finding verified professionals. For defined tasks with a budget, Upwork with a Job Success Score filter of 90%+ is the most reliable freelance option. For complete system builds involving CRM, automation, AI features, and SaaS Mode, a dedicated GHL specialist agency like GHL Scale Up provides the most comprehensive delivery."
+    },
+    {
+      q: "How much does it cost to hire a GoHighLevel expert?",
+      a: "Costs vary significantly by scope and hiring channel. Fiverr freelancers charge $50–$500 for small tasks. Upwork specialists charge $25–$150 per hour or $300–$2,500 for fixed-scope projects. Dedicated GHL agencies charge $500–$8,000+ for full builds depending on complexity. Anything below market rate for a complex build is a red flag cheap builds frequently become expensive rebuilds."
+    },
+    {
+      q: "What is the GoHighLevel Certified Admin Directory?",
+      a: "The GoHighLevel Certified Admin Directory at directory.gohighlevel.com is GoHighLevel's official listing of professionals who have completed their certification programme. As of 2026, 478+ certified admins are listed globally. Certification confirms platform knowledge but does not guarantee delivery quality or project management skills always apply a vetting process regardless."
+    },
+    {
+      q: "Is it better to hire a freelancer or an agency for GoHighLevel work?",
+      a: "Freelancers are cost-effective for small, clearly defined tasks building one funnel, setting up one workflow, configuring one integration. Agencies are more reliable for end-to-end builds, complex multi-system setups, SaaS Mode configuration, AI feature implementation, or CRM migration. Agencies bring team accountability, structured delivery, documentation, and post-delivery support that individual freelancers rarely provide."
+    },
+    {
+      q: "Can I find GHL experts in Facebook Groups?",
+      a: "Yes. The GoHighLevel Official Community on Facebook is the largest and most active GHL expert community, with GoHighLevel staff participation. Other strong groups include GHL SaaS Mode Community and GoHighLevel Agency Owners. Post a detailed job description or ask for referrals from other members. Community-vetted recommendations are often more reliable than cold platform searches."
+    },
+    {
+      q: "What should I ask before hiring a GoHighLevel expert?",
+      a: "Ask to see 2–3 recent GHL builds they have completed. Ask them to walk you through their approach to your specific project. Ask whether they have worked in your industry before. Ask what their delivery process looks like and what happens after project completion. Ask whether they can configure AI features. Any expert who avoids specific answers to these questions is not the right hire."
+    },
+    {
+      q: "What are the red flags when hiring a GoHighLevel expert?",
+      a: "The main red flags are: no portfolio or case studies, inability to explain how automations work in plain English, guarantees of specific results before understanding your business, pricing dramatically below market rate, slow communication before you have paid, and no mention of testing before delivery. Any one of these warrants continued due diligence. Two or more means look elsewhere."
+    },
+  ];
+
+  useFaqSchema(faqs);
 
   const tocItems = [
     { id: 'official-directory', title: '1. GoHighLevel Official Certified Admin Directory' },
@@ -167,10 +201,10 @@ export default function WhereToHireGHLExpertsClient() {
 
           {/* Introductory Paragraph */}
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
-            Hundreds of people now call themselves GoHighLevel experts. Most are not. 
-            Knowing where to look and more importantly, how to filter before you hire 
-            is the difference between a system that runs your business and one that costs 
-            you two months and needs to be rebuilt. This guide covers every channel, 
+            Hundreds of people now call themselves GoHighLevel experts. Most are not.
+            Knowing where to look and more importantly, how to filter before you hire
+            is the difference between a system that runs your business and one that costs
+            you two months and needs to be rebuilt. This guide covers every channel,
             what each one is best for, and exactly what to check before you hand over your GHL account.
           </p>
         </div>
@@ -193,10 +227,10 @@ export default function WhereToHireGHLExpertsClient() {
                 The 6 best places to find GoHighLevel experts in 2026 are:
               </p>
               <p className="text-sm text-[#5C6880] leading-relaxed">
-                (1) GoHighLevel's official Certified Admin Directory at directory.gohighlevel.com, (2) Upwork, 
-                (3) Fiverr, (4) GoHighLevel and agency Facebook Groups, (5) Clutch.co and B2B review platforms, 
-                and (6) dedicated GHL specialist agencies like GHL Scale Up. For a complete, end-to-end GHL build, 
-                a specialist agency is the most reliable option. For small, defined tasks, vetted freelancers on 
+                (1) GoHighLevel's official Certified Admin Directory at directory.gohighlevel.com, (2) Upwork,
+                (3) Fiverr, (4) GoHighLevel and agency Facebook Groups, (5) Clutch.co and B2B review platforms,
+                and (6) dedicated GHL specialist agencies like GHL Scale Up. For a complete, end-to-end GHL build,
+                a specialist agency is the most reliable option. For small, defined tasks, vetted freelancers on
                 Upwork are cost-effective.
               </p>
             </div>
@@ -228,12 +262,12 @@ export default function WhereToHireGHLExpertsClient() {
               <strong className="text-[#1A2236]">URL:</strong> directory.gohighlevel.com
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The official GoHighLevel Certified Admin Directory lists <strong className="text-[#0E9BF0]">478+ certified professionals</strong> 
-              globally who have completed GoHighLevel's structured certification programme. Certification covers core platform features, 
+              The official GoHighLevel Certified Admin Directory lists <strong className="text-[#0E9BF0]">478+ certified professionals</strong>
+              globally who have completed GoHighLevel's structured certification programme. Certification covers core platform features,
               production-level use cases, and real-world application it is not a lightweight badge.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Certified admins are listed with their name, specialisation, location, and a profile page. 
+              Certified admins are listed with their name, specialisation, location, and a profile page.
               GoHighLevel team members actively recommend certified professionals for client inquiries.
             </p>
 
@@ -252,7 +286,7 @@ export default function WhereToHireGHLExpertsClient() {
                 <span className="text-sm font-bold text-[#F8D000]">IMPORTANT NOTE</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                Certification confirms platform knowledge not delivery quality, project management skills, or communication standards. 
+                Certification confirms platform knowledge not delivery quality, project management skills, or communication standards.
                 <strong className="text-[#1A2236]"> Certification is a filter, not a guarantee.</strong> Always apply the vetting checklist in Section 8 regardless of certification status.
               </p>
             </div>
@@ -265,7 +299,7 @@ export default function WhereToHireGHLExpertsClient() {
               <strong className="text-[#1A2236]">URL:</strong> upwork.com/hire/gohighlevel-experts
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Upwork is one of the strongest platforms for finding experienced GHL freelancers. The Job Success Score (JSS), 
+              Upwork is one of the strongest platforms for finding experienced GHL freelancers. The Job Success Score (JSS),
               verified earnings history, and client reviews create a reliable quality signal.
             </p>
 
@@ -288,7 +322,7 @@ export default function WhereToHireGHLExpertsClient() {
               <strong className="text-[#1A2236]">URL:</strong> fiverr.com/hire/gohighlevel
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Fiverr has 12+ GHL freelancers currently offering services across funnel building, workflow setup, 
+              Fiverr has 12+ GHL freelancers currently offering services across funnel building, workflow setup,
               sub-account configuration, and snapshot creation. Pricing starts from as little as $50 for small tasks.
             </p>
 
@@ -308,7 +342,7 @@ export default function WhereToHireGHLExpertsClient() {
               4. Facebook Groups and GHL Community
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The GoHighLevel ecosystem has some of the most active Facebook communities of any SaaS platform. 
+              The GoHighLevel ecosystem has some of the most active Facebook communities of any SaaS platform.
               These groups are where agency owners, freelancers, and GHL experts spend genuine time helping each other.
             </p>
 
@@ -333,8 +367,8 @@ export default function WhereToHireGHLExpertsClient() {
                 <span className="text-sm font-bold text-[#25C97D]">Community Tip</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                Facebook Groups are an excellent channel for finding <strong>referral-vetted experts</strong> 
-                people whose work has been vouched for by other community members. Ask publicly: 
+                Facebook Groups are an excellent channel for finding <strong>referral-vetted experts</strong>
+                people whose work has been vouched for by other community members. Ask publicly:
                 "Has anyone worked with [name]?" before committing.
               </p>
             </div>
@@ -344,19 +378,19 @@ export default function WhereToHireGHLExpertsClient() {
               5. Clutch, B2B Review Platforms and LinkedIn
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              For agencies and larger businesses wanting to hire a GHL expert through a more structured evaluation process, 
+              For agencies and larger businesses wanting to hire a GHL expert through a more structured evaluation process,
               Clutch.co and LinkedIn are the strongest channels.
             </p>
 
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 my-4">
               <p className="text-sm font-semibold text-[#1A2236] mb-2">Clutch.co:</p>
               <p className="text-sm text-[#5C6880] leading-relaxed mb-2">
-                Clutch lists verified B2B agencies with client reviews, project details, and verified revenue data. 
+                Clutch lists verified B2B agencies with client reviews, project details, and verified revenue data.
                 Search: clutch.co → search 'GoHighLevel' or 'HighLevel' → filter by minimum project size and service category.
               </p>
               <p className="text-sm font-semibold text-[#1A2236] mb-2 mt-3">LinkedIn:</p>
               <p className="text-sm text-[#5C6880] leading-relaxed">
-                Search: 'GoHighLevel' + 'specialist' or 'expert' in the search bar. Filter by location if needed. 
+                Search: 'GoHighLevel' + 'specialist' or 'expert' in the search bar. Filter by location if needed.
                 Check their activity do they post about GHL? Do other GHL professionals engage with their content?
               </p>
               <p className="text-sm text-[#5C6880] leading-relaxed mt-2">
@@ -369,7 +403,7 @@ export default function WhereToHireGHLExpertsClient() {
               6. Dedicated GHL Specialist Agencies
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              For businesses that need a complete GoHighLevel system not just one task a dedicated GHL specialist agency 
+              For businesses that need a complete GoHighLevel system not just one task a dedicated GHL specialist agency
               is the most reliable option. Agencies bring a team of people across CRM, automation, funnel design, and AI features.
             </p>
 
@@ -389,8 +423,8 @@ export default function WhereToHireGHLExpertsClient() {
                 <span className="text-sm font-bold text-[#F8D000]">GHL Scale Up</span>
               </div>
               <p className="text-sm text-white/80 leading-relaxed mb-2">
-                <strong className="text-white">GHL Scale Up (ghlscaleup.com)</strong> is a dedicated GoHighLevel specialist agency with 
-                5+ years of GHL experience and 200+ builds delivered globally. Services: CRM setup, workflow automation, 
+                <strong className="text-white">GHL Scale Up (ghlscaleup.com)</strong> is a dedicated GoHighLevel specialist agency with
+                5+ years of GHL experience and 200+ builds delivered globally. Services: CRM setup, workflow automation,
                 AI Voice Agent configuration, white-label SaaS builds, and CRM migration.
               </p>
               <p className="text-sm text-white/80 leading-relaxed mb-3">
@@ -482,36 +516,7 @@ export default function WhereToHireGHLExpertsClient() {
             </h2>
 
             <div className="space-y-3">
-              {[
-                { 
-                  q: "Where is the best place to hire a GoHighLevel expert?", 
-                  a: "The GoHighLevel Official Certified Admin Directory (directory.gohighlevel.com) is the best starting point for finding verified professionals. For defined tasks with a budget, Upwork with a Job Success Score filter of 90%+ is the most reliable freelance option. For complete system builds involving CRM, automation, AI features, and SaaS Mode, a dedicated GHL specialist agency like GHL Scale Up provides the most comprehensive delivery." 
-                },
-                { 
-                  q: "How much does it cost to hire a GoHighLevel expert?", 
-                  a: "Costs vary significantly by scope and hiring channel. Fiverr freelancers charge $50–$500 for small tasks. Upwork specialists charge $25–$150 per hour or $300–$2,500 for fixed-scope projects. Dedicated GHL agencies charge $500–$8,000+ for full builds depending on complexity. Anything below market rate for a complex build is a red flag cheap builds frequently become expensive rebuilds." 
-                },
-                { 
-                  q: "What is the GoHighLevel Certified Admin Directory?", 
-                  a: "The GoHighLevel Certified Admin Directory at directory.gohighlevel.com is GoHighLevel's official listing of professionals who have completed their certification programme. As of 2026, 478+ certified admins are listed globally. Certification confirms platform knowledge but does not guarantee delivery quality or project management skills always apply a vetting process regardless." 
-                },
-                { 
-                  q: "Is it better to hire a freelancer or an agency for GoHighLevel work?", 
-                  a: "Freelancers are cost-effective for small, clearly defined tasks building one funnel, setting up one workflow, configuring one integration. Agencies are more reliable for end-to-end builds, complex multi-system setups, SaaS Mode configuration, AI feature implementation, or CRM migration. Agencies bring team accountability, structured delivery, documentation, and post-delivery support that individual freelancers rarely provide." 
-                },
-                { 
-                  q: "Can I find GHL experts in Facebook Groups?", 
-                  a: "Yes. The GoHighLevel Official Community on Facebook is the largest and most active GHL expert community, with GoHighLevel staff participation. Other strong groups include GHL SaaS Mode Community and GoHighLevel Agency Owners. Post a detailed job description or ask for referrals from other members. Community-vetted recommendations are often more reliable than cold platform searches." 
-                },
-                { 
-                  q: "What should I ask before hiring a GoHighLevel expert?", 
-                  a: "Ask to see 2–3 recent GHL builds they have completed. Ask them to walk you through their approach to your specific project. Ask whether they have worked in your industry before. Ask what their delivery process looks like and what happens after project completion. Ask whether they can configure AI features. Any expert who avoids specific answers to these questions is not the right hire." 
-                },
-                { 
-                  q: "What are the red flags when hiring a GoHighLevel expert?", 
-                  a: "The main red flags are: no portfolio or case studies, inability to explain how automations work in plain English, guarantees of specific results before understanding your business, pricing dramatically below market rate, slow communication before you have paid, and no mention of testing before delivery. Any one of these warrants continued due diligence. Two or more means look elsewhere." 
-                },
-              ].map((faq, index) => (
+              {faqs.map((faq, index) => (
                 <details key={index} className="group border-b border-[rgba(28,35,33,0.08)]">
                   <summary className="flex justify-between items-center cursor-pointer list-none py-4 text-[0.92rem] font-semibold text-[#1A2236] hover:text-[#0E9BF0] transition-colors">
                     {faq.q}
@@ -539,7 +544,7 @@ export default function WhereToHireGHLExpertsClient() {
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Already searched? Skip the guesswork.</h3>
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
-                  GHL Scale Up has built 200+ GHL systems. Yours could be next. CRM setup, workflow automation, 
+                  GHL Scale Up has built 200+ GHL systems. Yours could be next. CRM setup, workflow automation,
                   AI Voice Agent, SaaS Mode, and GHL migrations. 5–7 business day delivery, full documentation included.
                 </p>
                 <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
@@ -596,8 +601,8 @@ export default function WhereToHireGHLExpertsClient() {
                 </div>
               </div>
               <p className="text-xs text-white/60 leading-relaxed mb-3">
-                5+ years GHL experience · 200+ systems built globally. We have hired, worked alongside, 
-                and evaluated hundreds of GHL freelancers and agencies. This guide is based on direct experience, 
+                5+ years GHL experience · 200+ systems built globally. We have hired, worked alongside,
+                and evaluated hundreds of GHL freelancers and agencies. This guide is based on direct experience,
                 not affiliate incentives.
               </p>
               <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>

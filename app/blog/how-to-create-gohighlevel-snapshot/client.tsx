@@ -25,6 +25,7 @@ import {
   Award,
   DollarSign
 } from 'lucide-react';
+import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export default function CreateSnapshotClient() {
   const [activeId, setActiveId] = useState<string>('');
@@ -67,6 +68,39 @@ export default function CreateSnapshotClient() {
       window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     }
   };
+
+  const faqs = [
+    {
+      q: "What is a GoHighLevel Snapshot?",
+      a: "A GoHighLevel Snapshot is a reusable template that captures the complete configuration of a sub-account including workflows, funnels, pipelines, email and SMS templates, calendars, forms, custom fields, and tags and packages it for deployment to any new or existing sub-account in minutes. Snapshots do not include contacts, conversations, or billing data. They capture system architecture only."
+    },
+    {
+      q: "How long does it take to create a GoHighLevel Snapshot?",
+      a: "Creating the Snapshot itself takes 5–10 minutes once your template sub-account is fully built and tested. Building the template sub-account the workflows, funnels, and pipelines you want to capture typically takes 8–40 hours depending on complexity. The one-time build investment is recovered with the very first client deployment."
+    },
+    {
+      q: "Does a GoHighLevel Snapshot include contacts?",
+      a: "No. Snapshots capture system configuration only. Contacts, conversations, call logs, appointment history, and reputation data are never included in a Snapshot. This is intentional it ensures client data privacy and means every deployment starts with a clean workspace."
+    },
+    {
+      q: "How do I deploy a GoHighLevel Snapshot to a new client?",
+      a: "In Agency View, go to Accounts → Sub-Accounts and create a new sub-account. During the setup, select your Snapshot from the dropdown. GHL deploys all Snapshot assets to the new account automatically. After creation, spend 30–60 minutes customising business name, phone number, logo, email templates, and any placeholder copy for that specific client."
+    },
+    {
+      q: "Can I load a Snapshot into an existing sub-account?",
+      a: "Yes. Go to Agency View → Sub-Accounts → find the account → Actions → Load Snapshot. Loading adds Snapshot assets alongside existing ones it does not overwrite. Be aware this can create duplicate workflows or funnels if the account already has similar items from a previous Snapshot. Review the account after loading and remove any duplicates."
+    },
+    {
+      q: "Can I sell my GoHighLevel Snapshot?",
+      a: "Yes. You can publish your Snapshot to the GoHighLevel Marketplace and sell access to other GHL users. Pricing models available include one-time purchase, monthly subscription, and annual subscription. Well-built, industry-specific Snapshots typically sell for $97–$997 depending on complexity. GoHighLevel's Marketplace Earning Dashboard, released March 2026, provides real-time revenue tracking for listed Snapshots."
+    },
+    {
+      q: "What happens if I update my Snapshot after deploying it to clients?",
+      a: "Creating a new Snapshot version does not automatically update previously deployed client accounts. Each deployed sub-account is independent. To apply improvements to existing clients, either manually add the changes inside each client's sub-account, or re-deploy the new Snapshot (which adds new elements alongside existing ones and may create duplicates). Most agencies manually apply significant updates rather than redeploying the full Snapshot."
+    },
+  ];
+
+  useFaqSchema(faqs);
 
   const tocItems = [
     { id: 'what-is-snapshot', title: '1. What Is a GoHighLevel Snapshot?' },
@@ -123,22 +157,22 @@ export default function CreateSnapshotClient() {
   ];
 
   const mistakesList = [
-    { 
+    {
       mistake: 'Building the Snapshot from a live client account',
       cause: 'Captures placeholder business names, test contacts, or client-specific custom values',
       fix: 'Always Snapshot from a clean, dedicated template account built specifically for this purpose.'
     },
-    { 
+    {
       mistake: 'Not testing the Snapshot before deploying to paying clients',
       cause: 'Broken workflows or funnels discovered after deployment damage client trust',
       fix: 'Deploy to a fresh test sub-account and fully test every workflow triggered, every funnel page checked.'
     },
-    { 
+    {
       mistake: 'Including too many assets for one Snapshot',
       cause: 'Overwhelming for clients and hard to maintain',
       fix: 'Build focused Snapshots around specific services or client types. One per niche, not one \'all industries\' Snapshot.'
     },
-    { 
+    {
       mistake: 'Forgetting that integrations need reconnecting after deployment',
       cause: 'API keys, Stripe connections, and third-party integrations do not transfer',
       fix: 'After deploying to a client, reconnect email domain for sending, Stripe for billing, and any third-party tools.'
@@ -418,7 +452,7 @@ export default function CreateSnapshotClient() {
               </div>
               <p className="text-sm text-white/80 leading-relaxed">
                 If you use Agency Pro (SaaS Mode), you can assign a Snapshot to a pricing plan so it deploys <strong>automatically when a client pays</strong>
-                zero manual work needed. See our guide: 
+                zero manual work needed. See our guide:
                 {/* <Link href="/blog/gohighlevel-saas-mode" className="text-[#0E9BF0] hover:underline">GoHighLevel SaaS Mode Setup →</Link> */}
               </p>
             </div>
@@ -515,36 +549,7 @@ export default function CreateSnapshotClient() {
             </h2>
 
             <div className="space-y-3">
-              {[
-                { 
-                  q: "What is a GoHighLevel Snapshot?", 
-                  a: "A GoHighLevel Snapshot is a reusable template that captures the complete configuration of a sub-account including workflows, funnels, pipelines, email and SMS templates, calendars, forms, custom fields, and tags and packages it for deployment to any new or existing sub-account in minutes. Snapshots do not include contacts, conversations, or billing data. They capture system architecture only." 
-                },
-                { 
-                  q: "How long does it take to create a GoHighLevel Snapshot?", 
-                  a: "Creating the Snapshot itself takes 5–10 minutes once your template sub-account is fully built and tested. Building the template sub-account the workflows, funnels, and pipelines you want to capture typically takes 8–40 hours depending on complexity. The one-time build investment is recovered with the very first client deployment." 
-                },
-                { 
-                  q: "Does a GoHighLevel Snapshot include contacts?", 
-                  a: "No. Snapshots capture system configuration only. Contacts, conversations, call logs, appointment history, and reputation data are never included in a Snapshot. This is intentional it ensures client data privacy and means every deployment starts with a clean workspace." 
-                },
-                { 
-                  q: "How do I deploy a GoHighLevel Snapshot to a new client?", 
-                  a: "In Agency View, go to Accounts → Sub-Accounts and create a new sub-account. During the setup, select your Snapshot from the dropdown. GHL deploys all Snapshot assets to the new account automatically. After creation, spend 30–60 minutes customising business name, phone number, logo, email templates, and any placeholder copy for that specific client." 
-                },
-                { 
-                  q: "Can I load a Snapshot into an existing sub-account?", 
-                  a: "Yes. Go to Agency View → Sub-Accounts → find the account → Actions → Load Snapshot. Loading adds Snapshot assets alongside existing ones it does not overwrite. Be aware this can create duplicate workflows or funnels if the account already has similar items from a previous Snapshot. Review the account after loading and remove any duplicates." 
-                },
-                { 
-                  q: "Can I sell my GoHighLevel Snapshot?", 
-                  a: "Yes. You can publish your Snapshot to the GoHighLevel Marketplace and sell access to other GHL users. Pricing models available include one-time purchase, monthly subscription, and annual subscription. Well-built, industry-specific Snapshots typically sell for $97–$997 depending on complexity. GoHighLevel's Marketplace Earning Dashboard, released March 2026, provides real-time revenue tracking for listed Snapshots." 
-                },
-                { 
-                  q: "What happens if I update my Snapshot after deploying it to clients?", 
-                  a: "Creating a new Snapshot version does not automatically update previously deployed client accounts. Each deployed sub-account is independent. To apply improvements to existing clients, either manually add the changes inside each client's sub-account, or re-deploy the new Snapshot (which adds new elements alongside existing ones and may create duplicates). Most agencies manually apply significant updates rather than redeploying the full Snapshot." 
-                },
-              ].map((faq, index) => (
+              {faqs.map((faq, index) => (
                 <details key={index} className="group border-b border-[rgba(28,35,33,0.08)]">
                   <summary className="flex justify-between items-center cursor-pointer list-none py-4 text-[0.92rem] font-semibold text-[#1A2236] hover:text-[#0E9BF0] transition-colors">
                     {faq.q}

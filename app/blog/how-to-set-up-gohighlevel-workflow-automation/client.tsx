@@ -28,6 +28,7 @@ import {
       PlayCircle,
       Sparkles
 } from 'lucide-react';
+import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export default function WorkflowAutomationClient() {
       const [activeId, setActiveId] = useState<string>('');
@@ -69,6 +70,44 @@ export default function WorkflowAutomationClient() {
                   window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
             }
       };
+
+      const faqs = [
+            {
+                  q: "What is a workflow in GoHighLevel?",
+                  a: "A GoHighLevel workflow is an automated sequence of actions triggered by a specific event. When a defined trigger occurs such as a form submission, missed call, or appointment booking GHL automatically executes the actions you've configured, like sending SMS messages, emails, assigning to a pipeline, or tagging the contact. Workflows run 24/7 without any manual input."
+            },
+            {
+                  q: "Do I need coding or technical skills to build GHL workflows?",
+                  a: "No. GoHighLevel's workflow builder is a visual drag-and-drop interface with no coding required. In 2026, GHL also added the Workflow AI Builder you describe what you want in plain English and it generates the workflow for you to review and customise. Beginners can build their first working workflow in under 30 minutes."
+            },
+            {
+                  q: "How many workflows can I create in GoHighLevel?",
+                  a: "GoHighLevel allows unlimited workflows with unlimited automation steps on every plan, including the $97 Starter plan. There is no cap on the number of workflows you can create or the number of contacts they can process."
+            },
+            {
+                  q: "What is the difference between a trigger and an action in GHL?",
+                  a: "A trigger is the event that starts the workflow for example, someone submitting a form or missing a call. An action is what happens after the trigger fires for example, sending an SMS, adding a tag, or creating a pipeline opportunity. Every workflow needs at least one trigger and one action."
+            },
+            {
+                  q: "What is an If/Else condition in a GoHighLevel workflow?",
+                  a: "An If/Else condition is a decision point inside your workflow that routes contacts down different paths based on their behaviour or attributes. For example: after sending an SMS, wait 24 hours, then check if the contact replied. If yes, send a booking link. If no, send a different follow-up. This lets your automation respond differently to different people."
+            },
+            {
+                  q: "Why is my GoHighLevel workflow not firing?",
+                  a: "The most common reasons are: (1) the workflow is not published make sure it is set to Active; (2) the trigger filter is too narrow and excluding contacts; (3) the contact already went through the workflow and the 'Allow Re-entry' setting is off; (4) the form connected to your trigger is not the same form you're testing with. Check each of these in order before troubleshooting further."
+            },
+            {
+                  q: "What are GoHighLevel workflow recipes?",
+                  a: "Workflow recipes are pre-built automation templates provided by GoHighLevel inside the workflow builder. In 2026, GHL offers 17 native recipe templates covering common use cases like appointment booking, lead nurturing, email drip sequences, and webinar registration. You can import a recipe, customise it for your business, and publish it without building from scratch."
+            },
+            {
+                  q: "How do I test a GoHighLevel workflow before going live?",
+                  a: "In the workflow builder, click 'Test Workflow' in the top bar and add your own contact details. GHL will run the workflow against your test contact, compressing wait timers to seconds. After the test, open the History tab and check each step green means success, red means error. Fix all errors before publishing, and always run a real form submission test to confirm the trigger fires correctly in live conditions."
+            },
+      ];
+
+      useFaqSchema(faqs);
+
 
       const tocItems = [
             { id: 'what-is-workflow', title: '1. What Is a GoHighLevel Workflow?' },
@@ -538,40 +577,7 @@ export default function WorkflowAutomationClient() {
                                     </h2>
 
                                     <div className="space-y-3">
-                                          {[
-                                                {
-                                                      q: "What is a workflow in GoHighLevel?",
-                                                      a: "A GoHighLevel workflow is an automated sequence of actions triggered by a specific event. When a defined trigger occurs such as a form submission, missed call, or appointment booking GHL automatically executes the actions you've configured, like sending SMS messages, emails, assigning to a pipeline, or tagging the contact. Workflows run 24/7 without any manual input."
-                                                },
-                                                {
-                                                      q: "Do I need coding or technical skills to build GHL workflows?",
-                                                      a: "No. GoHighLevel's workflow builder is a visual drag-and-drop interface with no coding required. In 2026, GHL also added the Workflow AI Builder you describe what you want in plain English and it generates the workflow for you to review and customise. Beginners can build their first working workflow in under 30 minutes."
-                                                },
-                                                {
-                                                      q: "How many workflows can I create in GoHighLevel?",
-                                                      a: "GoHighLevel allows unlimited workflows with unlimited automation steps on every plan, including the $97 Starter plan. There is no cap on the number of workflows you can create or the number of contacts they can process."
-                                                },
-                                                {
-                                                      q: "What is the difference between a trigger and an action in GHL?",
-                                                      a: "A trigger is the event that starts the workflow for example, someone submitting a form or missing a call. An action is what happens after the trigger fires for example, sending an SMS, adding a tag, or creating a pipeline opportunity. Every workflow needs at least one trigger and one action."
-                                                },
-                                                {
-                                                      q: "What is an If/Else condition in a GoHighLevel workflow?",
-                                                      a: "An If/Else condition is a decision point inside your workflow that routes contacts down different paths based on their behaviour or attributes. For example: after sending an SMS, wait 24 hours, then check if the contact replied. If yes, send a booking link. If no, send a different follow-up. This lets your automation respond differently to different people."
-                                                },
-                                                {
-                                                      q: "Why is my GoHighLevel workflow not firing?",
-                                                      a: "The most common reasons are: (1) the workflow is not published make sure it is set to Active; (2) the trigger filter is too narrow and excluding contacts; (3) the contact already went through the workflow and the 'Allow Re-entry' setting is off; (4) the form connected to your trigger is not the same form you're testing with. Check each of these in order before troubleshooting further."
-                                                },
-                                                {
-                                                      q: "What are GoHighLevel workflow recipes?",
-                                                      a: "Workflow recipes are pre-built automation templates provided by GoHighLevel inside the workflow builder. In 2026, GHL offers 17 native recipe templates covering common use cases like appointment booking, lead nurturing, email drip sequences, and webinar registration. You can import a recipe, customise it for your business, and publish it without building from scratch."
-                                                },
-                                                {
-                                                      q: "How do I test a GoHighLevel workflow before going live?",
-                                                      a: "In the workflow builder, click 'Test Workflow' in the top bar and add your own contact details. GHL will run the workflow against your test contact, compressing wait timers to seconds. After the test, open the History tab and check each step green means success, red means error. Fix all errors before publishing, and always run a real form submission test to confirm the trigger fires correctly in live conditions."
-                                                },
-                                          ].map((faq, index) => (
+                                          {faqs.map((faq, index) => (
                                                 <details key={index} className="group border-b border-[rgba(28,35,33,0.08)]">
                                                       <summary className="flex justify-between items-center cursor-pointer list-none py-4 text-[0.92rem] font-semibold text-[#1A2236] hover:text-[#0E9BF0] transition-colors">
                                                             {faq.q}

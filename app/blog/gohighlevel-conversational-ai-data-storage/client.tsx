@@ -28,7 +28,9 @@ import {
   CreditCard,
   Info,
   ExternalLink,
-  MessagesSquare } from 'lucide-react';
+  MessagesSquare
+} from 'lucide-react';
+import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export default function ConversationAIDataStorageClient() {
   const [activeId, setActiveId] = useState<string>('');
@@ -70,6 +72,35 @@ export default function ConversationAIDataStorageClient() {
       window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     }
   };
+
+  const faqs = [
+    {
+      q: "Does GoHighLevel Conversation AI automatically save lead data to the CRM?",
+      a: "Partially. GoHighLevel Conversation AI automatically creates a contact record and logs the full conversation transcript when someone messages your bot. However, specific data points like name, email, phone, or custom fields are only saved to structured CRM fields if you explicitly configure the bot to ask for them and map the responses. Casual information mentioned in conversation is stored in the chat log but does not become a queryable CRM field without additional setup."
+    },
+    {
+      q: "What data does GoHighLevel Conversation AI capture by default?",
+      a: "By default, GHL Conversation AI creates a contact from the first interaction (using the phone number or email channel identifier) and stores the full conversation history on that contact record. It will also apply tags and update pipeline stages if you have configured the bot to do so. Name, email, phone, and any custom fields are only captured if the bot prompt explicitly instructs the bot to ask for and map those fields."
+    },
+    {
+      q: "Why is my GHL AI bot having conversations but not saving data to contact fields?",
+      a: "This is the most common configuration issue. The bot stores conversation history automatically, but structured field data only saves if you have mapped the bot's collected answers to specific GHL contact fields in the bot configuration. Open your Conversation AI bot settings, review the prompt, and confirm that you have explicitly told the bot to ask for each field and specified which GHL field it maps to. Then test with a live conversation and check the contact record."
+    },
+    {
+      q: "Can GHL Conversation AI capture payment information?",
+      a: "No. GHL Conversation AI cannot capture or process payment information. Payments require a dedicated GHL order form or invoice connected to Stripe. The correct workflow is: AI qualifies the lead and books or directs them to a payment page. The payment confirmation then triggers a workflow to update the contact record, tag the contact as a paying customer, and initiate the onboarding sequence."
+    },
+    {
+      q: "Does GoHighLevel Voice AI also save data to the CRM?",
+      a: "Yes, and in some ways more thoroughly than Conversation AI. GHL Voice AI transcribes the full call and logs it to the contact record. It can also trigger workflows and update custom fields based on the call outcome. Using Voice AI Custom Actions, the agent can even call webhooks mid-conversation to push or pull data from external systems in real time. Voice AI call data is stored alongside the transcript and is accessible from the contact record."
+    },
+    {
+      q: "What is the best way to capture structured data from a GHL AI conversation?",
+      a: "The most reliable architecture is: (1) use Conversation AI to qualify the lead and collect basic fields (name, email, phone) by mapping them explicitly in the bot prompt, (2) direct the lead to a short GHL form for any additional structured data (service type, location, appointment preferences), and (3) configure a post-conversation workflow to update the pipeline stage, apply tags, and enrol the contact in the appropriate follow-up sequence based on their answers. This keeps your CRM data clean and your automations reliable."
+    },
+  ];
+
+  useFaqSchema(faqs);
 
   const tocItems = [
     { id: 'what-it-does', title: '1. What GoHighLevel Conversation AI Does (and Doesn\'t) Save' },
@@ -151,9 +182,9 @@ export default function ConversationAIDataStorageClient() {
 
           {/* Introductory Paragraph */}
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
-            It's one of the most common questions we see in the GoHighLevel community: 
-            if a lead chats with my AI bot and gives their name and email, does that actually 
-            get saved? The answer is yes but only partially, and only if you've set things 
+            It's one of the most common questions we see in the GoHighLevel community:
+            if a lead chats with my AI bot and gives their name and email, does that actually
+            get saved? The answer is yes but only partially, and only if you've set things
             up correctly. Here's the full breakdown.
           </p>
         </div>
@@ -176,9 +207,9 @@ export default function ConversationAIDataStorageClient() {
                 Yes, GoHighLevel Conversation AI can save data to your CRM but it depends entirely on how you configure it.
               </p>
               <p className="text-sm text-[#5C6880] leading-relaxed">
-                If you explicitly train the bot to ask for and map specific fields (name, email, phone), that data gets written to the contact record. 
-                Casual information mentioned in conversation does not automatically become structured CRM data. Conversation history is stored, 
-                but it is not the same as a clean, queryable contact field. For anything beyond basic lead capture payments, detailed service 
+                If you explicitly train the bot to ask for and map specific fields (name, email, phone), that data gets written to the contact record.
+                Casual information mentioned in conversation does not automatically become structured CRM data. Conversation history is stored,
+                but it is not the same as a clean, queryable contact field. For anything beyond basic lead capture payments, detailed service
                 preferences, complex intake data you need workflows or webhooks.
               </p>
             </div>
@@ -193,12 +224,12 @@ export default function ConversationAIDataStorageClient() {
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">This Answer Started on Reddit</h3>
                 <p className="text-white/70 text-sm leading-relaxed mb-5">
-                  A GHL user asked this exact question on r/GoHighLevel. GhlScaleUp replied with 
-                  the detailed answer below and the response resonated with hundreds of users who 
-                  were silently struggling with the same misunderstanding about how Conversation AI 
+                  A GHL user asked this exact question on r/GoHighLevel. GhlScaleUp replied with
+                  the detailed answer below and the response resonated with hundreds of users who
+                  were silently struggling with the same misunderstanding about how Conversation AI
                   handles data.
                 </p>
-                
+
                 {/* Screenshot 1 - Question */}
                 <div className="mb-5">
                   <p className="text-white/50 text-xs mb-2 flex items-center gap-2">
@@ -238,9 +269,9 @@ export default function ConversationAIDataStorageClient() {
                   <p className="text-white/40 text-xs">
                     This blog post expands on that Reddit answer with step-by-step setup instructions.
                   </p>
-                  <a 
-                    href="https://www.reddit.com/r/gohighlevel/comments/1t3atjo/comment/ojttbiz/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button" 
-                    target="_blank" 
+                  <a
+                    href="https://www.reddit.com/r/gohighlevel/comments/1t3atjo/comment/ojttbiz/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-[#FF4500] text-sm font-semibold hover:gap-3 transition-all"
                   >
@@ -275,17 +306,17 @@ export default function ConversationAIDataStorageClient() {
               1. What GoHighLevel Conversation AI Does (and Doesn't) Save
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              GoHighLevel Conversation AI is <strong className="text-[#1A2236]">not a passive listener</strong> that stores everything said in a conversation. 
-              It is an active system that executes the instructions you give it in the bot prompt. What gets saved to your CRM depends entirely 
+              GoHighLevel Conversation AI is <strong className="text-[#1A2236]">not a passive listener</strong> that stores everything said in a conversation.
+              It is an active system that executes the instructions you give it in the bot prompt. What gets saved to your CRM depends entirely
               on what you have explicitly told the bot to collect.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The bot runs inside the GHL Conversations inbox. It can send messages, qualify leads, ask questions, and book appointments. 
-              <strong className="text-[#1A2236]"> Everything the bot does is logged as a conversation thread on the contact record.</strong> 
+              The bot runs inside the GHL Conversations inbox. It can send messages, qualify leads, ask questions, and book appointments.
+              <strong className="text-[#1A2236]"> Everything the bot does is logged as a conversation thread on the contact record.</strong>
               That thread is visible, searchable, and part of the contact's history.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed">
-              But a conversation thread is <strong className="text-[#1A2236]">not the same as a structured CRM field.</strong> And this distinction 
+              But a conversation thread is <strong className="text-[#1A2236]">not the same as a structured CRM field.</strong> And this distinction
               is where most GHL users run into problems.
             </p>
 
@@ -332,8 +363,8 @@ export default function ConversationAIDataStorageClient() {
                 <span className="text-sm font-bold text-[#F8D000]">THE CORE ISSUE</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                Most GHL users assume the AI is 'intelligent enough' to recognise that a lead mentioned their email address and save it automatically. 
-                <strong className="text-[#1A2236]"> It does not work this way.</strong> The AI stores the conversation. It does not extract and file data 
+                Most GHL users assume the AI is 'intelligent enough' to recognise that a lead mentioned their email address and save it automatically.
+                <strong className="text-[#1A2236]"> It does not work this way.</strong> The AI stores the conversation. It does not extract and file data
                 without instructions. If you want a field populated, you have to tell the bot to ask for it and map it or use a workflow to extract it afterwards.
               </p>
             </div>
@@ -380,9 +411,9 @@ export default function ConversationAIDataStorageClient() {
                 <span className="text-sm font-bold text-[#0E9BF0]">2026 UPDATE</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                As of early 2026, GHL Conversation AI now retains full conversation history across multiple sessions. 
-                If a lead texted three weeks ago and returns, <strong>the bot remembers the prior context</strong> and responds accordingly. 
-                This is a significant improvement for lead nurturing but it still does not mean that prior conversation data becomes 
+                As of early 2026, GHL Conversation AI now retains full conversation history across multiple sessions.
+                If a lead texted three weeks ago and returns, <strong>the bot remembers the prior context</strong> and responds accordingly.
+                This is a significant improvement for lead nurturing but it still does not mean that prior conversation data becomes
                 structured CRM fields automatically. Context memory and field data are separate systems.
               </p>
             </div>
@@ -392,7 +423,7 @@ export default function ConversationAIDataStorageClient() {
               4. How to Capture Clean Data from AI Conversations
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The best architecture for most GHL setups: use the AI to start and qualify the conversation, then push structured data 
+              The best architecture for most GHL setups: use the AI to start and qualify the conversation, then push structured data
               through a form or workflow at the point of conversion.
             </p>
 
@@ -419,9 +450,9 @@ export default function ConversationAIDataStorageClient() {
                   <h3 className="text-base font-bold text-[#1A2236]">Method 2: Use a post-conversation form</h3>
                 </div>
                 <p className="text-sm text-[#5C6880] leading-relaxed">
-                  After the AI qualifies the lead, it books them or directs them to a short intake form. 
-                  <strong className="text-[#1A2236]"> The form submission is what populates your structured CRM fields cleanly.</strong> 
-                  This is the most reliable method for anything beyond name, email, and phone because forms force structured input 
+                  After the AI qualifies the lead, it books them or directs them to a short intake form.
+                  <strong className="text-[#1A2236]"> The form submission is what populates your structured CRM fields cleanly.</strong>
+                  This is the most reliable method for anything beyond name, email, and phone because forms force structured input
                   and GHL maps form fields to contact fields natively.
                 </p>
               </div>
@@ -432,7 +463,7 @@ export default function ConversationAIDataStorageClient() {
                   <h3 className="text-base font-bold text-[#1A2236]">Method 3: Workflow to extract and write data</h3>
                 </div>
                 <p className="text-sm text-[#5C6880] leading-relaxed">
-                  If a lead mentions specific information in a conversation, you can configure a workflow that triggers when that conversation ends 
+                  If a lead mentions specific information in a conversation, you can configure a workflow that triggers when that conversation ends
                   and uses an AI step or webhook to extract key details and update custom fields. This requires more technical setup but gives you the most flexibility.
                 </p>
               </div>
@@ -444,8 +475,8 @@ export default function ConversationAIDataStorageClient() {
                 <span className="text-sm font-bold text-[#F8D000]">GHL Scale Up</span>
               </div>
               <p className="text-sm text-white/80 leading-relaxed mb-3">
-                For agencies running this type of setup for clients, this is something we configure regularly at 
-                <strong className="text-white"> GHL Scale Up (ghlscaleup.com)</strong>. If your AI conversations are happening but the data 
+                For agencies running this type of setup for clients, this is something we configure regularly at
+                <strong className="text-white"> GHL Scale Up (ghlscaleup.com)</strong>. If your AI conversations are happening but the data
                 isn't landing cleanly in your CRM, this is usually a configuration issue not a platform limitation.
               </p>
               <Link href="/contact" className="inline-flex items-center gap-2 text-[#F8D000] text-sm font-semibold hover:gap-3 transition-all">
@@ -495,8 +526,8 @@ export default function ConversationAIDataStorageClient() {
                 <span className="text-sm font-bold text-[#F8D000]">THE BOTTOM LINE</span>
               </div>
               <p className="text-sm text-white/80 leading-relaxed">
-                <strong className="text-white">AI conversations are the entry point, not the data store.</strong> Use the AI to engage, qualify, 
-                and create the contact. Use forms, workflows, or webhooks to ensure the data from that conversation lands in the right fields 
+                <strong className="text-white">AI conversations are the entry point, not the data store.</strong> Use the AI to engage, qualify,
+                and create the contact. Use forms, workflows, or webhooks to ensure the data from that conversation lands in the right fields
                 structured, clean, and actionable. The bot trail tells the story. The CRM fields power the automation.
               </p>
             </div>
@@ -511,32 +542,7 @@ export default function ConversationAIDataStorageClient() {
             </h2>
 
             <div className="space-y-3">
-              {[
-                { 
-                  q: "Does GoHighLevel Conversation AI automatically save lead data to the CRM?", 
-                  a: "Partially. GoHighLevel Conversation AI automatically creates a contact record and logs the full conversation transcript when someone messages your bot. However, specific data points like name, email, phone, or custom fields are only saved to structured CRM fields if you explicitly configure the bot to ask for them and map the responses. Casual information mentioned in conversation is stored in the chat log but does not become a queryable CRM field without additional setup." 
-                },
-                { 
-                  q: "What data does GoHighLevel Conversation AI capture by default?", 
-                  a: "By default, GHL Conversation AI creates a contact from the first interaction (using the phone number or email channel identifier) and stores the full conversation history on that contact record. It will also apply tags and update pipeline stages if you have configured the bot to do so. Name, email, phone, and any custom fields are only captured if the bot prompt explicitly instructs the bot to ask for and map those fields." 
-                },
-                { 
-                  q: "Why is my GHL AI bot having conversations but not saving data to contact fields?", 
-                  a: "This is the most common configuration issue. The bot stores conversation history automatically, but structured field data only saves if you have mapped the bot's collected answers to specific GHL contact fields in the bot configuration. Open your Conversation AI bot settings, review the prompt, and confirm that you have explicitly told the bot to ask for each field and specified which GHL field it maps to. Then test with a live conversation and check the contact record." 
-                },
-                { 
-                  q: "Can GHL Conversation AI capture payment information?", 
-                  a: "No. GHL Conversation AI cannot capture or process payment information. Payments require a dedicated GHL order form or invoice connected to Stripe. The correct workflow is: AI qualifies the lead and books or directs them to a payment page. The payment confirmation then triggers a workflow to update the contact record, tag the contact as a paying customer, and initiate the onboarding sequence." 
-                },
-                { 
-                  q: "Does GoHighLevel Voice AI also save data to the CRM?", 
-                  a: "Yes, and in some ways more thoroughly than Conversation AI. GHL Voice AI transcribes the full call and logs it to the contact record. It can also trigger workflows and update custom fields based on the call outcome. Using Voice AI Custom Actions, the agent can even call webhooks mid-conversation to push or pull data from external systems in real time. Voice AI call data is stored alongside the transcript and is accessible from the contact record." 
-                },
-                { 
-                  q: "What is the best way to capture structured data from a GHL AI conversation?", 
-                  a: "The most reliable architecture is: (1) use Conversation AI to qualify the lead and collect basic fields (name, email, phone) by mapping them explicitly in the bot prompt, (2) direct the lead to a short GHL form for any additional structured data (service type, location, appointment preferences), and (3) configure a post-conversation workflow to update the pipeline stage, apply tags, and enrol the contact in the appropriate follow-up sequence based on their answers. This keeps your CRM data clean and your automations reliable." 
-                },
-              ].map((faq, index) => (
+              {faqs.map((faq, index) => (
                 <details key={index} className="group border-b border-[rgba(28,35,33,0.08)]">
                   <summary className="flex justify-between items-center cursor-pointer list-none py-4 text-[0.92rem] font-semibold text-[#1A2236] hover:text-[#0E9BF0] transition-colors">
                     {faq.q}
@@ -564,7 +570,7 @@ export default function ConversationAIDataStorageClient() {
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">GHL conversations happening but data not landing in your CRM?</h3>
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
-                  This is a configuration issue, not a platform limitation. We audit GHL accounts and fix these setups every week. 
+                  This is a configuration issue, not a platform limitation. We audit GHL accounts and fix these setups every week.
                   Book a free 30-minute call and we'll show you exactly what's missing in your Conversation AI configuration.
                 </p>
                 <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
@@ -621,7 +627,7 @@ export default function ConversationAIDataStorageClient() {
                 </div>
               </div>
               <p className="text-xs text-white/60 leading-relaxed mb-3">
-                5+ years GHL experience · 200+ systems built globally. We've configured Conversation AI across dozens of industries. 
+                5+ years GHL experience · 200+ systems built globally. We've configured Conversation AI across dozens of industries.
                 Everything we publish comes from real accounts, not documentation summaries.
               </p>
               <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
