@@ -71,7 +71,7 @@ const blogPosts = [
     date: 'May 8, 2026',
     readTime: '18 min read',
     featured: true,
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+    image: 'https://tse1.mm.bing.net/th/id/OIP.W3DCBPMJAHPJXojrOsP0PQHaFL?rs=1&pid=ImgDetMain&o=7&rm=3',
   },
   {
     icon: Trophy,
@@ -128,6 +128,17 @@ const blogPosts = [
     featured: true,
     image: 'https://iloveghl.com/wp-content/uploads/2023/08/Difference-And-Comparison-Between-Coffee-And-Tea-Facebook-Post-1280-%C3%97-720-px-1.png',
   },
+  {
+  icon: Star,
+  tag: 'Review',
+  title: 'GoHighLevel Review 2026: Honest Verdict After 200+ Real Builds (4.4/5)',
+  excerpt: 'GoHighLevel review for 2026 from a team that has built 200+ GHL systems. Honest rating, real pros and cons, email deliverability issues, learning curve reality, and who should actually use it.',
+  slug: 'gohighlevel-review',
+  date: 'May 18, 2026',
+  readTime: '22 min read',
+  featured: true,
+  image: 'https://digitalxpresso.com/wp-content/uploads/2025/11/Image_fx-2025-11-24T112123.295.jpg',
+},
   {
     icon: Rocket,
     tag: 'GHL SaaS',
@@ -213,6 +224,7 @@ const getCategoryColor = (tag: string) => {
     'Hire Guide': 'bg-[rgba(37,201,125,0.12)] text-[#25C97D] border-[rgba(37,201,125,0.2)]',
     'Conversation AI': 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]',
     'Comparison': 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]',
+    'Review': 'bg-[rgba(248,208,0,0.12)] text-[#F8D000] border-[rgba(248,208,0,0.2)]',
   };
   return colors[tag] || 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]';
 };
