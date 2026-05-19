@@ -2,6 +2,25 @@
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
+import { 
+  Zap, 
+  GitBranch, 
+  Send, 
+  UserCheck, 
+  Bell, 
+  BarChart3,
+  Clock,
+  ArrowRight,
+  BookOpen,
+  CheckCircle2,
+  TrendingUp,
+  MessageCircle,
+  Mail,
+  Phone,
+  Users,
+  Target,
+  Settings
+} from 'lucide-react';
 
 export const metadata = {
   title: 'GHL Workflow Automation & Marketing Automation Services | GHL Scale Up',
@@ -12,9 +31,106 @@ export const metadata = {
   },
 };
 
+// Service Schema Component
+const ServiceSchema = () => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "GoHighLevel Workflow & Marketing Automation",
+    "alternateName": "GHL Automation Services",
+    "description": "Expert GoHighLevel workflow automation setup including trigger-based workflows, multi-step sequences, conditional logic, AI follow-ups, lead routing, and performance tracking. Reduce manual work by 70% and respond to leads in under 10 seconds.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "GHL Scale Up",
+      "url": "https://www.ghlscaleup.com",
+      "logo": "https://www.ghlscaleup.com/web-app-manifest-192x192.png",
+      "sameAs": [
+        "https://www.linkedin.com/company/ghl-scale-up",
+        "https://x.com/GHLScaleUp"
+      ]
+    },
+    "serviceType": "Marketing Automation Implementation",
+    "areaServed": {
+      "@type": "Country",
+      "name": "United States"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Automation Packages",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Basic Automation Suite"
+          },
+          "price": "1497",
+          "priceCurrency": "USD",
+          "description": "3-5 core workflows for lead follow-up"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Advanced Automation System"
+          },
+          "price": "2997",
+          "priceCurrency": "USD",
+          "description": "10+ workflows with conditional logic and multi-channel"
+        }
+      ]
+    },
+    "audience": {
+      "@type": "BusinessAudience",
+      "audienceType": "Marketing Agencies, Service Businesses, Sales Teams"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free automation audit"
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+};
+
 export default function WorkflowAutomationPage() {
+  // Related blog posts for this service
+  const relatedBlogs = [
+    {
+      slug: 'how-to-set-up-gohighlevel-workflow-automation',
+      title: 'How to Set Up GoHighLevel Workflow Automation for Beginners',
+      excerpt: 'A step-by-step beginner\'s guide to GoHighLevel workflow automation. Learn what workflows are, how triggers and actions work.',
+      readTime: '19 min read',
+      date: 'May 6, 2026'
+    },
+    {
+      slug: 'gohighlevel-funnel-builder-features',
+      title: 'GoHighLevel Funnel Builder: 7 Features Top Agencies Use',
+      excerpt: 'Discover the GoHighLevel funnel builder features most agencies overlook version control, global sections, and more.',
+      readTime: '9 min read',
+      date: 'April 7, 2026'
+    },
+    {
+      slug: 'gohighlevel-conversational-ai-data-storage',
+      title: 'Does GoHighLevel Conversation AI Save Data to Your CRM?',
+      excerpt: 'GoHighLevel Conversation AI does save some data to your CRM. Here\'s exactly what gets captured and what doesn\'t.',
+      readTime: '15 min read',
+      date: 'May 12, 2026'
+    }
+  ];
+
   return (
     <>
+      {/* Add Service Schema to Head */}
+      <ServiceSchema />
+      
       <Breadcrumb items={[{ label: 'GHL Services', href: '/services' }, { label: 'Workflow & Marketing Automation' }]} />
 
       {/* Page Hero */}
@@ -86,17 +202,17 @@ export default function WorkflowAutomationPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              { icon: '⚡', color: 'blue', title: 'Trigger-Based Workflows', description: 'Fire workflows instantly on form submissions, tag changes, pipeline moves, or calendar bookings. Set up triggers that respond before your lead even finishes reading your confirmation page.' },
-              { icon: '🔀', color: 'green', title: 'Conditional Logic', description: 'If/else branching, wait steps, goal triggers, and split testing. Create sophisticated automation paths that adapt based on lead behavior, location, or interest.' },
-              { icon: '📨', color: 'yellow', title: 'Multi-Channel Sequences', description: 'Email, SMS, WhatsApp, voicemail drops, and ringless voicemail all in one workflow. Reach leads where they respond best.' },
-              { icon: '🎯', color: 'blue', title: 'Lead Routing & Assignment', description: 'Auto-assign leads based on source, location, or round-robin distribution. Ensure every lead gets to the right person instantly.' },
-              { icon: '🔔', color: 'green', title: 'Internal Notifications', description: 'Slack alerts, email notifications, task creation, and calendar events. Keep your team informed without manual updates.' },
-              { icon: '📊', color: 'yellow', title: 'Performance Tracking', description: 'Open rates, click-through rates, response rates, and conversion data per step. Know exactly what works and optimize accordingly.' },
+              { icon: <Zap className="w-5 h-5" />, color: 'blue', title: 'Trigger-Based Workflows', description: 'Fire workflows instantly on form submissions, tag changes, pipeline moves, or calendar bookings. Set up triggers that respond before your lead even finishes reading your confirmation page.' },
+              { icon: <GitBranch className="w-5 h-5" />, color: 'green', title: 'Conditional Logic', description: 'If/else branching, wait steps, goal triggers, and split testing. Create sophisticated automation paths that adapt based on lead behavior, location, or interest.' },
+              { icon: <Send className="w-5 h-5" />, color: 'yellow', title: 'Multi-Channel Sequences', description: 'Email, SMS, WhatsApp, voicemail drops, and ringless voicemail all in one workflow. Reach leads where they respond best.' },
+              { icon: <UserCheck className="w-5 h-5" />, color: 'blue', title: 'Lead Routing & Assignment', description: 'Auto-assign leads based on source, location, or round-robin distribution. Ensure every lead gets to the right person instantly.' },
+              { icon: <Bell className="w-5 h-5" />, color: 'green', title: 'Internal Notifications', description: 'Slack alerts, email notifications, task creation, and calendar events. Keep your team informed without manual updates.' },
+              { icon: <BarChart3 className="w-5 h-5" />, color: 'yellow', title: 'Performance Tracking', description: 'Open rates, click-through rates, response rates, and conversion data per step. Know exactly what works and optimize accordingly.' },
             ].map((item, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-[1.2rem] mb-3.5 ${
-                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)]' : 
-                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)]' : 'bg-[rgba(248,208,0,0.12)]'
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${
+                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' : 
+                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
                 }`}>
                   {item.icon}
                 </div>
@@ -128,11 +244,11 @@ export default function WorkflowAutomationPage() {
                 <strong className="font-semibold text-[#1C2E4A]">Workflow automation makes sense if you are:</strong>
               </p>
               <ul className="list-none flex flex-col gap-2.5 mt-5">
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Getting leads from multiple sources (ads, SEO, referrals, events)</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Missing follow-ups because your team is too busy</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Booking appointments but not confirming or reminding</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Running lead gen campaigns but leads go cold after 48 hours</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Wanting to scale without hiring 3 more people</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Getting leads from multiple sources (ads, SEO, referrals, events)</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Missing follow-ups because your team is too busy</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Booking appointments but not confirming or reminding</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Running lead gen campaigns but leads go cold after 48 hours</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Wanting to scale without hiring 3 more people</li>
               </ul>
             </div>
             <div>
@@ -189,6 +305,55 @@ export default function WorkflowAutomationPage() {
                   <p className="text-[0.85rem] font-light text-[#4A5568] leading-relaxed">{step.description}</p>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Blog Posts Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-[1200px] mx-auto px-4 md:px-8">
+          <div className="text-center max-w-[600px] mx-auto mb-10">
+            <div className="inline-flex items-center gap-2.5 text-[0.65rem] font-bold tracking-[0.12em] uppercase text-[#0E9BF0] mb-3 justify-center">
+              <span className="w-[22px] h-[2px] bg-[#0E9BF0] rounded"></span>
+              Free Resources
+            </div>
+            <h2 className="text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold tracking-[-0.03em] leading-[1.12] mb-3.5 text-[#1C2E4A]">
+              Read Our<br />
+              <span className="text-[#0E9BF0]">Automation Guides</span>
+            </h2>
+            <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed max-w-[580px] mx-auto">
+              Learn more about building powerful automation systems with these in-depth articles.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {relatedBlogs.map((blog, index) => (
+              <Link 
+                key={index}
+                href={`/blog/${blog.slug}`}
+                className="group bg-[#F8F9FB] border border-[#E8EDF4] rounded-xl p-6 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all"
+              >
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-2 text-[0.65rem] text-[#5C6880] mb-2">
+                    <span className="text-[#0E9BF0] font-semibold">Automation</span>
+                    <span>•</span>
+                    <div className="flex items-center gap-1">
+                      <Clock className="w-3 h-3" />
+                      <span>{blog.readTime}</span>
+                    </div>
+                  </div>
+                  <h3 className="text-[0.95rem] font-bold text-[#1C2E4A] group-hover:text-[#0E9BF0] transition-colors mb-2 line-clamp-2">
+                    {blog.title}
+                  </h3>
+                  <p className="text-[0.75rem] text-[#5C6880] leading-relaxed mb-3 line-clamp-2">
+                    {blog.excerpt}
+                  </p>
+                  <div className="inline-flex items-center gap-1 text-[0.7rem] font-semibold text-[#0E9BF0] group-hover:gap-2 transition-all mt-auto">
+                    Read Full Guide <ArrowRight className="w-3 h-3" />
+                  </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -268,15 +433,18 @@ export default function WorkflowAutomationPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { title: 'CRM Setup', description: 'A solid CRM foundation with clean pipelines and proper tagging makes automations more powerful and easier to manage.', href: '/services/crm-setup' },
-              { title: 'AI Chatbot & Voice Agent', description: 'Add AI-powered chat and voice to your automation flows qualify leads and book appointments 24/7 without human intervention.', href: '/services/ai-chatbot' },
-              { title: 'Email, SMS & WhatsApp Campaigns', description: 'Advanced campaign-level automation for newsletters, promotional sequences, and broadcast messages to your entire list.', href: '/services/campaign-automation' },
+              { title: 'CRM Setup', description: 'A solid CRM foundation with clean pipelines and proper tagging makes automations more powerful and easier to manage.', href: '/services/crm-setup', icon: <Settings className="w-5 h-5" /> },
+              { title: 'AI Chatbot & Voice Agent', description: 'Add AI-powered chat and voice to your automation flows qualify leads and book appointments 24/7 without human intervention.', href: '/services/ai-chatbot', icon: <MessageCircle className="w-5 h-5" /> },
+              { title: 'Email, SMS & WhatsApp Campaigns', description: 'Advanced campaign-level automation for newsletters, promotional sequences, and broadcast messages to your entire list.', href: '/services/campaign-automation', icon: <Send className="w-5 h-5" /> },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
+                <div className="w-10 h-10 rounded-lg bg-[rgba(14,155,240,0.1)] flex items-center justify-center mb-3 text-[#0E9BF0]">
+                  {service.icon}
+                </div>
                 <h3 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1.5">{service.title}</h3>
                 <p className="text-[0.78rem] font-light text-[#4A5568] leading-relaxed mb-3">{service.description}</p>
                 <Link href={service.href} className="inline-flex items-center gap-1 text-[0.75rem] font-semibold text-[#0E9BF0] hover:gap-2 transition-all">
-                  Learn More →
+                  Learn More <ArrowRight className="w-3 h-3" />
                 </Link>
               </div>
             ))}

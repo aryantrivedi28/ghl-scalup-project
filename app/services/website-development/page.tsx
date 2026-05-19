@@ -2,6 +2,24 @@
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
+import { 
+  Palette, 
+  Smartphone, 
+  Search, 
+  Zap, 
+  FileText, 
+  Link as LinkIcon,
+  Clock,
+  ArrowRight,
+  Layout,
+  Globe,
+  CheckCircle2,
+  Settings,
+  GitBranch,
+  Rocket,
+  TrendingUp,
+  BarChart3
+} from 'lucide-react';
 
 export const metadata = {
   title: 'GHL Website Development Services | GHL Scale Up',
@@ -12,9 +30,106 @@ export const metadata = {
   },
 };
 
+// Service Schema Component
+const ServiceSchema = () => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "GoHighLevel Website Development",
+    "alternateName": "GHL Web Design Services",
+    "description": "Professional GoHighLevel website development with custom designs, SEO optimization, mobile responsiveness, and CRM integration. Build fast-loading, mobile-responsive websites that capture leads directly into your CRM.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "GHL Scale Up",
+      "url": "https://www.ghlscaleup.com",
+      "logo": "https://www.ghlscaleup.com/web-app-manifest-192x192.png",
+      "sameAs": [
+        "https://www.linkedin.com/company/ghl-scale-up",
+        "https://x.com/GHLScaleUp"
+      ]
+    },
+    "serviceType": "Website Development",
+    "areaServed": {
+      "@type": "Country",
+      "name": "United States"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Website Packages",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Standard Business Website"
+          },
+          "price": "2497",
+          "priceCurrency": "USD",
+          "description": "5-page custom website with SEO optimization"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "E-commerce Website"
+          },
+          "price": "3997",
+          "priceCurrency": "USD",
+          "description": "Full e-commerce site with product pages and checkout"
+        }
+      ]
+    },
+    "audience": {
+      "@type": "BusinessAudience",
+      "audienceType": "Small Businesses, Agencies, Service Providers"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free website consultation"
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+};
+
 export default function WebsiteDevelopmentPage() {
+  // Related blog posts for this service
+  const relatedBlogs = [
+    {
+      slug: 'gohighlevel-funnel-builder-features',
+      title: 'GoHighLevel Funnel Builder: 7 Features Top Agencies Use to Build Faster',
+      excerpt: 'Discover the GoHighLevel funnel builder features most agencies overlook version control, global sections, custom values, and more.',
+      readTime: '9 min read',
+      date: 'April 7, 2026'
+    },
+    {
+      slug: 'what-is-gohighlevel',
+      title: 'What Is GoHighLevel? The Complete Guide for 2026',
+      excerpt: 'GoHighLevel is an all-in-one CRM and marketing platform built for agencies and service businesses. Learn what it does and who it is for.',
+      readTime: '12 min read',
+      date: 'May 2, 2026'
+    },
+    {
+      slug: 'ghl-lead-generation-strategies',
+      title: 'How to Generate High-Quality Leads Using GHL',
+      excerpt: 'Learn the proven strategies to attract, capture, and convert leads using GoHighLevel automation.',
+      readTime: '6 min read',
+      date: 'March 20, 2026'
+    }
+  ];
+
   return (
     <>
+      {/* Add Service Schema to Head */}
+      <ServiceSchema />
+      
       <Breadcrumb items={[{ label: 'GHL Services', href: '/services' }, { label: 'GHL Website Development' }]} />
 
       {/* Page Hero */}
@@ -86,17 +201,17 @@ export default function WebsiteDevelopmentPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              { icon: '🎨', color: 'blue', title: 'Custom Design & Branding', description: 'Unique, professional designs that match your brand identity. No templates. Every site is built from scratch to reflect your business personality and values.' },
-              { icon: '📱', color: 'green', title: 'Mobile Responsive Design', description: 'Fully optimized for all devices desktop, tablet, and mobile. Your site looks perfect and functions flawlessly on every screen size.' },
-              { icon: '🔍', color: 'yellow', title: 'SEO Optimization', description: 'Built-in SEO best practices including meta tags, heading structure, alt text, sitemaps, and fast loading speeds to rank higher in search results.' },
-              { icon: '⚡', color: 'blue', title: 'Fast Loading Performance', description: 'Optimized images, clean code, and efficient structure for lightning-fast page loads. Speed matters for both user experience and SEO rankings.' },
-              { icon: '📝', color: 'green', title: 'Content Management System', description: 'Easy-to-use CMS built into GHL. Update text, images, and pages yourself without technical skills or developer assistance.' },
-              { icon: '🔗', color: 'yellow', title: 'CRM & Form Integration', description: 'Connect contact forms, booking calendars, and lead capture directly to your GoHighLevel CRM. Every lead is automatically tracked and followed up.' },
+              { icon: <Palette className="w-5 h-5" />, color: 'blue', title: 'Custom Design & Branding', description: 'Unique, professional designs that match your brand identity. No templates. Every site is built from scratch to reflect your business personality and values.' },
+              { icon: <Smartphone className="w-5 h-5" />, color: 'green', title: 'Mobile Responsive Design', description: 'Fully optimized for all devices desktop, tablet, and mobile. Your site looks perfect and functions flawlessly on every screen size.' },
+              { icon: <Search className="w-5 h-5" />, color: 'yellow', title: 'SEO Optimization', description: 'Built-in SEO best practices including meta tags, heading structure, alt text, sitemaps, and fast loading speeds to rank higher in search results.' },
+              { icon: <Zap className="w-5 h-5" />, color: 'blue', title: 'Fast Loading Performance', description: 'Optimized images, clean code, and efficient structure for lightning-fast page loads. Speed matters for both user experience and SEO rankings.' },
+              { icon: <FileText className="w-5 h-5" />, color: 'green', title: 'Content Management System', description: 'Easy-to-use CMS built into GHL. Update text, images, and pages yourself without technical skills or developer assistance.' },
+              { icon: <LinkIcon className="w-5 h-5" />, color: 'yellow', title: 'CRM & Form Integration', description: 'Connect contact forms, booking calendars, and lead capture directly to your GoHighLevel CRM. Every lead is automatically tracked and followed up.' },
             ].map((item, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-[1.2rem] mb-3.5 ${
-                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)]' : 
-                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)]' : 'bg-[rgba(248,208,0,0.12)]'
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${
+                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' : 
+                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
                 }`}>
                   {item.icon}
                 </div>
@@ -128,11 +243,11 @@ export default function WebsiteDevelopmentPage() {
                 <strong className="font-semibold text-[#1C2E4A]">GHL website development makes sense if you are:</strong>
               </p>
               <ul className="list-none flex flex-col gap-2.5 mt-5">
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> A business owner needing a professional, modern website</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> An agency wanting to offer websites to your clients</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Currently on WordPress, Wix, or Squarespace and want better integration</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Needing a site that captures leads and integrates with your CRM</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Tired of managing multiple tools for website, CRM, and marketing</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> A business owner needing a professional, modern website</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> An agency wanting to offer websites to your clients</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Currently on WordPress, Wix, or Squarespace and want better integration</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Needing a site that captures leads and integrates with your CRM</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Tired of managing multiple tools for website, CRM, and marketing</li>
               </ul>
             </div>
             <div>
@@ -189,6 +304,55 @@ export default function WebsiteDevelopmentPage() {
                   <p className="text-[0.85rem] font-light text-[#4A5568] leading-relaxed">{step.description}</p>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Blog Posts Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-[1200px] mx-auto px-4 md:px-8">
+          <div className="text-center max-w-[600px] mx-auto mb-10">
+            <div className="inline-flex items-center gap-2.5 text-[0.65rem] font-bold tracking-[0.12em] uppercase text-[#0E9BF0] mb-3 justify-center">
+              <span className="w-[22px] h-[2px] bg-[#0E9BF0] rounded"></span>
+              Free Resources
+            </div>
+            <h2 className="text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold tracking-[-0.03em] leading-[1.12] mb-3.5 text-[#1C2E4A]">
+              Read Our<br />
+              <span className="text-[#0E9BF0]">Website & Funnel Guides</span>
+            </h2>
+            <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed max-w-[580px] mx-auto">
+              Learn more about building high-converting websites and funnels with these in-depth articles.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {relatedBlogs.map((blog, index) => (
+              <Link 
+                key={index}
+                href={`/blog/${blog.slug}`}
+                className="group bg-[#F8F9FB] border border-[#E8EDF4] rounded-xl p-6 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all"
+              >
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-2 text-[0.65rem] text-[#5C6880] mb-2">
+                    <span className="text-[#0E9BF0] font-semibold">Website & Funnels</span>
+                    <span>•</span>
+                    <div className="flex items-center gap-1">
+                      <Clock className="w-3 h-3" />
+                      <span>{blog.readTime}</span>
+                    </div>
+                  </div>
+                  <h3 className="text-[0.95rem] font-bold text-[#1C2E4A] group-hover:text-[#0E9BF0] transition-colors mb-2 line-clamp-2">
+                    {blog.title}
+                  </h3>
+                  <p className="text-[0.75rem] text-[#5C6880] leading-relaxed mb-3 line-clamp-2">
+                    {blog.excerpt}
+                  </p>
+                  <div className="inline-flex items-center gap-1 text-[0.7rem] font-semibold text-[#0E9BF0] group-hover:gap-2 transition-all mt-auto">
+                    Read Full Guide <ArrowRight className="w-3 h-3" />
+                  </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -268,15 +432,18 @@ export default function WebsiteDevelopmentPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { title: 'CRM Setup', description: 'Capture leads from your website and manage them effectively with a properly configured GHL CRM system.', href: '/services/crm-setup' },
-              { title: 'Workflow Automation', description: 'Automate follow-ups triggered by website actions form submissions, page views, and more.', href: '/services/workflow-automation' },
-              { title: 'Sales Funnel Development', description: 'Add high-converting landing pages and opt-in forms to capture more leads from your traffic.', href: '/services/funnel-development' },
+              { title: 'CRM Setup', description: 'Capture leads from your website and manage them effectively with a properly configured GHL CRM system.', href: '/services/crm-setup', icon: <Settings className="w-5 h-5" /> },
+              { title: 'Workflow Automation', description: 'Automate follow-ups triggered by website actions form submissions, page views, and more.', href: '/services/workflow-automation', icon: <GitBranch className="w-5 h-5" /> },
+              { title: 'Sales Funnel Development', description: 'Add high-converting landing pages and opt-in forms to capture more leads from your traffic.', href: '/services/funnel-development', icon: <Rocket className="w-5 h-5" /> },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
+                <div className="w-10 h-10 rounded-lg bg-[rgba(14,155,240,0.1)] flex items-center justify-center mb-3 text-[#0E9BF0]">
+                  {service.icon}
+                </div>
                 <h3 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1.5">{service.title}</h3>
                 <p className="text-[0.78rem] font-light text-[#4A5568] leading-relaxed mb-3">{service.description}</p>
                 <Link href={service.href} className="inline-flex items-center gap-1 text-[0.75rem] font-semibold text-[#0E9BF0] hover:gap-2 transition-all">
-                  Learn More →
+                  Learn More <ArrowRight className="w-3 h-3" />
                 </Link>
               </div>
             ))}

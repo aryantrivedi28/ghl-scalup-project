@@ -12,9 +12,105 @@ export const metadata = {
   },
 };
 
+// Service Schema Component
+const ServiceSchema = () => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "White-Label SaaS Setup on GoHighLevel",
+    "alternateName": "GHL SaaS Implementation",
+    "description": "Complete white-label SaaS setup on GoHighLevel including branded domains, reusable snapshots, automated sub-account provisioning, Stripe billing integration, and Twilio/Mailgun setup. Launch your agency SaaS platform in 2-4 weeks.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "GHL Scale Up",
+      "url": "https://www.ghlscaleup.com",
+      "logo": "https://www.ghlscaleup.com/web-app-manifest-192x192.png",
+      "sameAs": [
+        "https://www.linkedin.com/company/ghl-scale-up",
+        "https://x.com/GHLScaleUp"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "US"
+      }
+    },
+    "serviceType": "GoHighLevel SaaS Implementation",
+    "termsOfService": "https://www.ghlscaleup.com/terms",
+    "areaServed": {
+      "@type": "Country",
+      "name": "United States"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "White-Label SaaS Setup Packages",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Basic SaaS Setup"
+          },
+          "price": "2997",
+          "priceCurrency": "USD",
+          "description": "Branded domain, basic snapshot, Stripe integration"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Advanced SaaS Setup"
+          },
+          "price": "4997",
+          "priceCurrency": "USD",
+          "description": "Full branding, advanced snapshot, automated provisioning, client dashboard"
+        }
+      ]
+    },
+    "audience": {
+      "@type": "BusinessAudience",
+      "audienceType": "Marketing Agencies, Consultants, Entrepreneurs"
+    },
+    "estimatedDeliveryTime": "P14-28D", // 14-28 days
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free consultation"
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+};
+
 export default function WhiteLabelSaaSPage() {
+  // Related blog posts for this service
+  const relatedBlogs = [
+    {
+      slug: 'ghl-white-label-saas-guide',
+      title: 'How to Set Up GoHighLevel White-Label SaaS: Complete Guide',
+      excerpt: 'Domains, snapshots, Stripe billing, sub-account provisioning, and pricing strategies.',
+      readTime: '8 min read',
+      date: 'April 7, 2026'
+    },
+    {
+      slug: 'freelancer-to-ghl-saas-founder',
+      title: 'From Freelancer to GHL SaaS Founder: Recurring Revenue',
+      excerpt: 'Transition from one-off projects to a scalable SaaS business using GHL white-label.',
+      readTime: '7 min read',
+      date: 'March 25, 2026'
+    }
+  ];
+
   return (
     <>
+      {/* Add Service Schema to Head */}
+      <ServiceSchema />
+      
       <Breadcrumb items={[{ label: 'GHL Services', href: '/services' }, { label: 'White-Label SaaS Setup' }]} />
 
       {/* Page Hero */}
@@ -189,6 +285,57 @@ export default function WhiteLabelSaaSPage() {
                   <p className="text-[0.85rem] font-light text-[#4A5568] leading-relaxed">{step.description}</p>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* NEW: Related Blog Posts Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-[1200px] mx-auto px-4 md:px-8">
+          <div className="text-center max-w-[600px] mx-auto mb-10">
+            <div className="inline-flex items-center gap-2.5 text-[0.65rem] font-bold tracking-[0.12em] uppercase text-[#0E9BF0] mb-3 justify-center">
+              <span className="w-[22px] h-[2px] bg-[#0E9BF0] rounded"></span>
+              Free Resources
+            </div>
+            <h2 className="text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold tracking-[-0.03em] leading-[1.12] mb-3.5 text-[#1C2E4A]">
+              Read Our<br />
+              <span className="text-[#0E9BF0]">White-Label SaaS Guides</span>
+            </h2>
+            <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed max-w-[580px] mx-auto">
+              Learn more about building and scaling your SaaS platform with these in-depth articles.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {relatedBlogs.map((blog, index) => (
+              <Link 
+                key={index}
+                href={`/blog/${blog.slug}`}
+                className="group bg-[#F8F9FB] border border-[#E8EDF4] rounded-xl p-6 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 text-[0.65rem] text-[#5C6880] mb-2">
+                      <span className="text-[#0E9BF0] font-semibold">GHL SaaS</span>
+                      <span>•</span>
+                      <span>{blog.readTime}</span>
+                    </div>
+                    <h3 className="text-[1rem] font-bold text-[#1C2E4A] group-hover:text-[#0E9BF0] transition-colors mb-1.5">
+                      {blog.title}
+                    </h3>
+                    <p className="text-[0.8rem] text-[#5C6880] leading-relaxed mb-3">
+                      {blog.excerpt}
+                    </p>
+                    <div className="inline-flex items-center gap-1 text-[0.7rem] font-semibold text-[#0E9BF0] group-hover:gap-2 transition-all">
+                      Read Full Guide →
+                    </div>
+                  </div>
+                  <div className="text-[1.5rem] opacity-50 group-hover:opacity-100 transition-opacity">
+                    📘
+                  </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
