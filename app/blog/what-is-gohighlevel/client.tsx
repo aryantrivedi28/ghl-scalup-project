@@ -569,15 +569,15 @@ export default function WhatIsGoHighLevelClient() {
             </div>
 
             {/* Internal Links */}
-            {/* <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
+            <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
               <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles</h3>
               <div className="flex flex-wrap gap-3">
                 <Link href="/blog/gohighlevel-pricing" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Pricing: All Plans Explained →</Link>
-                <Link href="/blog/gohighlevel-features" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Features: Complete Breakdown →</Link>
+                {/* <Link href="/blog/gohighlevel-features" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Features: Complete Breakdown →</Link> */}
                 <Link href="/blog/gohighlevel-vs-hubspot" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel vs HubSpot: Honest Comparison →</Link>
-                <Link href="/blog/gohighlevel-saas-mode" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel SaaS Mode: Complete Setup Guide →</Link>
+                {/* <Link href="/blog/gohighlevel-saas-mode" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel SaaS Mode: Complete Setup Guide →</Link> */}
               </div>
-            </div> */}
+            </div>
 
             {/* CTA Section */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
