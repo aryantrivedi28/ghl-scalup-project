@@ -2,19 +2,133 @@
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
+import { 
+  Phone, 
+  Target, 
+  Calendar, 
+  MessageSquare, 
+  FileText, 
+  RefreshCw,
+  ArrowRight,
+  CheckCircle2,
+  Clock,
+  Mic,
+  Bot,
+  Users,
+  Zap,
+  Sparkles,
+  Headphones
+} from 'lucide-react';
 
 export const metadata = {
   title: 'GHL AI Voice Agent & Call Handling Services | GHL Scale Up',
   description: '24/7 AI receptionist that answers calls, qualifies leads, books appointments, and handles missed calls. 200+ projects. Get a free AI voice consultation.',
   keywords: 'AI voice agent, GHL call handling, AI receptionist, missed call text back, voice AI automation',
   alternates: {
-    canonical: '/services/ai-voice-agent',
+    canonical: 'https://www.ghlscaleup.com/services/ai-voice-agent',
   },
 };
 
+// Service Schema Component
+const ServiceSchema = () => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "GoHighLevel AI Voice Agent & Call Handling",
+    "alternateName": "GHL AI Receptionist",
+    "description": "Complete AI voice agent deployment for GoHighLevel including 24/7 AI receptionist, lead qualification, appointment booking, missed call text-back, call transcription and notes, and CRM integration. Answer 100% of calls and book appointments 24/7 with natural-sounding AI that qualifies leads automatically.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "GHL Scale Up",
+      "url": "https://www.ghlscaleup.com",
+      "logo": "https://www.ghlscaleup.com/web-app-manifest-192x192.png",
+      "sameAs": [
+        "https://www.linkedin.com/company/ghl-scale-up",
+        "https://x.com/GHLScaleUp"
+      ]
+    },
+    "serviceType": "AI Voice Automation",
+    "areaServed": {
+      "@type": "Country",
+      "name": "United States"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "AI Voice Packages",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Basic AI Voice Agent"
+          },
+          "price": "1497",
+          "priceCurrency": "USD",
+          "description": "Single call flow AI receptionist"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Advanced Voice AI Suite"
+          },
+          "price": "2997",
+          "priceCurrency": "USD",
+          "description": "Multi-flow AI with full integration"
+        }
+      ]
+    },
+    "audience": {
+      "@type": "BusinessAudience",
+      "audienceType": "Service Businesses, Real Estate, Medical Practices, Home Services"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free AI voice consultation"
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+};
+
 export default function AIVoiceAgentPage() {
+  // Related blog posts for this service
+  const relatedBlogs = [
+    {
+      slug: 'gohighlevel-conversational-ai-data-storage',
+      title: 'Does GoHighLevel Conversation AI Save Data to Your CRM?',
+      excerpt: 'GoHighLevel Conversation AI does save some data to your CRM. Here\'s exactly what gets captured, what doesn\'t, and how AI voice agents integrate with your system.',
+      readTime: '15 min read',
+      date: 'May 12, 2026'
+    },
+    {
+      slug: 'gohighlevel-missed-call-text-back',
+      title: 'GoHighLevel Missed Call Text Back: How It Works + Full Setup Guide',
+      excerpt: 'GoHighLevel\'s missed call text back sends an automatic SMS within 15 seconds of a missed call recovering leads before they call a competitor.',
+      readTime: '16 min read',
+      date: 'May 7, 2026'
+    },
+    {
+      slug: 'how-to-set-up-gohighlevel-workflow-automation',
+      title: 'How to Set Up GoHighLevel Workflow Automation for Beginners',
+      excerpt: 'Step-by-step guide to workflow automation that integrates perfectly with your AI voice agent for follow-ups and lead nurturing.',
+      readTime: '19 min read',
+      date: 'May 6, 2026'
+    }
+  ];
+
   return (
     <>
+      {/* Add Service Schema to Head */}
+      <ServiceSchema />
+      
       <Breadcrumb items={[{ label: 'GHL Services', href: '/services' }, { label: 'AI Voice Agent & Call Handling' }]} />
 
       {/* Page Hero */}
@@ -24,6 +138,7 @@ export default function AIVoiceAgentPage() {
           <div className="grid md:grid-cols-[1.2fr_0.8fr] gap-10 md:gap-14 items-center">
             <div>
               <div className="inline-flex items-center gap-2 bg-[rgba(248,208,0,0.12)] border border-[rgba(248,208,0,0.2)] text-[#F8D000] text-[0.65rem] font-bold tracking-[0.12em] uppercase px-4 py-1.5 rounded-full mb-5">
+                <Sparkles className="h-3 w-3" />
                 GHL Service
               </div>
               <h1 className="text-[clamp(2rem,4vw,2.8rem)] font-extrabold tracking-[-0.03em] leading-[1.1] mb-4">
@@ -86,17 +201,17 @@ export default function AIVoiceAgentPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              { icon: '📞', color: 'blue', title: '24/7 AI Receptionist', description: 'Your AI voice agent answers every call, day or night. No more voicemail, no more missed opportunities. The AI engages callers in natural conversation.' },
-              { icon: '🎯', color: 'green', title: 'Lead Qualification', description: 'AI asks qualifying questions, captures caller information, and scores leads based on responses. Only qualified leads are forwarded to your sales team.' },
-              { icon: '📅', color: 'yellow', title: 'Appointment Booking', description: 'AI checks calendar availability, books appointments in real-time, and sends confirmation texts or emails. Reduce no-shows with automated reminders.' },
-              { icon: '💬', color: 'blue', title: 'Missed Call Text-Back', description: 'When you miss a call, AI automatically sends a text message to the caller: "Sorry we missed you! Click here to book a time." No lead goes cold.' },
-              { icon: '📝', color: 'green', title: 'Call Transcription & Notes', description: 'Every conversation is transcribed and summarized. Key details, qualifications, and action items are logged directly in your CRM for follow-up.' },
-              { icon: '🔄', color: 'yellow', title: 'CRM Integration', description: 'AI logs calls, creates contacts, updates pipelines, and triggers automations in your GoHighLevel CRM. Seamless handoff to your team.' },
+              { icon: <Phone className="w-5 h-5" />, color: 'blue', title: '24/7 AI Receptionist', description: 'Your AI voice agent answers every call, day or night. No more voicemail, no more missed opportunities. The AI engages callers in natural conversation.' },
+              { icon: <Target className="w-5 h-5" />, color: 'green', title: 'Lead Qualification', description: 'AI asks qualifying questions, captures caller information, and scores leads based on responses. Only qualified leads are forwarded to your sales team.' },
+              { icon: <Calendar className="w-5 h-5" />, color: 'yellow', title: 'Appointment Booking', description: 'AI checks calendar availability, books appointments in real-time, and sends confirmation texts or emails. Reduce no-shows with automated reminders.' },
+              { icon: <MessageSquare className="w-5 h-5" />, color: 'blue', title: 'Missed Call Text-Back', description: 'When you miss a call, AI automatically sends a text message to the caller: "Sorry we missed you! Click here to book a time." No lead goes cold.' },
+              { icon: <FileText className="w-5 h-5" />, color: 'green', title: 'Call Transcription & Notes', description: 'Every conversation is transcribed and summarized. Key details, qualifications, and action items are logged directly in your CRM for follow-up.' },
+              { icon: <RefreshCw className="w-5 h-5" />, color: 'yellow', title: 'CRM Integration', description: 'AI logs calls, creates contacts, updates pipelines, and triggers automations in your GoHighLevel CRM. Seamless handoff to your team.' },
             ].map((item, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-[1.2rem] mb-3.5 ${
-                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)]' : 
-                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)]' : 'bg-[rgba(248,208,0,0.12)]'
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${
+                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' : 
+                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
                 }`}>
                   {item.icon}
                 </div>
@@ -128,11 +243,11 @@ export default function AIVoiceAgentPage() {
                 <strong className="font-semibold text-[#1C2E4A]">AI voice agents make sense if you are:</strong>
               </p>
               <ul className="list-none flex flex-col gap-2.5 mt-5">
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> A service business that books appointments (home services, real estate, medical)</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Getting calls during off-hours that go to voicemail</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Spending too much time on qualifying calls</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Wanting to scale without hiring additional receptionists</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Losing leads because your team can't answer every call immediately</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> A service business that books appointments (home services, real estate, medical)</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Getting calls during off-hours that go to voicemail</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Spending too much time on qualifying calls</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Wanting to scale without hiring additional receptionists</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Losing leads because your team can't answer every call immediately</li>
               </ul>
             </div>
             <div>
@@ -189,6 +304,55 @@ export default function AIVoiceAgentPage() {
                   <p className="text-[0.85rem] font-light text-[#4A5568] leading-relaxed">{step.description}</p>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Blog Posts Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-[1200px] mx-auto px-4 md:px-8">
+          <div className="text-center max-w-[600px] mx-auto mb-10">
+            <div className="inline-flex items-center gap-2.5 text-[0.65rem] font-bold tracking-[0.12em] uppercase text-[#0E9BF0] mb-3 justify-center">
+              <span className="w-[22px] h-[2px] bg-[#0E9BF0] rounded"></span>
+              Free Resources
+            </div>
+            <h2 className="text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold tracking-[-0.03em] leading-[1.12] mb-3.5 text-[#1C2E4A]">
+              Read Our<br />
+              <span className="text-[#0E9BF0]">AI Voice & Automation Guides</span>
+            </h2>
+            <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed max-w-[580px] mx-auto">
+              Learn more about AI voice agents and call handling automation with these in-depth articles.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {relatedBlogs.map((blog, index) => (
+              <Link 
+                key={index}
+                href={`/blog/${blog.slug}`}
+                className="group bg-[#F8F9FB] border border-[#E8EDF4] rounded-xl p-6 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all"
+              >
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-2 text-[0.65rem] text-[#5C6880] mb-2">
+                    <span className="text-[#0E9BF0] font-semibold">AI Voice & Automation</span>
+                    <span>•</span>
+                    <div className="flex items-center gap-1">
+                      <Clock className="w-3 h-3" />
+                      <span>{blog.readTime}</span>
+                    </div>
+                  </div>
+                  <h3 className="text-[0.95rem] font-bold text-[#1C2E4A] group-hover:text-[#0E9BF0] transition-colors mb-2 line-clamp-2">
+                    {blog.title}
+                  </h3>
+                  <p className="text-[0.75rem] text-[#5C6880] leading-relaxed mb-3 line-clamp-2">
+                    {blog.excerpt}
+                  </p>
+                  <div className="inline-flex items-center gap-1 text-[0.7rem] font-semibold text-[#0E9BF0] group-hover:gap-2 transition-all mt-auto">
+                    Read Full Guide <ArrowRight className="w-3 h-3" />
+                  </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -268,15 +432,18 @@ export default function AIVoiceAgentPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { title: 'CRM Setup', description: 'Capture leads from your AI voice agent and manage them effectively with a properly configured GHL CRM system.', href: '/services/crm-setup' },
-              { title: 'Workflow Automation', description: 'Trigger follow-up automations based on voice agent conversations assign tasks, send emails, update pipelines.', href: '/services/workflow-automation' },
-              { title: 'AI Chatbot', description: 'Combine voice AI with text-based chatbots for complete 24/7 omnichannel lead capture and support.', href: '/services/ai-chatbot' },
+              { title: 'CRM Setup', description: 'Capture leads from your AI voice agent and manage them effectively with a properly configured GHL CRM system.', href: '/services/crm-setup', icon: <Users className="w-5 h-5" /> },
+              { title: 'Workflow Automation', description: 'Trigger follow-up automations based on voice agent conversations assign tasks, send emails, update pipelines.', href: '/services/workflow-automation', icon: <Zap className="w-5 h-5" /> },
+              { title: 'AI Chatbot', description: 'Combine voice AI with text-based chatbots for complete 24/7 omnichannel lead capture and support.', href: '/services/ai-chatbot', icon: <Bot className="w-5 h-5" /> },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
+                <div className="w-10 h-10 rounded-lg bg-[rgba(14,155,240,0.1)] flex items-center justify-center mb-3 text-[#0E9BF0]">
+                  {service.icon}
+                </div>
                 <h3 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1.5">{service.title}</h3>
                 <p className="text-[0.78rem] font-light text-[#4A5568] leading-relaxed mb-3">{service.description}</p>
                 <Link href={service.href} className="inline-flex items-center gap-1 text-[0.75rem] font-semibold text-[#0E9BF0] hover:gap-2 transition-all">
-                  Learn More →
+                  Learn More <ArrowRight className="w-3 h-3" />
                 </Link>
               </div>
             ))}

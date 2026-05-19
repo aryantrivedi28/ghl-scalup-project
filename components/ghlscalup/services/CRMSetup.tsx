@@ -3,7 +3,30 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import Footer from '@/components/ghlscalup/Footer'
+import { 
+  ArrowRight, 
+  CheckCircle2, 
+  Clock, 
+  Settings, 
+  User, 
+  Tag, 
+  Users, 
+  Link as LinkIcon, 
+  RefreshCw,
+  Zap,
+  FolderOpen,
+  GitBranch,
+  BarChart3,
+  Shield,
+  Sparkles,
+  Database,
+  Mail,
+  Calendar,
+  TrendingUp,
+  Star,
+  Headphones,
+  DollarSign
+} from 'lucide-react'
 
 const ServiceCRMSetup = () => {
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -28,13 +51,38 @@ const ServiceCRMSetup = () => {
     return () => observer.disconnect()
   }, [])
 
+  // Related blog posts for this service
+  const relatedBlogs = [
+    {
+      slug: 'what-is-gohighlevel',
+      title: 'What Is GoHighLevel? The Complete Guide for 2026',
+      excerpt: 'Comprehensive guide to GoHighLevel including CRM capabilities and how to leverage them for your business.',
+      readTime: '12 min read',
+      date: 'May 2, 2026'
+    },
+    {
+      slug: 'ghl-pipeline-management',
+      title: 'GHL Pipeline Management: From Lead to Closed Deal',
+      excerpt: 'Master the art of pipeline management in GoHighLevel to track and convert more leads effectively.',
+      readTime: '7 min read',
+      date: 'March 15, 2026'
+    },
+    {
+      slug: 'how-to-set-up-gohighlevel-workflow-automation',
+      title: 'How to Set Up GoHighLevel Workflow Automation for Beginners',
+      excerpt: 'Step-by-step guide to workflow automation that integrates perfectly with your CRM setup.',
+      readTime: '19 min read',
+      date: 'May 6, 2026'
+    }
+  ]
+
   const includedItems = [
-    { icon: '🔧', iconBg: 'blue', title: 'Custom Pipeline Design', description: 'Sales pipelines with stages mapped to your actual deal flow from new lead to closed won. Multiple pipelines for different services or teams.' },
-    { icon: '👤', iconBg: 'green', title: 'Contact & Lead Management', description: 'Contact profiles, custom fields, smart lists, tag architecture, lead source tracking. Every lead organized and searchable from day one.' },
-    { icon: '🏷️', iconBg: 'yellow', title: 'Tag & Segmentation Architecture', description: 'A structured tagging system so your contacts are segmented by source, interest, status, and behavior not random labels nobody remembers.' },
-    { icon: '👥', iconBg: 'blue', title: 'User Roles & Permissions', description: 'Team members, admins, and client users with role-based access. Control who sees what, who can edit, and who has view-only access.' },
-    { icon: '🔗', iconBg: 'green', title: 'Third-Party Integrations', description: 'Stripe for payments, Google Calendar sync, Facebook Lead Ads, Google My Business, Zapier, Make.com connected and tested.' },
-    { icon: '🔄', iconBg: 'yellow', title: 'CRM Data Migration', description: 'Full migration from HubSpot, Salesforce, Zoho, Keap, ActiveCampaign, or spreadsheets. Contacts, deals, notes, and tags all moved cleanly.' },
+    { icon: <FolderOpen className="w-5 h-5" />, iconBg: 'blue', title: 'Custom Pipeline Design', description: 'Sales pipelines with stages mapped to your actual deal flow from new lead to closed won. Multiple pipelines for different services or teams.' },
+    { icon: <User className="w-5 h-5" />, iconBg: 'green', title: 'Contact & Lead Management', description: 'Contact profiles, custom fields, smart lists, tag architecture, lead source tracking. Every lead organized and searchable from day one.' },
+    { icon: <Tag className="w-5 h-5" />, iconBg: 'yellow', title: 'Tag & Segmentation Architecture', description: 'A structured tagging system so your contacts are segmented by source, interest, status, and behavior not random labels nobody remembers.' },
+    { icon: <Users className="w-5 h-5" />, iconBg: 'blue', title: 'User Roles & Permissions', description: 'Team members, admins, and client users with role-based access. Control who sees what, who can edit, and who has view-only access.' },
+    { icon: <LinkIcon className="w-5 h-5" />, iconBg: 'green', title: 'Third-Party Integrations', description: 'Stripe for payments, Google Calendar sync, Facebook Lead Ads, Google My Business, Zapier, Make.com connected and tested.' },
+    { icon: <RefreshCw className="w-5 h-5" />, iconBg: 'yellow', title: 'CRM Data Migration', description: 'Full migration from HubSpot, Salesforce, Zoho, Keap, ActiveCampaign, or spreadsheets. Contacts, deals, notes, and tags all moved cleanly.' },
   ]
 
   const processSteps = [
@@ -59,9 +107,9 @@ const ServiceCRMSetup = () => {
   ]
 
   const relatedServices = [
-    { title: 'Workflow & Marketing Automation', description: 'Automate lead follow-ups, task assignments, and notifications directly from your CRM pipelines.', link: '/services/workflow-automation' },
-    { title: 'Sales Funnel Development', description: 'Build high-converting landing pages that feed leads directly into your CRM pipelines.', link: '/services/funnel-development' },
-    { title: 'Email, SMS & WhatsApp Campaigns', description: 'Set up nurture sequences triggered by CRM stages to convert leads on autopilot.', link: '/services/campaign-automation' },
+    { title: 'Workflow & Marketing Automation', description: 'Automate lead follow-ups, task assignments, and notifications directly from your CRM pipelines.', link: '/services/workflow-automation', icon: <Zap className="w-5 h-5" /> },
+    { title: 'Sales Funnel Development', description: 'Build high-converting landing pages that feed leads directly into your CRM pipelines.', link: '/services/funnel-development', icon: <GitBranch className="w-5 h-5" /> },
+    { title: 'Email, SMS & WhatsApp Campaigns', description: 'Set up nurture sequences triggered by CRM stages to convert leads on autopilot.', link: '/services/campaign-automation', icon: <Mail className="w-5 h-5" /> },
   ]
 
   return (
@@ -86,6 +134,7 @@ const ServiceCRMSetup = () => {
           <div className="grid md:grid-cols-[1.2fr_0.8fr] gap-14 items-center">
             <div>
               <div className="inline-flex items-center gap-2 bg-[rgba(248,208,0,0.12)] border border-[rgba(248,208,0,0.2)] text-[#F8D000] text-[0.65rem] font-bold tracking-[0.12em] uppercase px-4 py-1.5 rounded-full mb-5">
+                <Sparkles className="h-3 w-3" />
                 GHL Service
               </div>
               <h1 className="text-[clamp(2rem,4vw,2.8rem)] font-extrabold tracking-[-0.03em] leading-[1.1] mb-4.5">
@@ -147,9 +196,9 @@ const ServiceCRMSetup = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {includedItems.map((item, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all fade-in">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-[1.2rem] mb-3.5 ${
-                  item.iconBg === 'blue' ? 'bg-[rgba(14,155,240,0.1)]' : 
-                  item.iconBg === 'green' ? 'bg-[rgba(37,201,125,0.1)]' : 'bg-[rgba(248,208,0,0.12)]'
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${
+                  item.iconBg === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' : 
+                  item.iconBg === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
                 }`}>
                   {item.icon}
                 </div>
@@ -178,12 +227,12 @@ const ServiceCRMSetup = () => {
               </p>
               <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4"><strong className="font-semibold text-[#1C2E4A]">GHL CRM setup makes sense if you are:</strong></p>
               <ul className="list-none flex flex-col gap-2.5 mt-5">
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> A marketing agency managing multiple clients on GHL</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> A service business that books appointments (real estate, home services, legal, health)</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> A coach or consultant running lead gen funnels</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> A SaaS founder building on GoHighLevel's white-label platform</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Migrating from HubSpot, Salesforce, Zoho, or another CRM</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Tired of duct-taping tools that don't sync properly</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> A marketing agency managing multiple clients on GHL</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> A service business that books appointments (real estate, home services, legal, health)</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> A coach or consultant running lead gen funnels</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> A SaaS founder building on GoHighLevel's white-label platform</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Migrating from HubSpot, Salesforce, Zoho, or another CRM</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Tired of duct-taping tools that don't sync properly</li>
               </ul>
             </div>
             <div className="fade-in">
@@ -227,6 +276,55 @@ const ServiceCRMSetup = () => {
                   <p className="text-[0.85rem] font-light text-[#4A5568] leading-relaxed">{step.description}</p>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Blog Posts Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-[1200px] mx-auto px-4 md:px-8">
+          <div className="text-center max-w-[600px] mx-auto mb-10">
+            <div className="inline-flex items-center gap-2.5 text-[0.65rem] font-bold tracking-[0.12em] uppercase text-[#0E9BF0] mb-3 justify-center">
+              <span className="w-[22px] h-[2px] bg-[#0E9BF0] rounded"></span>
+              Free Resources
+            </div>
+            <h2 className="text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold tracking-[-0.03em] leading-[1.12] mb-3.5 text-[#1C2E4A]">
+              Read Our<br />
+              <span className="text-[#0E9BF0]">CRM & Pipeline Guides</span>
+            </h2>
+            <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed max-w-[580px] mx-auto">
+              Learn more about setting up and optimizing your CRM with these in-depth articles.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {relatedBlogs.map((blog, index) => (
+              <Link 
+                key={index}
+                href={`/blog/${blog.slug}`}
+                className="group bg-[#F8F9FB] border border-[#E8EDF4] rounded-xl p-6 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all"
+              >
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-2 text-[0.65rem] text-[#5C6880] mb-2">
+                    <span className="text-[#0E9BF0] font-semibold">CRM & Pipelines</span>
+                    <span>•</span>
+                    <div className="flex items-center gap-1">
+                      <Clock className="w-3 h-3" />
+                      <span>{blog.readTime}</span>
+                    </div>
+                  </div>
+                  <h3 className="text-[0.95rem] font-bold text-[#1C2E4A] group-hover:text-[#0E9BF0] transition-colors mb-2 line-clamp-2">
+                    {blog.title}
+                  </h3>
+                  <p className="text-[0.75rem] text-[#5C6880] leading-relaxed mb-3 line-clamp-2">
+                    {blog.excerpt}
+                  </p>
+                  <div className="inline-flex items-center gap-1 text-[0.7rem] font-semibold text-[#0E9BF0] group-hover:gap-2 transition-all mt-auto">
+                    Read Full Guide <ArrowRight className="w-3 h-3" />
+                  </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -300,10 +398,13 @@ const ServiceCRMSetup = () => {
           <div className="grid md:grid-cols-3 gap-5">
             {relatedServices.map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all fade-in">
+                <div className="w-10 h-10 rounded-lg bg-[rgba(14,155,240,0.1)] flex items-center justify-center mb-3 text-[#0E9BF0]">
+                  {service.icon}
+                </div>
                 <h3 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1.5">{service.title}</h3>
                 <p className="text-[0.78rem] font-light text-[#4A5568] leading-relaxed mb-3">{service.description}</p>
                 <Link href={service.link} className="inline-flex items-center gap-1 text-[0.75rem] font-semibold text-[#0E9BF0] hover:gap-2 transition-all">
-                  Learn More →
+                  Learn More <ArrowRight className="w-3 h-3" />
                 </Link>
               </div>
             ))}
@@ -322,7 +423,7 @@ const ServiceCRMSetup = () => {
             Your GoHighLevel CRM should work as hard as your sales team. Let our GHL experts build it right so every lead is tracked, every follow-up is automated, and nothing falls through the cracks.
           </p>
           <div className="flex gap-3.5 justify-center flex-wrap">
-            <Link href="mailto:aryan@finzie.co" className="bg-[#F8D000] text-[#0B1421] px-10 py-4 rounded-[10px] text-[0.92rem] font-bold hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
+            <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-10 py-4 rounded-[10px] text-[0.92rem] font-bold hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
               Schedule Your Free CRM Audit →
             </Link>
           </div>

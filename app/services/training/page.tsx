@@ -2,20 +2,135 @@
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
+import { 
+  Lock, 
+  Clock, 
+  CreditCard, 
+  Users, 
+  Mail, 
+  BarChart3,
+  ArrowRight,
+  CheckCircle2,
+  BookOpen,
+  GraduationCap,
+  Video,
+  Layers,
+  Zap,
+  DollarSign,
+  Shield,
+  TrendingUp,
+  Star
+} from 'lucide-react';
 
 export const metadata = {
-  title: 'GHL Training & Onboarding Services | GHL Scale Up',
-  description: 'End-to-end GHL training for your team CRM, automations, reporting, funnels. SOPs, videos, and live training. 200+ teams trained.',
-  keywords: 'GHL training, GoHighLevel onboarding, team training, SOPs, GHL certification',
-  
+  title: 'GHL Membership & Course Sites | GHL Scale Up',
+  description: 'Build fully functional membership platforms and online course sites inside GoHighLevel with drip content, gated access, payment integration, and student management. 50+ course sites launched.',
+  keywords: 'GHL membership site, GoHighLevel course platform, online course builder, membership site setup, digital products',
   alternates: {
-    canonical: '/services/training',
+    canonical: 'https://www.ghlscaleup.com/services/membership-courses',
   },
 };
 
+// Service Schema Component
+const ServiceSchema = () => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "GoHighLevel Membership & Course Site Development",
+    "alternateName": "GHL Course Platform Builder",
+    "description": "Complete membership platform and online course site setup inside GoHighLevel including gated content areas, drip content scheduling, subscription payments via Stripe, student management, automated emails, and analytics tracking. Launch your passive income stream without expensive third-party tools.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "GHL Scale Up",
+      "url": "https://www.ghlscaleup.com",
+      "logo": "https://www.ghlscaleup.com/web-app-manifest-192x192.png",
+      "sameAs": [
+        "https://www.linkedin.com/company/ghl-scale-up",
+        "https://x.com/GHLScaleUp"
+      ]
+    },
+    "serviceType": "Membership Platform Development",
+    "areaServed": {
+      "@type": "Country",
+      "name": "United States"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Course Site Packages",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Basic Membership Site"
+          },
+          "price": "1997",
+          "priceCurrency": "USD",
+          "description": "Single-tier membership with 10+ modules"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Advanced Course Platform"
+          },
+          "price": "3497",
+          "priceCurrency": "USD",
+          "description": "Multi-tier memberships with drip content and community"
+        }
+      ]
+    },
+    "audience": {
+      "@type": "BusinessAudience",
+      "audienceType": "Coaches, Consultants, Educators, Course Creators"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free course consultation"
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+};
+
 export default function MembershipCoursesPage() {
+  // Related blog posts for this service
+  const relatedBlogs = [
+    {
+      slug: 'ghl-white-label-saas-guide',
+      title: 'How to Set Up GoHighLevel White-Label SaaS: Complete Guide',
+      excerpt: 'Domains, snapshots, Stripe billing, sub-account provisioning, and pricing strategies for your SaaS or course platform.',
+      readTime: '8 min read',
+      date: 'April 7, 2026'
+    },
+    {
+      slug: 'freelancer-to-ghl-saas-founder',
+      title: 'From Freelancer to GHL SaaS Founder: Recurring Revenue',
+      excerpt: 'Transition from one-off projects to a scalable recurring revenue business using GHL white-label for courses and memberships.',
+      readTime: '7 min read',
+      date: 'March 25, 2026'
+    },
+    {
+      slug: 'gohighlevel-funnel-builder-features',
+      title: 'GoHighLevel Funnel Builder: 7 Features Top Agencies Use',
+      excerpt: 'Discover the GoHighLevel funnel builder features for creating high-converting course sales pages and member onboarding.',
+      readTime: '9 min read',
+      date: 'April 7, 2026'
+    }
+  ];
+
   return (
     <>
+      {/* Add Service Schema to Head */}
+      <ServiceSchema />
+      
       <Breadcrumb items={[{ label: 'GHL Services', href: '/services' }, { label: 'Membership & Course Sites' }]} />
 
       {/* Page Hero */}
@@ -87,17 +202,17 @@ export default function MembershipCoursesPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              { icon: '🔒', color: 'blue', title: 'Gated Content Areas', description: 'Password-protected pages and content that only members can access. Restrict content by membership level or subscription plan.' },
-              { icon: '⏰', color: 'green', title: 'Drip Content Scheduling', description: 'Release content on a schedule daily, weekly, or based on signup date. Keep members engaged and prevent overwhelm.' },
-              { icon: '💳', color: 'yellow', title: 'Subscription Payments', description: 'Connect Stripe for monthly or annual subscriptions. One-time payments, trial periods, and payment plans all supported.' },
-              { icon: '👥', color: 'blue', title: 'Student Management', description: 'Track member progress, engagement, and activity. Manage student accounts, reset passwords, and handle cancellations.' },
-              { icon: '📧', color: 'green', title: 'Automated Emails', description: 'Welcome sequences, progress reminders, renewal notices, and re-engagement campaigns for your members.' },
-              { icon: '📊', color: 'yellow', title: 'Analytics & Tracking', description: 'Track enrollments, cancellations, churn rate, and lifetime value. Know exactly how your membership business is performing.' },
+              { icon: <Lock className="w-5 h-5" />, color: 'blue', title: 'Gated Content Areas', description: 'Password-protected pages and content that only members can access. Restrict content by membership level or subscription plan.' },
+              { icon: <Clock className="w-5 h-5" />, color: 'green', title: 'Drip Content Scheduling', description: 'Release content on a schedule daily, weekly, or based on signup date. Keep members engaged and prevent overwhelm.' },
+              { icon: <CreditCard className="w-5 h-5" />, color: 'yellow', title: 'Subscription Payments', description: 'Connect Stripe for monthly or annual subscriptions. One-time payments, trial periods, and payment plans all supported.' },
+              { icon: <Users className="w-5 h-5" />, color: 'blue', title: 'Student Management', description: 'Track member progress, engagement, and activity. Manage student accounts, reset passwords, and handle cancellations.' },
+              { icon: <Mail className="w-5 h-5" />, color: 'green', title: 'Automated Emails', description: 'Welcome sequences, progress reminders, renewal notices, and re-engagement campaigns for your members.' },
+              { icon: <BarChart3 className="w-5 h-5" />, color: 'yellow', title: 'Analytics & Tracking', description: 'Track enrollments, cancellations, churn rate, and lifetime value. Know exactly how your membership business is performing.' },
             ].map((item, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-[1.2rem] mb-3.5 ${
-                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)]' : 
-                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)]' : 'bg-[rgba(248,208,0,0.12)]'
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${
+                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' : 
+                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
                 }`}>
                   {item.icon}
                 </div>
@@ -129,11 +244,11 @@ export default function MembershipCoursesPage() {
                 <strong className="font-semibold text-[#1C2E4A]">Membership sites make sense if you are:</strong>
               </p>
               <ul className="list-none flex flex-col gap-2.5 mt-5">
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> A coach, consultant, or expert with knowledge to monetize</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> An agency wanting to add a recurring revenue stream</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> A business with an existing audience to serve</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Currently using Kajabi or Teachable and want more features</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Looking to build a community around your expertise</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> A coach, consultant, or expert with knowledge to monetize</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> An agency wanting to add a recurring revenue stream</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> A business with an existing audience to serve</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Currently using Kajabi or Teachable and want more features</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Looking to build a community around your expertise</li>
               </ul>
             </div>
             <div>
@@ -190,6 +305,55 @@ export default function MembershipCoursesPage() {
                   <p className="text-[0.85rem] font-light text-[#4A5568] leading-relaxed">{step.description}</p>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Blog Posts Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-[1200px] mx-auto px-4 md:px-8">
+          <div className="text-center max-w-[600px] mx-auto mb-10">
+            <div className="inline-flex items-center gap-2.5 text-[0.65rem] font-bold tracking-[0.12em] uppercase text-[#0E9BF0] mb-3 justify-center">
+              <span className="w-[22px] h-[2px] bg-[#0E9BF0] rounded"></span>
+              Free Resources
+            </div>
+            <h2 className="text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold tracking-[-0.03em] leading-[1.12] mb-3.5 text-[#1C2E4A]">
+              Read Our<br />
+              <span className="text-[#0E9BF0]">Membership & Course Guides</span>
+            </h2>
+            <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed max-w-[580px] mx-auto">
+              Learn more about building passive income streams and recurring revenue with membership sites.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {relatedBlogs.map((blog, index) => (
+              <Link 
+                key={index}
+                href={`/blog/${blog.slug}`}
+                className="group bg-[#F8F9FB] border border-[#E8EDF4] rounded-xl p-6 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all"
+              >
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-2 text-[0.65rem] text-[#5C6880] mb-2">
+                    <span className="text-[#0E9BF0] font-semibold">Membership & Courses</span>
+                    <span>•</span>
+                    <div className="flex items-center gap-1">
+                      <Clock className="w-3 h-3" />
+                      <span>{blog.readTime}</span>
+                    </div>
+                  </div>
+                  <h3 className="text-[0.95rem] font-bold text-[#1C2E4A] group-hover:text-[#0E9BF0] transition-colors mb-2 line-clamp-2">
+                    {blog.title}
+                  </h3>
+                  <p className="text-[0.75rem] text-[#5C6880] leading-relaxed mb-3 line-clamp-2">
+                    {blog.excerpt}
+                  </p>
+                  <div className="inline-flex items-center gap-1 text-[0.7rem] font-semibold text-[#0E9BF0] group-hover:gap-2 transition-all mt-auto">
+                    Read Full Guide <ArrowRight className="w-3 h-3" />
+                  </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -269,15 +433,18 @@ export default function MembershipCoursesPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { title: 'Sales Funnel Development', description: 'Build high-converting sales funnels to attract new members and convert visitors into subscribers.', href: '/services/funnel-development' },
-              { title: 'Email & SMS Automation', description: 'Engage members with welcome sequences, renewal reminders, and re-engagement campaigns.', href: '/services/campaign-automation' },
-              { title: 'CRM Setup', description: 'Manage your member database with proper segmentation and tracking for better retention.', href: '/services/crm-setup' },
+              { title: 'Sales Funnel Development', description: 'Build high-converting sales funnels to attract new members and convert visitors into subscribers.', href: '/services/funnel-development', icon: <Zap className="w-5 h-5" /> },
+              { title: 'Email & SMS Automation', description: 'Engage members with welcome sequences, renewal reminders, and re-engagement campaigns.', href: '/services/campaign-automation', icon: <Mail className="w-5 h-5" /> },
+              { title: 'CRM Setup', description: 'Manage your member database with proper segmentation and tracking for better retention.', href: '/services/crm-setup', icon: <Users className="w-5 h-5" /> },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
+                <div className="w-10 h-10 rounded-lg bg-[rgba(14,155,240,0.1)] flex items-center justify-center mb-3 text-[#0E9BF0]">
+                  {service.icon}
+                </div>
                 <h3 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1.5">{service.title}</h3>
                 <p className="text-[0.78rem] font-light text-[#4A5568] leading-relaxed mb-3">{service.description}</p>
                 <Link href={service.href} className="inline-flex items-center gap-1 text-[0.75rem] font-semibold text-[#0E9BF0] hover:gap-2 transition-all">
-                  Learn More →
+                  Learn More <ArrowRight className="w-3 h-3" />
                 </Link>
               </div>
             ))}

@@ -11,14 +11,8 @@ import {
   BarChart3,
   Clock,
   ArrowRight,
-  BookOpen,
   CheckCircle2,
-  TrendingUp,
   MessageCircle,
-  Mail,
-  Phone,
-  Users,
-  Target,
   Settings
 } from 'lucide-react';
 

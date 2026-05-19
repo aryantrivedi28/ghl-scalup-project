@@ -50,7 +50,6 @@ const ServiceSchema = () => {
             "@type": "Service",
             "name": "Basic SaaS Setup"
           },
-          "price": "2997",
           "priceCurrency": "USD",
           "description": "Branded domain, basic snapshot, Stripe integration"
         },
@@ -60,7 +59,6 @@ const ServiceSchema = () => {
             "@type": "Service",
             "name": "Advanced SaaS Setup"
           },
-          "price": "4997",
           "priceCurrency": "USD",
           "description": "Full branding, advanced snapshot, automated provisioning, client dashboard"
         }
@@ -70,10 +68,8 @@ const ServiceSchema = () => {
       "@type": "BusinessAudience",
       "audienceType": "Marketing Agencies, Consultants, Entrepreneurs"
     },
-    "estimatedDeliveryTime": "P14-28D", // 14-28 days
     "offers": {
       "@type": "Offer",
-      "price": "0",
       "priceCurrency": "USD",
       "description": "Free consultation"
     }

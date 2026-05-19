@@ -2,19 +2,133 @@
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
+import { 
+  Star, 
+  MapPin, 
+  Bot, 
+  BarChart3, 
+  StarHalf, 
+  Bell,
+  ArrowRight,
+  CheckCircle2,
+  Clock,
+  TrendingUp,
+  Shield,
+  MessageSquare,
+  ThumbsUp,
+  AlertCircle,
+  Sparkles
+} from 'lucide-react';
 
 export const metadata = {
   title: 'GHL Reputation & Review Management Services | GHL Scale Up',
   description: 'Automated review requests, Google/Facebook monitoring, AI review responses, and reputation tracking. 200+ projects. Get a free reputation audit.',
   keywords: 'GHL reputation management, review management, automated review requests, Google reviews, reputation monitoring',
   alternates: {
-    canonical: '/services/reputation-management',
+    canonical: 'https://www.ghlscaleup.com/services/reputation-management',
   },
 };
 
+// Service Schema Component
+const ServiceSchema = () => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "GoHighLevel Reputation & Review Management",
+    "alternateName": "GHL Review Management System",
+    "description": "Complete reputation management system for GoHighLevel including automated review requests via email and SMS, Google and Facebook review monitoring, AI-powered review responses, reputation dashboard, review widgets for websites, and negative review alerts. Get 3x more reviews and maintain a 4.8+ star rating.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "GHL Scale Up",
+      "url": "https://www.ghlscaleup.com",
+      "logo": "https://www.ghlscaleup.com/web-app-manifest-192x192.png",
+      "sameAs": [
+        "https://www.linkedin.com/company/ghl-scale-up",
+        "https://x.com/GHLScaleUp"
+      ]
+    },
+    "serviceType": "Reputation Management",
+    "areaServed": {
+      "@type": "Country",
+      "name": "United States"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Reputation Management Packages",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Basic Reputation Setup"
+          },
+          "price": "997",
+          "priceCurrency": "USD",
+          "description": "Review request automation + Google monitoring"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Advanced Reputation System"
+          },
+          "price": "1997",
+          "priceCurrency": "USD",
+          "description": "Full reputation suite + AI responses + widgets"
+        }
+      ]
+    },
+    "audience": {
+      "@type": "BusinessAudience",
+      "audienceType": "Service Businesses, Agencies, Real Estate, Medical Practices"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free reputation audit"
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+};
+
 export default function ReputationManagementPage() {
+  // Related blog posts for this service
+  const relatedBlogs = [
+    {
+      slug: 'gohighlevel-review',
+      title: 'GoHighLevel Review 2026: Honest Verdict After 200+ Real Builds (4.4/5)',
+      excerpt: 'GoHighLevel review for 2026 from a team that has built 200+ GHL systems. Honest rating, real pros and cons, email deliverability issues, and who should actually use it.',
+      readTime: '22 min read',
+      date: 'May 18, 2026'
+    },
+    {
+      slug: 'what-is-gohighlevel',
+      title: 'What Is GoHighLevel? The Complete Guide for 2026',
+      excerpt: 'GoHighLevel is an all-in-one CRM and marketing platform built for agencies and service businesses. Learn what it does and who it is for.',
+      readTime: '12 min read',
+      date: 'May 2, 2026'
+    },
+    {
+      slug: 'best-ghl-expert-agency',
+      title: 'Best GHL Expert Agency to Hire in 2026 (Honest Comparison)',
+      excerpt: 'Looking for the best GoHighLevel expert agency to hire? We compared the top GHL agencies in 2026 covering specialisations and pricing.',
+      readTime: '20 min read',
+      date: 'May 9, 2026'
+    }
+  ];
+
   return (
     <>
+      {/* Add Service Schema to Head */}
+      <ServiceSchema />
+      
       <Breadcrumb items={[{ label: 'GHL Services', href: '/services' }, { label: 'Reputation & Review Management' }]} />
 
       {/* Page Hero */}
@@ -86,17 +200,17 @@ export default function ReputationManagementPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              { icon: '⭐', color: 'blue', title: 'Automated Review Requests', description: 'Send review requests via email and SMS after purchase or service delivery. Ask happy customers for reviews when they are most satisfied.' },
-              { icon: '📍', color: 'green', title: 'Google & Facebook Monitoring', description: 'Track new reviews across Google, Facebook, and other platforms. Get instant alerts when someone leaves a review good or bad.' },
-              { icon: '🤖', color: 'yellow', title: 'AI Review Responses', description: 'AI-powered responses to reviews. Thank positive reviewers professionally. Respond to negative reviews with empathy and solutions.' },
-              { icon: '📊', color: 'blue', title: 'Reputation Dashboard', description: 'Central dashboard showing your ratings, review count, sentiment analysis, and trends. See your reputation at a glance.' },
-              { icon: '📈', color: 'green', title: 'Review Widgets', description: 'Display your best reviews on your website. Social proof that builds trust and converts visitors into customers.' },
-              { icon: '🔔', color: 'yellow', title: 'Negative Review Alerts', description: 'Get instant notifications when a negative review appears. Respond quickly to protect your reputation and resolve issues.' },
+              { icon: <Star className="w-5 h-5" />, color: 'blue', title: 'Automated Review Requests', description: 'Send review requests via email and SMS after purchase or service delivery. Ask happy customers for reviews when they are most satisfied.' },
+              { icon: <MapPin className="w-5 h-5" />, color: 'green', title: 'Google & Facebook Monitoring', description: 'Track new reviews across Google, Facebook, and other platforms. Get instant alerts when someone leaves a review good or bad.' },
+              { icon: <Bot className="w-5 h-5" />, color: 'yellow', title: 'AI Review Responses', description: 'AI-powered responses to reviews. Thank positive reviewers professionally. Respond to negative reviews with empathy and solutions.' },
+              { icon: <BarChart3 className="w-5 h-5" />, color: 'blue', title: 'Reputation Dashboard', description: 'Central dashboard showing your ratings, review count, sentiment analysis, and trends. See your reputation at a glance.' },
+              { icon: <StarHalf className="w-5 h-5" />, color: 'green', title: 'Review Widgets', description: 'Display your best reviews on your website. Social proof that builds trust and converts visitors into customers.' },
+              { icon: <Bell className="w-5 h-5" />, color: 'yellow', title: 'Negative Review Alerts', description: 'Get instant notifications when a negative review appears. Respond quickly to protect your reputation and resolve issues.' },
             ].map((item, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-[1.2rem] mb-3.5 ${
-                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)]' : 
-                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)]' : 'bg-[rgba(248,208,0,0.12)]'
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${
+                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' : 
+                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
                 }`}>
                   {item.icon}
                 </div>
@@ -128,11 +242,11 @@ export default function ReputationManagementPage() {
                 <strong className="font-semibold text-[#1C2E4A]">Reputation management makes sense if you are:</strong>
               </p>
               <ul className="list-none flex flex-col gap-2.5 mt-5">
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> A service business where reviews matter (real estate, home services, medical)</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Getting customers but not enough reviews to build social proof</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Not sure what people are saying about you online</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Wanting to respond to reviews but don't have time</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> An agency managing reputation for multiple clients</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> A service business where reviews matter (real estate, home services, medical)</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Getting customers but not enough reviews to build social proof</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Not sure what people are saying about you online</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Wanting to respond to reviews but don't have time</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> An agency managing reputation for multiple clients</li>
               </ul>
             </div>
             <div>
@@ -189,6 +303,55 @@ export default function ReputationManagementPage() {
                   <p className="text-[0.85rem] font-light text-[#4A5568] leading-relaxed">{step.description}</p>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Blog Posts Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-[1200px] mx-auto px-4 md:px-8">
+          <div className="text-center max-w-[600px] mx-auto mb-10">
+            <div className="inline-flex items-center gap-2.5 text-[0.65rem] font-bold tracking-[0.12em] uppercase text-[#0E9BF0] mb-3 justify-center">
+              <span className="w-[22px] h-[2px] bg-[#0E9BF0] rounded"></span>
+              Free Resources
+            </div>
+            <h2 className="text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold tracking-[-0.03em] leading-[1.12] mb-3.5 text-[#1C2E4A]">
+              Read Our<br />
+              <span className="text-[#0E9BF0]">Reputation & Review Guides</span>
+            </h2>
+            <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed max-w-[580px] mx-auto">
+              Learn more about building and managing your online reputation with these in-depth articles.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {relatedBlogs.map((blog, index) => (
+              <Link 
+                key={index}
+                href={`/blog/${blog.slug}`}
+                className="group bg-[#F8F9FB] border border-[#E8EDF4] rounded-xl p-6 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all"
+              >
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-2 text-[0.65rem] text-[#5C6880] mb-2">
+                    <span className="text-[#0E9BF0] font-semibold">Reputation & Reviews</span>
+                    <span>•</span>
+                    <div className="flex items-center gap-1">
+                      <Clock className="w-3 h-3" />
+                      <span>{blog.readTime}</span>
+                    </div>
+                  </div>
+                  <h3 className="text-[0.95rem] font-bold text-[#1C2E4A] group-hover:text-[#0E9BF0] transition-colors mb-2 line-clamp-2">
+                    {blog.title}
+                  </h3>
+                  <p className="text-[0.75rem] text-[#5C6880] leading-relaxed mb-3 line-clamp-2">
+                    {blog.excerpt}
+                  </p>
+                  <div className="inline-flex items-center gap-1 text-[0.7rem] font-semibold text-[#0E9BF0] group-hover:gap-2 transition-all mt-auto">
+                    Read Full Guide <ArrowRight className="w-3 h-3" />
+                  </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -268,15 +431,18 @@ export default function ReputationManagementPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { title: 'CRM Setup', description: 'Capture and manage customers who leave reviews. Track review history and follow up with reviewers.', href: '/services/crm-setup' },
-              { title: 'Workflow Automation', description: 'Automate review request sequences based on purchase or service completion triggers.', href: '/services/workflow-automation' },
-              { title: 'Email & SMS Campaigns', description: 'Send review requests via email and SMS at the perfect moment for maximum response.', href: '/services/campaign-automation' },
+              { title: 'CRM Setup', description: 'Capture and manage customers who leave reviews. Track review history and follow up with reviewers.', href: '/services/crm-setup', icon: <BarChart3 className="w-5 h-5" /> },
+              { title: 'Workflow Automation', description: 'Automate review request sequences based on purchase or service completion triggers.', href: '/services/workflow-automation', icon: <Sparkles className="w-5 h-5" /> },
+              { title: 'Email & SMS Campaigns', description: 'Send review requests via email and SMS at the perfect moment for maximum response.', href: '/services/campaign-automation', icon: <MessageSquare className="w-5 h-5" /> },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
+                <div className="w-10 h-10 rounded-lg bg-[rgba(14,155,240,0.1)] flex items-center justify-center mb-3 text-[#0E9BF0]">
+                  {service.icon}
+                </div>
                 <h3 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1.5">{service.title}</h3>
                 <p className="text-[0.78rem] font-light text-[#4A5568] leading-relaxed mb-3">{service.description}</p>
                 <Link href={service.href} className="inline-flex items-center gap-1 text-[0.75rem] font-semibold text-[#0E9BF0] hover:gap-2 transition-all">
-                  Learn More →
+                  Learn More <ArrowRight className="w-3 h-3" />
                 </Link>
               </div>
             ))}

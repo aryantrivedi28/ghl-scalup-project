@@ -2,6 +2,22 @@
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
+import { 
+  Mail, 
+  Smartphone, 
+  MessageSquare, 
+  Clock, 
+  Target, 
+  BarChart3,
+  ArrowRight,
+  CheckCircle2,
+  Clock as ClockIcon,
+  Zap,
+  Users,
+  Send,
+  TrendingUp,
+  Sparkles
+} from 'lucide-react';
 
 export const metadata = {
   title: 'GHL Email, SMS & WhatsApp Automation Services | GHL Scale Up',
@@ -12,9 +28,106 @@ export const metadata = {
   },
 };
 
+// Service Schema Component
+const ServiceSchema = () => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "GoHighLevel Email, SMS & WhatsApp Automation",
+    "alternateName": "GHL Multi-Channel Campaigns",
+    "description": "Complete multi-channel campaign automation for GoHighLevel including email drip campaigns, SMS marketing flows, WhatsApp automation, appointment reminders, segmentation and personalization, and performance analytics. Reach your audience where they respond best with 35% average open rates and 12% click-through rates.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "GHL Scale Up",
+      "url": "https://www.ghlscaleup.com",
+      "logo": "https://www.ghlscaleup.com/web-app-manifest-192x192.png",
+      "sameAs": [
+        "https://www.linkedin.com/company/ghl-scale-up",
+        "https://x.com/GHLScaleUp"
+      ]
+    },
+    "serviceType": "Marketing Automation",
+    "areaServed": {
+      "@type": "Country",
+      "name": "United States"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Campaign Packages",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Single Channel Campaign"
+          },
+          "price": "997",
+          "priceCurrency": "USD",
+          "description": "Email or SMS only campaign setup"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Multi-Channel Campaign Suite"
+          },
+          "price": "2497",
+          "priceCurrency": "USD",
+          "description": "Email + SMS + WhatsApp complete campaign"
+        }
+      ]
+    },
+    "audience": {
+      "@type": "BusinessAudience",
+      "audienceType": "E-commerce, Agencies, Service Businesses, Coaches"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free campaign audit"
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+};
+
 export default function EmailSMSWhatsAppPage() {
+  // Related blog posts for this service
+  const relatedBlogs = [
+    {
+      slug: 'gohighlevel-missed-call-text-back',
+      title: 'GoHighLevel Missed Call Text Back: How It Works + Full Setup Guide',
+      excerpt: 'GoHighLevel\'s missed call text back sends an automatic SMS within 15 seconds of a missed call recovering leads before they call a competitor.',
+      readTime: '16 min read',
+      date: 'May 7, 2026'
+    },
+    {
+      slug: 'how-to-set-up-gohighlevel-workflow-automation',
+      title: 'How to Set Up GoHighLevel Workflow Automation for Beginners',
+      excerpt: 'Step-by-step guide to workflow automation that integrates perfectly with your email, SMS, and WhatsApp campaigns.',
+      readTime: '19 min read',
+      date: 'May 6, 2026'
+    },
+    {
+      slug: 'ghl-lead-generation-strategies',
+      title: 'How to Generate High-Quality Leads Using GHL',
+      excerpt: 'Learn the proven strategies to attract, capture, and convert leads using GoHighLevel automation.',
+      readTime: '6 min read',
+      date: 'March 20, 2026'
+    }
+  ];
+
   return (
     <>
+      {/* Add Service Schema to Head */}
+      <ServiceSchema />
+      
       <Breadcrumb items={[{ label: 'GHL Services', href: '/services' }, { label: 'Email, SMS & WhatsApp Automation' }]} />
 
       {/* Page Hero */}
@@ -24,6 +137,7 @@ export default function EmailSMSWhatsAppPage() {
           <div className="grid md:grid-cols-[1.2fr_0.8fr] gap-10 md:gap-14 items-center">
             <div>
               <div className="inline-flex items-center gap-2 bg-[rgba(248,208,0,0.12)] border border-[rgba(248,208,0,0.2)] text-[#F8D000] text-[0.65rem] font-bold tracking-[0.12em] uppercase px-4 py-1.5 rounded-full mb-5">
+                <Sparkles className="h-3 w-3" />
                 GHL Service
               </div>
               <h1 className="text-[clamp(2rem,4vw,2.8rem)] font-extrabold tracking-[-0.03em] leading-[1.1] mb-4">
@@ -86,17 +200,17 @@ export default function EmailSMSWhatsAppPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              { icon: '📧', color: 'blue', title: 'Email Drip Campaigns', description: 'Automated email sequences for lead nurturing, welcome series, abandoned cart recovery, and post-purchase follow-ups. Personalize content based on behavior and interests.' },
-              { icon: '📱', color: 'green', title: 'SMS Marketing Flows', description: 'Short, high-converting SMS campaigns for time-sensitive offers, appointment reminders, delivery updates, and re-engagement. 98% open rate.' },
-              { icon: '💬', color: 'yellow', title: 'WhatsApp Automation', description: 'Rich media messaging through WhatsApp for lead qualification, customer support, order confirmations, and interactive campaigns. Higher engagement than email.' },
-              { icon: '⏰', color: 'blue', title: 'Appointment Reminders', description: 'Automated reminders via email, SMS, and WhatsApp to reduce no-shows. Confirmations, reminders, and follow-ups all automated.' },
-              { icon: '🎯', color: 'green', title: 'Segmentation & Personalization', description: 'Target specific audience segments based on behavior, interests, purchase history, and engagement level. Personalized content drives higher conversion.' },
-              { icon: '📊', color: 'yellow', title: 'Performance Analytics', description: 'Track open rates, click-through rates, conversion rates, and revenue per campaign. Data-driven optimization for continuous improvement.' },
+              { icon: <Mail className="w-5 h-5" />, color: 'blue', title: 'Email Drip Campaigns', description: 'Automated email sequences for lead nurturing, welcome series, abandoned cart recovery, and post-purchase follow-ups. Personalize content based on behavior and interests.' },
+              { icon: <Smartphone className="w-5 h-5" />, color: 'green', title: 'SMS Marketing Flows', description: 'Short, high-converting SMS campaigns for time-sensitive offers, appointment reminders, delivery updates, and re-engagement. 98% open rate.' },
+              { icon: <MessageSquare className="w-5 h-5" />, color: 'yellow', title: 'WhatsApp Automation', description: 'Rich media messaging through WhatsApp for lead qualification, customer support, order confirmations, and interactive campaigns. Higher engagement than email.' },
+              { icon: <Clock className="w-5 h-5" />, color: 'blue', title: 'Appointment Reminders', description: 'Automated reminders via email, SMS, and WhatsApp to reduce no-shows. Confirmations, reminders, and follow-ups all automated.' },
+              { icon: <Target className="w-5 h-5" />, color: 'green', title: 'Segmentation & Personalization', description: 'Target specific audience segments based on behavior, interests, purchase history, and engagement level. Personalized content drives higher conversion.' },
+              { icon: <BarChart3 className="w-5 h-5" />, color: 'yellow', title: 'Performance Analytics', description: 'Track open rates, click-through rates, conversion rates, and revenue per campaign. Data-driven optimization for continuous improvement.' },
             ].map((item, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-[1.2rem] mb-3.5 ${
-                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)]' : 
-                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)]' : 'bg-[rgba(248,208,0,0.12)]'
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${
+                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' : 
+                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
                 }`}>
                   {item.icon}
                 </div>
@@ -128,11 +242,11 @@ export default function EmailSMSWhatsAppPage() {
                 <strong className="font-semibold text-[#1C2E4A]">Multi-channel automation makes sense if you are:</strong>
               </p>
               <ul className="list-none flex flex-col gap-2.5 mt-5">
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Running lead generation campaigns that need follow-up</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Booking appointments and dealing with no-shows</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Wanting to nurture leads but your team is too busy</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Running e-commerce and need abandoned cart recovery</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Looking to increase customer lifetime value through email marketing</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Running lead generation campaigns that need follow-up</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Booking appointments and dealing with no-shows</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Wanting to nurture leads but your team is too busy</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Running e-commerce and need abandoned cart recovery</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Looking to increase customer lifetime value through email marketing</li>
               </ul>
             </div>
             <div>
@@ -189,6 +303,55 @@ export default function EmailSMSWhatsAppPage() {
                   <p className="text-[0.85rem] font-light text-[#4A5568] leading-relaxed">{step.description}</p>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Blog Posts Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-[1200px] mx-auto px-4 md:px-8">
+          <div className="text-center max-w-[600px] mx-auto mb-10">
+            <div className="inline-flex items-center gap-2.5 text-[0.65rem] font-bold tracking-[0.12em] uppercase text-[#0E9BF0] mb-3 justify-center">
+              <span className="w-[22px] h-[2px] bg-[#0E9BF0] rounded"></span>
+              Free Resources
+            </div>
+            <h2 className="text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold tracking-[-0.03em] leading-[1.12] mb-3.5 text-[#1C2E4A]">
+              Read Our<br />
+              <span className="text-[#0E9BF0]">Marketing Automation Guides</span>
+            </h2>
+            <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed max-w-[580px] mx-auto">
+              Learn more about multi-channel marketing automation with these in-depth articles.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {relatedBlogs.map((blog, index) => (
+              <Link 
+                key={index}
+                href={`/blog/${blog.slug}`}
+                className="group bg-[#F8F9FB] border border-[#E8EDF4] rounded-xl p-6 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all"
+              >
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-2 text-[0.65rem] text-[#5C6880] mb-2">
+                    <span className="text-[#0E9BF0] font-semibold">Marketing Automation</span>
+                    <span>•</span>
+                    <div className="flex items-center gap-1">
+                      <ClockIcon className="w-3 h-3" />
+                      <span>{blog.readTime}</span>
+                    </div>
+                  </div>
+                  <h3 className="text-[0.95rem] font-bold text-[#1C2E4A] group-hover:text-[#0E9BF0] transition-colors mb-2 line-clamp-2">
+                    {blog.title}
+                  </h3>
+                  <p className="text-[0.75rem] text-[#5C6880] leading-relaxed mb-3 line-clamp-2">
+                    {blog.excerpt}
+                  </p>
+                  <div className="inline-flex items-center gap-1 text-[0.7rem] font-semibold text-[#0E9BF0] group-hover:gap-2 transition-all mt-auto">
+                    Read Full Guide <ArrowRight className="w-3 h-3" />
+                  </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -268,15 +431,18 @@ export default function EmailSMSWhatsAppPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { title: 'CRM Setup', description: 'Clean, organized contact data is essential for effective segmentation and personalization.', href: '/services/crm-setup' },
-              { title: 'Workflow Automation', description: 'Combine email, SMS, and WhatsApp campaigns with trigger-based workflows for even better results.', href: '/services/workflow-automation' },
-              { title: 'Sales Funnel Development', description: 'Capture more leads through high-converting landing pages that feed into your campaigns.', href: '/services/funnel-development' },
+              { title: 'CRM Setup', description: 'Clean, organized contact data is essential for effective segmentation and personalization.', href: '/services/crm-setup', icon: <Users className="w-5 h-5" /> },
+              { title: 'Workflow Automation', description: 'Combine email, SMS, and WhatsApp campaigns with trigger-based workflows for even better results.', href: '/services/workflow-automation', icon: <Zap className="w-5 h-5" /> },
+              { title: 'Sales Funnel Development', description: 'Capture more leads through high-converting landing pages that feed into your campaigns.', href: '/services/funnel-development', icon: <Target className="w-5 h-5" /> },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
+                <div className="w-10 h-10 rounded-lg bg-[rgba(14,155,240,0.1)] flex items-center justify-center mb-3 text-[#0E9BF0]">
+                  {service.icon}
+                </div>
                 <h3 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1.5">{service.title}</h3>
                 <p className="text-[0.78rem] font-light text-[#4A5568] leading-relaxed mb-3">{service.description}</p>
                 <Link href={service.href} className="inline-flex items-center gap-1 text-[0.75rem] font-semibold text-[#0E9BF0] hover:gap-2 transition-all">
-                  Learn More →
+                  Learn More <ArrowRight className="w-3 h-3" />
                 </Link>
               </div>
             ))}

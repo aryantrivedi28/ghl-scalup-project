@@ -2,6 +2,24 @@
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
+import { 
+  FileText, 
+  DollarSign, 
+  TrendingUp, 
+  Target, 
+  Link as LinkIcon, 
+  BarChart3,
+  ArrowRight,
+  CheckCircle2,
+  Clock,
+  Rocket,
+  Zap,
+  Users,
+  ShoppingCart,
+  MousePointerClick,
+  Eye,
+  Mail
+} from 'lucide-react';
 
 export const metadata = {
   title: 'GHL Sales Funnel Development & Landing Page Builder | GHL Scale Up',
@@ -12,9 +30,106 @@ export const metadata = {
   },
 };
 
+// Service Schema Component
+const ServiceSchema = () => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "GoHighLevel Sales Funnel Development",
+    "alternateName": "GHL Funnel Builder",
+    "description": "Expert GoHighLevel sales funnel development including high-converting landing pages, opt-in forms, sales pages, order bumps, upsells, downsells, thank-you pages, and full CRM integration. 200+ funnels built with 3-5x average conversion improvement.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "GHL Scale Up",
+      "url": "https://www.ghlscaleup.com",
+      "logo": "https://www.ghlscaleup.com/web-app-manifest-192x192.png",
+      "sameAs": [
+        "https://www.linkedin.com/company/ghl-scale-up",
+        "https://x.com/GHLScaleUp"
+      ]
+    },
+    "serviceType": "Sales Funnel Development",
+    "areaServed": {
+      "@type": "Country",
+      "name": "United States"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Funnel Packages",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Basic Lead Generation Funnel"
+          },
+          "price": "1497",
+          "priceCurrency": "USD",
+          "description": "3-page opt-in funnel with CRM integration"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Advanced Sales Funnel"
+          },
+          "price": "2997",
+          "priceCurrency": "USD",
+          "description": "Complete sales funnel with upsells and order bumps"
+        }
+      ]
+    },
+    "audience": {
+      "@type": "BusinessAudience",
+      "audienceType": "E-commerce, Digital Products, Agencies, Coaches"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free funnel audit"
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+};
+
 export default function SalesFunnelsPage() {
+  // Related blog posts for this service
+  const relatedBlogs = [
+    {
+      slug: 'gohighlevel-funnel-builder-features',
+      title: 'GoHighLevel Funnel Builder: 7 Features Top Agencies Use to Build Faster',
+      excerpt: 'Discover the GoHighLevel funnel builder features most agencies overlook version control, global sections, custom values, real-time collaboration and more.',
+      readTime: '9 min read',
+      date: 'April 7, 2026'
+    },
+    {
+      slug: 'how-to-set-up-gohighlevel-workflow-automation',
+      title: 'How to Set Up GoHighLevel Workflow Automation for Beginners',
+      excerpt: 'A step-by-step beginner\'s guide to GoHighLevel workflow automation to follow up with leads captured from your funnels.',
+      readTime: '19 min read',
+      date: 'May 6, 2026'
+    },
+    {
+      slug: 'what-is-gohighlevel',
+      title: 'What Is GoHighLevel? The Complete Guide for 2026',
+      excerpt: 'Comprehensive guide to GoHighLevel including funnel builder capabilities and how to create high-converting sales funnels.',
+      readTime: '12 min read',
+      date: 'May 2, 2026'
+    }
+  ];
+
   return (
     <>
+      {/* Add Service Schema to Head */}
+      <ServiceSchema />
+      
       <Breadcrumb items={[{ label: 'GHL Services', href: '/services' }, { label: 'Sales Funnel Development' }]} />
 
       {/* Page Hero */}
@@ -86,17 +201,17 @@ export default function SalesFunnelsPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              { icon: '📄', color: 'blue', title: 'Opt-In & Landing Pages', description: 'High-converting lead capture pages designed to collect emails, phone numbers, and qualification data. Mobile-optimized with clear CTAs and minimal friction.' },
-              { icon: '💰', color: 'green', title: 'Sales Pages & Order Forms', description: 'Compelling sales pages with persuasive copy, social proof, and urgency elements. Integrated with Stripe for seamless payment processing.' },
-              { icon: '📈', color: 'yellow', title: 'Order Bumps & Upsells', description: 'One-click upsells, downsells, and order bumps that increase average order value by 15-30% without additional ad spend.' },
-              { icon: '🎯', color: 'blue', title: 'Thank You Pages & Confirmations', description: 'Post-purchase pages with next steps, content delivery, and cross-sell opportunities. Track conversions and pixel events.' },
-              { icon: '🔗', color: 'green', title: 'CRM Integration', description: 'All funnel pages feed leads directly into your GoHighLevel CRM with proper tagging and pipeline assignment. No manual data entry.' },
-              { icon: '📊', color: 'yellow', title: 'Analytics & Tracking', description: 'Facebook Pixel, Google Analytics, and custom event tracking to measure performance and optimize conversions over time.' },
+              { icon: <FileText className="w-5 h-5" />, color: 'blue', title: 'Opt-In & Landing Pages', description: 'High-converting lead capture pages designed to collect emails, phone numbers, and qualification data. Mobile-optimized with clear CTAs and minimal friction.' },
+              { icon: <DollarSign className="w-5 h-5" />, color: 'green', title: 'Sales Pages & Order Forms', description: 'Compelling sales pages with persuasive copy, social proof, and urgency elements. Integrated with Stripe for seamless payment processing.' },
+              { icon: <TrendingUp className="w-5 h-5" />, color: 'yellow', title: 'Order Bumps & Upsells', description: 'One-click upsells, downsells, and order bumps that increase average order value by 15-30% without additional ad spend.' },
+              { icon: <Target className="w-5 h-5" />, color: 'blue', title: 'Thank You Pages & Confirmations', description: 'Post-purchase pages with next steps, content delivery, and cross-sell opportunities. Track conversions and pixel events.' },
+              { icon: <LinkIcon className="w-5 h-5" />, color: 'green', title: 'CRM Integration', description: 'All funnel pages feed leads directly into your GoHighLevel CRM with proper tagging and pipeline assignment. No manual data entry.' },
+              { icon: <BarChart3 className="w-5 h-5" />, color: 'yellow', title: 'Analytics & Tracking', description: 'Facebook Pixel, Google Analytics, and custom event tracking to measure performance and optimize conversions over time.' },
             ].map((item, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-[1.2rem] mb-3.5 ${
-                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)]' : 
-                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)]' : 'bg-[rgba(248,208,0,0.12)]'
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${
+                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' : 
+                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
                 }`}>
                   {item.icon}
                 </div>
@@ -128,11 +243,11 @@ export default function SalesFunnelsPage() {
                 <strong className="font-semibold text-[#1C2E4A]">Sales funnel development makes sense if you are:</strong>
               </p>
               <ul className="list-none flex flex-col gap-2.5 mt-5">
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Running Facebook, Google, or TikTok ads to a generic website</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Selling digital products, courses, coaching, or services online</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Getting traffic but not capturing leads or making sales</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Wanting to increase average order value with upsells</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Building a lead generation system for your agency or business</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Running Facebook, Google, or TikTok ads to a generic website</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Selling digital products, courses, coaching, or services online</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Getting traffic but not capturing leads or making sales</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Wanting to increase average order value with upsells</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Building a lead generation system for your agency or business</li>
               </ul>
             </div>
             <div>
@@ -189,6 +304,55 @@ export default function SalesFunnelsPage() {
                   <p className="text-[0.85rem] font-light text-[#4A5568] leading-relaxed">{step.description}</p>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Blog Posts Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-[1200px] mx-auto px-4 md:px-8">
+          <div className="text-center max-w-[600px] mx-auto mb-10">
+            <div className="inline-flex items-center gap-2.5 text-[0.65rem] font-bold tracking-[0.12em] uppercase text-[#0E9BF0] mb-3 justify-center">
+              <span className="w-[22px] h-[2px] bg-[#0E9BF0] rounded"></span>
+              Free Resources
+            </div>
+            <h2 className="text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold tracking-[-0.03em] leading-[1.12] mb-3.5 text-[#1C2E4A]">
+              Read Our<br />
+              <span className="text-[#0E9BF0]">Funnel Building Guides</span>
+            </h2>
+            <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed max-w-[580px] mx-auto">
+              Learn more about building high-converting sales funnels with these in-depth articles.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {relatedBlogs.map((blog, index) => (
+              <Link 
+                key={index}
+                href={`/blog/${blog.slug}`}
+                className="group bg-[#F8F9FB] border border-[#E8EDF4] rounded-xl p-6 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all"
+              >
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-2 text-[0.65rem] text-[#5C6880] mb-2">
+                    <span className="text-[#0E9BF0] font-semibold">Funnel Building</span>
+                    <span>•</span>
+                    <div className="flex items-center gap-1">
+                      <Clock className="w-3 h-3" />
+                      <span>{blog.readTime}</span>
+                    </div>
+                  </div>
+                  <h3 className="text-[0.95rem] font-bold text-[#1C2E4A] group-hover:text-[#0E9BF0] transition-colors mb-2 line-clamp-2">
+                    {blog.title}
+                  </h3>
+                  <p className="text-[0.75rem] text-[#5C6880] leading-relaxed mb-3 line-clamp-2">
+                    {blog.excerpt}
+                  </p>
+                  <div className="inline-flex items-center gap-1 text-[0.7rem] font-semibold text-[#0E9BF0] group-hover:gap-2 transition-all mt-auto">
+                    Read Full Guide <ArrowRight className="w-3 h-3" />
+                  </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -268,15 +432,18 @@ export default function SalesFunnelsPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { title: 'CRM Setup', description: 'Capture leads from your funnel and manage them effectively with a properly configured GHL CRM system.', href: '/services/crm-setup' },
-              { title: 'Workflow Automation', description: 'Automate follow-ups triggered by funnel actions lead magnets, purchases, and cart abandonment.', href: '/services/workflow-automation' },
-              { title: 'Email & SMS Campaigns', description: 'Nurture leads captured through your funnel with automated email and SMS sequences.', href: '/services/campaign-automation' },
+              { title: 'CRM Setup', description: 'Capture leads from your funnel and manage them effectively with a properly configured GHL CRM system.', href: '/services/crm-setup', icon: <Users className="w-5 h-5" /> },
+              { title: 'Workflow Automation', description: 'Automate follow-ups triggered by funnel actions lead magnets, purchases, and cart abandonment.', href: '/services/workflow-automation', icon: <Zap className="w-5 h-5" /> },
+              { title: 'Email & SMS Campaigns', description: 'Nurture leads captured through your funnel with automated email and SMS sequences.', href: '/services/campaign-automation', icon: <Mail className="w-5 h-5" /> },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
+                <div className="w-10 h-10 rounded-lg bg-[rgba(14,155,240,0.1)] flex items-center justify-center mb-3 text-[#0E9BF0]">
+                  {service.icon}
+                </div>
                 <h3 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1.5">{service.title}</h3>
                 <p className="text-[0.78rem] font-light text-[#4A5568] leading-relaxed mb-3">{service.description}</p>
                 <Link href={service.href} className="inline-flex items-center gap-1 text-[0.75rem] font-semibold text-[#0E9BF0] hover:gap-2 transition-all">
-                  Learn More →
+                  Learn More <ArrowRight className="w-3 h-3" />
                 </Link>
               </div>
             ))}

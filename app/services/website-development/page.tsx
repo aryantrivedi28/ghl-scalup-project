@@ -11,14 +11,10 @@ import {
   Link as LinkIcon,
   Clock,
   ArrowRight,
-  Layout,
-  Globe,
   CheckCircle2,
   Settings,
   GitBranch,
   Rocket,
-  TrendingUp,
-  BarChart3
 } from 'lucide-react';
 
 export const metadata = {

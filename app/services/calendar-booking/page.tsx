@@ -2,19 +2,131 @@
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
+import { 
+  Calendar, 
+  Repeat, 
+  Building2, 
+  Bell, 
+  Link as LinkIcon, 
+  CreditCard,
+  ArrowRight,
+  CheckCircle2,
+  Clock,
+  Users,
+  Zap,
+  Sparkles,
+  Clock as ClockIcon
+} from 'lucide-react';
 
 export const metadata = {
   title: 'GHL Calendar & Booking Setup Services | GHL Scale Up',
   description: 'Professional calendar configuration, round-robin scheduling, service calendars, and automated reminders. 200+ projects. Get a free consultation.',
   keywords: 'GHL calendar setup, booking system, round-robin scheduling, appointment reminders, service calendars',
   alternates: {
-    canonical: '/services/calendar-booking',
+    canonical: 'https://www.ghlscaleup.com/services/calendar-booking',
   },
 };
 
+// Service Schema Component
+const ServiceSchema = () => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "GoHighLevel Calendar & Booking Setup",
+    "alternateName": "GHL Appointment Scheduling",
+    "description": "Complete calendar and booking system setup for GoHighLevel including custom booking calendars, round-robin scheduling, service and location calendars, automated email and SMS reminders, calendar sync with Google Calendar/Outlook, and payment integration with Stripe/PayPal. Reduce no-shows by 50% and let clients book 24/7.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "GHL Scale Up",
+      "url": "https://www.ghlscaleup.com",
+      "logo": "https://www.ghlscaleup.com/web-app-manifest-192x192.png",
+      "sameAs": [
+        "https://www.linkedin.com/company/ghl-scale-up",
+        "https://x.com/GHLScaleUp"
+      ]
+    },
+    "serviceType": "Calendar & Appointment Scheduling",
+    "areaServed": {
+      "@type": "Country",
+      "name": "United States"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Booking Setup Packages",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Basic Booking Setup"
+          },
+          "price": "497",
+          "priceCurrency": "USD",
+          "description": "Single calendar with reminders"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Advanced Booking System"
+          },
+          "price": "1497",
+          "priceCurrency": "USD",
+          "description": "Multiple calendars + round-robin + payments"
+        }
+      ]
+    },
+    "audience": {
+      "@type": "BusinessAudience",
+      "audienceType": "Service Businesses, Sales Teams, Coaches, Medical Practices"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free booking consultation"
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+};
+
 export default function CalendarBookingPage() {
+  // Related blog posts for this service
+  const relatedBlogs = [
+    {
+      slug: 'gohighlevel-missed-call-text-back',
+      title: 'GoHighLevel Missed Call Text Back: How It Works + Full Setup Guide',
+      excerpt: 'GoHighLevel\'s missed call text back sends an automatic SMS within 15 seconds of a missed call, perfect for appointment confirmations and reminders.',
+      readTime: '16 min read',
+      date: 'May 7, 2026'
+    },
+    {
+      slug: 'how-to-set-up-gohighlevel-workflow-automation',
+      title: 'How to Set Up GoHighLevel Workflow Automation for Beginners',
+      excerpt: 'Step-by-step guide to workflow automation that integrates perfectly with your booking calendar for follow-ups and reminders.',
+      readTime: '19 min read',
+      date: 'May 6, 2026'
+    },
+    {
+      slug: 'what-is-gohighlevel',
+      title: 'What Is GoHighLevel? The Complete Guide for 2026',
+      excerpt: 'Comprehensive guide to GoHighLevel including calendar and booking features for service-based businesses.',
+      readTime: '12 min read',
+      date: 'May 2, 2026'
+    }
+  ];
+
   return (
     <>
+      {/* Add Service Schema to Head */}
+      <ServiceSchema />
+      
       <Breadcrumb items={[{ label: 'GHL Services', href: '/services' }, { label: 'Calendar & Booking Setup' }]} />
 
       {/* Page Hero */}
@@ -24,6 +136,7 @@ export default function CalendarBookingPage() {
           <div className="grid md:grid-cols-[1.2fr_0.8fr] gap-10 md:gap-14 items-center">
             <div>
               <div className="inline-flex items-center gap-2 bg-[rgba(248,208,0,0.12)] border border-[rgba(248,208,0,0.2)] text-[#F8D000] text-[0.65rem] font-bold tracking-[0.12em] uppercase px-4 py-1.5 rounded-full mb-5">
+                <Sparkles className="h-3 w-3" />
                 GHL Service
               </div>
               <h1 className="text-[clamp(2rem,4vw,2.8rem)] font-extrabold tracking-[-0.03em] leading-[1.1] mb-4">
@@ -86,17 +199,17 @@ export default function CalendarBookingPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              { icon: '📅', color: 'blue', title: 'Custom Booking Calendars', description: 'Professional booking pages for services, consultations, and meetings. Clients see your availability and book instantly. Customize duration, buffer times, and availability.' },
-              { icon: '🔄', color: 'green', title: 'Round-Robin Scheduling', description: 'Distribute appointments evenly across your team. Perfect for sales teams, support teams, and multi-staff businesses. Ensure no one gets overloaded.' },
-              { icon: '🏢', color: 'yellow', title: 'Service & Location Calendars', description: 'Create separate calendars for different services, locations, or team members. Clients book the right person for the right service every time.' },
-              { icon: '⏰', color: 'blue', title: 'Automated Reminders', description: 'Email and SMS reminders before appointments. Reduce no-shows by 50% or more. Customizable reminder timing and messages.' },
-              { icon: '🔗', color: 'green', title: 'Calendar Sync', description: 'Sync with Google Calendar, Outlook, or iCloud. Appointments added automatically, conflicts prevented, and calendars stay updated in real-time.' },
-              { icon: '💳', color: 'yellow', title: 'Payment Integration', description: 'Require payment at booking with Stripe or PayPal integration. Collect deposits or full payments upfront to secure appointments.' },
+              { icon: <Calendar className="w-5 h-5" />, color: 'blue', title: 'Custom Booking Calendars', description: 'Professional booking pages for services, consultations, and meetings. Clients see your availability and book instantly. Customize duration, buffer times, and availability.' },
+              { icon: <Repeat className="w-5 h-5" />, color: 'green', title: 'Round-Robin Scheduling', description: 'Distribute appointments evenly across your team. Perfect for sales teams, support teams, and multi-staff businesses. Ensure no one gets overloaded.' },
+              { icon: <Building2 className="w-5 h-5" />, color: 'yellow', title: 'Service & Location Calendars', description: 'Create separate calendars for different services, locations, or team members. Clients book the right person for the right service every time.' },
+              { icon: <Bell className="w-5 h-5" />, color: 'blue', title: 'Automated Reminders', description: 'Email and SMS reminders before appointments. Reduce no-shows by 50% or more. Customizable reminder timing and messages.' },
+              { icon: <LinkIcon className="w-5 h-5" />, color: 'green', title: 'Calendar Sync', description: 'Sync with Google Calendar, Outlook, or iCloud. Appointments added automatically, conflicts prevented, and calendars stay updated in real-time.' },
+              { icon: <CreditCard className="w-5 h-5" />, color: 'yellow', title: 'Payment Integration', description: 'Require payment at booking with Stripe or PayPal integration. Collect deposits or full payments upfront to secure appointments.' },
             ].map((item, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-[1.2rem] mb-3.5 ${
-                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)]' : 
-                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)]' : 'bg-[rgba(248,208,0,0.12)]'
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${
+                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' : 
+                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
                 }`}>
                   {item.icon}
                 </div>
@@ -128,11 +241,11 @@ export default function CalendarBookingPage() {
                 <strong className="font-semibold text-[#1C2E4A]">Calendar setup makes sense if you are:</strong>
               </p>
               <ul className="list-none flex flex-col gap-2.5 mt-5">
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> A service business booking appointments (real estate, medical, coaching)</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> A sales team scheduling discovery calls and demos</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> A consultant or coach booking client sessions</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> A business with multiple team members who need appointment distribution</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Tired of no-shows and double-bookings</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> A service business booking appointments (real estate, medical, coaching)</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> A sales team scheduling discovery calls and demos</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> A consultant or coach booking client sessions</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> A business with multiple team members who need appointment distribution</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Tired of no-shows and double-bookings</li>
               </ul>
             </div>
             <div>
@@ -189,6 +302,55 @@ export default function CalendarBookingPage() {
                   <p className="text-[0.85rem] font-light text-[#4A5568] leading-relaxed">{step.description}</p>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Blog Posts Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-[1200px] mx-auto px-4 md:px-8">
+          <div className="text-center max-w-[600px] mx-auto mb-10">
+            <div className="inline-flex items-center gap-2.5 text-[0.65rem] font-bold tracking-[0.12em] uppercase text-[#0E9BF0] mb-3 justify-center">
+              <span className="w-[22px] h-[2px] bg-[#0E9BF0] rounded"></span>
+              Free Resources
+            </div>
+            <h2 className="text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold tracking-[-0.03em] leading-[1.12] mb-3.5 text-[#1C2E4A]">
+              Read Our<br />
+              <span className="text-[#0E9BF0]">Booking & Calendar Guides</span>
+            </h2>
+            <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed max-w-[580px] mx-auto">
+              Learn more about setting up professional booking systems with these in-depth articles.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {relatedBlogs.map((blog, index) => (
+              <Link 
+                key={index}
+                href={`/blog/${blog.slug}`}
+                className="group bg-[#F8F9FB] border border-[#E8EDF4] rounded-xl p-6 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all"
+              >
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-2 text-[0.65rem] text-[#5C6880] mb-2">
+                    <span className="text-[#0E9BF0] font-semibold">Booking & Calendar</span>
+                    <span>•</span>
+                    <div className="flex items-center gap-1">
+                      <ClockIcon className="w-3 h-3" />
+                      <span>{blog.readTime}</span>
+                    </div>
+                  </div>
+                  <h3 className="text-[0.95rem] font-bold text-[#1C2E4A] group-hover:text-[#0E9BF0] transition-colors mb-2 line-clamp-2">
+                    {blog.title}
+                  </h3>
+                  <p className="text-[0.75rem] text-[#5C6880] leading-relaxed mb-3 line-clamp-2">
+                    {blog.excerpt}
+                  </p>
+                  <div className="inline-flex items-center gap-1 text-[0.7rem] font-semibold text-[#0E9BF0] group-hover:gap-2 transition-all mt-auto">
+                    Read Full Guide <ArrowRight className="w-3 h-3" />
+                  </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -268,15 +430,18 @@ export default function CalendarBookingPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { title: 'CRM Setup', description: 'Capture leads from your booking system and manage them effectively with a properly configured GHL CRM.', href: '/services/crm-setup' },
-              { title: 'Workflow Automation', description: 'Trigger follow-up automations based on bookings send intake forms, assign tasks, update pipelines.', href: '/services/workflow-automation' },
-              { title: 'Email & SMS Campaigns', description: 'Send pre-appointment and post-appointment communications to improve client experience and retention.', href: '/services/campaign-automation' },
+              { title: 'CRM Setup', description: 'Capture leads from your booking system and manage them effectively with a properly configured GHL CRM.', href: '/services/crm-setup', icon: <Users className="w-5 h-5" /> },
+              { title: 'Workflow Automation', description: 'Trigger follow-up automations based on bookings send intake forms, assign tasks, update pipelines.', href: '/services/workflow-automation', icon: <Zap className="w-5 h-5" /> },
+              { title: 'Email & SMS Campaigns', description: 'Send pre-appointment and post-appointment communications to improve client experience and retention.', href: '/services/campaign-automation', icon: <Bell className="w-5 h-5" /> },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
+                <div className="w-10 h-10 rounded-lg bg-[rgba(14,155,240,0.1)] flex items-center justify-center mb-3 text-[#0E9BF0]">
+                  {service.icon}
+                </div>
                 <h3 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1.5">{service.title}</h3>
                 <p className="text-[0.78rem] font-light text-[#4A5568] leading-relaxed mb-3">{service.description}</p>
                 <Link href={service.href} className="inline-flex items-center gap-1 text-[0.75rem] font-semibold text-[#0E9BF0] hover:gap-2 transition-all">
-                  Learn More →
+                  Learn More <ArrowRight className="w-3 h-3" />
                 </Link>
               </div>
             ))}

@@ -2,19 +2,134 @@
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
+import { 
+  Users, 
+  ClipboardList, 
+  Video, 
+  GraduationCap, 
+  HelpCircle, 
+  RefreshCw,
+  ArrowRight,
+  CheckCircle2,
+  Clock,
+  BookOpen,
+  Target,
+  Zap,
+  BarChart3,
+  Settings,
+  PlayCircle,
+  FileText
+} from 'lucide-react';
 
 export const metadata = {
-  title: 'GHL Membership & Course Sites | GHL Scale Up',
-  description: 'Build membership platforms and online course sites inside GoHighLevel. Drip content, gated access, payments, and student management. 200+ projects.',
-  keywords: 'GHL membership site, online courses, drip content, course platform, membership management',
+  title: 'GHL Training & Onboarding Services | GHL Scale Up',
+  description: 'End-to-end GHL training and onboarding for your team CRM, automations, reporting, funnels, and best practices. 200+ teams trained. Get a free training consultation.',
+  keywords: 'GHL training, GoHighLevel onboarding, team training, GHL certification, SOPs',
   alternates: {
-    canonical: '/services/membership-sites',
+    canonical: 'https://www.ghlscaleup.com/services/training-onboarding',
   },
 };
 
+// Service Schema Component
+const ServiceSchema = () => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "GoHighLevel Training & Onboarding",
+    "alternateName": "GHL Team Training",
+    "description": "Complete team training and onboarding for GoHighLevel including live team training sessions, custom SOPs, recorded video training, role-based training, Q&A sessions, and ongoing support. Get your team from 20% to 100% GHL usage with expert-led training.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "GHL Scale Up",
+      "url": "https://www.ghlscaleup.com",
+      "logo": "https://www.ghlscaleup.com/web-app-manifest-192x192.png",
+      "sameAs": [
+        "https://www.linkedin.com/company/ghl-scale-up",
+        "https://x.com/GHLScaleUp"
+      ]
+    },
+    "serviceType": "Team Training & Onboarding",
+    "areaServed": {
+      "@type": "Country",
+      "name": "United States"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Training Packages",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Basic Team Training"
+          },
+          "price": "997",
+          "priceCurrency": "USD",
+          "description": "2-hour live training + SOPs for up to 5 team members"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Comprehensive Onboarding"
+          },
+          "price": "2497",
+          "priceCurrency": "USD",
+          "description": "Full team training + SOPs + recordings + follow-up"
+        }
+      ]
+    },
+    "audience": {
+      "@type": "BusinessAudience",
+      "audienceType": "Agencies, Businesses, Sales Teams, Marketing Teams"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free training consultation"
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+};
+
 export default function TrainingOnboardingPage() {
+  // Related blog posts for this service
+  const relatedBlogs = [
+    {
+      slug: 'how-to-set-up-gohighlevel-workflow-automation',
+      title: 'How to Set Up GoHighLevel Workflow Automation for Beginners',
+      excerpt: 'A step-by-step beginner\'s guide to GoHighLevel workflow automation. Learn what workflows are, how triggers and actions work, and build your first automation.',
+      readTime: '19 min read',
+      date: 'May 6, 2026'
+    },
+    {
+      slug: 'where-to-hire-gohighlevel-experts',
+      title: 'Where to Hire GoHighLevel Experts in 2026: 6 Best Places',
+      excerpt: 'Looking for a GoHighLevel expert? Here are the 6 best places to find GHL professionals with a vetting checklist and red flags to avoid.',
+      readTime: '21 min read',
+      date: 'May 11, 2026'
+    },
+    {
+      slug: 'gohighlevel-funnel-builder-features',
+      title: 'GoHighLevel Funnel Builder: 7 Features Top Agencies Use',
+      excerpt: 'Discover the GoHighLevel funnel builder features most agencies overlook version control, global sections, custom values, and more.',
+      readTime: '9 min read',
+      date: 'April 7, 2026'
+    }
+  ];
+
   return (
     <>
+      {/* Add Service Schema to Head */}
+      <ServiceSchema />
+      
       <Breadcrumb items={[{ label: 'GHL Services', href: '/services' }, { label: 'GHL Training & Onboarding' }]} />
 
       {/* Page Hero */}
@@ -86,17 +201,17 @@ export default function TrainingOnboardingPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              { icon: '👥', color: 'blue', title: 'Live Team Training', description: 'Live, interactive training sessions with your team. We cover exactly what they need to know based on their role sales, marketing, admin, or leadership.' },
-              { icon: '📋', color: 'green', title: 'Custom SOPs', description: 'Written standard operating procedures for every process adding leads, managing pipelines, sending campaigns, running reports. Your team has a reference guide.' },
-              { icon: '🎥', color: 'yellow', title: 'Recorded Video Training', description: 'Recorded sessions your team can watch anytime. Perfect for new hires or refresher training. Accessible on demand.' },
-              { icon: '📚', color: 'blue', title: 'Role-Based Training', description: 'Different training for different roles sales reps, marketing managers, admins, and executives. Everyone learns what they need.' },
-              { icon: '❓', color: 'green', title: 'Q&A Sessions', description: 'Dedicated Q&A time for your team to ask questions about their specific workflows. We make sure everyone leaves confident.' },
-              { icon: '🔄', color: 'yellow', title: 'Ongoing Support', description: 'Follow-up support after training. Questions that come up as your team starts using GHL we are here to help.' },
+              { icon: <Users className="w-5 h-5" />, color: 'blue', title: 'Live Team Training', description: 'Live, interactive training sessions with your team. We cover exactly what they need to know based on their role sales, marketing, admin, or leadership.' },
+              { icon: <FileText className="w-5 h-5" />, color: 'green', title: 'Custom SOPs', description: 'Written standard operating procedures for every process adding leads, managing pipelines, sending campaigns, running reports. Your team has a reference guide.' },
+              { icon: <Video className="w-5 h-5" />, color: 'yellow', title: 'Recorded Video Training', description: 'Recorded sessions your team can watch anytime. Perfect for new hires or refresher training. Accessible on demand.' },
+              { icon: <GraduationCap className="w-5 h-5" />, color: 'blue', title: 'Role-Based Training', description: 'Different training for different roles sales reps, marketing managers, admins, and executives. Everyone learns what they need.' },
+              { icon: <HelpCircle className="w-5 h-5" />, color: 'green', title: 'Q&A Sessions', description: 'Dedicated Q&A time for your team to ask questions about their specific workflows. We make sure everyone leaves confident.' },
+              { icon: <RefreshCw className="w-5 h-5" />, color: 'yellow', title: 'Ongoing Support', description: 'Follow-up support after training. Questions that come up as your team starts using GHL we are here to help.' },
             ].map((item, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-[1.2rem] mb-3.5 ${
-                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)]' : 
-                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)]' : 'bg-[rgba(248,208,0,0.12)]'
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${
+                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' : 
+                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
                 }`}>
                   {item.icon}
                 </div>
@@ -128,11 +243,11 @@ export default function TrainingOnboardingPage() {
                 <strong className="font-semibold text-[#1C2E4A]">Training makes sense if you are:</strong>
               </p>
               <ul className="list-none flex flex-col gap-2.5 mt-5">
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> An agency that just set up GHL for your clients</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> A business that recently migrated to GHL</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Adding new team members who need to learn GHL</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> A business owner wanting to delegate GHL management</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Already using GHL but not getting the results you expected</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> An agency that just set up GHL for your clients</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> A business that recently migrated to GHL</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Adding new team members who need to learn GHL</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> A business owner wanting to delegate GHL management</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Already using GHL but not getting the results you expected</li>
               </ul>
             </div>
             <div>
@@ -194,6 +309,55 @@ export default function TrainingOnboardingPage() {
         </div>
       </section>
 
+      {/* Related Blog Posts Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-[1200px] mx-auto px-4 md:px-8">
+          <div className="text-center max-w-[600px] mx-auto mb-10">
+            <div className="inline-flex items-center gap-2.5 text-[0.65rem] font-bold tracking-[0.12em] uppercase text-[#0E9BF0] mb-3 justify-center">
+              <span className="w-[22px] h-[2px] bg-[#0E9BF0] rounded"></span>
+              Free Resources
+            </div>
+            <h2 className="text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold tracking-[-0.03em] leading-[1.12] mb-3.5 text-[#1C2E4A]">
+              Read Our<br />
+              <span className="text-[#0E9BF0]">Training & Onboarding Guides</span>
+            </h2>
+            <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed max-w-[580px] mx-auto">
+              Learn more about training your team and getting the most from GoHighLevel with these in-depth articles.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {relatedBlogs.map((blog, index) => (
+              <Link 
+                key={index}
+                href={`/blog/${blog.slug}`}
+                className="group bg-[#F8F9FB] border border-[#E8EDF4] rounded-xl p-6 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all"
+              >
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-2 text-[0.65rem] text-[#5C6880] mb-2">
+                    <span className="text-[#0E9BF0] font-semibold">Training & Onboarding</span>
+                    <span>•</span>
+                    <div className="flex items-center gap-1">
+                      <Clock className="w-3 h-3" />
+                      <span>{blog.readTime}</span>
+                    </div>
+                  </div>
+                  <h3 className="text-[0.95rem] font-bold text-[#1C2E4A] group-hover:text-[#0E9BF0] transition-colors mb-2 line-clamp-2">
+                    {blog.title}
+                  </h3>
+                  <p className="text-[0.75rem] text-[#5C6880] leading-relaxed mb-3 line-clamp-2">
+                    {blog.excerpt}
+                  </p>
+                  <div className="inline-flex items-center gap-1 text-[0.7rem] font-semibold text-[#0E9BF0] group-hover:gap-2 transition-all mt-auto">
+                    Read Full Guide <ArrowRight className="w-3 h-3" />
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <div className="bg-[#1C2E4A] py-16 text-center text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_60%_at_50%_50%,rgba(14,155,240,0.08),transparent)] pointer-events-none"></div>
@@ -206,7 +370,7 @@ export default function TrainingOnboardingPage() {
             Book a free training consultation. We'll assess your team's needs, create a custom training plan, and show you how we can get your team up to speed quickly.
           </p>
           <div className="flex gap-3.5 justify-center flex-wrap">
-            <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-10 py-4 rounded-[10px] text-[0.92rem] font-bold hover:bg-[#FFE44D} hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
+            <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-10 py-4 rounded-[10px] text-[0.92rem] font-bold hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
               Book Your Free Training Consultation →
             </Link>
             <Link href="mailto:aryan@finzie.co" className="bg-transparent text-white px-10 py-4 rounded-[10px] text-[0.92rem] font-medium border border-white/15 hover:border-white/30 hover:bg-white/5 transition-all">
@@ -268,15 +432,18 @@ export default function TrainingOnboardingPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { title: 'CRM Setup', description: 'Start with a properly configured CRM that makes training easier and processes clear.', href: '/services/crm-setup' },
-              { title: 'Workflow Automation', description: 'Train your team on automation workflows that save time and ensure consistency.', href: '/services/workflow-automation' },
-              { title: 'Reporting & Dashboards', description: 'Teach your team how to use dashboards to track performance and make data-driven decisions.', href: '/services/reporting' },
+              { title: 'CRM Setup', description: 'Start with a properly configured CRM that makes training easier and processes clear.', href: '/services/crm-setup', icon: <Settings className="w-5 h-5" /> },
+              { title: 'Workflow Automation', description: 'Train your team on automation workflows that save time and ensure consistency.', href: '/services/workflow-automation', icon: <Zap className="w-5 h-5" /> },
+              { title: 'Reporting & Dashboards', description: 'Teach your team how to use dashboards to track performance and make data-driven decisions.', href: '/services/reporting', icon: <BarChart3 className="w-5 h-5" /> },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
+                <div className="w-10 h-10 rounded-lg bg-[rgba(14,155,240,0.1)] flex items-center justify-center mb-3 text-[#0E9BF0]">
+                  {service.icon}
+                </div>
                 <h3 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1.5">{service.title}</h3>
                 <p className="text-[0.78rem] font-light text-[#4A5568] leading-relaxed mb-3">{service.description}</p>
                 <Link href={service.href} className="inline-flex items-center gap-1 text-[0.75rem] font-semibold text-[#0E9BF0] hover:gap-2 transition-all">
-                  Learn More →
+                  Learn More <ArrowRight className="w-3 h-3" />
                 </Link>
               </div>
             ))}

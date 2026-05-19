@@ -2,19 +2,133 @@
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
+import { 
+  BarChart3, 
+  Users, 
+  TrendingUp, 
+  Timer, 
+  UserCheck, 
+  Calendar,
+  ArrowRight,
+  CheckCircle2,
+  Clock,
+  PieChart,
+  LineChart,
+  Activity,
+  Eye,
+  Database,
+  Zap
+} from 'lucide-react';
 
 export const metadata = {
   title: 'GHL Reporting & Dashboards Services | GHL Scale Up',
   description: 'Custom dashboards for leads, pipeline value, conversion rates, and team performance. 200+ projects. Get a free reporting consultation.',
   keywords: 'GHL reporting, custom dashboards, pipeline analytics, conversion tracking, team performance dashboards',
   alternates: {
-    canonical: '/services/reporting',
+    canonical: 'https://www.ghlscaleup.com/services/reporting',
   },
 };
 
+// Service Schema Component
+const ServiceSchema = () => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "GoHighLevel Reporting & Dashboard Development",
+    "alternateName": "GHL Analytics Dashboard",
+    "description": "Custom reporting and dashboard setup for GoHighLevel including pipeline and deal dashboards, lead source analytics, conversion funnel reports, response time tracking, team performance dashboards, and automated report delivery. Get real-time visibility into your business performance with 100% data accuracy.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "GHL Scale Up",
+      "url": "https://www.ghlscaleup.com",
+      "logo": "https://www.ghlscaleup.com/web-app-manifest-192x192.png",
+      "sameAs": [
+        "https://www.linkedin.com/company/ghl-scale-up",
+        "https://x.com/GHLScaleUp"
+      ]
+    },
+    "serviceType": "Business Intelligence & Reporting",
+    "areaServed": {
+      "@type": "Country",
+      "name": "United States"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Reporting Packages",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Basic Dashboard Setup"
+          },
+          "price": "997",
+          "priceCurrency": "USD",
+          "description": "3-5 core dashboards with key metrics"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Advanced Analytics Suite"
+          },
+          "price": "2497",
+          "priceCurrency": "USD",
+          "description": "Full reporting suite with custom KPIs and automation"
+        }
+      ]
+    },
+    "audience": {
+      "@type": "BusinessAudience",
+      "audienceType": "Agencies, Sales Teams, Business Owners, Executives"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free reporting consultation"
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+};
+
 export default function ReportingDashboardsPage() {
+  // Related blog posts for this service
+  const relatedBlogs = [
+    {
+      slug: 'ghl-pipeline-management',
+      title: 'GHL Pipeline Management: From Lead to Closed Deal',
+      excerpt: 'Master the art of pipeline management in GoHighLevel to track and convert more leads with better reporting visibility.',
+      readTime: '7 min read',
+      date: 'March 15, 2026'
+    },
+    {
+      slug: 'gohighlevel-pricing',
+      title: 'GoHighLevel Pricing 2026: All Plans, Real Costs & Hidden Fees',
+      excerpt: 'Complete breakdown of GoHighLevel pricing including cost tracking and ROI reporting for agencies and businesses.',
+      readTime: '20 min read',
+      date: 'May 14, 2026'
+    },
+    {
+      slug: 'what-is-gohighlevel',
+      title: 'What Is GoHighLevel? The Complete Guide for 2026',
+      excerpt: 'Comprehensive guide to GoHighLevel including reporting capabilities and dashboard features for tracking business performance.',
+      readTime: '12 min read',
+      date: 'May 2, 2026'
+    }
+  ];
+
   return (
     <>
+      {/* Add Service Schema to Head */}
+      <ServiceSchema />
+      
       <Breadcrumb items={[{ label: 'GHL Services', href: '/services' }, { label: 'Reporting & Dashboards' }]} />
 
       {/* Page Hero */}
@@ -86,17 +200,17 @@ export default function ReportingDashboardsPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              { icon: '📊', color: 'blue', title: 'Pipeline & Deal Dashboards', description: 'Visual dashboards showing deal volume, pipeline value, stage distribution, and win rates. See exactly where your revenue is coming from and where deals are stuck.' },
-              { icon: '👥', color: 'green', title: 'Lead Source Analytics', description: 'Track which marketing channels generate the most leads and highest conversion rates. Allocate budget to what works. Cut what doesn\'t.' },
-              { icon: '📈', color: 'yellow', title: 'Conversion Funnel Reports', description: 'See conversion rates at every stage from lead to qualified to booked to closed. Identify bottlenecks and optimize your sales process.' },
-              { icon: '⏱️', color: 'blue', title: 'Response Time Tracking', description: 'Measure how quickly your team responds to leads. Track average response time, first reply time, and follow-up consistency.' },
-              { icon: '👥', color: 'green', title: 'Team Performance Dashboards', description: 'Individual and team performance metrics deals closed, calls made, appointments booked. Motivate your team with clear visibility.' },
-              { icon: '📅', color: 'yellow', title: 'Automated Report Delivery', description: 'Schedule daily, weekly, or monthly reports delivered to your inbox. Get key metrics without logging into GHL.' },
+              { icon: <BarChart3 className="w-5 h-5" />, color: 'blue', title: 'Pipeline & Deal Dashboards', description: 'Visual dashboards showing deal volume, pipeline value, stage distribution, and win rates. See exactly where your revenue is coming from and where deals are stuck.' },
+              { icon: <Users className="w-5 h-5" />, color: 'green', title: 'Lead Source Analytics', description: 'Track which marketing channels generate the most leads and highest conversion rates. Allocate budget to what works. Cut what doesn\'t.' },
+              { icon: <TrendingUp className="w-5 h-5" />, color: 'yellow', title: 'Conversion Funnel Reports', description: 'See conversion rates at every stage from lead to qualified to booked to closed. Identify bottlenecks and optimize your sales process.' },
+              { icon: <Timer className="w-5 h-5" />, color: 'blue', title: 'Response Time Tracking', description: 'Measure how quickly your team responds to leads. Track average response time, first reply time, and follow-up consistency.' },
+              { icon: <UserCheck className="w-5 h-5" />, color: 'green', title: 'Team Performance Dashboards', description: 'Individual and team performance metrics deals closed, calls made, appointments booked. Motivate your team with clear visibility.' },
+              { icon: <Calendar className="w-5 h-5" />, color: 'yellow', title: 'Automated Report Delivery', description: 'Schedule daily, weekly, or monthly reports delivered to your inbox. Get key metrics without logging into GHL.' },
             ].map((item, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-[1.2rem] mb-3.5 ${
-                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)]' : 
-                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)]' : 'bg-[rgba(248,208,0,0.12)]'
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${
+                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' : 
+                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
                 }`}>
                   {item.icon}
                 </div>
@@ -128,11 +242,11 @@ export default function ReportingDashboardsPage() {
                 <strong className="font-semibold text-[#1C2E4A]">Reporting makes sense if you are:</strong>
               </p>
               <ul className="list-none flex flex-col gap-2.5 mt-5">
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> An agency owner who needs to track client performance</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> A sales manager wanting visibility into team activity</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> A business owner who needs to know where revenue comes from</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Running marketing campaigns and tracking ROI</li>
-                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><span className="text-[#25C97D] font-bold flex-shrink-0">✓</span> Presenting to investors or board members</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> An agency owner who needs to track client performance</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> A sales manager wanting visibility into team activity</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> A business owner who needs to know where revenue comes from</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Running marketing campaigns and tracking ROI</li>
+                <li className="flex gap-2.5 text-[0.85rem] font-normal text-[#4A5568] leading-relaxed"><CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" /> Presenting to investors or board members</li>
               </ul>
             </div>
             <div>
@@ -189,6 +303,55 @@ export default function ReportingDashboardsPage() {
                   <p className="text-[0.85rem] font-light text-[#4A5568] leading-relaxed">{step.description}</p>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Blog Posts Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-[1200px] mx-auto px-4 md:px-8">
+          <div className="text-center max-w-[600px] mx-auto mb-10">
+            <div className="inline-flex items-center gap-2.5 text-[0.65rem] font-bold tracking-[0.12em] uppercase text-[#0E9BF0] mb-3 justify-center">
+              <span className="w-[22px] h-[2px] bg-[#0E9BF0] rounded"></span>
+              Free Resources
+            </div>
+            <h2 className="text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold tracking-[-0.03em] leading-[1.12] mb-3.5 text-[#1C2E4A]">
+              Read Our<br />
+              <span className="text-[#0E9BF0]">Reporting & Analytics Guides</span>
+            </h2>
+            <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed max-w-[580px] mx-auto">
+              Learn more about tracking and reporting your business performance with these in-depth articles.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {relatedBlogs.map((blog, index) => (
+              <Link 
+                key={index}
+                href={`/blog/${blog.slug}`}
+                className="group bg-[#F8F9FB] border border-[#E8EDF4] rounded-xl p-6 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all"
+              >
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-2 text-[0.65rem] text-[#5C6880] mb-2">
+                    <span className="text-[#0E9BF0] font-semibold">Reporting & Analytics</span>
+                    <span>•</span>
+                    <div className="flex items-center gap-1">
+                      <Clock className="w-3 h-3" />
+                      <span>{blog.readTime}</span>
+                    </div>
+                  </div>
+                  <h3 className="text-[0.95rem] font-bold text-[#1C2E4A] group-hover:text-[#0E9BF0] transition-colors mb-2 line-clamp-2">
+                    {blog.title}
+                  </h3>
+                  <p className="text-[0.75rem] text-[#5C6880] leading-relaxed mb-3 line-clamp-2">
+                    {blog.excerpt}
+                  </p>
+                  <div className="inline-flex items-center gap-1 text-[0.7rem] font-semibold text-[#0E9BF0] group-hover:gap-2 transition-all mt-auto">
+                    Read Full Guide <ArrowRight className="w-3 h-3" />
+                  </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -268,15 +431,18 @@ export default function ReportingDashboardsPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { title: 'CRM Setup', description: 'Proper CRM structure ensures your data is clean and reports are accurate from day one.', href: '/services/crm-setup' },
-              { title: 'Workflow Automation', description: 'Automate data capture and ensure every lead and deal is properly tagged for reporting.', href: '/services/workflow-automation' },
-              { title: 'Integrations & API', description: 'Pull data from external tools into your GHL dashboards for unified reporting.', href: '/services/integrations' },
+              { title: 'CRM Setup', description: 'Proper CRM structure ensures your data is clean and reports are accurate from day one.', href: '/services/crm-setup', icon: <Database className="w-5 h-5" /> },
+              { title: 'Workflow Automation', description: 'Automate data capture and ensure every lead and deal is properly tagged for reporting.', href: '/services/workflow-automation', icon: <Zap className="w-5 h-5" /> },
+              { title: 'Integrations & API', description: 'Pull data from external tools into your GHL dashboards for unified reporting.', href: '/services/integrations', icon: <Activity className="w-5 h-5" /> },
             ].map((service, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
+                <div className="w-10 h-10 rounded-lg bg-[rgba(14,155,240,0.1)] flex items-center justify-center mb-3 text-[#0E9BF0]">
+                  {service.icon}
+                </div>
                 <h3 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1.5">{service.title}</h3>
                 <p className="text-[0.78rem] font-light text-[#4A5568] leading-relaxed mb-3">{service.description}</p>
                 <Link href={service.href} className="inline-flex items-center gap-1 text-[0.75rem] font-semibold text-[#0E9BF0] hover:gap-2 transition-all">
-                  Learn More →
+                  Learn More <ArrowRight className="w-3 h-3" />
                 </Link>
               </div>
             ))}

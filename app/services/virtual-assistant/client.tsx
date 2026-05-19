@@ -27,15 +27,94 @@ import {
       Rocket,
       Settings,
       Sparkles,
-      DollarSign
+      DollarSign,
+      ArrowRight,
+      BookOpen,
+      UserCog
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import CtaBand from '@/components/sections/CtaBand'
 import Link from 'next/link'
 
+// Service Schema Component
+const ServiceSchema = () => {
+      const schema = {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "GoHighLevel Virtual Assistant Service",
+            "alternateName": "GHL Virtual Assistant",
+            "description": "Dedicated GoHighLevel virtual assistant who manages your GHL account daily including CRM pipelines, workflow automation, email/SMS campaigns, unified inbox, sub-account setup, and funnel management. Reduce manual workload by 70% with a specialist GHL VA.",
+            "provider": {
+                  "@type": "LocalBusiness",
+                  "name": "GHL Scale Up",
+                  "url": "https://www.ghlscaleup.com",
+                  "logo": "https://www.ghlscaleup.com/web-app-manifest-192x192.png",
+                  "sameAs": [
+                        "https://www.linkedin.com/company/ghl-scale-up",
+                        "https://x.com/GHLScaleUp"
+                  ]
+            },
+            "serviceType": "Virtual Assistant Services",
+            "areaServed": {
+                  "@type": "Country",
+                  "name": "United States"
+            },
+            "hasOfferCatalog": {
+                  "@type": "OfferCatalog",
+                  "name": "GHL VA Plans",
+                  "itemListElement": [
+                        {
+                              "@type": "Offer",
+                              "itemOffered": {
+                                    "@type": "Service",
+                                    "name": "Starter GHL VA"
+                              },
+                              "price": "800",
+                              "priceCurrency": "USD",
+                              "description": "20 hours per month of dedicated GHL VA support"
+                        },
+                        {
+                              "@type": "Offer",
+                              "itemOffered": {
+                                    "@type": "Service",
+                                    "name": "Growth GHL VA"
+                              },
+                              "price": "1500",
+                              "priceCurrency": "USD",
+                              "description": "40 hours per month with full GHL management"
+                        },
+                        {
+                              "@type": "Offer",
+                              "itemOffered": {
+                                    "@type": "Service",
+                                    "name": "Full-Time GHL VA"
+                              },
+                              "price": "2500",
+                              "priceCurrency": "USD",
+                              "description": "160 hours per month dedicated full-time VA"
+                        }
+                  ]
+            },
+            "audience": {
+                  "@type": "BusinessAudience",
+                  "audienceType": "Marketing Agencies, SaaS Founders, Service Businesses"
+            },
+            "offers": {
+                  "@type": "Offer",
+                  "price": "0",
+                  "priceCurrency": "USD",
+                  "description": "Free consultation call"
+            }
+      };
 
-
+      return (
+            <script
+                  type="application/ld+json"
+                  dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+            />
+      );
+};
 
 // FAQ Component
 interface FAQItem {
@@ -131,6 +210,31 @@ function FAQItemComponent({ faq, isOpen, onToggle }: { faq: FAQItem; isOpen: boo
 export default function GHLVirtualAssistantPage() {
       const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null)
 
+      // Related blog posts for this service
+      const relatedBlogs = [
+            {
+                  slug: 'where-to-hire-gohighlevel-experts',
+                  title: 'Where to Hire GoHighLevel Experts in 2026: 6 Best Places',
+                  excerpt: 'Looking for a GoHighLevel expert? Here are the 6 best places to find GHL professionals with a vetting checklist and red flags to avoid.',
+                  readTime: '21 min read',
+                  date: 'May 11, 2026'
+            },
+            {
+                  slug: 'best-ghl-expert-agency',
+                  title: 'Best GHL Expert Agency to Hire in 2026 (Honest Comparison)',
+                  excerpt: 'Looking for the best GoHighLevel expert agency to hire? We compared the top GHL agencies in 2026 covering specialisations and pricing.',
+                  readTime: '20 min read',
+                  date: 'May 9, 2026'
+            },
+            {
+                  slug: 'how-to-set-up-gohighlevel-workflow-automation',
+                  title: 'How to Set Up GoHighLevel Workflow Automation for Beginners',
+                  excerpt: 'A step-by-step beginner\'s guide to GoHighLevel workflow automation. Learn what workflows are and how triggers and actions work.',
+                  readTime: '19 min read',
+                  date: 'May 6, 2026'
+            }
+      ];
+
       const dailyTasks = [
             { icon: FolderOpen, title: 'CRM Pipeline & Opportunity Management', desc: 'Daily pipeline reviews, moving opportunities through stages, tagging contacts, updating deal values, and ensuring no lead falls through the cracks inside GoHighLevel.' },
             { icon: Zap, title: 'GoHighLevel Workflow Automation Builds', desc: 'Building new automation workflows, maintaining existing ones, fixing broken triggers, and optimising sequence logic — all independently inside your GHL account.' },
@@ -209,6 +313,9 @@ export default function GHLVirtualAssistantPage() {
 
       return (
             <>
+                  {/* Add Service Schema to Head */}
+                  <ServiceSchema />
+
                   {/* Hero Section */}
                   <section className="relative overflow-hidden bg-space-blue pt-32 pb-20 lg:pt-[100px] lg:pb-22">
                         {/* Background Pattern */}
@@ -478,6 +585,55 @@ export default function GHLVirtualAssistantPage() {
                         </div>
                   </section>
 
+                  {/* Related Blog Posts Section */}
+                  <section className="py-16 md:py-20 bg-white">
+                        <div className="max-w-7xl mx-auto px-6">
+                              <div className="text-center max-w-2xl mx-auto mb-10">
+                                    <div className="inline-flex items-center gap-2.5 text-[0.65rem] font-bold tracking-[0.12em] uppercase text-nurture-blue mb-3 justify-center">
+                                          <span className="w-[22px] h-[2px] bg-nurture-blue rounded"></span>
+                                          Free Resources
+                                    </div>
+                                    <h2 className="text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold tracking-[-0.03em] leading-[1.12] mb-3.5 text-space-blue">
+                                          Read Our<br />
+                                          <span className="text-nurture-blue">GHL Hiring Guides</span>
+                                    </h2>
+                                    <p className="text-[0.9rem] font-light text-body leading-relaxed max-w-[580px] mx-auto">
+                                          Learn more about hiring GHL experts and managing your GoHighLevel account with these in-depth articles.
+                                    </p>
+                              </div>
+
+                              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                    {relatedBlogs.map((blog, index) => (
+                                          <Link
+                                                key={index}
+                                                href={`/blog/${blog.slug}`}
+                                                className="group bg-[#F8F9FB] border border-[#E8EDF4] rounded-xl p-6 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-nurture-blue transition-all"
+                                          >
+                                                <div className="flex flex-col">
+                                                      <div className="flex items-center gap-2 text-[0.65rem] text-muted mb-2">
+                                                            <span className="text-nurture-blue font-semibold">GHL Hiring</span>
+                                                            <span>•</span>
+                                                            <div className="flex items-center gap-1">
+                                                                  <Clock className="w-3 h-3" />
+                                                                  <span>{blog.readTime}</span>
+                                                            </div>
+                                                      </div>
+                                                      <h3 className="text-[0.95rem] font-bold text-space-blue group-hover:text-nurture-blue transition-colors mb-2 line-clamp-2">
+                                                            {blog.title}
+                                                      </h3>
+                                                      <p className="text-[0.75rem] text-body leading-relaxed mb-3 line-clamp-2">
+                                                            {blog.excerpt}
+                                                      </p>
+                                                      <div className="inline-flex items-center gap-1 text-[0.7rem] font-semibold text-nurture-blue group-hover:gap-2 transition-all mt-auto">
+                                                            Read Full Guide <ArrowRight className="w-3 h-3" />
+                                                      </div>
+                                                </div>
+                                          </Link>
+                                    ))}
+                              </div>
+                        </div>
+                  </section>
+
                   {/* FAQ Section */}
                   <section id="faq" className="bg-off-white py-20 md:py-22">
                         <div className="mx-auto max-w-7xl px-6">
@@ -511,12 +667,11 @@ export default function GHLVirtualAssistantPage() {
 
                   {/* CTA Section */}
                   <CtaBand
-                        title='Build a Passive Income Stream<br /><span class="hl-yellow">With Your Knowledge.</span>'
-                        description="Turn your expertise into recurring revenue. Let us build your membership site or course platform so you can focus on creating great content."
-                        primaryText="Book Your Free Course Consultation →"
+                        title='Stop Spending Your Time Inside GHL.<br /><span class="hl-yellow">Let a GHL VA Handle It.</span>'
+                        description="Get back hours every week by delegating your GoHighLevel tasks to a dedicated GHL virtual assistant. Book a free call to find the right VA plan for your business."
+                        primaryText="Book Your Free Consultation →"
                         primaryHref="/contact"
                   />
             </>
       )
 }
-
