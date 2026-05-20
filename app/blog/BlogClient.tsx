@@ -25,7 +25,8 @@ import {
   Trophy,
   MapPin,
   Database,
-  CreditCard
+  CreditCard,
+  Globe
 } from 'lucide-react';
 
 const blogPosts = [
@@ -129,16 +130,28 @@ const blogPosts = [
     image: 'https://iloveghl.com/wp-content/uploads/2023/08/Difference-And-Comparison-Between-Coffee-And-Tea-Facebook-Post-1280-%C3%97-720-px-1.png',
   },
   {
-  icon: Star,
-  tag: 'Review',
-  title: 'GoHighLevel Review 2026: Honest Verdict After 200+ Real Builds (4.4/5)',
-  excerpt: 'GoHighLevel review for 2026 from a team that has built 200+ GHL systems. Honest rating, real pros and cons, email deliverability issues, learning curve reality, and who should actually use it.',
-  slug: 'gohighlevel-review',
-  date: 'May 18, 2026',
-  readTime: '22 min read',
-  featured: true,
-  image: 'https://digitalxpresso.com/wp-content/uploads/2025/11/Image_fx-2025-11-24T112123.295.jpg',
-},
+    icon: Star,
+    tag: 'Review',
+    title: 'GoHighLevel Review 2026: Honest Verdict After 200+ Real Builds (4.4/5)',
+    excerpt: 'GoHighLevel review for 2026 from a team that has built 200+ GHL systems. Honest rating, real pros and cons, email deliverability issues, learning curve reality, and who should actually use it.',
+    slug: 'gohighlevel-review',
+    date: 'May 18, 2026',
+    readTime: '22 min read',
+    featured: true,
+    image: 'https://digitalxpresso.com/wp-content/uploads/2025/11/Image_fx-2025-11-24T112123.295.jpg',
+  },
+
+  {
+    icon: Globe,
+    tag: 'White Label',
+    title: 'GoHighLevel White Label: What It Is, How It Works & Full Setup Guide (2026)',
+    excerpt: 'GoHighLevel white label lets you brand the entire platform as your own software. Basic branding starts at $297/mo. Full SaaS Mode with automated billing starts at $497/mo. Step-by-step setup guide with CNAME, Stripe, and pricing strategy.',
+    slug: 'gohighlevel-white-label',
+    date: 'May 19, 2026',
+    readTime: '21 min read',
+    featured: true,
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+  },
   {
     icon: Rocket,
     tag: 'GHL SaaS',
@@ -225,6 +238,7 @@ const getCategoryColor = (tag: string) => {
     'Conversation AI': 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]',
     'Comparison': 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]',
     'Review': 'bg-[rgba(248,208,0,0.12)] text-[#F8D000] border-[rgba(248,208,0,0.2)]',
+    'White Label': 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]',
   };
   return colors[tag] || 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]';
 };
