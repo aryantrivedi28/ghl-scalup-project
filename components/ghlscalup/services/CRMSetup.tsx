@@ -423,7 +423,7 @@ const ServiceCRMSetup = () => {
             Your GoHighLevel CRM should work as hard as your sales team. Let our GHL experts build it right so every lead is tracked, every follow-up is automated, and nothing falls through the cracks.
           </p>
           <div className="flex gap-3.5 justify-center flex-wrap">
-            <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-10 py-4 rounded-[10px] text-[0.92rem] font-bold hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
+            <Link href="/contact-us" className="bg-[#F8D000] text-[#0B1421] px-10 py-4 rounded-[10px] text-[0.92rem] font-bold hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
               Schedule Your Free CRM Audit →
             </Link>
           </div>

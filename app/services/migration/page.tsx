@@ -454,7 +454,7 @@ export default function MigrationPage() {
         title='Stop Paying for Multiple Tools.<br /><span class="hl-yellow">Consolidate with GHL.</span>'
         description="GoHighLevel replaces 5+ tools CRM, funnels, email, SMS, calendars, and more. Let us migrate your business seamlessly. Book your free assessment today."
         primaryText="Book Your Free Migration Assessment →"
-        primaryHref="/contact"
+        primaryHref="/contact-us"
       />
     </>
   );

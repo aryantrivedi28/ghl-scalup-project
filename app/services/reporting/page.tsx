@@ -454,7 +454,7 @@ export default function ReportingDashboardsPage() {
         title='Stop Flying Blind.<br /><span class="hl-yellow">Get Real-Time Visibility.</span>'
         description="Know exactly where your leads come from, where deals get stuck, and which campaigns are working. Custom dashboards give you the data you need to grow smarter."
         primaryText="Book Your Free Reporting Audit →"
-        primaryHref="/contact"
+        primaryHref="/contact-us"
       />
     </>
   );

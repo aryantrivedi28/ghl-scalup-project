@@ -455,7 +455,7 @@ export default function AIChatbotPage() {
         title='Stop Losing Leads While You Sleep.<br /><span class="hl-yellow">Let AI Work 24/7.</span>'
         description="Every visitor to your website is a potential customer. Our AI chatbots capture, qualify, and convert them even when your team is offline. Book your free consultation today."
         primaryText="Book Your Free AI Consultation →"
-        primaryHref="/contact"
+        primaryHref="/contact-us"
       />
     </>
   );

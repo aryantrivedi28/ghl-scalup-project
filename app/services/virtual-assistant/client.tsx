@@ -670,7 +670,7 @@ export default function GHLVirtualAssistantPage() {
                         title='Stop Spending Your Time Inside GHL.<br /><span class="hl-yellow">Let a GHL VA Handle It.</span>'
                         description="Get back hours every week by delegating your GoHighLevel tasks to a dedicated GHL virtual assistant. Book a free call to find the right VA plan for your business."
                         primaryText="Book Your Free Consultation →"
-                        primaryHref="/contact"
+                        primaryHref="/contact-us"
                   />
             </>
       )

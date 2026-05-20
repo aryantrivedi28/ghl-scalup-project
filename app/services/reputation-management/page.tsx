@@ -454,7 +454,7 @@ export default function ReputationManagementPage() {
         title='Your Reputation Is Your<br /><span class="hl-yellow">Most Valuable Asset.</span>'
         description="93% of consumers read reviews before buying. Let us help you get more 5-star reviews, monitor what people say, and turn your reputation into your best sales tool."
         primaryText="Book Your Free Reputation Audit →"
-        primaryHref="/contact"
+        primaryHref="/contact-us"
       />
     </>
   );

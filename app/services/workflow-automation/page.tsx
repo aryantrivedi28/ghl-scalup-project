@@ -450,7 +450,7 @@ export default function WorkflowAutomationPage() {
         title='Stop Chasing Leads.<br /><span class="hl-yellow">Let Automation Do the Work.</span>'
         description="Your leads expect an instant response. Our automation systems deliver it every time. Book your free audit and see how we can automate your follow-ups."
         primaryText="Book Your Free Automation Audit →"
-        primaryHref="/contact"
+        primaryHref="/contact-us"
       />
     </>
   );

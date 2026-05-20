@@ -455,7 +455,7 @@ export default function TrainingOnboardingPage() {
         title='Your GHL System Is Only as Good<br /><span class="hl-yellow">as Your Teams Ability to Use It.</span>'
         description="Invest in training to maximize your GHL investment. Book your free consultation and let us help your team become GHL experts."
         primaryText="Book Your Free Training Consultation →"
-        primaryHref="/contact"
+        primaryHref="/contact-us"
       />
     </>
   );

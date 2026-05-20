@@ -455,7 +455,7 @@ export default function SalesFunnelsPage() {
         title='Stop Losing Sales to a<br /><span class="hl-yellow">Low-Converting Funnel.</span>'
         description="Every visitor to your funnel is a potential customer. Our funnels convert them. Book your free audit and see how we can increase your conversion rate."
         primaryText="Book Your Free Funnel Audit →"
-        primaryHref="/contact"
+        primaryHref="/contact-us"
       />
     </>
   );

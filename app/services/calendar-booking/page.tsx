@@ -453,7 +453,7 @@ export default function CalendarBookingPage() {
         title='Stop Wasting Time on Scheduling.<br /><span class="hl-yellow">Let Clients Book Themselves 24/7.</span>'
         description="A professional booking system saves hours of back-and-forth and reduces no-shows by 50%. Book your free consultation to see how we can set it up for you."
         primaryText="Book Your Free Booking Audit →"
-        primaryHref="/contact"
+        primaryHref="/contact-us"
       />
     </>
   );

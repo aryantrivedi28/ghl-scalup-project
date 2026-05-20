@@ -431,7 +431,7 @@ export default function WhiteLabelSaaSPage() {
         title='Stop Trading Time for Money.<br /><span class="hl-yellow">Build a SaaS That Scales.</span>'
         description="Service businesses are capped. SaaS businesses scale infinitely. Launch your own white-label SaaS platform in weeks and start building predictable recurring revenue today."
         primaryText="Book Your Free SaaS Consultation →"
-        primaryHref="/contact"
+        primaryHref="/contact-us"
       />
     </>
   );

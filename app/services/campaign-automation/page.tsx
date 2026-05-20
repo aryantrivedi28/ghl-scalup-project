@@ -454,7 +454,7 @@ export default function EmailSMSWhatsAppPage() {
         title='Stop Sending One-Off Emails.<br /><span class="hl-yellow">Build a Multi-Channel Nurture System.</span>'
         description="Your leads are waiting to hear from you. Let us build automated campaigns that reach them across email, SMS, and WhatsApp — so you never miss an opportunity."
         primaryText="Book Your Free Campaign Audit →"
-        primaryHref="/contact"
+        primaryHref="/contact-us"
       />
     </>
   );

@@ -456,7 +456,7 @@ export default function MembershipCoursesPage() {
         title='Build a Passive Income Stream<br /><span class="hl-yellow">With Your Knowledge.</span>'
         description="Turn your expertise into recurring revenue. Let us build your membership site or course platform so you can focus on creating great content."
         primaryText="Book Your Free Course Consultation →"
-        primaryHref="/contact"
+        primaryHref="/contact-us"
       />
     </>
   );
