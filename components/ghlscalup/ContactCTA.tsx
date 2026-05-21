@@ -46,14 +46,14 @@ const ContactCTA = () => {
               </p>
               
               {/* Direct Booking Button - Added here for better visibility */}
-              <button
-                onClick={handleOpenBooking}
+              <Link
+                href="/contact-us"
                 className="w-full mb-6 bg-[#0E9BF0] text-white px-6 py-3 rounded-xl text-sm font-bold hover:bg-[#0E9BF0]/90 hover:-translate-y-0.5 transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group"
               >
                 <Calendar className="w-4 h-4 group-hover:scale-110 transition-transform" />
                 Book Your Free Strategy Call Instantly
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </Link>
               
               <p className="text-xs text-center text-white/40 mb-6">
                 No form filling • Instant calendar booking • 30-min free consultation
