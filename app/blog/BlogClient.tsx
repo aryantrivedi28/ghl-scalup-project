@@ -26,7 +26,8 @@ import {
   MapPin,
   Database,
   CreditCard,
-  Globe
+  Globe,
+  Briefcase
 } from 'lucide-react';
 
 const blogPosts = [
@@ -153,6 +154,17 @@ const blogPosts = [
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
   },
   {
+    icon: Briefcase,
+    tag: 'Agency',
+    title: 'GoHighLevel for Agencies: The Complete 2026 Guide (Setup, SaaS & Scaling)',
+    excerpt: 'GoHighLevel is the only all-in-one platform purpose-built for marketing agencies — unlimited clients, one dashboard, white-label branding, and SaaS resale built in. This guide covers how agencies use GHL, which plan to choose, and how to scale correctly.',
+    slug: 'gohighlevel-for-agencies',
+    date: 'May 20, 2026',
+    readTime: '20 min read',
+    featured: true,
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=500&fit=crop',
+  },
+  {
     icon: Rocket,
     tag: 'GHL SaaS',
     title: 'How to Set Up GoHighLevel White-Label SaaS: Complete Guide',
@@ -239,6 +251,7 @@ const getCategoryColor = (tag: string) => {
     'Comparison': 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]',
     'Review': 'bg-[rgba(248,208,0,0.12)] text-[#F8D000] border-[rgba(248,208,0,0.2)]',
     'White Label': 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]',
+    'Agency': 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]',
   };
   return colors[tag] || 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]';
 };
