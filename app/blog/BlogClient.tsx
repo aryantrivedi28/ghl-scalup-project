@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { useState } from 'react';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import {
-  Rocket,
   Brain,
   DollarSign,
   Settings,
@@ -41,7 +40,7 @@ const blogPosts = [
     date: 'May 2, 2026',
     readTime: '12 min read',
     featured: true,
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+    image: 'https://ghlcentral.com/wp-content/uploads/2024/07/what-is-go-highlevel-social-share.jpg',
   },
   {
     icon: Zap,
@@ -152,7 +151,7 @@ const blogPosts = [
     date: 'May 19, 2026',
     readTime: '21 min read',
     featured: true,
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+    image: 'https://static.wixstatic.com/media/49cc3c_0057b37c6cc646fb8f460461ae0a88d3~mv2.jpg/v1/fill/w_980,h_560,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/49cc3c_0057b37c6cc646fb8f460461ae0a88d3~mv2.jpg',
   },
   {
     icon: Briefcase,
