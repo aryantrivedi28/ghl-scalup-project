@@ -594,7 +594,7 @@ export default function GHLWhiteLabelSaaSClient() {
                   We build the whole thing. You launch in 5–7 days. Stripe setup, SaaS Configurator, pricing tiers, 
                   Snapshot build, onboarding flow, and offboarding automation all configured and tested before handover.
                 </p>
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Link href="/contact-us" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
                   Book Your Free GHL SaaS Strategy Call
                   <ArrowRight className="w-4 h-4" />
                 </Link>
