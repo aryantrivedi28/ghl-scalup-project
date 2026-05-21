@@ -111,7 +111,7 @@ const Footer = () => {
                   <Facebook className="h-4 w-4" />
                 </Link> */}
                 <Link 
-                  href="https://www.instagram.com/ghl_scale_up" 
+                  href="https://www.instagram.com/ghlscaleup?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D" 
                   target="_blank" 
                   className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#0E9BF0] hover:text-white hover:border-[#0E9BF0] transition-all group"
                   aria-label="Instagram"
