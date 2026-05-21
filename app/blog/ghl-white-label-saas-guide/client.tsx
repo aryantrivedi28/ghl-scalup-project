@@ -1,73 +1,56 @@
-// app/blog/ghl-white-label-saas-guide/client.tsx
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import { 
-  Clock, 
-  GraduationCap, 
-  CheckCircle2, 
-  Star, 
-  LayoutTemplate, 
-  Globe, 
-  CreditCard, 
-  Users, 
-  TrendingUp,
+import { useState, useEffect } from 'react';
+import {
   ArrowRight,
+  CheckCircle2,
+  ChevronDown,
   Copy,
   Linkedin,
   Twitter,
-  Menu,
-  X,
-  Zap,
-  Shield,
-  DollarSign,
-  Rocket,
-  Target,
-  BarChart3,
-  Settings,
-  Sparkles,
   BookOpen,
-  ChevronRight
+  Zap,
+  DollarSign,
+  Star,
+  AlertTriangle,
+  Clock
 } from 'lucide-react';
-import CopyButton from '@/components/blog/CopyButton';
+import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export default function GHLWhiteLabelSaaSClient() {
   const [activeId, setActiveId] = useState<string>('');
 
+  // Handle scroll detection for active section
   useEffect(() => {
-    const headings = document.querySelectorAll('h2[id]');
-    
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
+    const handleScroll = () => {
+      const sections = [
+        'what-is-white-label-saas',
+        'difference',
+        'who-its-for',
+        'setup-steps',
+        'pricing-strategy',
+        'margin-calculator',
+        'common-mistakes',
+        'faq'
+      ];
+
+      for (const id of sections) {
+        const element = document.getElementById(id);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 150) {
+            setActiveId(id);
           }
-        });
-      },
-      { rootMargin: '0px 0px -70% 0px', threshold: 0.1 }
-    );
-
-    headings.forEach((heading) => observer.observe(heading));
-
-    const progressBar = document.getElementById('progress-bar');
-    const updateProgress = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = (scrollTop / docHeight) * 100;
-      if (progressBar) {
-        progressBar.style.width = Math.min(progress, 100) + '%';
+        }
       }
     };
-    window.addEventListener('scroll', updateProgress);
-    
-    return () => {
-      headings.forEach((heading) => observer.unobserve(heading));
-      window.removeEventListener('scroll', updateProgress);
-    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Handle TOC click with smooth scroll
   const scrollToHeading = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -78,17 +61,87 @@ export default function GHLWhiteLabelSaaSClient() {
     }
   };
 
+  const faqs = [
+    {
+      q: "What is GoHighLevel white label SaaS?",
+      a: "GoHighLevel white label SaaS refers to using GoHighLevel's SaaS Mode feature to resell the platform as your own branded software product. Clients sign up through your pricing page, pay a monthly subscription via Stripe, and receive access to a fully configured GoHighLevel sub-account under your brand. The entire experience login domain, logo, pricing, feature access carries your brand. GoHighLevel is invisible. SaaS Mode requires the Agency Pro plan at $497/month."
+    },
+    {
+      q: "What is the difference between GoHighLevel white label and SaaS Mode?",
+      a: "GoHighLevel white label is the branding layer your logo, colours, and custom domain applied to the GHL dashboard. It is available from $297/month and requires you to create sub-accounts and invoice clients manually. GoHighLevel SaaS Mode is the business model layer it adds a SaaS Configurator for creating pricing tiers, automated Stripe billing, self-service client sign-up, automatic sub-account provisioning, and feature gating per tier."
+    },
+    {
+      q: "Which GoHighLevel plan is required for SaaS Mode?",
+      a: "GoHighLevel SaaS Mode is exclusively available on the Agency Pro plan at $497/month. It is not available on the Starter plan ($97/mo) or the Unlimited plan ($297/mo). The Agency Pro plan includes everything in Unlimited plus the SaaS Configurator, automated Stripe billing, self-service sign-up flows, feature gating per pricing tier, usage rebilling with markup, and the option to add a white-label mobile app."
+    },
+    {
+      q: "Is Stripe required for GoHighLevel SaaS Mode?",
+      a: "Yes. Stripe is the only supported payment processor for GoHighLevel SaaS Mode. You need an active Stripe account in live mode to process client subscriptions. Stripe charges 2.9% plus $0.30 per successful transaction. PayPal and other processors are not supported at the SaaS billing layer."
+    },
+    {
+      q: "How long does it take to set up GoHighLevel SaaS Mode?",
+      a: "The technical configuration connecting Stripe, creating pricing plans in the SaaS Configurator, configuring feature access, attaching a Snapshot, and setting up the sign-up page takes 2–4 hours for someone following a clear process. DNS propagation takes 15 minutes to 24 hours. Building and testing a quality Snapshot adds another 4–8 hours. Most agencies budget one full working day to go from zero to a tested, live SaaS sign-up flow."
+    },
+    {
+      q: "How much can I earn with GoHighLevel white label SaaS?",
+      a: "Your earnings depend on client count and your pricing. At 10 clients paying $197/month, net margin after the $497 platform cost is approximately $1,473/month. At 20 clients: approximately $3,443/month net. At 50 clients: approximately $9,353/month net. Usage rebilling (charging clients more than GHL charges you for SMS, email, and calls) adds additional margin on top. The platform cost stays fixed at $497/month regardless of client count."
+    },
+    {
+      q: "What happens when a client cancels their GoHighLevel SaaS subscription?",
+      a: "When a client cancels their Stripe subscription, their GoHighLevel sub-account remains active until you manually suspend it SaaS Mode does not automate offboarding. Best practice is to build a GoHighLevel workflow triggered by the Stripe cancellation webhook that notifies you immediately and suspends the sub-account within 24 hours. Without this automation, cancelled clients retain indefinite access to your platform."
+    },
+    {
+      q: "Do clients know they are using GoHighLevel under my white label SaaS?",
+      a: "On the web platform, clients see only your branding your logo, your domain, your support email. GoHighLevel branding does not appear in the interface. Clients who have previously used GoHighLevel may recognise the interface layout. The white-label mobile app add-on (approximately $49/month on Agency Pro) eliminates this recognition risk entirely, as clients download your named app from the App Store."
+    },
+  ];
+
+  useFaqSchema(faqs);
+
   const tocItems = [
-    { id: 'what-is-ghl-saas', title: '1. What is GHL White-Label SaaS?' },
-    { id: 'prerequisites', title: '2. Prerequisites & Requirements' },
-    { id: 'domain-setup', title: '3. Domain & Branding Setup' },
-    { id: 'saas-mode', title: '4. Enabling SaaS Mode' },
-    { id: 'snapshots', title: '5. Creating & Managing Snapshots' },
-    { id: 'stripe-integration', title: '6. Stripe Billing Integration' },
-    { id: 'pricing-strategies', title: '7. Pricing Strategies & Plans' },
-    { id: 'client-onboarding', title: '8. Client Onboarding Process' },
-    { id: 'scaling', title: '9. Scaling Your SaaS Business' },
-    { id: 'conclusion', title: 'Conclusion' },
+    { id: 'what-is-white-label-saas', title: '1. What Is GoHighLevel White Label SaaS?' },
+    { id: 'difference', title: '2. White Label vs White Label SaaS The Exact Difference' },
+    { id: 'who-its-for', title: '3. Who Is GHL White Label SaaS Built For?' },
+    { id: 'setup-steps', title: '4. How to Set Up GoHighLevel SaaS Mode (Step-by-Step)' },
+    { id: 'pricing-strategy', title: '5. How to Price Your White Label SaaS Offer' },
+    { id: 'margin-calculator', title: '6. The SaaS Margin Calculator' },
+    { id: 'common-mistakes', title: '7. Common White Label SaaS Mistakes to Avoid' },
+    { id: 'faq', title: '8. Frequently Asked Questions' },
+  ];
+
+  const comparisonTable = [
+    { feature: 'What it is', ghlWhiteLabel: 'Branding layer your logo, domain, colours', ghlSaaS: 'Business model automated billing + software product' },
+    { feature: 'What clients experience', ghlWhiteLabel: 'Your brand on the GHL dashboard', ghlSaaS: 'Your brand on dashboard AND self-service sign-up + billing portal' },
+    { feature: 'Plan required', ghlWhiteLabel: 'Unlimited $297/month', ghlSaaS: 'Agency Pro $497/month only' },
+    { feature: 'Client billing', ghlWhiteLabel: 'You invoice manually (Stripe, PayPal, etc.)', ghlSaaS: 'Clients pay automatically through your branded checkout' },
+    { feature: 'Sub-account creation', ghlWhiteLabel: 'You create manually for each client', ghlSaaS: 'Created automatically when client pays' },
+    { feature: 'Snapshot deployment', ghlWhiteLabel: 'You deploy manually', ghlSaaS: 'Deployed automatically on payment' },
+    { feature: 'Pricing tiers', ghlWhiteLabel: 'You set prices externally', ghlSaaS: 'Built inside GHL SaaS Configurator up to 20 tiers' },
+    { feature: 'Feature gating', ghlWhiteLabel: 'Not available', ghlSaaS: 'Gate which GHL features each tier can access' },
+    { feature: 'Best for', ghlWhiteLabel: 'Agencies managing 3–10 clients manually', ghlSaaS: 'Agencies wanting to scale beyond 10 clients with zero manual work' },
+  ];
+
+  const pricingTiers = [
+    { tier: 'Starter', suggestedPrice: '$97–$147/mo', included: 'CRM, pipelines, calendar, basic automations, email marketing', bestFor: 'Small businesses testing the platform' },
+    { tier: 'Growth', suggestedPrice: '$197–$247/mo', included: 'Everything in Starter + SMS, funnels, reputation management, AI chatbot', bestFor: 'Growing businesses running active lead gen' },
+    { tier: 'Pro', suggestedPrice: '$297–$497/mo', included: 'Everything in Growth + AI Voice Agent, advanced automations, full reporting', bestFor: 'High-volume businesses wanting maximum automation' },
+  ];
+
+  const marginData = [
+    { clients: 3, price: '$197/mo', revenue: '$591', ghlCost: '$497', netMargin: '$94 breakeven', annualised: '$1,128' },
+    { clients: 5, price: '$197/mo', revenue: '$985', ghlCost: '$497', netMargin: '$488', annualised: '$5,856' },
+    { clients: 10, price: '$197/mo', revenue: '$1,970', ghlCost: '$497', netMargin: '$1,473', annualised: '$17,676' },
+    { clients: 20, price: '$197/mo', revenue: '$3,940', ghlCost: '$497', netMargin: '$3,443', annualised: '$41,316' },
+    { clients: 50, price: '$197/mo', revenue: '$9,850', ghlCost: '$497', netMargin: '$9,353', annualised: '$112,236' },
+    { clients: 20, price: '$297/mo', revenue: '$5,940', ghlCost: '$497', netMargin: '$5,443', annualised: '$65,316' },
+    { clients: 50, price: '$297/mo', revenue: '$14,850', ghlCost: '$497', netMargin: '$14,353', annualised: '$172,236' },
+  ];
+
+  const mistakesList = [
+    { mistake: 'Launching without a tested Snapshot', fix: 'Build and test the Snapshot in a clean sub-account completely before connecting it to SaaS Mode.' },
+    { mistake: 'No offboarding automation when a client cancels', fix: 'Build a GHL workflow triggered by Stripe cancellation webhook that suspends the sub-account within 24 hours.' },
+    { mistake: 'Pricing all tiers too close together', fix: 'Create clear, meaningful differentiation between tiers. Features that save time belong in higher tiers with 2–3× price gaps.' },
+    { mistake: 'Upgrading to Agency Pro before building the foundation', fix: 'Build Snapshot and pricing model on Unlimited plan ($297/mo). Only upgrade when ready to go live within 30 days.' },
   ];
 
   return (
@@ -100,383 +153,556 @@ export default function GHLWhiteLabelSaaSClient() {
       <nav className="bg-[#F8F9FB] border-b border-[#DDE1E9] py-3 px-4 md:px-6">
         <div className="max-w-[1080px] mx-auto flex items-center gap-2 text-xs md:text-sm text-[#5C6880] overflow-x-auto whitespace-nowrap">
           <Link href="/" className="hover:text-[#0E9BF0] transition-colors">Home</Link>
-          <ChevronRight className="w-3 h-3 text-[#96A0B5]" />
+          <ArrowRight className="w-3 h-3 text-[#96A0B5]" />
           <Link href="/blog" className="hover:text-[#0E9BF0] transition-colors">Blog</Link>
-          <ChevronRight className="w-3 h-3 text-[#96A0B5]" />
-          <span className="text-[#1A2236] font-medium">GHL White-Label SaaS Guide</span>
+          <ArrowRight className="w-3 h-3 text-[#96A0B5]" />
+          <span className="text-[#1A2236] font-medium">GHL White Label SaaS Guide 2026</span>
         </div>
       </nav>
 
       {/* Hero Section */}
       <section className="bg-[#0B1628] py-12 md:py-[72px] px-4 md:px-6 relative overflow-hidden">
         <div className="absolute -top-[120px] -right-[120px] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(14,155,240,0.12)_0%,transparent_70%)] pointer-events-none" />
-        <div className="absolute -bottom-[80px] -left-[80px] w-[360px] h-[360px] bg-[radial-gradient(circle,rgba(248,208,0,0.08)_0%,transparent_70%)] pointer-events-none" />
-        
+        <div className="absolute -bottom-[80px] -left-[80px] w-[360px] h-[360px] bg-[radial-gradient(circle,rgba(37,201,125,0.08)_0%,transparent_70%)] pointer-events-none" />
+
         <div className="max-w-[760px] mx-auto relative z-10">
-          <div className="inline-flex items-center gap-1.5 bg-[rgba(14,155,240,0.15)] border border-[rgba(14,155,240,0.3)] text-[#0E9BF0] text-[11px] md:text-xs font-semibold tracking-wide uppercase px-2.5 py-1 md:px-3 md:py-1.5 rounded-full mb-4 md:mb-6">
-            <Sparkles className="w-3 h-3" />
-            GHL SaaS · Complete Guide
+          {/* Post Tags / Category Labels */}
+          <div className="flex flex-wrap gap-2 mb-4">
+            <span className="bg-[rgba(14,155,240,0.15)] text-[#0E9BF0] text-[11px] font-semibold px-2.5 py-1 rounded-full">GHL White Label SaaS</span>
+            <span className="bg-[rgba(37,201,125,0.15)] text-[#25C97D] text-[11px] font-semibold px-2.5 py-1 rounded-full">GoHighLevel SaaS Mode</span>
+            <span className="bg-[rgba(248,208,0,0.15)] text-[#F8D000] text-[11px] font-semibold px-2.5 py-1 rounded-full">SaaS Resale</span>
+            <span className="bg-[rgba(14,155,240,0.15)] text-[#0E9BF0] text-[11px] font-semibold px-2.5 py-1 rounded-full">2026</span>
           </div>
-          
-          <h1 className="text-[clamp(28px,6vw,46px)] font-extrabold leading-[1.2] md:leading-[1.15] text-white mb-3 md:mb-5 tracking-[-0.02em]">
-            How to Set Up GoHighLevel<br />
-            <span className="text-[#F8D000]">White-Label SaaS</span>:<br />
-            Complete Guide
+
+          {/* H1 Headline */}
+          <h1 className="text-[clamp(28px,6vw,46px)] font-extrabold leading-[1.2] md:leading-[1.15] text-white mb-4 md:mb-5 tracking-[-0.02em]">
+            GoHighLevel White Label SaaS:<br />
+            <span className="text-[#F8D000]">How SaaS Mode Works & Full Setup Guide (2026)</span>
           </h1>
-          
-          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 md:mb-9 max-w-[620px]">
-            Domains, snapshots, Stripe billing, sub-account provisioning, and pricing strategies. 
-            Everything you need to launch your own SaaS platform using GHL.
-          </p>
-          
-          <div className="flex flex-wrap items-center gap-3 md:gap-5">
-            <div className="flex items-center gap-2 md:gap-3">
-              <div className="w-8 h-8 md:w-[38px] md:h-[38px] rounded-full bg-gradient-to-br from-[#0E9BF0] to-[#25C97D] flex items-center justify-center font-bold text-white text-sm md:text-base">GS</div>
-              <div>
-                <div className="text-xs md:text-sm font-medium text-white">GHL Scale Up Team</div>
-                <div className="text-[10px] md:text-xs text-white/50">Published April 10, 2026</div>
-              </div>
+
+          {/* Author Byline */}
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
+              <img
+                src="/web-app-manifest-192x192.png"
+                alt="GHL Scale Up"
+                className="w-full h-full object-cover"
+              />
             </div>
-            <div className="w-px h-6 md:h-8 bg-white/15" />
-            <div className="flex gap-3 md:gap-5">
-              <span className="flex items-center gap-1 text-[10px] md:text-xs text-white/50">
-                <Clock className="w-3 h-3" />
-                12 min read
-              </span>
-              <span className="flex items-center gap-1 text-[10px] md:text-xs text-white/50">
-                <GraduationCap className="w-3 h-3" />
-                Advanced
-              </span>
+            <div>
+              <div className="text-sm font-medium text-white">GHL Scale Up Team</div>
+              <div className="text-xs text-white/50">GoHighLevel Specialists · 200+ Builds Delivered · Updated May 2026</div>
             </div>
           </div>
+
+          {/* Introductory Paragraph */}
+          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
+            Every agency owner has heard the pitch: 'build a white label SaaS on GoHighLevel and create recurring revenue.' 
+            Most know what GoHighLevel white label means. Fewer understand what <strong className="text-white">GoHighLevel white label SaaS</strong> 
+            actually means and fewer still know how to set it up correctly. This guide covers both.
+          </p>
+          <p className="text-sm text-white/50 leading-relaxed">
+            New to GoHighLevel? Start here: <Link href="/blog/what-is-gohighlevel" className="text-[#0E9BF0] hover:underline">What Is GoHighLevel? The Complete 2026 Guide →</Link>
+          </p>
         </div>
       </section>
 
       {/* Main Layout */}
       <div className="max-w-[1080px] mx-auto px-4 md:px-6 py-10 md:py-16">
-        <div className="grid lg:grid-cols-[1fr_280px] gap-8 md:gap-16">
-          
+        <div className="grid lg:grid-cols-[1fr_280px] gap-8 md:gap-16 items-start">
+
           {/* Article Content */}
           <main className="min-w-0">
-            <p className="text-base md:text-[19px] leading-relaxed text-[#2D3748] mb-8 md:mb-12 pb-6 md:pb-10 border-b border-[#DDE1E9]">
-              GoHighLevel's white-label SaaS mode is one of the most powerful features for agencies looking to build recurring revenue. 
-              Instead of just selling one-off setups, you can launch your own branded software platform, charge monthly subscriptions, 
-              and scale without hiring a development team. <strong className="text-[#1A2236]">Here's exactly how to set it up.</strong>
+
+            {/* TL;DR / Quick Answer Box (BLUF) */}
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
+              <div className="flex items-center gap-2 mb-3">
+                <Zap className="w-5 h-5 text-[#F8D000]" />
+                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Quick Answer Read This First</span>
+              </div>
+              <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
+                GoHighLevel white label SaaS means running GoHighLevel SaaS Mode the Agency Pro feature that lets you sell GHL as your own branded software product.
+              </p>
+              <p className="text-sm text-[#5C6880] leading-relaxed">
+                It requires the <strong className="text-[#0E9BF0]">Agency Pro plan at $497/month</strong>. It is different from basic white label (which is just branding). 
+                With SaaS Mode active, clients find your pricing page, choose a plan, pay via Stripe, and get their sub-account provisioned automatically. 
+                You earn the margin. You do zero manual work per client signup.
+              </p>
+            </div>
+
+            {/* Table of Contents */}
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
+              <div className="flex items-center gap-2 mb-4">
+                <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
+                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">What's in this guide</span>
+              </div>
+              <div className="grid sm:grid-cols-2 gap-2">
+                {tocItems.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToHeading(item.id)}
+                    className="text-left text-sm text-[#5C6880] hover:text-[#0E9BF0] transition-colors py-1"
+                  >
+                    {item.title}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Section 1: What Is White Label SaaS */}
+            <h2 id="what-is-white-label-saas" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-8 mb-4">
+              1. What Is GoHighLevel White Label SaaS?
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              GoHighLevel white label SaaS is the business model where you use GoHighLevel's SaaS Mode to resell the platform 
+              as your own branded software product. Clients sign up through your pricing page, pay a monthly subscription, 
+              and access a fully configured GHL sub-account under your brand with your logo, your domain, your pricing, 
+              and your feature access rules. GoHighLevel is completely invisible to them.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              This is not the same as simply white-labelling GHL's interface. White labelling is the branding layer. 
+              GoHighLevel white label SaaS is the business model layer it adds automated client billing, 
+              self-service onboarding, and recurring revenue that runs without manual intervention.
+            </p>
+            <div className="bg-[#E8FAF2] border border-[rgba(37,201,125,0.2)] rounded-xl p-4 my-4">
+              <p className="text-sm text-[#1A2236] leading-relaxed">
+                <strong className="text-[#25C97D]">The result:</strong> you become a software company. Clients pay you a monthly software fee. 
+                You pay GoHighLevel $497/month. Everything in between is your margin.
+              </p>
+            </div>
+
+            {/* Section 2: Difference */}
+            <h2 id="difference" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              2. White Label vs White Label SaaS The Exact Difference
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              This is the most misunderstood distinction in the GoHighLevel ecosystem. Many agency owners think they're running 
+              a white label SaaS business when they're actually just running white-labelled client accounts.
             </p>
 
-            {/* Stats Row */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 my-8 md:my-10">
-              <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-4 md:p-6 text-center">
-                <Rocket className="w-8 h-8 text-[#0E9BF0] mx-auto mb-2" />
-                <div className="text-3xl md:text-4xl font-extrabold text-[#1C2E4A] mb-1 md:mb-2"><span className="text-[#0E9BF0]">3</span>x</div>
-                <div className="text-xs md:text-sm text-[#5C6880] leading-relaxed">higher MRR compared to one-off GHL projects</div>
+            <div className="overflow-x-auto my-6">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Feature</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#0E9BF0]">GHL White Label</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#0E9BF0]">GHL White Label SaaS (SaaS Mode)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparisonTable.map((item, idx) => (
+                    <tr key={idx} className="border-b border-[#DDE1E9]">
+                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.feature}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.ghlWhiteLabel}</td>
+                      <td className="py-3 px-3 text-[#25C97D]">{item.ghlSaaS}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
+              <div className="flex items-center gap-2 mb-2">
+                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
+                <span className="text-sm font-bold text-[#F8D000]">THE SIMPLEST WAY TO THINK ABOUT IT</span>
               </div>
-              <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-4 md:p-6 text-center">
-                <Zap className="w-8 h-8 text-[#0E9BF0] mx-auto mb-2" />
-                <div className="text-3xl md:text-4xl font-extrabold text-[#1C2E4A] mb-1 md:mb-2"><span className="text-[#0E9BF0]">10</span>min</div>
-                <div className="text-xs md:text-sm text-[#5C6880] leading-relaxed">average setup time for a new client sub-account</div>
+              <p className="text-sm text-[#1A2236] leading-relaxed">
+                <strong>GHL White Label:</strong> Makes GoHighLevel look like your software.<br />
+                <strong>GHL White Label SaaS:</strong> Makes GoHighLevel operate as your software business with automated billing, 
+                tiered pricing, self-service sign-up, and recurring revenue that scales without adding manual work per client.
+              </p>
+            </div>
+
+            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
+              For the technical white label branding setup (domain, logo, CNAME), see our dedicated guide: 
+              <Link href="/blog/gohighlevel-white-label" className="text-[#0E9BF0] hover:underline ml-1">GoHighLevel White Label Setup →</Link>
+            </p>
+
+            {/* Section 3: Who It's For */}
+            <h2 id="who-its-for" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              3. Who Is GHL White Label SaaS Built For?
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              GHL SaaS Mode is not for everyone. It is for a specific type of agency owner at a specific stage of growth.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div className="bg-[#E8FAF2] border border-[rgba(37,201,125,0.2)] rounded-xl p-4">
+                <h3 className="text-sm font-bold text-[#25C97D] mb-2 flex items-center gap-2"><CheckCircle2 className="w-4 h-4" /> GoHighLevel white label SaaS is right for you if:</h3>
+                <ul className="space-y-1 text-sm text-[#1A2236] list-disc list-inside">
+                  <li>You already have 5–10 clients on GHL and manual billing/onboarding is becoming a bottleneck</li>
+                  <li>You want clients to self-sign-up and pay without involving you</li>
+                  <li>You want to create multiple product tiers with different feature access</li>
+                  <li>You want to build recurring revenue that scales independently of your service hours</li>
+                  <li>You are ready to position yourself as a software company, not just an agency</li>
+                </ul>
               </div>
-              <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-4 md:p-6 text-center sm:col-span-2 lg:col-span-1">
-                <Shield className="w-8 h-8 text-[#0E9BF0] mx-auto mb-2" />
-                <div className="text-3xl md:text-4xl font-extrabold text-[#1C2E4A] mb-1 md:mb-2"><span className="text-[#0E9BF0]">100</span>%</div>
-                <div className="text-xs md:text-sm text-[#5C6880] leading-relaxed">brandable — your logo, domain, colors on every page</div>
+              <div className="bg-[#FEF2F0] border border-[rgba(220,53,69,0.2)] rounded-xl p-4">
+                <h3 className="text-sm font-bold text-[#DC3545] mb-2 flex items-center gap-2"><AlertTriangle className="w-4 h-4" /> GoHighLevel white label SaaS is not right for you if:</h3>
+                <ul className="space-y-1 text-sm text-[#1A2236] list-disc list-inside">
+                  <li>You are just starting on GHL with fewer than 3 clients start with Unlimited at $297/mo</li>
+                  <li>All your clients are on retainers where you handle everything SaaS Mode is for self-serve clients</li>
+                  <li>You have not yet built and tested a quality Snapshot SaaS Mode without a Snapshot means blank accounts</li>
+                </ul>
               </div>
             </div>
 
-            {/* Section 1 */}
-            <h2 id="what-is-ghl-saas" className="text-xl md:text-2xl lg:text-[26px] font-bold text-[#1C2E4A] mt-10 md:mt-14 mb-3 md:mb-4">1. What is GHL White-Label SaaS?</h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4 md:mb-5">GoHighLevel's white-label SaaS mode allows you to rebrand the entire platform as your own product. Your clients see your logo, your domain, your colors — they never know it's built on GHL. You set your own pricing, manage billing through Stripe, and keep the difference between what you charge and what you pay GHL.</p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6 md:mb-8">This is how agencies scale from <span className="bg-[#FFFBE6] text-[#1A2236] px-1.5 py-0.5 rounded font-medium">one-time setup fees</span> to <span className="bg-[#FFFBE6] text-[#1A2236] px-1.5 py-0.5 rounded font-medium">recurring monthly revenue</span>. One client pays you $97/month, ten clients pay $970/month, a hundred clients pay $9,700/month — and you're not doing additional work for each one.</p>
+            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
+              For a broader overview of how agencies use GoHighLevel: 
+              <Link href="/blog/gohighlevel-for-agencies" className="text-[#0E9BF0] hover:underline ml-1">GoHighLevel for Agencies: The Complete 2026 Guide →</Link>
+            </p>
 
-            <div className="bg-white border border-[#DDE1E9] rounded-xl md:rounded-2xl p-5 md:p-8 lg:p-10 my-8 md:my-9 relative overflow-hidden">
-              <div className="absolute top-4 right-4 md:top-7 md:right-7 text-3xl md:text-5xl font-extrabold text-[#F0F2F5]">01</div>
-              <div className="absolute top-0 left-0 w-1 h-full bg-[#0E9BF0] rounded-l" />
-              <div className="inline-flex items-center gap-2 text-[10px] md:text-xs font-bold tracking-wider uppercase text-[#0E9BF0] mb-2 md:mb-3">
-                <div className="w-4 h-4 md:w-5 md:h-5 bg-[#E8F5FE] rounded flex items-center justify-center">
-                  <Target className="w-3 h-3 text-[#0E9BF0]" />
+            {/* Section 4: Setup Steps */}
+            <h2 id="setup-steps" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              4. How to Set Up GoHighLevel SaaS Mode (Step-by-Step)
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Before you start, confirm: You are on the Agency Pro plan ($497/mo). You have a Stripe account in live mode. 
+              You have a white-label domain configured (app.youragency.com). You have a Snapshot built and tested.
+            </p>
+
+            <div className="space-y-4 mb-6">
+              <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-6 h-6 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold">1</div>
+                  <h3 className="text-base font-bold text-[#1A2236]">Upgrade to Agency Pro and open SaaS Mode</h3>
                 </div>
-                Why Go SaaS?
+                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">In Agency View, go to Settings → Company → Billing and confirm you are on the $497/month Agency Pro plan. Then navigate to Settings → SaaS Mode.</p>
               </div>
-              <h3 className="text-base md:text-xl font-bold text-[#1A2236] mb-2 md:mb-3">From Project-Based to Recurring Revenue</h3>
-              <p className="text-sm md:text-base text-[#5C6880] leading-relaxed">Agencies using GHL's SaaS mode report 3-5x higher lifetime value per client compared to one-off builds. The math is simple: one client paying $97/month for 24 months = $2,328 vs a $2,000 one-time setup fee. And you're not starting from zero for each new client.</p>
-            </div>
 
-            {/* Section 2 */}
-            <h2 id="prerequisites" className="text-xl md:text-2xl lg:text-[26px] font-bold text-[#1C2E4A] mt-10 md:mt-14 mb-3 md:mb-4">2. Prerequisites & Requirements</h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4 md:mb-5">Before you start setting up white-label SaaS, make sure you have:</p>
-            
-            <ul className="list-none my-6 md:my-8 space-y-2 md:space-y-3">
-              {[
-                'A GoHighLevel Agency account (not a sub-account) — this costs $497/month and includes SaaS mode',
-                'A custom domain you own (e.g., app.yourbrand.com or dashboard.yourbrand.com)',
-                'A Stripe account connected to your agency account',
-                'Your logo and brand assets (colors, fonts, etc.)',
-                'At least one snapshot ready (a pre-built GHL setup you\'ll sell as a template)',
-              ].map((item, idx) => (
-                <li key={idx} className="flex items-start gap-2 md:gap-3 text-sm md:text-base text-[#5C6880]">
-                  <CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-
-            <div className="bg-[#0B1628] rounded-xl p-5 md:p-7 lg:p-8 my-8 md:my-9 flex gap-3 md:gap-4 items-start">
-              <div className="w-7 h-7 md:w-9 md:h-9 bg-[rgba(248,208,0,0.15)] rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 md:mt-1">
-                <Star className="w-4 h-4 text-[#F8D000]" />
-              </div>
-              <div>
-                <div className="text-xs md:text-sm font-bold text-[#F8D000] mb-1">Important Note</div>
-                <p className="text-xs md:text-sm text-white/70 leading-relaxed">You must have an Agency account, not just a sub-account. The $97/month agency plan does NOT include SaaS mode. You need the $497/month Agency Pro plan or higher.</p>
-              </div>
-            </div>
-
-            {/* Section 3 */}
-            <h2 id="domain-setup" className="text-xl md:text-2xl lg:text-[26px] font-bold text-[#1C2E4A] mt-10 md:mt-14 mb-3 md:mb-4">3. Domain & Branding Setup</h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4 md:mb-5">The first step is making GHL look like your product. Go to <span className="bg-[#E8F5FE] text-[#0870b0] px-1.5 py-0.5 rounded font-medium">Settings → Company Settings → White Label</span> in your agency dashboard.</p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4 md:mb-5">Here you can upload your logo, set your brand colors, and configure your custom domain. The domain needs to point to GHL's servers via CNAME records — your account manager can provide the exact DNS settings.</p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6 md:mb-8">Once configured, your clients will access GHL through your domain (e.g., app.yourbrand.com) and see your branding throughout the interface.</p>
-
-            <div className="bg-white border border-[#DDE1E9] rounded-xl md:rounded-2xl p-5 md:p-8 lg:p-10 my-8 md:my-9 relative overflow-hidden">
-              <div className="absolute top-4 right-4 md:top-7 md:right-7 text-3xl md:text-5xl font-extrabold text-[#F0F2F5]">03</div>
-              <div className="absolute top-0 left-0 w-1 h-full bg-[#F8D000] rounded-l" />
-              <div className="inline-flex items-center gap-2 text-[10px] md:text-xs font-bold tracking-wider uppercase text-[#a07a00] mb-2 md:mb-3">
-                <div className="w-4 h-4 md:w-5 md:h-5 bg-[#FFFBE6] rounded flex items-center justify-center">
-                  <Globe className="w-3 h-3 text-[#a07a00]" />
+              <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-6 h-6 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold">2</div>
+                  <h3 className="text-base font-bold text-[#1A2236]">Connect your Stripe account</h3>
                 </div>
-                Pro Tip
+                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">Click Connect Stripe and authorise the connection. Must be a live Stripe account. Stripe charges 2.9% + $0.30 per transaction.</p>
               </div>
-              <h3 className="text-base md:text-xl font-bold text-[#1A2236] mb-2 md:mb-3">Use a Subdomain for Better Organization</h3>
-              <p className="text-sm md:text-base text-[#5C6880] leading-relaxed">Instead of using your main domain, set up a subdomain like "app.yourbrand.com" or "dashboard.yourbrand.com". This keeps your marketing site separate from your SaaS app and makes DNS management cleaner.</p>
-            </div>
 
-            {/* Section 4 */}
-            <h2 id="saas-mode" className="text-xl md:text-2xl lg:text-[26px] font-bold text-[#1C2E4A] mt-10 md:mt-14 mb-3 md:mb-4">4. Enabling SaaS Mode</h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4 md:mb-5">Once your branding is configured, navigate to <span className="bg-[#E8F5FE] text-[#0870b0] px-1.5 py-0.5 rounded font-medium">Settings → SaaS Mode</span>. Toggle the switch to enable SaaS mode for your account.</p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4 md:mb-5">You'll see options for:</p>
-            
-            <ul className="list-none my-6 md:my-8 space-y-2 md:space-y-3">
-              {[
-                'Default pricing plan (what clients see before signing up)',
-                'Allowed features per plan',
-                'Sub-account limits',
-                'Custom checkout flow settings',
-              ].map((item, idx) => (
-                <li key={idx} className="flex items-start gap-2 md:gap-3 text-sm md:text-base text-[#5C6880]">
-                  <CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6 md:mb-8">Once enabled, your SaaS site will be live at your custom domain. Clients can sign up, choose a plan, and get their own sub-account automatically.</p>
-
-            {/* Section 5 */}
-            <h2 id="snapshots" className="text-xl md:text-2xl lg:text-[26px] font-bold text-[#1C2E4A] mt-10 md:mt-14 mb-3 md:mb-4">5. Creating & Managing Snapshots</h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4 md:mb-5">Snapshots are the templates you'll sell as your SaaS product. A snapshot contains a full GHL setup: pipelines, automations, funnel templates, email sequences, and more.</p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4 md:mb-5">To create a snapshot:</p>
-            
-            <ol className="list-decimal list-inside my-6 md:my-8 space-y-2 md:space-y-3 text-sm md:text-base text-[#5C6880] ml-2 md:ml-4">
-              <li>Build your ideal setup in a test sub-account</li>
-              <li>Go to <span className="bg-[#E8F5FE] text-[#0870b0] px-1.5 py-0.5 rounded font-medium">Settings → Snapshots</span></li>
-              <li>Click "Create Snapshot" and name it</li>
-              <li>Select which elements to include (pipelines, automations, etc.)</li>
-              <li>Save and publish to your snapshot library</li>
-            </ol>
-            
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6 md:mb-8">When a new client signs up through your SaaS portal, you can automatically apply a snapshot to their sub-account. This means they get a fully functional system the moment they subscribe — no manual setup required.</p>
-
-            <div className="border-l-4 border-[#0E9BF0] my-8 md:my-10 pl-4 md:pl-7 py-1">
-              <p className="text-base md:text-[22px] font-semibold text-[#1C2E4A] leading-relaxed italic">"Snapshots are the engine of your SaaS. Spend 80% of your setup time perfecting one snapshot — then deploy it to hundreds of clients with zero extra work."</p>
-            </div>
-
-            {/* Section 6 */}
-            <h2 id="stripe-integration" className="text-xl md:text-2xl lg:text-[26px] font-bold text-[#1C2E4A] mt-10 md:mt-14 mb-3 md:mb-4">6. Stripe Billing Integration</h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4 md:mb-5">GHL integrates natively with Stripe for SaaS billing. Go to <span className="bg-[#E8F5FE] text-[#0870b0] px-1.5 py-0.5 rounded font-medium">Settings → Payments → Stripe</span> to connect your account.</p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4 md:mb-5">Once connected, you can:</p>
-            
-            <ul className="list-none my-6 md:my-8 space-y-2 md:space-y-3">
-              {[
-                'Set up multiple pricing plans (monthly, yearly, custom)',
-                'Configure trial periods for new signups',
-                'Automate subscription billing and dunning',
-                'Offer coupons and promotional pricing',
-                'Track MRR, churn, and LTV directly in GHL',
-              ].map((item, idx) => (
-                <li key={idx} className="flex items-start gap-2 md:gap-3 text-sm md:text-base text-[#5C6880]">
-                  <CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6 md:mb-8">Stripe takes 2.9% + 30¢ per transaction. GHL doesn't take an additional cut of your SaaS revenue beyond your base agency fee.</p>
-
-            {/* Section 7 */}
-            <h2 id="pricing-strategies" className="text-xl md:text-2xl lg:text-[26px] font-bold text-[#1C2E4A] mt-10 md:mt-14 mb-3 md:mb-4">7. Pricing Strategies & Plans</h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4 md:mb-5">Most successful GHL SaaS agencies use a tiered pricing structure:</p>
-            
-            <div className="grid sm:grid-cols-2 gap-4 my-6 md:my-8">
-              <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 md:p-5">
-                <div className="text-lg md:text-xl font-bold text-[#1C2E4A] mb-1">Basic</div>
-                <div className="text-2xl md:text-3xl font-extrabold text-[#0E9BF0] mb-2">$47<span className="text-sm text-[#5C6880]">/mo</span></div>
-                <p className="text-xs md:text-sm text-[#5C6880]">1 sub-account, core features, email support</p>
+              <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-6 h-6 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold">3</div>
+                  <h3 className="text-base font-bold text-[#1A2236]">Create your pricing plans</h3>
+                </div>
+                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">Click Add Plan. Create each pricing tier you want to offer for example: Starter ($97/mo), Growth ($197/mo), Pro ($297/mo). Up to 20 pricing tiers.</p>
               </div>
-              <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 md:p-5 relative overflow-hidden">
-                <div className="absolute top-0 right-0 bg-[#F8D000] text-[#0B1628] text-[10px] font-bold px-2 py-0.5 rounded-bl-lg">Popular</div>
-                <div className="text-lg md:text-xl font-bold text-[#1C2E4A] mb-1">Pro</div>
-                <div className="text-2xl md:text-3xl font-extrabold text-[#0E9BF0] mb-2">$97<span className="text-sm text-[#5C6880]">/mo</span></div>
-                <p className="text-xs md:text-sm text-[#5C6880]">5 sub-accounts, advanced features, priority support</p>
+
+              <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-6 h-6 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold">4</div>
+                  <h3 className="text-base font-bold text-[#1A2236]">Configure feature access per plan</h3>
+                </div>
+                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">Define which GoHighLevel features clients can access per tier. Feature gating separates your tiers and prevents low-paying clients from accessing premium features.</p>
               </div>
-              <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 md:p-5 sm:col-span-2">
-                <div className="text-lg md:text-xl font-bold text-[#1C2E4A] mb-1">Agency</div>
-                <div className="text-2xl md:text-3xl font-extrabold text-[#0E9BF0] mb-2">$297<span className="text-sm text-[#5C6880]">/mo</span></div>
-                <p className="text-xs md:text-sm text-[#5C6880]">Unlimited sub-accounts, white-label, dedicated support, API access</p>
+
+              <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-6 h-6 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold">5</div>
+                  <h3 className="text-base font-bold text-[#1A2236]">Attach your Snapshot to each plan</h3>
+                </div>
+                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">Inside each plan's settings, attach the relevant GoHighLevel Snapshot. When a client pays, the Snapshot deploys automatically.</p>
+                <p className="text-sm text-[#0E9BF0] leading-relaxed ml-9 mt-1">→ Need a Snapshot? <Link href="/blog/how-to-create-gohighlevel-snapshot" className="text-[#0E9BF0] hover:underline">How to Create a GoHighLevel Snapshot →</Link></p>
+              </div>
+
+              <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-6 h-6 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold">6</div>
+                  <h3 className="text-base font-bold text-[#1A2236]">Set up your self-service sign-up page</h3>
+                </div>
+                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">The SaaS Configurator generates a hosted sign-up and checkout page. Customise with your branding and copy the sign-up URL.</p>
+              </div>
+
+              <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-6 h-6 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold">7</div>
+                  <h3 className="text-base font-bold text-[#1A2236]">Test the full flow end-to-end</h3>
+                </div>
+                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">Use Stripe test mode to run a complete test. Confirm sub-account creation, Snapshot deployment, and branding. Then switch to live mode.</p>
               </div>
             </div>
-            
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6 md:mb-8">Start with 2-3 clear tiers, then add more as you grow. Many agencies also charge a one-time setup fee ($197-$497) for initial configuration, then monthly recurring fees.</p>
 
-            {/* Section 8 */}
-            <h2 id="client-onboarding" className="text-xl md:text-2xl lg:text-[26px] font-bold text-[#1C2E4A] mt-10 md:mt-14 mb-3 md:mb-4">8. Client Onboarding Process</h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4 md:mb-5">When a client signs up through your SaaS portal:</p>
-            
-            <ol className="list-decimal list-inside my-6 md:my-8 space-y-2 md:space-y-3 text-sm md:text-base text-[#5C6880] ml-2 md:ml-4">
-              <li>They create an account on your branded domain</li>
-              <li>They choose a plan and enter payment details (processed through Stripe)</li>
-              <li>GHL automatically creates a sub-account for them</li>
-              <li>The snapshot you selected is applied automatically</li>
-              <li>They receive a welcome email with login instructions</li>
-              <li>You can offer optional white-glove onboarding for an additional fee</li>
-            </ol>
-            
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6 md:mb-8">The entire process takes under 10 minutes from signup to active sub-account — no manual intervention required on your end once configured.</p>
+            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
+              <div className="flex items-center gap-2 mb-2">
+                <Clock className="w-4 h-4 text-[#0E9BF0]" />
+                <span className="text-sm font-bold text-[#0E9BF0]">SETUP TIME</span>
+              </div>
+              <p className="text-sm text-[#1A2236] leading-relaxed">
+                The technical setup takes 2–4 hours. DNS propagation can take 15 minutes to 24 hours. 
+                Building and testing a quality Snapshot adds another 4–8 hours. Plan for one full working day.
+              </p>
+            </div>
 
-            {/* Section 9 */}
-            <h2 id="scaling" className="text-xl md:text-2xl lg:text-[26px] font-bold text-[#1C2E4A] mt-10 md:mt-14 mb-3 md:mb-4">9. Scaling Your SaaS Business</h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4 md:mb-5">Once your system is live, focus on:</p>
-            
-            <ul className="list-none my-6 md:my-8 space-y-2 md:space-y-3">
-              {[
-                'Building more specialized snapshots for different niches',
-                'Creating automated email sequences for onboarding and retention',
-                'Adding upsells and feature unlocks',
-                'Implementing affiliate and referral programs',
-                'Creating case studies and testimonials from early clients',
-              ].map((item, idx) => (
-                <li key={idx} className="flex items-start gap-2 md:gap-3 text-sm md:text-base text-[#5C6880]">
-                  <TrendingUp className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" />
-                  {item}
-                </li>
+            {/* Section 5: Pricing Strategy */}
+            <h2 id="pricing-strategy" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              5. How to Price Your White Label SaaS Offer
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Pricing is the most consequential decision in your SaaS launch. Most agencies price too low and create a race to the bottom.
+            </p>
+
+            <div className="overflow-x-auto my-6">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Tier</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Suggested Price</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">What's Included</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Best For</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {pricingTiers.map((item, idx) => (
+                    <tr key={idx} className="border-b border-[#DDE1E9]">
+                      <td className="py-3 px-3 font-medium text-[#0E9BF0]">{item.tier}</td>
+                      <td className="py-3 px-3">{item.suggestedPrice}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.included}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.bestFor}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
+              <p className="text-sm font-semibold text-[#1A2236] mb-1">Pricing principles from the field:</p>
+              <ul className="space-y-1 text-sm text-[#1A2236] list-disc list-inside">
+                <li>Do not price below $97/month churn rates are significantly higher on sub-$97 plans</li>
+                <li>Absorb usage costs into the plan price add $50–$75 buffer for SMS, email, and calls</li>
+                <li>Make the middle tier your most attractive most revenue comes from mid-tier plans</li>
+                <li>Offer annual billing for 15–20% discount annual clients churn at one-third the rate</li>
+              </ul>
+            </div>
+
+            {/* Section 6: Margin Calculator */}
+            <h2 id="margin-calculator" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              6. The SaaS Margin Calculator
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Your platform cost is fixed at $497/month regardless of how many clients you have. These are net margins before Stripe fees (2.9% + $0.30) and usage costs.
+            </p>
+
+            <div className="overflow-x-auto my-6">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Clients</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Your Price/mo</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Monthly Revenue</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">GHL Cost</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Net Margin</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Annualised</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {marginData.map((item, idx) => (
+                    <tr key={idx} className="border-b border-[#DDE1E9]">
+                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.clients} clients</td>
+                      <td className="py-3 px-3">{item.price}</td>
+                      <td className="py-3 px-3">{item.revenue}</td>
+                      <td className="py-3 px-3">{item.ghlCost}</td>
+                      <td className="py-3 px-3 text-[#25C97D] font-semibold">{item.netMargin}</td>
+                      <td className="py-3 px-3 text-[#0E9BF0] font-semibold">{item.annualised}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <div className="bg-[#1C2E4A] rounded-xl p-4 my-4 text-white">
+              <div className="flex items-center gap-2 mb-2">
+                <DollarSign className="w-4 h-4 text-[#F8D000]" />
+                <span className="text-sm font-bold text-[#F8D000]">USAGE MARGIN ON TOP</span>
+              </div>
+              <p className="text-sm text-white/80 leading-relaxed">
+                Agency Pro agencies can rebill SMS, email, calls, and AI usage to clients with a markup. 
+                If GHL charges $0.0079/SMS and you charge clients $0.015/SMS, you earn $0.0071 per message across every client's volume. 
+                This scales linearly as your client base grows.
+              </p>
+            </div>
+
+            {/* Section 7: Common Mistakes */}
+            <h2 id="common-mistakes" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              7. Common White Label SaaS Mistakes to Avoid
+            </h2>
+
+            <div className="space-y-4 mb-6">
+              {mistakesList.map((item, idx) => (
+                <div key={idx} className="bg-[#FEF2F0] border border-[rgba(220,53,69,0.2)] rounded-xl p-4">
+                  <div className="flex items-start gap-3">
+                    <AlertTriangle className="w-5 h-5 text-[#DC3545] flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="text-sm font-semibold text-[#1A2236] mb-1">{item.mistake}</p>
+                      <p className="text-sm text-[#25C97D] leading-relaxed"><strong>Fix:</strong> {item.fix}</p>
+                    </div>
+                  </div>
+                </div>
               ))}
-            </ul>
-            
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6 md:mb-8">The agencies that scale fastest treat their SaaS like a real product — continuous improvement, customer success, and systematized onboarding.</p>
+            </div>
 
-            {/* Conclusion */}
-            <h2 id="conclusion" className="text-xl md:text-2xl lg:text-[26px] font-bold text-[#1C2E4A] mt-10 md:mt-14 mb-3 md:mb-4">Conclusion: Your SaaS Journey Starts Today</h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4 md:mb-5">Setting up GoHighLevel white-label SaaS takes 1-2 days of focused work. But once it's live, you've built an asset that generates revenue while you sleep.</p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4 md:mb-5">Start with one solid snapshot, one pricing tier, and a handful of beta clients. Refine based on feedback, then scale. Within 3-6 months, you can have 20-50 clients paying you monthly — recurring revenue that transforms your agency.</p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6 md:mb-8">The agencies winning on GHL aren't just building funnels. They're building SaaS businesses. Now it's your turn.</p>
+            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-5 my-6 text-white">
+              <div className="flex items-center gap-2 mb-3">
+                <Star className="w-5 h-5 text-[#F8D000]" />
+                <span className="text-sm font-bold text-[#F8D000]">WE BUILD THIS FOR YOU</span>
+              </div>
+              <p className="text-sm text-white/80 leading-relaxed mb-3">
+                GHL Scaleup configures complete GoHighLevel white label SaaS setups Stripe billing, SaaS Configurator, 
+                pricing tiers, Snapshot build, onboarding flow, and offboarding automation. Most builds go live in 5–7 business days.
+              </p>
+              <Link href="/contact" className="inline-flex items-center gap-2 text-[#F8D000] text-sm font-semibold hover:gap-3 transition-all">
+                Book a free 30-minute strategy call at ghlscaleup.com/contact
+                <ArrowRight className="w-3 h-3" />
+              </Link>
+              <p className="text-sm text-white/60 leading-relaxed mt-3">
+                → Full SaaS Mode setup service: <Link href="/services/saas-setup" className="text-[#0E9BF0] hover:underline">GoHighLevel SaaS Mode Setup →</Link>
+              </p>
+            </div>
 
-            {/* CTA Block */}
-            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl md:rounded-3xl p-6 md:p-10 lg:p-12 text-center relative overflow-hidden my-12 md:my-16">
-              <div className="absolute -top-14 -right-14 w-72 h-72 bg-[radial-gradient(circle,rgba(248,208,0,0.1)_0%,transparent_70%)] pointer-events-none" />
+            {/* Section 8: FAQ */}
+            <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
+              8. Frequently Asked Questions About GoHighLevel White Label SaaS
+            </h2>
+
+            <div className="space-y-3">
+              {faqs.map((faq, index) => (
+                <details key={index} className="group border-b border-[rgba(28,35,33,0.08)]">
+                  <summary className="flex justify-between items-center cursor-pointer list-none py-4 text-[0.92rem] font-semibold text-[#1A2236] hover:text-[#0E9BF0] transition-colors">
+                    {faq.q}
+                    <ChevronDown className="w-4 h-4 text-[#8A9BB0] transition-transform group-open:rotate-180" />
+                  </summary>
+                  <p className="text-sm text-[#5C6880] leading-relaxed pb-4">{faq.a}</p>
+                </details>
+              ))}
+            </div>
+
+            {/* Internal Links */}
+            <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
+              <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles</h3>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/blog/gohighlevel-white-label" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel White Label: How It Works & Full Setup →</Link>
+                <Link href="/blog/gohighlevel-pricing" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Pricing: All Plans Explained →</Link>
+                <Link href="/blog/gohighlevel-for-agencies" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel for Agencies: The Complete 2026 Guide →</Link>
+                <Link href="/blog/how-to-create-gohighlevel-snapshot" className="text-sm text-[#0E9BF0] hover:underline">How to Create a GoHighLevel Snapshot →</Link>
+                <Link href="/blog/gohighlevel-review" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Review 2026: Honest Verdict →</Link>
+                <Link href="/services/saas-setup" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel SaaS Mode Setup Service →</Link>
+              </div>
+            </div>
+
+            {/* CTA Section */}
+            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
-                <div className="inline-block bg-[rgba(248,208,0,0.15)] text-[#F8D000] text-[10px] md:text-xs font-bold tracking-wider uppercase px-3 md:px-3.5 py-1 md:py-1.5 rounded-full mb-4 md:mb-5">GHL Scale Up</div>
-                <h2 className="text-xl md:text-2xl lg:text-3xl font-extrabold text-white mb-2 md:mb-3">Ready to Launch Your GHL SaaS?</h2>
-                <p className="text-sm md:text-base text-white/65 max-w-md mx-auto mb-6 md:mb-8">We've helped 50+ agencies set up their white-label SaaS. Let us help you get from zero to recurring revenue faster.</p>
-                <div className="flex flex-wrap gap-3 justify-center">
-                  <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1628] font-bold px-5 md:px-7 py-2.5 md:py-3.5 rounded-lg text-sm md:text-base hover:bg-[#FFE44D] hover:-translate-y-0.5 transition-all">
-                    Book a free strategy call
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                  <Link href="/case-studies" className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white font-semibold px-5 md:px-7 py-2.5 md:py-3.5 rounded-lg text-sm md:text-base hover:bg-white/20 transition-all">See our work</Link>
-                </div>
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Ready to launch your GoHighLevel white label SaaS?</h3>
+                <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
+                  We build the whole thing. You launch in 5–7 days. Stripe setup, SaaS Configurator, pricing tiers, 
+                  Snapshot build, onboarding flow, and offboarding automation all configured and tested before handover.
+                </p>
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                  Book Your Free GHL SaaS Strategy Call
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
             </div>
           </main>
 
-          {/* Sidebar - Sticky */}
-          <aside className="lg:sticky lg:top-24 space-y-6">
-            {/* Table of Contents */}
-            <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6">
+          {/* Sidebar */}
+          <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out">
+            {/* Table of Contents - Sticky */}
+            <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
                 <BookOpen className="w-3 h-3" />
-                In this guide
+                In This Guide
               </div>
-              <ul className="space-y-0.5">
+              <ul className="space-y-0.5 max-h-[calc(100vh-200px)] overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-[#DDE1E9] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent hover:[&::-webkit-scrollbar-thumb]:bg-[#96A0B5]">
                 {tocItems.map((item) => (
                   <li key={item.id}>
                     <button
                       onClick={() => scrollToHeading(item.id)}
-                      className={`block w-full text-left text-xs md:text-sm py-1.5 px-2 rounded transition-all ${
-                        activeId === item.id
-                          ? 'bg-[#E8F5FE] text-[#0E9BF0] font-medium'
-                          : 'text-[#5C6880] hover:bg-white hover:text-[#1A2236]'
-                      }`}
+                      className={`block w-full text-left text-xs md:text-sm py-2 px-3 rounded transition-all duration-200 ${activeId === item.id
+                        ? 'bg-[#0E9BF0] text-white font-medium shadow-sm'
+                        : 'text-[#5C6880] hover:text-[#0E9BF0] hover:bg-white'
+                        }`}
                     >
-                      {item.title}
+                      <span className="flex items-start gap-2">
+                        {activeId === item.id && (
+                          <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />
+                        )}
+                        <span className="flex-1">{item.title}</span>
+                      </span>
                     </button>
                   </li>
                 ))}
               </ul>
             </nav>
 
-            {/* CTA Card */}
-            <div className="bg-[#0B1628] rounded-xl p-5 md:p-6">
-              <div className="text-sm md:text-base font-bold text-white mb-2 flex items-center gap-2">
-                <Settings className="w-4 h-4 text-[#F8D000]" />
-                Want us to set up your GHL SaaS?
+            {/* About the Author */}
+            <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-2" style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
+                  <img
+                    src="/web-app-manifest-192x192.png"
+                    alt="GHL Scale Up"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <div className="text-sm font-bold text-white">GHL Scale Up Team</div>
+                  <div className="text-xs text-white/50">GoHighLevel Expert Agency</div>
+                </div>
               </div>
-              <div className="text-xs md:text-sm text-white/60 leading-relaxed mb-4 md:mb-5">We've done this for 50+ agencies. Domains, snapshots, Stripe, onboarding — all done for you.</div>
-              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1628] font-bold py-2.5 md:py-3 rounded-lg text-sm md:text-base hover:bg-[#FFE44D] transition-all">
-                Get a quote
-                <ArrowRight className="w-4 h-4" />
+              <p className="text-xs text-white/60 leading-relaxed mb-3">
+                5+ years GHL experience · 200+ systems built globally including white label SaaS setups across real estate, 
+                healthcare, agencies, and home services. All technical steps verified against GoHighLevel's official documentation as of May 2026.
+              </p>
+              <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
+            </div>
+
+            {/* CTA Card */}
+            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-2" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
+              <div className="text-sm font-bold text-white mb-2">Want to Launch a White Label SaaS?</div>
+              <p className="text-xs text-white/60 leading-relaxed mb-4">We configure complete GHL SaaS Mode setups. 5–7 business day delivery.</p>
+              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+                Talk to Us
+                <ArrowRight className="w-3 h-3" />
               </Link>
             </div>
 
             {/* Share Buttons */}
-            <div className="bg-white border border-[#DDE1E9] rounded-xl p-5">
-              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Share this guide</div>
+            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-2" style={{ animationDelay: '300ms', animationFillMode: 'forwards' }}>
+              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
               <div className="flex gap-2 flex-wrap">
-                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://ghlscaleup.com/blog/ghl-white-label-saas-guide" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 transition-opacity">
+                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
                   <Linkedin className="w-3 h-3" />
                   LinkedIn
                 </a>
-                <a href="https://twitter.com/intent/tweet?url=https://ghlscaleup.com/blog/ghl-white-label-saas-guide&text=How+to+Set+Up+GoHighLevel+White-Label+SaaS%3A+Complete+Guide" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 transition-opacity">
+                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
                   <Twitter className="w-3 h-3" />
                   X
                 </a>
-                <CopyButton />
+                <button
+                  onClick={() => navigator.clipboard.writeText(window.location.href)}
+                  className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"
+                >
+                  <Copy className="w-3 h-3" />
+                  Copy link
+                </button>
               </div>
             </div>
           </aside>
         </div>
       </div>
 
-      {/* Related Posts */}
-      <section className="border-t border-[#DDE1E9] py-12 md:py-16 px-4 md:px-6">
-        <div className="max-w-[1080px] mx-auto">
-          <h2 className="text-xl md:text-2xl font-bold text-[#1C2E4A] mb-6 md:mb-8">Related articles</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-            <Link href="/blog/gohighlevel-funnel-builder-features" className="group block bg-white border border-[#DDE1E9] rounded-xl p-5 md:p-6 hover:-translate-y-1 hover:shadow-lg transition-all">
-              <div className="text-[10px] md:text-xs font-bold tracking-wider uppercase text-[#0E9BF0] mb-2 md:mb-3">GoHighLevel</div>
-              <h4 className="text-sm md:text-base font-semibold text-[#1A2236] mb-2 md:mb-3 group-hover:text-[#0E9BF0] transition-colors line-clamp-2">GoHighLevel Funnel Builder: 7 Features Top Agencies Use to Build Faster</h4>
-              <div className="inline-flex items-center gap-1 text-xs md:text-sm font-semibold text-[#0E9BF0] group-hover:gap-2 transition-all">Read article <ArrowRight className="w-3 h-3" /></div>
-            </Link>
-            <Link href="/blog/ghl-ai-workflows-lead-response" className="group block bg-white border border-[#DDE1E9] rounded-xl p-5 md:p-6 hover:-translate-y-1 hover:shadow-lg transition-all">
-              <div className="text-[10px] md:text-xs font-bold tracking-wider uppercase text-[#0E9BF0] mb-2 md:mb-3">AI</div>
-              <h4 className="text-sm md:text-base font-semibold text-[#1A2236] mb-2 md:mb-3 group-hover:text-[#0E9BF0] transition-colors line-clamp-2">GHL AI Workflows to Respond to Leads in Under 10 Seconds</h4>
-              <div className="inline-flex items-center gap-1 text-xs md:text-sm font-semibold text-[#0E9BF0] group-hover:gap-2 transition-all">Read article <ArrowRight className="w-3 h-3" /></div>
-            </Link>
-            <Link href="/blog/freelancer-to-ghl-saas-founder" className="group block bg-white border border-[#DDE1E9] rounded-xl p-5 md:p-6 hover:-translate-y-1 hover:shadow-lg transition-all">
-              <div className="text-[10px] md:text-xs font-bold tracking-wider uppercase text-[#0E9BF0] mb-2 md:mb-3">Business</div>
-              <h4 className="text-sm md:text-base font-semibold text-[#1A2236] mb-2 md:mb-3 group-hover:text-[#0E9BF0] transition-colors line-clamp-2">From Freelancer to GHL SaaS Founder: Recurring Revenue</h4>
-              <div className="inline-flex items-center gap-1 text-xs md:text-sm font-semibold text-[#0E9BF0] group-hover:gap-2 transition-all">Read article <ArrowRight className="w-3 h-3" /></div>
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Progress Bar Script */}
+      <script dangerouslySetInnerHTML={{
+        __html: `
+          const progressBar = document.getElementById('progress-bar');
+          if (progressBar) {
+            window.addEventListener('scroll', () => {
+              const scrollTop = window.scrollY;
+              const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+              const progress = (scrollTop / docHeight) * 100;
+              progressBar.style.width = Math.min(progress, 100) + '%';
+            });
+          }
+        `
+      }} />
     </>
   );
 }

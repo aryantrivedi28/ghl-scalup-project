@@ -27,7 +27,8 @@ import {
   Database,
   CreditCard,
   Globe,
-  Briefcase
+  Briefcase,
+  Cloud
 } from 'lucide-react';
 
 const blogPosts = [
@@ -165,13 +166,13 @@ const blogPosts = [
     image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=500&fit=crop',
   },
   {
-    icon: Rocket,
-    tag: 'GHL SaaS',
-    title: 'How to Set Up GoHighLevel White-Label SaaS: Complete Guide',
-    excerpt: 'Domains, snapshots, Stripe billing, sub-account provisioning, and pricing strategies.',
+    icon: Cloud,
+    tag: 'White Label SaaS',
+    title: 'GoHighLevel White Label SaaS: How SaaS Mode Works & Full Setup Guide (2026)',
+    excerpt: 'GoHighLevel white label SaaS (SaaS Mode) lets you resell GHL as your own software — automated Stripe billing, self-service sign-up, and up to 20 pricing tiers. Full setup guide for Agency Pro.',
     slug: 'ghl-white-label-saas-guide',
-    date: 'April 7, 2026',
-    readTime: '8 min read',
+    date: 'May 21, 2026',
+    readTime: '22 min read',
     featured: true,
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
   },
@@ -235,7 +236,6 @@ const blogPosts = [
 const getCategoryColor = (tag: string) => {
   const colors: Record<string, string> = {
     'Pricing': 'bg-[rgba(248,208,0,0.12)] text-[#F8D000] border-[rgba(248,208,0,0.2)]',
-    'GHL SaaS': 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]',
     'AI': 'bg-[rgba(37,201,125,0.12)] text-[#25C97D] border-[rgba(37,201,125,0.2)]',
     'Business': 'bg-[rgba(248,208,0,0.12)] text-[#F8D000] border-[rgba(248,208,0,0.2)]',
     'Automation': 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]',
@@ -252,6 +252,7 @@ const getCategoryColor = (tag: string) => {
     'Review': 'bg-[rgba(248,208,0,0.12)] text-[#F8D000] border-[rgba(248,208,0,0.2)]',
     'White Label': 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]',
     'Agency': 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]',
+    'White Label SaaS': 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]',
   };
   return colors[tag] || 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]';
 };

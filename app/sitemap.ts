@@ -244,6 +244,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const blogPosts: MetadataRoute.Sitemap = [
     // May 2026 Blogs (Newest)
     {
+      url: `${baseUrl}/blog/ghl-white-label-saas-guide`,
+      lastModified: new Date('2026-05-21'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/blog/gohighlevel-for-agencies`,
+      lastModified: new Date('2026-05-20'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/blog/gohighlevel-white-label`,
       lastModified: new Date('2026-05-19'),
       changeFrequency: 'monthly',
@@ -254,6 +266,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date('2026-05-18'),
       changeFrequency: 'monthly',
       priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/blog/gohighlevel-vs-hubspot`,
+      lastModified: new Date('2026-05-14'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
     },
     {
       url: `${baseUrl}/blog/gohighlevel-pricing`,
@@ -305,12 +323,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     // April 2026 Blogs
     {
-      url: `${baseUrl}/blog/ghl-white-label-saas-guide`,
-      lastModified: new Date('2026-04-10'),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
       url: `${baseUrl}/blog/gohighlevel-funnel-builder-features`,
       lastModified: new Date('2026-04-07'),
       changeFrequency: 'monthly',
@@ -340,12 +352,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date('2026-03-15'),
       changeFrequency: 'monthly',
       priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/blog/gohighlevel-vs-hubspot`,
-      lastModified: new Date('2026-05-14'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
     },
   ];
 

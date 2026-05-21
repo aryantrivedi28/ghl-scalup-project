@@ -81,7 +81,7 @@ export default function GoHighLevelForAgenciesClient() {
   const faqs = [
     {
       q: "Is GoHighLevel good for marketing agencies?",
-      a: "Yes — GoHighLevel is specifically built for marketing agencies. Its sub-account model gives every client a fully isolated workspace managed from one agency dashboard. The Unlimited plan at $297/month includes unlimited client sub-accounts, white-label branding, and Snapshot deployment. No other platform in this price range offers this combination of multi-client management features. Agencies managing 3+ clients almost universally find the economics compelling."
+      a: "Yes GoHighLevel is specifically built for marketing agencies. Its sub-account model gives every client a fully isolated workspace managed from one agency dashboard. The Unlimited plan at $297/month includes unlimited client sub-accounts, white-label branding, and Snapshot deployment. No other platform in this price range offers this combination of multi-client management features. Agencies managing 3+ clients almost universally find the economics compelling."
     },
     {
       q: "How many clients can I manage on GoHighLevel?",
@@ -89,7 +89,7 @@ export default function GoHighLevelForAgenciesClient() {
     },
     {
       q: "What is the difference between GoHighLevel Unlimited and Agency Pro for agencies?",
-      a: "The Unlimited plan ($297/mo) gives you unlimited sub-accounts, white-label branding, Snapshots, and the full agency dashboard. You create sub-accounts manually and bill clients through your own system. Agency Pro ($497/mo) adds SaaS Mode — automated Stripe billing, pricing tiers, self-service client sign-up, and a white-label mobile app add-on. Start on Unlimited; upgrade to Pro when you want clients to sign up and pay automatically."
+      a: "The Unlimited plan ($297/mo) gives you unlimited sub-accounts, white-label branding, Snapshots, and the full agency dashboard. You create sub-accounts manually and bill clients through your own system. Agency Pro ($497/mo) adds SaaS Mode automated Stripe billing, pricing tiers, self-service client sign-up, and a white-label mobile app add-on. Start on Unlimited; upgrade to Pro when you want clients to sign up and pay automatically."
     },
     {
       q: "What is a GoHighLevel sub-account?",
@@ -97,7 +97,7 @@ export default function GoHighLevelForAgenciesClient() {
     },
     {
       q: "How do GoHighLevel Snapshots help agencies scale?",
-      a: "A Snapshot is a reusable template of a complete sub-account setup — all workflows, funnels, pipelines, email templates, custom fields, and calendars packaged for one-click deployment. Instead of rebuilding each client system from scratch (8–40 hours), you attach your niche Snapshot when creating a new sub-account and customise the client-specific details in 20–60 minutes. Agencies with well-built Snapshots can onboard a new client in under an hour."
+      a: "A Snapshot is a reusable template of a complete sub-account setup all workflows, funnels, pipelines, email templates, custom fields, and calendars packaged for one-click deployment. Instead of rebuilding each client system from scratch (8–40 hours), you attach your niche Snapshot when creating a new sub-account and customise the client-specific details in 20–60 minutes. Agencies with well-built Snapshots can onboard a new client in under an hour."
     },
     {
       q: "Can I white-label GoHighLevel for my agency clients?",
@@ -105,11 +105,11 @@ export default function GoHighLevelForAgenciesClient() {
     },
     {
       q: "How does GoHighLevel SaaS Mode work for agencies?",
-      a: "SaaS Mode, available on Agency Pro ($497/mo), lets you resell GoHighLevel under your own brand as a software subscription product. You configure pricing tiers, connect Stripe, and set up a self-service sign-up page. When a client pays, GoHighLevel automatically creates their sub-account, deploys your Snapshot, and sends them login credentials — with zero manual work. You keep the difference between what clients pay you and what you pay GoHighLevel."
+      a: "SaaS Mode, available on Agency Pro ($497/mo), lets you resell GoHighLevel under your own brand as a software subscription product. You configure pricing tiers, connect Stripe, and set up a self-service sign-up page. When a client pays, GoHighLevel automatically creates their sub-account, deploys your Snapshot, and sends them login credentials with zero manual work. You keep the difference between what clients pay you and what you pay GoHighLevel."
     },
     {
       q: "Is GoHighLevel better than HubSpot for agencies?",
-      a: "For most marketing agencies managing multiple client accounts, yes. GoHighLevel at $297/month gives you unlimited clients with white-label branding. HubSpot requires a separate account per client — at $890/month per account, a 10-client agency setup costs $8,900+ per month. GoHighLevel also has native SMS, AI features, and SaaS resale capability that HubSpot does not offer at any tier. HubSpot wins for enterprise B2B companies with large in-house marketing teams."
+      a: "For most marketing agencies managing multiple client accounts, yes. GoHighLevel at $297/month gives you unlimited clients with white-label branding. HubSpot requires a separate account per client at $890/month per account, a 10-client agency setup costs $8,900+ per month. GoHighLevel also has native SMS, AI features, and SaaS resale capability that HubSpot does not offer at any tier. HubSpot wins for enterprise B2B companies with large in-house marketing teams."
     },
   ];
 
@@ -126,7 +126,7 @@ export default function GoHighLevelForAgenciesClient() {
   ];
 
   const platformComparison = [
-    { platform: 'GoHighLevel Unlimited', cost: '$297 flat', multiClient: 'Native sub-account model', whiteLabel: 'Yes — full', saasResale: 'Yes (Pro plan)' },
+    { platform: 'GoHighLevel Unlimited', cost: '$297 flat', multiClient: 'Native sub-account model', whiteLabel: 'Yes full', saasResale: 'Yes (Pro plan)' },
     { platform: 'HubSpot Marketing Pro', cost: '$8,900+ (10 accounts)', multiClient: 'No native equivalent', whiteLabel: 'No', saasResale: 'No' },
     { platform: 'ActiveCampaign', cost: '$1,500–$3,000+', multiClient: 'Separate accounts only', whiteLabel: 'No', saasResale: 'No' },
     { platform: 'Salesforce Essentials', cost: '$2,500–$5,000+', multiClient: 'Separate orgs only', whiteLabel: 'No', saasResale: 'No' },
@@ -142,21 +142,21 @@ export default function GoHighLevelForAgenciesClient() {
     { feature: 'Client self-service sign-up', starter: 'No', unlimited: 'No', pro: 'Yes' },
     { feature: 'Usage rebilling + markup', starter: 'No', unlimited: 'Basic', pro: 'Full' },
     { feature: 'White-label mobile app', starter: 'No', unlimited: 'No', pro: 'Add-on ($49/mo)' },
-    { feature: 'Best for', starter: 'Solo business owners only', unlimited: 'Most agencies — start here', pro: 'Agencies reselling GHL as SaaS' },
+    { feature: 'Best for', starter: 'Solo business owners only', unlimited: 'Most agencies start here', pro: 'Agencies reselling GHL as SaaS' },
   ];
 
   const featuresList = [
-    { title: 'Sub-accounts — the foundation', desc: 'Every client lives in their own isolated sub-account. Creating one takes under two minutes. Each has its own CRM, funnels, automations, pipelines, contacts, and users. Clients cannot see each other\'s data.' },
-    { title: 'Snapshots — the onboarding multiplier', desc: 'A Snapshot is a pre-built copy of an entire sub-account setup for one-click deployment. Attaching a Snapshot at sub-account creation reduces client onboarding from a 10-hour manual build to a 20-minute configuration task.' },
-    { title: 'White-label branding — the client experience', desc: 'On Unlimited plan and above, GoHighLevel is invisible to clients. Your logo, your domain (app.youragency.com), your support email — clients see your software product.' },
-    { title: 'Workflow automation — running without you', desc: 'Create automations that run 24/7 across every client sub-account — lead follow-up, appointment reminders, missed call text-back, review requests. Once built in a Snapshot, automations deploy to every new client automatically.' },
-    { title: 'SaaS Mode — the revenue model', desc: 'Agency Pro lets you charge clients a monthly subscription fee to access your white-label platform. At 20 clients paying $297/month: $5,940 monthly revenue against a $497 platform cost.' },
+    { title: 'Sub-accounts the foundation', desc: 'Every client lives in their own isolated sub-account. Creating one takes under two minutes. Each has its own CRM, funnels, automations, pipelines, contacts, and users. Clients cannot see each other\'s data.' },
+    { title: 'Snapshots the onboarding multiplier', desc: 'A Snapshot is a pre-built copy of an entire sub-account setup for one-click deployment. Attaching a Snapshot at sub-account creation reduces client onboarding from a 10-hour manual build to a 20-minute configuration task.' },
+    { title: 'White-label branding the client experience', desc: 'On Unlimited plan and above, GoHighLevel is invisible to clients. Your logo, your domain (app.youragency.com), your support email clients see your software product.' },
+    { title: 'Workflow automation running without you', desc: 'Create automations that run 24/7 across every client sub-account lead follow-up, appointment reminders, missed call text-back, review requests. Once built in a Snapshot, automations deploy to every new client automatically.' },
+    { title: 'SaaS Mode the revenue model', desc: 'Agency Pro lets you charge clients a monthly subscription fee to access your white-label platform. At 20 clients paying $297/month: $5,940 monthly revenue against a $497 platform cost.' },
   ];
 
   const mistakesList = [
-    { mistake: 'No Snapshots — rebuilding from scratch for every client', fix: 'Build one master Snapshot per niche you serve and deploy it to every new account. This is the single highest-leverage operational improvement an agency can make on GHL.' },
+    { mistake: 'No Snapshots rebuilding from scratch for every client', fix: 'Build one master Snapshot per niche you serve and deploy it to every new account. This is the single highest-leverage operational improvement an agency can make on GHL.' },
     { mistake: 'One giant workflow doing everything', fix: 'Build modular workflows: one workflow per job, connected by tags. Small, focused, testable. When something breaks, you can isolate which step caused the problem.' },
-    { mistake: 'Not using the agency dashboard for monitoring', fix: 'Use the Agency Dashboard to see all sub-accounts from one screen — lead activity, pipeline health, who hasn\'t logged in this week. Catch client issues before clients notice them.' },
+    { mistake: 'Not using the agency dashboard for monitoring', fix: 'Use the Agency Dashboard to see all sub-accounts from one screen lead activity, pipeline health, who hasn\'t logged in this week. Catch client issues before clients notice them.' },
     { mistake: 'Upgrading to Agency Pro before building the SaaS foundation', fix: 'Start on Unlimited ($297/mo), build your Snapshot library, and validate the agency model. Upgrade to Pro when you are ready to offer self-service sign-up to clients.' },
   ];
 
@@ -214,7 +214,7 @@ export default function GoHighLevelForAgenciesClient() {
           {/* Introductory Paragraph */}
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
             Most marketing software is built for a single company managing its own customers. 
-            GoHighLevel was built for agencies managing multiple clients — and that one architectural 
+            GoHighLevel was built for agencies managing multiple clients and that one architectural 
             decision changes everything about the economics, the workflow, and the scale of what's possible.
           </p>
           <p className="text-sm text-white/50 leading-relaxed">
@@ -234,13 +234,13 @@ export default function GoHighLevelForAgenciesClient() {
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
               <div className="flex items-center gap-2 mb-3">
                 <Zap className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Quick Answer — Read This First</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Quick Answer Read This First</span>
               </div>
               <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
                 GoHighLevel is purpose-built for marketing agencies in a way no other platform in its price range is.
               </p>
               <p className="text-sm text-[#5C6880] leading-relaxed">
-                Every client gets their own isolated sub-account — their own CRM, funnels, automations, and contacts — 
+                Every client gets their own isolated sub-account their own CRM, funnels, automations, and contacts 
                 managed from one agency dashboard. The platform is flat-rate: <strong className="text-[#0E9BF0]">$297/month for unlimited clients</strong> 
                 on the Unlimited plan, <strong className="text-[#0E9BF0]">$497/month for SaaS resale</strong> on Agency Pro. 
                 You can run 100+ client accounts for the same price as running one. That's the agency case for GoHighLevel in two sentences.
@@ -277,7 +277,7 @@ export default function GoHighLevelForAgenciesClient() {
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               <strong className="text-[#1A2236]">GoHighLevel solves this with the sub-account model.</strong> Your agency account is the master level. 
-              Every client gets their own sub-account — a fully self-contained workspace with their own CRM, funnels, automations, 
+              Every client gets their own sub-account a fully self-contained workspace with their own CRM, funnels, automations, 
               pipelines, calendar, phone numbers, and contacts. Client A cannot see Client B's data. You can see all of them from one dashboard.
             </p>
 
@@ -331,9 +331,9 @@ export default function GoHighLevelForAgenciesClient() {
                 <thead>
                   <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
                     <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Feature</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Starter — $97/mo</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#0E9BF0]">Unlimited — $297/mo</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#0E9BF0]">Agency Pro — $497/mo</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Starter $97/mo</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#0E9BF0]">Unlimited $297/mo</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#0E9BF0]">Agency Pro $497/mo</th>
                    </tr>
                 </thead>
                 <tbody>
@@ -353,7 +353,7 @@ export default function GoHighLevelForAgenciesClient() {
               <p className="text-sm text-[#1A2236] leading-relaxed">
                 <strong className="text-[#0E9BF0]">Most agencies should start on Unlimited ($297/mo).</strong> 
                 It gives you unlimited client sub-accounts, white-label branding, full snapshot deployment, and the complete agency dashboard. 
-                Upgrade to Agency Pro ($497/mo) once you want clients to sign up and pay through your branded platform automatically — not before.
+                Upgrade to Agency Pro ($497/mo) once you want clients to sign up and pay through your branded platform automatically not before.
               </p>
             </div>
 
@@ -402,7 +402,7 @@ export default function GoHighLevelForAgenciesClient() {
               4. How Do Agencies Use GHL to Onboard Clients in Minutes, Not Days?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The biggest operational gain from GoHighLevel for agencies is not the features themselves — 
+              The biggest operational gain from GoHighLevel for agencies is not the features themselves 
               it is the repeatable, systematised onboarding that the sub-account and Snapshot architecture enables.
             </p>
 
@@ -448,7 +448,7 @@ export default function GoHighLevelForAgenciesClient() {
                   <li>You manage 3+ active client accounts and pay $300–$1,200/month for separate tools</li>
                   <li>You spend 8–40 hours onboarding each new client from scratch</li>
                   <li>You want to build a recurring software revenue stream on top of your service business</li>
-                  <li>Your clients need SMS, AI Voice Agent, booking calendars, and CRM — all in one system</li>
+                  <li>Your clients need SMS, AI Voice Agent, booking calendars, and CRM all in one system</li>
                   <li>You want to offer clients a branded software product with your logo and domain</li>
                 </ul>
               </div>
@@ -471,7 +471,7 @@ export default function GoHighLevelForAgenciesClient() {
               <p className="text-sm text-white/80 leading-relaxed">
                 The most common pattern we see: an agency has been on GoHighLevel for 4–8 months, paying $297/month, 
                 and using 15–20% of the platform's capability. No Snapshots. Basic workflows with no conditional logic. 
-                AI features untouched. <strong className="text-white">The platform's value is unlocked by its architecture — not just by logging in.</strong>
+                AI features untouched. <strong className="text-white">The platform's value is unlocked by its architecture not just by logging in.</strong>
               </p>
             </div>
 
@@ -503,7 +503,7 @@ export default function GoHighLevelForAgenciesClient() {
                 <span className="text-sm font-bold text-[#F8D000]">HOW GHL SCALE UP HELPS</span>
               </div>
               <p className="text-sm text-white/80 leading-relaxed mb-3">
-                We build production-ready GoHighLevel agency accounts from scratch — sub-account architecture, Snapshot library, 
+                We build production-ready GoHighLevel agency accounts from scratch sub-account architecture, Snapshot library, 
                 workflow automation, white-label setup, and SaaS Mode configuration. Most agency builds go live in 5–7 business days.
               </p>
               <Link href="/contact" className="inline-flex items-center gap-2 text-[#F8D000] text-sm font-semibold hover:gap-3 transition-all">
