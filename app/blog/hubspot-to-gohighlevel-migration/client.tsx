@@ -79,8 +79,8 @@ export default function HubSpotToGHLMigrationClient() {
       a: "No. Keep HubSpot active until: your contacts are fully imported and validated in GHL, all active workflows are rebuilt and tested, you have run both platforms in parallel for at least two weeks, and all lead capture points are redirected to GHL. HubSpot provides a 25-day data export window after cancellation — after that, data is deleted. Cancelling prematurely is the most costly migration mistake."
     },
     {
-      q: "Can GHL Scaleup handle our HubSpot to GoHighLevel migration?",
-      a: "Yes. GHL Scaleup manages end-to-end HubSpot to GoHighLevel migrations including data export and cleaning, field mapping, pipeline restructure, workflow recreation with trigger replication, email domain configuration and warmup, integration setup, and parallel testing. We have completed 200+ GHL builds including migrations from HubSpot, Salesforce, Zoho, and ActiveCampaign."
+      q: "Can GHL Scale Up handle our HubSpot to GoHighLevel migration?",
+      a: "Yes. GHL Scale Up manages end-to-end HubSpot to GoHighLevel migrations including data export and cleaning, field mapping, pipeline restructure, workflow recreation with trigger replication, email domain configuration and warmup, integration setup, and parallel testing. We have completed 200+ GHL builds including migrations from HubSpot, Salesforce, Zoho, and ActiveCampaign."
     },
   ];
 
@@ -454,7 +454,7 @@ export default function HubSpotToGHLMigrationClient() {
                 <span className="text-sm font-bold text-[#F8D000]">WE HANDLE THE MIGRATION FOR YOU</span>
               </div>
               <p className="text-sm text-white/80 leading-relaxed mb-3">
-                GHL Scaleup manages complete HubSpot to GoHighLevel migrations — contact export and cleaning, field mapping, 
+                GHL Scale Up manages complete HubSpot to GoHighLevel migrations — contact export and cleaning, field mapping, 
                 pipeline restructure, workflow recreation, email domain configuration, and parallel testing.
               </p>
               <Link href="/contact" className="inline-flex items-center gap-2 text-[#F8D000] text-sm font-semibold hover:gap-3 transition-all">
