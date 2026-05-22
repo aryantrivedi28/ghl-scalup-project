@@ -24,15 +24,15 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.ghlscaleup.com'),
   title: 'GoHighLevel Expert Agency | GHL Scale Up',
   description: 'GHL Scale Up builds complete GoHighLevel systems - CRM setup, automation, AI agents & white-label SaaS.',
-  
+
   alternates: {
     canonical: '/',
   },
-  
+
   // Complete icons configuration for all devices
   icons: {
     icon: [
-      { url: '/favicon.ico'},
+      { url: '/favicon.ico' },
       { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
       { url: '/favicon.svg', type: 'image/svg+xml' },
     ],
@@ -41,10 +41,10 @@ export const metadata: Metadata = {
     ],
     shortcut: ['/favicon.ico'],
   },
-  
+
   // Web Manifest for PWA support
   manifest: '/site.webmanifest',
-  
+
   // Open Graph for social media (Facebook, LinkedIn, etc.)
   openGraph: {
     title: 'GoHighLevel Expert Agency | GHL Scale Up',
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
   },
-  
+
   // Twitter Card for Twitter sharing
   twitter: {
     card: 'summary_large_image',
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     creator: '@ghlscaleup',
     site: '@ghlscaleup',
   },
-  
+
   // Additional metadata for SEO
   robots: {
     index: true,
@@ -91,27 +91,27 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  
+
   verification: {
     google: '', // Add your Google Search Console verification code here
   },
-  
+
   category: 'technology',
-  
+
   // Apple specific
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
     title: 'GHL Scale Up',
   },
-  
+
   // Windows/Android
   formatDetection: {
     telephone: true,
     email: true,
     address: true,
   },
-  
+
   // Other
   applicationName: 'GHL Scale Up',
   authors: [{ name: 'GHL Scale Up' }],
@@ -180,15 +180,15 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#0E9BF0" />
         <meta name="theme-color" content="#0E9BF0" />
         <meta name="msapplication-config" content="/site.webmanifest" />
-        
+
         {/* For older browsers */}
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-        
+
         {/* Preload important icons for performance */}
         <link rel="preload" as="image" href="/apple-touch-icon.png" type="image/png" />
         <link rel="preload" as="image" href="/favicon.svg" type="image/svg+xml" />
       </head>
-      
+
       <body className="font-sans">
         {/* Schema Markup */}
         <script
@@ -215,11 +215,17 @@ export default function RootLayout({
           `}
         </Script>
 
+        <Script
+          src="https://widgets.leadconnectorhq.com/loader.js"
+          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+          data-widget-id="6a0ffa0920e5a77e67132220"
+          strategy="lazyOnload"
+        />
         <Navigation />
         {children}
 
         {/* Floating Buttons Container - Stacked */}
-        <div className="fixed bottom-5 right-5 flex flex-col items-end gap-4 z-50">
+        <div className="fixed bottom-24 right-5 flex flex-col items-end gap-4 z-50">
           {/* <ChatBot /> */}
           <WhatsAppButton />
         </div>
