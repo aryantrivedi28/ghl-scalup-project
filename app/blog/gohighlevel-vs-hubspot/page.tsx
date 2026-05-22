@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import GoHighLevelVsHubSpotClient from './client';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'GoHighLevel vs HubSpot (2026): Honest Comparison for Agencies | GHL Scaleup',
@@ -29,5 +30,42 @@ export const metadata: Metadata = {
 };
 
 export default function GoHighLevelVsHubSpotPage() {
-  return <GoHighLevelVsHubSpotClient />;
+  return (
+    <>
+      <Script
+        id="article-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "GoHighLevel vs HubSpot (2026): Honest Comparison for Agencies",
+            "description": "GoHighLevel vs HubSpot — the real differences in pricing, features, and who each platform is actually built for. For agencies managing multiple clients, GHL wins on cost and architecture. For enterprise B2B sales teams, HubSpot wins on depth.",
+            "image": "https://www.ghlscaleup.com/images/blog/ghl-vs-hubspot-og.jpg",
+            "datePublished": "2026-05-14",
+            "dateModified": "2026-05-14",
+            "author": {
+              "@type": "Organization",
+              "name": "GHL Scale Up Team",
+              "url": "https://www.ghlscaleup.com"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "GHL Scale Up",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.ghlscaleup.com/web-app-manifest-192x192.png"
+              }
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://www.ghlscaleup.com/blog/gohighlevel-vs-hubspot"
+            }
+          })
+        }}
+      />
+      <GoHighLevelVsHubSpotClient />;
+    </>
+  )
+
 }

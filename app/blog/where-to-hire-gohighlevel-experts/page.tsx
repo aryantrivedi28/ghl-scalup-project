@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import WhereToHireGHLExpertsClient from './client';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'Where to Hire GoHighLevel Experts in 2026: 6 Best Places (+ How to Vet Them) | GHL Scaleup',
@@ -29,5 +30,43 @@ export const metadata: Metadata = {
 };
 
 export default function WhereToHireGHLExpertsPage() {
-  return <WhereToHireGHLExpertsClient />;
+  return (
+    <>
+      <Script
+        id="article-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Where to Hire GoHighLevel Experts in 2026: 6 Best Places (+ How to Vet Them)",
+            "description": "Looking for a GoHighLevel expert? Here are the 6 best places to find GHL professionals in 2026 — from the official GHL directory to Upwork, Fiverr, and specialist agencies — with a vetting checklist and red flags to avoid.",
+            "image": "https://www.ghlscaleup.com/images/blog/where-to-hire-ghl-experts-og.jpg",
+            "datePublished": "2026-05-11",
+            "dateModified": "2026-05-11",
+            "author": {
+              "@type": "Organization",
+              "name": "GHL Scale Up Team",
+              "url": "https://www.ghlscaleup.com"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "GHL Scale Up",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.ghlscaleup.com/web-app-manifest-192x192.png"
+              }
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://www.ghlscaleup.com/blog/where-to-hire-gohighlevel-experts"
+            }
+          })
+        }}
+      />
+      <WhereToHireGHLExpertsClient />;
+    </>
+  )
+
+
 }

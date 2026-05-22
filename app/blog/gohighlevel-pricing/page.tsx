@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import GoHighLevelPricingClient from './client';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'GoHighLevel Pricing 2026: All Plans, Real Costs & Hidden Fees Explained | GHL Scaleup',
@@ -29,5 +30,42 @@ export const metadata: Metadata = {
 };
 
 export default function GoHighLevelPricingPage() {
-  return <GoHighLevelPricingClient />;
+  return (
+    <>
+      <Script
+        id="article-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "GoHighLevel Pricing 2026: All Plans, Real Costs & Hidden Fees Explained",
+            "description": "GoHighLevel costs $97, $297, or $497/month depending on your plan. But that's not your real cost. This guide covers every plan, every usage fee, AI pricing, and which plan is right for your business in 2026.",
+            "image": "https://www.ghlscaleup.com/images/blog/ghl-pricing-og.jpg",
+            "datePublished": "2026-05-13",
+            "dateModified": "2026-05-13",
+            "author": {
+              "@type": "Organization",
+              "name": "GHL Scale Up Team",
+              "url": "https://www.ghlscaleup.com"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "GHL Scale Up",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.ghlscaleup.com/web-app-manifest-192x192.png"
+              }
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://www.ghlscaleup.com/blog/gohighlevel-pricing"
+            }
+          })
+        }}
+      />
+      <GoHighLevelPricingClient />;
+    </>
+  )
+
 }

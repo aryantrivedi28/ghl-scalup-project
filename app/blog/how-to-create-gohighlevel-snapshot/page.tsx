@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import CreateSnapshotClient from './client';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'How to Create a GoHighLevel Snapshot to Onboard Clients Faster (2026) | GHL Scaleup',
@@ -29,5 +30,42 @@ export const metadata: Metadata = {
 };
 
 export default function CreateSnapshotPage() {
-  return <CreateSnapshotClient />;
+  return (
+    <>
+      <Script
+        id="article-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "How to Create and Use a GoHighLevel Snapshot to Onboard Clients Faster (2026)",
+            "description": "A GoHighLevel Snapshot is a reusable template of an entire sub-account setup — funnels, workflows, pipelines, and more. Learn what's included, how to create one in 5 steps, and how to deploy it to client accounts in minutes.",
+            "image": "https://www.ghlscaleup.com/images/blog/ghl-snapshot-og.jpg",
+            "datePublished": "2026-05-08",
+            "dateModified": "2026-05-08",
+            "author": {
+              "@type": "Organization",
+              "name": "GHL Scale Up Team",
+              "url": "https://www.ghlscaleup.com"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "GHL Scale Up",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.ghlscaleup.com/web-app-manifest-192x192.png"
+              }
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://www.ghlscaleup.com/blog/how-to-create-gohighlevel-snapshot"
+            }
+          })
+        }}
+      />
+      <CreateSnapshotClient />;
+    </>
+  )
+
 }

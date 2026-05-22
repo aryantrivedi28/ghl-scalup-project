@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import GoHighLevelWhiteLabelClient from './client';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'GoHighLevel White Label: What It Is, How It Works & Full Setup Guide (2026) | GHL Scale Up',
@@ -29,5 +30,42 @@ export const metadata: Metadata = {
 };
 
 export default function GoHighLevelWhiteLabelPage() {
-  return <GoHighLevelWhiteLabelClient />;
+  return (
+    <>
+      <Script
+        id="article-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "GoHighLevel White Label: What It Is, How It Works & Full Setup Guide (2026)",
+            "description": "GoHighLevel white label lets you brand the entire platform as your own software. Basic branding starts at $297/mo. Full SaaS Mode with automated billing starts at $497/mo. Step-by-step setup guide with CNAME, Stripe, and pricing strategy.",
+            "image": "https://www.ghlscaleup.com/images/blog/ghl-white-label-og.jpg",
+            "datePublished": "2026-05-19",
+            "dateModified": "2026-05-19",
+            "author": {
+              "@type": "Organization",
+              "name": "GHL Scale Up Team",
+              "url": "https://www.ghlscaleup.com"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "GHL Scale Up",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.ghlscaleup.com/web-app-manifest-192x192.png"
+              }
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://www.ghlscaleup.com/blog/gohighlevel-white-label"
+            }
+          })
+        }}
+      />
+      <GoHighLevelWhiteLabelClient />;
+    </>
+
+  );
 }

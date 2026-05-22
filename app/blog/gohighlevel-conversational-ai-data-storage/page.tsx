@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import ConversationAIDataStorageClient from './client';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'Does GoHighLevel Conversation AI Save Data to Your CRM? (2026 Answer) | GHL Scaleup',
@@ -29,5 +30,42 @@ export const metadata: Metadata = {
 };
 
 export default function ConversationAIDataStoragePage() {
-  return <ConversationAIDataStorageClient />;
+  return (
+    <>
+      <Script
+        id="article-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Does GoHighLevel Conversation AI Save Data to Your CRM? (2026 Answer)",
+            "description": "GoHighLevel Conversation AI does save some data to your CRM — but not all of it, and not automatically. Here's exactly what gets captured, what doesn't, and how to build a clean data capture system that actually works.",
+            "image": "https://www.ghlscaleup.com/images/blog/ghl-conversational-ai-data-og.jpg",
+            "datePublished": "2026-05-12",
+            "dateModified": "2026-05-12",
+            "author": {
+              "@type": "Organization",
+              "name": "GHL Scale Up Team",
+              "url": "https://www.ghlscaleup.com"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "GHL Scale Up",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.ghlscaleup.com/web-app-manifest-192x192.png"
+              }
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://www.ghlscaleup.com/blog/gohighlevel-conversational-ai-data-storage"
+            }
+          })
+        }}
+      />
+      <ConversationAIDataStorageClient />;
+    </>
+  )
+
 }

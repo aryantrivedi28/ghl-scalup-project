@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import GHLWhiteLabelSaaSClient from './client';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'GoHighLevel White Label SaaS: How SaaS Mode Works & Full Setup Guide (2026) | GHL Scale Up',
@@ -29,5 +30,41 @@ export const metadata: Metadata = {
 };
 
 export default function GHLWhiteLabelSaaSPage() {
-  return <GHLWhiteLabelSaaSClient />;
+  return (
+    <>
+    <Script
+  id="article-schema"
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "GoHighLevel White Label SaaS: How SaaS Mode Works & Full Setup Guide (2026)",
+      "description": "GoHighLevel white label SaaS (SaaS Mode) lets you resell GHL as your own software — automated Stripe billing, self-service sign-up, and up to 20 pricing tiers. Full setup guide for Agency Pro.",
+      "image": "https://www.ghlscaleup.com/images/blog/ghl-white-label-saas-og.jpg",
+      "datePublished": "2026-05-21",
+      "dateModified": "2026-05-21",
+      "author": {
+        "@type": "Organization",
+        "name": "GHL Scale Up Team",
+        "url": "https://www.ghlscaleup.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "GHL Scale Up",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.ghlscaleup.com/web-app-manifest-192x192.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.ghlscaleup.com/blog/ghl-white-label-saas-guide"
+      }
+    })
+  }}
+/>
+      <GHLWhiteLabelSaaSClient />;
+    </>
+  );
 }

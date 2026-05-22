@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import GoHighLevelForAgenciesClient from './client';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'GoHighLevel for Agencies: The Complete 2026 Guide (Setup, SaaS & Scaling) | GHL Scale Up',
@@ -29,5 +30,41 @@ export const metadata: Metadata = {
 };
 
 export default function GoHighLevelForAgenciesPage() {
-  return <GoHighLevelForAgenciesClient />;
+  return (
+    <>
+      <Script
+        id="article-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "GoHighLevel for Agencies: The Complete 2026 Guide (Setup, SaaS & Scaling)",
+            "description": "GoHighLevel is the only all-in-one platform purpose-built for marketing agencies — unlimited clients, one dashboard, white-label branding, and SaaS resale built in. This guide covers how agencies use GHL, which plan to choose, and how to scale correctly.",
+            "image": "https://www.ghlscaleup.com/images/blog/ghl-for-agencies-og.jpg",
+            "datePublished": "2026-05-20",
+            "dateModified": "2026-05-20",
+            "author": {
+              "@type": "Organization",
+              "name": "GHL Scale Up Team",
+              "url": "https://www.ghlscaleup.com"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "GHL Scale Up",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.ghlscaleup.com/web-app-manifest-192x192.png"
+              }
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://www.ghlscaleup.com/blog/gohighlevel-for-agencies"
+            }
+          })
+        }}
+      />
+      <GoHighLevelForAgenciesClient />;
+    </>
+  )
 }

@@ -1,6 +1,7 @@
 // app/blog/what-is-gohighlevel/page.tsx
 import { Metadata } from 'next';
 import WhatIsGoHighLevelClient from './client';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'What Is GoHighLevel? The Complete Guide for 2026 | GHL Scale Up',
@@ -29,5 +30,41 @@ export const metadata: Metadata = {
 };
 
 export default function WhatIsGoHighLevelPage() {
-  return <WhatIsGoHighLevelClient />;
+  return (
+    <>
+      <Script
+        id="article-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "What Is GoHighLevel? The Complete Guide for 2026",
+            "description": "GoHighLevel (GHL) is an all-in-one CRM and marketing platform built for agencies and service businesses. This plain-English guide explains what it does, who it's for, and how it's priced.",
+            "image": "https://www.ghlscaleup.com/images/blog/ghl-what-is-og.jpg",
+            "datePublished": "2026-05-02",
+            "dateModified": "2026-05-02",
+            "author": {
+              "@type": "Organization",
+              "name": "GHL Scale Up Team",
+              "url": "https://www.ghlscaleup.com"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "GHL Scale Up",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.ghlscaleup.com/web-app-manifest-192x192.png"
+              }
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://www.ghlscaleup.com/blog/what-is-gohighlevel"
+            }
+          })
+        }}
+      />
+      <WhatIsGoHighLevelClient />
+    </>
+  );
 }

@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import GoHighLevelReviewClient from './client';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'GoHighLevel Review 2026: Honest Verdict After 200+ Real Builds (4.4/5) | GHL Scale Up',
@@ -29,5 +30,42 @@ export const metadata: Metadata = {
 };
 
 export default function GoHighLevelReviewPage() {
-  return <GoHighLevelReviewClient />;
+  return (
+    <>
+      <Script
+        id="article-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "GoHighLevel Review 2026: Honest Verdict After 200+ Real Builds (4.4/5)",
+            "description": "GoHighLevel review for 2026 from a team that has built 200+ GHL systems. Honest rating, real pros and cons, email deliverability issues, learning curve reality, and who should actually use it.",
+            "image": "https://www.ghlscaleup.com/images/blog/ghl-review-og.jpg",
+            "datePublished": "2026-05-18",
+            "dateModified": "2026-05-18",
+            "author": {
+              "@type": "Organization",
+              "name": "GHL Scale Up Team",
+              "url": "https://www.ghlscaleup.com"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "GHL Scale Up",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.ghlscaleup.com/web-app-manifest-192x192.png"
+              }
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://www.ghlscaleup.com/blog/gohighlevel-review"
+            }
+          })
+        }}
+      />
+      <GoHighLevelReviewClient />;
+    </>
+  )
+
 }
