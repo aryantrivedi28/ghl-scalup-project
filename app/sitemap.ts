@@ -244,6 +244,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const blogPosts: MetadataRoute.Sitemap = [
     // May 2026 Blogs (Newest)
     {
+      url: `${baseUrl}/blog/hubspot-to-gohighlevel-migration`,
+      lastModified: new Date('2026-05-22'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/blog/ghl-white-label-saas-guide`,
       lastModified: new Date('2026-05-21'),
       changeFrequency: 'monthly',

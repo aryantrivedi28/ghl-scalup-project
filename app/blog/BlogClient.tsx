@@ -176,6 +176,17 @@ const blogPosts = [
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
   },
   {
+    icon: Database,
+    tag: 'Migration',
+    title: 'How to Migrate from HubSpot to GoHighLevel: Step-by-Step Guide (2026)',
+    excerpt: 'A step-by-step guide to migrating from HubSpot to GoHighLevel — what data transfers, what breaks, how to rebuild workflows, and how to avoid the most costly migration mistakes.',
+    slug: 'hubspot-to-gohighlevel-migration',
+    date: 'May 22, 2026',
+    readTime: '11 min read',
+    featured: true,
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+  },
+  {
     icon: Brain,
     tag: 'AI',
     title: 'GHL AI Workflows to Respond to Leads in Under 10 Seconds',
@@ -252,6 +263,7 @@ const getCategoryColor = (tag: string) => {
     'White Label': 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]',
     'Agency': 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]',
     'White Label SaaS': 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]',
+    'Migration': 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]',
   };
   return colors[tag] || 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]';
 };

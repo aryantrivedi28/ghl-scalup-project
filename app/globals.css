@@ -84,3 +84,27 @@
 
 
 
+/* ── GHL Chat Widget fade-in animation ──
+   Add this to the bottom of your globals.css
+   ─────────────────────────────────────── */
+
+@keyframes fadeInWidget {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+/* Targets the GHL widget iframe/container when it appears */
+[id*='chat-widget'],
+[class*='chat-widget'],
+[class*='leadconnector'] {
+  animation: fadeInWidget 0.4s ease-in-out;
+}
+
+
+
