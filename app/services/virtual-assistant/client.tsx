@@ -9,14 +9,11 @@ import {
       Mail,
       MessageSquare,
       BarChart,
-      Wrench,
       Users,
       Target,
       Clock,
       Globe,
-      Phone,
       Mail as MailIcon,
-      Calendar,
       CheckCircle,
       Briefcase,
       Award,
@@ -29,8 +26,6 @@ import {
       Sparkles,
       DollarSign,
       ArrowRight,
-      BookOpen,
-      UserCog
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
