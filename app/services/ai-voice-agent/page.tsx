@@ -20,6 +20,7 @@ import {
   Headphones
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import { generateFaqSchema } from '@/lib/faqSchema';
 
 export const metadata = {
   title: 'GHL AI Voice Agent & Call Handling Services | GHL Scale Up',
@@ -135,7 +136,7 @@ export default function AIVoiceAgentPage() {
   ];
 
 
-  useFaqSchema(faqs);
+  generateFaqSchema(faqs);
 
   return (
     <>

@@ -19,6 +19,7 @@ import {
   Sparkles
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import { generateFaqSchema } from '@/lib/faqSchema';
 
 export const metadata = {
   title: 'GHL Email, SMS & WhatsApp Automation Services | GHL Scale Up',
@@ -134,7 +135,7 @@ export default function EmailSMSWhatsAppPage() {
     { q: 'Can you segment my existing list?', a: 'Yes. We can analyze your existing contacts and create segments based on engagement, purchase history, interests, and other data points for targeted campaigns.' },
   ];
 
-  useFaqSchema(faqs);
+  generateFaqSchema(faqs);
 
   return (
     <>

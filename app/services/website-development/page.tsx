@@ -16,6 +16,7 @@ import {
   GitBranch,
   Rocket,
 } from 'lucide-react';
+import { generateFaqSchema } from '@/lib/faqSchema';
 
 export const metadata = {
   title: 'GHL Website Development Services | GHL Scale Up',
@@ -129,6 +130,8 @@ export default function WebsiteDevelopmentPage() {
     { q: 'Can I migrate my existing WordPress site to GHL?', a: 'Yes. We can migrate your existing content, pages, and blog posts from WordPress, Wix, Squarespace, or any other platform to GHL while preserving your SEO rankings.' },
     { q: 'What about hosting and domain?', a: 'GHL includes hosting. You can use your existing domain or we can help you register a new one. There are no separate hosting fees everything is included in your GHL subscription.' },
   ];
+
+  generateFaqSchema(faqs);
 
   return (
     <>

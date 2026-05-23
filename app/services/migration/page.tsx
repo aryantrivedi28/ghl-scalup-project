@@ -20,6 +20,7 @@ import {
   Cloud
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import { generateFaqSchema } from '@/lib/faqSchema';
 
 export const metadata = {
   title: 'GHL Migration Services | GHL Scale Up',
@@ -134,7 +135,7 @@ export default function MigrationPage() {
     { q: 'Is there any downtime?', a: 'No. We perform migration in the background while your old system remains active. We only switch over when everything is validated and ready. Zero business disruption.' },
   ];
 
-  useFaqSchema(faqs);
+  generateFaqSchema(faqs);
 
   return (
     <>

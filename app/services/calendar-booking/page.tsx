@@ -18,6 +18,7 @@ import {
   Clock as ClockIcon
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import { generateFaqSchema } from '@/lib/faqSchema';
 
 export const metadata = {
   title: 'GHL Calendar & Booking Setup Services | GHL Scale Up',
@@ -132,7 +133,7 @@ export default function CalendarBookingPage() {
     { q: 'Can clients reschedule or cancel themselves?', a: 'Yes. Every booking confirmation includes links for clients to reschedule or cancel. This reduces phone calls and emails to your team.' },
   ];
 
-  useFaqSchema(faqs);
+  generateFaqSchema(faqs);
 
   return (
     <>

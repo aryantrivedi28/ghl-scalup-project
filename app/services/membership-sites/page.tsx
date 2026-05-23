@@ -21,6 +21,7 @@ import {
   FileText
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import { generateFaqSchema } from '@/lib/faqSchema';
 
 export const metadata = {
   title: 'GHL Training & Onboarding Services | GHL Scale Up',
@@ -135,7 +136,7 @@ export default function TrainingOnboardingPage() {
               { q: 'Is training done live or recorded?', a: 'Live training with your team. We record everything so you have videos for future reference. Q&A included.' },
             ];
 
-            useFaqSchema(faqs);
+            generateFaqSchema(faqs);
 
   return (
     <>

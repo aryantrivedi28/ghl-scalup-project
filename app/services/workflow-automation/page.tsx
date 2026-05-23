@@ -16,6 +16,7 @@ import {
   Settings
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import { generateFaqSchema } from '@/lib/faqSchema';
 
 export const metadata = {
   title: 'GHL Workflow Automation & Marketing Automation Services | GHL Scale Up',
@@ -130,7 +131,7 @@ export default function WorkflowAutomationPage() {
     { q: 'Can you fix my broken automations?', a: 'Yes. We audit your existing workflows, identify broken triggers, failed actions, and logic errors. Then we rebuild them to work reliably.' },
   ];
 
-  useFaqSchema(faqs);
+  generateFaqSchema(faqs);
 
   return (
     <>

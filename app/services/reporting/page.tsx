@@ -20,6 +20,7 @@ import {
   Zap
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import { generateFaqSchema } from '@/lib/faqSchema';
 
 export const metadata = {
   title: 'GHL Reporting & Dashboards Services | GHL Scale Up',
@@ -134,7 +135,7 @@ export default function ReportingDashboardsPage() {
     { q: 'Do I need to clean my data first?', a: 'We can help. If your data is messy (inconsistent tags, missing fields), we can clean it up as part of the reporting setup. Clean data is essential for accurate reporting.' },
   ];
 
-  useFaqSchema(faqs);
+  generateFaqSchema(faqs);
 
   return (
     <>

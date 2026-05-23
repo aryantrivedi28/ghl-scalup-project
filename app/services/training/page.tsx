@@ -22,6 +22,7 @@ import {
   Star
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import { generateFaqSchema } from '@/lib/faqSchema';
 
 export const metadata = {
   title: 'GHL Membership & Course Sites | GHL Scale Up',
@@ -136,7 +137,7 @@ export default function MembershipCoursesPage() {
     { q: 'How much does this cost?', a: 'GHL costs $97-$297/month for the platform. There are no transaction fees on your member payments. We provide fixed-price quotes for setup based on your needs.' },
   ];
 
-  useFaqSchema(faqs);
+  generateFaqSchema(faqs);
   return (
     <>
       {/* Add Service Schema to Head */}

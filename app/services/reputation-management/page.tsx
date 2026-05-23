@@ -16,6 +16,7 @@ import {
   Sparkles
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import { generateFaqSchema } from '@/lib/faqSchema';
 
 export const metadata = {
   title: 'GHL Reputation & Review Management Services | GHL Scale Up',
@@ -130,7 +131,7 @@ export default function ReputationManagementPage() {
     { q: 'How long does setup take?', a: 'Basic reputation setup takes 3-5 business days. This includes review request flows, platform connections, and monitoring setup.' },
   ];
 
-  useFaqSchema(faqs);
+  generateFaqSchema(faqs);
 
   return (
     <>

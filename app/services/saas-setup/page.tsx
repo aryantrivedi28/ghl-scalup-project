@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
+import { generateFaqSchema } from '@/lib/faqSchema';
 
 export const metadata = {
   title: 'GHL White-Label SaaS Setup Services | GHL Scale Up',
@@ -110,6 +111,8 @@ export default function WhiteLabelSaaSPage() {
     { q: 'Can I update snapshots after launch?', a: 'Yes. You can update your master snapshot and push updates to existing clients or set them for new clients only. We help you manage version control.' },
     { q: 'How long does setup take?', a: 'Basic SaaS setup takes 2-3 weeks. More complex setups with custom branding and multiple pricing tiers take 3-4 weeks. We provide a timeline during consultation.' },
   ];
+
+  generateFaqSchema(faqs);
 
   return (
     <>

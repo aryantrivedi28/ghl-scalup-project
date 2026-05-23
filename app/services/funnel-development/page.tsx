@@ -21,6 +21,7 @@ import {
   Mail
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import { generateFaqSchema } from '@/lib/faqSchema';
 
 export const metadata = {
   title: 'GHL Sales Funnel Development & Landing Page Builder | GHL Scale Up',
@@ -135,7 +136,7 @@ export default function SalesFunnelsPage() {
     { q: 'Do you offer ongoing funnel management?', a: 'Yes. We offer monthly maintenance plans that include A/B testing, performance optimization, and updates to keep your funnel converting at its best.' },
   ];
 
-  useFaqSchema(faqs);
+  generateFaqSchema(faqs);
 
   return (
     <>

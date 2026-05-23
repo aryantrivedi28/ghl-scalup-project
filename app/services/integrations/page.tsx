@@ -16,6 +16,7 @@ import {
   GitBranch,
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import { generateFaqSchema } from '@/lib/faqSchema';
 
 export const metadata = {
   title: 'GHL Integrations & API Development Services | GHL Scale Up',
@@ -130,7 +131,7 @@ export default function IntegrationsAPIPage() {
               { q: 'What about security?', a: 'We follow security best practices. We use OAuth where possible, store API keys securely, and never expose sensitive data. Your integrations are secure and compliant.' },
             ];
 
-            useFaqSchema(faqs);
+            generateFaqSchema(faqs);
 
   return (
     <>

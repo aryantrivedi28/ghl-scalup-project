@@ -20,6 +20,7 @@ import {
   TrendingUp
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import { generateFaqSchema } from '@/lib/faqSchema';
 
 export const metadata = {
   title: 'GHL AI Chatbot & Conversation AI Services | GHL Scale Up',
@@ -134,7 +135,7 @@ export default function AIChatbotPage() {
     { q: 'Do I need technical skills to manage the chatbot?', a: 'No. We provide training on how to update responses, add new FAQs, and review conversations. You can easily manage your chatbot without technical skills.' },
   ];
 
-  useFaqSchema(faqs);
+  generateFaqSchema(faqs);
 
   return (
     <>

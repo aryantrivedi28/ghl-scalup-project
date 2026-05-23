@@ -27,6 +27,7 @@ import {
   Headphones,
   DollarSign
 } from 'lucide-react'
+import { generateFaqSchema } from '@/lib/faqSchema'
 
 const ServiceCRMSetup = () => {
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -94,17 +95,19 @@ const ServiceCRMSetup = () => {
   ]
 
   const faqs = [
-    { question: 'How long does a GoHighLevel CRM setup take?', answer: 'A standard GHL CRM setup takes 5 to 10 business days depending on the complexity of your sales process, number of pipelines, and whether we are migrating data from another platform. Simple setups for single-location businesses can be done in under a week. Multi-location or multi-pipeline setups with heavy migration typically take 2 weeks.' },
-    { question: 'Can you migrate my data from HubSpot, Salesforce, or Zoho into GoHighLevel?', answer: 'Yes. We handle full CRM migrations from HubSpot, Salesforce, Zoho, Keap, ActiveCampaign, Ontraport, and spreadsheets. This includes contacts, deals, notes, tags, custom fields, and deal stage history. We clean duplicate records and validate data integrity before import to ensure nothing breaks.' },
-    { question: 'I already have a GoHighLevel account but it\'s a mess. Can you fix it?', answer: 'Absolutely. Many of our clients come to us with existing GHL accounts that were set up from templates or by someone without CRM strategy experience. We audit your current setup, identify structural issues (broken automations, redundant tags, misconfigured pipelines), and rebuild or restructure what needs fixing without losing your existing data.' },
-    { question: 'What is the difference between GoHighLevel CRM and HubSpot or Salesforce?', answer: 'GoHighLevel is an all-in-one platform that combines CRM, marketing automation, funnel building, SMS, email, calendars, and reputation management in a single tool. HubSpot and Salesforce are more established enterprise CRMs but require multiple add-ons and integrations to match GHL\'s built-in features. GHL is typically more cost-effective for agencies and small-to-mid businesses especially those who want to white-label the platform.' },
-    { question: 'Do I need GoHighLevel\'s Unlimited plan for CRM setup?', answer: 'Not necessarily. The Starter plan at $97/month supports up to 3 sub-accounts and includes full CRM functionality. If you are managing more than 3 clients or plan to offer white-label SaaS, you will need the Unlimited plan at $297/month. We recommend the right plan based on your business stage during our discovery call we never upsell you on features you don\'t need yet.' },
-    { question: 'Will my team be trained on how to use the CRM after setup?', answer: 'Yes. Every CRM setup includes a live training session with your team, written SOPs (standard operating procedures), and a recorded video walkthrough. We make sure your team knows how to add contacts, move deals through pipelines, use filters and smart lists, and interpret the dashboard so you are not dependent on us for day-to-day operations.' },
-    { question: 'What if I need automations and funnels along with CRM setup?', answer: 'Most clients combine CRM setup with workflow automation and funnel development. We offer these as separate services that integrate directly with your CRM architecture. Your pipelines, tags, and contact fields are designed from the start to work with automations so adding AI workflows, email sequences, or sales funnels later is straightforward, not a rebuild.' },
-    { question: 'How much does GoHighLevel CRM setup cost?', answer: 'Pricing depends on the scope: number of pipelines, whether migration is needed, integration requirements, and the complexity of your sales process. We provide a clear, fixed-price quote after a free 30-minute discovery call no hourly billing surprises. Most standard CRM setups fall in a range that pays for itself within the first month through time savings alone.' },
-    { question: 'Do you offer ongoing CRM support after the initial setup?', answer: 'Yes. We offer monthly maintenance plans for businesses that want ongoing optimization, new pipeline additions, reporting updates, and troubleshooting. Many clients start with a one-time setup and add ongoing support once they see the results and want to expand their GHL system.' },
-    { question: 'What industries have you built GoHighLevel CRM systems for?', answer: 'We have built GHL CRM systems for marketing agencies, real estate firms, home-service businesses (HVAC, plumbing, roofing), coaches and consultants, SaaS companies, energy providers, legal firms, healthcare clinics, and e-commerce brands. Each setup is tailored to the industry\'s sales process there is no one-size-fits-all template.' },
+    { q: 'How long does a GoHighLevel CRM setup take?', a: 'A standard GHL CRM setup takes 5 to 10 business days depending on the complexity of your sales process, number of pipelines, and whether we are migrating data from another platform. Simple setups for single-location businesses can be done in under a week. Multi-location or multi-pipeline setups with heavy migration typically take 2 weeks.' },
+    { q: 'Can you migrate my data from HubSpot, Salesforce, or Zoho into GoHighLevel?', a: 'Yes. We handle full CRM migrations from HubSpot, Salesforce, Zoho, Keap, ActiveCampaign, Ontraport, and spreadsheets. This includes contacts, deals, notes, tags, custom fields, and deal stage history. We clean duplicate records and validate data integrity before import to ensure nothing breaks.' },
+    { q: 'I already have a GoHighLevel account but it\'s a mess. Can you fix it?', a: 'Absolutely. Many of our clients come to us with existing GHL accounts that were set up from templates or by someone without CRM strategy experience. We audit your current setup, identify structural issues (broken automations, redundant tags, misconfigured pipelines), and rebuild or restructure what needs fixing without losing your existing data.' },
+    { q: 'What is the difference between GoHighLevel CRM and HubSpot or Salesforce?', a: 'GoHighLevel is an all-in-one platform that combines CRM, marketing automation, funnel building, SMS, email, calendars, and reputation management in a single tool. HubSpot and Salesforce are more established enterprise CRMs but require multiple add-ons and integrations to match GHL\'s built-in features. GHL is typically more cost-effective for agencies and small-to-mid businesses especially those who want to white-label the platform.' },
+    { q: 'Do I need GoHighLevel\'s Unlimited plan for CRM setup?', a: 'Not necessarily. The Starter plan at $97/month supports up to 3 sub-accounts and includes full CRM functionality. If you are managing more than 3 clients or plan to offer white-label SaaS, you will need the Unlimited plan at $297/month. We recommend the right plan based on your business stage during our discovery call we never upsell you on features you don\'t need yet.' },
+    { q: 'Will my team be trained on how to use the CRM after setup?', a: 'Yes. Every CRM setup includes a live training session with your team, written SOPs (standard operating procedures), and a recorded video walkthrough. We make sure your team knows how to add contacts, move deals through pipelines, use filters and smart lists, and interpret the dashboard so you are not dependent on us for day-to-day operations.' },
+    { q: 'What if I need automations and funnels along with CRM setup?', a: 'Most clients combine CRM setup with workflow automation and funnel development. We offer these as separate services that integrate directly with your CRM architecture. Your pipelines, tags, and contact fields are designed from the start to work with automations so adding AI workflows, email sequences, or sales funnels later is straightforward, not a rebuild.' },
+    { q: 'How much does GoHighLevel CRM setup cost?', a: 'Pricing depends on the scope: number of pipelines, whether migration is needed, integration requirements, and the complexity of your sales process. We provide a clear, fixed-price quote after a free 30-minute discovery call no hourly billing surprises. Most standard CRM setups fall in a range that pays for itself within the first month through time savings alone.' },
+    { q: 'Do you offer ongoing CRM support after the initial setup?', a: 'Yes. We offer monthly maintenance plans for businesses that want ongoing optimization, new pipeline additions, reporting updates, and troubleshooting. Many clients start with a one-time setup and add ongoing support once they see the results and want to expand their GHL system.' },
+    { q: 'What industries have you built GoHighLevel CRM systems for?', a: 'We have built GHL CRM systems for marketing agencies, real estate firms, home-service businesses (HVAC, plumbing, roofing), coaches and consultants, SaaS companies, energy providers, legal firms, healthcare clinics, and e-commerce brands. Each setup is tailored to the industry\'s sales process there is no one-size-fits-all template.' },
   ]
+
+  generateFaqSchema(faqs);
 
   const relatedServices = [
     { title: 'Workflow & Marketing Automation', description: 'Automate lead follow-ups, task assignments, and notifications directly from your CRM pipelines.', link: '/services/workflow-automation', icon: <Zap className="w-5 h-5" /> },
@@ -371,11 +374,11 @@ const ServiceCRMSetup = () => {
                   className="w-full bg-transparent border-none py-5 flex justify-between items-center cursor-pointer text-left font-['Poppins',sans-serif] text-[0.92rem] font-semibold text-[#1C2E4A] gap-4 hover:text-[#0E9BF0] transition-colors"
                   onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
                 >
-                  {faq.question}
+                  {faq.q}
                   <span className={`text-[0.7rem] text-[#8A9BB0] transition-transform duration-300 flex-shrink-0 ${openFaqIndex === index ? 'rotate-180' : ''}`}>▼</span>
                 </button>
                 <div className={`overflow-hidden transition-all duration-300 ${openFaqIndex === index ? 'max-h-[400px] pb-5' : 'max-h-0'}`}>
-                  <p className="text-[0.85rem] font-light text-[#4A5568] leading-relaxed">{faq.answer}</p>
+                  <p className="text-[0.85rem] font-light text-[#4A5568] leading-relaxed">{faq.a}</p>
                 </div>
               </div>
             ))}
