@@ -2,12 +2,12 @@
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
-import { 
-  Lock, 
-  Clock, 
-  CreditCard, 
-  Users, 
-  Mail, 
+import {
+  Lock,
+  Clock,
+  CreditCard,
+  Users,
+  Mail,
   BarChart3,
   ArrowRight,
   CheckCircle2,
@@ -21,6 +21,7 @@ import {
   TrendingUp,
   Star
 } from 'lucide-react';
+import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export const metadata = {
   title: 'GHL Membership & Course Sites | GHL Scale Up',
@@ -126,11 +127,21 @@ export default function MembershipCoursesPage() {
     }
   ];
 
+  const faqs = [
+    { q: 'Can I host videos in GHL?', a: 'Yes. GHL supports video hosting. You can upload videos directly or embed from YouTube, Vimeo, and other platforms. Videos are protected and only accessible to members.' },
+    { q: 'How does drip content work?', a: 'You can schedule content to release based on signup date. For example, Module 1 on day 1, Module 2 on day 7, etc. Keeps students engaged and prevents overwhelm.' },
+    { q: 'Can I create multiple membership tiers?', a: 'Yes. You can create free tiers, basic, premium, and VIP levels. Each tier can have different content access and pricing.' },
+    { q: 'What about quizzes and assessments?', a: 'GHL includes form and survey tools for quizzes, assessments, and feedback. You can create custom quizzes with scoring and conditional logic.' },
+    { q: 'Can students have profiles?', a: 'Yes. Students have member profiles where they can track progress, access content, and manage their account settings.' },
+    { q: 'How much does this cost?', a: 'GHL costs $97-$297/month for the platform. There are no transaction fees on your member payments. We provide fixed-price quotes for setup based on your needs.' },
+  ];
+
+  useFaqSchema(faqs);
   return (
     <>
       {/* Add Service Schema to Head */}
       <ServiceSchema />
-      
+
       <Breadcrumb items={[{ label: 'GHL Services', href: '/services' }, { label: 'Membership & Course Sites' }]} />
 
       {/* Page Hero */}
@@ -210,10 +221,9 @@ export default function MembershipCoursesPage() {
               { icon: <BarChart3 className="w-5 h-5" />, color: 'yellow', title: 'Analytics & Tracking', description: 'Track enrollments, cancellations, churn rate, and lifetime value. Know exactly how your membership business is performing.' },
             ].map((item, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${
-                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' : 
-                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
-                }`}>
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' :
+                    item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
+                  }`}>
                   {item.icon}
                 </div>
                 <h3 className="text-[0.92rem] font-bold text-[#1C2E4A] mb-1.5">{item.title}</h3>
@@ -329,7 +339,7 @@ export default function MembershipCoursesPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {relatedBlogs.map((blog, index) => (
-              <Link 
+              <Link
                 key={index}
                 href={`/blog/${blog.slug}`}
                 className="group bg-[#F8F9FB] border border-[#E8EDF4] rounded-xl p-6 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all"
@@ -396,14 +406,7 @@ export default function MembershipCoursesPage() {
           </div>
 
           <div className="max-w-[800px] mx-auto">
-            {[
-              { q: 'Can I host videos in GHL?', a: 'Yes. GHL supports video hosting. You can upload videos directly or embed from YouTube, Vimeo, and other platforms. Videos are protected and only accessible to members.' },
-              { q: 'How does drip content work?', a: 'You can schedule content to release based on signup date. For example, Module 1 on day 1, Module 2 on day 7, etc. Keeps students engaged and prevents overwhelm.' },
-              { q: 'Can I create multiple membership tiers?', a: 'Yes. You can create free tiers, basic, premium, and VIP levels. Each tier can have different content access and pricing.' },
-              { q: 'What about quizzes and assessments?', a: 'GHL includes form and survey tools for quizzes, assessments, and feedback. You can create custom quizzes with scoring and conditional logic.' },
-              { q: 'Can students have profiles?', a: 'Yes. Students have member profiles where they can track progress, access content, and manage their account settings.' },
-              { q: 'How much does this cost?', a: 'GHL costs $97-$297/month for the platform. There are no transaction fees on your member payments. We provide fixed-price quotes for setup based on your needs.' },
-            ].map((faq, index) => (
+            {faqs.map((faq, index) => (
               <div key={index} className="border-b border-[#E8EDF4]">
                 <details className="group py-5">
                   <summary className="flex justify-between items-center cursor-pointer list-none text-[0.92rem] font-semibold text-[#1C2E4A] hover:text-[#0E9BF0] transition-colors">
@@ -452,7 +455,7 @@ export default function MembershipCoursesPage() {
         </div>
       </section>
 
-      <CtaBand 
+      <CtaBand
         title='Build a Passive Income Stream<br /><span class="hl-yellow">With Your Knowledge.</span>'
         description="Turn your expertise into recurring revenue. Let us build your membership site or course platform so you can focus on creating great content."
         primaryText="Book Your Free Course Consultation →"

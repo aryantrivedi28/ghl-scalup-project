@@ -125,7 +125,7 @@ interface FAQItem {
 const faqs: FAQItem[] = [
       {
             q: 'What is a GoHighLevel virtual assistant?',
-            a: 'A GoHighLevel virtual assistant (GHL VA) is a remote specialist who manages your GoHighLevel account on an ongoing basis. Unlike a general VA, a GHL virtual assistant specialises exclusively in the GoHighLevel platform — building workflows, managing pipelines, running campaigns, handling the unified inbox, and keeping your CRM optimised so you can focus on your business.',
+            a: 'A GoHighLevel virtual assistant (GHL VA) is a remote specialist who manages your GoHighLevel account on an ongoing basis. Unlike a general VA, a GHL virtual assistant specialises exclusively in the GoHighLevel platform building workflows, managing pipelines, running campaigns, handling the unified inbox, and keeping your CRM optimised so you can focus on your business.',
       },
       {
             q: 'What does a GHL VA do day-to-day?',
@@ -133,15 +133,15 @@ const faqs: FAQItem[] = [
       },
       {
             q: 'How much does a GoHighLevel virtual assistant cost?',
-            a: 'Our GHL VA plans start at $800/month for 20 hours. A full-time dedicated GHL VA is $2,500/month for 160 hours. Pricing is based on hours required and task complexity. All plans are monthly with no long-term contracts — cancel anytime.',
+            a: 'Our GHL VA plans start at $800/month for 20 hours. A full-time dedicated GHL VA is $2,500/month for 160 hours. Pricing is based on hours required and task complexity. All plans are monthly with no long-term contracts cancel anytime.',
       },
       {
             q: 'How is a GHL VA different from a general virtual assistant?',
-            a: 'A general VA knows a little about many tools. A GHL VA knows GoHighLevel deeply — the workflow builder, pipeline logic, triggers, custom values, conversation AI, sub-account management, and API integrations. The depth of platform knowledge is the difference between someone who can follow instructions and someone who can architect solutions inside GHL independently.',
+            a: 'A general VA knows a little about many tools. A GHL VA knows GoHighLevel deeply the workflow builder, pipeline logic, triggers, custom values, conversation AI, sub-account management, and API integrations. The depth of platform knowledge is the difference between someone who can follow instructions and someone who can architect solutions inside GHL independently.',
       },
       {
             q: 'Is a GoHighLevel virtual assistant right for my business?',
-            a: 'A GHL VA makes sense if you are already using GoHighLevel and need ongoing management — new workflows, campaign management, inbox handling, pipeline updates, and system optimisation — but do not want to hire a full-time in-house employee. Agencies, SaaS founders, coaches, and service businesses with active GHL accounts benefit most.',
+            a: 'A GHL VA makes sense if you are already using GoHighLevel and need ongoing management new workflows, campaign management, inbox handling, pipeline updates, and system optimisation but do not want to hire a full-time in-house employee. Agencies, SaaS founders, coaches, and service businesses with active GHL accounts benefit most.',
       },
 ]
 
@@ -237,7 +237,7 @@ export default function GHLVirtualAssistantPage() {
 
       const dailyTasks = [
             { icon: FolderOpen, title: 'CRM Pipeline & Opportunity Management', desc: 'Daily pipeline reviews, moving opportunities through stages, tagging contacts, updating deal values, and ensuring no lead falls through the cracks inside GoHighLevel.' },
-            { icon: Zap, title: 'GoHighLevel Workflow Automation Builds', desc: 'Building new automation workflows, maintaining existing ones, fixing broken triggers, and optimising sequence logic — all independently inside your GHL account.' },
+            { icon: Zap, title: 'GoHighLevel Workflow Automation Builds', desc: 'Building new automation workflows, maintaining existing ones, fixing broken triggers, and optimising sequence logic all independently inside your GHL account.' },
             { icon: Mail, title: 'Email, SMS & WhatsApp Campaign Management', desc: 'Creating, scheduling, and monitoring campaigns. Tracking open rates and click rates. Rebuilding sequences that are underperforming.' },
             { icon: MessageSquare, title: 'Unified Inbox & Lead Response Management', desc: 'Responding to inbound leads across SMS, email, and chat. Qualifying leads and moving them into the correct pipeline stages.' },
             { icon: Users, title: 'Sub-Account Setup & Client Onboarding', desc: 'Deploying snapshots to new sub-accounts, configuring client-specific pipelines, and onboarding new agency clients into GoHighLevel.' },
@@ -305,9 +305,9 @@ export default function GHLVirtualAssistantPage() {
       ]
 
       const whyUsFeatures = [
-            { stat: '200+', label: 'Real GoHighLevel Project Experience', desc: 'Every GHL VA on our team has worked on real, complex GoHighLevel builds — not just followed tutorial videos. They know what breaks at scale and how to fix it before it becomes a problem.' },
+            { stat: '200+', label: 'Real GoHighLevel Project Experience', desc: 'Every GHL VA on our team has worked on real, complex GoHighLevel builds not just followed tutorial videos. They know what breaks at scale and how to fix it before it becomes a problem.' },
             { stat: 'GHL Only', label: 'GoHighLevel Is All We Do', desc: 'We are not a general marketing agency that also does GHL. GoHighLevel is our entire focus. That depth of specialisation means your VA builds better, faster, and without making the mistakes generalists make.' },
-            { stat: 'Same Day', label: 'Async-First, Fast Response', desc: 'All task requests are acknowledged within a few hours and completed within the same business day for standard tasks. You always know where your GHL account stands — daily updates via Slack or WhatsApp.' },
+            { stat: 'Same Day', label: 'Async-First, Fast Response', desc: 'All task requests are acknowledged within a few hours and completed within the same business day for standard tasks. You always know where your GHL account stands daily updates via Slack or WhatsApp.' },
             { stat: '6 Countries', label: 'International GHL Experience', desc: 'We have managed GoHighLevel accounts for agencies and businesses across the US, UK, UAE, Australia, Singapore, and India. We understand how different markets use GHL differently.' },
       ]
 
@@ -341,7 +341,7 @@ export default function GHLVirtualAssistantPage() {
                                                 <span className="mt-2 block text-capture-yellow">Who Lives Inside Your GHL Account.</span>
                                           </h1>
                                           <p className="mb-9 max-w-md text-[17px] leading-relaxed text-white/72">
-                                                Stop spending your time inside GoHighLevel doing tasks that should run automatically. Our <strong className="text-white">dedicated GHL VA</strong> manages your pipelines, workflows, campaigns, and inbox — so you focus on closing deals, not managing software.
+                                                Stop spending your time inside GoHighLevel doing tasks that should run automatically. Our <strong className="text-white">dedicated GHL VA</strong> manages your pipelines, workflows, campaigns, and inbox so you focus on closing deals, not managing software.
                                           </p>
                                           <div className="mb-9 flex flex-wrap gap-3.5">
                                                 <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-8 py-3.5 rounded-[10px] text-[0.88rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
@@ -391,7 +391,7 @@ export default function GHLVirtualAssistantPage() {
                                                 What is a <span className="text-nurture-blue">GoHighLevel Virtual Assistant</span> and What Do They Do?
                                           </h2>
                                           <p className="mb-3 text-base leading-relaxed text-body">
-                                                A GoHighLevel virtual assistant is not a general VA who has used GHL once. A GHL VA is a remote specialist whose entire skill set is built around the GoHighLevel platform — workflows, pipelines, conversation AI, campaigns, and sub-account management.
+                                                A GoHighLevel virtual assistant is not a general VA who has used GHL once. A GHL VA is a remote specialist whose entire skill set is built around the GoHighLevel platform workflows, pipelines, conversation AI, campaigns, and sub-account management.
                                           </p>
                                           <p className="mb-5 text-base leading-relaxed text-body">
                                                 The difference is depth. A general VA follows instructions. A GHL virtual assistant identifies what is broken in your system, builds the fix, tests it, and has it live before your morning standup.
@@ -442,7 +442,7 @@ export default function GHLVirtualAssistantPage() {
                                                 <div className="mb-1.5 text-[36px] font-extrabold leading-none text-nurture-blue">6</div>
                                                 <div className="flex items-start gap-1.5 text-[13px] font-medium text-muted">
                                                       <Globe className="mt-0.5 h-3.5 w-3.5 flex-shrink-0" />
-                                                      <span>Countries served — US, UK, UAE, AU, SG, IN</span>
+                                                      <span>Countries served US, UK, UAE, AU, SG, IN</span>
                                                 </div>
                                           </div>
                                     </div>
@@ -462,7 +462,7 @@ export default function GHLVirtualAssistantPage() {
                                           What Your GHL Virtual Assistant Handles Every Day
                                     </h2>
                                     <p className="text-base leading-relaxed text-body">
-                                          A dedicated GHL VA takes these tasks entirely off your plate — no briefing required, no micromanaging.
+                                          A dedicated GHL VA takes these tasks entirely off your plate no briefing required, no micromanaging.
                                     </p>
                               </div>
 
@@ -643,7 +643,7 @@ export default function GHLVirtualAssistantPage() {
                                           FAQ
                                     </span>
                                     <h2 className="mb-3 text-[clamp(26px,3.2vw,40px)] font-extrabold leading-[1.2] tracking-[-0.02em] text-space-blue">
-                                          GoHighLevel Virtual Assistant — Frequently Asked Questions
+                                          GoHighLevel Virtual Assistant Frequently Asked Questions
                                     </h2>
                                     <p className="text-base leading-relaxed text-body">
                                           Everything you need to know before hiring a GHL VA for your business or agency.

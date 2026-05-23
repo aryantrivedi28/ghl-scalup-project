@@ -2,12 +2,12 @@
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
-import { 
-  Palette, 
-  Smartphone, 
-  Search, 
-  Zap, 
-  FileText, 
+import {
+  Palette,
+  Smartphone,
+  Search,
+  Zap,
+  FileText,
   Link as LinkIcon,
   Clock,
   ArrowRight,
@@ -121,11 +121,20 @@ export default function WebsiteDevelopmentPage() {
     }
   ];
 
+  const faqs = [
+    { q: 'How long does GHL website development take?', a: 'A standard 5-page website takes 2-3 weeks. E-commerce or complex sites with membership areas take 3-4 weeks. We provide a timeline during our discovery call.' },
+    { q: 'Can I update the website myself after launch?', a: 'Yes. We build your site with GHLs easy-to-use CMS. You can update text, images, and even add new pages without any technical skills. We also provide training.' },
+    { q: 'Do you provide content writing and images?', a: 'We can. We offer copywriting services and can source professional images. Or you can provide your own content either way, we will handle the implementation.' },
+    { q: 'Will my website be SEO optimized?', a: 'Absolutely. We build with SEO best practices including proper heading structure, meta descriptions, alt tags, fast loading speeds, and mobile responsiveness. We can also set up Google Search Console and analytics.' },
+    { q: 'Can I migrate my existing WordPress site to GHL?', a: 'Yes. We can migrate your existing content, pages, and blog posts from WordPress, Wix, Squarespace, or any other platform to GHL while preserving your SEO rankings.' },
+    { q: 'What about hosting and domain?', a: 'GHL includes hosting. You can use your existing domain or we can help you register a new one. There are no separate hosting fees everything is included in your GHL subscription.' },
+  ];
+
   return (
     <>
       {/* Add Service Schema to Head */}
       <ServiceSchema />
-      
+
       <Breadcrumb items={[{ label: 'GHL Services', href: '/services' }, { label: 'GHL Website Development' }]} />
 
       {/* Page Hero */}
@@ -205,10 +214,9 @@ export default function WebsiteDevelopmentPage() {
               { icon: <LinkIcon className="w-5 h-5" />, color: 'yellow', title: 'CRM & Form Integration', description: 'Connect contact forms, booking calendars, and lead capture directly to your GoHighLevel CRM. Every lead is automatically tracked and followed up.' },
             ].map((item, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${
-                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' : 
-                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
-                }`}>
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' :
+                    item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
+                  }`}>
                   {item.icon}
                 </div>
                 <h3 className="text-[0.92rem] font-bold text-[#1C2E4A] mb-1.5">{item.title}</h3>
@@ -324,7 +332,7 @@ export default function WebsiteDevelopmentPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {relatedBlogs.map((blog, index) => (
-              <Link 
+              <Link
                 key={index}
                 href={`/blog/${blog.slug}`}
                 className="group bg-[#F8F9FB] border border-[#E8EDF4] rounded-xl p-6 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all"
@@ -391,14 +399,7 @@ export default function WebsiteDevelopmentPage() {
           </div>
 
           <div className="max-w-[800px] mx-auto">
-            {[
-              { q: 'How long does GHL website development take?', a: 'A standard 5-page website takes 2-3 weeks. E-commerce or complex sites with membership areas take 3-4 weeks. We provide a timeline during our discovery call.' },
-              { q: 'Can I update the website myself after launch?', a: 'Yes. We build your site with GHLs easy-to-use CMS. You can update text, images, and even add new pages without any technical skills. We also provide training.' },
-              { q: 'Do you provide content writing and images?', a: 'We can. We offer copywriting services and can source professional images. Or you can provide your own content either way, we will handle the implementation.' },
-              { q: 'Will my website be SEO optimized?', a: 'Absolutely. We build with SEO best practices including proper heading structure, meta descriptions, alt tags, fast loading speeds, and mobile responsiveness. We can also set up Google Search Console and analytics.' },
-              { q: 'Can I migrate my existing WordPress site to GHL?', a: 'Yes. We can migrate your existing content, pages, and blog posts from WordPress, Wix, Squarespace, or any other platform to GHL while preserving your SEO rankings.' },
-              { q: 'What about hosting and domain?', a: 'GHL includes hosting. You can use your existing domain or we can help you register a new one. There are no separate hosting fees everything is included in your GHL subscription.' },
-            ].map((faq, index) => (
+            {faqs.map((faq, index) => (
               <div key={index} className="border-b border-[#E8EDF4]">
                 <details className="group py-5">
                   <summary className="flex justify-between items-center cursor-pointer list-none text-[0.92rem] font-semibold text-[#1C2E4A] hover:text-[#0E9BF0] transition-colors">
@@ -447,7 +448,7 @@ export default function WebsiteDevelopmentPage() {
         </div>
       </section>
 
-      <CtaBand 
+      <CtaBand
         title='Your Website Should Be Your<br /><span class="hl-yellow">Best Salesperson.</span>'
         description="Stop losing customers to slow, outdated, or hard-to-use websites. Let us build you a GHL site that works 24/7 to capture leads and grow your business."
         primaryText="Book Your Free Consultation →"

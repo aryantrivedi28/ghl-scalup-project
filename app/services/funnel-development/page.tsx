@@ -2,12 +2,12 @@
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
-import { 
-  FileText, 
-  DollarSign, 
-  TrendingUp, 
-  Target, 
-  Link as LinkIcon, 
+import {
+  FileText,
+  DollarSign,
+  TrendingUp,
+  Target,
+  Link as LinkIcon,
   BarChart3,
   ArrowRight,
   CheckCircle2,
@@ -20,6 +20,7 @@ import {
   Eye,
   Mail
 } from 'lucide-react';
+import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export const metadata = {
   title: 'GHL Sales Funnel Development & Landing Page Builder | GHL Scale Up',
@@ -125,11 +126,22 @@ export default function SalesFunnelsPage() {
     }
   ];
 
+  const faqs = [
+    { q: 'How long does funnel development take?', a: 'A standard funnel (3-5 pages) takes 1-2 weeks. Complex funnels with multiple upsells, memberships, or custom integrations take 2-3 weeks. We provide a timeline before we start.' },
+    { q: 'Do you provide copywriting?', a: 'Yes. We can provide full copywriting services for your funnel pages, or work with your existing copy. Our team has experience writing high-converting sales copy across multiple industries.' },
+    { q: 'Can you integrate with my existing CRM?', a: 'Yes. We integrate all funnel pages with GoHighLevel (our specialty), as well as other CRMs like HubSpot, Salesforce, and ActiveCampaign if needed.' },
+    { q: 'What about payment processing?', a: 'We integrate with Stripe, PayPal, and other payment processors directly inside your funnel. One-click upsells, subscriptions, and payment plans are all supported.' },
+    { q: 'Will my funnel be mobile responsive?', a: 'Absolutely. All funnels we build are fully responsive and optimized for mobile devices. Over 60% of traffic is mobile, so this is non-negotiable.' },
+    { q: 'Do you offer ongoing funnel management?', a: 'Yes. We offer monthly maintenance plans that include A/B testing, performance optimization, and updates to keep your funnel converting at its best.' },
+  ];
+
+  useFaqSchema(faqs);
+
   return (
     <>
       {/* Add Service Schema to Head */}
       <ServiceSchema />
-      
+
       <Breadcrumb items={[{ label: 'GHL Services', href: '/services' }, { label: 'Sales Funnel Development' }]} />
 
       {/* Page Hero */}
@@ -209,10 +221,9 @@ export default function SalesFunnelsPage() {
               { icon: <BarChart3 className="w-5 h-5" />, color: 'yellow', title: 'Analytics & Tracking', description: 'Facebook Pixel, Google Analytics, and custom event tracking to measure performance and optimize conversions over time.' },
             ].map((item, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${
-                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' : 
-                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
-                }`}>
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' :
+                    item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
+                  }`}>
                   {item.icon}
                 </div>
                 <h3 className="text-[0.92rem] font-bold text-[#1C2E4A] mb-1.5">{item.title}</h3>
@@ -328,7 +339,7 @@ export default function SalesFunnelsPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {relatedBlogs.map((blog, index) => (
-              <Link 
+              <Link
                 key={index}
                 href={`/blog/${blog.slug}`}
                 className="group bg-[#F8F9FB] border border-[#E8EDF4] rounded-xl p-6 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all"
@@ -395,14 +406,7 @@ export default function SalesFunnelsPage() {
           </div>
 
           <div className="max-w-[800px] mx-auto">
-            {[
-              { q: 'How long does funnel development take?', a: 'A standard funnel (3-5 pages) takes 1-2 weeks. Complex funnels with multiple upsells, memberships, or custom integrations take 2-3 weeks. We provide a timeline before we start.' },
-              { q: 'Do you provide copywriting?', a: 'Yes. We can provide full copywriting services for your funnel pages, or work with your existing copy. Our team has experience writing high-converting sales copy across multiple industries.' },
-              { q: 'Can you integrate with my existing CRM?', a: 'Yes. We integrate all funnel pages with GoHighLevel (our specialty), as well as other CRMs like HubSpot, Salesforce, and ActiveCampaign if needed.' },
-              { q: 'What about payment processing?', a: 'We integrate with Stripe, PayPal, and other payment processors directly inside your funnel. One-click upsells, subscriptions, and payment plans are all supported.' },
-              { q: 'Will my funnel be mobile responsive?', a: 'Absolutely. All funnels we build are fully responsive and optimized for mobile devices. Over 60% of traffic is mobile, so this is non-negotiable.' },
-              { q: 'Do you offer ongoing funnel management?', a: 'Yes. We offer monthly maintenance plans that include A/B testing, performance optimization, and updates to keep your funnel converting at its best.' },
-            ].map((faq, index) => (
+            {faqs.map((faq, index) => (
               <div key={index} className="border-b border-[#E8EDF4]">
                 <details className="group py-5">
                   <summary className="flex justify-between items-center cursor-pointer list-none text-[0.92rem] font-semibold text-[#1C2E4A] hover:text-[#0E9BF0] transition-colors">
@@ -451,7 +455,7 @@ export default function SalesFunnelsPage() {
         </div>
       </section>
 
-      <CtaBand 
+      <CtaBand
         title='Stop Losing Sales to a<br /><span class="hl-yellow">Low-Converting Funnel.</span>'
         description="Every visitor to your funnel is a potential customer. Our funnels convert them. Book your free audit and see how we can increase your conversion rate."
         primaryText="Book Your Free Funnel Audit →"

@@ -2,12 +2,12 @@
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
-import { 
-  Bot, 
-  HelpCircle, 
-  Calendar, 
-  Target, 
-  Link as LinkIcon, 
+import {
+  Bot,
+  HelpCircle,
+  Calendar,
+  Target,
+  Link as LinkIcon,
   BarChart3,
   ArrowRight,
   CheckCircle2,
@@ -19,6 +19,7 @@ import {
   Database,
   TrendingUp
 } from 'lucide-react';
+import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export const metadata = {
   title: 'GHL AI Chatbot & Conversation AI Services | GHL Scale Up',
@@ -124,11 +125,22 @@ export default function AIChatbotPage() {
     }
   ];
 
+  const faqs = [
+    { q: 'How smart is the AI chatbot?', a: 'Our AI chatbots are trained on your specific business your products, services, policies, and common questions. They understand context, handle complex questions, and escalate to humans when needed. The more conversations it has, the smarter it gets.' },
+    { q: 'Can the chatbot book appointments?', a: 'Yes. The AI chatbot can check availability, book appointments, and send calendar invites all integrated with your calendar system. It can also handle rescheduling and cancellations.' },
+    { q: 'What happens if the chatbot can\'t answer a question?', a: 'You can set up escalation rules. When the AI can\'t answer, it can offer to connect to a human, collect contact information for follow-up, or email the question to your team.' },
+    { q: 'Where can I put the chatbot?', a: 'Your AI chatbot can be embedded on your website, in your GHL funnels, or connected to WhatsApp and Facebook Messenger. It works anywhere you have traffic.' },
+    { q: 'How long does AI setup take?', a: 'Basic chatbots with FAQ and lead qualification take 1-2 weeks. More complex chatbots with booking, integrations, and advanced logic take 2-3 weeks. We provide a timeline during consultation.' },
+    { q: 'Do I need technical skills to manage the chatbot?', a: 'No. We provide training on how to update responses, add new FAQs, and review conversations. You can easily manage your chatbot without technical skills.' },
+  ];
+
+  useFaqSchema(faqs);
+
   return (
     <>
       {/* Add Service Schema to Head */}
       <ServiceSchema />
-      
+
       <Breadcrumb items={[{ label: 'GHL Services', href: '/services' }, { label: 'AI Chatbot & Conversation AI' }]} />
 
       {/* Page Hero */}
@@ -209,10 +221,9 @@ export default function AIChatbotPage() {
               { icon: <BarChart3 className="w-5 h-5" />, color: 'yellow', title: 'Analytics & Insights', description: 'Track conversation volume, qualification rates, common questions, and conversion metrics. Data-driven optimization for better results.' },
             ].map((item, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${
-                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' : 
-                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
-                }`}>
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' :
+                    item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
+                  }`}>
                   {item.icon}
                 </div>
                 <h3 className="text-[0.92rem] font-bold text-[#1C2E4A] mb-1.5">{item.title}</h3>
@@ -328,7 +339,7 @@ export default function AIChatbotPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {relatedBlogs.map((blog, index) => (
-              <Link 
+              <Link
                 key={index}
                 href={`/blog/${blog.slug}`}
                 className="group bg-[#F8F9FB] border border-[#E8EDF4] rounded-xl p-6 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all"
@@ -395,14 +406,7 @@ export default function AIChatbotPage() {
           </div>
 
           <div className="max-w-[800px] mx-auto">
-            {[
-              { q: 'How smart is the AI chatbot?', a: 'Our AI chatbots are trained on your specific business your products, services, policies, and common questions. They understand context, handle complex questions, and escalate to humans when needed. The more conversations it has, the smarter it gets.' },
-              { q: 'Can the chatbot book appointments?', a: 'Yes. The AI chatbot can check availability, book appointments, and send calendar invites all integrated with your calendar system. It can also handle rescheduling and cancellations.' },
-              { q: 'What happens if the chatbot can\'t answer a question?', a: 'You can set up escalation rules. When the AI can\'t answer, it can offer to connect to a human, collect contact information for follow-up, or email the question to your team.' },
-              { q: 'Where can I put the chatbot?', a: 'Your AI chatbot can be embedded on your website, in your GHL funnels, or connected to WhatsApp and Facebook Messenger. It works anywhere you have traffic.' },
-              { q: 'How long does AI setup take?', a: 'Basic chatbots with FAQ and lead qualification take 1-2 weeks. More complex chatbots with booking, integrations, and advanced logic take 2-3 weeks. We provide a timeline during consultation.' },
-              { q: 'Do I need technical skills to manage the chatbot?', a: 'No. We provide training on how to update responses, add new FAQs, and review conversations. You can easily manage your chatbot without technical skills.' },
-            ].map((faq, index) => (
+            {faqs.map((faq, index) => (
               <div key={index} className="border-b border-[#E8EDF4]">
                 <details className="group py-5">
                   <summary className="flex justify-between items-center cursor-pointer list-none text-[0.92rem] font-semibold text-[#1C2E4A] hover:text-[#0E9BF0] transition-colors">
@@ -451,7 +455,7 @@ export default function AIChatbotPage() {
         </div>
       </section>
 
-      <CtaBand 
+      <CtaBand
         title='Stop Losing Leads While You Sleep.<br /><span class="hl-yellow">Let AI Work 24/7.</span>'
         description="Every visitor to your website is a potential customer. Our AI chatbots capture, qualify, and convert them even when your team is offline. Book your free consultation today."
         primaryText="Book Your Free AI Consultation →"

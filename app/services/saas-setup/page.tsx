@@ -102,11 +102,20 @@ export default function WhiteLabelSaaSPage() {
     }
   ];
 
+  const faqs = [
+    { q: 'Do I need a GoHighLevel agency account?', a: 'Yes. You will need a GoHighLevel agency account (Unlimited plan) to white-label. We can help you set this up if you do not have one yet.' },
+    { q: 'Can I charge clients whatever I want?', a: 'Yes. You set your own pricing and keep 100% of client revenue. GHL only charges you for the agency account your clients pay you directly.' },
+    { q: 'How do clients sign up?', a: 'We set up a branded signup page. Clients enter their details, pay you via Stripe, and their sub-account is created automatically. Zero manual work for you.' },
+    { q: 'What can I include in my snapshot?', a: 'Everything CRM pipelines, automation workflows, funnels, email templates, SMS sequences, calendars, and reporting dashboards. Whatever you want your clients to start with.' },
+    { q: 'Can I update snapshots after launch?', a: 'Yes. You can update your master snapshot and push updates to existing clients or set them for new clients only. We help you manage version control.' },
+    { q: 'How long does setup take?', a: 'Basic SaaS setup takes 2-3 weeks. More complex setups with custom branding and multiple pricing tiers take 3-4 weeks. We provide a timeline during consultation.' },
+  ];
+
   return (
     <>
       {/* Add Service Schema to Head */}
       <ServiceSchema />
-      
+
       <Breadcrumb items={[{ label: 'GHL Services', href: '/services' }, { label: 'White-Label SaaS Setup' }]} />
 
       {/* Page Hero */}
@@ -186,10 +195,9 @@ export default function WhiteLabelSaaSPage() {
               { icon: '📊', color: 'yellow', title: 'Client Dashboard & Reporting', description: 'Custom dashboard showing client usage, sub-account health, and billing status. Manage all your clients from one central location.' },
             ].map((item, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-[1.2rem] mb-3.5 ${
-                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)]' : 
-                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)]' : 'bg-[rgba(248,208,0,0.12)]'
-                }`}>
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-[1.2rem] mb-3.5 ${item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)]' :
+                    item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)]' : 'bg-[rgba(248,208,0,0.12)]'
+                  }`}>
                   {item.icon}
                 </div>
                 <h3 className="text-[0.92rem] font-bold text-[#1C2E4A] mb-1.5">{item.title}</h3>
@@ -305,7 +313,7 @@ export default function WhiteLabelSaaSPage() {
 
           <div className="grid md:grid-cols-2 gap-6">
             {relatedBlogs.map((blog, index) => (
-              <Link 
+              <Link
                 key={index}
                 href={`/blog/${blog.slug}`}
                 className="group bg-[#F8F9FB] border border-[#E8EDF4] rounded-xl p-6 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all"
@@ -374,14 +382,7 @@ export default function WhiteLabelSaaSPage() {
           </div>
 
           <div className="max-w-[800px] mx-auto">
-            {[
-              { q: 'Do I need a GoHighLevel agency account?', a: 'Yes. You will need a GoHighLevel agency account (Unlimited plan) to white-label. We can help you set this up if you do not have one yet.' },
-              { q: 'Can I charge clients whatever I want?', a: 'Yes. You set your own pricing and keep 100% of client revenue. GHL only charges you for the agency account your clients pay you directly.' },
-              { q: 'How do clients sign up?', a: 'We set up a branded signup page. Clients enter their details, pay you via Stripe, and their sub-account is created automatically. Zero manual work for you.' },
-              { q: 'What can I include in my snapshot?', a: 'Everything CRM pipelines, automation workflows, funnels, email templates, SMS sequences, calendars, and reporting dashboards. Whatever you want your clients to start with.' },
-              { q: 'Can I update snapshots after launch?', a: 'Yes. You can update your master snapshot and push updates to existing clients or set them for new clients only. We help you manage version control.' },
-              { q: 'How long does setup take?', a: 'Basic SaaS setup takes 2-3 weeks. More complex setups with custom branding and multiple pricing tiers take 3-4 weeks. We provide a timeline during consultation.' },
-            ].map((faq, index) => (
+            {faqs.map((faq, index) => (
               <div key={index} className="border-b border-[#E8EDF4]">
                 <details className="group py-5">
                   <summary className="flex justify-between items-center cursor-pointer list-none text-[0.92rem] font-semibold text-[#1C2E4A] hover:text-[#0E9BF0] transition-colors">
@@ -427,7 +428,7 @@ export default function WhiteLabelSaaSPage() {
         </div>
       </section>
 
-      <CtaBand 
+      <CtaBand
         title='Stop Trading Time for Money.<br /><span class="hl-yellow">Build a SaaS That Scales.</span>'
         description="Service businesses are capped. SaaS businesses scale infinitely. Launch your own white-label SaaS platform in weeks and start building predictable recurring revenue today."
         primaryText="Book Your Free SaaS Consultation →"

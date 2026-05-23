@@ -2,12 +2,12 @@
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
-import { 
-  Phone, 
-  Target, 
-  Calendar, 
-  MessageSquare, 
-  FileText, 
+import {
+  Phone,
+  Target,
+  Calendar,
+  MessageSquare,
+  FileText,
   RefreshCw,
   ArrowRight,
   CheckCircle2,
@@ -19,6 +19,7 @@ import {
   Sparkles,
   Headphones
 } from 'lucide-react';
+import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export const metadata = {
   title: 'GHL AI Voice Agent & Call Handling Services | GHL Scale Up',
@@ -124,11 +125,23 @@ export default function AIVoiceAgentPage() {
     }
   ];
 
+  const faqs = [
+    { q: 'Does the AI voice agent sound robotic?', a: 'No. We use advanced natural language processing and realistic AI voices that sound human. Callers often don\'t realize they\'re talking to AI. You can choose from multiple voices to match your brand.' },
+    { q: 'Can the AI book appointments directly in my calendar?', a: 'Yes. The AI voice agent integrates with your calendar system and can check availability, book appointments, and send confirmations in real-time. No manual entry required.' },
+    { q: 'What happens if the AI can\'t answer a question?', a: 'You can set up escalation rules. The AI can offer to transfer to a human, collect contact info for follow-up, or email the question to your team. You control how it handles every scenario.' },
+    { q: 'Does the AI work with my existing phone number?', a: 'Yes. We can set up the AI voice agent to answer calls to your existing business number, or provide a new number. No phone system changes required.' },
+    { q: 'How long does setup take?', a: 'Basic voice agent setup takes 1-2 weeks. More complex setups with multiple call flows, custom integrations, and advanced logic take 2-3 weeks.' },
+    { q: 'What about missed calls?', a: 'The AI voice agent answers every call there are no missed calls. If it can\'t help, it collects caller info for follow-up or transfers to your team if available.' },
+  ];
+
+
+  useFaqSchema(faqs);
+
   return (
     <>
       {/* Add Service Schema to Head */}
       <ServiceSchema />
-      
+
       <Breadcrumb items={[{ label: 'GHL Services', href: '/services' }, { label: 'AI Voice Agent & Call Handling' }]} />
 
       {/* Page Hero */}
@@ -209,10 +222,9 @@ export default function AIVoiceAgentPage() {
               { icon: <RefreshCw className="w-5 h-5" />, color: 'yellow', title: 'CRM Integration', description: 'AI logs calls, creates contacts, updates pipelines, and triggers automations in your GoHighLevel CRM. Seamless handoff to your team.' },
             ].map((item, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${
-                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' : 
-                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
-                }`}>
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' :
+                    item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
+                  }`}>
                   {item.icon}
                 </div>
                 <h3 className="text-[0.92rem] font-bold text-[#1C2E4A] mb-1.5">{item.title}</h3>
@@ -328,7 +340,7 @@ export default function AIVoiceAgentPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {relatedBlogs.map((blog, index) => (
-              <Link 
+              <Link
                 key={index}
                 href={`/blog/${blog.slug}`}
                 className="group bg-[#F8F9FB] border border-[#E8EDF4] rounded-xl p-6 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all"
@@ -395,14 +407,7 @@ export default function AIVoiceAgentPage() {
           </div>
 
           <div className="max-w-[800px] mx-auto">
-            {[
-              { q: 'Does the AI voice agent sound robotic?', a: 'No. We use advanced natural language processing and realistic AI voices that sound human. Callers often don\'t realize they\'re talking to AI. You can choose from multiple voices to match your brand.' },
-              { q: 'Can the AI book appointments directly in my calendar?', a: 'Yes. The AI voice agent integrates with your calendar system and can check availability, book appointments, and send confirmations in real-time. No manual entry required.' },
-              { q: 'What happens if the AI can\'t answer a question?', a: 'You can set up escalation rules. The AI can offer to transfer to a human, collect contact info for follow-up, or email the question to your team. You control how it handles every scenario.' },
-              { q: 'Does the AI work with my existing phone number?', a: 'Yes. We can set up the AI voice agent to answer calls to your existing business number, or provide a new number. No phone system changes required.' },
-              { q: 'How long does setup take?', a: 'Basic voice agent setup takes 1-2 weeks. More complex setups with multiple call flows, custom integrations, and advanced logic take 2-3 weeks.' },
-              { q: 'What about missed calls?', a: 'The AI voice agent answers every call there are no missed calls. If it can\'t help, it collects caller info for follow-up or transfers to your team if available.' },
-            ].map((faq, index) => (
+            {faqs.map((faq, index) => (
               <div key={index} className="border-b border-[#E8EDF4]">
                 <details className="group py-5">
                   <summary className="flex justify-between items-center cursor-pointer list-none text-[0.92rem] font-semibold text-[#1C2E4A] hover:text-[#0E9BF0] transition-colors">
@@ -451,7 +456,7 @@ export default function AIVoiceAgentPage() {
         </div>
       </section>
 
-      <CtaBand 
+      <CtaBand
         title='Stop Missing Calls.<br /><span class="hl-yellow">Let AI Answer Every One.</span>'
         description="Every call is a potential customer. Our AI voice agents answer 100% of your calls, 24/7, and book appointments while you sleep. Book your free consultation today."
         primaryText="Book Your Free Voice AI Consultation →"

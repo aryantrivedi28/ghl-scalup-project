@@ -2,12 +2,12 @@
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
-import { 
-  ClipboardList, 
-  Wrench, 
-  RefreshCw, 
-  Building2, 
-  Settings, 
+import {
+  ClipboardList,
+  Wrench,
+  RefreshCw,
+  Building2,
+  Settings,
   CheckCircle,
   ArrowRight,
   CheckCircle2,
@@ -19,6 +19,7 @@ import {
   Layers,
   Cloud
 } from 'lucide-react';
+import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export const metadata = {
   title: 'GHL Migration Services | GHL Scale Up',
@@ -124,11 +125,22 @@ export default function MigrationPage() {
     }
   ];
 
+  const faqs = [
+    { q: 'What platforms can you migrate from?', a: 'ClickFunnels, Kajabi, HubSpot, Salesforce, ActiveCampaign, Infusionsoft, Zoho, Pipedrive, Keap, Ontraport, WordPress, Wix, Squarespace, and custom spreadsheets. If your data is in a system, we can migrate it.' },
+    { q: 'Will I lose any data during migration?', a: 'No. We guarantee 100% data integrity. We validate every record before and after migration to ensure nothing is lost. Your data is safe with us.' },
+    { q: 'How long does migration take?', a: 'Simple migrations (1-2 platforms, small data) take 1-2 weeks. Complex migrations (multiple platforms, large data, complex automations) take 2-4 weeks. We provide timeline during assessment.' },
+    { q: 'Will my funnels look the same?', a: 'Yes. We rebuild your funnels and pages to match your original design. Your customers won\'t notice the switch. We can also improve design and performance during migration.' },
+    { q: 'What about email sequences and automations?', a: 'We rebuild all your email sequences, SMS workflows, and automations in GHL. We improve logic and reliability while maintaining the same customer experience.' },
+    { q: 'Is there any downtime?', a: 'No. We perform migration in the background while your old system remains active. We only switch over when everything is validated and ready. Zero business disruption.' },
+  ];
+
+  useFaqSchema(faqs);
+
   return (
     <>
       {/* Add Service Schema to Head */}
       <ServiceSchema />
-      
+
       <Breadcrumb items={[{ label: 'GHL Services', href: '/services' }, { label: 'GHL Migration Services' }]} />
 
       {/* Page Hero */}
@@ -208,10 +220,9 @@ export default function MigrationPage() {
               { icon: <CheckCircle className="w-5 h-5" />, color: 'yellow', title: 'Post-Migration Validation', description: 'We test every contact, deal, funnel, and automation. We compare old vs new data to ensure 100% accuracy. Your new system works flawlessly.' },
             ].map((item, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${
-                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' : 
-                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
-                }`}>
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' :
+                    item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
+                  }`}>
                   {item.icon}
                 </div>
                 <h3 className="text-[0.92rem] font-bold text-[#1C2E4A] mb-1.5">{item.title}</h3>
@@ -327,7 +338,7 @@ export default function MigrationPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {relatedBlogs.map((blog, index) => (
-              <Link 
+              <Link
                 key={index}
                 href={`/blog/${blog.slug}`}
                 className="group bg-[#F8F9FB] border border-[#E8EDF4] rounded-xl p-6 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all"
@@ -394,14 +405,7 @@ export default function MigrationPage() {
           </div>
 
           <div className="max-w-[800px] mx-auto">
-            {[
-              { q: 'What platforms can you migrate from?', a: 'ClickFunnels, Kajabi, HubSpot, Salesforce, ActiveCampaign, Infusionsoft, Zoho, Pipedrive, Keap, Ontraport, WordPress, Wix, Squarespace, and custom spreadsheets. If your data is in a system, we can migrate it.' },
-              { q: 'Will I lose any data during migration?', a: 'No. We guarantee 100% data integrity. We validate every record before and after migration to ensure nothing is lost. Your data is safe with us.' },
-              { q: 'How long does migration take?', a: 'Simple migrations (1-2 platforms, small data) take 1-2 weeks. Complex migrations (multiple platforms, large data, complex automations) take 2-4 weeks. We provide timeline during assessment.' },
-              { q: 'Will my funnels look the same?', a: 'Yes. We rebuild your funnels and pages to match your original design. Your customers won\'t notice the switch. We can also improve design and performance during migration.' },
-              { q: 'What about email sequences and automations?', a: 'We rebuild all your email sequences, SMS workflows, and automations in GHL. We improve logic and reliability while maintaining the same customer experience.' },
-              { q: 'Is there any downtime?', a: 'No. We perform migration in the background while your old system remains active. We only switch over when everything is validated and ready. Zero business disruption.' },
-            ].map((faq, index) => (
+            {faqs.map((faq, index) => (
               <div key={index} className="border-b border-[#E8EDF4]">
                 <details className="group py-5">
                   <summary className="flex justify-between items-center cursor-pointer list-none text-[0.92rem] font-semibold text-[#1C2E4A] hover:text-[#0E9BF0] transition-colors">
@@ -450,7 +454,7 @@ export default function MigrationPage() {
         </div>
       </section>
 
-      <CtaBand 
+      <CtaBand
         title='Stop Paying for Multiple Tools.<br /><span class="hl-yellow">Consolidate with GHL.</span>'
         description="GoHighLevel replaces 5+ tools CRM, funnels, email, SMS, calendars, and more. Let us migrate your business seamlessly. Book your free assessment today."
         primaryText="Book Your Free Migration Assessment →"

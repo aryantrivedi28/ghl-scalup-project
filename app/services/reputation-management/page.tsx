@@ -2,23 +2,20 @@
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
-import { 
-  Star, 
-  MapPin, 
-  Bot, 
-  BarChart3, 
-  StarHalf, 
+import {
+  Star,
+  MapPin,
+  Bot,
+  BarChart3,
+  StarHalf,
   Bell,
   ArrowRight,
   CheckCircle2,
   Clock,
-  TrendingUp,
-  Shield,
   MessageSquare,
-  ThumbsUp,
-  AlertCircle,
   Sparkles
 } from 'lucide-react';
+import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export const metadata = {
   title: 'GHL Reputation & Review Management Services | GHL Scale Up',
@@ -124,11 +121,22 @@ export default function ReputationManagementPage() {
     }
   ];
 
+  const faqs = [
+    { q: 'How do I get more reviews?', a: 'We automate review requests triggered after purchase or service delivery. Ask happy customers when they are most satisfied. You will get 3x more reviews than asking manually.' },
+    { q: 'Can I choose which platforms to monitor?', a: 'Yes. We can monitor Google, Facebook, Yelp, Trustpilot, and more. You choose the platforms that matter to your business.' },
+    { q: 'How does AI review response work?', a: 'AI reads each review and generates an appropriate response. Positive reviews get thanked. Negative reviews get empathetic responses. You can review and approve before posting.' },
+    { q: 'What about negative reviews?', a: 'We set up instant alerts for negative reviews. You can respond quickly to resolve issues and show potential customers you care. AI can suggest responses, or you can write your own.' },
+    { q: 'Can I display reviews on my website?', a: 'Yes. We create review widgets that show your best reviews on your website. Social proof builds trust and converts visitors into customers.' },
+    { q: 'How long does setup take?', a: 'Basic reputation setup takes 3-5 business days. This includes review request flows, platform connections, and monitoring setup.' },
+  ];
+
+  useFaqSchema(faqs);
+
   return (
     <>
       {/* Add Service Schema to Head */}
       <ServiceSchema />
-      
+
       <Breadcrumb items={[{ label: 'GHL Services', href: '/services' }, { label: 'Reputation & Review Management' }]} />
 
       {/* Page Hero */}
@@ -208,10 +216,9 @@ export default function ReputationManagementPage() {
               { icon: <Bell className="w-5 h-5" />, color: 'yellow', title: 'Negative Review Alerts', description: 'Get instant notifications when a negative review appears. Respond quickly to protect your reputation and resolve issues.' },
             ].map((item, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${
-                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' : 
-                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
-                }`}>
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' :
+                    item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
+                  }`}>
                   {item.icon}
                 </div>
                 <h3 className="text-[0.92rem] font-bold text-[#1C2E4A] mb-1.5">{item.title}</h3>
@@ -327,7 +334,7 @@ export default function ReputationManagementPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {relatedBlogs.map((blog, index) => (
-              <Link 
+              <Link
                 key={index}
                 href={`/blog/${blog.slug}`}
                 className="group bg-[#F8F9FB] border border-[#E8EDF4] rounded-xl p-6 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all"
@@ -394,14 +401,7 @@ export default function ReputationManagementPage() {
           </div>
 
           <div className="max-w-[800px] mx-auto">
-            {[
-              { q: 'How do I get more reviews?', a: 'We automate review requests triggered after purchase or service delivery. Ask happy customers when they are most satisfied. You will get 3x more reviews than asking manually.' },
-              { q: 'Can I choose which platforms to monitor?', a: 'Yes. We can monitor Google, Facebook, Yelp, Trustpilot, and more. You choose the platforms that matter to your business.' },
-              { q: 'How does AI review response work?', a: 'AI reads each review and generates an appropriate response. Positive reviews get thanked. Negative reviews get empathetic responses. You can review and approve before posting.' },
-              { q: 'What about negative reviews?', a: 'We set up instant alerts for negative reviews. You can respond quickly to resolve issues and show potential customers you care. AI can suggest responses, or you can write your own.' },
-              { q: 'Can I display reviews on my website?', a: 'Yes. We create review widgets that show your best reviews on your website. Social proof builds trust and converts visitors into customers.' },
-              { q: 'How long does setup take?', a: 'Basic reputation setup takes 3-5 business days. This includes review request flows, platform connections, and monitoring setup.' },
-            ].map((faq, index) => (
+            {faqs.map((faq, index) => (
               <div key={index} className="border-b border-[#E8EDF4]">
                 <details className="group py-5">
                   <summary className="flex justify-between items-center cursor-pointer list-none text-[0.92rem] font-semibold text-[#1C2E4A] hover:text-[#0E9BF0] transition-colors">
@@ -450,7 +450,7 @@ export default function ReputationManagementPage() {
         </div>
       </section>
 
-      <CtaBand 
+      <CtaBand
         title='Your Reputation Is Your<br /><span class="hl-yellow">Most Valuable Asset.</span>'
         description="93% of consumers read reviews before buying. Let us help you get more 5-star reviews, monitor what people say, and turn your reputation into your best sales tool."
         primaryText="Book Your Free Reputation Audit →"

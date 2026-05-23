@@ -2,12 +2,12 @@
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
-import { 
-  Calendar, 
-  Repeat, 
-  Building2, 
-  Bell, 
-  Link as LinkIcon, 
+import {
+  Calendar,
+  Repeat,
+  Building2,
+  Bell,
+  Link as LinkIcon,
   CreditCard,
   ArrowRight,
   CheckCircle2,
@@ -17,6 +17,7 @@ import {
   Sparkles,
   Clock as ClockIcon
 } from 'lucide-react';
+import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export const metadata = {
   title: 'GHL Calendar & Booking Setup Services | GHL Scale Up',
@@ -122,11 +123,22 @@ export default function CalendarBookingPage() {
     }
   ];
 
+  const faqs = [
+    { q: 'Can I set different availability for different services?', a: 'Yes. You can create separate calendars for different services, each with its own availability, duration, and buffer times. Clients see only the services relevant to them.' },
+    { q: 'How does round-robin scheduling work?', a: 'Round-robin distributes appointments evenly across your team. When a client books, the system assigns the appointment to the team member who has the fewest bookings or the next in rotation.' },
+    { q: 'Can I collect payments at booking?', a: 'Yes. We can integrate Stripe or PayPal to collect deposits or full payments at booking. Perfect for services that require upfront payment.' },
+    { q: 'What about reminders?', a: 'You can set up email and SMS reminders at any interval 24 hours, 2 hours, 30 minutes. Reminders are automated and customizable. No-shows drop by 50% or more.' },
+    { q: 'Will this sync with my existing Google Calendar?', a: 'Yes. Your GoHighLevel calendar can sync with Google Calendar, Outlook, and iCloud. Appointments booked through your system appear in your personal calendar automatically.' },
+    { q: 'Can clients reschedule or cancel themselves?', a: 'Yes. Every booking confirmation includes links for clients to reschedule or cancel. This reduces phone calls and emails to your team.' },
+  ];
+
+  useFaqSchema(faqs);
+
   return (
     <>
       {/* Add Service Schema to Head */}
       <ServiceSchema />
-      
+
       <Breadcrumb items={[{ label: 'GHL Services', href: '/services' }, { label: 'Calendar & Booking Setup' }]} />
 
       {/* Page Hero */}
@@ -207,10 +219,9 @@ export default function CalendarBookingPage() {
               { icon: <CreditCard className="w-5 h-5" />, color: 'yellow', title: 'Payment Integration', description: 'Require payment at booking with Stripe or PayPal integration. Collect deposits or full payments upfront to secure appointments.' },
             ].map((item, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${
-                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' : 
-                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
-                }`}>
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' :
+                    item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
+                  }`}>
                   {item.icon}
                 </div>
                 <h3 className="text-[0.92rem] font-bold text-[#1C2E4A] mb-1.5">{item.title}</h3>
@@ -326,7 +337,7 @@ export default function CalendarBookingPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {relatedBlogs.map((blog, index) => (
-              <Link 
+              <Link
                 key={index}
                 href={`/blog/${blog.slug}`}
                 className="group bg-[#F8F9FB] border border-[#E8EDF4] rounded-xl p-6 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all"
@@ -393,14 +404,7 @@ export default function CalendarBookingPage() {
           </div>
 
           <div className="max-w-[800px] mx-auto">
-            {[
-              { q: 'Can I set different availability for different services?', a: 'Yes. You can create separate calendars for different services, each with its own availability, duration, and buffer times. Clients see only the services relevant to them.' },
-              { q: 'How does round-robin scheduling work?', a: 'Round-robin distributes appointments evenly across your team. When a client books, the system assigns the appointment to the team member who has the fewest bookings or the next in rotation.' },
-              { q: 'Can I collect payments at booking?', a: 'Yes. We can integrate Stripe or PayPal to collect deposits or full payments at booking. Perfect for services that require upfront payment.' },
-              { q: 'What about reminders?', a: 'You can set up email and SMS reminders at any interval 24 hours, 2 hours, 30 minutes. Reminders are automated and customizable. No-shows drop by 50% or more.' },
-              { q: 'Will this sync with my existing Google Calendar?', a: 'Yes. Your GoHighLevel calendar can sync with Google Calendar, Outlook, and iCloud. Appointments booked through your system appear in your personal calendar automatically.' },
-              { q: 'Can clients reschedule or cancel themselves?', a: 'Yes. Every booking confirmation includes links for clients to reschedule or cancel. This reduces phone calls and emails to your team.' },
-            ].map((faq, index) => (
+            {faqs.map((faq, index) => (
               <div key={index} className="border-b border-[#E8EDF4]">
                 <details className="group py-5">
                   <summary className="flex justify-between items-center cursor-pointer list-none text-[0.92rem] font-semibold text-[#1C2E4A] hover:text-[#0E9BF0] transition-colors">
@@ -449,7 +453,7 @@ export default function CalendarBookingPage() {
         </div>
       </section>
 
-      <CtaBand 
+      <CtaBand
         title='Stop Wasting Time on Scheduling.<br /><span class="hl-yellow">Let Clients Book Themselves 24/7.</span>'
         description="A professional booking system saves hours of back-and-forth and reduces no-shows by 50%. Book your free consultation to see how we can set it up for you."
         primaryText="Book Your Free Booking Audit →"

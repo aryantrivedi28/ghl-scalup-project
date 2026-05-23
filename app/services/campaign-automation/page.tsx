@@ -2,12 +2,12 @@
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
-import { 
-  Mail, 
-  Smartphone, 
-  MessageSquare, 
-  Clock, 
-  Target, 
+import {
+  Mail,
+  Smartphone,
+  MessageSquare,
+  Clock,
+  Target,
   BarChart3,
   ArrowRight,
   CheckCircle2,
@@ -18,6 +18,7 @@ import {
   TrendingUp,
   Sparkles
 } from 'lucide-react';
+import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export const metadata = {
   title: 'GHL Email, SMS & WhatsApp Automation Services | GHL Scale Up',
@@ -123,11 +124,23 @@ export default function EmailSMSWhatsAppPage() {
     }
   ];
 
+
+  const faqs = [
+    { q: 'What channels can you automate?', a: 'We automate email, SMS, WhatsApp, and voicemail drops — all within GoHighLevel. Each channel can be used individually or combined in multi-step sequences.' },
+    { q: 'How many emails should I send?', a: 'We recommend starting with 5-7 emails in a nurture sequence. We can test and optimize based on your audience response. SMS and WhatsApp are typically 3-5 messages per sequence.' },
+    { q: 'Can I use my existing email templates?', a: 'Yes. We can work with your existing templates or create new ones. We will help optimize them for deliverability and conversion.' },
+    { q: 'What about deliverability?', a: 'We follow email best practices, set up proper authentication (SPF, DKIM, DMARC), and warm up sending domains to ensure your emails land in inboxes, not spam.' },
+    { q: 'How long does campaign setup take?', a: 'A complete multi-channel campaign (email + SMS + WhatsApp) takes 1-2 weeks. This includes strategy, copywriting, workflow building, and testing.' },
+    { q: 'Can you segment my existing list?', a: 'Yes. We can analyze your existing contacts and create segments based on engagement, purchase history, interests, and other data points for targeted campaigns.' },
+  ];
+
+  useFaqSchema(faqs);
+
   return (
     <>
       {/* Add Service Schema to Head */}
       <ServiceSchema />
-      
+
       <Breadcrumb items={[{ label: 'GHL Services', href: '/services' }, { label: 'Email, SMS & WhatsApp Automation' }]} />
 
       {/* Page Hero */}
@@ -208,10 +221,9 @@ export default function EmailSMSWhatsAppPage() {
               { icon: <BarChart3 className="w-5 h-5" />, color: 'yellow', title: 'Performance Analytics', description: 'Track open rates, click-through rates, conversion rates, and revenue per campaign. Data-driven optimization for continuous improvement.' },
             ].map((item, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${
-                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' : 
-                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
-                }`}>
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' :
+                    item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
+                  }`}>
                   {item.icon}
                 </div>
                 <h3 className="text-[0.92rem] font-bold text-[#1C2E4A] mb-1.5">{item.title}</h3>
@@ -327,7 +339,7 @@ export default function EmailSMSWhatsAppPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {relatedBlogs.map((blog, index) => (
-              <Link 
+              <Link
                 key={index}
                 href={`/blog/${blog.slug}`}
                 className="group bg-[#F8F9FB] border border-[#E8EDF4] rounded-xl p-6 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all"
@@ -394,14 +406,7 @@ export default function EmailSMSWhatsAppPage() {
           </div>
 
           <div className="max-w-[800px] mx-auto">
-            {[
-              { q: 'What channels can you automate?', a: 'We automate email, SMS, WhatsApp, and voicemail drops — all within GoHighLevel. Each channel can be used individually or combined in multi-step sequences.' },
-              { q: 'How many emails should I send?', a: 'We recommend starting with 5-7 emails in a nurture sequence. We can test and optimize based on your audience response. SMS and WhatsApp are typically 3-5 messages per sequence.' },
-              { q: 'Can I use my existing email templates?', a: 'Yes. We can work with your existing templates or create new ones. We will help optimize them for deliverability and conversion.' },
-              { q: 'What about deliverability?', a: 'We follow email best practices, set up proper authentication (SPF, DKIM, DMARC), and warm up sending domains to ensure your emails land in inboxes, not spam.' },
-              { q: 'How long does campaign setup take?', a: 'A complete multi-channel campaign (email + SMS + WhatsApp) takes 1-2 weeks. This includes strategy, copywriting, workflow building, and testing.' },
-              { q: 'Can you segment my existing list?', a: 'Yes. We can analyze your existing contacts and create segments based on engagement, purchase history, interests, and other data points for targeted campaigns.' },
-            ].map((faq, index) => (
+            {faqs.map((faq, index) => (
               <div key={index} className="border-b border-[#E8EDF4]">
                 <details className="group py-5">
                   <summary className="flex justify-between items-center cursor-pointer list-none text-[0.92rem] font-semibold text-[#1C2E4A] hover:text-[#0E9BF0] transition-colors">
@@ -450,7 +455,7 @@ export default function EmailSMSWhatsAppPage() {
         </div>
       </section>
 
-      <CtaBand 
+      <CtaBand
         title='Stop Sending One-Off Emails.<br /><span class="hl-yellow">Build a Multi-Channel Nurture System.</span>'
         description="Your leads are waiting to hear from you. Let us build automated campaigns that reach them across email, SMS, and WhatsApp — so you never miss an opportunity."
         primaryText="Book Your Free Campaign Audit →"

@@ -20,6 +20,7 @@ import {
   PlayCircle,
   FileText
 } from 'lucide-react';
+import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export const metadata = {
   title: 'GHL Training & Onboarding Services | GHL Scale Up',
@@ -124,6 +125,17 @@ export default function TrainingOnboardingPage() {
       date: 'April 7, 2026'
     }
   ];
+
+  const faqs = [
+              { q: 'How long does training take?', a: 'Basic training for small teams takes 2-3 hours. Comprehensive training with SOPs and recordings takes 1-2 days. We work around your schedule.' },
+              { q: 'Can you train different roles separately?', a: 'Yes. We provide role-based training sales reps, marketing managers, admins, executives. Each group learns what they need for their role.' },
+              { q: 'Do you provide documentation?', a: 'Yes. We provide written SOPs for every process we cover. Your team has a reference guide they can use anytime.' },
+              { q: 'What if we have new hires later?', a: 'You will have recordings and SOPs to onboard new team members. We also offer refresher training if needed.' },
+              { q: 'Can you train on our specific processes?', a: 'Yes. Training is 100% customized to your business your pipelines, your automations, your workflows. No generic training.' },
+              { q: 'Is training done live or recorded?', a: 'Live training with your team. We record everything so you have videos for future reference. Q&A included.' },
+            ];
+
+            useFaqSchema(faqs);
 
   return (
     <>
@@ -395,14 +407,7 @@ export default function TrainingOnboardingPage() {
           </div>
 
           <div className="max-w-[800px] mx-auto">
-            {[
-              { q: 'How long does training take?', a: 'Basic training for small teams takes 2-3 hours. Comprehensive training with SOPs and recordings takes 1-2 days. We work around your schedule.' },
-              { q: 'Can you train different roles separately?', a: 'Yes. We provide role-based training sales reps, marketing managers, admins, executives. Each group learns what they need for their role.' },
-              { q: 'Do you provide documentation?', a: 'Yes. We provide written SOPs for every process we cover. Your team has a reference guide they can use anytime.' },
-              { q: 'What if we have new hires later?', a: 'You will have recordings and SOPs to onboard new team members. We also offer refresher training if needed.' },
-              { q: 'Can you train on our specific processes?', a: 'Yes. Training is 100% customized to your business your pipelines, your automations, your workflows. No generic training.' },
-              { q: 'Is training done live or recorded?', a: 'Live training with your team. We record everything so you have videos for future reference. Q&A included.' },
-            ].map((faq, index) => (
+            {faqs.map((faq, index) => (
               <div key={index} className="border-b border-[#E8EDF4]">
                 <details className="group py-5">
                   <summary className="flex justify-between items-center cursor-pointer list-none text-[0.92rem] font-semibold text-[#1C2E4A] hover:text-[#0E9BF0] transition-colors">

@@ -2,12 +2,12 @@
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
-import { 
-  BarChart3, 
-  Users, 
-  TrendingUp, 
-  Timer, 
-  UserCheck, 
+import {
+  BarChart3,
+  Users,
+  TrendingUp,
+  Timer,
+  UserCheck,
   Calendar,
   ArrowRight,
   CheckCircle2,
@@ -19,6 +19,7 @@ import {
   Database,
   Zap
 } from 'lucide-react';
+import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export const metadata = {
   title: 'GHL Reporting & Dashboards Services | GHL Scale Up',
@@ -124,11 +125,22 @@ export default function ReportingDashboardsPage() {
     }
   ];
 
+  const faqs = [
+    { q: 'What metrics can you track?', a: 'Anything in GHL. Leads by source, pipeline value, conversion rates, deal velocity, response times, team activity, appointment volume, revenue, and custom metrics. You tell us what matters, we build it.' },
+    { q: 'Can I get automated reports?', a: 'Yes. We can set up daily, weekly, or monthly reports delivered to your inbox. Get key metrics without logging into GHL. Perfect for executives and managers.' },
+    { q: 'Do dashboards update in real-time?', a: 'Yes. GHL dashboards reflect your data in real-time. When a lead comes in or a deal closes, your dashboard updates instantly.' },
+    { q: 'Can I share dashboards with my team?', a: 'Yes. You can share dashboards with specific team members based on their role. Sales reps see their metrics, managers see team metrics, executives see company metrics.' },
+    { q: 'How long does setup take?', a: 'Basic dashboards take 3-5 days. Complex reporting with custom metrics and multiple data sources takes 1-2 weeks. We provide timeline during consultation.' },
+    { q: 'Do I need to clean my data first?', a: 'We can help. If your data is messy (inconsistent tags, missing fields), we can clean it up as part of the reporting setup. Clean data is essential for accurate reporting.' },
+  ];
+
+  useFaqSchema(faqs);
+
   return (
     <>
       {/* Add Service Schema to Head */}
       <ServiceSchema />
-      
+
       <Breadcrumb items={[{ label: 'GHL Services', href: '/services' }, { label: 'Reporting & Dashboards' }]} />
 
       {/* Page Hero */}
@@ -208,10 +220,9 @@ export default function ReportingDashboardsPage() {
               { icon: <Calendar className="w-5 h-5" />, color: 'yellow', title: 'Automated Report Delivery', description: 'Schedule daily, weekly, or monthly reports delivered to your inbox. Get key metrics without logging into GHL.' },
             ].map((item, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${
-                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' : 
-                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
-                }`}>
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' :
+                    item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
+                  }`}>
                   {item.icon}
                 </div>
                 <h3 className="text-[0.92rem] font-bold text-[#1C2E4A] mb-1.5">{item.title}</h3>
@@ -327,7 +338,7 @@ export default function ReportingDashboardsPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {relatedBlogs.map((blog, index) => (
-              <Link 
+              <Link
                 key={index}
                 href={`/blog/${blog.slug}`}
                 className="group bg-[#F8F9FB] border border-[#E8EDF4] rounded-xl p-6 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all"
@@ -394,14 +405,7 @@ export default function ReportingDashboardsPage() {
           </div>
 
           <div className="max-w-[800px] mx-auto">
-            {[
-              { q: 'What metrics can you track?', a: 'Anything in GHL. Leads by source, pipeline value, conversion rates, deal velocity, response times, team activity, appointment volume, revenue, and custom metrics. You tell us what matters, we build it.' },
-              { q: 'Can I get automated reports?', a: 'Yes. We can set up daily, weekly, or monthly reports delivered to your inbox. Get key metrics without logging into GHL. Perfect for executives and managers.' },
-              { q: 'Do dashboards update in real-time?', a: 'Yes. GHL dashboards reflect your data in real-time. When a lead comes in or a deal closes, your dashboard updates instantly.' },
-              { q: 'Can I share dashboards with my team?', a: 'Yes. You can share dashboards with specific team members based on their role. Sales reps see their metrics, managers see team metrics, executives see company metrics.' },
-              { q: 'How long does setup take?', a: 'Basic dashboards take 3-5 days. Complex reporting with custom metrics and multiple data sources takes 1-2 weeks. We provide timeline during consultation.' },
-              { q: 'Do I need to clean my data first?', a: 'We can help. If your data is messy (inconsistent tags, missing fields), we can clean it up as part of the reporting setup. Clean data is essential for accurate reporting.' },
-            ].map((faq, index) => (
+            {faqs.map((faq, index) => (
               <div key={index} className="border-b border-[#E8EDF4]">
                 <details className="group py-5">
                   <summary className="flex justify-between items-center cursor-pointer list-none text-[0.92rem] font-semibold text-[#1C2E4A] hover:text-[#0E9BF0] transition-colors">
@@ -450,7 +454,7 @@ export default function ReportingDashboardsPage() {
         </div>
       </section>
 
-      <CtaBand 
+      <CtaBand
         title='Stop Flying Blind.<br /><span class="hl-yellow">Get Real-Time Visibility.</span>'
         description="Know exactly where your leads come from, where deals get stuck, and which campaigns are working. Custom dashboards give you the data you need to grow smarter."
         primaryText="Book Your Free Reporting Audit →"

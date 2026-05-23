@@ -2,12 +2,12 @@
 import Link from 'next/link';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
-import { 
-  Zap, 
-  GitBranch, 
-  Send, 
-  UserCheck, 
-  Bell, 
+import {
+  Zap,
+  GitBranch,
+  Send,
+  UserCheck,
+  Bell,
   BarChart3,
   Clock,
   ArrowRight,
@@ -15,6 +15,7 @@ import {
   MessageCircle,
   Settings
 } from 'lucide-react';
+import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export const metadata = {
   title: 'GHL Workflow Automation & Marketing Automation Services | GHL Scale Up',
@@ -120,11 +121,22 @@ export default function WorkflowAutomationPage() {
     }
   ];
 
+  const faqs = [
+    { q: 'What automations can you build?', a: 'We build lead follow-up sequences, appointment booking flows, review request campaigns, re-engagement workflows, internal notifications, lead scoring systems, and complex multi-channel nurture sequences. If it can be automated in GHL, we can build it.' },
+    { q: 'How fast do follow-ups respond?', a: 'Our workflows trigger in 5-10 seconds after a form submission, call, or tag change. Leads get an instant response before they even leave your website or hang up the phone.' },
+    { q: 'Can automations span email, SMS, and WhatsApp?', a: 'Yes. One workflow can include email, SMS, WhatsApp, voicemail drops, and ringless voicemail with conditional logic that chooses the best channel based on lead behavior.' },
+    { q: 'Will automations break at scale?', a: 'Not if built properly. We architect workflows with scalability in mind proper error handling, rate limiting, and fallback paths. Our systems handle thousands of leads without breaking.' },
+    { q: 'How long does automation setup take?', a: 'Simple automation suites (3-5 workflows) take 1-2 weeks. Complex systems with multiple branches and integrations take 2-3 weeks. We give you a clear timeline before we start.' },
+    { q: 'Can you fix my broken automations?', a: 'Yes. We audit your existing workflows, identify broken triggers, failed actions, and logic errors. Then we rebuild them to work reliably.' },
+  ];
+
+  useFaqSchema(faqs);
+
   return (
     <>
       {/* Add Service Schema to Head */}
       <ServiceSchema />
-      
+
       <Breadcrumb items={[{ label: 'GHL Services', href: '/services' }, { label: 'Workflow & Marketing Automation' }]} />
 
       {/* Page Hero */}
@@ -204,10 +216,9 @@ export default function WorkflowAutomationPage() {
               { icon: <BarChart3 className="w-5 h-5" />, color: 'yellow', title: 'Performance Tracking', description: 'Open rates, click-through rates, response rates, and conversion data per step. Know exactly what works and optimize accordingly.' },
             ].map((item, index) => (
               <div key={index} className="bg-white border border-[#E8EDF4] rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${
-                  item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' : 
-                  item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
-                }`}>
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 ${item.color === 'blue' ? 'bg-[rgba(14,155,240,0.1)] text-[#0E9BF0]' :
+                    item.color === 'green' ? 'bg-[rgba(37,201,125,0.1)] text-[#25C97D]' : 'bg-[rgba(248,208,0,0.12)] text-[#F8D000]'
+                  }`}>
                   {item.icon}
                 </div>
                 <h3 className="text-[0.92rem] font-bold text-[#1C2E4A] mb-1.5">{item.title}</h3>
@@ -323,7 +334,7 @@ export default function WorkflowAutomationPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {relatedBlogs.map((blog, index) => (
-              <Link 
+              <Link
                 key={index}
                 href={`/blog/${blog.slug}`}
                 className="group bg-[#F8F9FB] border border-[#E8EDF4] rounded-xl p-6 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all"
@@ -390,14 +401,7 @@ export default function WorkflowAutomationPage() {
           </div>
 
           <div className="max-w-[800px] mx-auto">
-            {[
-              { q: 'What automations can you build?', a: 'We build lead follow-up sequences, appointment booking flows, review request campaigns, re-engagement workflows, internal notifications, lead scoring systems, and complex multi-channel nurture sequences. If it can be automated in GHL, we can build it.' },
-              { q: 'How fast do follow-ups respond?', a: 'Our workflows trigger in 5-10 seconds after a form submission, call, or tag change. Leads get an instant response before they even leave your website or hang up the phone.' },
-              { q: 'Can automations span email, SMS, and WhatsApp?', a: 'Yes. One workflow can include email, SMS, WhatsApp, voicemail drops, and ringless voicemail with conditional logic that chooses the best channel based on lead behavior.' },
-              { q: 'Will automations break at scale?', a: 'Not if built properly. We architect workflows with scalability in mind proper error handling, rate limiting, and fallback paths. Our systems handle thousands of leads without breaking.' },
-              { q: 'How long does automation setup take?', a: 'Simple automation suites (3-5 workflows) take 1-2 weeks. Complex systems with multiple branches and integrations take 2-3 weeks. We give you a clear timeline before we start.' },
-              { q: 'Can you fix my broken automations?', a: 'Yes. We audit your existing workflows, identify broken triggers, failed actions, and logic errors. Then we rebuild them to work reliably.' },
-            ].map((faq, index) => (
+            {faqs.map((faq, index) => (
               <div key={index} className="border-b border-[#E8EDF4]">
                 <details className="group py-5">
                   <summary className="flex justify-between items-center cursor-pointer list-none text-[0.92rem] font-semibold text-[#1C2E4A] hover:text-[#0E9BF0] transition-colors">
@@ -446,7 +450,7 @@ export default function WorkflowAutomationPage() {
         </div>
       </section>
 
-      <CtaBand 
+      <CtaBand
         title='Stop Chasing Leads.<br /><span class="hl-yellow">Let Automation Do the Work.</span>'
         description="Your leads expect an instant response. Our automation systems deliver it every time. Book your free audit and see how we can automate your follow-ups."
         primaryText="Book Your Free Automation Audit →"

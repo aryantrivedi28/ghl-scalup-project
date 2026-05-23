@@ -14,11 +14,8 @@ import {
   Clock,
   Database,
   GitBranch,
-  Layout,
-  Settings,
-  Webhook,
-  Repeat
 } from 'lucide-react';
+import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export const metadata = {
   title: 'GHL Integrations & API Development Services | GHL Scale Up',
@@ -123,6 +120,17 @@ export default function IntegrationsAPIPage() {
       date: 'May 2, 2026'
     }
   ];
+
+  const faqs = [
+              { q: 'What tools can you integrate with GHL?', a: 'Almost any tool with an API. We regularly integrate with Zapier, Make.com, Stripe, PayPal, Google Analytics, Google Ads, Facebook Ads, Salesforce, HubSpot, Shopify, WooCommerce, and custom applications.' },
+              { q: 'Do I need technical skills to manage integrations?', a: 'No. We build and configure the integrations for you. You get a system that works automatically. We can provide training if you need to make changes later.' },
+              { q: 'How reliable are the integrations?', a: 'We build with reliability in mind. We use proven platforms, test thoroughly, and set up monitoring. Most integrations have 99.9% uptime and include error handling for edge cases.' },
+              { q: 'Can you build custom API connections?', a: 'Yes. We can build custom integrations using GHLs API and your other tools APIs. This is ideal for connecting to proprietary software or building specialized workflows.' },
+              { q: 'How long does integration setup take?', a: 'Simple Zapier or Make.com integrations take 3-5 days. Complex custom API integrations with multiple tools take 1-2 weeks. We provide timeline during consultation.' },
+              { q: 'What about security?', a: 'We follow security best practices. We use OAuth where possible, store API keys securely, and never expose sensitive data. Your integrations are secure and compliant.' },
+            ];
+
+            useFaqSchema(faqs);
 
   return (
     <>
@@ -394,14 +402,7 @@ export default function IntegrationsAPIPage() {
           </div>
 
           <div className="max-w-[800px] mx-auto">
-            {[
-              { q: 'What tools can you integrate with GHL?', a: 'Almost any tool with an API. We regularly integrate with Zapier, Make.com, Stripe, PayPal, Google Analytics, Google Ads, Facebook Ads, Salesforce, HubSpot, Shopify, WooCommerce, and custom applications.' },
-              { q: 'Do I need technical skills to manage integrations?', a: 'No. We build and configure the integrations for you. You get a system that works automatically. We can provide training if you need to make changes later.' },
-              { q: 'How reliable are the integrations?', a: 'We build with reliability in mind. We use proven platforms, test thoroughly, and set up monitoring. Most integrations have 99.9% uptime and include error handling for edge cases.' },
-              { q: 'Can you build custom API connections?', a: 'Yes. We can build custom integrations using GHLs API and your other tools APIs. This is ideal for connecting to proprietary software or building specialized workflows.' },
-              { q: 'How long does integration setup take?', a: 'Simple Zapier or Make.com integrations take 3-5 days. Complex custom API integrations with multiple tools take 1-2 weeks. We provide timeline during consultation.' },
-              { q: 'What about security?', a: 'We follow security best practices. We use OAuth where possible, store API keys securely, and never expose sensitive data. Your integrations are secure and compliant.' },
-            ].map((faq, index) => (
+            {faqs.map((faq, index) => (
               <div key={index} className="border-b border-[#E8EDF4]">
                 <details className="group py-5">
                   <summary className="flex justify-between items-center cursor-pointer list-none text-[0.92rem] font-semibold text-[#1C2E4A] hover:text-[#0E9BF0] transition-colors">
