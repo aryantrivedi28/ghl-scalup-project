@@ -36,6 +36,7 @@ import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import CtaBand from '@/components/sections/CtaBand'
 import Link from 'next/link'
+import { generateFaqSchema } from '@/lib/faqSchema'
 
 // Service Schema Component
 const ServiceSchema = () => {
@@ -144,6 +145,8 @@ const faqs: FAQItem[] = [
             a: 'A GHL VA makes sense if you are already using GoHighLevel and need ongoing management new workflows, campaign management, inbox handling, pipeline updates, and system optimisation but do not want to hire a full-time in-house employee. Agencies, SaaS founders, coaches, and service businesses with active GHL accounts benefit most.',
       },
 ]
+
+generateFaqSchema(faqs);
 
 function FAQItemComponent({ faq, isOpen, onToggle }: { faq: FAQItem; isOpen: boolean; onToggle: () => void }) {
       const contentRef = useRef<HTMLDivElement>(null)
