@@ -1,7 +1,7 @@
-// components/testimonials/InfoVideo.tsx
+// components/testimonials/InfoVideo.tsx - UPDATED VERSION
 'use client';
-import { useEffect, useRef, useState } from 'react';
-import { Volume2, VolumeX, Play } from 'lucide-react';
+import { useState } from 'react';
+import { Play } from 'lucide-react';
 
 interface InfoVideoProps {
   videoSrc: string;
@@ -13,119 +13,69 @@ interface InfoVideoProps {
 
 export default function InfoVideo({
   videoSrc,
-  poster,
   title,
   description,
-  fallbackImage = '/images/video-placeholder.jpg'
 }: InfoVideoProps) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isMuted, setIsMuted] = useState(true);
-  const [showControls, setShowControls] = useState(false);
-  const [hasInteracted, setHasInteracted] = useState(false);
-  const [videoError, setVideoError] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
 
-  useEffect(() => {
-    if (videoRef.current && !videoError) {
-      videoRef.current.play().catch(() => {
-        // Auto-play was prevented, but that's fine
-        console.log('Auto-play was prevented by browser');
-      });
+  // Convert YouTube URLs to embed format
+  const getYouTubeEmbedUrl = (url: string) => {
+    // Handle youtu.be format
+    if (url.includes('youtu.be/')) {
+      const videoId = url.split('youtu.be/')[1]?.split('?')[0];
+      return `https://www.youtube.com/embed/${videoId}`;
     }
-  }, [videoError]);
-
-  const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-      setHasInteracted(true);
+    // Handle youtube.com/watch?v= format
+    if (url.includes('youtube.com/watch')) {
+      const urlParams = new URLSearchParams(url.split('?')[1]);
+      const videoId = urlParams.get('v');
+      return `https://www.youtube.com/embed/${videoId}`;
     }
+    // If it's already an embed URL, return as is
+    if (url.includes('youtube.com/embed/')) {
+      return url;
+    }
+    return url;
   };
 
-  const handleMouseEnter = () => setShowControls(true);
-  const handleMouseLeave = () => setShowControls(false);
-
-  const handleVideoError = () => {
-    setVideoError(true);
-  };
-
-  // If video fails to load, show fallback image with play button
-  if (videoError) {
-    return (
-      <div className="relative rounded-2xl overflow-hidden shadow-2xl group bg-gradient-to-br from-[#1C2E4A] to-[#111E30]">
-        <div className="aspect-video flex items-center justify-center">
-          <div className="text-center p-8">
-            <div className="w-20 h-20 rounded-full bg-[#F8D000]/20 flex items-center justify-center mx-auto mb-4">
-              <Play className="w-10 h-10 text-[#F8D000] ml-1" />
-            </div>
-            <p className="text-white/80 font-medium">Video coming soon</p>
-            <p className="text-white/50 text-sm mt-2">Check back for client testimonials</p>
-          </div>
-        </div>
-        {(title || description) && (
-          <div className="absolute bottom-4 left-4 right-16">
-            {title && <h4 className="text-white font-semibold text-sm md:text-base">{title}</h4>}
-            {description && <p className="text-white/70 text-xs md:text-sm">{description}</p>}
-          </div>
-        )}
-      </div>
-    );
-  }
+  const embedUrl = getYouTubeEmbedUrl(videoSrc);
 
   return (
-    <div
-      className="relative rounded-2xl overflow-hidden shadow-2xl group bg-black"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <video
-        ref={videoRef}
-        src={videoSrc}
-        poster={poster}
-        className="w-full h-full object-cover"
-        autoPlay
-        loop
-        muted={isMuted}
-        playsInline
-        onError={handleVideoError}
-      />
-
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-
-      {isMuted && !hasInteracted && (
-        <div className="absolute inset-0 flex items-center justify-center">
-          <button
-            onClick={toggleMute}
-            className="bg-white/20 hover:bg-white/30 backdrop-blur-md text-white px-5 py-3 rounded-xl font-medium transition-all duration-300 shadow-lg"
+    <div className="relative rounded-2xl overflow-hidden shadow-2xl group bg-gradient-to-br from-[#1C2E4A] to-[#111E30]">
+      <div className="aspect-video">
+        {!isPlaying ? (
+          // Thumbnail with play button
+          <div 
+            className="relative w-full h-full cursor-pointer bg-cover bg-center"
+            style={{ 
+              backgroundImage: `url(https://img.youtube.com/vi/${embedUrl.split('/embed/')[1]}/maxresdefault.jpg)`,
+              backgroundSize: 'cover'
+            }}
+            onClick={() => setIsPlaying(true)}
           >
-            🔊 Enable Sound
-          </button>
-        </div>
-      )}
-
-      {(title || description) && (
-        <div
-          className={`absolute bottom-4 left-4 right-16 transition-all duration-300 ${
-            showControls ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0'
-          }`}
-        >
-          {title && <h4 className="text-white font-semibold text-sm md:text-base">{title}</h4>}
-          {description && <p className="text-white/70 text-xs md:text-sm">{description}</p>}
-        </div>
-      )}
-
-      <button
-        onClick={toggleMute}
-        className={`absolute bottom-4 right-4 bg-black/60 hover:bg-black/80 backdrop-blur-sm rounded-full p-2 transition-all duration-300 ${
-          showControls ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
-        }`}
-        aria-label={isMuted ? 'Unmute' : 'Mute'}
-      >
-        {isMuted ? (
-          <VolumeX className="w-5 h-5 text-white" />
+            <div className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/30 transition-all">
+              <div className="w-16 h-16 rounded-full bg-[#F8D000] flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Play className="w-8 h-8 text-[#1C2E4A] ml-1" />
+              </div>
+            </div>
+            {(title || description) && (
+              <div className="absolute bottom-4 left-4 right-4">
+                {title && <h4 className="text-white font-semibold text-sm md:text-base">{title}</h4>}
+                {description && <p className="text-white/70 text-xs md:text-sm">{description}</p>}
+              </div>
+            )}
+          </div>
         ) : (
-          <Volume2 className="w-5 h-5 text-white" />
+          // YouTube iframe
+          <iframe
+            src={`${embedUrl}?autoplay=1&mute=0&controls=1&rel=0`}
+            className="w-full h-full"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            title={title || "Video content"}
+          />
         )}
-      </button>
+      </div>
     </div>
   );
 }

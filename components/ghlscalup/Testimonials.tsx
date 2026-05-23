@@ -95,7 +95,7 @@ export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
               <div className="relative">
                 <InfoVideo
-                  videoSrc="https://res.cloudinary.com/dbx1s2lib/video/upload/v1776346188/radhi29_u9molw.mp4"
+                  videoSrc="https://youtu.be/mxSm7G52ZJE"
                   title="How GHL Scale Up Works"
                   description="Learn about our process and success stories"
                 />
@@ -106,7 +106,7 @@ export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
               <div className="relative">
                 <InfoVideo
-                  videoSrc="https://res.cloudinary.com/dbx1s2lib/video/upload/v1776346007/video2_afrby7.mp4"
+                  videoSrc="https://youtu.be/YgSBBP37b0M"
                   title="Client Success Story"
                   description="Hear from one of our satisfied clients"
                 />
