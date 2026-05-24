@@ -185,7 +185,7 @@ const blogPosts = [
     date: 'May 22, 2026',
     readTime: '11 min read',
     featured: true,
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+    image: 'https://pashtek.com/wp-content/uploads/2023/08/How-To-Migrate-HubSpot-Into-Salesforce-1024x630.jpg',
   },
   {
     icon: Funnel,
@@ -196,7 +196,7 @@ const blogPosts = [
     date: 'May 23, 2026',
     readTime: '12 min read',
     featured: true,
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+    image: 'https://i.ytimg.com/vi/kP6S-MR3TCg/maxresdefault.jpg',
   },
   {
     icon: Brain,
