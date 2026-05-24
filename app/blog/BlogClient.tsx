@@ -27,7 +27,8 @@ import {
   CreditCard,
   Globe,
   Briefcase,
-  Cloud
+  Cloud,
+  Funnel
 } from 'lucide-react';
 
 const blogPosts = [
@@ -183,6 +184,17 @@ const blogPosts = [
     slug: 'hubspot-to-gohighlevel-migration',
     date: 'May 22, 2026',
     readTime: '11 min read',
+    featured: true,
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+  },
+  {
+    icon: Funnel,
+    tag: 'Migration',
+    title: 'How to Migrate from ClickFunnels to GoHighLevel: What Breaks & How to Fix It (2026)',
+    excerpt: 'Migrating from ClickFunnels to GoHighLevel? GHL can import your funnels by URL, but automations, domains, and payment integrations all need rebuilding. Step-by-step guide with what breaks and how long it takes.',
+    slug: 'clickfunnels-to-gohighlevel-migration',
+    date: 'May 23, 2026',
+    readTime: '12 min read',
     featured: true,
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
   },
