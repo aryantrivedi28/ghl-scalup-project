@@ -182,7 +182,7 @@ export default function GoHighLevelVsHubSpotClient() {
               <img
                 src="/web-app-manifest-192x192.png"
                 alt="GHL Scaleup"
-                className="w-7 h-7 object-cover"
+                className="w-full h-full object-cover"
               />
             </div>
             <div>
