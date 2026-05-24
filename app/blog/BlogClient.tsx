@@ -199,6 +199,17 @@ const blogPosts = [
     image: 'https://i.ytimg.com/vi/kP6S-MR3TCg/maxresdefault.jpg',
   },
   {
+    icon: Mail,
+    tag: 'Migration',
+    title: 'ActiveCampaign to GoHighLevel Migration: What Breaks and How to Fix It (2026)',
+    excerpt: 'Migrating from ActiveCampaign to GoHighLevel? Contacts and tags transfer via CSV. Automations, lead scoring, and conditional logic all need rebuilding. Honest guide covering what breaks, email deliverability, and step-by-step process.',
+    slug: 'activecampaign-to-gohighlevel-migration',
+    date: 'May 24, 2026',
+    readTime: '12 min read',
+    featured: true,
+    image: 'https://hireghldeveloper.com/blog/posts/files/f2f97038-49f4-4f84-87c2-38649d410a8d.png',
+  },
+  {
     icon: Brain,
     tag: 'AI',
     title: 'GHL AI Workflows to Respond to Leads in Under 10 Seconds',
