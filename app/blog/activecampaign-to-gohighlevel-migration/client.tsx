@@ -88,7 +88,7 @@ export default function ActiveCampaignToGHLMigrationClient() {
   const faqs = [
     {
       q: "Can you migrate automations from ActiveCampaign to GoHighLevel?",
-      a: "No — not automatically. ActiveCampaign automations use a different trigger model and logic structure from GoHighLevel workflows. Every automation must be rebuilt manually inside GHL's workflow builder. Set the trigger to match the AC automation trigger (tag added, form submitted, deal stage changed), recreate each email or SMS action, and rebuild IF/THEN conditional logic using GHL's If/Else conditions. Complex multi-branch automations take 4–8 hours each to rebuild correctly."
+      a: "No not automatically. ActiveCampaign automations use a different trigger model and logic structure from GoHighLevel workflows. Every automation must be rebuilt manually inside GHL's workflow builder. Set the trigger to match the AC automation trigger (tag added, form submitted, deal stage changed), recreate each email or SMS action, and rebuild IF/THEN conditional logic using GHL's If/Else conditions. Complex multi-branch automations take 4–8 hours each to rebuild correctly."
     },
     {
       q: "Will my email deliverability suffer when I move from ActiveCampaign to GHL?",
@@ -100,7 +100,7 @@ export default function ActiveCampaignToGHLMigrationClient() {
     },
     {
       q: "How long does an ActiveCampaign to GoHighLevel migration take?",
-      a: "A typical business with 5,000–20,000 contacts and 5–15 automations takes 2–3 weeks. Complex accounts with 50+ automations, lead scoring models, and deep e-commerce integrations take 4–6 weeks. The contact import itself takes minutes. The automation audit and rebuild is what drives the timeline — plan approximately 4–8 hours per complex multi-branch automation."
+      a: "A typical business with 5,000–20,000 contacts and 5–15 automations takes 2–3 weeks. Complex accounts with 50+ automations, lead scoring models, and deep e-commerce integrations take 4–6 weeks. The contact import itself takes minutes. The automation audit and rebuild is what drives the timeline plan approximately 4–8 hours per complex multi-branch automation."
     },
     {
       q: "Does GoHighLevel have lead scoring like ActiveCampaign?",
@@ -116,19 +116,19 @@ export default function ActiveCampaignToGHLMigrationClient() {
 
   const tocItems = [
     { id: 'why-migrate', title: '1. Why Businesses Are Moving from ActiveCampaign to GoHighLevel' },
-    { id: 'what-transfers', title: '2. What Transfers from ActiveCampaign — and What Breaks' },
+    { id: 'what-transfers', title: '2. What Transfers from ActiveCampaign and What Breaks' },
     { id: 'migration-steps', title: '3. How to Migrate from ActiveCampaign to GoHighLevel (Step-by-Step)' },
-    { id: 'email-deliverability', title: '4. The Email Deliverability Question — Honest Answer' },
+    { id: 'email-deliverability', title: '4. The Email Deliverability Question Honest Answer' },
     { id: 'common-mistakes', title: '5. Common ActiveCampaign Migration Mistakes to Avoid' },
     { id: 'faq', title: '6. Frequently Asked Questions' },
   ];
 
   const comparisonData = [
-    { item: 'Advanced email automation with 900+ integrations', ac: '✓', ghl: 'GHL Workflow Builder — powerful but less mature than AC' },
+    { item: 'Advanced email automation with 900+ integrations', ac: '✓', ghl: 'GHL Workflow Builder powerful but less mature than AC' },
     { item: 'Strong email deliverability infrastructure', ac: '✓ (mature)', ghl: 'Requires DKIM/SPF/DMARC + 2–3 week warmup' },
     { item: 'Machine learning send-time optimisation', ac: '✓', ghl: 'Not available natively in 2026' },
     { item: 'Per-contact pricing', ac: 'Scales up fast', ghl: 'Unlimited contacts on every plan' },
-    { item: 'Native SMS and MMS', ac: 'No — requires Twilio integration', ghl: '✓ built-in' },
+    { item: 'Native SMS and MMS', ac: 'No requires Twilio integration', ghl: '✓ built-in' },
     { item: 'Native funnel/landing page builder', ac: 'No', ghl: '✓ full funnel builder' },
     { item: 'AI Voice Agent', ac: 'No', ghl: '✓ included' },
     { item: 'Booking calendar with reminders', ac: 'No', ghl: '✓ included' },
@@ -140,7 +140,7 @@ export default function ActiveCampaignToGHLMigrationClient() {
     { asset: 'Contacts (name, email, phone)', action: 'Transfers via CSV export + import', required: 'Export all, clean for duplicates, map fields during import' },
     { asset: 'Tags', action: 'Transfers via CSV as a column', required: 'Create matching tags in GHL before import, map during import' },
     { asset: 'Custom fields and custom data', action: 'Transfers via CSV', required: 'Create GHL custom fields first, then map during import wizard' },
-    { asset: 'Lists and segments', action: 'Partial — list membership via CSV', required: 'Recreate lists as GHL Smart Lists or tags after import' },
+    { asset: 'Lists and segments', action: 'Partial list membership via CSV', required: 'Recreate lists as GHL Smart Lists or tags after import' },
     { asset: 'Email automations and sequences', action: 'Does NOT transfer', required: 'Full automation rebuild in GHL workflow builder' },
     { asset: 'Lead scoring models', action: 'Does NOT transfer', required: 'Recreate using GHL custom fields + workflow conditions' },
     { asset: 'Conditional logic (IF/THEN)', action: 'Does NOT transfer', required: 'Rebuild using GHL If/Else conditions in workflows' },
@@ -214,7 +214,7 @@ export default function ActiveCampaignToGHLMigrationClient() {
             ActiveCampaign users are different from most people who migrate to GoHighLevel. 
             They have usually spent years building sophisticated email automations, complex 
             contact scoring models, and tightly segmented lists. The migration is not just 
-            a data move — it is an architecture change. This guide covers exactly what transfers, 
+            a data move it is an architecture change. This guide covers exactly what transfers, 
             what has to be rebuilt, and the one thing you absolutely must do before sending a 
             single email from GHL.
           </p>
@@ -232,13 +232,13 @@ export default function ActiveCampaignToGHLMigrationClient() {
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
               <div className="flex items-center gap-2 mb-3">
                 <Zap className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Quick Answer — Read This First</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Quick Answer Read This First</span>
               </div>
               <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
                 Contacts, tags, and lists migrate from ActiveCampaign to GoHighLevel via CSV export and import.
               </p>
               <p className="text-sm text-[#5C6880] leading-relaxed">
-                Automations do <strong className="text-[#1A2236]">not transfer</strong> — every sequence, conditional trigger, and lead scoring rule 
+                Automations do <strong className="text-[#1A2236]">not transfer</strong> every sequence, conditional trigger, and lead scoring rule 
                 must be rebuilt manually as GHL workflows. There will be a short-term email deliverability dip when you switch sending infrastructure. 
                 Mitigate it by warming your GHL sending domain over <strong className="text-[#0E9BF0]">2–3 weeks</strong> before sending to your full list. 
                 A typical business with 5,000–20,000 contacts and 5–15 automations takes <strong className="text-[#0E9BF0]">2–3 weeks</strong> to migrate.
@@ -270,7 +270,7 @@ export default function ActiveCampaignToGHLMigrationClient() {
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               ActiveCampaign is an excellent email marketing and automation platform. The migration to GoHighLevel 
-              is almost never about ActiveCampaign being bad — it's about <strong className="text-[#1A2236]">what ActiveCampaign does not have</strong> 
+              is almost never about ActiveCampaign being bad it's about <strong className="text-[#1A2236]">what ActiveCampaign does not have</strong> 
               that the business now needs: native SMS, AI Voice Agent, appointment booking, reputation management, 
               funnel building, and multi-client agency management.
             </p>
@@ -308,12 +308,12 @@ export default function ActiveCampaignToGHLMigrationClient() {
 
             {/* Section 2: What Transfers */}
             <h2 id="what-transfers" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              2. What Transfers from ActiveCampaign to GoHighLevel — and What Breaks?
+              2. What Transfers from ActiveCampaign to GoHighLevel and What Breaks?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               <strong className="text-[#1A2236]">The rule is simple: data transfers, logic does not.</strong> Your contacts, tags, 
               and custom field values can be exported from AC and imported into GHL via CSV. Every decision, condition, trigger, 
-              and scoring rule those contacts are enrolled in — the logic that runs your business — must be rebuilt inside GHL's 
+              and scoring rule those contacts are enrolled in the logic that runs your business must be rebuilt inside GHL's 
               workflow builder from scratch.
             </p>
 
@@ -391,7 +391,7 @@ export default function ActiveCampaignToGHLMigrationClient() {
               <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-6 h-6 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold">5</div>
-                  <h3 className="text-base font-bold text-[#1A2236]">Rebuild automations as GHL workflows — highest priority first</h3>
+                  <h3 className="text-base font-bold text-[#1A2236]">Rebuild automations as GHL workflows highest priority first</h3>
                 </div>
                 <p className="text-sm text-[#5C6880] leading-relaxed ml-9">Recreate each active AC automation as a GHL workflow, starting with highest-volume sequences. Rebuild IF/THEN logic using GHL's If/Else conditions. Test every workflow with a real contact before activating.</p>
                 <p className="text-sm text-[#0E9BF0] leading-relaxed ml-9 mt-1">→ Need help with workflows? <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-[#0E9BF0] hover:underline">GoHighLevel Workflow Automation Guide →</Link></p>
@@ -408,7 +408,7 @@ export default function ActiveCampaignToGHLMigrationClient() {
 
             {/* Section 4: Email Deliverability */}
             <h2 id="email-deliverability" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              4. The Email Deliverability Question — Honest Answer
+              4. The Email Deliverability Question Honest Answer
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               This is the most important concern for anyone migrating from ActiveCampaign, and it deserves a straight answer. 
@@ -423,9 +423,9 @@ export default function ActiveCampaignToGHLMigrationClient() {
               </div>
               <ul className="space-y-2 text-sm text-[#1A2236] list-disc list-inside">
                 <li><strong className="text-[#1A2236]">Complete DKIM, SPF, and DMARC setup</strong> before sending a single email from GHL</li>
-                <li><strong className="text-[#1A2236]">Warm your GHL sending domain over 2–3 weeks</strong> — start with 50–100 emails per day to most engaged contacts</li>
-                <li><strong className="text-[#1A2236]">Clean your list before importing</strong> — remove hard bounces, unengaged contacts, and spam complainers</li>
-                <li><strong className="text-[#1A2236]">Monitor your first 10–15 campaigns closely</strong> — watch open rates, click rates, bounce rates</li>
+                <li><strong className="text-[#1A2236]">Warm your GHL sending domain over 2–3 weeks</strong> start with 50–100 emails per day to most engaged contacts</li>
+                <li><strong className="text-[#1A2236]">Clean your list before importing</strong> remove hard bounces, unengaged contacts, and spam complainers</li>
+                <li><strong className="text-[#1A2236]">Monitor your first 10–15 campaigns closely</strong> watch open rates, click rates, bounce rates</li>
               </ul>
             </div>
 
@@ -471,7 +471,7 @@ export default function ActiveCampaignToGHLMigrationClient() {
                 <span className="text-sm font-bold text-[#F8D000]">WE HANDLE THIS FOR YOU</span>
               </div>
               <p className="text-sm text-white/80 leading-relaxed mb-3">
-                GHL Scaleup manages complete ActiveCampaign to GoHighLevel migrations — automation audit, contact export and cleaning, 
+                GHL Scaleup manages complete ActiveCampaign to GoHighLevel migrations automation audit, contact export and cleaning, 
                 tag mapping, field mapping, automation rebuild, email domain configuration, warmup scheduling, and parallel testing.
               </p>
               <Link href="/contact" className="inline-flex items-center gap-2 text-[#F8D000] text-sm font-semibold hover:gap-3 transition-all">
@@ -518,7 +518,7 @@ export default function ActiveCampaignToGHLMigrationClient() {
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Moving from ActiveCampaign to GoHighLevel?</h3>
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
                   Do not skip the email warmup. We will make sure you don't. Automation audit, contact migration, 
-                  tag mapping, domain warmup scheduling, and GHL workflow rebuild — all handled. Book a free assessment.
+                  tag mapping, domain warmup scheduling, and GHL workflow rebuild all handled. Book a free assessment.
                 </p>
                 <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
                   Book Your Free Migration Assessment

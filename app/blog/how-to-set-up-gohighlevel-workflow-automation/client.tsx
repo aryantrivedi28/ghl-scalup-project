@@ -565,7 +565,7 @@ export default function WorkflowAutomationClient() {
                                           <p className="text-sm text-[#1A2236] leading-relaxed mb-3">
                                                 → Already on GHL and not sure if your workflows are configured correctly?
                                           </p>
-                                          <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-5 py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] transition-all">
+                                          <Link href="/contact-us" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-5 py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] transition-all">
                                                 Book a free 30-minute GHL audit
                                                 <ArrowRight className="w-4 h-4" />
                                           </Link>
@@ -608,7 +608,7 @@ export default function WorkflowAutomationClient() {
                                                       Is Your GHL Automation Actually Working? Most GHL accounts run 2-3 workflows and leave the rest of the platform untouched.
                                                       Book a free 30-minute strategy call and we'll audit your setup and show you exactly what's missing.
                                                 </p>
-                                                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                                                <Link href="/contact-us" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
                                                       Book Your Free GHL Audit
                                                       <ArrowRight className="w-4 h-4" />
                                                 </Link>
@@ -671,7 +671,7 @@ export default function WorkflowAutomationClient() {
                                     <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-2">
                                           <div className="text-sm font-bold text-white mb-2">Need Help with GHL Workflows?</div>
                                           <p className="text-xs text-white/60 leading-relaxed mb-4">From basic automations to complex AI workflows we build complete GHL systems that actually work.</p>
-                                          <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+                                          <Link href="/contact-us" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
                                                 Talk to Us
                                                 <ArrowRight className="w-3 h-3" />
                                           </Link>
