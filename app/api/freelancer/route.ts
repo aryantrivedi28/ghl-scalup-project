@@ -16,6 +16,7 @@ export async function POST(request: NextRequest) {
     
     // New fields from updated UI
     const expertiseArea = formData.get('expertiseArea') as string;
+    const customExpertise = formData.get('customExpertise') as string; // NEW FIELD
     const lookingFor = formData.get('lookingFor') as string;
     const rate = formData.get('rate') as string;
     const portfolioLink = formData.get('portfolioLink') as string;
@@ -31,9 +32,24 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (!expertiseArea || !lookingFor || !rate || !availability) {
+    if (!lookingFor || !rate || !availability) {
       return NextResponse.json(
         { success: false, message: 'Missing required expertise or rate fields' },
+        { status: 400 }
+      );
+    }
+
+    // Handle expertise area - check if custom expertise is provided
+    let finalExpertiseArea = expertiseArea;
+    let customExpertiseValue = null;
+    
+    if (customExpertise && customExpertise.trim() !== '') {
+      // User selected "Other" and provided custom text
+      finalExpertiseArea = `Other: ${customExpertise}`;
+      customExpertiseValue = customExpertise;
+    } else if (!expertiseArea || expertiseArea === '') {
+      return NextResponse.json(
+        { success: false, message: 'Expertise area is required' },
         { status: 400 }
       );
     }
@@ -113,7 +129,8 @@ export async function POST(request: NextRequest) {
         experience_level: experienceLevel,
         
         // Expertise & Skills
-        expertise_area: expertiseArea,
+        expertise_area: finalExpertiseArea,
+        custom_expertise: customExpertiseValue, // NEW FIELD
         looking_for: lookingFor,
         specialisations: specialisations || null,
         
@@ -157,7 +174,8 @@ export async function POST(request: NextRequest) {
             experienceLevel,
             
             // Expertise
-            expertiseArea,
+            expertiseArea: finalExpertiseArea,
+            customExpertise: customExpertiseValue,
             lookingFor,
             specialisations,
             
@@ -187,6 +205,7 @@ export async function POST(request: NextRequest) {
         firstName: data.first_name,
         lastName: data.last_name,
         email: data.email,
+        expertiseArea: finalExpertiseArea,
         status: data.status
       }
     });

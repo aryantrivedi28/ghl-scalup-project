@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import {
   TrendingUp,
@@ -23,7 +23,8 @@ import {
   ArrowRightCircle,
   User,
   Brain,
-  DollarSign
+  DollarSign,
+  Search
 } from 'lucide-react';
 
 // Types
@@ -36,6 +37,7 @@ interface FormData {
   phoneCode: string;
   experienceLevel: string;
   expertiseArea: string;
+  customExpertise: string; // New field for custom expertise
   otherExpertise: string;
   lookingFor: string;
   rate: string;
@@ -247,10 +249,118 @@ const countries: CountryOption[] = [
   { code: 'OT', name: 'Other', phoneCode: '0' },
 ];
 
+// Searchable Select Component
+interface SearchableSelectProps {
+  options: string[];
+  value: string;
+  onChange: (value: string) => void;
+  placeholder: string;
+  label?: string;
+  required?: boolean;
+  includeOther?: boolean;
+  onOtherSelect?: () => void;
+}
+
+const SearchableSelect: React.FC<SearchableSelectProps> = ({
+  options,
+  value,
+  onChange,
+  placeholder,
+  required,
+  includeOther = false,
+  onOtherSelect
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const filteredOptions = options.filter(option =>
+    option.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const handleSelect = (option: string) => {
+    if (option === 'Other' && onOtherSelect) {
+      onOtherSelect();
+    } else {
+      onChange(option);
+    }
+    setIsOpen(false);
+    setSearchTerm('');
+  };
+
+  return (
+    <div className="relative" ref={dropdownRef}>
+      <div
+        className="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base cursor-pointer focus:border-[#0E9BF0] focus:outline-none transition-all flex items-center justify-between"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <span className={value ? 'text-white' : 'text-white/30'}>
+          {value || placeholder}
+        </span>
+        <ChevronRight className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-90' : ''}`} />
+      </div>
+
+      {isOpen && (
+        <div className="absolute z-50 w-full mt-1 bg-[#1C2E4A] border border-white/20 rounded-lg shadow-xl overflow-hidden">
+          <div className="p-2 border-b border-white/10">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-white/40" />
+              <input
+                type="text"
+                className="w-full bg-white/5 border border-white/20 rounded-lg px-8 py-2 text-white text-sm placeholder-white/30 focus:border-[#0E9BF0] focus:outline-none"
+                placeholder="Search..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                autoFocus
+              />
+            </div>
+          </div>
+          <div className="max-h-60 overflow-y-auto">
+            {filteredOptions.length > 0 ? (
+              <>
+                {filteredOptions.map((option) => (
+                  <div
+                    key={option}
+                    className="px-4 py-2 hover:bg-white/10 cursor-pointer text-white text-sm transition-colors"
+                    onClick={() => handleSelect(option)}
+                  >
+                    {option}
+                  </div>
+                ))}
+                {includeOther && !filteredOptions.includes('Other') && (
+                  <div
+                    className="px-4 py-2 hover:bg-white/10 cursor-pointer text-white text-sm transition-colors border-t border-white/10 mt-1 pt-2"
+                    onClick={() => handleSelect('Other')}
+                  >
+                    + Other (Specify)
+                  </div>
+                )}
+              </>
+            ) : (
+              <div className="px-4 py-2 text-white/40 text-sm">No options found</div>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
 export default function WorkWithUsPage() {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [showCustomExpertise, setShowCustomExpertise] = useState(false);
 
   // Form state
   const [formData, setFormData] = useState<FormData>({
@@ -262,6 +372,7 @@ export default function WorkWithUsPage() {
     phoneCode: '+91',
     experienceLevel: '',
     expertiseArea: '',
+    customExpertise: '',
     otherExpertise: '',
     lookingFor: '',
     rate: '',
@@ -277,8 +388,7 @@ export default function WorkWithUsPage() {
   const [portfolioFileName, setPortfolioFileName] = useState('');
 
   // Handle country change - auto update phone code
-  const handleCountryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const countryName = e.target.value;
+  const handleCountryChange = (countryName: string) => {
     const selectedCountry = countries.find(c => c.name === countryName);
 
     setFormData(prev => ({
@@ -347,11 +457,22 @@ export default function WorkWithUsPage() {
     }
   };
 
+  const handleExpertiseChange = (value: string) => {
+    if (value === 'Other') {
+      setShowCustomExpertise(true);
+      setFormData(prev => ({ ...prev, expertiseArea: '', customExpertise: '' }));
+    } else {
+      setShowCustomExpertise(false);
+      setFormData(prev => ({ ...prev, expertiseArea: value, customExpertise: '' }));
+    }
+  };
+
   const goToStep = (step: number) => {
     setCurrentStep(step);
     document.getElementById('application-form')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // In the submitForm function, update this section:
   const submitForm = async () => {
     setIsSubmitting(true);
 
@@ -365,10 +486,15 @@ export default function WorkWithUsPage() {
     submitData.append('country', formData.country);
     submitData.append('experienceLevel', formData.experienceLevel);
 
+    // Handle expertise - send both the selected value and custom if exists
     let expertiseValue = formData.expertiseArea;
-    if (formData.expertiseArea === 'Not Sure Yet / Need Consultation' && formData.otherExpertise) {
+    if (showCustomExpertise && formData.customExpertise) {
+      expertiseValue = 'Other';
+      submitData.append('customExpertise', formData.customExpertise); // Send custom expertise separately
+    } else if (formData.expertiseArea === 'Not Sure Yet / Need Consultation' && formData.otherExpertise) {
       expertiseValue = `Other: ${formData.otherExpertise}`;
     }
+
     submitData.append('expertiseArea', expertiseValue);
     submitData.append('lookingFor', formData.lookingFor);
     submitData.append('rate', formData.rate);
@@ -380,25 +506,7 @@ export default function WorkWithUsPage() {
     if (resumeFile) submitData.append('resume', resumeFile);
     if (portfolioFile) submitData.append('portfolio', portfolioFile);
 
-    try {
-      const response = await fetch('/api/freelancer', {
-        method: 'POST',
-        body: submitData
-      });
-
-      const result = await response.json();
-
-      if (result.success) {
-        setIsSuccess(true);
-      } else {
-        alert('Failed to submit. Please try again.');
-      }
-    } catch (error) {
-      console.error('Submission error:', error);
-      alert('Network error. Please try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
+    // ... rest of the code
   };
 
   const getProgressPercent = () => {
@@ -505,9 +613,10 @@ export default function WorkWithUsPage() {
                           name="firstName"
                           value={formData.firstName}
                           onChange={handleInputChange}
-                          className="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base placeholder-white/30 focus:border-[#0E9BF0] focus:outline-none transition-all"
+                          className="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base placeholder-white/30 focus:border-[#0E9BF0] focus:outline-none transition-all autofill:bg-transparent autofill:text-white"
                           placeholder="First name"
                           required
+                          autoComplete="given-name"
                         />
                       </div>
                       <div>
@@ -517,9 +626,10 @@ export default function WorkWithUsPage() {
                           name="lastName"
                           value={formData.lastName}
                           onChange={handleInputChange}
-                          className="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base placeholder-white/30 focus:border-[#0E9BF0] focus:outline-none transition-all"
+                          className="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base placeholder-white/30 focus:border-[#0E9BF0] focus:outline-none transition-all autofill:bg-transparent autofill:text-white"
                           placeholder="Last name"
                           required
+                          autoComplete="family-name"
                         />
                       </div>
                     </div>
@@ -531,28 +641,22 @@ export default function WorkWithUsPage() {
                         name="email"
                         value={formData.email}
                         onChange={handleInputChange}
-                        className="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base placeholder-white/30 focus:border-[#0E9BF0] focus:outline-none transition-all"
+                        className="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base placeholder-white/30 focus:border-[#0E9BF0] focus:outline-none transition-all autofill:bg-transparent autofill:text-white"
                         placeholder="you@email.com"
                         required
+                        autoComplete="email"
                       />
                     </div>
 
                     <div>
                       <label className="block text-xs font-medium tracking-wide text-white/50 uppercase mb-1.5 sm:mb-2">Country *</label>
-                      <select
-                        name="country"
+                      <SearchableSelect
+                        options={countries.map(c => c.name)}
                         value={formData.country}
                         onChange={handleCountryChange}
-                        className="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base focus:border-[#0E9BF0] focus:outline-none transition-all cursor-pointer"
+                        placeholder="Select country"
                         required
-                      >
-                        <option value="" className="bg-[#1C2E4A] text-white">Select country</option>
-                        {countries.map(country => (
-                          <option key={country.code} value={country.name} className="bg-[#1C2E4A] text-white">
-                            {country.name} ({country.phoneCode})
-                          </option>
-                        ))}
-                      </select>
+                      />
                     </div>
 
                     {/* Phone Section - Clean and Simple */}
@@ -567,9 +671,10 @@ export default function WorkWithUsPage() {
                           name="phone"
                           value={formData.phone}
                           onChange={handlePhoneChange}
-                          className="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-xl pl-16 sm:pl-20 pr-3 sm:pr-4 py-2.5 sm:py-3 text-white text-sm sm:text-base placeholder-white/30 focus:border-[#0E9BF0] focus:outline-none transition-all"
+                          className="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-xl pl-16 sm:pl-20 pr-3 sm:pr-4 py-2.5 sm:py-3 text-white text-sm sm:text-base placeholder-white/30 focus:border-[#0E9BF0] focus:outline-none transition-all autofill:bg-transparent autofill:text-white"
                           placeholder="9876543210"
                           required
+                          autoComplete="tel"
                         />
                       </div>
                       <p className="text-xs text-white/30 mt-1">Enter number without country code</p>
@@ -581,7 +686,7 @@ export default function WorkWithUsPage() {
                         name="experienceLevel"
                         value={formData.experienceLevel}
                         onChange={handleInputChange}
-                        className="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base focus:border-[#0E9BF0] focus:outline-none transition-all cursor-pointer"
+                        className="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base focus:border-[#0E9BF0] focus:outline-none transition-all cursor-pointer autofill:bg-transparent autofill:text-white"
                         required
                       >
                         <option value="" className="bg-[#1C2E4A] text-white">Select level</option>
@@ -616,20 +721,32 @@ export default function WorkWithUsPage() {
                   <div className="space-y-4 sm:space-y-6">
                     <div>
                       <label className="block text-xs font-medium tracking-wide text-white/50 uppercase mb-1.5 sm:mb-2">Area of Expertise *</label>
-                      <select
-                        name="expertiseArea"
-                        value={formData.expertiseArea}
-                        onChange={handleInputChange}
-                        className="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base focus:border-[#0E9BF0] focus:outline-none transition-all cursor-pointer"
+                      <SearchableSelect
+                        options={[...expertiseOptions]}
+                        value={showCustomExpertise ? 'Other' : formData.expertiseArea}
+                        onChange={handleExpertiseChange}
+                        placeholder="Select your primary expertise"
                         required
-                      >
-                        <option value="" className="bg-[#1C2E4A] text-white">Select your primary expertise</option>
-                        {expertiseOptions.map(option => (
-                          <option key={option} value={option} className="bg-[#1C2E4A] text-white">{option}</option>
-                        ))}
-                      </select>
+                        includeOther={true}
+                      />
 
-                      {formData.expertiseArea === 'Not Sure Yet / Need Consultation' && (
+                      {showCustomExpertise && (
+                        <div className="mt-3 animate-fadeUp">
+                          <label className="block text-xs font-medium tracking-wide text-white/50 uppercase mb-1.5 sm:mb-2">Please specify your expertise *</label>
+                          <input
+                            type="text"
+                            name="customExpertise"
+                            value={formData.customExpertise}
+                            onChange={handleInputChange}
+                            className="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base placeholder-white/30 focus:border-[#0E9BF0] focus:outline-none transition-all"
+                            placeholder="e.g., Shopify Integration, Custom API Development, etc."
+                            autoFocus
+                          />
+                          <p className="text-xs text-white/30 mt-1">Please describe your area of expertise</p>
+                        </div>
+                      )}
+
+                      {formData.expertiseArea === 'Not Sure Yet / Need Consultation' && !showCustomExpertise && (
                         <div className="mt-3">
                           <input
                             type="text"
@@ -649,7 +766,7 @@ export default function WorkWithUsPage() {
                         name="lookingFor"
                         value={formData.lookingFor}
                         onChange={handleInputChange}
-                        className="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base focus:border-[#0E9BF0] focus:outline-none transition-all cursor-pointer"
+                        className="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base focus:border-[#0E9BF0] focus:outline-none transition-all cursor-pointer autofill:bg-transparent autofill:text-white"
                         required
                       >
                         <option value="" className="bg-[#1C2E4A] text-white">Select option</option>
@@ -706,9 +823,10 @@ export default function WorkWithUsPage() {
                         name="rate"
                         value={formData.rate}
                         onChange={handleInputChange}
-                        className="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base placeholder-white/30 focus:border-[#0E9BF0] focus:outline-none transition-all"
+                        className="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base placeholder-white/30 focus:border-[#0E9BF0] focus:outline-none transition-all autofill:bg-transparent autofill:text-white"
                         placeholder="e.g., $30/hour or $3000/month"
                         required
+                        autoComplete="off"
                       />
                       <p className="text-xs text-white/30 mt-1">Expected salary or hourly rate</p>
                     </div>
@@ -719,7 +837,7 @@ export default function WorkWithUsPage() {
                         name="availability"
                         value={formData.availability}
                         onChange={handleInputChange}
-                        className="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base focus:border-[#0E9BF0] focus:outline-none transition-all cursor-pointer"
+                        className="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base focus:border-[#0E9BF0] focus:outline-none transition-all cursor-pointer autofill:bg-transparent autofill:text-white"
                         required
                       >
                         <option value="" className="bg-[#1C2E4A] text-white">Select availability</option>
@@ -770,8 +888,9 @@ export default function WorkWithUsPage() {
                         name="portfolioLink"
                         value={formData.portfolioLink}
                         onChange={handleInputChange}
-                        className="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base placeholder-white/30 focus:border-[#0E9BF0] focus:outline-none transition-all"
+                        className="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base placeholder-white/30 focus:border-[#0E9BF0] focus:outline-none transition-all autofill:bg-transparent autofill:text-white"
                         placeholder="https://yoursite.com or linkedin.com/in/you"
+                        autoComplete="off"
                       />
                     </div>
 
@@ -862,6 +981,24 @@ export default function WorkWithUsPage() {
           background-color: #1C2E4A !important;
           color: white !important;
           padding: 8px !important;
+        }
+        
+        /* Fix for browser autocomplete styles */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active,
+        select:-webkit-autofill,
+        textarea:-webkit-autofill {
+          -webkit-box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.05) inset !important;
+          -webkit-text-fill-color: white !important;
+          caret-color: white !important;
+          transition: background-color 5000s ease-in-out 0s;
+        }
+        
+        /* Ensure autofill background matches our design */
+        input:-webkit-autofill {
+          background-color: transparent !important;
         }
         
         @media (max-width: 640px) {
