@@ -28,7 +28,8 @@ import {
   Globe,
   Briefcase,
   Cloud,
-  Funnel
+  Funnel,
+  Home
 } from 'lucide-react';
 
 const blogPosts = [
@@ -210,6 +211,17 @@ const blogPosts = [
     image: 'https://hireghldeveloper.com/blog/posts/files/f2f97038-49f4-4f84-87c2-38649d410a8d.png',
   },
   {
+    icon: Home,
+    tag: 'Real Estate',
+    title: 'GoHighLevel for Real Estate Agents: Complete 2026 Guide',
+    excerpt: 'GoHighLevel helps real estate agents capture leads from Zillow and Facebook, follow up automatically within 15 seconds, book showings, and collect reviews after closing. Complete setup guide for agents and brokerages.',
+    slug: 'gohighlevel-for-real-estate',
+    date: 'May 25, 2026',
+    readTime: '18 min read',
+    featured: true,
+    image: 'https://khrisdigital.com/wp-content/uploads/2024/01/GOHIGHLEVEL-FOR-REAL-ESTATE-AGENTS.jpg',
+  },
+  {
     icon: Brain,
     tag: 'AI',
     title: 'GHL AI Workflows to Respond to Leads in Under 10 Seconds',
@@ -287,6 +299,7 @@ const getCategoryColor = (tag: string) => {
     'Agency': 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]',
     'White Label SaaS': 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]',
     'Migration': 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]',
+    'Real Estate': 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]',
   };
   return colors[tag] || 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]';
 };
