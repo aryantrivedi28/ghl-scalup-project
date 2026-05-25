@@ -12,10 +12,7 @@ import {
   ArrowRight,
   CheckCircle2,
   Clock,
-  PieChart,
-  LineChart,
   Activity,
-  Eye,
   Database,
   Zap
 } from 'lucide-react';

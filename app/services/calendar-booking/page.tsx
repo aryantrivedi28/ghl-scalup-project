@@ -11,7 +11,6 @@ import {
   CreditCard,
   ArrowRight,
   CheckCircle2,
-  Clock,
   Users,
   Zap,
   Sparkles,

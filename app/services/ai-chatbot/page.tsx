@@ -13,11 +13,9 @@ import {
   CheckCircle2,
   Clock,
   MessageCircle,
-  Users,
   Zap,
   Sparkles,
   Database,
-  TrendingUp
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
 import { generateFaqSchema } from '@/lib/faqSchema';
