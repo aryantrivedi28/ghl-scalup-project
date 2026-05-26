@@ -29,7 +29,8 @@ import {
   Briefcase,
   Cloud,
   Funnel,
-  Home
+  Home,
+  GraduationCap
 } from 'lucide-react';
 
 const blogPosts = [
@@ -220,6 +221,17 @@ const blogPosts = [
     readTime: '18 min read',
     featured: true,
     image: 'https://khrisdigital.com/wp-content/uploads/2024/01/GOHIGHLEVEL-FOR-REAL-ESTATE-AGENTS.jpg',
+  },
+  {
+    icon: GraduationCap,
+    tag: 'Migration',
+    title: 'Kajabi to GoHighLevel Migration: What Breaks and How to Fix It (2026)',
+    excerpt: 'Migrating from Kajabi to GoHighLevel? Contacts transfer via CSV. Course content must be manually rebuilt in GHL\'s membership module. Honest guide covering what breaks, how long it takes, and how to move without losing your students.',
+    slug: 'kajabi-to-gohighlevel-migration',
+    date: 'May 26, 2026',
+    readTime: '12 min read',
+    featured: true,
+    image: 'https://i.ytimg.com/vi/T2zHCj-en5M/maxresdefault.jpg',
   },
   {
     icon: Brain,
