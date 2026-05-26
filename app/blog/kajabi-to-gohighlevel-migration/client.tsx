@@ -481,8 +481,8 @@ export default function KajabiToGHLMigrationClient() {
                                                 GHL Scale Up manages complete Kajabi to GoHighLevel migrations: contact export and cleaning, course content rebuild in GHL membership,
                                                 drip schedule rebuild, email sequence migration to GHL workflows, student re-enrolment, and post-migration support.
                                           </p>
-                                          <Link href="/contact" className="inline-flex items-center gap-2 text-[#F8D000] text-sm font-semibold hover:gap-3 transition-all">
-                                                Book a free migration assessment at ghlscaleup.com/contact
+                                          <Link href="/contact-us" className="inline-flex items-center gap-2 text-[#F8D000] text-sm font-semibold hover:gap-3 transition-all">
+                                                Book a free migration assessment at ghlscaleup.com/contact-us
                                                 <ArrowRight className="w-3 h-3" />
                                           </Link>
                                           <p className="text-sm text-white/60 leading-relaxed mt-3">
@@ -529,7 +529,7 @@ export default function KajabiToGHLMigrationClient() {
                                                       drip schedule rebuild, student re-enrolment, and email sequence migration to GHL workflows all handled.
                                                       Book a free migration assessment.
                                                 </p>
-                                                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                                                <Link href="/contact-us" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
                                                       Book Your Free Assessment
                                                       <ArrowRight className="w-4 h-4" />
                                                 </Link>
@@ -593,7 +593,7 @@ export default function KajabiToGHLMigrationClient() {
                                     <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-2" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
                                           <div className="text-sm font-bold text-white mb-2">Need Help Migrating from Kajabi?</div>
                                           <p className="text-xs text-white/60 leading-relaxed mb-4">We handle complete Kajabi to GHL migrations. Course rebuild included.</p>
-                                          <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+                                          <Link href="/contact-us" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
                                                 Get Help
                                                 <ArrowRight className="w-3 h-3" />
                                           </Link>
