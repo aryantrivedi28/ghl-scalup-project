@@ -119,7 +119,7 @@ export default function KajabiToGHLMigrationClient() {
 
       const tocItems = [
             { id: 'why-migrate', title: '1. Why Course Creators and Coaches Migrate from Kajabi to GoHighLevel' },
-            { id: 'what-transfers', title: '2. What Transfers from Kajabi — and What Must Be Rebuilt' },
+            { id: 'what-transfers', title: '2. What Transfers from Kajabi and What Must Be Rebuilt' },
             { id: 'migration-steps', title: '3. How to Migrate from Kajabi to GoHighLevel (Step-by-Step)' },
             { id: 'membership-comparison', title: '4. How Does GoHighLevel\'s Membership Module Compare to Kajabi?' },
             { id: 'common-mistakes', title: '5. Common Kajabi Migration Mistakes to Avoid' },
@@ -248,7 +248,7 @@ export default function KajabiToGHLMigrationClient() {
                                     <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
                                           <div className="flex items-center gap-2 mb-3">
                                                 <Zap className="w-5 h-5 text-[#F8D000]" />
-                                                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Quick Answer — Read This First</span>
+                                                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Quick Answer Read This First</span>
                                           </div>
                                           <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
                                                 Contacts, tags, and email sequences transfer from Kajabi to GoHighLevel.
@@ -326,7 +326,7 @@ export default function KajabiToGHLMigrationClient() {
 
                                     {/* Section 2: What Transfers */}
                                     <h2 id="what-transfers" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-                                          2. What Transfers from Kajabi to GoHighLevel — and What Must Be Rebuilt?
+                                          2. What Transfers from Kajabi to GoHighLevel and What Must Be Rebuilt?
                                     </h2>
                                     <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
                                           <strong className="text-[#1A2236]">The key distinction: data transfers, content does not.</strong> Your contacts, tags,
