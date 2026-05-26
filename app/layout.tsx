@@ -22,8 +22,8 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.ghlscaleup.com'),
-  title: 'GoHighLevel Expert Agency | GHL Scale Up',
-  description: 'GHL Scale Up builds complete GoHighLevel systems - CRM setup, automation, AI agents & white-label SaaS.',
+  title: 'GoHighLevel Experts & GHL Agency Services | GHL Scale Up',
+  description: 'Partner with GHL Scale Up, GoHighLevel agency with 200+ builds across 6 countries. We setup Ghl backend systems and automations, white-label SaaS. Book a free call.',
 
   alternates: {
     canonical: '/',
@@ -219,7 +219,7 @@ export default function RootLayout({
           src="https://widgets.leadconnectorhq.com/loader.js"
           data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
           data-widget-id="6a0ffa0920e5a77e67132220"
-          strategy="afterInteractive"   
+          strategy="afterInteractive"
         />
 
 
