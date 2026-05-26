@@ -498,7 +498,25 @@ export default function WorkWithUsPage() {
     if (resumeFile) submitData.append('resume', resumeFile);
     if (portfolioFile) submitData.append('portfolio', portfolioFile);
 
-    // ... rest of the code
+    try {
+      const response = await fetch('/api/freelancer', {
+        method: 'POST',
+        body: submitData
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setIsSuccess(true);
+      } else {
+        alert('Failed to submit. Please try again.');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert('Network error. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const getProgressPercent = () => {
