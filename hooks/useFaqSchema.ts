@@ -1,3 +1,4 @@
+// /hooks/useFaqSchema.ts
 import { useEffect } from 'react';
 
 interface FAQ {
