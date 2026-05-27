@@ -244,7 +244,7 @@ export default function GHLSubAccountToOwnAccountClient() {
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
               <div className="flex items-center gap-2 mb-3">
                 <Zap className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Quick Answer — Read This First</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Quick Answer Read This First</span>
               </div>
               <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
                 Yes, you can move from a GHL sub-account to your own independent GoHighLevel agency account.
@@ -353,11 +353,11 @@ export default function GHLSubAccountToOwnAccountClient() {
               </div>
               <p className="text-sm text-[#5C6880] leading-relaxed mb-3">Use this route if you do not already have a GHL agency account and you want to start fresh with your sub-account data carried over.</p>
               <ol className="space-y-2 text-sm text-[#5C6880] list-decimal list-inside ml-2">
-                <li><strong className="text-[#1A2236]">Contact your current agency and request an eject</strong> — Ask them to initiate an 'Eject to New Agency' transfer. They will need to nominate you as the new agency owner.</li>
-                <li><strong className="text-[#1A2236]">Accept the GHL email invitation</strong> — You will receive an email from GoHighLevel with a signup link for a new $97/month agency account.</li>
-                <li><strong className="text-[#1A2236]">Log in and confirm your data transferred correctly</strong> — Check that your contacts, funnels, workflows, pipelines, and users are all present.</li>
-                <li><strong className="text-[#1A2236]">Reconnect your third-party integrations</strong> — All external connections are disconnected during the transfer. Reconnect each integration.</li>
-                <li><strong className="text-[#1A2236]">Set up your agency-level settings</strong> — Configure your agency profile, billing, team members, and explore the agency dashboard.</li>
+                <li><strong className="text-[#1A2236]">Contact your current agency and request an eject</strong> Ask them to initiate an 'Eject to New Agency' transfer. They will need to nominate you as the new agency owner.</li>
+                <li><strong className="text-[#1A2236]">Accept the GHL email invitation</strong> You will receive an email from GoHighLevel with a signup link for a new $97/month agency account.</li>
+                <li><strong className="text-[#1A2236]">Log in and confirm your data transferred correctly</strong> Check that your contacts, funnels, workflows, pipelines, and users are all present.</li>
+                <li><strong className="text-[#1A2236]">Reconnect your third-party integrations</strong> All external connections are disconnected during the transfer. Reconnect each integration.</li>
+                <li><strong className="text-[#1A2236]">Set up your agency-level settings</strong> Configure your agency profile, billing, team members, and explore the agency dashboard.</li>
               </ol>
             </div>
 
