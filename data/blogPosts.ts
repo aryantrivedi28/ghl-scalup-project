@@ -1,0 +1,289 @@
+// /data/blogPosts.ts
+
+export interface BlogPost {
+  icon: any; // Lucide icon component
+  tag: string;
+  title: string;
+  excerpt: string;
+  slug: string;
+  date: string;
+  readTime: string;
+  featured: boolean;
+  image: string;
+}
+
+export const blogPosts: BlogPost[] = [
+  {
+    icon: 'GraduationCap',
+    tag: 'Migration',
+    title: 'Kajabi to GoHighLevel Migration: What Breaks and How to Fix It (2026)',
+    excerpt: 'Migrating from Kajabi to GoHighLevel? Contacts transfer via CSV. Course content must be manually rebuilt in GHL\'s membership module. Honest guide covering what breaks, how long it takes, and how to move without losing your students.',
+    slug: 'kajabi-to-gohighlevel-migration',
+    date: 'May 26, 2026',
+    readTime: '12 min read',
+    featured: true,
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=500&fit=crop',
+  },
+  {
+    icon: 'Home',
+    tag: 'Real Estate',
+    title: 'GoHighLevel for Real Estate Agents: Complete 2026 Guide',
+    excerpt: 'GoHighLevel helps real estate agents capture leads from Zillow and Facebook, follow up automatically within 15 seconds, book showings, and collect reviews after closing. Complete setup guide for agents and brokerages.',
+    slug: 'gohighlevel-for-real-estate',
+    date: 'May 25, 2026',
+    readTime: '18 min read',
+    featured: true,
+    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=500&fit=crop',
+  },
+  {
+    icon: 'Mail',
+    tag: 'Migration',
+    title: 'ActiveCampaign to GoHighLevel Migration: What Breaks and How to Fix It (2026)',
+    excerpt: 'Migrating from ActiveCampaign to GoHighLevel? Contacts and tags transfer via CSV. Automations, lead scoring, and conditional logic all need rebuilding. Honest guide covering what breaks, email deliverability, and step-by-step process.',
+    slug: 'activecampaign-to-gohighlevel-migration',
+    date: 'May 24, 2026',
+    readTime: '12 min read',
+    featured: true,
+    image: 'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/305354184/original/7ca3f5b7b8ee023a80d5da59e322deb7f1e48e6d/build-your-active-campaign-and-mailchimp-automations-and-landing-pages.png',
+  },
+  {
+    icon: 'Funnel',
+    tag: 'Migration',
+    title: 'How to Migrate from ClickFunnels to GoHighLevel: What Breaks & How to Fix It (2026)',
+    excerpt: 'Migrating from ClickFunnels to GoHighLevel? GHL can import your funnels by URL, but automations, domains, and payment integrations all need rebuilding. Step-by-step guide with what breaks and how long it takes.',
+    slug: 'clickfunnels-to-gohighlevel-migration',
+    date: 'May 23, 2026',
+    readTime: '12 min read',
+    featured: true,
+    image: 'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/287345141/original/55e8a5e98e6d119bd14237c48c00612121fff862/clone-or-transfer-your-funnels-or-website-to-gohighlevel.png',
+  },
+  {
+    icon: 'Database',
+    tag: 'Migration',
+    title: 'How to Migrate from HubSpot to GoHighLevel: Step-by-Step Guide (2026)',
+    excerpt: 'A step-by-step guide to migrating from HubSpot to GoHighLevel what data transfers, what breaks, how to rebuild workflows, and how to avoid the most costly migration mistakes.',
+    slug: 'hubspot-to-gohighlevel-migration',
+    date: 'May 22, 2026',
+    readTime: '11 min read',
+    featured: true,
+    image: 'https://mpiresolutions.com/wp-content/uploads/2025/08/go-high-level-vs-hubspot.png',
+  },
+  {
+    icon: 'Cloud',
+    tag: 'White Label SaaS',
+    title: 'GoHighLevel White Label SaaS: How SaaS Mode Works & Full Setup Guide (2026)',
+    excerpt: 'GoHighLevel white label SaaS (SaaS Mode) lets you resell GHL as your own software automated Stripe billing, self-service sign-up, and up to 20 pricing tiers. Full setup guide for Agency Pro.',
+    slug: 'ghl-white-label-saas-guide',
+    date: 'May 21, 2026',
+    readTime: '22 min read',
+    featured: true,
+    image: 'https://images.ctfassets.net/foc8yxpzaiuk/m5xLBmwzgac5EUGpKHkV8/b5d6ad41ac04539251483329a9481d42/Artboard_1_copy_10_3x__2_.png?w=1600&h=941&q=50',
+  },
+  {
+    icon: 'Briefcase',
+    tag: 'Agency',
+    title: 'GoHighLevel for Agencies: The Complete 2026 Guide (Setup, SaaS & Scaling)',
+    excerpt: 'GoHighLevel is the only all-in-one platform purpose-built for marketing agencies unlimited clients, one dashboard, white-label branding, and SaaS resale built in. This guide covers how agencies use GHL, which plan to choose, and how to scale correctly.',
+    slug: 'gohighlevel-for-agencies',
+    date: 'May 20, 2026',
+    readTime: '20 min read',
+    featured: true,
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=500&fit=crop',
+  },
+  {
+    icon: 'Globe',
+    tag: 'White Label',
+    title: 'GoHighLevel White Label: What It Is, How It Works & Full Setup Guide (2026)',
+    excerpt: 'GoHighLevel white label lets you brand the entire platform as your own software. Basic branding starts at $297/mo. Full SaaS Mode with automated billing starts at $497/mo. Step-by-step setup guide with CNAME, Stripe, and pricing strategy.',
+    slug: 'gohighlevel-white-label',
+    date: 'May 19, 2026',
+    readTime: '21 min read',
+    featured: true,
+    image: 'https://images.ctfassets.net/foc8yxpzaiuk/m5xLBmwzgac5EUGpKHkV8/b5d6ad41ac04539251483329a9481d42/Artboard_1_copy_10_3x__2_.png?w=1600&h=941&q=50',
+  },
+  {
+    icon: 'Star',
+    tag: 'Review',
+    title: 'GoHighLevel Review 2026: Honest Verdict After 200+ Real Builds (4.4/5)',
+    excerpt: 'GoHighLevel review for 2026 from a team that has built 200+ GHL systems. Honest rating, real pros and cons, email deliverability issues, learning curve reality, and who should actually use it.',
+    slug: 'gohighlevel-review',
+    date: 'May 18, 2026',
+    readTime: '22 min read',
+    featured: true,
+    image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=500&fit=crop',
+  },
+  {
+    icon: 'BarChart3',
+    tag: 'Comparison',
+    title: 'GoHighLevel vs HubSpot (2026): Honest Comparison for Agencies',
+    excerpt: 'GoHighLevel vs HubSpot the real differences in pricing, features, and who each platform is actually built for. For agencies managing multiple clients, GHL wins on cost and architecture. For enterprise B2B sales teams, HubSpot wins on depth.',
+    slug: 'gohighlevel-vs-hubspot',
+    date: 'May 14, 2026',
+    readTime: '19 min read',
+    featured: true,
+    image: 'https://mpiresolutions.com/wp-content/uploads/2025/08/go-high-level-vs-hubspot.png',
+  },
+  {
+    icon: 'CreditCard',
+    tag: 'Pricing',
+    title: 'GoHighLevel Pricing 2026: All Plans, Real Costs & Hidden Fees Explained',
+    excerpt: 'GoHighLevel costs $97, $297, or $497/month depending on your plan. But that\'s not your real cost. This guide covers every plan, every usage fee, AI pricing, and which plan is right for your business in 2026.',
+    slug: 'gohighlevel-pricing',
+    date: 'May 13, 2026',
+    readTime: '20 min read',
+    featured: true,
+    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&h=500&fit=crop',
+  },
+  {
+    icon: 'Database',
+    tag: 'Conversation AI',
+    title: 'Does GoHighLevel Conversation AI Save Data to Your CRM? (2026 Answer)',
+    excerpt: 'GoHighLevel Conversation AI does save some data to your CRM but not all of it, and not automatically. Here\'s exactly what gets captured, what doesn\'t, and how to build a clean data capture system that actually works.',
+    slug: 'gohighlevel-conversational-ai-data-storage',
+    date: 'May 12, 2026',
+    readTime: '15 min read',
+    featured: true,
+    image: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&h=500&fit=crop',
+  },
+  {
+    icon: 'MapPin',
+    tag: 'Hire Guide',
+    title: 'Where to Hire GoHighLevel Experts in 2026: 6 Best Places (+ How to Vet Them)',
+    excerpt: 'Looking for a GoHighLevel expert? Here are the 6 best places to find GHL professionals in 2026 from the official GHL directory to Upwork, Fiverr, and specialist agencies with a vetting checklist and red flags to avoid.',
+    slug: 'where-to-hire-gohighlevel-experts',
+    date: 'May 11, 2026',
+    readTime: '21 min read',
+    featured: true,
+    image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&h=500&fit=crop',
+  },
+  {
+    icon: 'Trophy',
+    tag: '★ Recommended',
+    title: 'Best GHL Expert Agency to Hire in 2026 (Honest Comparison)',
+    excerpt: 'Looking for the best GoHighLevel expert agency to hire? We compared the top GHL agencies in 2026 covering specialisations, pricing, and who each one is best for so you can choose the right partner without wasting time.',
+    slug: 'best-ghl-expert-agency',
+    date: 'May 9, 2026',
+    readTime: '20 min read',
+    featured: true,
+    image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=500&fit=crop',
+  },
+  {
+    icon: 'Camera',
+    tag: 'Snapshot',
+    title: 'How to Create and Use a GoHighLevel Snapshot to Onboard Clients Faster (2026)',
+    excerpt: 'A GoHighLevel Snapshot is a reusable template of an entire sub-account setup funnels, workflows, pipelines, and more. Learn what\'s included, how to create one in 5 steps, and how to deploy it to client accounts in minutes.',
+    slug: 'how-to-create-gohighlevel-snapshot',
+    date: 'May 8, 2026',
+    readTime: '18 min read',
+    featured: true,
+    image: 'https://i.ytimg.com/vi/Dx4Tf2VX21I/maxresdefault.jpg',
+  },
+  {
+    icon: 'Phone',
+    tag: 'SMS Automation',
+    title: 'GoHighLevel Missed Call Text Back: How It Works + Full Setup Guide (2026)',
+    excerpt: 'GoHighLevel\'s missed call text back sends an automatic SMS within 15 seconds of a missed call recovering leads before they call a competitor. Here\'s how it works and how to set it up in 5 minutes.',
+    slug: 'gohighlevel-missed-call-text-back',
+    date: 'May 7, 2026',
+    readTime: '16 min read',
+    featured: true,
+    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=500&fit=crop',
+  },
+  {
+    icon: 'Zap',
+    tag: 'Workflow',
+    title: 'How to Set Up GoHighLevel Workflow Automation for Beginners (Step-by-Step 2026)',
+    excerpt: 'A step-by-step beginner\'s guide to GoHighLevel workflow automation. Learn what workflows are, how triggers and actions work, and build your first GHL automation in under 30 minutes.',
+    slug: 'how-to-set-up-gohighlevel-workflow-automation',
+    date: 'May 6, 2026',
+    readTime: '19 min read',
+    featured: true,
+    image: 'https://t4.ftcdn.net/jpg/02/90/21/01/360_F_290210126_es32StucJSEqrBmzphC6e7v4hAzmLHup.jpg',
+  },
+  {
+    icon: 'BookOpen',
+    tag: 'GoHighLevel',
+    title: 'What Is GoHighLevel? The Complete Guide for 2026',
+    excerpt: 'GoHighLevel (GHL) is an all-in-one CRM and marketing platform built for agencies and service businesses. This plain-English guide explains what it does, who it\'s for, and how it\'s priced.',
+    slug: 'what-is-gohighlevel',
+    date: 'May 2, 2026',
+    readTime: '12 min read',
+    featured: true,
+    image: 'https://ghlcentral.com/wp-content/uploads/2024/07/what-is-go-highlevel-social-share.jpg',
+  },
+    {
+    icon: Brain,
+    tag: 'AI',
+    title: 'GHL AI Workflows to Respond to Leads in Under 10 Seconds',
+    excerpt: 'Build an AI-powered lead response system that qualifies, books, and follows up.',
+    slug: 'ghl-ai-workflows-lead-response',
+    date: 'April 1, 2026',
+    readTime: '6 min read',
+    featured: true,
+    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=500&fit=crop',
+  },
+  {
+    icon: DollarSign,
+    tag: 'Business',
+    title: 'From Freelancer to GHL SaaS Founder: Recurring Revenue',
+    excerpt: 'Transition from one-off projects to a scalable SaaS business using GHL white-label.',
+    slug: 'freelancer-to-ghl-saas-founder',
+    date: 'March 25, 2026',
+    readTime: '7 min read',
+    featured: false,
+    image: 'https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=800&h=500&fit=crop',
+  },
+  {
+    icon: Settings,
+    tag: 'Automation',
+    title: 'GoHighLevel Funnel Builder: 7 Features Top Agencies Use to Build Faster',
+    excerpt: 'Discover the GoHighLevel funnel builder features most agencies overlook version control, global sections, custom values, real-time collaboration and more.',
+    slug: 'gohighlevel-funnel-builder-features',
+    date: 'April 7, 2026',
+    readTime: '9 min read',
+    featured: true,
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop',
+  },
+  {
+    icon: BarChart3,
+    tag: 'Marketing',
+    title: 'How to Generate High-Quality Leads Using GHL',
+    excerpt: 'Learn the proven strategies to attract, capture, and convert leads using GoHighLevel automation.',
+    slug: 'ghl-lead-generation-strategies',
+    date: 'March 20, 2026',
+    readTime: '6 min read',
+    featured: false,
+    image: 'https://tse4.mm.bing.net/th/id/OIP.om2obSqXtvYBhVLPnSYgbgHaEe?rs=1&pid=ImgDetMain&o=7&rm=3',
+  },
+];
+
+// Helper function to get icon component by name
+import * as Icons from 'lucide-react';
+import { BarChart3, Brain, DollarSign, Settings } from 'lucide-react';
+
+export const getIconComponent = (iconName: string) => {
+  const Icon = (Icons as any)[iconName];
+  return Icon || Icons.BookOpen;
+};
+
+// Helper function to get posts from last 3 days
+export const getLatestThreeDaysPosts = (): BlogPost[] => {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  
+  const threeDaysAgo = new Date(today);
+  threeDaysAgo.setDate(today.getDate() - 3);
+  
+  const parseDate = (dateStr: string): Date => {
+    return new Date(dateStr);
+  };
+  
+  return blogPosts
+    .filter(post => {
+      const postDate = parseDate(post.date);
+      postDate.setHours(0, 0, 0, 0);
+      return postDate >= threeDaysAgo && postDate <= today;
+    })
+    .sort((a, b) => parseDate(b.date).getTime() - parseDate(a.date).getTime())
+    .slice(0, 3);
+};
