@@ -174,7 +174,7 @@ export default function ContactClient() {
                 </h1>
                 <p className="text-[0.92rem] font-light text-[#4A5568] leading-relaxed mb-6">
                   Book a free 45-minute strategy call. We learn your business, review your setup,
-                  identify gaps, and outline a clear plan. No pitch — just a technical conversation.
+                  identify gaps, and outline a clear plan. No pitch just a technical conversation.
                 </p>
               </div>
 
