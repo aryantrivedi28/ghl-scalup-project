@@ -102,14 +102,14 @@ const Footer = () => {
                 >
                   <Twitter className="h-4 w-4" />
                 </Link>
-                {/* <Link
-                  href="https://facebook.com/ghlscaleup"
+                <Link
+                  href="https://www.facebook.com/people/GHL-Scale-Up/61589541225632"
                   target="_blank"
                   className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#0E9BF0] hover:text-white hover:border-[#0E9BF0] transition-all group"
                   aria-label="Facebook"
                 >
                   <Facebook className="h-4 w-4" />
-                </Link> */}
+                </Link>
                 <Link 
                   href="https://www.instagram.com/ghlscaleup?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D" 
                   target="_blank" 
@@ -134,9 +134,9 @@ const Footer = () => {
         <div className="border-t border-white/5 py-5 flex flex-col md:flex-row justify-between items-center text-[0.72rem] text-[#8A9BB0] font-light">
           <span>© 2026 GHL Scale Up. All rights reserved.</span>
           <div className="flex gap-5 mt-3 md:mt-0">
-            <Link href="#privacy" className="text-[#8A9BB0] text-[0.72rem] hover:text-white/60 transition-colors">Privacy Policy</Link>
-            <Link href="#terms" className="text-[#8A9BB0] text-[0.72rem] hover:text-white/60 transition-colors">Terms of Service</Link>
-            <Link href="#refund" className="text-[#8A9BB0] text-[0.72rem] hover:text-white/60 transition-colors">Refund Policy</Link>
+            <Link href="/privacy-policy" className="text-[#8A9BB0] text-[0.72rem] hover:text-white/60 transition-colors">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="text-[#8A9BB0] text-[0.72rem] hover:text-white/60 transition-colors">Terms of Service</Link>
+            <Link href="/refund-policy" className="text-[#8A9BB0] text-[0.72rem] hover:text-white/60 transition-colors">Refund Policy</Link>
           </div>
         </div>
       </div>
