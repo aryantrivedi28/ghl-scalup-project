@@ -25,6 +25,11 @@ import {
   Home,
 } from 'lucide-react';
 
+const metadata = {
+  title: 'HubSpot to GoHighLevel Migration Service | GHL Scale Up',
+  description: 'Professional HubSpot to GoHighLevel migration service. We transfer contacts, custom fields, deal pipelines, and deal history from HubSpot, then rebuild your automations, forms, and workflows natively inside GoHighLevel. No data loss. Fixed price. Delivered in 3 to 5 weeks.',
+}
+
 // Import reusable schema components
 import {
   OrganizationSchema,
@@ -34,7 +39,7 @@ import {
 } from '@/lib/schemas';
 
 // Import existing FAQ schema hook
-import { useFaqSchema } from '@/hooks/useFaqSchema';
+import { generateFaqSchema } from '@/lib/faqSchema';
 
 // FAQ data for the page
 const faqs = [
@@ -72,6 +77,7 @@ const faqs = [
   },
 ];
 
+
 // FAQ Accordion Component
 function FAQAccordion() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -99,7 +105,7 @@ function FAQAccordion() {
 }
 
 export default function HubspotToGHLMigrationPage() {
-  useFaqSchema(faqs);
+  generateFaqSchema(faqs);
 
   const transferData = [
     { element: 'Contacts (all fields)', transfers: true, rebuild: 'Custom field mapping reviewed before import' },
