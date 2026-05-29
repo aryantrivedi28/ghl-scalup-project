@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Timer',
+            tag: 'Sub-Account',
+            title: 'What Happens to Your GHL Sub-Account If Your Agency Closes? (2026)',
+            excerpt: 'If your GHL agency closes, you lose access to your sub-account immediately. Contacts, workflows, and funnels become inaccessible. Phone numbers delete after 14 days. You have 90 days before permanent deletion. Here is exactly what to do right now.',
+            slug: 'what-happens-ghl-sub-account-agency-closes',
+            date: 'May 28, 2026',
+            readTime: '15 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'ArrowUpRight',
             tag: 'Sub-Account',
             title: 'How to Move from a GHL Sub-Account to Your Own Agency Account (2026)',
