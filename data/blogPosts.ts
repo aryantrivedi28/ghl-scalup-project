@@ -22,7 +22,7 @@ export const blogPosts: BlogPost[] = [
             date: 'May 28, 2026',
             readTime: '15 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: 'https://i.ytimg.com/vi/PpisMkjvhfY/maxresdefault.jpg',
       },
       {
             icon: 'ArrowUpRight',
@@ -33,7 +33,7 @@ export const blogPosts: BlogPost[] = [
             date: 'May 27, 2026',
             readTime: '15 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: 'https://img.stape.io/im/w/1200/h/630/67d97800dee56981488588.png.jpg',
       },
       {
             icon: 'GraduationCap',
