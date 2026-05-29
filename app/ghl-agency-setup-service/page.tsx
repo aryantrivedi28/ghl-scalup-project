@@ -35,23 +35,23 @@ import { useFaqSchema } from '@/hooks/useFaqSchema';
 const faqs = [
   {
     q: 'What happens to my GHL sub-account when I get ejected?',
-    a: 'When your agency ejects your sub-account, GoHighLevel creates a brand new agency account for you at the $97 per month Starter plan. Your contacts, pipelines, and conversations transfer to the new account. However, all integrations must be reconnected from scratch — including Google, Facebook, Twilio, Mailgun or LC Email, Stripe, and any third-party tools. Your workflows and automations remain in the account but need to be reviewed and re-tested because the triggers referencing deleted integrations will be broken.',
+    a: 'When your agency ejects your sub-account, GoHighLevel creates a brand new agency account for you at the $97 per month Starter plan. Your contacts, pipelines, and conversations transfer to the new account. However, all integrations must be reconnected from scratch including Google, Facebook, Twilio, Mailgun or LC Email, Stripe, and any third-party tools. Your workflows and automations remain in the account but need to be reviewed and re-tested because the triggers referencing deleted integrations will be broken.',
   },
   {
     q: 'What transfers from my sub-account to my new GHL agency account?',
-    a: 'The following data transfers when a sub-account is ejected: all contacts and contact records, pipeline stages and opportunity data, conversations and message history, workflow and automation logic, funnels and websites, forms and surveys, and calendar settings. What does not transfer automatically: all third-party integration connections (Google, Facebook, Stripe, Twilio, Mailgun), SaaS mode configuration, any active subscriptions attached to the sub-account, and agency-level settings. Your integrations all need reconnecting — this is the most time-consuming part of going independent.',
+    a: 'The following data transfers when a sub-account is ejected: all contacts and contact records, pipeline stages and opportunity data, conversations and message history, workflow and automation logic, funnels and websites, forms and surveys, and calendar settings. What does not transfer automatically: all third-party integration connections (Google, Facebook, Stripe, Twilio, Mailgun), SaaS mode configuration, any active subscriptions attached to the sub-account, and agency-level settings. Your integrations all need reconnecting this is the most time-consuming part of going independent.',
   },
   {
     q: 'Can my old agency still see my data after I leave?',
-    a: 'Once the eject or transfer is complete, your old agency no longer has access to your sub-account. The sub-account moves entirely to your new agency account. Your former agency cannot view your contacts, conversations, pipelines, or any data inside the account. However, if they had previously exported your data, that export remains in their possession — GoHighLevel does not retroactively remove exported data.',
+    a: 'Once the eject or transfer is complete, your old agency no longer has access to your sub-account. The sub-account moves entirely to your new agency account. Your former agency cannot view your contacts, conversations, pipelines, or any data inside the account. However, if they had previously exported your data, that export remains in their possession GoHighLevel does not retroactively remove exported data.',
   },
   {
     q: 'Do I need to ask my agency to eject me, or can I do it myself?',
-    a: 'The eject process must be initiated by the agency — you cannot eject yourself from within the sub-account. You need to ask your current agency to go to Agency Level, find your sub-account, and select Eject to New Agency under the transfer options. They nominate you as the new agency owner and you receive an email to sign up for your own $97 per month account. If your agency is unresponsive or has gone out of business, you need to contact GoHighLevel support directly at support.gohighlevel.com with proof that you are the business owner.',
+    a: 'The eject process must be initiated by the agency you cannot eject yourself from within the sub-account. You need to ask your current agency to go to Agency Level, find your sub-account, and select Eject to New Agency under the transfer options. They nominate you as the new agency owner and you receive an email to sign up for your own $97 per month account. If your agency is unresponsive or has gone out of business, you need to contact GoHighLevel support directly at support.gohighlevel.com with proof that you are the business owner.',
   },
   {
     q: 'What if my agency has gone out of business and I cannot get ejected?',
-    a: 'This is one of the most urgent situations we deal with. If your agency is unresponsive or has closed, your sub-account is technically locked to their defunct agency account. Your immediate options are: contact GoHighLevel support at support.gohighlevel.com with proof that you are the business owner and the agency is no longer operating, or export as much of your data as you can access from within the sub-account before you lose access entirely. GHL Scale Up can help you rebuild your system in a new account even if the formal transfer cannot happen — we work from what you can export and rebuild from there.',
+    a: 'This is one of the most urgent situations we deal with. If your agency is unresponsive or has closed, your sub-account is technically locked to their defunct agency account. Your immediate options are: contact GoHighLevel support at support.gohighlevel.com with proof that you are the business owner and the agency is no longer operating, or export as much of your data as you can access from within the sub-account before you lose access entirely. GHL Scale Up can help you rebuild your system in a new account even if the formal transfer cannot happen we work from what you can export and rebuild from there.',
   },
   {
     q: 'How long does GoHighLevel agency account setup take?',
@@ -168,7 +168,7 @@ export default function AgencySetupPage() {
                 <span className="text-[#F8D000] block">for Sub-Account Owners Going Independent</span>
               </h1>
               <p className="text-base text-white/80 leading-relaxed mb-7 max-w-[540px] pl-4 border-l-[3px] border-[#F8D000]">
-                You have just been ejected from your agency's GHL sub-account — or you are about to be. You now have your own $97 per month GoHighLevel account with zero configuration inside it. No pipelines, no automations, no integrations connected. We set up your entire GoHighLevel agency account end-to-end so your business runs from day one. Fixed price. 2 to 3 weeks delivery.
+                You have just been ejected from your agency's GHL sub-account or you are about to be. You now have your own $97 per month GoHighLevel account with zero configuration inside it. No pipelines, no automations, no integrations connected. We set up your entire GoHighLevel agency account end-to-end so your business runs from day one. Fixed price. 2 to 3 weeks delivery.
               </p>
               <div className="flex gap-3.5 flex-wrap mb-8">
                 <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-8 py-[14px] rounded-xl text-[15px] font-semibold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.3)] transition-all">
@@ -189,7 +189,7 @@ export default function AgencySetupPage() {
               <div className="text-[11px] font-bold tracking-[1.5px] uppercase text-[#F8D000] mb-5">What you are dealing with right now</div>
               <div className="flex flex-col gap-2.5">
                 <div className="flex gap-2.5"><XCircle size={16} className="text-[#FCA5A5] flex-shrink-0 mt-0.5" /><div className="text-[13px] text-white/80 leading-relaxed"><strong className="text-white block text-[13px]">No pipelines or workflows</strong>Your new account is completely empty</div></div>
-                <div className="flex gap-2.5"><XCircle size={16} className="text-[#FCA5A5] flex-shrink-0 mt-0.5" /><div className="text-[13px] text-white/80 leading-relaxed"><strong className="text-white block text-[13px]">Integrations disconnected</strong>Google, Facebook, Twilio, Stripe — all need reconnecting</div></div>
+                <div className="flex gap-2.5"><XCircle size={16} className="text-[#FCA5A5] flex-shrink-0 mt-0.5" /><div className="text-[13px] text-white/80 leading-relaxed"><strong className="text-white block text-[13px]">Integrations disconnected</strong>Google, Facebook, Twilio, Stripe all need reconnecting</div></div>
                 <div className="flex gap-2.5"><XCircle size={16} className="text-[#FCA5A5] flex-shrink-0 mt-0.5" /><div className="text-[13px] text-white/80 leading-relaxed"><strong className="text-white block text-[13px]">Automations not firing</strong>All trigger connections broken from the move</div></div>
                 <div className="flex gap-2.5"><XCircle size={16} className="text-[#FCA5A5] flex-shrink-0 mt-0.5" /><div className="text-[13px] text-white/80 leading-relaxed"><strong className="text-white block text-[13px]">No email or SMS sending</strong>LC Email, Mailgun, and Twilio need fresh setup</div></div>
                 <div className="flex gap-2.5"><XCircle size={16} className="text-[#FCA5A5] flex-shrink-0 mt-0.5" /><div className="text-[13px] text-white/80 leading-relaxed"><strong className="text-white block text-[13px]">Team has no access</strong>User roles and permissions start from scratch</div></div>
@@ -209,7 +209,7 @@ export default function AgencySetupPage() {
         <div className="max-w-[1140px] mx-auto px-7 md:px-8">
           <div className="bg-[#E6F4FF] border-l-4 border-[#0E9BF0] rounded-r-xl p-[22px_28px] mb-12">
             <div className="text-[10px] font-bold tracking-[2px] uppercase text-[#0E9BF0] mb-2">What this service is</div>
-            <p className="text-base text-[#1A202C] leading-relaxed font-medium">GHL Scale Up configures new GoHighLevel agency accounts for business owners who have moved — or are moving — out of a GHL sub-account. We handle every technical step: reconnecting all integrations, rebuilding your CRM pipelines, configuring automations, setting up Twilio, Stripe, and email delivery, and training your team. You go from a blank account to a fully operational GoHighLevel system in 2 to 3 weeks.</p>
+            <p className="text-base text-[#1A202C] leading-relaxed font-medium">GHL Scale Up configures new GoHighLevel agency accounts for business owners who have moved or are moving out of a GHL sub-account. We handle every technical step: reconnecting all integrations, rebuilding your CRM pipelines, configuring automations, setting up Twilio, Stripe, and email delivery, and training your team. You go from a blank account to a fully operational GoHighLevel system in 2 to 3 weeks.</p>
           </div>
 
           <div className="max-w-[720px] mb-12">
@@ -230,7 +230,7 @@ export default function AgencySetupPage() {
               <div className="p-[18px_20px] bg-[#FFF5F5] border-l-4 border-[#E53E3E]">
                 <XCircle size={24} className="mb-2 text-[#E53E3E]" />
                 <h3 className="text-[15px] font-bold text-[#E53E3E] mb-1.5">What Breaks Immediately</h3>
-                <p className="text-[13px] text-[#4A5568] leading-relaxed">Every integration disconnects. Google, Facebook, Stripe, Twilio, Mailgun, WhatsApp, Quickbooks — all authentication is severed the moment the sub-account moves. Your automations reference broken connections and stop firing.</p>
+                <p className="text-[13px] text-[#4A5568] leading-relaxed">Every integration disconnects. Google, Facebook, Stripe, Twilio, Mailgun, WhatsApp, Quickbooks all authentication is severed the moment the sub-account moves. Your automations reference broken connections and stop firing.</p>
               </div>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-[0_2px_14px_rgba(28,46,74,0.07)]">
@@ -243,7 +243,7 @@ export default function AgencySetupPage() {
           </div>
 
           <div className="mt-8 bg-[#FFF5F5] border-l-4 border-[#E53E3E] rounded-r-xl p-[18px_22px]">
-            <div className="text-[11px] font-bold tracking-[1.5px] uppercase text-[#E53E3E] mb-1.5">Critical — Read Before You Cancel Your Agency</div>
+            <div className="text-[11px] font-bold tracking-[1.5px] uppercase text-[#E53E3E] mb-1.5">Critical Read Before You Cancel Your Agency</div>
             <p className="text-[15px] text-[#742A2A] leading-relaxed font-medium">Do not cancel your relationship with your current agency until your new GHL account is fully set up and tested. If your agency closes or becomes unresponsive before the eject is complete, your sub-account becomes locked and GoHighLevel support is the only route to recovery. Book a discovery call before you make any changes.</p>
           </div>
         </div>
@@ -254,7 +254,7 @@ export default function AgencySetupPage() {
         <div className="max-w-[1140px] mx-auto px-7 md:px-8">
           <div className="max-w-[720px] mb-12">
             <span className="inline-block text-[11px] font-bold tracking-[1.6px] uppercase text-[#0E9BF0] bg-[#E6F4FF] px-3.5 py-1 rounded-full mb-3.5">Data Transfer</span>
-            <h2 className="text-[clamp(23px,3vw,36px)] font-extrabold text-[#1C2E4A] leading-[1.22] tracking-[-0.4px] mb-3">What Transfers from Your Sub-Account — and What We Configure from Scratch</h2>
+            <h2 className="text-[clamp(23px,3vw,36px)] font-extrabold text-[#1C2E4A] leading-[1.22] tracking-[-0.4px] mb-3">What Transfers from Your Sub-Account and What We Configure from Scratch</h2>
             <p className="text-base text-[#4A5568] leading-relaxed">Understanding this list before you move saves weeks of confusion after. Every item below is based on GoHighLevel's documented eject and transfer behaviour confirmed in 2026.</p>
           </div>
           <div className="overflow-x-auto">
@@ -295,7 +295,7 @@ export default function AgencySetupPage() {
               <div className="inline-block text-[10px] font-bold tracking-[1px] uppercase text-[#F8D000] bg-[rgba(248,208,0,0.12)] px-2.5 py-1 rounded-full mb-2">Most Common</div>
               <Building2 size={26} className="text-[#F8D000] mb-3" />
               <h3 className="text-[15px] font-bold text-white mb-1.5">Business Owners Leaving an Agency Sub-Account</h3>
-              <p className="text-[13px] text-white/55 leading-relaxed">You have been running your business from inside your marketing agency's GHL sub-account for 1 to 3 years. You want full independence — your own account, your own data, your agency has no access. You have been ejected or are about to be, and your new account is empty.</p>
+              <p className="text-[13px] text-white/55 leading-relaxed">You have been running your business from inside your marketing agency's GHL sub-account for 1 to 3 years. You want full independence your own account, your own data, your agency has no access. You have been ejected or are about to be, and your new account is empty.</p>
             </div>
             <div className="bg-white/10 border border-white/20 rounded-2xl p-6 hover:bg-white/15 hover:border-[#F8D000]/30 hover:-translate-y-1 transition-all">
               <div className="inline-block text-[10px] font-bold tracking-[1px] uppercase text-[#F8D000] bg-[rgba(248,208,0,0.12)] px-2.5 py-1 rounded-full mb-2">Urgent</div>
@@ -313,7 +313,7 @@ export default function AgencySetupPage() {
               <div className="inline-block text-[10px] font-bold tracking-[1px] uppercase text-[#F8D000] bg-[rgba(248,208,0,0.12)] px-2.5 py-1 rounded-full mb-2">Agency Side</div>
               <Handshake size={26} className="text-[#F8D000] mb-3" />
               <h3 className="text-[15px] font-bold text-white mb-1.5">Agencies Ejecting a Client Who Needs Setup Help</h3>
-              <p className="text-[13px] text-white/55 leading-relaxed">You are an agency ejecting a client sub-account. You earn 40% affiliate commission on their new $97/month plan. But your client needs someone to configure their new empty account. Refer them to GHL Scale Up and we handle the full setup — you keep the relationship and the commission.</p>
+              <p className="text-[13px] text-white/55 leading-relaxed">You are an agency ejecting a client sub-account. You earn 40% affiliate commission on their new $97/month plan. But your client needs someone to configure their new empty account. Refer them to GHL Scale Up and we handle the full setup you keep the relationship and the commission.</p>
             </div>
           </div>
         </div>
@@ -329,14 +329,14 @@ export default function AgencySetupPage() {
               <p className="text-[15px] text-[#4A5568] leading-relaxed mb-3.5">We do not hand you a setup checklist and leave you to it. We build everything inside your account, test every component, and hand over a fully operational system with your team trained and ready.</p>
               <p className="text-[15px] text-[#4A5568] leading-relaxed mb-6">Every setup starts with a discovery call where we review your previous sub-account situation, understand how your business operates, and map out exactly what needs to be built before we touch a single setting.</p>
               <div className="flex flex-col gap-2.5">
-                <div className="flex gap-2.5"><div className="w-5.5 h-5.5 rounded-full bg-[rgba(37,201,125,0.12)] text-[#25C97D] flex items-center justify-center text-[11px] mt-0.5 flex-shrink-0 font-bold">✓</div><span className="text-[15px] text-[#1A202C] leading-relaxed">Everything is built and tested before handover — no half-configured systems</span></div>
+                <div className="flex gap-2.5"><div className="w-5.5 h-5.5 rounded-full bg-[rgba(37,201,125,0.12)] text-[#25C97D] flex items-center justify-center text-[11px] mt-0.5 flex-shrink-0 font-bold">✓</div><span className="text-[15px] text-[#1A202C] leading-relaxed">Everything is built and tested before handover no half-configured systems</span></div>
                 <div className="flex gap-2.5"><div className="w-5.5 h-5.5 rounded-full bg-[rgba(37,201,125,0.12)] text-[#25C97D] flex items-center justify-center text-[11px] mt-0.5 flex-shrink-0 font-bold">✓</div><span className="text-[15px] text-[#1A202C] leading-relaxed">Both your old sub-account (if accessible) and new account reviewed before we start</span></div>
-                <div className="flex gap-2.5"><div className="w-5.5 h-5.5 rounded-full bg-[rgba(37,201,125,0.12)] text-[#25C97D] flex items-center justify-center text-[11px] mt-0.5 flex-shrink-0 font-bold">✓</div><span className="text-[15px] text-[#1A202C] leading-relaxed">Fixed price agreed in writing — no billing surprises</span></div>
+                <div className="flex gap-2.5"><div className="w-5.5 h-5.5 rounded-full bg-[rgba(37,201,125,0.12)] text-[#25C97D] flex items-center justify-center text-[11px] mt-0.5 flex-shrink-0 font-bold">✓</div><span className="text-[15px] text-[#1A202C] leading-relaxed">Fixed price agreed in writing no billing surprises</span></div>
                 <div className="flex gap-2.5"><div className="w-5.5 h-5.5 rounded-full bg-[rgba(37,201,125,0.12)] text-[#25C97D] flex items-center justify-center text-[11px] mt-0.5 flex-shrink-0 font-bold">✓</div><span className="text-[15px] text-[#1A202C] leading-relaxed">Team training included so your people can operate the account from day one</span></div>
               </div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-              <div className="bg-white border border-[#E8EDF4] rounded-xl p-[18px_20px] flex gap-3 shadow-sm"><div className="text-xl flex-shrink-0 mt-0.5">🔌</div><div><strong className="block text-[14px] font-bold text-[#1C2E4A] mb-1">Integration Reconnections</strong><span className="text-[13px] text-[#4A5568] leading-relaxed">Google, Facebook, Stripe at sub-account level, Twilio A2P registration, Mailgun or LC Email — all reconnected and tested</span></div></div>
+              <div className="bg-white border border-[#E8EDF4] rounded-xl p-[18px_20px] flex gap-3 shadow-sm"><div className="text-xl flex-shrink-0 mt-0.5">🔌</div><div><strong className="block text-[14px] font-bold text-[#1C2E4A] mb-1">Integration Reconnections</strong><span className="text-[13px] text-[#4A5568] leading-relaxed">Google, Facebook, Stripe at sub-account level, Twilio A2P registration, Mailgun or LC Email all reconnected and tested</span></div></div>
               <div className="bg-white border border-[#E8EDF4] rounded-xl p-[18px_20px] flex gap-3 shadow-sm"><div className="text-xl flex-shrink-0 mt-0.5">🗂️</div><div><strong className="block text-[14px] font-bold text-[#1C2E4A] mb-1">CRM Pipelines Rebuilt</strong><span className="text-[13px] text-[#4A5568] leading-relaxed">Pipeline stages recreated to match your sales process, opportunity automation attached to each stage, smart lists configured</span></div></div>
               <div className="bg-white border border-[#E8EDF4] rounded-xl p-[18px_20px] flex gap-3 shadow-sm"><div className="text-xl flex-shrink-0 mt-0.5">⚡</div><div><strong className="block text-[14px] font-bold text-[#1C2E4A] mb-1">Automation Workflows Fixed</strong><span className="text-[13px] text-[#4A5568] leading-relaxed">Every workflow reviewed, broken trigger connections repaired, speed-to-lead sequences tested end-to-end</span></div></div>
               <div className="bg-white border border-[#E8EDF4] rounded-xl p-[18px_20px] flex gap-3 shadow-sm"><div className="text-xl flex-shrink-0 mt-0.5">📱</div><div><strong className="block text-[14px] font-bold text-[#1C2E4A] mb-1">Twilio SMS Setup</strong><span className="text-[13px] text-[#4A5568] leading-relaxed">Twilio account registered or reconnected, A2P 10DLC campaign registration handled, test messages sent before handover</span></div></div>
@@ -356,12 +356,12 @@ export default function AgencySetupPage() {
             {/* Left Column - Process Steps */}
             <div>
               <span className="inline-block text-[11px] font-bold tracking-[1.6px] uppercase text-[#0E9BF0] bg-[#E6F4FF] px-3.5 py-1 rounded-full mb-3.5">Our Process</span>
-              <h2 className="text-[clamp(20px,2.5vw,28px)] font-extrabold text-[#1C2E4A] leading-[1.25] tracking-[-0.3px] mb-3">How We Set Up Your New <span className="text-[#0E9BF0]">GoHighLevel Agency Account</span> — 5 Steps</h2>
+              <h2 className="text-[clamp(20px,2.5vw,28px)] font-extrabold text-[#1C2E4A] leading-[1.25] tracking-[-0.3px] mb-3">How We Set Up Your New <span className="text-[#0E9BF0]">GoHighLevel Agency Account</span> 5 Steps</h2>
               <p className="text-[15px] text-[#4A5568] leading-relaxed mb-6">Every setup follows the same five-step process. Each step is completed and confirmed before the next begins so you always know exactly where your account stands.</p>
               <div className="flex flex-col">
                 {[
-                  { num: 1, title: 'Discovery Call and Account Review', desc: 'We review your situation — whether you have been ejected, are about to be, or are starting fresh. We look at your previous sub-account setup if accessible, understand your business workflow, and define exactly what needs to be built. You receive a fixed-price scope document before any work begins.', tag: 'Before any payment — Free' },
-                  { num: 2, title: 'Account Audit and Integration Reconnections', desc: 'We access your new GHL agency account and systematically reconnect every broken integration — Google, Facebook, Stripe at sub-account level, Twilio with A2P 10DLC registration, and email sending via LC Email or Mailgun. We document every reconnection before moving on.', tag: 'Day 1 to 3' },
+                  { num: 1, title: 'Discovery Call and Account Review', desc: 'We review your situation whether you have been ejected, are about to be, or are starting fresh. We look at your previous sub-account setup if accessible, understand your business workflow, and define exactly what needs to be built. You receive a fixed-price scope document before any work begins.', tag: 'Before any payment Free' },
+                  { num: 2, title: 'Account Audit and Integration Reconnections', desc: 'We access your new GHL agency account and systematically reconnect every broken integration Google, Facebook, Stripe at sub-account level, Twilio with A2P 10DLC registration, and email sending via LC Email or Mailgun. We document every reconnection before moving on.', tag: 'Day 1 to 3' },
                   { num: 3, title: 'CRM Build, Pipeline Setup, and Workflow Repair', desc: 'We rebuild your CRM pipelines to match your sales process, repair every broken workflow trigger, configure automation sequences, set up user roles and team permissions, connect your domain, and update all calendar and funnel URLs to point to your new account.', tag: 'Day 3 to 10' },
                   { num: 4, title: 'End-to-End Testing', desc: 'Every workflow is triggered and tested in a live environment. Test SMS messages sent and received. Test emails checked for deliverability and inbox landing. Every form submission tested end-to-end through the pipeline. Calendar bookings tested with reminder automations. No component goes live untested.', tag: 'Day 10 to 14' },
                   { num: 5, title: 'Handover, Training, and Go-Live', desc: 'Your team receives a live training session covering pipeline management, the unified conversation inbox, workflow overview, and calendar handling. We deliver written documentation mapping every part of your new setup. Your account is fully operational and your team knows how to run it.', tag: 'Day 14 to 21' },
@@ -379,7 +379,7 @@ export default function AgencySetupPage() {
             {/* Right Column - Pricing */}
             <div>
               <span className="inline-block text-[11px] font-bold tracking-[1.6px] uppercase text-[#0E9BF0] bg-[#E6F4FF] px-3.5 py-1 rounded-full mb-3.5">Pricing</span>
-              <h2 className="text-[clamp(20px,2.5vw,28px)] font-extrabold text-[#1C2E4A] leading-[1.25] tracking-[-0.3px] mb-3">GoHighLevel Agency Setup Pricing — <span className="text-[#0E9BF0]">Fixed Price</span>, No Hourly Billing</h2>
+              <h2 className="text-[clamp(20px,2.5vw,28px)] font-extrabold text-[#1C2E4A] leading-[1.25] tracking-[-0.3px] mb-3">GoHighLevel Agency Setup Pricing <span className="text-[#0E9BF0]">Fixed Price</span>, No Hourly Billing</h2>
               <p className="text-[15px] text-[#4A5568] leading-relaxed mb-6">Every setup project is fixed price with a scope document agreed before work starts. No hourly billing. No scope creep.</p>
               <div className="bg-white border border-[#E8EDF4] rounded-2xl p-8 shadow-[0_4px_28px_rgba(28,46,74,0.08)]">
                 <div className="text-[12px] font-bold tracking-[1px] uppercase text-[#8A9BB0] mb-2">Complete GHL Agency Account Setup</div>
@@ -424,7 +424,7 @@ export default function AgencySetupPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_18px] text-center shadow-[0_2px_12px_rgba(28,46,74,0.06)]"><div className="text-[32px] font-extrabold text-[#0E9BF0] leading-none mb-1">200+</div><div className="text-[12px] text-[#8A9BB0] uppercase tracking-wide">GHL Accounts Configured and Delivered</div></div>
             <div className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_18px] text-center shadow-[0_2px_12px_rgba(28,46,74,0.06)]"><div className="text-[32px] font-extrabold text-[#0E9BF0] leading-none mb-1">0</div><div className="text-[12px] text-[#8A9BB0] uppercase tracking-wide">Setups Delivered with Broken Integrations</div></div>
-            <div className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_18px] text-center shadow-[0_2px_12px_rgba(28,46,74,0.06)]"><div className="text-[32px] font-extrabold text-[#0E9BF0] leading-none mb-1">6</div><div className="text-[12px] text-[#8A9BB0] uppercase tracking-wide">Countries — US, UK, UAE, AU, SG, IN</div></div>
+            <div className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_18px] text-center shadow-[0_2px_12px_rgba(28,46,74,0.06)]"><div className="text-[32px] font-extrabold text-[#0E9BF0] leading-none mb-1">6</div><div className="text-[12px] text-[#8A9BB0] uppercase tracking-wide">Countries US, UK, UAE, AU, SG, IN</div></div>
             <div className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_18px] text-center shadow-[0_2px_12px_rgba(28,46,74,0.06)]"><div className="text-[32px] font-extrabold text-[#0E9BF0] leading-none mb-1">2-3wks</div><div className="text-[12px] text-[#8A9BB0] uppercase tracking-wide">Average Delivery from Brief to Live Account</div></div>
           </div>
         </div>
@@ -456,7 +456,7 @@ export default function AgencySetupPage() {
         <div className="max-w-[1140px] mx-auto px-7 md:px-8">
           <div className="text-center max-w-[720px] mx-auto mb-12">
             <span className="inline-block text-[11px] font-bold tracking-[1.6px] uppercase text-[#0E9BF0] bg-[#E6F4FF] px-3.5 py-1 rounded-full mb-3.5">FAQ</span>
-            <h2 className="text-[clamp(23px,3vw,36px)] font-extrabold text-[#1C2E4A] leading-[1.22] tracking-[-0.4px] mb-3">GoHighLevel Sub-Account to Agency Account — Frequently Asked Questions</h2>
+            <h2 className="text-[clamp(23px,3vw,36px)] font-extrabold text-[#1C2E4A] leading-[1.22] tracking-[-0.4px] mb-3">GoHighLevel Sub-Account to Agency Account Frequently Asked Questions</h2>
             <p className="text-base text-[#4A5568] leading-relaxed max-w-[620px] mx-auto">Every question below comes from real sub-account owners who have been through this process. Answers are specific to the eject and transfer situation.</p>
           </div>
           <FAQAccordion />
@@ -475,7 +475,7 @@ export default function AgencySetupPage() {
             <Link href="/blog/ghl-sub-account-to-own-agency-account" className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_20px] hover:-translate-y-1 hover:shadow-[0_8px_28px_rgba(28,46,74,0.1)] hover:border-[#0E9BF0]/30 transition-all group">
               <div className="text-[10px] font-bold tracking-[1.5px] uppercase text-[#0E9BF0] mb-2">Step-by-Step Guide</div>
               <h3 className="text-[15px] font-bold text-[#1C2E4A] group-hover:text-[#0E9BF0] transition-colors mb-2 leading-tight">How to Move from a GHL Sub-Account to Your Own Agency Account (2026)</h3>
-              <p className="text-[13px] text-[#4A5568] leading-relaxed mb-3.5">The complete process for going independent — from requesting the eject to what to configure first in your new account.</p>
+              <p className="text-[13px] text-[#4A5568] leading-relaxed mb-3.5">The complete process for going independent from requesting the eject to what to configure first in your new account.</p>
               <span className="text-[13px] font-semibold text-[#0E9BF0] inline-flex items-center gap-1 group-hover:gap-2 transition-all">Read the step-by-step guide → <ArrowRight size={12} /></span>
             </Link>
             <Link href="/blog/how-to-eject-ghl-sub-account" className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_20px] hover:-translate-y-1 hover:shadow-[0_8px_28px_rgba(28,46,74,0.1)] hover:border-[#0E9BF0]/30 transition-all group">
@@ -498,7 +498,7 @@ export default function AgencySetupPage() {
       <section className="py-20 bg-white">
         <div className="max-w-[1140px] mx-auto px-7 md:px-8">
           <div className="text-center max-w-[720px] mx-auto mb-12">
-            <h2 className="text-[clamp(23px,3vw,36px)] font-extrabold text-[#1C2E4A] leading-[1.22] tracking-[-0.4px] mb-3">Once Your Account Is Set Up — What Comes Next</h2>
+            <h2 className="text-[clamp(23px,3vw,36px)] font-extrabold text-[#1C2E4A] leading-[1.22] tracking-[-0.4px] mb-3">Once Your Account Is Set Up What Comes Next</h2>
             <p className="text-base text-[#4A5568] leading-relaxed">Most clients who come to us for agency account setup go on to expand their GHL system within 60 days. Here is what they add.</p>
           </div>
           <div className="flex flex-wrap gap-3 justify-center">
@@ -516,7 +516,7 @@ export default function AgencySetupPage() {
         <div className="max-w-[1140px] mx-auto px-7 md:px-8 relative z-10">
           <span className="inline-block text-[11px] font-bold tracking-[1.6px] uppercase text-[#1C2E4A] bg-[#F8D000] px-3.5 py-1 rounded-full mb-4">Get Your Account Configured</span>
           <h2 className="text-[clamp(24px,3.5vw,40px)] font-extrabold tracking-[-0.4px] leading-[1.2] mb-3.5">Book a Free Call with a <span className="text-[#F8D000]">GoHighLevel Setup Expert</span></h2>
-          <p className="text-base text-white/65 max-w-[520px] mx-auto mb-2 leading-relaxed">Tell us about your sub-account situation. Aryan personally reviews every inquiry and responds within a few hours — via phone or email, not an automated sequence.</p>
+          <p className="text-base text-white/65 max-w-[520px] mx-auto mb-2 leading-relaxed">Tell us about your sub-account situation. Aryan personally reviews every inquiry and responds within a few hours via phone or email, not an automated sequence.</p>
           <p className="text-[13px] text-white/40 mb-8">Free discovery call. Fixed price agreed before work starts. No commitment required.</p>
           <div className="flex gap-3.5 justify-center flex-wrap mb-7">
             <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-10 py-4 rounded-xl text-[0.92rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.3)] transition-all">
