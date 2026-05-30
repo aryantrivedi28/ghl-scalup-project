@@ -15,6 +15,17 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
       {
             icon: 'Timer',
+            tag: 'Migration Timeline',
+            title: 'GHL Migration Timeline: How Long Does It Actually Take? (2026)',
+            excerpt: 'A simple GHL migration takes 1 to 2 weeks. A complex agency migration takes 6 to 8 weeks. The timeline is driven by automation complexity, not contact volume. Platform-by-platform breakdown with honest estimates.',
+            slug: 'ghl-migration-timeline',
+            date: 'May 29, 2026',
+            readTime: '13 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+      },
+      {
+            icon: 'Timer',
             tag: 'Sub-Account',
             title: 'What Happens to Your GHL Sub-Account If Your Agency Closes? (2026)',
             excerpt: 'If your GHL agency closes, you lose access to your sub-account immediately. Contacts, workflows, and funnels become inaccessible. Phone numbers delete after 14 days. You have 90 days before permanent deletion. Here is exactly what to do right now.',
