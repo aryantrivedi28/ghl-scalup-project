@@ -22,7 +22,7 @@ export const blogPosts: BlogPost[] = [
             date: 'May 29, 2026',
             readTime: '13 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: 'https://th.bing.com/th/id/R.0d420c4b9b33e10b84ad0250ff71239c?rik=3pViFANxsXx62A&riu=http%3a%2f%2fmatrix247.com%2fwp-content%2fuploads%2f2024%2f07%2fcloud-migration-timeline-1024x341.png&ehk=%2fhWZd9MOuEjo5E14RPw%2fIsJMDY99ygjoLfX%2fTXUya2k%3d&risl=&pid=ImgRaw&r=0',
       },
       {
             icon: 'Timer',
