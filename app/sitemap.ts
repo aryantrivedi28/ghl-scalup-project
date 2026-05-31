@@ -242,6 +242,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/blog/gohighlevel-vs-clickfunnels`,
+      lastModified: new Date('2026-05-30'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
     // May 2026 Blogs (Newest)
     {
       url: `${baseUrl}/blog/ghl-migration-timeline`,

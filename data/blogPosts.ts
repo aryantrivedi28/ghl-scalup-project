@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Compass',
+            tag: 'Comparison',
+            title: 'GoHighLevel vs ClickFunnels (2026): Honest Comparison for Agencies',
+            excerpt: 'GoHighLevel wins for agencies managing multiple clients. ClickFunnels wins for solo entrepreneurs who only need funnels. Full pricing, feature, and use-case comparison with real 2026 numbers.',
+            slug: 'gohighlevel-vs-clickfunnels',
+            date: 'May 30, 2026',
+            readTime: '20 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'Timer',
             tag: 'Migration Timeline',
             title: 'GHL Migration Timeline: How Long Does It Actually Take? (2026)',
