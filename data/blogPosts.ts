@@ -22,7 +22,7 @@ export const blogPosts: BlogPost[] = [
             date: 'May 30, 2026',
             readTime: '20 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: 'https://www.fahimai.com/wp-content/uploads/2024/12/gohighlevel-vs-Clickfunnels-480x252.png',
       },
       {
             icon: 'Timer',
