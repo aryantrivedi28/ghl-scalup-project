@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+  icon: 'AlertTriangle',
+  tag: 'Migration',
+  title: '8 Common GHL Migration Mistakes Agencies Make (And How to Fix Them)',
+  excerpt: '73% of GHL migrations hit problems nearly all from planning gaps, not the platform. The 8 most common mistakes agencies make when migrating to GoHighLevel and exactly how to avoid each one.',
+  slug: 'ghl-migration-mistakes',
+  date: 'June 1, 2026',
+  readTime: '17 min read',
+  featured: true,
+  image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+},
+      {
             icon: 'Compass',
             tag: 'Comparison',
             title: 'GoHighLevel vs ClickFunnels (2026): Honest Comparison for Agencies',
