@@ -227,7 +227,7 @@ export default function RootLayout({
         {children}
 
         {/* Floating Buttons Container - Stacked */}
-        <div className="fixed bottom-24 right-5 flex flex-col items-end gap-4 z-50">
+        <div className="fixed bottom-6 right-5 flex flex-col items-end gap-4 z-50">
           {/* <ChatBot /> */}
           <WhatsAppButton />
         </div>
