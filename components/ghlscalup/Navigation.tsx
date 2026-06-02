@@ -1,4 +1,5 @@
-// components/ghlscalup/Navigation.tsx - Updated with direct Case Studies & Testimonials
+// components/ghlscalup/Navigation.tsx - Updated with Migration Dropdown
+
 'use client'
 
 import { useState } from 'react'
@@ -32,7 +33,12 @@ import {
   Target,
   Heart,
   X,
-  Zap
+  Zap,
+  ArrowRight,
+  TrendingUp,
+  Database,
+  Layout,
+  MessageCircle,
 } from 'lucide-react'
 
 const Navigation = () => {
@@ -51,7 +57,6 @@ const Navigation = () => {
     { icon: Settings, iconBg: 'blue', title: 'White-Label SaaS Setup', desc: 'Branded domains, snapshots, billing', link: '/services/saas-setup' },
     { icon: LinkIcon, iconBg: 'green', title: 'Integrations & API Development', desc: 'Zapier, Make, Stripe, webhooks', link: '/services/integrations' },
     { icon: BarChart, iconBg: 'yellow', title: 'Reporting & Dashboards', desc: 'Custom analytics, pipeline tracking', link: '/services/reporting' },
-    { icon: RefreshCw, iconBg: 'blue', title: 'GHL Migration Services', desc: 'Move from any CRM to GoHighLevel', link: '/services/migration' },
     { icon: GraduationCap, iconBg: 'green', title: 'Membership & Course Sites', desc: 'Online courses, gated content, drip', link: '/services/membership-sites' },
     { icon: Users, iconBg: 'yellow', title: 'GHL Training & Onboarding', desc: 'Team training, SOPs, documentation', link: '/services/training' },
     { icon: Briefcase, iconBg: 'blue', title: 'Virtual Assistant for GHL Management', desc: 'Dedicated GHL VA to manage your account, run campaigns, update pipelines, and handle day-to-day tasks.', link: '/services/virtual-assistant' }
@@ -70,6 +75,19 @@ const Navigation = () => {
     { icon: Bot, iconBg: 'green', title: 'AI Marketing Automation', desc: 'AI content, scoring, predictive', link: '/marketing/ai-marketing' },
     { icon: Target, iconBg: 'yellow', title: 'Lead Generation Systems', desc: 'Full funnel: traffic to booked call', link: '/marketing/lead-generation' },
     { icon: Heart, iconBg: 'blue', title: 'Email Marketing', desc: 'Newsletters, list building, segmentation', link: '/marketing/email-marketing' },
+  ]
+
+  // Migration Services - All migration sub-pages
+  const migrationServices = [
+    { icon: RefreshCw, iconBg: 'blue', title: 'GHL Migration Hub', desc: 'Overview of all migration services', link: '/services/migration' },
+    { icon: TrendingUp, iconBg: 'green', title: 'HubSpot to GoHighLevel', desc: 'Migrate from HubSpot to GHL with zero data loss', link: '/services/migration/hubspot-to-gohighlevel' },
+    { icon: Layout, iconBg: 'yellow', title: 'ClickFunnels to GoHighLevel', desc: 'Move your funnels from ClickFunnels to GHL', link: '/clickfunnels-to-gohighlevel' },
+    { icon: LinkIcon, iconBg: 'blue', title: 'GHL Agency Setup Services', desc: 'White-label GHL setup for agencies', link: '/ghl-agency-setup-service' },
+    // { icon: Mail, iconBg: 'blue', title: 'ActiveCampaign to GoHighLevel', desc: 'Migrate contacts and automations', link: '/activecampaign-to-gohighlevel' },
+    // { icon: GraduationCap, iconBg: 'green', title: 'Kajabi to GoHighLevel', desc: 'Transfer courses and memberships', link: '/services/migration/kajabi-to-gohighlevel' },
+    // { icon: Database, iconBg: 'yellow', title: 'Zoho to GoHighLevel', desc: 'Move from Zoho CRM to GHL', link: '/services/migration/zoho-to-gohighlevel' },
+    // { icon: BarChart, iconBg: 'blue', title: 'Salesforce to GoHighLevel', desc: 'Enterprise CRM to GHL migration', link: '/services/migration/salesforce-to-gohighlevel' },
+    // { icon: MessageCircle, iconBg: 'green', title: 'Mailchimp to GoHighLevel', desc: 'Email list and campaign migration', link: '/services/migration/mailchimp-to-gohighlevel' },
   ]
 
   return (
@@ -116,6 +134,37 @@ const Navigation = () => {
               </div>
             </li>
 
+            {/* Migration Services Mega Dropdown */}
+            <li className="relative group">
+              <Link href="/services/migration" className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors flex items-center gap-1">
+                Migration <ChevronDown className="h-3 w-3 mt-0.5 group-hover:rotate-180 transition-transform" />
+              </Link>
+              <div className="absolute top-full left-1/2 -translate-x-1/2 bg-white rounded-b-2xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] p-8 min-w-[580px] grid grid-cols-1 md:grid-cols-2 gap-2 gap-x-8 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all pointer-events-none group-hover:pointer-events-auto border-t-3 border-t-[#F8D000]">
+                <div className="text-[0.62rem] font-bold tracking-[0.12em] uppercase text-[#0E9BF0] pb-2.5 mb-1 border-b border-[#E8EDF4] col-span-full flex justify-between items-center">
+                  <span>Platform Migration Services</span>
+                  <Link href="/services/migration" className="text-[0.65rem] font-semibold text-[#0E9BF0] hover:underline flex items-center gap-1">
+                    View All <ArrowRight className="h-2.5 w-2.5" />
+                  </Link>
+                </div>
+                {migrationServices.map((service, idx) => {
+                  const Icon = service.icon
+                  return (
+                    <Link key={idx} href={service.link} className="flex items-center gap-2.5 p-2 rounded-lg hover:bg-[#F4F7FA] transition-colors group">
+                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${service.iconBg === 'blue' ? 'bg-[rgba(14,155,240,0.1)]' :
+                        service.iconBg === 'green' ? 'bg-[rgba(37,201,125,0.1)]' : 'bg-[rgba(248,208,0,0.12)]'
+                        }`}>
+                        <Icon className="h-4 w-4 text-[#1C2E4A]" />
+                      </div>
+                      <div>
+                        <div className="text-[0.8rem] font-semibold text-[#1C2E4A] leading-tight group-hover:text-[#0E9BF0] transition-colors">{service.title}</div>
+                        <div className="text-[0.68rem] font-light text-[#4A5568]">{service.desc}</div>
+                      </div>
+                    </Link>
+                  )
+                })}
+              </div>
+            </li>
+
             {/* Marketing Services Mega Dropdown */}
             <li className="relative group">
               <Link href="/marketing" className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors flex items-center gap-1">
@@ -143,13 +192,7 @@ const Navigation = () => {
             </li>
 
             <li><Link href="/how-we-work" className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors">How We Work</Link></li>
-
-            {/* Case Studies - Direct Link */}
             <li><Link href="/case-studies" className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors">Case Studies</Link></li>
-
-            {/* Testimonials - Direct Link */}
-            {/* <li><Link href="/testimonials" className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors">Testimonials</Link></li> */}
-
             <li><Link href="/blog" className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors">Blogs</Link></li>
           </ul>
 
@@ -188,17 +231,57 @@ const Navigation = () => {
           <div className="md:hidden fixed left-0 right-0 bg-[#1C2E4A] py-6 px-4 z-[999] border-t border-white/10 overflow-y-auto max-h-[calc(100vh-72px)]" style={{ top: '72px' }}>
             <ul className="flex flex-col gap-4 list-none">
               <li><Link href="/about" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link></li>
-              <li><Link href="/services" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>GHL Services</Link></li>
-              <li><Link href="/marketing" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>Marketing</Link></li>
+              
+              {/* GHL Services - Mobile */}
+              <li>
+                <details className="group">
+                  <summary className="text-white text-base block py-2 cursor-pointer list-none">GHL Services</summary>
+                  <div className="pl-4 mt-2 flex flex-col gap-2">
+                    {ghlServices.map((service, idx) => (
+                      <Link key={idx} href={service.link} className="text-white/70 text-sm py-1.5 block" onClick={() => setIsMobileMenuOpen(false)}>
+                        {service.title}
+                      </Link>
+                    ))}
+                  </div>
+                </details>
+              </li>
+              
+              {/* Migration Services - Mobile */}
+              <li>
+                <details className="group">
+                  <summary className="text-white text-base block py-2 cursor-pointer list-none">Migration</summary>
+                  <div className="pl-4 mt-2 flex flex-col gap-2">
+                    {migrationServices.map((service, idx) => (
+                      <Link key={idx} href={service.link} className="text-white/70 text-sm py-1.5 block" onClick={() => setIsMobileMenuOpen(false)}>
+                        {service.title}
+                      </Link>
+                    ))}
+                  </div>
+                </details>
+              </li>
+              
+              {/* Marketing - Mobile */}
+              <li>
+                <details className="group">
+                  <summary className="text-white text-base block py-2 cursor-pointer list-none">Marketing</summary>
+                  <div className="pl-4 mt-2 flex flex-col gap-2">
+                    {marketingServices.map((service, idx) => (
+                      <Link key={idx} href={service.link} className="text-white/70 text-sm py-1.5 block" onClick={() => setIsMobileMenuOpen(false)}>
+                        {service.title}
+                      </Link>
+                    ))}
+                  </div>
+                </details>
+              </li>
+              
               <li><Link href="/how-we-work" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>How We Work</Link></li>
               <li><Link href="/case-studies" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>Case Studies</Link></li>
-              {/* <li><Link href="/testimonials" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>Testimonials</Link></li> */}
               <li><Link href="/blog" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>Blogs</Link></li>
               <li><a
                 href="https://wa.me/919893270210?text=Hello"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/60 text-[0.8rem] hover:text-white transition-colors"
+                className="text-white/60 text-[0.8rem] hover:text-white transition-colors py-2 block"
               >
                 +91 98932 70210
               </a></li>

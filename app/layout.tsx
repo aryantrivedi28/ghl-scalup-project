@@ -23,7 +23,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.ghlscaleup.com'),
   title: 'GoHighLevel Experts & GHL Agency Services | GHL Scale Up',
-  description: 'Partner with GHL Scale Up, GoHighLevel agency with 200+ builds across 6 countries. We setup Ghl backend systems and automations, white-label SaaS. Book a free call.',
+  description: 'Partner with GHL Scale Up -- GoHighLevel agency with 200+ builds across 6 countries. CRM, automation, AI Voice Agent, white-label SaaS, and GHL migrations. Book a free call.',
 
   alternates: {
     canonical: '/',

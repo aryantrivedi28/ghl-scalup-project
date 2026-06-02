@@ -3,8 +3,8 @@ import { Metadata } from 'next';
 import ContactClient from './ContactClient';
 
 export const metadata: Metadata = {
-  title: 'Contact GHL Scale Up Book a Free GoHighLevel Strategy Call',
-  description: 'Get in touch. Book a free 30-minute strategy call or email us. Based in Gurugram, India serving 6 countries.',
+  title: 'Book a Free GoHighLevel Strategy Call | GHL Scale Up',
+  description: 'Book a free 30-minute strategy call with GHL Scale Up. We audit your current setup, identify gaps, and give you a clear action plan. Reply within 4 hours on business days.',
   openGraph: {
     title: 'Contact GHL Scale Up Free Strategy Call',
     description: 'Book a free 30-minute GoHighLevel strategy call. Get expert advice on CRM setup, automation, funnels, and more.',

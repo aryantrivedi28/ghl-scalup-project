@@ -14,12 +14,12 @@ interface Testimonial {
 }
 
 export const metadata = {
-  title: 'Client Testimonials | GHL Scale Up',
-  description: 'Read what our clients say about our GoHighLevel services. Real results from real businesses. 50+ happy clients, 4.9 average rating.',
+  title: 'GHL Scale Up Testimonials What Our Clients Say',
+  description: 'Read what GHL Scale Up clients say about their GoHighLevel builds agency owners, coaches, and service businesses across 6 countries share real outcomes.',
   keywords: 'GHL testimonials, GoHighLevel reviews, client success stories, GHL agency reviews',
   openGraph: {
-    title: 'Client Testimonials | GHL Scale Up',
-    description: 'Read what our clients say about our GoHighLevel services. Real results from real businesses.',
+    title: 'GHL Scale Up Testimonials What Our Clients Say',
+    description: 'Read what GHL Scale Up clients say about their GoHighLevel builds agency owners, coaches, and service businesses across 6 countries share real outcomes.',
     type: 'website',
   },
 };

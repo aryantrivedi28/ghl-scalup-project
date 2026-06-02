@@ -4,8 +4,8 @@ import CaseStudyCard from '@/components/case-studies/CaseStudyCard';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 
 export const metadata = {
-  title: 'Case Studies | GHL Scale Up',
-  description: 'See how we\'ve helped businesses scale with GoHighLevel. Real results, real ROI from our expert team.',
+  title: 'GHL Scale Up Case Studies Real GoHighLevel Results',
+  description: 'See real outcomes from GHL Scale Up builds specific numbers, real businesses, real results. 200+ builds across real estate, healthcare, SaaS, and marketing agencies.',
   keywords: 'GoHighLevel case studies, GHL success stories, CRM implementation results, marketing automation case studies, lead generation results, sales pipeline management case studies',
   alternates: {
     canonical: '/case-studies'

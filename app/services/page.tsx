@@ -28,8 +28,8 @@ import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
 
 export const metadata = {
-  title: 'GoHighLevel Services | Expert GHL Solutions for Agencies & Businesses',
-  description: 'Complete GoHighLevel services including CRM setup, automation, funnels, AI chatbots, voice agents, white-label SaaS, and more. 200+ projects delivered. Get a free consultation.',
+  title: 'GoHighLevel Services CRM, Automation, AI and SaaS | GHL Scale Up',
+  description: 'Full-stack GoHighLevel services for agencies and service businesses. CRM setup, workflow automation, AI Voice Agent, white-label SaaS, funnels, and GHL migrations.',
   keywords: 'GoHighLevel services, GHL experts, marketing automation, CRM setup, sales funnels, AI chatbot',
   alternates: {
     canonical: '/services',
