@@ -24,8 +24,8 @@ import { useFaqSchema } from '@/hooks/useFaqSchema';
 import { generateFaqSchema } from '@/lib/faqSchema';
 
 export const metadata = {
-  title: 'GHL Training & Onboarding Services | GHL Scale Up',
-  description: 'End-to-end GHL training and onboarding for your team CRM, automations, reporting, funnels, and best practices. 200+ teams trained. Get a free training consultation.',
+  title: 'GoHighLevel Membership Sites and Online Course Setup | GHL Scale Up',
+  description: 'Build fully functional membership platforms and course sites inside GoHighLevel. Drip content, gated access, payments, and student management. 50+ sites launched.',
   keywords: 'GHL training, GoHighLevel onboarding, team training, GHL certification, SOPs',
   alternates: {
     canonical: 'https://www.ghlscaleup.com/services/training-onboarding',

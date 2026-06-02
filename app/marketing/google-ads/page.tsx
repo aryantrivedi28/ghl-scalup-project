@@ -4,8 +4,8 @@ import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
 
 export const metadata = {
-  title: 'Google Ads Management Services | GHL Scale Up',
-  description: 'Data-driven Google Ads management. Search, Shopping, PMax, and remarketing campaigns. 11.5x ROAS achieved. Get a free Google Ads audit.',
+  title: 'Google Ads Management 11.5x ROAS Achieved | GHL Scale Up',
+  description: 'Google Ads management for agencies and service businesses. Search, PMax, and remarketing. 11.5x ROAS achieved. Get a free Google Ads audit.',
   keywords: 'Google Ads management, PPC management, Google Shopping, PMax campaigns, paid search',
   alternates: {
     canonical: '/marketing/google-ads'

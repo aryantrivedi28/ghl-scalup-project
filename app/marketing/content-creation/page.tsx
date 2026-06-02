@@ -4,8 +4,8 @@ import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
 
 export const metadata = {
-  title: 'Content Creation & Copywriting Services | GHL Scale Up',
-  description: 'Professional content creation and copywriting services. Blogs, ad copy, email sequences, website copy, and social media content. Written by humans, optimized for conversions.',
+  title: 'Content Creation and Copywriting for Agencies | GHL Scale Up',
+  description: 'Blogs, ad copy, email sequences, and web copy for agencies and service businesses. Content that ranks on Google and converts readers into booked calls.',
   keywords: 'content creation, copywriting, blog writing, ad copy, email copywriting, website content',
   alternates: {
     canonical: '/marketing/content-creation'

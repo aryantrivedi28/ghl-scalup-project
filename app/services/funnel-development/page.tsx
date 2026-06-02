@@ -24,8 +24,8 @@ import { useFaqSchema } from '@/hooks/useFaqSchema';
 import { generateFaqSchema } from '@/lib/faqSchema';
 
 export const metadata = {
-  title: 'GHL Sales Funnel Development & Landing Page Builder | GHL Scale Up',
-  description: 'Expert GHL sales funnel development with high-converting landing pages, opt-in forms, order bumps, and upsells. 200+ projects delivered. Get a free funnel audit today.',
+  title: 'GoHighLevel Funnel Development High-Converting Funnels Built for You',
+  description: 'We build high-converting sales funnels inside GoHighLevel landing pages, opt-ins, order forms, and upsells. Designed to convert. Delivered in 5 to 7 business days.',
   keywords: 'GoHighLevel sales funnel, GHL landing page builder, funnel development, sales funnel design, high-converting funnels',
   alternates: {
     canonical: 'https://www.ghlscaleup.com/services/funnel-development',

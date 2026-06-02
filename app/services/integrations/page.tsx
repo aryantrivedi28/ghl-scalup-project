@@ -19,8 +19,8 @@ import { useFaqSchema } from '@/hooks/useFaqSchema';
 import { generateFaqSchema } from '@/lib/faqSchema';
 
 export const metadata = {
-  title: 'GHL Integrations & API Development Services | GHL Scale Up',
-  description: 'Custom integrations with Zapier, Make, Stripe, Google, webhooks, and custom APIs. 200+ projects. Get a free consultation.',
+  title: 'GoHighLevel Integrations and API Zapier, Make, Stripe | GHL Scale Up',
+  description: 'We connect GoHighLevel to your existing tools Zapier, Make, Stripe, webhooks, and custom APIs. Every integration tested and documented before handover.',
   keywords: 'GHL integrations, API development, Zapier integration, Make.com, webhooks, custom API',
   alternates: {
     canonical: 'https://www.ghlscaleup.com/services/integrations',

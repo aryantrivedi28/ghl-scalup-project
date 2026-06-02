@@ -5,8 +5,8 @@ import CtaBand from '@/components/sections/CtaBand';
 import { generateFaqSchema } from '@/lib/faqSchema';
 
 export const metadata = {
-  title: 'GHL White-Label SaaS Setup Services | GHL Scale Up',
-  description: 'Complete white-label SaaS setup on GoHighLevel branded domains, snapshots, Stripe billing, sub-account provisioning. 200+ projects. Get a free consultation.',
+  title: 'GoHighLevel White-Label SaaS Setup Launch in 5 to 7 Days',
+  description: 'We configure GoHighLevel SaaS Mode custom domain, Stripe billing, pricing tiers, Snapshot, and onboarding flow. Most clients go live in 5 to 7 business days.',
   keywords: 'GHL white-label SaaS, GoHighLevel SaaS mode, white-label agency, SaaS setup, branded CRM platform',
   alternates: {
     canonical: 'https://www.ghlscaleup.com/services/saas-setup',

@@ -20,8 +20,8 @@ import { useFaqSchema } from '@/hooks/useFaqSchema';
 import { generateFaqSchema } from '@/lib/faqSchema';
 
 export const metadata = {
-  title: 'GHL Reporting & Dashboards Services | GHL Scale Up',
-  description: 'Custom dashboards for leads, pipeline value, conversion rates, and team performance. 200+ projects. Get a free reporting consultation.',
+  title: 'GoHighLevel Reporting and Custom Dashboards Built in 48 Hours',
+  description: 'We build custom GoHighLevel dashboards showing leads, pipeline value, conversion rates, and team performance. Delivered in 48 hours. Book a free consultation.',
   keywords: 'GHL reporting, custom dashboards, pipeline analytics, conversion tracking, team performance dashboards',
   alternates: {
     canonical: 'https://www.ghlscaleup.com/services/reporting',

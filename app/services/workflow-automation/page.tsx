@@ -19,8 +19,8 @@ import { useFaqSchema } from '@/hooks/useFaqSchema';
 import { generateFaqSchema } from '@/lib/faqSchema';
 
 export const metadata = {
-  title: 'GHL Workflow Automation & Marketing Automation Services | GHL Scale Up',
-  description: 'Expert GHL workflow automation with triggers, sequences, conditional logic, AI follow-ups. 70% manual work reduction. Get a free automation audit today.',
+  title: 'GoHighLevel Workflow Automation Setup | GHL Scale Up',
+  description: 'We build GoHighLevel automation workflows for lead follow-up, appointment reminders, and client onboarding all running on autopilot. 200+ workflows built. Book a free call.',
   keywords: 'GoHighLevel workflow automation, GHL marketing automation, trigger-based workflows, AI follow-up sequences',
   alternates: {
     canonical: 'https://www.ghlscaleup.com/services/workflow-automation',

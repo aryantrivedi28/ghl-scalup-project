@@ -4,8 +4,8 @@ import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
 
 export const metadata = {
-  title: 'Lead Generation Systems | GHL Scale Up',
-  description: 'Complete lead generation systems including traffic, landing pages, CRM, follow-ups, and booking. Build a predictable lead generation machine.',
+  title: 'Lead Generation Systems Traffic to Booked Call | GHL Scale Up',
+  description: 'End-to-end lead generation ad traffic, landing pages, CRM automation, and follow-up sequences that convert visitors into booked strategy calls.',
   keywords: 'lead generation, lead generation systems, marketing funnels, lead capture, sales pipeline',
   alternates: {
     canonical: '/marketing/lead-generation'

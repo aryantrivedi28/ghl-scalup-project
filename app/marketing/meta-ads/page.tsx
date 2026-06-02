@@ -4,8 +4,8 @@ import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
 
 export const metadata = {
-  title: 'Meta Ads Management | GHL Scale Up',
-  description: 'Expert Meta Ads management for Facebook and Instagram. Lead generation, retargeting, creative testing, and audience building. Get a free Meta Ads audit.',
+  title: 'Meta Ads Management Facebook and Instagram Lead Generation',
+  description: 'Facebook and Instagram ads for agencies and service businesses lead gen, retargeting, and high-converting creatives. Strategy to reporting, fully managed.',
   keywords: 'Facebook Ads management, Instagram Ads, Meta advertising, lead generation ads, retargeting campaigns',
   alternates: {
     canonical: 'https://www.ghlscaleup.com/marketing/meta-ads'

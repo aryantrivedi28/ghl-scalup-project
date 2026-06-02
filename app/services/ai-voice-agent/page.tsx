@@ -23,8 +23,8 @@ import { useFaqSchema } from '@/hooks/useFaqSchema';
 import { generateFaqSchema } from '@/lib/faqSchema';
 
 export const metadata = {
-  title: 'GHL AI Voice Agent & Call Handling Services | GHL Scale Up',
-  description: '24/7 AI receptionist that answers calls, qualifies leads, books appointments, and handles missed calls. 200+ projects. Get a free AI voice consultation.',
+  title: 'GoHighLevel AI Voice Agent Answer 100% of Inbound Calls',
+  description: 'We configure GHLs AI Voice Agent to answer every inbound call, qualify leads, and book appointments automatically. Most clients see ROI in week 1. Book a free call.',
   keywords: 'AI voice agent, GHL call handling, AI receptionist, missed call text back, voice AI automation',
   alternates: {
     canonical: 'https://www.ghlscaleup.com/services/ai-voice-agent',

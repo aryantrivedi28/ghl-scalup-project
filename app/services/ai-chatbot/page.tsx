@@ -21,8 +21,8 @@ import { useFaqSchema } from '@/hooks/useFaqSchema';
 import { generateFaqSchema } from '@/lib/faqSchema';
 
 export const metadata = {
-  title: 'GHL AI Chatbot & Conversation AI Services | GHL Scale Up',
-  description: 'AI-powered chatbots for lead qualification, FAQ handling, appointment booking, and 24/7 customer support. 200+ projects. Get a free AI consultation.',
+  title: 'GoHighLevel AI Chatbot and Conversation AI Setup | GHL Scale Up',
+  description: 'We configure GoHighLevel Conversation AI to qualify leads, answer FAQs, and book appointments 24/7 across website, SMS, and social channels. Book a free strategy call.',
   keywords: 'GHL AI chatbot, conversation AI, lead qualification chatbot, AI appointment booking, GoHighLevel AI',
   alternates: {
     canonical: 'https://www.ghlscaleup.com/services/ai-chatbot',

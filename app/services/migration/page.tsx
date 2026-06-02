@@ -49,6 +49,14 @@ import { useFaqSchema } from '@/hooks/useFaqSchema';
 // Import CtaBand component
 import CtaBand from '@/components/sections/CtaBand';
 
+export const metadata = {
+  title: 'GHL Migration Services -- Move Any CRM to GoHighLevel',
+  description: 'Move from HubSpot, ClickFunnels, ActiveCampaign, or any CRM to GoHighLevel. Contacts, pipelines, and workflows migrated safely. 200+ migrations. Book a free assessment.',
+  keywords: 'GHL reporting, custom dashboards, pipeline analytics, conversion tracking, team performance dashboards',
+  alternates: {
+    canonical: 'https://www.ghlscaleup.com/services/migration',
+  },
+};
 // FAQ data for the page
 const faqs = [
   {
@@ -330,19 +338,17 @@ export default function MigrationHubPage() {
               <Link
                 key={idx}
                 href={platform.link}
-                className={`bg-white border rounded-2xl p-5 text-center transition-all relative overflow-hidden group hover:-translate-y-1 hover:shadow-[0_8px_28px_rgba(28,46,74,0.1)] ${
-                  platform.built ? 'border-[rgba(37,201,125,0.25)]' : 'opacity-75'
-                }`}
+                className={`bg-white border rounded-2xl p-5 text-center transition-all relative overflow-hidden group hover:-translate-y-1 hover:shadow-[0_8px_28px_rgba(28,46,74,0.1)] ${platform.built ? 'border-[rgba(37,201,125,0.25)]' : 'opacity-75'
+                  }`}
               >
                 <div className={`absolute top-0 left-0 right-0 h-0.5 ${platform.built ? 'bg-[#25C97D]' : 'bg-[#0E9BF0]'} scale-x-0 group-hover:scale-x-100 transition-transform origin-left`}></div>
                 <div className={`text-2xl mb-2.5 flex justify-center ${platform.iconColor}`}>{platform.icon}</div>
                 <div className="text-[13px] font-bold text-[#1C2E4A] mb-1 leading-tight">{platform.name}</div>
                 <div className="text-[11px] text-[#8A9BB0] mb-2">{platform.type}</div>
-                <span className={`inline-block text-[10px] font-bold tracking-[0.5px] uppercase px-2 py-1 rounded-full ${
-                  platform.built 
-                    ? 'text-[#25C97D] bg-[rgba(37,201,125,0.1)]' 
+                <span className={`inline-block text-[10px] font-bold tracking-[0.5px] uppercase px-2 py-1 rounded-full ${platform.built
+                    ? 'text-[#25C97D] bg-[rgba(37,201,125,0.1)]'
                     : 'text-[#0E9BF0] bg-[#E6F4FF]'
-                }`}>
+                  }`}>
                   {platform.built ? 'View Migration Guide →' : 'Migration Service →'}
                 </span>
               </Link>

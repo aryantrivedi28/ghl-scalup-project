@@ -4,8 +4,8 @@ import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
 
 export const metadata = {
-  title: 'AI Marketing Automation Services | GHL Scale Up',
-  description: 'AI-powered marketing automation including predictive scoring, AI content, chatbot marketing, and intelligent workflows. Get a free AI consultation.',
+  title: 'AI Marketing Automation Scoring, Predictive and Content | GHL Scale Up',
+  description: 'AI-powered marketing systems content generation, lead scoring, predictive campaigns, and intelligent nurture sequences that scale without adding team hours.',
   keywords: 'AI marketing automation, predictive scoring, AI content generation, chatbot marketing, intelligent workflows',
   alternates: {
     canonical: '/marketing/ai-marketing'

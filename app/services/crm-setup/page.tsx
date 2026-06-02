@@ -3,8 +3,8 @@ import ServiceCRMSetup from '@/components/ghlscalup/services/CRMSetup'
 
 
 export const metadata = {
-  title: 'CRM Setup Service | GHL Scale Up',
-  description: 'Hire a GoHighLevel CRM expert. We configure pipelines, automations, speed-to-lead workflows & sub-accounts for agencies and service businesses.',
+  title: 'GoHighLevel CRM Setup and Configuration Done in 5 to 7 Days',
+  description: 'We configure your GoHighLevel CRM from scratch pipelines, custom fields, tags, smart lists, and automations. Production-ready in 5 to 7 business days. Book a free call.',
   keywords: 'GHL CRM Setup, CRM Setup, CRM Automation,',
   alternates: {
     canonical: '/services/crm-setup',

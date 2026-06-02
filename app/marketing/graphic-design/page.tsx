@@ -4,8 +4,8 @@ import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
 
 export const metadata = {
-  title: 'Graphic Design Services | GHL Scale Up',
-  description: 'Professional graphic design services for social media, ads, presentations, and brand collateral. Consistent, high-quality visuals that elevate your brand.',
+  title: 'Graphic Design Services Social, Ads and Brand Collateral',
+  description: 'Professional graphic design for social media, ads, presentations, and brand collateral. High-quality visuals delivered on time. Book a free consultation.',
   keywords: 'graphic design, social media graphics, ad creatives, brand design, visual identity',
   alternates: {
     canonical: '/marketing/graphic-design'

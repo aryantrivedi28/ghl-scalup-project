@@ -20,8 +20,8 @@ import { useFaqSchema } from '@/hooks/useFaqSchema';
 import { generateFaqSchema } from '@/lib/faqSchema';
 
 export const metadata = {
-  title: 'GHL Calendar & Booking Setup Services | GHL Scale Up',
-  description: 'Professional calendar configuration, round-robin scheduling, service calendars, and automated reminders. 200+ projects. Get a free consultation.',
+  title: 'GoHighLevel Booking and Calendar Setup Reduce No-Shows by 80%',
+  description: 'We configure your GoHighLevel booking calendar with automated confirmations, reminders, and no-show reduction. Setup complete in 3 to 5 business days. Book a free call.',
   keywords: 'GHL calendar setup, booking system, round-robin scheduling, appointment reminders, service calendars',
   alternates: {
     canonical: 'https://www.ghlscaleup.com/services/calendar-booking',

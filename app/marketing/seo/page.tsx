@@ -4,8 +4,8 @@ import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
 
 export const metadata = {
-  title: 'SEO Services | GHL Scale Up',
-  description: 'Strategic SEO services including technical SEO, on-page optimization, link building, and local SEO. Drive organic traffic that converts. Get a free SEO audit.',
+  title: 'SEO Services for Agencies and Service Businesses | GHL Scale Up',
+  description: 'On-page, off-page, technical, and local SEO for agencies and service businesses. Content strategies that rank and convert. Book a free SEO audit today.',
   keywords: 'SEO services, technical SEO, local SEO, link building, organic traffic growth',
   alternates: {
     canonical: '/marketing/seo'

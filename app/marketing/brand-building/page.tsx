@@ -4,8 +4,8 @@ import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
 
 export const metadata = {
-  title: 'Brand Building & Strategy Services | GHL Scale Up',
-  description: 'Strategic brand building services including brand strategy, visual identity, messaging frameworks, and positioning. Build a brand that resonates.',
+  title: 'Brand Building and Strategy Services | GHL Scale Up',
+  description: 'Brand identity, positioning, and messaging strategy for agencies and service businesses. We define what makes you different and build visuals that communicate it.',
   keywords: 'brand building, brand strategy, brand identity, brand positioning, messaging framework',
   alternates: {
     canonical: '/marketing/brand-building'

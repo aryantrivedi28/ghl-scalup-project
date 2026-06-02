@@ -4,8 +4,8 @@ import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
 
 export const metadata = {
-  title: 'TikTok Ads Management Services | GHL Scale Up',
-  description: 'Expert TikTok Ads management with video ads, spark ads, lead forms, and creator partnerships. Reach Gen Z and Millennial audiences. Get a free TikTok audit.',
+  title: 'TikTok Ads Management Video Ads and Lead Forms | GHL Scale Up',
+  description: 'TikTok ad management for agencies video ads, spark ads, and lead forms that convert. Strategy, creative, and campaign management handled end to end.',
   keywords: 'TikTok Ads management, TikTok advertising, spark ads, video ads, influencer marketing',
   alternates: {
     canonical: 'https://www.ghlscaleup.com/marketing/tiktok-ads'

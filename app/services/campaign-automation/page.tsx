@@ -22,8 +22,8 @@ import { useFaqSchema } from '@/hooks/useFaqSchema';
 import { generateFaqSchema } from '@/lib/faqSchema';
 
 export const metadata = {
-  title: 'GHL Email, SMS & WhatsApp Automation Services | GHL Scale Up',
-  description: 'Multi-channel drip campaigns, nurture sequences, appointment reminders, and re-engagement workflows. 200+ projects delivered. Get a free audit.',
+  title: 'GoHighLevel Email, SMS and WhatsApp Automation | GHL Scale Up',
+  description: 'We build GHL drip campaigns, nurture sequences, and broadcast automations across email, SMS, and WhatsApp. Configured, tested, and live in 5 to 7 business days.',
   keywords: 'GHL email automation, SMS marketing, WhatsApp automation, multi-channel campaigns, drip sequences',
   alternates: {
     canonical: 'https://www.ghlscaleup.com/services/campaign-automation',

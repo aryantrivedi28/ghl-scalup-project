@@ -19,8 +19,8 @@ import { useFaqSchema } from '@/hooks/useFaqSchema';
 import { generateFaqSchema } from '@/lib/faqSchema';
 
 export const metadata = {
-  title: 'GHL Reputation & Review Management Services | GHL Scale Up',
-  description: 'Automated review requests, Google/Facebook monitoring, AI review responses, and reputation tracking. 200+ projects. Get a free reputation audit.',
+  title: 'GoHighLevel Reputation Management Automate Your Google Reviews',
+  description: 'We automate your Google and Facebook review collection inside GoHighLevel. Review requests, AI responses, and reputation tracking configured and running in 3 days.',
   keywords: 'GHL reputation management, review management, automated review requests, Google reviews, reputation monitoring',
   alternates: {
     canonical: 'https://www.ghlscaleup.com/services/reputation-management',

@@ -4,8 +4,8 @@ import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
 
 export const metadata = {
-  title: 'Email Marketing Services | GHL Scale Up',
-  description: 'Professional email marketing services including list building, segmentation, drip campaigns, newsletters, and deliverability optimization.',
+  title: 'Email Marketing Newsletters, Sequences and List Building',
+  description: 'Email marketing for agencies and service businesses newsletters, automated sequences, list building, and segmentation. Proven to convert. Book a free call.',
   keywords: 'email marketing, email campaigns, drip sequences, newsletter management, email deliverability',
   alternates: {
     canonical: '/marketing/email-marketing'

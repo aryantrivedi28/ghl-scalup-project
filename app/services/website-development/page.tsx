@@ -19,8 +19,8 @@ import {
 import { generateFaqSchema } from '@/lib/faqSchema';
 
 export const metadata = {
-  title: 'GHL Website Development Services | GHL Scale Up',
-  description: 'Professional GHL website development with custom designs, SEO optimization, mobile responsiveness, and CRM integration. 200+ websites built. Get a free consultation.',
+  title: 'GoHighLevel Website Development Full Sites Built Inside GHL',
+  description: 'We build complete business websites inside GoHighLevel SEO-optimised, mobile-ready, and integrated with your CRM and automations from day one.',
   keywords: 'GHL website development, GoHighLevel website builder, custom GHL websites, GHL landing pages, GHL web design',
   alternates: {
     canonical: 'https://www.ghlscaleup.com/services/website-development',

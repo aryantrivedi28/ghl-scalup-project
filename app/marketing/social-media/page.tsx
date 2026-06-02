@@ -4,8 +4,8 @@ import Breadcrumb from '@/components/layout/Breadcrumb';
 import CtaBand from '@/components/sections/CtaBand';
 
 export const metadata = {
-  title: 'Social Media Management Services | GHL Scale Up',
-  description: 'Full social media management including content calendars, daily posting, community engagement, and analytics. Build your brand presence across platforms.',
+  title: 'Social Media Management for Agencies and Service Businesses',
+  description: 'Full social media management -- content calendars, daily posting, community engagement, and analytics. Consistent brand presence built across all platforms.',
   keywords: 'social media management, content calendars, community management, social media strategy, brand engagement',
   alternates: {
     canonical: '/marketing/social-media'

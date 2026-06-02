@@ -1,10 +1,10 @@
 import GHLVirtualAssistantClient from './client';
 
 export const metadata = {
-      title: 'Hire a GoHighLevel Virtual Assistant | Expert GHL VA Services',
-      description: 'Hire a dedicated GoHighLevel virtual assistant to manage workflows, CRM pipelines, automations, campaigns, funnels, and lead responses inside your GHL account.',
+      title: 'Dedicated GHL Virtual Assistant Full Account Management Daily',
+      description: 'A dedicated GHL VA to manage your account daily running campaigns, updating pipelines, building workflows, and handling all GHL tasks so you can focus on growth.',
       alternates: {
-            canonical: 'https://www.yourdomain.com/go-highlevel-virtual-assistant',
+            canonical: 'https://www.ghlscaleup.com/virtual-assistant',
       },
 }
 
