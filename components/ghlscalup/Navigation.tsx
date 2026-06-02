@@ -80,7 +80,7 @@ const Navigation = () => {
   // Migration Services - All migration sub-pages
   const migrationServices = [
     { icon: RefreshCw, iconBg: 'blue', title: 'GHL Migration Hub', desc: 'Overview of all migration services', link: '/services/migration' },
-    { icon: TrendingUp, iconBg: 'green', title: 'HubSpot to GoHighLevel', desc: 'Migrate from HubSpot to GHL with zero data loss', link: '/services/migration/hubspot-to-gohighlevel' },
+    { icon: TrendingUp, iconBg: 'green', title: 'HubSpot to GoHighLevel', desc: 'Migrate from HubSpot to GHL with zero data loss', link: '/hubspot-to-gohighlevel' },
     { icon: Layout, iconBg: 'yellow', title: 'ClickFunnels to GoHighLevel', desc: 'Move your funnels from ClickFunnels to GHL', link: '/clickfunnels-to-gohighlevel' },
     { icon: LinkIcon, iconBg: 'blue', title: 'GHL Agency Setup Services', desc: 'White-label GHL setup for agencies', link: '/ghl-agency-setup-service' },
     // { icon: Mail, iconBg: 'blue', title: 'ActiveCampaign to GoHighLevel', desc: 'Migrate contacts and automations', link: '/activecampaign-to-gohighlevel' },
