@@ -3,13 +3,13 @@ import GHLWhiteLabelSaaSClient from './client';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: 'GoHighLevel White Label SaaS: How SaaS Mode Works & Full Setup Guide (2026) | GHL Scale Up',
-  description: 'GoHighLevel white label SaaS (SaaS Mode) lets you resell GHL as your own software — automated Stripe billing, self-service sign-up, and up to 20 pricing tiers. Full setup guide for Agency Pro.',
+  title: 'GoHighLevel White Label SaaS: How SaaS Mode Works and Full Setup',
+  description: 'How to build a white-label SaaS business on GoHighLevel SaaS Mode setup, Stripe billing, pricing tiers, margin calculator, and common mistakes to avoid.',
   keywords: 'gohighlevel saas mode, ghl white label saas, how to set up gohighlevel saas mode, gohighlevel saas mode pricing, gohighlevel saas configurator, how to sell gohighlevel as saas, gohighlevel reseller',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {
     title: 'GoHighLevel White Label SaaS: How SaaS Mode Works & Full Setup Guide (2026)',
-    description: 'Resell GHL as your own software — automated Stripe billing, self-service sign-up, and up to 20 pricing tiers. Full setup guide for Agency Pro.',
+    description: 'Resell GHL as your own software automated Stripe billing, self-service sign-up, and up to 20 pricing tiers. Full setup guide for Agency Pro.',
     type: 'article',
     publishedTime: '2026-05-21T00:00:00Z',
     modifiedTime: '2026-05-21T00:00:00Z',

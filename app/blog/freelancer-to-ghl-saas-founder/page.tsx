@@ -3,8 +3,8 @@ import { Metadata } from 'next';
 import FreelancerToSaaSClient from './client';
 
 export const metadata: Metadata = {
-  title: 'From Freelancer to GHL SaaS Founder: Recurring Revenue | GHL Scale Up',
-  description: 'Transition from one-off projects to a scalable SaaS business using GHL white-label. Complete guide to building recurring revenue.',
+  title: 'From Freelancer to GHL SaaS Founder: Building Recurring Revenue (2026)',
+  description: 'How to transition from one-off GHL projects to a scalable SaaS business using GoHighLevel white-label pricing strategy, client acquisition, and recurring revenue.',
   keywords: 'GoHighLevel SaaS, GHL white-label, freelance to SaaS, recurring revenue, GHL agency, SaaS business model, passive income GHL',
   openGraph: {
     title: 'From Freelancer to GHL SaaS Founder: Recurring Revenue',

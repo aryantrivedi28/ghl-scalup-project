@@ -3,8 +3,8 @@ import Script from 'next/script';
 import KajabiToGHLMigrationClient from './client';
 
 export const metadata: Metadata = {
-  title: 'Kajabi to GoHighLevel Migration: What Breaks and How to Fix It (2026) | GHL Scale Up',
-  description: 'Migrating from Kajabi to GoHighLevel? Contacts transfer via CSV. Course content must be manually rebuilt in GHL\'s membership module. Honest guide covering what breaks, how long it takes, and how to move without losing your students.',
+  title: 'Kajabi to GoHighLevel Migration: What Breaks and How to Fix It (2026)',
+  description: 'Course content does not transfer automatically from Kajabi -- every lesson must be rebuilt manually. Timeline, what breaks, student re-enrolment, and mistakes to avoid.',
   keywords: 'Kajabi to GoHighLevel migration, migrate from Kajabi to GoHighLevel, Kajabi to GHL migration guide, how to migrate Kajabi to GoHighLevel, Kajabi course content migration GoHighLevel, Kajabi contacts export GoHighLevel',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {

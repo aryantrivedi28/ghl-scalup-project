@@ -3,8 +3,8 @@ import CreateSnapshotClient from './client';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: 'How to Create a GoHighLevel Snapshot to Onboard Clients Faster (2026) | GHL Scaleup',
-  description: 'A GoHighLevel Snapshot is a reusable template of an entire sub-account setup — funnels, workflows, pipelines, and more. Learn what\'s included, how to create one in 5 steps, and how to deploy it to client accounts in minutes.',
+  title: 'How to Create a GoHighLevel Snapshot and Onboard Clients Faster',
+  description: 'Step-by-step guide to building and deploying GoHighLevel Snapshots. Reduce client onboarding from 40 hours to under 2 hours. Updated May 2026.',
   keywords: 'how to create a GoHighLevel snapshot, what is a GoHighLevel snapshot, GoHighLevel snapshot tutorial, GoHighLevel snapshot deploy to sub-account, GHL agency setup, GoHighLevel template sub-account',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {

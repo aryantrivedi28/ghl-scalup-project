@@ -3,8 +3,8 @@ import Script from 'next/script';
 import ActiveCampaignToGHLMigrationClient from './client';
 
 export const metadata: Metadata = {
-  title: 'ActiveCampaign to GoHighLevel Migration: What Breaks and How to Fix It (2026) | GHL Scale Up',
-  description: 'Migrating from ActiveCampaign to GoHighLevel? Contacts and tags transfer via CSV. Automations, lead scoring, and conditional logic all need rebuilding. Honest guide covering what breaks, email deliverability, and step-by-step process.',
+  title: 'ActiveCampaign to GoHighLevel Migration: What Breaks and How to Fix It',
+  description: 'Contacts and tags transfer via CSV. Automations must be rebuilt. Honest guide covering email deliverability, domain warmup, and step-by-step migration process.',
   keywords: 'ActiveCampaign to GoHighLevel migration, migrate from ActiveCampaign to GoHighLevel, ActiveCampaign to GHL migration guide, how to migrate ActiveCampaign to GoHighLevel, ActiveCampaign tags to GoHighLevel custom fields, ActiveCampaign contact export GoHighLevel',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {

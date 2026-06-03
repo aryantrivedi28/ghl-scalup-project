@@ -3,8 +3,8 @@ import Script from 'next/script';
 import GHLSubAccountToOwnAccountClient from './client';
 
 export const metadata: Metadata = {
-  title: 'How to Move from a GHL Sub-Account to Your Own Agency Account (2026) | GHL Scale Up',
-  description: 'You can move your GHL sub-account to your own independent agency account. Three options: eject to a new agency, transfer to an existing agency, or start fresh. Full step-by-step guide with what transfers and what you need to rebuild.',
+  title: 'How to Move from a GHL Sub-Account to Your Own Agency Account (2026)',
+  description: 'Three options: eject to new agency, transfer to existing agency, or start fresh. What transfers, what breaks, and what to set up in your new account.',
   keywords: 'GHL sub account to own account, GoHighLevel sub account to agency account, how to move GHL sub account to own agency, set up own GoHighLevel account from sub account, eject sub account GoHighLevel, GHL sub account transfer what transfers, leave agency GHL account set up own',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {

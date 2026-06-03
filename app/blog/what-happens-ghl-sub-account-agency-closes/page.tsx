@@ -3,8 +3,8 @@ import Script from 'next/script';
 import WhatHappensGHLSubAccountAgencyClosesClient from './client';
 
 export const metadata: Metadata = {
-  title: 'What Happens to Your GHL Sub-Account If Your Agency Closes? (2026) | GHL Scale Up',
-  description: 'If your GHL agency closes, you lose access to your sub-account immediately. Contacts, workflows, and funnels become inaccessible. Phone numbers delete after 14 days. You have 90 days before permanent deletion. Here is exactly what to do right now.',
+  title: 'What Happens to Your GHL Sub-Account If Your Agency Closes? (2026)',
+  description: 'Agency closes: you lose access immediately. Phone numbers deleted in 14 days. All data permanently deleted after 90 days. What to do right now to protect your data.',
   keywords: 'what happens to GHL sub account if agency closes, GHL sub account locked agency went out of business, can I get my GHL data if agency closes, GHL sub account owner rights, remove agency access from GHL sub account, GHL sub account agency unresponsive, how to protect GHL sub account from agency closing',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {

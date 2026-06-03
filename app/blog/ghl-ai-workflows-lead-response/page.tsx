@@ -3,8 +3,8 @@ import { Metadata } from 'next';
 import GHLAIWorkflowsClient from './client';
 
 export const metadata: Metadata = {
-  title: 'GHL AI Workflows to Respond to Leads in Under 10 Seconds | GHL Scale Up',
-  description: 'Build an AI-powered lead response system that qualifies, books, and follows up automatically. Complete guide to GHL AI workflows.',
+  title: 'GHL AI Workflows to Respond to Leads in Under 10 Seconds (2026)',
+  description: 'How to build a GoHighLevel AI workflow that qualifies leads, books appointments, and follows up in under 10 seconds. Step-by-step guide with real examples.',
   keywords: 'GoHighLevel AI workflows, GHL automation, AI lead response, GHL chatbot, AI voice agent, GHL workflow automation, lead qualification automation',
   openGraph: {
     title: 'GHL AI Workflows to Respond to Leads in Under 10 Seconds',

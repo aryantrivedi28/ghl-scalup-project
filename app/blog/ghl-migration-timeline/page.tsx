@@ -3,8 +3,8 @@ import Script from 'next/script';
 import GHLMigrationTimelineClient from './client';
 
 export const metadata: Metadata = {
-  title: 'GHL Migration Timeline: How Long Does It Actually Take? (2026) | GHL Scale Up',
-  description: 'A simple GHL migration takes 1 to 2 weeks. A complex agency migration takes 6 to 8 weeks. The timeline is driven by automation complexity, not contact volume. Platform-by-platform breakdown with honest estimates.',
+  title: 'GHL Migration Timeline: How Long Does It Actually Take? (2026)',
+  description: 'Simple GHL migration: 1 to 2 weeks. Complex: 6 to 8 weeks. Timeline is driven by automation complexity not contact volume. Platform-by-platform breakdown.',
   keywords: 'how long does GoHighLevel migration take, GHL migration timeline, GoHighLevel migration timeline by platform, how long to migrate from HubSpot to GoHighLevel, GoHighLevel migration time estimate, GHL migration complexity factors, GoHighLevel migration checklist timeline',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {

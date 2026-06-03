@@ -3,8 +3,8 @@ import GoHighLevelForAgenciesClient from './client';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: 'GoHighLevel for Agencies: The Complete 2026 Guide (Setup, SaaS & Scaling) | GHL Scale Up',
-  description: 'GoHighLevel is the only all-in-one platform purpose-built for marketing agencies — unlimited clients, one dashboard, white-label branding, and SaaS resale built in. This guide covers how agencies use GHL, which plan to choose, and how to scale correctly.',
+  title: 'GoHighLevel for Agencies: The Complete 2026 Guide',
+  description: 'How agencies use GoHighLevel sub-accounts, Snapshots, white-label, SaaS Mode, and the flat-rate pricing that replaces $8,900+/mo in separate tools.',
   keywords: 'gohighlevel for agencies, ghl agency, gohighlevel agency setup, gohighlevel for marketing agencies, gohighlevel sub-accounts for agencies, gohighlevel agency unlimited plan, gohighlevel saas agency',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {

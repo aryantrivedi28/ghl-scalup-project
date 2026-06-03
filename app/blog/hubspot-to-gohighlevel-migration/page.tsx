@@ -3,8 +3,8 @@ import Script from 'next/script';
 import HubSpotToGHLMigrationClient from './client';
 
 export const metadata: Metadata = {
-  title: 'How to Migrate from HubSpot to GoHighLevel: Step-by-Step Guide (2026) | GHL Scale Up',
-  description: 'A step-by-step guide to migrating from HubSpot to GoHighLevel — what data transfers, what breaks, how to rebuild workflows, and how to avoid the most costly migration mistakes.',
+  title: 'How to Migrate from HubSpot to GoHighLevel: Step-by-Step (2026)',
+  description: 'What transfers, what breaks, and how long it takes to migrate from HubSpot to GHL. Includes the critical 25-day HubSpot cancellation warning. Updated 2026.',
   keywords: 'HubSpot to GoHighLevel migration, migrate from HubSpot to GoHighLevel, HubSpot to GHL migration guide, how to migrate HubSpot to GoHighLevel, HubSpot data export to GoHighLevel, GoHighLevel migration service',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {

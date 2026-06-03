@@ -3,8 +3,8 @@ import GoHighLevelWhiteLabelClient from './client';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: 'GoHighLevel White Label: What It Is, How It Works & Full Setup Guide (2026) | GHL Scale Up',
-  description: 'GoHighLevel white label lets you brand the entire platform as your own software. Basic branding starts at $297/mo. Full SaaS Mode with automated billing starts at $497/mo. Step-by-step setup guide with CNAME, Stripe, and pricing strategy.',
+  title: 'GoHighLevel White Label: What It Is, How It Works and Setup Guide',
+  description: 'Complete guide to GoHighLevel white label what is included, which plan you need, CNAME setup, branding configuration, and margin calculator. Updated 2026.',
   keywords: 'gohighlevel white label, white label ghl, gohighlevel white label setup, gohighlevel saas mode, white label gohighlevel crm, gohighlevel reseller, gohighlevel saas mode setup',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {
