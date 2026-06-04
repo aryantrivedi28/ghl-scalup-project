@@ -258,7 +258,7 @@ export default function GoHighLevelAlternativesClient() {
                                           <img
                                                 src="/web-app-manifest-192x192.png"
                                                 alt="GHL Scale Up"
-                                                className="w-8 h-8 object-cover"
+                                                className="w-full h-full object-cover"
                                           />
                                     </div>
                                     <div>
