@@ -13,7 +13,7 @@ export const metadata = {
   title: 'ClickFunnels to GoHighLevel Migration Service | GHL Scale Up',
   description: 'We migrate your ClickFunnels funnels, contacts and sequences to GoHighLevel. URL import tool, automation rebuild, Stripe reconnection. Book a free migration assessment.',
   alternates: {
-    canonical: 'https://www.ghlscaleup.com/services/migration/clickfunnels-to-gohighlevel',
+    canonical: 'https://www.ghlscaleup.com/clickfunnels-to-gohighlevel',
   },
 };
 

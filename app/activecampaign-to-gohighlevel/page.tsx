@@ -13,7 +13,7 @@ export const metadata = {
   title: 'ActiveCampaign to GoHighLevel Migration Service | GHL Scale Up',
   description: 'We migrate your ActiveCampaign contacts, tags and automations to GoHighLevel. Includes email domain warmup to protect deliverability. 200+ migrations. Book a free assessment.',
   alternates: {
-    canonical: 'https://www.ghlscaleup.com/services/migration/activecampaign-to-gohighlevel',
+    canonical: 'https://www.ghlscaleup.com/activecampaign-to-gohighlevel',
   },
 };
 

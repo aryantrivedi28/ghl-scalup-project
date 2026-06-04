@@ -13,7 +13,7 @@ export const metadata = {
   title: 'Kajabi to GoHighLevel Migration Service | GHL Scale Up',
   description: 'We migrate your Kajabi courses, members, contacts and automations to GoHighLevel. Includes course import, quiz rebuild, 301 redirects. Book a free migration assessment.',
   alternates: {
-    canonical: 'https://www.ghlscaleup.com/services/migration/kajabi-to-gohighlevel',
+    canonical: 'https://www.ghlscaleup.com/kajabi-to-gohighlevel',
   },
 };
 

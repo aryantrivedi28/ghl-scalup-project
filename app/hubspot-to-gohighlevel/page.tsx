@@ -13,7 +13,7 @@ export const metadata = {
   title: 'HubSpot to GoHighLevel Migration Service | GHL Scale Up',
   description: 'We migrate your HubSpot contacts, pipelines and workflows to GoHighLevel with zero data loss. Most agencies save $500 to $8,000/mo after switching. Book a free assessment.',
   alternates: {
-    canonical: 'https://www.ghlscaleup.com/services/migration/hubspot-to-gohighlevel',
+    canonical: 'https://www.ghlscaleup.com/hubspot-to-gohighlevel',
   },
 };
 
