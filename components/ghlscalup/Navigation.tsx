@@ -84,7 +84,7 @@ const Navigation = () => {
     { icon: Layout, iconBg: 'yellow', title: 'ClickFunnels to GoHighLevel', desc: 'Move your funnels from ClickFunnels to GHL', link: '/clickfunnels-to-gohighlevel' },
     { icon: LinkIcon, iconBg: 'blue', title: 'GHL Agency Setup Services', desc: 'White-label GHL setup for agencies', link: '/ghl-agency-setup-service' },
     { icon: Mail, iconBg: 'blue', title: 'ActiveCampaign to GoHighLevel', desc: 'Migrate contacts and automations', link: '/activecampaign-to-gohighlevel' },
-    // { icon: GraduationCap, iconBg: 'green', title: 'Kajabi to GoHighLevel', desc: 'Transfer courses and memberships', link: '/kajabi-to-gohighlevel' },
+    { icon: GraduationCap, iconBg: 'green', title: 'Kajabi to GoHighLevel', desc: 'Transfer courses and memberships', link: '/kajabi-to-gohighlevel' },
     // { icon: Database, iconBg: 'yellow', title: 'Zoho to GoHighLevel', desc: 'Move from Zoho CRM to GHL', link: '/zoho-to-gohighlevel' },
     // { icon: BarChart, iconBg: 'blue', title: 'Salesforce to GoHighLevel', desc: 'Enterprise CRM to GHL migration', link: '/salesforce-to-gohighlevel' },
     // { icon: MessageCircle, iconBg: 'green', title: 'Mailchimp to GoHighLevel', desc: 'Email list and campaign migration', link: '/mailchimp-to-gohighlevel' },
