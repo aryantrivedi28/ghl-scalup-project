@@ -118,16 +118,16 @@ export default function MigrationClient() {
   useFaqSchema(faqs);
 
   const platforms = [
-    { name: 'HubSpot to GoHighLevel', icon: <TrendingUp size={24} />, type: 'CRM + automation platform', link: '/services/migration/hubspot-to-gohighlevel', built: true, iconColor: 'text-[#FF5722]' },
-    { name: 'ClickFunnels to GoHighLevel', icon: <Layout size={24} />, type: 'Funnel builder + courses', link: '/services/migration/clickfunnels-to-gohighlevel', built: true, iconColor: 'text-[#0073AA]' },
-    { name: 'ActiveCampaign to GoHighLevel', icon: <MailIcon size={24} />, type: 'Email + CRM + automation', link: '/services/migration/activecampaign-to-gohighlevel', built: true, iconColor: 'text-[#6C2BD2]' },
-    { name: 'Kajabi to GoHighLevel', icon: <GraduationCap size={24} />, type: 'Courses + membership + email', link: '/services/migration/kajabi-to-gohighlevel', built: false, iconColor: 'text-[#F5A623]' },
-    { name: 'Zoho to GoHighLevel', icon: <Database size={24} />, type: 'CRM + automation suite', link: '/services/migration/zoho-to-gohighlevel', built: false, iconColor: 'text-[#E42535]' },
-    { name: 'Salesforce to GoHighLevel', icon: <Cloud size={24} />, type: 'Enterprise CRM', link: '/services/migration/salesforce-to-gohighlevel', built: false, iconColor: 'text-[#00A1E0]' },
-    { name: 'Mailchimp to GoHighLevel', icon: <Mail size={24} />, type: 'Email marketing + contacts', link: '/services/migration/mailchimp-to-gohighlevel', built: false, iconColor: 'text-[#FFE01B]' },
-    { name: 'Keap to GoHighLevel', icon: <Briefcase size={24} />, type: 'CRM + email + payments', link: '/services/migration/keap-to-gohighlevel', built: false, iconColor: 'text-[#8B4513]' },
-    { name: 'Pipedrive to GoHighLevel', icon: <Target size={24} />, type: 'Sales CRM + pipelines', link: '/services/migration/pipedrive-to-gohighlevel', built: false, iconColor: 'text-[#2D8C3C]' },
-    { name: 'WordPress to GoHighLevel', icon: <Globe size={24} />, type: 'Website + forms + CRM', link: '/services/migration/wordpress-to-gohighlevel', built: false, iconColor: 'text-[#21759B]' },
+    { name: 'HubSpot to GoHighLevel', icon: <TrendingUp size={24} />, type: 'CRM + automation platform', link: '/hubspot-to-gohighlevel', built: true, iconColor: 'text-[#FF5722]' },
+    { name: 'ClickFunnels to GoHighLevel', icon: <Layout size={24} />, type: 'Funnel builder + courses', link: '/clickfunnels-to-gohighlevel', built: true, iconColor: 'text-[#0073AA]' },
+    { name: 'ActiveCampaign to GoHighLevel', icon: <MailIcon size={24} />, type: 'Email + CRM + automation', link: '/activecampaign-to-gohighlevel', built: true, iconColor: 'text-[#6C2BD2]' },
+    { name: 'Kajabi to GoHighLevel', icon: <GraduationCap size={24} />, type: 'Courses + membership + email', link: '/kajabi-to-gohighlevel', built: false, iconColor: 'text-[#F5A623]' },
+    { name: 'Zoho to GoHighLevel', icon: <Database size={24} />, type: 'CRM + automation suite', link: '/zoho-to-gohighlevel', built: false, iconColor: 'text-[#E42535]' },
+    { name: 'Salesforce to GoHighLevel', icon: <Cloud size={24} />, type: 'Enterprise CRM', link: '/salesforce-to-gohighlevel', built: false, iconColor: 'text-[#00A1E0]' },
+    { name: 'Mailchimp to GoHighLevel', icon: <Mail size={24} />, type: 'Email marketing + contacts', link: '/mailchimp-to-gohighlevel', built: false, iconColor: 'text-[#FFE01B]' },
+    { name: 'Keap to GoHighLevel', icon: <Briefcase size={24} />, type: 'CRM + email + payments', link: '/keap-to-gohighlevel', built: false, iconColor: 'text-[#8B4513]' },
+    { name: 'Pipedrive to GoHighLevel', icon: <Target size={24} />, type: 'Sales CRM + pipelines', link: '/pipedrive-to-gohighlevel', built: false, iconColor: 'text-[#2D8C3C]' },
+    { name: 'WordPress to GoHighLevel', icon: <Globe size={24} />, type: 'Website + forms + CRM', link: '/wordpress-to-gohighlevel', built: false, iconColor: 'text-[#21759B]' },
   ];
 
   const timelineData = [
