@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'GitCompare',
+            tag: 'Comparison',
+            title: 'GoHighLevel Alternatives (2026): Best Tools to Compare Before You Decide',
+            excerpt: 'The 8 best GoHighLevel alternatives in 2026: HubSpot, ActiveCampaign, ClickFunnels, Vendasta, Kartra, Keap, Systeme.io, and Zoho. Honest comparison with real pricing, who each is best for, and when GHL wins.',
+            slug: 'gohighlevel-alternatives',
+            date: 'June 4, 2026',
+            readTime: '22 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'GraduationCap',
             tag: 'Coaches',
             title: 'GoHighLevel for Coaches and Consultants: Complete 2026 Guide',
