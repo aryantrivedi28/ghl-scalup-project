@@ -22,7 +22,7 @@ export const blogPosts: BlogPost[] = [
             date: 'June 4, 2026',
             readTime: '22 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: 'https://businessolution.org/wp-content/uploads/elementor/thumbs/gohighlevel-alternatives-1-q9hqb4tzu82wui7vyhnauhvxerejleys7hxenyw3ew.png',
       },
       {
             icon: 'GraduationCap',
@@ -33,7 +33,7 @@ export const blogPosts: BlogPost[] = [
             date: 'June 3, 2026',
             readTime: '18 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=500&fit=crop',
+            image: 'https://khrisdigital.com/wp-content/uploads/2024/01/GOHIGHLEVEL-FOR-COACHES.jpg',
       },
       {
             icon: 'AlertTriangle',

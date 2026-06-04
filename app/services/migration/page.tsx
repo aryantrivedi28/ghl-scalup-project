@@ -1,7 +1,5 @@
 // app/services/migration/page.tsx
 
-'use client';
-
 import Link from 'next/link';
 import { useState } from 'react';
 import {
