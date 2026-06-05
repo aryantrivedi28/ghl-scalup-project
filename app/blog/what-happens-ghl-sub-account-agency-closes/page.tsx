@@ -3,12 +3,12 @@ import Script from 'next/script';
 import WhatHappensGHLSubAccountAgencyClosesClient from './client';
 
 export const metadata: Metadata = {
-  title: 'What Happens to Your GHL Sub-Account If Your Agency Closes? (2026)',
-  description: 'Agency closes: you lose access immediately. Phone numbers deleted in 14 days. All data permanently deleted after 90 days. What to do right now to protect your data.',
+  title: 'What Happens to Your GHL Sub-Account If Agency Closes?',
+  description: 'Access lost immediately. Phone numbers deleted in 14 days. Data gone after 90 days. What to do right now to protect your data.',
   keywords: 'what happens to GHL sub account if agency closes, GHL sub account locked agency went out of business, can I get my GHL data if agency closes, GHL sub account owner rights, remove agency access from GHL sub account, GHL sub account agency unresponsive, how to protect GHL sub account from agency closing',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {
-    title: 'What Happens to Your GHL Sub-Account If Your Agency Closes? (2026)',
+    title: 'What Happens to Your GHL Sub-Account If Agency Closes?',
     description: 'Lose access immediately. Contacts, workflows, funnels become inaccessible. Phone numbers delete after 14 days. 90 days before permanent deletion. Here is exactly what to do right now.',
     type: 'article',
     publishedTime: '2026-05-28T00:00:00Z',
@@ -40,7 +40,7 @@ export default function WhatHappensGHLSubAccountAgencyClosesPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "What Happens to Your GHL Sub-Account If Your Agency Closes? (2026)",
+            "headline": "What Happens to Your GHL Sub-Account If Agency Closes?",
             "description": "If your GHL agency closes, you lose access to your sub-account immediately. Contacts, workflows, and funnels become inaccessible. Phone numbers delete after 14 days. You have 90 days before permanent deletion. Here is exactly what to do right now.",
             "image": "https://www.ghlscaleup.com/images/blog/ghl-sub-account-closure-og.jpg",
             "datePublished": "2026-05-28",

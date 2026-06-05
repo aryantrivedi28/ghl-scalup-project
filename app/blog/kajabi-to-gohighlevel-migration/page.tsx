@@ -3,12 +3,12 @@ import Script from 'next/script';
 import KajabiToGHLMigrationClient from './client';
 
 export const metadata: Metadata = {
-  title: 'Kajabi to GoHighLevel Migration: What Breaks and How to Fix It (2026)',
-  description: 'Course content does not transfer automatically from Kajabi -- every lesson must be rebuilt manually. Timeline, what breaks, student re-enrolment, and mistakes to avoid.',
+  title: 'Kajabi to GoHighLevel Migration: What Breaks (2026)',
+  description: 'Course content does not transfer automatically every lesson must be rebuilt manually. Timeline, mistakes, and student re-enrolment.',
   keywords: 'Kajabi to GoHighLevel migration, migrate from Kajabi to GoHighLevel, Kajabi to GHL migration guide, how to migrate Kajabi to GoHighLevel, Kajabi course content migration GoHighLevel, Kajabi contacts export GoHighLevel',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {
-    title: 'Kajabi to GoHighLevel Migration: What Breaks and How to Fix It (2026)',
+    title: 'Kajabi to GoHighLevel Migration: What Breaks (2026)',
     description: 'Contacts transfer via CSV. Course content must be manually rebuilt in GHL membership module. Honest guide covering what breaks, how long it takes, and how to move without losing your students.',
     type: 'article',
     publishedTime: '2026-05-26T00:00:00Z',
@@ -40,7 +40,7 @@ export default function KajabiToGHLMigrationPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "Kajabi to GoHighLevel Migration: What Breaks and How to Fix It (2026)",
+            "headline": "Kajabi to GoHighLevel Migration: What Breaks (2026)",
             "description": "Migrating from Kajabi to GoHighLevel? Contacts transfer via CSV. Course content must be manually rebuilt in GHL's membership module. Honest guide covering what breaks, how long it takes, and how to move without losing your students.",
             "image": "https://www.ghlscaleup.com/images/blog/kajabi-to-ghl-migration-og.jpg",
             "datePublished": "2026-05-26",

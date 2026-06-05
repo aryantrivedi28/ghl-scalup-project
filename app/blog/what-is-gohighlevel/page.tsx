@@ -4,8 +4,8 @@ import WhatIsGoHighLevelClient from './client';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: 'What Is GoHighLevel? Complete Guide for Agencies (2026)',
-  description: 'GoHighLevel explained in plain English what it does, who it is built for, how it replaces 8 tools, and whether it is right for your business. Updated May 2026.',
+  title: 'What Is GoHighLevel? Complete 2026 Guide for Agencies',
+  description: 'GoHighLevel explained in plain English -- what it does, who it is for, and how it replaces 8 tools for $297/mo. Updated May 2026.',
   keywords: 'GoHighLevel, GHL, what is GoHighLevel, GoHighLevel guide, GHL CRM, marketing automation platform, GoHighLevel features, GoHighLevel pricing',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {

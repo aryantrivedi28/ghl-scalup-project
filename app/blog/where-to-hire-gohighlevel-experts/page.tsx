@@ -3,8 +3,8 @@ import WhereToHireGHLExpertsClient from './client';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: 'Best GHL Expert Agency to Hire in 2026 Honest Comparison',
-  description: 'The 6 best places to find GoHighLevel experts in 2026 platforms, agencies, and freelancers. Includes a vetting checklist so you hire the right one.',
+  title: 'Where to Hire GoHighLevel Experts in 2026',
+  description: 'The 6 best places to find GoHighLevel experts in 2026 platforms, agencies, freelancers plus a vetting checklist.',
   keywords: 'where to hire GoHighLevel experts, how to find a GoHighLevel expert, where to find GHL experts, GoHighLevel freelancer, GoHighLevel certified admin directory, GoHighLevel agency for hire, GHL expert Upwork',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {

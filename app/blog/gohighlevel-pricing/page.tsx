@@ -3,8 +3,8 @@ import GoHighLevelPricingClient from './client';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: 'GoHighLevel Pricing 2026 All Plans, Real Costs and Hidden Fees',
-  description: 'Complete GoHighLevel pricing breakdown $97, $297, $497 plans, usage fees for SMS and email, AI costs, and total monthly cost scenarios. Updated May 2026.',
+  title: 'GoHighLevel Pricing 2026: All Plans and Real Costs',
+  description: '$97, $297, $497 plans broken down usage fees for SMS, email, AI costs, and total monthly cost for real agency scenarios.',
   keywords: 'gohighlevel pricing, gohighlevel cost, gohighlevel plans, gohighlevel pricing plans, gohighlevel agency pro pricing, gohighlevel saas mode pricing, gohighlevel starter plan, gohighlevel free trial',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {

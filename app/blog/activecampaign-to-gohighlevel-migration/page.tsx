@@ -3,12 +3,12 @@ import Script from 'next/script';
 import ActiveCampaignToGHLMigrationClient from './client';
 
 export const metadata: Metadata = {
-  title: 'ActiveCampaign to GoHighLevel Migration: What Breaks and How to Fix It',
-  description: 'Contacts and tags transfer via CSV. Automations must be rebuilt. Honest guide covering email deliverability, domain warmup, and step-by-step migration process.',
+  title: 'ActiveCampaign to GoHighLevel Migration (2026)',
+  description: 'Contacts and tags transfer via CSV. Automations must be rebuilt. Honest guide on email deliverability dip and domain warmup.',
   keywords: 'ActiveCampaign to GoHighLevel migration, migrate from ActiveCampaign to GoHighLevel, ActiveCampaign to GHL migration guide, how to migrate ActiveCampaign to GoHighLevel, ActiveCampaign tags to GoHighLevel custom fields, ActiveCampaign contact export GoHighLevel',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {
-    title: 'ActiveCampaign to GoHighLevel Migration: What Breaks and How to Fix It (2026)',
+    title: 'ActiveCampaign to GoHighLevel Migration (2026)',
     description: 'Contacts and tags transfer via CSV. Automations, lead scoring, and conditional logic all need rebuilding. Honest guide with email deliverability insights.',
     type: 'article',
     publishedTime: '2026-05-24T00:00:00Z',
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@ghlscaleup',
-    title: 'ActiveCampaign to GoHighLevel Migration: What Breaks and How to Fix It',
+    title: 'ActiveCampaign to GoHighLevel Migration (2026)',
     description: 'What transfers, what breaks, email deliverability, and step-by-step process.',
     images: ['https://www.ghlscaleup.com/images/blog/activecampaign-to-ghl-migration-og.jpg'],
   },
@@ -40,7 +40,7 @@ export default function ActiveCampaignToGHLMigrationPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "ActiveCampaign to GoHighLevel Migration: What Breaks and How to Fix It (2026)",
+            "headline": "ActiveCampaign to GoHighLevel Migration (2026) (2026)",
             "description": "Migrating from ActiveCampaign to GoHighLevel? Contacts and tags transfer via CSV. Automations, lead scoring, and conditional logic all need rebuilding. Honest guide covering what breaks, email deliverability, and step-by-step process.",
             "image": "https://www.ghlscaleup.com/images/blog/activecampaign-to-ghl-migration-og.jpg",
             "datePublished": "2026-05-24",

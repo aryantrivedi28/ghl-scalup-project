@@ -3,12 +3,12 @@ import Script from 'next/script';
 import GHLMigrationMistakesClient from './client';
 
 export const metadata: Metadata = {
-  title: '8 Common GHL Migration Mistakes Agencies Make (And How to Fix Them) | GHL Scale Up',
-  description: '73% of GHL migrations hit problems nearly all from planning gaps, not the platform. The 8 most common mistakes agencies make when migrating to GoHighLevel and exactly how to avoid each one.',
+  title: '8 Common GHL Migration Mistakes and How to Fix Them',
+  description: '73% of GHL migrations hit problems nearly all from planning gaps. The 8 mistakes agencies make and how to avoid each one.',
   keywords: 'GHL migration mistakes, GoHighLevel migration mistakes to avoid, common GoHighLevel migration errors, GoHighLevel migration problems agencies, why GHL migrations fail, GoHighLevel data migration errors, GHL automation rebuild mistakes, GoHighLevel migration best practices',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {
-    title: '8 Common GHL Migration Mistakes Agencies Make (And How to Fix Them)',
+    title: '8 Common GHL Migration Mistakes and How to Fix Them',
     description: '73% of GHL migrations hit problems. The 8 most common mistakes and exactly how to avoid each one.',
     type: 'article',
     publishedTime: '2026-06-01T00:00:00Z',
@@ -40,7 +40,7 @@ export default function GHLMigrationMistakesPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "8 Common GHL Migration Mistakes Agencies Make (And How to Fix Them)",
+            "headline": "8 Common GHL Migration Mistakes and How to Fix Them",
             "description": "73% of GHL migrations hit problems. The 8 most common mistakes agencies make when migrating to GoHighLevel and exactly how to avoid each one.",
             "image": "https://www.ghlscaleup.com/images/blog/ghl-migration-mistakes-og.jpg",
             "datePublished": "2026-06-01",

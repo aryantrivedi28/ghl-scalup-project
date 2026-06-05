@@ -2,10 +2,11 @@
 import { Metadata } from 'next';
 import MissedCallTextBackClient from './client';
 import Script from 'next/script';
+import { text } from 'stream/consumers';
 
 export const metadata: Metadata = {
-  title: 'GoHighLevel Missed Call Text Back: How It Works and Setup Guide',
-  description: 'How to set up GoHighLevel missed call text back to respond to every missed call in 15 seconds. Full step-by-step configuration guide. Updated May 2026.',
+  title: 'GoHighLevel Missed Call Text Back: Setup Guide (2026)',
+  description: 'Set up GHL\'s missed call text back to respond to every missed call in 15 seconds. Full configuration guide with real examples.',
   keywords: 'GoHighLevel missed call text back, GHL missed call text back setup, missed call text back workflow, GHL SMS automation, lead recovery SMS',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {

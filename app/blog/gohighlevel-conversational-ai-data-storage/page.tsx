@@ -3,8 +3,8 @@ import ConversationAIDataStorageClient from './client';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: 'Does GoHighLevel Conversation AI Save Data to Your CRM? (2026)',
-  description: 'Exactly what GoHighLevel Conversation AI saves, where it saves it, and how to use workflows to push data into CRM fields. Verified from official GHL docs.',
+  title: 'Does GoHighLevel Conversation AI Save Data? (2026)',
+  description: 'What GHL Conversation AI saves, where it saves it, and how to push data into CRM fields using workflows. Verified from official docs.',
   keywords: 'GoHighLevel conversational AI data storage, does GoHighLevel conversation AI save data to CRM, GHL conversation AI CRM data, GoHighLevel AI contact fields, GHL AI bot not saving data, how to capture lead data from GHL conversation AI',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {

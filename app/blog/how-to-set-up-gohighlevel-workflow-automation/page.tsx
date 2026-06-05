@@ -4,8 +4,8 @@ import WorkflowAutomationClient from './client';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: 'How to Set Up GoHighLevel Workflow Automation (2026 Guide)',
-  description: 'Step-by-step guide to building GoHighLevel workflows -- triggers, actions, If/Else logic, and the 5 most impactful automations for agencies. Updated May 2026.',
+  title: 'How to Set Up GoHighLevel Workflow Automation (2026)',
+  description: 'Step-by-step guide to building GHL workflows triggers, actions, If/Else logic, and the 5 automations agencies build first.',
   keywords: 'GoHighLevel workflow automation, GHL workflow tutorial, how to set up GHL automation, beginner workflow guide, GoHighLevel triggers and actions',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {

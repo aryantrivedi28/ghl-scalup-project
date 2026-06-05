@@ -4,7 +4,7 @@ import GoHighLevelForRealEstateClient from './client';
 
 export const metadata: Metadata = {
   title: 'GoHighLevel for Real Estate Agents: Complete 2026 Guide',
-  description: 'How real estate agents use GoHighLevel to follow up leads in 15 seconds, book showings, and collect Google reviews automatically. Complete setup guide.',
+  description: 'How real estate agents use GHL to follow up leads in 15 seconds, book showings, and collect Google reviews automatically.',
   keywords: 'GoHighLevel for real estate, GHL for real estate agents, GoHighLevel real estate CRM, GoHighLevel real estate automation, GoHighLevel for realtors, GoHighLevel real estate pipeline, GoHighLevel missed call text back real estate',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {

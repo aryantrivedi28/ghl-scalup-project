@@ -3,8 +3,8 @@ import Script from 'next/script';
 import ClickFunnelsToGHLMigrationClient from './client';
 
 export const metadata: Metadata = {
-  title: 'ClickFunnels to GoHighLevel Migration: What Breaks and How to Fix It',
-  description: 'How to migrate from ClickFunnels to GHL URL import tool, what breaks, how long it takes, and the 4 mistakes that cause migrations to fail. Updated 2026.',
+  title: 'GoHighLevel vs ClickFunnels (2026): Honest Comparison',
+  description: 'At $297/mo GHL gives unlimited clients. ClickFunnels gives one workspace. Full pricing, features, and agency verdict. Updated 2026.',
   keywords: 'ClickFunnels to GoHighLevel migration, migrate ClickFunnels to GoHighLevel, ClickFunnels to GHL migration guide, how to migrate ClickFunnels to GoHighLevel, ClickFunnels funnel import GoHighLevel, ClickFunnels contacts export GoHighLevel, GoHighLevel replace ClickFunnels',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {

@@ -3,12 +3,12 @@ import Script from 'next/script';
 import GoHighLevelVsClickFunnelsClient from './client';
 
 export const metadata: Metadata = {
-  title: 'GoHighLevel vs ClickFunnels (2026): Honest Comparison for Agencies',
-  description: 'GoHighLevel vs ClickFunnels at $297/mo GHL gives unlimited clients while ClickFunnels gives one workspace. Full pricing and feature comparison. Updated 2026.',
+  title: 'ClickFunnels to GoHighLevel Migration: What Breaks',
+  description: 'URL import tool clones your pages. Automations, Stripe, and domain must be rebuilt. Full guide with 4 mistakes that cause failures.',
   keywords: 'GoHighLevel vs ClickFunnels, gohighlevel vs clickfunnels 2026, GoHighLevel or ClickFunnels for agencies, is GoHighLevel better than ClickFunnels, ClickFunnels vs GoHighLevel pricing, can GoHighLevel replace ClickFunnels',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {
-    title: 'GoHighLevel vs ClickFunnels (2026): Honest Comparison for Agencies',
+    title: 'ClickFunnels to GoHighLevel Migration: What Breaks',
     description: 'Full pricing, feature, and use-case comparison with real 2026 numbers. GoHighLevel wins for agencies. ClickFunnels wins for solo entrepreneurs.',
     type: 'article',
     publishedTime: '2026-05-30T00:00:00Z',

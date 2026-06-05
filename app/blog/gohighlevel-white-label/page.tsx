@@ -3,8 +3,8 @@ import GoHighLevelWhiteLabelClient from './client';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: 'GoHighLevel White Label: What It Is, How It Works and Setup Guide',
-  description: 'Complete guide to GoHighLevel white label what is included, which plan you need, CNAME setup, branding configuration, and margin calculator. Updated 2026.',
+  title: 'GoHighLevel White Label: How It Works and Setup Guide',
+  description: 'What GHL white label includes, which plan you need, CNAME setup, branding config, and margin calculator. Full 2026 guide.',
   keywords: 'gohighlevel white label, white label ghl, gohighlevel white label setup, gohighlevel saas mode, white label gohighlevel crm, gohighlevel reseller, gohighlevel saas mode setup',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {
