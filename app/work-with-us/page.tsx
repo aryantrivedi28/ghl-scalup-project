@@ -416,6 +416,8 @@ export default function WorkWithUsPage() {
     'Calendar & Scheduling Setup',
     'Custom API Integrations',
     'SEO & Local SEO',
+    'Marketing Expert',
+    'GHL Developer',
     'Website Speed Optimization',
     'Not Sure Yet / Need Consultation'
   ];
