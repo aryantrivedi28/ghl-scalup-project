@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Mailbox',
+            tag: 'Comparison',
+            title: 'GoHighLevel vs ActiveCampaign (2026): Honest Comparison for Agencies',
+            excerpt: 'GHL wins for agencies needing SMS, sub-accounts and white-label. AC wins for email depth and deliverability. Real 2026 pricing, feature comparison, and an honest verdict on who should switch.',
+            slug: 'gohighlevel-vs-activecampaign',
+            date: 'June 5, 2026',
+            readTime: '20 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'GitCompare',
             tag: 'Comparison',
             title: 'GoHighLevel Alternatives (2026): Best Tools to Compare Before You Decide',

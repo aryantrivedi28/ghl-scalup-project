@@ -243,6 +243,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
     {
+      url: `${baseUrl}/blog/gohighlevel-vs-activecampaign`,
+      lastModified: new Date('2026-06-05'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/blog/gohighlevel-alternatives`,
       lastModified: new Date('2026-06-04'),
       changeFrequency: 'monthly',
