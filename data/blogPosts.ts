@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Stethoscope',
+            tag: 'Dental',
+            title: 'GoHighLevel for Dentists: Complete 2026 Guide for Dental Practices',
+            excerpt: 'GoHighLevel helps dental practices reduce no-shows by 30 to 40%, recover lapsed patients, and automate Google review collection replacing Weave and Podium for $97/mo. Complete guide for dentists and DSOs.',
+            slug: 'gohighlevel-for-dentists',
+            date: 'June 6, 2026',
+            readTime: '18 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'Mailbox',
             tag: 'Comparison',
             title: 'GoHighLevel vs ActiveCampaign (2026): Honest Comparison for Agencies',
