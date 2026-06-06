@@ -470,8 +470,8 @@ export default function WorkWithUsPage() {
   };
 
   const handleDeveloperTypeChange = (value: string) => {
-    setFormData(prev => ({ 
-      ...prev, 
+    setFormData(prev => ({
+      ...prev,
       developerType: value,
       expertiseArea: '' // Reset expertise area when developer type changes
     }));
@@ -846,7 +846,7 @@ export default function WorkWithUsPage() {
                         onChange={handleInputChange}
                         rows={3}
                         className="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base placeholder-white/30 focus:border-[#0E9BF0] focus:outline-none transition-all resize-vertical"
-                        placeholder={formData.developerType === 'GHL Expert' 
+                        placeholder={formData.developerType === 'GHL Expert'
                           ? "e.g. Workflow automations, CRM setup, AI chatbots, funnel building, API integrations, white-labelling..."
                           : "e.g. Meta Ads, Google Ads, LinkedIn campaigns, YouTube marketing, Twitter/X strategies..."}
                       />
@@ -862,7 +862,11 @@ export default function WorkWithUsPage() {
                     </button>
                     <button
                       onClick={() => goToStep(3)}
-                      disabled={!formData.experienceLevel || !formData.expertiseArea}
+                      disabled={
+                        !formData.experienceLevel ||
+                        (!formData.expertiseArea && !showCustomExpertise) ||
+                        (showCustomExpertise && !formData.customExpertise)
+                      }
                       className="bg-gradient-to-r from-[#0E9BF0] to-[#0a7acc] text-white font-poppins font-bold px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl hover:translate-y-[-2px] hover:shadow-lg transition-all flex items-center gap-2 text-sm sm:text-base w-full sm:w-auto justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       Next: Rate & Documents <ChevronRight className="w-4 h-4" />
