@@ -6,17 +6,18 @@ export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
 
-    // Extract form fields (matching the new UI fields)
+    // Extract form fields (matching the updated UI fields)
     const firstName = formData.get('firstName') as string;
     const lastName = formData.get('lastName') as string;
     const email = formData.get('email') as string;
     const phone = formData.get('phone') as string;
     const country = formData.get('country') as string;
+    const developerType = formData.get('developerType') as string; // NEW FIELD
     const experienceLevel = formData.get('experienceLevel') as string;
     
-    // New fields from updated UI
+    // Expertise fields
     const expertiseArea = formData.get('expertiseArea') as string;
-    const customExpertise = formData.get('customExpertise') as string; // NEW FIELD
+    const customExpertise = formData.get('customExpertise') as string;
     const lookingFor = formData.get('lookingFor') as string;
     const rate = formData.get('rate') as string;
     const portfolioLink = formData.get('portfolioLink') as string;
@@ -25,14 +26,14 @@ export async function POST(request: NextRequest) {
     const extraInfo = formData.get('extraInfo') as string;
 
     // Validate required fields
-    if (!firstName || !lastName || !email || !phone || !country || !experienceLevel) {
+    if (!firstName || !lastName || !email || !phone || !country || !developerType) {
       return NextResponse.json(
         { success: false, message: 'Missing required personal information fields' },
         { status: 400 }
       );
     }
 
-    if (!lookingFor || !rate || !availability) {
+    if (!experienceLevel || !lookingFor || !rate || !availability) {
       return NextResponse.json(
         { success: false, message: 'Missing required expertise or rate fields' },
         { status: 400 }
@@ -52,6 +53,55 @@ export async function POST(request: NextRequest) {
         { success: false, message: 'Expertise area is required' },
         { status: 400 }
       );
+    }
+
+    // Validate expertise based on developer type
+    const validGHLOptions = [
+      'GoHighLevel CRM Setup',
+      'Sales Funnel Development',
+      'Workflow Automation',
+      'Lead Generation System',
+      'AI Chatbot Automation',
+      'Website Development',
+      'Landing Page Design',
+      'Appointment Booking System',
+      'Email & SMS Automation',
+      'Pipeline Management',
+      'SaaS Snapshot Setup',
+      'White Label SaaS Setup',
+      'Facebook Ads Integration',
+      'Google Ads Integration',
+      'Reputation Management',
+      'Calendar & Scheduling Setup',
+      'Custom API Integrations',
+      'SEO & Local SEO',
+      'Website Speed Optimization',
+      'Not Sure Yet / Need Consultation'
+    ];
+
+    const validMarketingOptions = [
+      'Meta',
+      'Google',
+      'LinkedIn',
+      'YouTube',
+      'X (Twitter)'
+    ];
+
+    // Only validate if not custom expertise
+    if (!customExpertiseValue) {
+      if (developerType === 'GHL Expert' && !validGHLOptions.includes(expertiseArea)) {
+        return NextResponse.json(
+          { success: false, message: 'Invalid expertise area for GHL Expert' },
+          { status: 400 }
+        );
+      }
+      
+      if (developerType === 'Marketing Expert' && !validMarketingOptions.includes(expertiseArea)) {
+        return NextResponse.json(
+          { success: false, message: 'Invalid expertise area for Marketing Expert' },
+          { status: 400 }
+        );
+      }
     }
 
     // Handle file uploads
@@ -126,11 +176,12 @@ export async function POST(request: NextRequest) {
         email,
         phone,
         country,
+        developer_type: developerType, // NEW FIELD
         experience_level: experienceLevel,
         
         // Expertise & Skills
         expertise_area: finalExpertiseArea,
-        custom_expertise: customExpertiseValue, // NEW FIELD
+        custom_expertise: customExpertiseValue,
         looking_for: lookingFor,
         specialisations: specialisations || null,
         
@@ -155,6 +206,7 @@ export async function POST(request: NextRequest) {
       throw new Error(`Database insert failed: ${error.message}`);
     }
 
+
     // Send webhook to GHL (optional, handle gracefully if fails)
     try {
       const webhookUrl = process.env.GHL_WEBHOOK_URL;
@@ -171,6 +223,7 @@ export async function POST(request: NextRequest) {
             email,
             phone,
             country,
+            developerType, // NEW FIELD
             experienceLevel,
             
             // Expertise
@@ -205,6 +258,7 @@ export async function POST(request: NextRequest) {
         firstName: data.first_name,
         lastName: data.last_name,
         email: data.email,
+        developerType: data.developer_type,
         expertiseArea: finalExpertiseArea,
         status: data.status
       }

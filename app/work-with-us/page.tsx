@@ -27,9 +27,10 @@ interface FormData {
   phone: string;
   country: string;
   phoneCode: string;
+  developerType: string; // New field: "GHL Expert" or "Marketing Expert"
   experienceLevel: string;
   expertiseArea: string;
-  customExpertise: string; // New field for custom expertise
+  customExpertise: string;
   otherExpertise: string;
   lookingFor: string;
   rate: string;
@@ -362,6 +363,7 @@ export default function WorkWithUsPage() {
     phone: '',
     country: '',
     phoneCode: '+91',
+    developerType: '',
     experienceLevel: '',
     expertiseArea: '',
     customExpertise: '',
@@ -379,25 +381,8 @@ export default function WorkWithUsPage() {
   const [resumeFileName, setResumeFileName] = useState('');
   const [portfolioFileName, setPortfolioFileName] = useState('');
 
-  // Handle country change - auto update phone code
-  const handleCountryChange = (countryName: string) => {
-    const selectedCountry = countries.find(c => c.name === countryName);
-
-    setFormData(prev => ({
-      ...prev,
-      country: countryName,
-      phoneCode: selectedCountry ? selectedCountry.phoneCode : '+91'
-    }));
-  };
-
-  // Handle phone input change - only digits
-  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value.replace(/\D/g, '');
-    setFormData(prev => ({ ...prev, phone: value }));
-  };
-
-  // Expertise options
-  const expertiseOptions = [
+  // GHL Expertise Options
+  const ghlExpertiseOptions = [
     'GoHighLevel CRM Setup',
     'Sales Funnel Development',
     'Workflow Automation',
@@ -416,11 +401,27 @@ export default function WorkWithUsPage() {
     'Calendar & Scheduling Setup',
     'Custom API Integrations',
     'SEO & Local SEO',
-    'Marketing Expert',
-    'GHL Developer',
     'Website Speed Optimization',
-    'Not Sure Yet / Need Consultation'
   ];
+
+  // Marketing Expertise Options
+  const marketingExpertiseOptions = [
+    'Meta',
+    'Google',
+    'LinkedIn',
+    'YouTube',
+    'X (Twitter)'
+  ];
+
+  // Get dynamic expertise options based on developer type
+  const getExpertiseOptions = () => {
+    if (formData.developerType === 'GHL Expert') {
+      return ghlExpertiseOptions;
+    } else if (formData.developerType === 'Marketing Expert') {
+      return marketingExpertiseOptions;
+    }
+    return [];
+  };
 
   // Looking for options
   const lookingForOptions = [
@@ -451,6 +452,32 @@ export default function WorkWithUsPage() {
     }
   };
 
+  // Handle country change - auto update phone code
+  const handleCountryChange = (countryName: string) => {
+    const selectedCountry = countries.find(c => c.name === countryName);
+
+    setFormData(prev => ({
+      ...prev,
+      country: countryName,
+      phoneCode: selectedCountry ? selectedCountry.phoneCode : '+91'
+    }));
+  };
+
+  // Handle phone input change - only digits
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.replace(/\D/g, '');
+    setFormData(prev => ({ ...prev, phone: value }));
+  };
+
+  const handleDeveloperTypeChange = (value: string) => {
+    setFormData(prev => ({ 
+      ...prev, 
+      developerType: value,
+      expertiseArea: '' // Reset expertise area when developer type changes
+    }));
+    setShowCustomExpertise(false);
+  };
+
   const handleExpertiseChange = (value: string) => {
     if (value === 'Other') {
       setShowCustomExpertise(true);
@@ -478,6 +505,7 @@ export default function WorkWithUsPage() {
     const fullPhoneNumber = `${formData.phoneCode}${formData.phone}`;
     submitData.append('phone', fullPhoneNumber);
     submitData.append('country', formData.country);
+    submitData.append('developerType', formData.developerType);
     submitData.append('experienceLevel', formData.experienceLevel);
 
     // Handle expertise - send both the selected value and custom if exists
@@ -693,6 +721,44 @@ export default function WorkWithUsPage() {
                     </div>
 
                     <div>
+                      <label className="block text-xs font-medium tracking-wide text-white/50 uppercase mb-1.5 sm:mb-2">I am a *</label>
+                      <select
+                        name="developerType"
+                        value={formData.developerType}
+                        onChange={handleInputChange}
+                        className="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base focus:border-[#0E9BF0] focus:outline-none transition-all cursor-pointer autofill:bg-transparent autofill:text-white"
+                        required
+                      >
+                        <option value="" className="bg-[#1C2E4A] text-white">Select type</option>
+                        <option value="GHL Expert" className="bg-[#1C2E4A] text-white">GHL Expert</option>
+                        <option value="Marketing Expert" className="bg-[#1C2E4A] text-white">Marketing Expert</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="flex justify-end mt-6 sm:mt-8">
+                    <button
+                      onClick={() => goToStep(2)}
+                      disabled={!formData.developerType}
+                      className="bg-gradient-to-r from-[#F8D000] to-[#e6b800] text-[#1C2E4A] font-poppins font-bold px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl hover:translate-y-[-2px] hover:shadow-lg transition-all flex items-center gap-2 text-sm sm:text-base w-full sm:w-auto justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      Next: Your Expertise <ChevronRight className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* Step 2 - Expertise & Skills */}
+              {currentStep === 2 && (
+                <div className="animate-fadeUp">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Brain className="w-5 h-5 text-[#0E9BF0]" />
+                    <div className="font-poppins font-bold text-lg sm:text-xl text-white">Your Expertise</div>
+                  </div>
+                  <div className="text-xs sm:text-sm text-white/50 mb-5 sm:mb-7">Tell us about your skills and experience.</div>
+
+                  <div className="space-y-4 sm:space-y-6">
+                    <div>
                       <label className="block text-xs font-medium tracking-wide text-white/50 uppercase mb-1.5 sm:mb-2">GHL Experience Level *</label>
                       <select
                         name="experienceLevel"
@@ -708,39 +774,23 @@ export default function WorkWithUsPage() {
                         <option value="Expert (3+ years)" className="bg-[#1C2E4A] text-white">Expert (3+ years)</option>
                       </select>
                     </div>
-                  </div>
 
-                  <div className="flex justify-end mt-6 sm:mt-8">
-                    <button
-                      onClick={() => goToStep(2)}
-                      className="bg-gradient-to-r from-[#F8D000] to-[#e6b800] text-[#1C2E4A] font-poppins font-bold px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl hover:translate-y-[-2px] hover:shadow-lg transition-all flex items-center gap-2 text-sm sm:text-base w-full sm:w-auto justify-center"
-                    >
-                      Next: Your Expertise <ChevronRight className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
-              )}
-
-              {/* Step 2 - Expertise & Skills */}
-              {currentStep === 2 && (
-                <div className="animate-fadeUp">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Brain className="w-5 h-5 text-[#0E9BF0]" />
-                    <div className="font-poppins font-bold text-lg sm:text-xl text-white">Your Expertise</div>
-                  </div>
-                  <div className="text-xs sm:text-sm text-white/50 mb-5 sm:mb-7">Tell us about your skills and specialisations.</div>
-
-                  <div className="space-y-4 sm:space-y-6">
                     <div>
                       <label className="block text-xs font-medium tracking-wide text-white/50 uppercase mb-1.5 sm:mb-2">Area of Expertise *</label>
-                      <SearchableSelect
-                        options={[...expertiseOptions]}
-                        value={showCustomExpertise ? 'Other' : formData.expertiseArea}
-                        onChange={handleExpertiseChange}
-                        placeholder="Select your primary expertise"
-                        required
-                        includeOther={true}
-                      />
+                      {formData.developerType ? (
+                        <SearchableSelect
+                          options={getExpertiseOptions()}
+                          value={showCustomExpertise ? 'Other' : formData.expertiseArea}
+                          onChange={handleExpertiseChange}
+                          placeholder={`Select your ${formData.developerType} expertise`}
+                          required
+                          includeOther={true}
+                        />
+                      ) : (
+                        <div className="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white/30 text-sm sm:text-base">
+                          Please select your type in previous step first
+                        </div>
+                      )}
 
                       {showCustomExpertise && (
                         <div className="mt-3 animate-fadeUp">
@@ -758,7 +808,7 @@ export default function WorkWithUsPage() {
                         </div>
                       )}
 
-                      {formData.expertiseArea === 'Not Sure Yet / Need Consultation' && !showCustomExpertise && (
+                      {formData.expertiseArea === 'Not Sure Yet / Need Consultation' && !showCustomExpertise && formData.developerType === 'GHL Expert' && (
                         <div className="mt-3">
                           <input
                             type="text"
@@ -789,14 +839,16 @@ export default function WorkWithUsPage() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-medium tracking-wide text-white/50 uppercase mb-1.5 sm:mb-2">Your GHL specialisations</label>
+                      <label className="block text-xs font-medium tracking-wide text-white/50 uppercase mb-1.5 sm:mb-2">Your specialisations</label>
                       <textarea
                         name="specialisations"
                         value={formData.specialisations}
                         onChange={handleInputChange}
                         rows={3}
                         className="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base placeholder-white/30 focus:border-[#0E9BF0] focus:outline-none transition-all resize-vertical"
-                        placeholder="e.g. Workflow automations, CRM setup, AI chatbots, funnel building, API integrations, white-labelling..."
+                        placeholder={formData.developerType === 'GHL Expert' 
+                          ? "e.g. Workflow automations, CRM setup, AI chatbots, funnel building, API integrations, white-labelling..."
+                          : "e.g. Meta Ads, Google Ads, LinkedIn campaigns, YouTube marketing, Twitter/X strategies..."}
                       />
                     </div>
                   </div>
@@ -810,7 +862,8 @@ export default function WorkWithUsPage() {
                     </button>
                     <button
                       onClick={() => goToStep(3)}
-                      className="bg-gradient-to-r from-[#0E9BF0] to-[#0a7acc] text-white font-poppins font-bold px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl hover:translate-y-[-2px] hover:shadow-lg transition-all flex items-center gap-2 text-sm sm:text-base w-full sm:w-auto justify-center"
+                      disabled={!formData.experienceLevel || !formData.expertiseArea}
+                      className="bg-gradient-to-r from-[#0E9BF0] to-[#0a7acc] text-white font-poppins font-bold px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl hover:translate-y-[-2px] hover:shadow-lg transition-all flex items-center gap-2 text-sm sm:text-base w-full sm:w-auto justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       Next: Rate & Documents <ChevronRight className="w-4 h-4" />
                     </button>
