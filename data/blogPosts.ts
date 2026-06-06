@@ -22,7 +22,7 @@ export const blogPosts: BlogPost[] = [
             date: 'June 6, 2026',
             readTime: '18 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=800&h=500&fit=crop',
+            image: 'https://tse1.mm.bing.net/th/id/OIP.mktF9xfG6jee7kdXjGBFsQHaDt?rs=1&pid=ImgDetMain&o=7&rm=3',
       },
       {
             icon: 'Mailbox',
@@ -33,7 +33,7 @@ export const blogPosts: BlogPost[] = [
             date: 'June 5, 2026',
             readTime: '20 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: 'https://www.fahimai.com/wp-content/uploads/2024/10/Fahim-AI-1-21.png',
       },
       {
             icon: 'GitCompare',
