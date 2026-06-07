@@ -149,7 +149,7 @@ export default function HubspotMigrationClient() {
                 We migrate your HubSpot contacts, custom properties, deal pipelines, and full deal history into GoHighLevel then rebuild your automations, forms, and workflows natively inside GHL. The result: a fully configured GoHighLevel system that replicates everything you relied on in HubSpot, without data loss and without downtime. Standard migrations complete in 3 to 5 weeks. Fixed price. Free migration assessment to start.
               </p>
               <div className="flex gap-3.5 flex-wrap mb-9">
-                <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-8 py-3.5 rounded-xl text-[15px] font-semibold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
+                <Link href="/contact-us" className="bg-[#F8D000] text-[#0B1421] px-8 py-3.5 rounded-xl text-[15px] font-semibold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
                   Book a Free Migration Assessment → <ArrowRight size={16} />
                 </Link>
                 <Link href="#what-we-migrate" className="bg-transparent text-white px-8 py-3.5 rounded-xl text-[15px] font-medium border border-white/30 hover:border-white/50 hover:bg-white/5 transition-all">

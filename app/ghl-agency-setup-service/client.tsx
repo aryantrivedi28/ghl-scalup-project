@@ -171,7 +171,7 @@ export default function ClientPage() {
                 You have just been ejected from your agency's GHL sub-account or you are about to be. You now have your own $97 per month GoHighLevel account with zero configuration inside it. No pipelines, no automations, no integrations connected. We set up your entire GoHighLevel agency account end-to-end so your business runs from day one. Fixed price. 2 to 3 weeks delivery.
               </p>
               <div className="flex gap-3.5 flex-wrap mb-8">
-                <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-8 py-[14px] rounded-xl text-[15px] font-semibold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.3)] transition-all">
+                <Link href="/contact-us" className="bg-[#F8D000] text-[#0B1421] px-8 py-[14px] rounded-xl text-[15px] font-semibold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.3)] transition-all">
                   Book a Free Setup Discovery Call → <ArrowRight size={16} />
                 </Link>
                 <Link href="#what-we-set-up" className="bg-transparent text-white px-8 py-[14px] rounded-xl text-[15px] font-medium border border-white/30 hover:border-white/50 hover:bg-white/5 transition-all">
@@ -394,7 +394,7 @@ export default function ClientPage() {
                   <div className="flex gap-2 text-[14px] text-[#1A202C]"><span className="text-[#25C97D] text-[13px] mt-0.5">✓</span>End-to-end testing of all components</div>
                   <div className="flex gap-2 text-[14px] text-[#1A202C]"><span className="text-[#25C97D] text-[13px] mt-0.5">✓</span>Team training session and handover documentation</div>
                 </div>
-                <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] w-full justify-center inline-flex items-center gap-2 py-4 px-8 rounded-xl text-[0.92rem] font-bold hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.3)] transition-all mb-3.5">
+                <Link href="/contact-us" className="bg-[#F8D000] text-[#0B1421] w-full justify-center inline-flex items-center gap-2 py-4 px-8 rounded-xl text-[0.92rem] font-bold hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.3)] transition-all mb-3.5">
                   Book a Free Discovery Call → <ArrowRight size={16} />
                 </Link>
                 <p className="text-[12px] text-[#8A9BB0] text-center">Complex setups (SaaS mode, white-label, Shopify integration) are scoped separately after the discovery call.</p>
@@ -439,7 +439,7 @@ export default function ClientPage() {
           <p className="text-base text-white/65 max-w-[520px] mx-auto mb-2 leading-relaxed">Book a free 30-minute discovery call. We review your account situation, tell you exactly what needs to be configured, and give you a fixed price before any work starts.</p>
           <p className="text-[13px] text-white/40 mb-8">No commitment required. No automated follow-up. Aryan responds personally within a few hours.</p>
           <div className="flex gap-3.5 justify-center flex-wrap mb-7">
-            <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-10 py-4 rounded-xl text-[0.92rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.3)] transition-all">
+            <Link href="/contact-us" className="bg-[#F8D000] text-[#0B1421] px-10 py-4 rounded-xl text-[0.92rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.3)] transition-all">
               Book a Free Discovery Call → <ArrowRight size={16} />
             </Link>
           </div>
@@ -519,7 +519,7 @@ export default function ClientPage() {
           <p className="text-base text-white/65 max-w-[520px] mx-auto mb-2 leading-relaxed">Tell us about your sub-account situation. Aryan personally reviews every inquiry and responds within a few hours via phone or email, not an automated sequence.</p>
           <p className="text-[13px] text-white/40 mb-8">Free discovery call. Fixed price agreed before work starts. No commitment required.</p>
           <div className="flex gap-3.5 justify-center flex-wrap mb-7">
-            <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-10 py-4 rounded-xl text-[0.92rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.3)] transition-all">
+            <Link href="/contact-us" className="bg-[#F8D000] text-[#0B1421] px-10 py-4 rounded-xl text-[0.92rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.3)] transition-all">
               Book a Free Discovery Call → <ArrowRight size={16} />
             </Link>
             <Link href="/services" className="bg-transparent text-white px-10 py-4 rounded-xl text-[0.92rem] font-medium border border-white/15 hover:border-white/30 hover:bg-white/5 transition-all">

@@ -25,35 +25,35 @@ import { useFaqSchema } from '@/hooks/useFaqSchema';
 const faqs = [
   {
     q: 'Can I automatically import my ClickFunnels funnels into GoHighLevel?',
-    a: 'GoHighLevel has a built-in ClickFunnels importer, but it is not an automatic bulk transfer. You enter the live published URL of each ClickFunnels page one step at a time, and GHL copies the visual layout into its funnel builder. This saves significant design rebuild time. However, it only imports the page visuals — it does not migrate forms, automations, order bumps, upsell logic, email sequences, or any backend functionality. Those all require manual rebuilding inside GoHighLevel. GHL Scale Up handles the full import and all rebuilds.',
+    a: 'GoHighLevel has a built-in ClickFunnels importer, but it is not an automatic bulk transfer. You enter the live published URL of each ClickFunnels page one step at a time, and GHL copies the visual layout into its funnel builder. This saves significant design rebuild time. However, it only imports the page visuals it does not migrate forms, automations, order bumps, upsell logic, email sequences, or any backend functionality. Those all require manual rebuilding inside GoHighLevel. GHL Scale Up handles the full import and all rebuilds.',
   },
   {
     q: 'What breaks when you migrate from ClickFunnels to GoHighLevel?',
-    a: 'The following do not transfer and must be rebuilt in GoHighLevel: all email automations and follow-up sequences, all forms and survey steps inside funnels, ClickFunnels order bump and one-click upsell logic, course and membership structures (CF 2.0), A/B split test configurations, your ClickFunnels affiliate program, all Stripe and payment connections, Meta Pixel and Google Tag tracking, and domain DNS routing. Your contacts and funnel page designs are the two main elements that carry across with the least friction. Everything else is a targeted rebuild — which is exactly what GHL Scale Up specialises in.',
+    a: 'The following do not transfer and must be rebuilt in GoHighLevel: all email automations and follow-up sequences, all forms and survey steps inside funnels, ClickFunnels order bump and one-click upsell logic, course and membership structures (CF 2.0), A/B split test configurations, your ClickFunnels affiliate program, all Stripe and payment connections, Meta Pixel and Google Tag tracking, and domain DNS routing. Your contacts and funnel page designs are the two main elements that carry across with the least friction. Everything else is a targeted rebuild which is exactly what GHL Scale Up specialises in.',
   },
   {
     q: 'Will I lose my ClickFunnels contacts when I migrate to GoHighLevel?',
-    a: 'No. ClickFunnels allows you to export your full contact list as a CSV file including name, email, phone, and any standard fields. You then import that CSV into GoHighLevel\'s contact database. Tags, purchase history, and automation state from ClickFunnels do not transfer — these need to be recreated using GHL tagging and segmentation system after import. We document your existing CF tag structure before migration so it can be recreated accurately inside GHL.',
+    a: 'No. ClickFunnels allows you to export your full contact list as a CSV file including name, email, phone, and any standard fields. You then import that CSV into GoHighLevel\'s contact database. Tags, purchase history, and automation state from ClickFunnels do not transfer these need to be recreated using GHL tagging and segmentation system after import. We document your existing CF tag structure before migration so it can be recreated accurately inside GHL.',
   },
   {
     q: 'Does GoHighLevel have order bumps and one-click upsells like ClickFunnels?',
-    a: 'Yes. GoHighLevel supports order bumps, one-click upsells, and downsell sequences in its funnel checkout flow. ClickFunnels implementation of these features is more refined — it has over a decade of conversion testing behind it. GoHighLevel checkout handles standard e-commerce funnel mechanics correctly and is more than sufficient for most service businesses and digital product sellers. We rebuild your complete upsell flow inside GHL as a standard part of every migration.',
+    a: 'Yes. GoHighLevel supports order bumps, one-click upsells, and downsell sequences in its funnel checkout flow. ClickFunnels implementation of these features is more refined it has over a decade of conversion testing behind it. GoHighLevel checkout handles standard e-commerce funnel mechanics correctly and is more than sufficient for most service businesses and digital product sellers. We rebuild your complete upsell flow inside GHL as a standard part of every migration.',
   },
   {
     q: 'Will my ad tracking and conversion data break during the ClickFunnels to GHL migration?',
-    a: 'Attribution is the single biggest risk in this migration. When you change your domain DNS to point to GHL, your Meta Pixel, Google Tag, UTM parameters, and conversion event configurations need to be rebuilt inside GHL before the switch happens. If this is not done in the right order, you will be making ad spend decisions on corrupted data for weeks without knowing it. GHL Scale Up rebuilds all tracking configurations inside GHL before any DNS change and uses a staged traffic transition — switching low-risk traffic sources first — so your attribution data remains intact throughout.',
+    a: 'Attribution is the single biggest risk in this migration. When you change your domain DNS to point to GHL, your Meta Pixel, Google Tag, UTM parameters, and conversion event configurations need to be rebuilt inside GHL before the switch happens. If this is not done in the right order, you will be making ad spend decisions on corrupted data for weeks without knowing it. GHL Scale Up rebuilds all tracking configurations inside GHL before any DNS change and uses a staged traffic transition switching low-risk traffic sources first so your attribution data remains intact throughout.',
   },
   {
     q: 'How long does a ClickFunnels to GoHighLevel migration take?',
-    a: 'A standard ClickFunnels to GoHighLevel migration takes 3 to 5 weeks. A simple migration with fewer than 5 funnels, basic email follow-ups, and under 5,000 contacts takes 2 to 3 weeks. A complex migration with 15+ funnels, courses, order bumps, upsell sequences, and an affiliate program takes 5 to 7 weeks. We give you a specific timeline after reviewing your ClickFunnels account on the free assessment call — not a range based on guesswork.',
+    a: 'A standard ClickFunnels to GoHighLevel migration takes 3 to 5 weeks. A simple migration with fewer than 5 funnels, basic email follow-ups, and under 5,000 contacts takes 2 to 3 weeks. A complex migration with 15+ funnels, courses, order bumps, upsell sequences, and an affiliate program takes 5 to 7 weeks. We give you a specific timeline after reviewing your ClickFunnels account on the free assessment call not a range based on guesswork.',
   },
   {
     q: 'How much does ClickFunnels to GoHighLevel migration cost?',
-    a: 'ClickFunnels to GoHighLevel migration with GHL Scale Up starts from $1,500 for a standard migration covering funnel imports, contact migration, core automation rebuilds, Stripe reconnection, tracking setup, and team training. Complex migrations with courses, affiliate programs, advanced upsell sequences, and large contact databases are priced based on scope after a free assessment call. All projects are fixed price — no hourly billing, no open-ended scope.',
+    a: 'ClickFunnels to GoHighLevel migration with GHL Scale Up starts from $1,500 for a standard migration covering funnel imports, contact migration, core automation rebuilds, Stripe reconnection, tracking setup, and team training. Complex migrations with courses, affiliate programs, advanced upsell sequences, and large contact databases are priced based on scope after a free assessment call. All projects are fixed price no hourly billing, no open-ended scope.',
   },
   {
     q: 'Should I cancel ClickFunnels before or after moving to GoHighLevel?',
-    a: 'Keep your ClickFunnels subscription active until your entire GoHighLevel system is built, tested, and live with traffic flowing through it. Cancelling CF before migration is complete means you lose access to your funnel pages, contact exports, and automation documentation — all of which you still need during the rebuild. Most GHL Scale Up clients cancel ClickFunnels within one to two weeks of their GHL system going fully live. We tell you the exact date it is safe to cancel.',
+    a: 'Keep your ClickFunnels subscription active until your entire GoHighLevel system is built, tested, and live with traffic flowing through it. Cancelling CF before migration is complete means you lose access to your funnel pages, contact exports, and automation documentation all of which you still need during the rebuild. Most GHL Scale Up clients cancel ClickFunnels within one to two weeks of their GHL system going fully live. We tell you the exact date it is safe to cancel.',
   },
   {
     q: 'What happens to my ClickFunnels affiliate program when I migrate?',
@@ -61,7 +61,7 @@ const faqs = [
   },
   {
     q: 'Does GoHighLevel replace everything ClickFunnels does?',
-    a: 'GoHighLevel replaces the core ClickFunnels functionality — funnel builder, landing pages, order forms, order bumps, one-click upsells, checkout flows, email marketing, course and membership delivery, and contact management. GHL goes further with two-way SMS, AI voice agents, multi-channel automation, CRM pipelines, reputation management, and white-label SaaS mode. The one area where ClickFunnels still has an edge is the polish and conversion-testing depth of its e-commerce checkout templates and A/B testing tools. For agencies and service businesses, GoHighLevel is a complete replacement and adds significant capabilities CF never had.',
+    a: 'GoHighLevel replaces the core ClickFunnels functionality funnel builder, landing pages, order forms, order bumps, one-click upsells, checkout flows, email marketing, course and membership delivery, and contact management. GHL goes further with two-way SMS, AI voice agents, multi-channel automation, CRM pipelines, reputation management, and white-label SaaS mode. The one area where ClickFunnels still has an edge is the polish and conversion-testing depth of its e-commerce checkout templates and A/B testing tools. For agencies and service businesses, GoHighLevel is a complete replacement and adds significant capabilities CF never had.',
   },
 ];
 
@@ -104,10 +104,10 @@ export default function ClickFunnelsMigrationClient() {
   const transferData = [
     { element: 'Contacts and leads', transfers: true, breaks: 'Tags and automation state do not transfer', how: 'Import CSV, rebuild tag structure in GHL' },
     { element: 'Funnel page designs', transfers: true, breaks: 'Custom CSS sometimes needs adjustment', how: 'Import each step, QA design fidelity' },
-    { element: 'Order forms and checkouts', transfers: 'Partial — layout imports', breaks: 'Payment connections break', how: 'Rebuild checkout in GHL, reconnect Stripe' },
+    { element: 'Order forms and checkouts', transfers: 'Partial layout imports', breaks: 'Payment connections break', how: 'Rebuild checkout in GHL, reconnect Stripe' },
     { element: 'Products and pricing', transfers: true, breaks: 'Product variants need manual mapping', how: 'Import products, configure GHL order page' },
     { element: 'Email follow-up sequences', transfers: false, breaks: 'All email logic stays in CF until cutover', how: 'Rebuild in GHL workflow builder with equivalent logic' },
-    { element: 'Order bumps', transfers: false, breaks: 'Revenue impact if not rebuilt correctly', how: 'Rebuild order bump in GHL checkout — tested pre-launch' },
+    { element: 'Order bumps', transfers: false, breaks: 'Revenue impact if not rebuilt correctly', how: 'Rebuild order bump in GHL checkout tested pre-launch' },
     { element: 'One-click upsells and downsells', transfers: false, breaks: 'Upsell flow broken until rebuilt', how: 'Recreate full upsell sequence in GHL funnel steps' },
     { element: 'Forms and survey steps', transfers: false, breaks: 'Lead capture broken on imported pages', how: 'Rebuild forms in GHL, connect to pipeline' },
     { element: 'Courses and membership areas (CF 2.0)', transfers: false, breaks: 'Course content and access rules not moved', how: 'Recreate course structure in GHL Memberships, migrate content' },
@@ -151,7 +151,7 @@ export default function ClickFunnelsMigrationClient() {
                 We migrate your ClickFunnels contacts, import your funnel pages using GHL built-in importer, and rebuild your automations, order bumps, upsells, courses, and email sequences natively inside GoHighLevel. The result is a fully operational GHL system that replaces ClickFunnels and every other tool you are currently paying for separately. No data loss. Fixed price. Free migration assessment to start.
               </p>
               <div className="flex gap-3.5 flex-wrap mb-8">
-                <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-8 py-[14px] rounded-xl text-[15px] font-semibold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.3)] transition-all">
+                <Link href="/contact-us" className="bg-[#F8D000] text-[#0B1421] px-8 py-[14px] rounded-xl text-[15px] font-semibold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.3)] transition-all">
                   Book a Free Migration Assessment → <ArrowRight size={16} />
                 </Link>
                 <Link href="#what-we-migrate" className="bg-transparent text-white px-8 py-[14px] rounded-xl text-[15px] font-medium border border-white/30 hover:border-white/50 hover:bg-white/5 transition-all">
@@ -190,7 +190,7 @@ export default function ClickFunnelsMigrationClient() {
         <div className="max-w-[1140px] mx-auto px-7 md:px-8">
           <div className="bg-[#E6F4FF] border-l-4 border-[#0E9BF0] rounded-r-xl p-[22px_28px] mb-12">
             <div className="text-[10px] font-bold tracking-[2px] uppercase text-[#0E9BF0] mb-2">What this service is</div>
-            <p className="text-base text-[#1A202C] leading-relaxed font-medium">GHL Scale Up handles your complete ClickFunnels to GoHighLevel migration — from importing funnel pages using GHL native URL importer, to exporting and re-importing contacts, to rebuilding every automation workflow, email sequence, order bump, upsell flow, and course structure inside GoHighLevel. We run both platforms in parallel during migration so you have zero downtime. Standard migrations deliver in 3 to 5 weeks at a fixed price.</p>
+            <p className="text-base text-[#1A202C] leading-relaxed font-medium">GHL Scale Up handles your complete ClickFunnels to GoHighLevel migration from importing funnel pages using GHL native URL importer, to exporting and re-importing contacts, to rebuilding every automation workflow, email sequence, order bump, upsell flow, and course structure inside GoHighLevel. We run both platforms in parallel during migration so you have zero downtime. Standard migrations deliver in 3 to 5 weeks at a fixed price.</p>
           </div>
 
           <div className="max-w-[720px] mb-12">
@@ -221,12 +221,12 @@ export default function ClickFunnelsMigrationClient() {
               </div>
               <div className="p-4">
                 <div className="flex flex-col gap-1.5">
-                  <div className="flex gap-1.5 text-[13px] text-[#4A5568]"><div className="w-1.5 h-1.5 rounded-full bg-[#E53E3E] mt-1.5"></div>Email automations and follow-up sequences — fully rebuilt in GHL workflows</div>
-                  <div className="flex gap-1.5 text-[13px] text-[#4A5568]"><div className="w-1.5 h-1.5 rounded-full bg-[#E53E3E] mt-1.5"></div>Forms and survey steps inside funnels — recreated in GHL form builder</div>
-                  <div className="flex gap-1.5 text-[13px] text-[#4A5568]"><div className="w-1.5 h-1.5 rounded-full bg-[#E53E3E] mt-1.5"></div>Order bumps and one-click upsell logic — rebuilt in GHL checkout flow</div>
-                  <div className="flex gap-1.5 text-[13px] text-[#4A5568]"><div className="w-1.5 h-1.5 rounded-full bg-[#E53E3E] mt-1.5"></div>Courses and membership structures (CF 2.0) — recreated in GHL memberships</div>
-                  <div className="flex gap-1.5 text-[13px] text-[#4A5568]"><div className="w-1.5 h-1.5 rounded-full bg-[#E53E3E] mt-1.5"></div>Affiliate program configuration — rebuilt in GHL affiliate manager</div>
-                  <div className="flex gap-1.5 text-[13px] text-[#4A5568]"><div className="w-1.5 h-1.5 rounded-full bg-[#E53E3E] mt-1.5"></div>A/B split test data — not transferable</div>
+                  <div className="flex gap-1.5 text-[13px] text-[#4A5568]"><div className="w-1.5 h-1.5 rounded-full bg-[#E53E3E] mt-1.5"></div>Email automations and follow-up sequences fully rebuilt in GHL workflows</div>
+                  <div className="flex gap-1.5 text-[13px] text-[#4A5568]"><div className="w-1.5 h-1.5 rounded-full bg-[#E53E3E] mt-1.5"></div>Forms and survey steps inside funnels recreated in GHL form builder</div>
+                  <div className="flex gap-1.5 text-[13px] text-[#4A5568]"><div className="w-1.5 h-1.5 rounded-full bg-[#E53E3E] mt-1.5"></div>Order bumps and one-click upsell logic rebuilt in GHL checkout flow</div>
+                  <div className="flex gap-1.5 text-[13px] text-[#4A5568]"><div className="w-1.5 h-1.5 rounded-full bg-[#E53E3E] mt-1.5"></div>Courses and membership structures (CF 2.0) recreated in GHL memberships</div>
+                  <div className="flex gap-1.5 text-[13px] text-[#4A5568]"><div className="w-1.5 h-1.5 rounded-full bg-[#E53E3E] mt-1.5"></div>Affiliate program configuration rebuilt in GHL affiliate manager</div>
+                  <div className="flex gap-1.5 text-[13px] text-[#4A5568]"><div className="w-1.5 h-1.5 rounded-full bg-[#E53E3E] mt-1.5"></div>A/B split test data not transferable</div>
                 </div>
               </div>
             </div>
@@ -241,7 +241,7 @@ export default function ClickFunnelsMigrationClient() {
                   <div className="flex gap-1.5 text-[13px] text-[#4A5568]"><div className="w-1.5 h-1.5 rounded-full bg-[#D69E2E] mt-1.5"></div>Google Tag Manager needs reconfiguring inside GHL pages</div>
                   <div className="flex gap-1.5 text-[13px] text-[#4A5568]"><div className="w-1.5 h-1.5 rounded-full bg-[#D69E2E] mt-1.5"></div>UTM parameters must be verified through each new GHL funnel step</div>
                   <div className="flex gap-1.5 text-[13px] text-[#4A5568]"><div className="w-1.5 h-1.5 rounded-full bg-[#D69E2E] mt-1.5"></div>Conversion event naming must match your existing ad account structure</div>
-                  <div className="flex gap-1.5 text-[13px] text-[#4A5568]"><div className="w-1.5 h-1.5 rounded-full bg-[#D69E2E] mt-1.5"></div>We rebuild all tracking before any DNS switch — this is non-negotiable</div>
+                  <div className="flex gap-1.5 text-[13px] text-[#4A5568]"><div className="w-1.5 h-1.5 rounded-full bg-[#D69E2E] mt-1.5"></div>We rebuild all tracking before any DNS switch this is non-negotiable</div>
                 </div>
               </div>
             </div>
@@ -254,7 +254,7 @@ export default function ClickFunnelsMigrationClient() {
         <div className="max-w-[1140px] mx-auto px-7 md:px-8">
           <div className="max-w-[720px] mb-12">
             <span className="inline-block text-[11px] font-bold tracking-[1.6px] uppercase text-[#0E9BF0] bg-[#E6F4FF] px-3.5 py-1 rounded-full mb-3.5">Data Transfer</span>
-            <h2 className="text-[clamp(23px,3vw,36px)] font-extrabold text-[#1C2E4A] leading-[1.22] tracking-[-0.4px] mb-3">ClickFunnels to GoHighLevel — Complete Data Transfer Reference</h2>
+            <h2 className="text-[clamp(23px,3vw,36px)] font-extrabold text-[#1C2E4A] leading-[1.22] tracking-[-0.4px] mb-3">ClickFunnels to GoHighLevel Complete Data Transfer Reference</h2>
             <p className="text-base text-[#4A5568] leading-relaxed">Every element of your ClickFunnels account mapped to its GoHighLevel equivalent, confirmed against GHL official migration documentation and verified in real projects in 2026.</p>
           </div>
           <div className="overflow-x-auto">
@@ -287,7 +287,7 @@ export default function ClickFunnelsMigrationClient() {
         <div className="max-w-[1140px] mx-auto px-7 md:px-8">
           <div className="text-center max-w-[720px] mx-auto mb-12">
             <span className="inline-block text-[11px] font-bold tracking-[1.6px] uppercase text-[#1C2E4A] bg-[#F8D000] px-3.5 py-1 rounded-full mb-3.5">Who This Is For</span>
-            <h2 className="text-[clamp(23px,3vw,36px)] font-extrabold text-white leading-[1.22] tracking-[-0.4px] mb-3">Who Moves from ClickFunnels to GoHighLevel — and Why</h2>
+            <h2 className="text-[clamp(23px,3vw,36px)] font-extrabold text-white leading-[1.22] tracking-[-0.4px] mb-3">Who Moves from ClickFunnels to GoHighLevel and Why</h2>
             <p className="text-base text-white/65 leading-relaxed">ClickFunnels is the best funnel builder for solopreneurs. GoHighLevel is the best operating system for agencies and service businesses. The switch happens when your business outgrows what CF was built for.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-4">
@@ -321,11 +321,11 @@ export default function ClickFunnelsMigrationClient() {
               <span className="inline-block text-[11px] font-bold tracking-[1.6px] uppercase text-[#0E9BF0] bg-[#E6F4FF] px-3.5 py-1 rounded-full mb-3.5">Deliverables</span>
               <h2 className="text-[clamp(20px,2.5vw,28px)] font-extrabold text-[#1C2E4A] leading-[1.25] tracking-[-0.3px] mb-3">Everything GHL Scale Up Delivers in Your <span className="text-[#0E9BF0]">ClickFunnels to GHL Migration</span></h2>
               <p className="text-[15px] text-[#4A5568] leading-relaxed mb-3.5">We do not import a few pages and hand the account back to you half-built. Every component of your ClickFunnels setup is either migrated or rebuilt inside GoHighLevel and tested end-to-end before you see it.</p>
-              <p className="text-[15px] text-[#4A5568] leading-relaxed mb-6">Migration starts with a full audit of your ClickFunnels account — every funnel, automation, product, course, and integration documented before we move a single contact. Nothing is missed because everything is mapped first.</p>
+              <p className="text-[15px] text-[#4A5568] leading-relaxed mb-6">Migration starts with a full audit of your ClickFunnels account every funnel, automation, product, course, and integration documented before we move a single contact. Nothing is missed because everything is mapped first.</p>
               <div className="flex flex-col gap-2.5">
-                <div className="flex gap-2.5"><div className="w-5.5 h-5.5 rounded-full bg-[rgba(37,201,125,0.12)] text-[#25C97D] flex items-center justify-center text-[11px] mt-0.5 flex-shrink-0 font-bold">✓</div><span className="text-[15px] text-[#1A202C] leading-relaxed">Both platforms run simultaneously during migration — no downtime, no missed leads</span></div>
+                <div className="flex gap-2.5"><div className="w-5.5 h-5.5 rounded-full bg-[rgba(37,201,125,0.12)] text-[#25C97D] flex items-center justify-center text-[11px] mt-0.5 flex-shrink-0 font-bold">✓</div><span className="text-[15px] text-[#1A202C] leading-relaxed">Both platforms run simultaneously during migration no downtime, no missed leads</span></div>
                 <div className="flex gap-2.5"><div className="w-5.5 h-5.5 rounded-full bg-[rgba(37,201,125,0.12)] text-[#25C97D] flex items-center justify-center text-[11px] mt-0.5 flex-shrink-0 font-bold">✓</div><span className="text-[15px] text-[#1A202C] leading-relaxed">All tracking (Meta Pixel, Google Tag, UTMs) rebuilt before any DNS cutover</span></div>
-                <div className="flex gap-2.5"><div className="w-5.5 h-5.5 rounded-full bg-[rgba(37,201,125,0.12)] text-[#25C97D] flex items-center justify-center text-[11px] mt-0.5 flex-shrink-0 font-bold">✓</div><span className="text-[15px] text-[#1A202C] leading-relaxed">Fixed price agreed before work starts — scope document signed first</span></div>
+                <div className="flex gap-2.5"><div className="w-5.5 h-5.5 rounded-full bg-[rgba(37,201,125,0.12)] text-[#25C97D] flex items-center justify-center text-[11px] mt-0.5 flex-shrink-0 font-bold">✓</div><span className="text-[15px] text-[#1A202C] leading-relaxed">Fixed price agreed before work starts scope document signed first</span></div>
                 <div className="flex gap-2.5"><div className="w-5.5 h-5.5 rounded-full bg-[rgba(37,201,125,0.12)] text-[#25C97D] flex items-center justify-center text-[11px] mt-0.5 flex-shrink-0 font-bold">✓</div><span className="text-[15px] text-[#1A202C] leading-relaxed">Team training included so your people operate GHL on day one</span></div>
               </div>
             </div>
@@ -335,8 +335,8 @@ export default function ClickFunnelsMigrationClient() {
               <div className="bg-white border border-[#E8EDF4] rounded-xl p-[18px_20px] flex gap-3 shadow-sm"><div className="text-xl flex-shrink-0 mt-0.5">👥</div><div><strong className="block text-[14px] font-bold text-[#1C2E4A] mb-1">Contact Database Migration</strong><span className="text-[13px] text-[#4A5568] leading-relaxed">Full contact CSV export from CF, field mapping, tag structure rebuilt, imported and validated inside GHL</span></div></div>
               <div className="bg-white border border-[#E8EDF4] rounded-xl p-[18px_20px] flex gap-3 shadow-sm"><div className="text-xl flex-shrink-0 mt-0.5">⚡</div><div><strong className="block text-[14px] font-bold text-[#1C2E4A] mb-1">Automation Rebuilds</strong><span className="text-[13px] text-[#4A5568] leading-relaxed">Every CF email sequence and follow-up flow rebuilt natively in GHL workflows with equivalent timing, conditions, and branching logic</span></div></div>
               <div className="bg-white border border-[#E8EDF4] rounded-xl p-[18px_20px] flex gap-3 shadow-sm"><div className="text-xl flex-shrink-0 mt-0.5">💳</div><div><strong className="block text-[14px] font-bold text-[#1C2E4A] mb-1">Order Bumps and Upsells</strong><span className="text-[13px] text-[#4A5568] leading-relaxed">Complete order bump and one-click upsell flow rebuilt inside GHL checkout, tested with real transactions before launch</span></div></div>
-              <div className="bg-white border border-[#E8EDF4] rounded-xl p-[18px_20px] flex gap-3 shadow-sm"><div className="text-xl flex-shrink-0 mt-0.5">🎓</div><div><strong className="block text-[14px] font-bold text-[#1C2E4A] mb-1">Course and Membership Rebuild</strong><span className="text-[13px] text-[#4A5568] leading-relaxed">ClickFunnels 2.0 course structures recreated inside GHL Memberships — modules, lessons, access rules, and drip content scheduling</span></div></div>
-              <div className="bg-white border border-[#E8EDF4] rounded-xl p-[18px_20px] flex gap-3 shadow-sm"><div className="text-xl flex-shrink-0 mt-0.5">📊</div><div><strong className="block text-[14px] font-bold text-[#1C2E4A] mb-1">Tracking and Attribution Setup</strong><span className="text-[13px] text-[#4A5568] leading-relaxed">Meta Pixel, Google Tag, and conversion events rebuilt inside GHL before DNS cutover — staged traffic switch used to protect attribution</span></div></div>
+              <div className="bg-white border border-[#E8EDF4] rounded-xl p-[18px_20px] flex gap-3 shadow-sm"><div className="text-xl flex-shrink-0 mt-0.5">🎓</div><div><strong className="block text-[14px] font-bold text-[#1C2E4A] mb-1">Course and Membership Rebuild</strong><span className="text-[13px] text-[#4A5568] leading-relaxed">ClickFunnels 2.0 course structures recreated inside GHL Memberships modules, lessons, access rules, and drip content scheduling</span></div></div>
+              <div className="bg-white border border-[#E8EDF4] rounded-xl p-[18px_20px] flex gap-3 shadow-sm"><div className="text-xl flex-shrink-0 mt-0.5">📊</div><div><strong className="block text-[14px] font-bold text-[#1C2E4A] mb-1">Tracking and Attribution Setup</strong><span className="text-[13px] text-[#4A5568] leading-relaxed">Meta Pixel, Google Tag, and conversion events rebuilt inside GHL before DNS cutover staged traffic switch used to protect attribution</span></div></div>
               <div className="bg-white border border-[#E8EDF4] rounded-xl p-[18px_20px] flex gap-3 shadow-sm"><div className="text-xl flex-shrink-0 mt-0.5">📖</div><div><strong className="block text-[14px] font-bold text-[#1C2E4A] mb-1">Team Training and Handover</strong><span className="text-[13px] text-[#4A5568] leading-relaxed">Live training session for your team on managing GHL pipelines, inbox, automations, and reporting. Written documentation included.</span></div></div>
             </div>
           </div>
@@ -350,16 +350,16 @@ export default function ClickFunnelsMigrationClient() {
             {/* Left Column - Process Steps */}
             <div>
               <span className="inline-block text-[11px] font-bold tracking-[1.6px] uppercase text-[#0E9BF0] bg-[#E6F4FF] px-3.5 py-1 rounded-full mb-3.5">Our Process</span>
-              <h2 className="text-[clamp(20px,2.5vw,28px)] font-extrabold text-[#1C2E4A] leading-[1.25] tracking-[-0.3px] mb-3">The <span className="text-[#0E9BF0]">ClickFunnels to GoHighLevel Migration</span> Process — 6 Steps</h2>
+              <h2 className="text-[clamp(20px,2.5vw,28px)] font-extrabold text-[#1C2E4A] leading-[1.25] tracking-[-0.3px] mb-3">The <span className="text-[#0E9BF0]">ClickFunnels to GoHighLevel Migration</span> Process 6 Steps</h2>
               <p className="text-[15px] text-[#4A5568] leading-relaxed mb-6">The same six-step process used across every migration project. Each step is completed and verified before the next begins. No half-built systems go live.</p>
               <div className="flex flex-col">
                 {[
-                  { num: 1, title: 'ClickFunnels Account Audit and Migration Scoping', desc: 'We audit your entire CF account — every funnel, automation, product, course, integration, and email sequence. You receive a scope document detailing exactly what migrates, what we rebuild, the timeline, and the fixed price. No surprises after this call.', tag: 'Free — Before any payment' },
-                  { num: 2, title: 'Contact Export, GHL Setup, and Funnel Imports', desc: 'We export your complete CF contact database and all funnel page URLs. Your GHL account is configured from scratch — custom fields, pipeline stages, and core settings. Every funnel page is imported using GHL URL importer, QAd for design fidelity, and mobile-checked. Your ClickFunnels account remains fully operational throughout.', tag: 'Week 1' },
-                  { num: 3, title: 'Automation Rebuilds, Order Flow, and Tracking Setup', desc: 'Every CF email sequence and follow-up automation is rebuilt natively in GHL workflow builder. Order bumps and upsell flows are configured in GHL checkout. Meta Pixel, Google Tag, and all conversion events are set up inside GHL pages before any DNS change — protecting your ad attribution throughout the migration.', tag: 'Week 1 to 2' },
-                  { num: 4, title: 'Course Rebuild, Contact Import, and Integration Setup', desc: 'If you have ClickFunnels 2.0 courses, we recreate the full course structure inside GHL Memberships — modules, lessons, drip scheduling, and member access. Contacts are imported and validated. Stripe is reconnected. Twilio and email sending are configured. Affiliate program rebuilt if applicable.', tag: 'Week 2 to 3' },
-                  { num: 5, title: 'End-to-End Testing — Every Flow Verified', desc: 'Every funnel is tested with real form submissions, real Stripe test transactions, real email sends, and real automation triggers. Order bumps and upsells tested through checkout. Conversion events verified in Meta and Google dashboards. Nothing goes live without passing this phase.', tag: 'Week 3 to 4' },
-                  { num: 6, title: 'Staged Traffic Switch, Team Training, and CF Cancellation', desc: 'Traffic is switched in stages — low-volume sources first — while monitoring attribution data. DNS is updated to GHL once live traffic is confirmed working. Team training session delivered. When your team is confident and all traffic is running through GHL cleanly, we tell you when it is safe to cancel ClickFunnels.', tag: 'Week 4 to 5' },
+                  { num: 1, title: 'ClickFunnels Account Audit and Migration Scoping', desc: 'We audit your entire CF account every funnel, automation, product, course, integration, and email sequence. You receive a scope document detailing exactly what migrates, what we rebuild, the timeline, and the fixed price. No surprises after this call.', tag: 'Free Before any payment' },
+                  { num: 2, title: 'Contact Export, GHL Setup, and Funnel Imports', desc: 'We export your complete CF contact database and all funnel page URLs. Your GHL account is configured from scratch custom fields, pipeline stages, and core settings. Every funnel page is imported using GHL URL importer, QAd for design fidelity, and mobile-checked. Your ClickFunnels account remains fully operational throughout.', tag: 'Week 1' },
+                  { num: 3, title: 'Automation Rebuilds, Order Flow, and Tracking Setup', desc: 'Every CF email sequence and follow-up automation is rebuilt natively in GHL workflow builder. Order bumps and upsell flows are configured in GHL checkout. Meta Pixel, Google Tag, and all conversion events are set up inside GHL pages before any DNS change protecting your ad attribution throughout the migration.', tag: 'Week 1 to 2' },
+                  { num: 4, title: 'Course Rebuild, Contact Import, and Integration Setup', desc: 'If you have ClickFunnels 2.0 courses, we recreate the full course structure inside GHL Memberships modules, lessons, drip scheduling, and member access. Contacts are imported and validated. Stripe is reconnected. Twilio and email sending are configured. Affiliate program rebuilt if applicable.', tag: 'Week 2 to 3' },
+                  { num: 5, title: 'End-to-End Testing Every Flow Verified', desc: 'Every funnel is tested with real form submissions, real Stripe test transactions, real email sends, and real automation triggers. Order bumps and upsells tested through checkout. Conversion events verified in Meta and Google dashboards. Nothing goes live without passing this phase.', tag: 'Week 3 to 4' },
+                  { num: 6, title: 'Staged Traffic Switch, Team Training, and CF Cancellation', desc: 'Traffic is switched in stages low-volume sources first while monitoring attribution data. DNS is updated to GHL once live traffic is confirmed working. Team training session delivered. When your team is confident and all traffic is running through GHL cleanly, we tell you when it is safe to cancel ClickFunnels.', tag: 'Week 4 to 5' },
                 ].map((step) => (
                   <div key={step.num} className="relative pl-14 pb-9 last:pb-0 border-l-2 border-[#E8EDF4] ml-[25px]">
                     <div className="absolute left-[-23px] top-0 w-[42px] h-[42px] rounded-full bg-[#1C2E4A] border-2.5 border-[#F8D000] flex items-center justify-center text-[14px] font-extrabold text-[#F8D000]">{step.num}</div>
@@ -417,15 +417,15 @@ export default function ClickFunnelsMigrationClient() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             <div className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_18px] text-center shadow-[0_2px_12px_rgba(28,46,74,0.06)]"><div className="text-[32px] font-extrabold text-[#0E9BF0] leading-none mb-1">200+</div><div className="text-[12px] text-[#8A9BB0] uppercase tracking-wide">GHL Builds and Migrations Delivered</div></div>
             <div className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_18px] text-center shadow-[0_2px_12px_rgba(28,46,74,0.06)]"><div className="text-[32px] font-extrabold text-[#0E9BF0] leading-none mb-1">0</div><div className="text-[12px] text-[#8A9BB0] uppercase tracking-wide">Migrations with Attribution Data Loss</div></div>
-            <div className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_18px] text-center shadow-[0_2px_12px_rgba(28,46,74,0.06)]"><div className="text-[32px] font-extrabold text-[#0E9BF0] leading-none mb-1">6</div><div className="text-[12px] text-[#8A9BB0] uppercase tracking-wide">Countries — US, UK, UAE, AU, SG, IN</div></div>
+            <div className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_18px] text-center shadow-[0_2px_12px_rgba(28,46,74,0.06)]"><div className="text-[32px] font-extrabold text-[#0E9BF0] leading-none mb-1">6</div><div className="text-[12px] text-[#8A9BB0] uppercase tracking-wide">Countries US, UK, UAE, AU, SG, IN</div></div>
             <div className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_18px] text-center shadow-[0_2px_12px_rgba(28,46,74,0.06)]"><div className="text-[32px] font-extrabold text-[#0E9BF0] leading-none mb-1">~$150</div><div className="text-[12px] text-[#8A9BB0] uppercase tracking-wide">Average Monthly Savings After Tool Consolidation</div></div>
           </div>
 
           <div className="bg-[#F4F7FA] rounded-2xl p-8 md:p-10 grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <div className="text-[11px] font-bold tracking-[1.5px] uppercase text-[#0E9BF0] mb-2.5">Migration Case Study — Marketing Agency</div>
-              <p className="text-[17px] font-semibold text-[#1C2E4A] leading-relaxed mb-4 italic">"We were paying for ClickFunnels, ActiveCampaign, Calendly, and Twilio separately — over $400 a month for tools that did not even talk to each other properly. GHL Scale Up moved everything into GoHighLevel in 4 weeks. Our cost dropped to $297. Our automations went from broken Zapier chains to a single GHL workflow that fires every time without fail."</p>
-              <p className="text-[13px] text-[#8A9BB0]">— Marketing Agency Owner, United States</p>
+              <div className="text-[11px] font-bold tracking-[1.5px] uppercase text-[#0E9BF0] mb-2.5">Migration Case Study Marketing Agency</div>
+              <p className="text-[17px] font-semibold text-[#1C2E4A] leading-relaxed mb-4 italic">"We were paying for ClickFunnels, ActiveCampaign, Calendly, and Twilio separately over $400 a month for tools that did not even talk to each other properly. GHL Scale Up moved everything into GoHighLevel in 4 weeks. Our cost dropped to $297. Our automations went from broken Zapier chains to a single GHL workflow that fires every time without fail."</p>
+              <p className="text-[13px] text-[#8A9BB0]">Marketing Agency Owner, United States</p>
             </div>
             <div className="flex flex-col gap-3.5">
               <div className="bg-white rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center gap-4 border border-[#E8EDF4]"><div className="text-[28px] font-extrabold text-[#25C97D] whitespace-nowrap">70%</div><div className="text-[13px] text-[#4A5568] leading-tight">Reduction in manual follow-up work after GHL automation setup</div></div>
@@ -462,8 +462,8 @@ export default function ClickFunnelsMigrationClient() {
         <div className="max-w-[1140px] mx-auto px-7 md:px-8">
           <div className="text-center max-w-[720px] mx-auto mb-12">
             <span className="inline-block text-[11px] font-bold tracking-[1.6px] uppercase text-[#0E9BF0] bg-[#E6F4FF] px-3.5 py-1 rounded-full mb-3.5">FAQ</span>
-            <h2 className="text-[clamp(23px,3vw,36px)] font-extrabold text-[#1C2E4A] leading-[1.22] tracking-[-0.4px] mb-3">ClickFunnels to GoHighLevel Migration — Frequently Asked Questions</h2>
-            <p className="text-base text-[#4A5568] leading-relaxed max-w-[620px] mx-auto">Every question below comes from real ClickFunnels users who went through this migration. Answers are specific to ClickFunnels — not generic migration content.</p>
+            <h2 className="text-[clamp(23px,3vw,36px)] font-extrabold text-[#1C2E4A] leading-[1.22] tracking-[-0.4px] mb-3">ClickFunnels to GoHighLevel Migration Frequently Asked Questions</h2>
+            <p className="text-base text-[#4A5568] leading-relaxed max-w-[620px] mx-auto">Every question below comes from real ClickFunnels users who went through this migration. Answers are specific to ClickFunnels not generic migration content.</p>
           </div>
           <FAQAccordion />
         </div>
@@ -481,19 +481,19 @@ export default function ClickFunnelsMigrationClient() {
             <Link href="/blog/clickfunnels-to-gohighlevel-migration" className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_20px] hover:-translate-y-1 hover:shadow-[0_8px_28px_rgba(28,46,74,0.1)] hover:border-[#0E9BF0]/30 transition-all group">
               <div className="text-[10px] font-bold tracking-[1.5px] uppercase text-[#0E9BF0] mb-2">BOFU Guide</div>
               <h3 className="text-[15px] font-bold text-[#1C2E4A] group-hover:text-[#0E9BF0] transition-colors mb-2 leading-tight">ClickFunnels to GoHighLevel Migration: What Breaks and How We Fix It</h3>
-              <p className="text-[13px] text-[#4A5568] leading-relaxed mb-3.5">A detailed technical breakdown of every ClickFunnels element and how it maps to GoHighLevel — including what the importer handles and what requires full rebuilds.</p>
+              <p className="text-[13px] text-[#4A5568] leading-relaxed mb-3.5">A detailed technical breakdown of every ClickFunnels element and how it maps to GoHighLevel including what the importer handles and what requires full rebuilds.</p>
               <span className="text-[13px] font-semibold text-[#0E9BF0] inline-flex items-center gap-1 group-hover:gap-2 transition-all">Read the migration breakdown → <ArrowRight size={12} /></span>
             </Link>
             <Link href="/blog/ghl-migration-timeline" className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_20px] hover:-translate-y-1 hover:shadow-[0_8px_28px_rgba(28,46,74,0.1)] hover:border-[#0E9BF0]/30 transition-all group">
               <div className="text-[10px] font-bold tracking-[1.5px] uppercase text-[#0E9BF0] mb-2">Planning Guide</div>
               <h3 className="text-[15px] font-bold text-[#1C2E4A] group-hover:text-[#0E9BF0] transition-colors mb-2 leading-tight">GHL Migration Timeline Explained: How Long Does It Actually Take?</h3>
-              <p className="text-[13px] text-[#4A5568] leading-relaxed mb-3.5">Honest timelines for migrations of every complexity tier — from simple 2-week moves to 7-week complex rebuilds — with a platform breakdown.</p>
+              <p className="text-[13px] text-[#4A5568] leading-relaxed mb-3.5">Honest timelines for migrations of every complexity tier from simple 2-week moves to 7-week complex rebuilds with a platform breakdown.</p>
               <span className="text-[13px] font-semibold text-[#0E9BF0] inline-flex items-center gap-1 group-hover:gap-2 transition-all">Read the timeline breakdown → <ArrowRight size={12} /></span>
             </Link>
             <Link href="/blog/ghl-migration-mistakes" className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_20px] hover:-translate-y-1 hover:shadow-[0_8px_28px_rgba(28,46,74,0.1)] hover:border-[#0E9BF0]/30 transition-all group">
               <div className="text-[10px] font-bold tracking-[1.5px] uppercase text-[#0E9BF0] mb-2">Common Mistakes</div>
               <h3 className="text-[15px] font-bold text-[#1C2E4A] group-hover:text-[#0E9BF0] transition-colors mb-2 leading-tight">Common GHL Migration Mistakes Agencies Make and How to Avoid Them</h3>
-              <p className="text-[13px] text-[#4A5568] leading-relaxed mb-3.5">The six most damaging migration mistakes — from cancelling the source platform too early to skipping attribution setup before DNS cutover.</p>
+              <p className="text-[13px] text-[#4A5568] leading-relaxed mb-3.5">The six most damaging migration mistakes from cancelling the source platform too early to skipping attribution setup before DNS cutover.</p>
               <span className="text-[13px] font-semibold text-[#0E9BF0] inline-flex items-center gap-1 group-hover:gap-2 transition-all">Read the mistakes guide → <ArrowRight size={12} /></span>
             </Link>
           </div>
@@ -526,7 +526,7 @@ export default function ClickFunnelsMigrationClient() {
           <span className="inline-block text-[11px] font-bold tracking-[1.6px] uppercase text-[#1C2E4A] bg-[#F8D000] px-3.5 py-1 rounded-full mb-4">Start Your Migration</span>
           <h2 className="text-[clamp(24px,3.5vw,40px)] font-extrabold tracking-[-0.4px] leading-[1.2] mb-3.5">Book Your Free <span className="text-[#F8D000]">ClickFunnels to GoHighLevel</span> Migration Assessment</h2>
           <p className="text-base text-white/65 max-w-[520px] mx-auto mb-2 leading-relaxed">30 minutes. We review your ClickFunnels account, confirm what migrates and what we rebuild, and give you a fixed price scope document. No obligation to proceed.</p>
-          <p className="text-[13px] text-white/40 mb-8">Aryan personally reviews every inquiry and responds within a few hours — not an automated sequence.</p>
+          <p className="text-[13px] text-white/40 mb-8">Aryan personally reviews every inquiry and responds within a few hours not an automated sequence.</p>
           <div className="flex gap-3.5 justify-center flex-wrap mb-7">
             <Link href="/contact-us" className="bg-[#F8D000] text-[#0B1421] px-10 py-4 rounded-xl text-[0.92rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.3)] transition-all">
               Book a Free Migration Assessment → <ArrowRight size={16} />
