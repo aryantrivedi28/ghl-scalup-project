@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'TrendingUp',
+            tag: 'Agency',
+            title: 'Why Agencies Are Switching to GoHighLevel in 2026 (5 Real Reasons)',
+            excerpt: 'The real reasons agencies are moving to GoHighLevel in 2026: tool consolidation, flat-rate pricing, white-label SaaS revenue, AI features, and sub-account architecture. Not a sales pitch. Honest analysis.',
+            slug: 'why-agencies-switching-to-gohighlevel',
+            date: 'June 8, 2026',
+            readTime: '16 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'Stethoscope',
             tag: 'Dental',
             title: 'GoHighLevel for Dentists: Complete 2026 Guide for Dental Practices',

@@ -380,7 +380,7 @@ export default function MigrationClient() {
       <section className="py-20 bg-[#1C2E4A]">
         <div className="max-w-[1140px] mx-auto px-7 md:px-8">
           <div className="text-center max-w-[720px] mx-auto mb-12">
-            <span className="inline-block text-[11px] font-bold tracking-[1.6px] uppercase text-[#1C2E4A] bg-[#F8D000]/20 px-3.5 py-1 rounded-full mb-3.5">Who This Is For</span>
+            <span className="inline-block text-[11px] font-bold tracking-[1.6px] uppercase text-[#1C2E4A] bg-[#F8D000] px-3.5 py-1 rounded-full mb-3.5">Who This Is For</span>
             <h2 className="text-[clamp(23px,3vw,36px)] font-extrabold text-white leading-[1.22] tracking-[-0.4px] mb-3">Who Uses Our GoHighLevel Migration Service</h2>
             <p className="text-base text-white/65 leading-relaxed">Every migration we do has a different source platform but the underlying reasons are almost always the same.</p>
           </div>

@@ -243,6 +243,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
     {
+      url: `${baseUrl}/blog/why-agencies-switching-to-gohighlevel`,
+      lastModified: new Date('2026-06-08'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/blog/gohighlevel-for-dentists`,
       lastModified: new Date('2026-06-06'),
       changeFrequency: 'monthly',
