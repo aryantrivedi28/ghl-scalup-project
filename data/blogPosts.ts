@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+  icon: 'FileQuestion',
+  tag: 'Beginner',
+  title: 'What Is GoHighLevel Migration? A Complete Beginner\'s Guide (2026)',
+  excerpt: 'GoHighLevel migration means moving your contacts, pipelines and automations from another CRM to GoHighLevel. Plain English explanation of what it involves, how long it takes, and whether you need one.',
+  slug: 'what-is-ghl-migration',
+  date: 'June 9, 2026',
+  readTime: '15 min read',
+  featured: true,
+  image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+},
+      {
             icon: 'TrendingUp',
             tag: 'Agency',
             title: 'Why Agencies Are Switching to GoHighLevel in 2026 (5 Real Reasons)',
