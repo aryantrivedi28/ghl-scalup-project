@@ -87,7 +87,7 @@ const Navigation = () => {
     { icon: GraduationCap, iconBg: 'green', title: 'Kajabi to GoHighLevel', desc: 'Transfer courses and memberships', link: '/kajabi-to-gohighlevel' },
     // { icon: Database, iconBg: 'yellow', title: 'Zoho to GoHighLevel', desc: 'Move from Zoho CRM to GHL', link: '/zoho-to-gohighlevel' },
     // { icon: BarChart, iconBg: 'blue', title: 'Salesforce to GoHighLevel', desc: 'Enterprise CRM to GHL migration', link: '/salesforce-to-gohighlevel' },
-    // { icon: MessageCircle, iconBg: 'green', title: 'Mailchimp to GoHighLevel', desc: 'Email list and campaign migration', link: '/mailchimp-to-gohighlevel' },
+    { icon: MessageCircle, iconBg: 'green', title: 'Mailchimp to GoHighLevel', desc: 'Email list and campaign migration', link: '/mailchimp-to-gohighlevel' },
   ]
 
   return (
