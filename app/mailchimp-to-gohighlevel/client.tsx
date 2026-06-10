@@ -538,7 +538,7 @@ export default function ClientPage() {
             <div>
               <div className="text-[11px] font-bold tracking-[1.5px] uppercase text-[#0E9BF0] mb-2.5">Migration Case Study Service Business</div>
               <p className="text-[17px] font-semibold text-[#1C2E4A] leading-relaxed mb-4 italic">"I had 18,000 contacts across three Mailchimp Audiences and had no idea I had thousands of duplicates because the same person had signed up through different lead magnets. GHL Scale Up ran the deduplication before the import and we went from 18,000 to 11,400 unique contacts. Our open rates in GHL are better than they were in Mailchimp because we are finally sending to clean, real people. The compliance processing gave me peace of mind too I knew every unsubscribe was honoured."</p>
-              <p className="text-[13px] text-[#8A9BB0]" Service Business Owner, Canada</p>
+              <p className="text-[13px] text-[#8A9BB0]"> Service Business Owner, Canada</p>
             </div>
             <div className="flex flex-col gap-3.5">
               <div className="bg-white rounded-xl p-4 flex items-center gap-4 border border-[#E8EDF4]"><div className="text-[28px] font-extrabold text-[#25C97D] leading-none">36%</div><div className="text-[13px] text-[#4A5568] leading-tight">Fewer contacts after deduplication cleaner list, better deliverability</div></div>
