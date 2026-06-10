@@ -123,7 +123,7 @@ export default function ClientPage() {
               <div className="h-px bg-white/10 my-5"></div>
               <div className="text-[13px] text-white/55 text-center">
                 <strong className="text-[#25C97D] block text-[15px] font-bold mb-1">GHL at $297 flat beats Mailchimp Standard at 20k contacts.</strong>
-                And GHL adds CRM, SMS, AI, funnels, and booking. Migration from $1,500.
+                And GHL adds CRM, SMS, AI, funnels, and booking. Migration from $100.
               </div>
             </div>
           </div>
@@ -498,7 +498,7 @@ export default function ClientPage() {
 
               <div className="bg-white border border-[#E8EDF4] rounded-2xl p-8 shadow-[0_4px_28px_rgba(28,46,74,0.08)]">
                 <div className="text-[12px] font-bold tracking-[1px] uppercase text-[#8A9BB0] mb-2">Mailchimp to GHL Migration</div>
-                <div className="text-[56px] font-extrabold text-[#1C2E4A] leading-none mb-1.5">$1,500 <span className="text-[20px] font-normal text-[#8A9BB0]">USD</span></div>
+                <div className="text-[56px] font-extrabold text-[#1C2E4A] leading-none mb-1.5">{'$100'} <span className="text-[20px] font-normal text-[#8A9BB0]">USD</span></div>
                 <div className="text-[13px] text-[#8A9BB0] mb-6">Starting price · Fixed fee · Delivered in 2 to 3 weeks</div>
                 <div className="h-px bg-[#E8EDF4] mb-5"></div>
                 <div className="flex flex-col gap-2.5 mb-7">

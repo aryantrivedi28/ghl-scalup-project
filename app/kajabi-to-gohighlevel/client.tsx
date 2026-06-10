@@ -44,7 +44,7 @@ const faqs = [
   },
   {
     q: 'How much does Kajabi to GoHighLevel migration cost?',
-    a: 'Kajabi to GoHighLevel migration with GHL Scale Up starts from $1,500 for a standard migration covering course imports, contact and member transfer, email automation rebuilds, Stripe configuration, and team training. Complex migrations with multiple courses, communities, Kajabi Payments, and large member databases are priced based on scope after a free assessment. All projects are fixed price no hourly billing.',
+    a: 'Kajabi to GoHighLevel migration with GHL Scale Up starts from $100 for a standard migration covering course imports, contact and member transfer, email automation rebuilds, Stripe configuration, and team training. Complex migrations with multiple courses, communities, Kajabi Payments, and large member databases are priced based on scope after a free assessment. All projects are fixed price no hourly billing.',
   },
   {
     q: 'Does GoHighLevel have community features like Kajabi Communities?',
@@ -189,7 +189,7 @@ export default function KajabiMigrationClient() {
               <div className="h-px bg-white/10 my-4"></div>
               <div className="text-[12px] text-white/50 text-center">
                 <strong className="text-[#25C97D] block text-[14px] mb-1">Same courses. Better automation. One platform.</strong>
-                Migration from $1,500. Assessment is free.
+                Migration from $100. Assessment is free.
               </div>
             </div>
           </div>
@@ -401,7 +401,7 @@ export default function KajabiMigrationClient() {
               <div className="mt-7">
                 <div className="bg-white border border-[#E8EDF4] rounded-2xl p-8 shadow-[0_4px_24px_rgba(28,46,74,0.07)]">
                   <div className="text-[12px] font-bold tracking-[1px] uppercase text-[#8A9BB0] mb-2">Kajabi to GHL Migration</div>
-                  <div className="text-[50px] font-extrabold text-[#1C2E4A] leading-none mb-1.5">$1,500 <span className="text-[17px] font-normal text-[#8A9BB0]">USD</span></div>
+                  <div className="text-[50px] font-extrabold text-[#1C2E4A] leading-none mb-1.5">$100 <span className="text-[17px] font-normal text-[#8A9BB0]">USD</span></div>
                   <div className="text-[13px] text-[#8A9BB0] mb-5">Starting price · Fixed fee · Delivered in 3 to 5 weeks</div>
                   <div className="h-px bg-[#E8EDF4] mb-5"></div>
                   <div className="flex flex-col gap-2.5 mb-6">

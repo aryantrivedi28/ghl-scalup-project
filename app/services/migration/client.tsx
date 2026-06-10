@@ -211,7 +211,7 @@ export default function MigrationClient() {
                 <span className="text-[#F8D000] block">Move Any CRM to GoHighLevel</span>
               </h1>
               <p className="text-base text-white/80 leading-relaxed mb-7 max-w-[540px] pl-4 border-l-[3px] border-[#F8D000]">
-                We migrate businesses from HubSpot, ClickFunnels, ActiveCampaign, Kajabi, Zoho, Salesforce, Mailchimp, Keap, Pipedrive, and WordPress into GoHighLevel with zero data loss. We handle the complete migration: contact transfer and field mapping, pipeline reconstruction, trigger replication, workflow recreation, funnel imports, and team training. Both platforms run in parallel during migration so there is zero downtime. Migration projects start from $1,500. Free assessment to start.
+                We migrate businesses from HubSpot, ClickFunnels, ActiveCampaign, Kajabi, Zoho, Salesforce, Mailchimp, Keap, Pipedrive, and WordPress into GoHighLevel with zero data loss. We handle the complete migration: contact transfer and field mapping, pipeline reconstruction, trigger replication, workflow recreation, funnel imports, and team training. Both platforms run in parallel during migration so there is zero downtime. Migration projects start from $100. Free assessment to start.
               </p>
               <div className="flex gap-3.5 flex-wrap mb-8">
                 <Link href="/contact-us" className="bg-[#F8D000] text-[#0B1421] px-8 py-[14px] rounded-xl text-[15px] font-semibold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.3)] transition-all">
@@ -234,7 +234,7 @@ export default function MigrationClient() {
                 <div className="bg-white/5 rounded-xl p-4 text-center"><div className="text-2xl font-extrabold text-[#F8D000]">10+</div><div className="text-[12px] text-white/50">Source Platforms Supported</div></div>
                 <div className="bg-white/5 rounded-xl p-4 text-center"><div className="text-2xl font-extrabold text-[#F8D000]">200+</div><div className="text-[12px] text-white/50">Migrations Delivered</div></div>
                 <div className="bg-white/5 rounded-xl p-4 text-center"><div className="text-2xl font-extrabold text-[#F8D000]">0</div><div className="text-[12px] text-white/50">Data Loss Incidents</div></div>
-                <div className="bg-white/5 rounded-xl p-4 text-center"><div className="text-2xl font-extrabold text-[#F8D000]">$1,500</div><div className="text-[12px] text-white/50">Starting Price</div></div>
+                <div className="bg-white/5 rounded-xl p-4 text-center"><div className="text-2xl font-extrabold text-[#F8D000]">$100</div><div className="text-[12px] text-white/50">Starting Price</div></div>
               </div>
               <div className="h-px bg-white/10 my-4"></div>
               <div className="flex flex-wrap gap-1.5">

@@ -59,7 +59,7 @@ const faqs = [
   },
   {
     q: 'How much does GoHighLevel agency setup cost?',
-    a: 'GoHighLevel agency account setup with GHL Scale Up starts from $1,500 for a complete end-to-end configuration. This includes all integration reconnections, CRM setup, pipeline configuration, workflow repair and testing, domain setup, user roles, and team training. Projects are fixed price with a full scope document agreed before work begins. No hourly billing. Complex setups involving SaaS mode, white-label configuration, or Shopify integration are scoped separately after a free discovery call.',
+    a: 'GoHighLevel agency account setup with GHL Scale Up starts from $100 for a complete end-to-end configuration. This includes all integration reconnections, CRM setup, pipeline configuration, workflow repair and testing, domain setup, user roles, and team training. Projects are fixed price with a full scope document agreed before work begins. No hourly billing. Complex setups involving SaaS mode, white-label configuration, or Shopify integration are scoped separately after a free discovery call.',
   },
   {
     q: 'What GoHighLevel plan do I need for my new independent account?',
@@ -197,7 +197,7 @@ export default function ClientPage() {
               <div className="h-px bg-white/10 my-5"></div>
               <div className="text-[13px] text-white/55 text-center">
                 <strong className="text-[#25C97D] block text-[15px] font-bold mb-1">GHL Scale Up fixes all of this.</strong>
-                End-to-end. Fixed price. Starting from $1,500.
+                End-to-end. Fixed price. Starting from $100.
               </div>
             </div>
           </div>
@@ -383,7 +383,7 @@ export default function ClientPage() {
               <p className="text-[15px] text-[#4A5568] leading-relaxed mb-6">Every setup project is fixed price with a scope document agreed before work starts. No hourly billing. No scope creep.</p>
               <div className="bg-white border border-[#E8EDF4] rounded-2xl p-8 shadow-[0_4px_28px_rgba(28,46,74,0.08)]">
                 <div className="text-[12px] font-bold tracking-[1px] uppercase text-[#8A9BB0] mb-2">Complete GHL Agency Account Setup</div>
-                <div className="text-[56px] font-extrabold text-[#1C2E4A] leading-none mb-1.5">$1,500 <span className="text-[20px] font-normal text-[#8A9BB0]">USD</span></div>
+                <div className="text-[56px] font-extrabold text-[#1C2E4A] leading-none mb-1.5">$100 <span className="text-[20px] font-normal text-[#8A9BB0]">USD</span></div>
                 <div className="text-[13px] text-[#8A9BB0] mb-6">One-time fixed fee. Delivered in 2 to 3 weeks.</div>
                 <div className="h-px bg-[#E8EDF4] mb-5"></div>
                 <div className="flex flex-col gap-2.5 mb-7">

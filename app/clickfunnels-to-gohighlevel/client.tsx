@@ -49,7 +49,7 @@ const faqs = [
   },
   {
     q: 'How much does ClickFunnels to GoHighLevel migration cost?',
-    a: 'ClickFunnels to GoHighLevel migration with GHL Scale Up starts from $1,500 for a standard migration covering funnel imports, contact migration, core automation rebuilds, Stripe reconnection, tracking setup, and team training. Complex migrations with courses, affiliate programs, advanced upsell sequences, and large contact databases are priced based on scope after a free assessment call. All projects are fixed price no hourly billing, no open-ended scope.',
+    a: 'ClickFunnels to GoHighLevel migration with GHL Scale Up starts from $100 for a standard migration covering funnel imports, contact migration, core automation rebuilds, Stripe reconnection, tracking setup, and team training. Complex migrations with courses, affiliate programs, advanced upsell sequences, and large contact databases are priced based on scope after a free assessment call. All projects are fixed price no hourly billing, no open-ended scope.',
   },
   {
     q: 'Should I cancel ClickFunnels before or after moving to GoHighLevel?',
@@ -178,7 +178,7 @@ export default function ClickFunnelsMigrationClient() {
               <div className="h-px bg-white/10 my-4"></div>
               <div className="text-[13px] text-white/55 text-center">
                 <strong className="text-[#25C97D] block text-[15px] font-bold mb-1">GHL Scale Up migrates everything.</strong>
-                One platform. One bill. Starts from $1,500 migration fee.
+                One platform. One bill. Starts from $100 migration fee.
               </div>
             </div>
           </div>
@@ -385,7 +385,7 @@ export default function ClickFunnelsMigrationClient() {
               <div className="mt-7">
                 <div className="bg-white border border-[#E8EDF4] rounded-2xl p-8 shadow-[0_4px_24px_rgba(28,46,74,0.07)]">
                   <div className="text-[12px] font-bold tracking-[1px] uppercase text-[#8A9BB0] mb-2">ClickFunnels to GHL Migration</div>
-                  <div className="text-[52px] font-extrabold text-[#1C2E4A] leading-none mb-1.5">$1,500 <span className="text-[18px] font-normal text-[#8A9BB0]">USD</span></div>
+                  <div className="text-[52px] font-extrabold text-[#1C2E4A] leading-none mb-1.5">$100 <span className="text-[18px] font-normal text-[#8A9BB0]">USD</span></div>
                   <div className="text-[13px] text-[#8A9BB0] mb-5">Starting price · One-time fixed fee · Delivered in 3 to 5 weeks</div>
                   <div className="h-px bg-[#E8EDF4] mb-5"></div>
                   <div className="flex flex-col gap-2.5 mb-6">
