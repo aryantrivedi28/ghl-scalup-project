@@ -244,7 +244,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const blogPosts: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/blog/consolidate-marketing-tools-gohighlevel`,
-      lastModified: new Date('2026-06-08'),
+      lastModified: new Date('2026-06-10'),
       changeFrequency: 'monthly',
       priority: 0.7,
     },

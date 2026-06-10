@@ -19,7 +19,7 @@ export const blogPosts: BlogPost[] = [
             title: 'How to Consolidate All Your Marketing Tools Using GoHighLevel (2026)',
             excerpt: 'Most agencies pay $300 to $800/mo across 5 to 8 tools that do not connect properly. GoHighLevel consolidates CRM, email, SMS, funnels, booking, and AI into one $97 to $297/mo platform. Step-by-step consolidation guide.',
             slug: 'consolidate-marketing-tools-gohighlevel',
-            date: 'June 8, 2026',
+            date: 'June 10, 2026',
             readTime: '17 min read',
             featured: true,
             image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
