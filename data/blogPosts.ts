@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Settings',
+            tag: 'SaaS Mode',
+            title: 'GoHighLevel SaaS Mode: Complete Setup Guide for Agencies (2026)',
+            excerpt: 'Step-by-step GoHighLevel SaaS Mode setup: Stripe connection, pricing tiers, feature gating, Snapshot attachment, white-label domain, and go-live checklist. Agency Pro required. Full technical guide.',
+            slug: 'gohighlevel-saas-mode-setup',
+            date: 'June 9, 2026',
+            readTime: '20 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'Combine',
             tag: 'Tool Consolidation',
             title: 'How to Consolidate All Your Marketing Tools Using GoHighLevel (2026)',
