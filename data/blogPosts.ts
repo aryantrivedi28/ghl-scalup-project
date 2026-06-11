@@ -19,7 +19,7 @@ export const blogPosts: BlogPost[] = [
             title: 'GoHighLevel SaaS Mode: Complete Setup Guide for Agencies (2026)',
             excerpt: 'Step-by-step GoHighLevel SaaS Mode setup: Stripe connection, pricing tiers, feature gating, Snapshot attachment, white-label domain, and go-live checklist. Agency Pro required. Full technical guide.',
             slug: 'gohighlevel-saas-mode-setup',
-            date: 'June 9, 2026',
+            date: 'June 11, 2026',
             readTime: '20 min read',
             featured: true,
             image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',

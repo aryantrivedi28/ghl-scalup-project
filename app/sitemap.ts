@@ -243,6 +243,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
     {
+      url: `${baseUrl}/blog/gohighlevel-saas-mode-setup`,
+      lastModified: new Date('2026-06-10'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/blog/consolidate-marketing-tools-gohighlevel`,
       lastModified: new Date('2026-06-10'),
       changeFrequency: 'monthly',
