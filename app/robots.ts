@@ -8,6 +8,9 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/*', '/admin/*', '/studio/*'],
     },
-    sitemap: 'https://www.ghlscaleup.com/sitemap.xml',
+    sitemap: [
+      'https://www.ghlscaleup.com/sitemap.xml',
+      'https://www.ghlscaleup.com/sitemap-video.xml',
+    ],
   }
 }
