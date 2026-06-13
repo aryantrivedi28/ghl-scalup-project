@@ -570,7 +570,7 @@ export default function GHLMigrationChecklistClient() {
                 See real migration results: <Link href="/case-studies" className="text-[#0E9BF0] hover:underline">real GoHighLevel results and case studies →</Link>
               </p>
               <p className="text-sm text-white/80 leading-relaxed">
-                If you would rather have us run this checklist for you, <Link href="/contact-us" className="text-[#0E9BF0] hover:underline">book a free migration assessment</Link> 
+                If you would rather have us run this checklist for you, <Link href="/contact-us" className="text-[#0E9BF0] hover:underline">book a free migration assessment </Link> 
                 at ghlscaleup.com/contact-us. We review your current setup and give you a realistic timeline and fixed-fee quote.
               </p>
               <p className="text-sm text-white/60 leading-relaxed mt-3">
