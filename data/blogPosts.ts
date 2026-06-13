@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'ClipboardList',
+            tag: 'Checklist',
+            title: 'The Complete GoHighLevel Migration Checklist (2026)',
+            excerpt: 'A 50-point checklist covering every phase of a GoHighLevel migration: audit, data, automation rebuild, testing, and go-live. Save it, print it, or follow it step by step.',
+            slug: 'gohighlevel-migration-checklist',
+            date: 'June 12, 2026',
+            readTime: '19 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'Settings',
             tag: 'SaaS Mode',
             title: 'GoHighLevel SaaS Mode: Complete Setup Guide for Agencies (2026)',
