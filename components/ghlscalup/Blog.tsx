@@ -8,15 +8,19 @@ import {
   Calendar,
   Clock
 } from 'lucide-react'
-import { blogPosts, getIconComponent, getLatestThreeDaysPosts, BlogPost } from '@/data/blogPosts'
+import { blogPosts, getIconComponent, BlogPost } from '@/data/blogPosts'
 
 const Blog = () => {
   const sectionRef = useRef<HTMLDivElement>(null)
   const [latestPosts, setLatestPosts] = useState<BlogPost[]>([])
 
   useEffect(() => {
-    // Get latest 3 days posts from shared data
-    setLatestPosts(getLatestThreeDaysPosts())
+    // Get latest 3 posts regardless of date gaps (just take first 3 from sorted array)
+    // Assuming blogPosts is already sorted by date (newest first)
+    const getLatestThreePosts = (posts: BlogPost[]) => {
+      return [...posts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).slice(0, 3)
+    }
+    setLatestPosts(getLatestThreePosts(blogPosts))
   }, [])
 
   useEffect(() => {
@@ -78,7 +82,7 @@ const Blog = () => {
           </p>
         </div>
 
-        {/* Blog Posts Grid - Showing Latest 3 Days Posts */}
+        {/* Blog Posts Grid - Showing Latest 3 Posts (not limited by days) */}
         {latestPosts.length > 0 ? (
           <div className="grid md:grid-cols-3 gap-6 md:gap-8">
             {latestPosts.map((post, index) => {
