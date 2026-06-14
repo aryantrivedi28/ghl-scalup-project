@@ -22,7 +22,7 @@ export const blogPosts: BlogPost[] = [
             date: 'June 12, 2026',
             readTime: '19 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLyGytfAAGI3OO6_kYjSaSE1Sw-QDVzmv8lw&s',
       },
       {
             icon: 'Settings',
@@ -33,7 +33,7 @@ export const blogPosts: BlogPost[] = [
             date: 'June 11, 2026',
             readTime: '20 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiqg6rXw0HGXgZGpp_Y73jmce890Hf6_mPnw&s',
       },
       {
             icon: 'Combine',
@@ -44,7 +44,7 @@ export const blogPosts: BlogPost[] = [
             date: 'June 10, 2026',
             readTime: '17 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBgfBxGhLWm4cvJLtjYUspPE4oaKaqi4FWsg&s',
       },
       {
             icon: 'FileQuestion',
