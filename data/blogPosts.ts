@@ -55,7 +55,7 @@ export const blogPosts: BlogPost[] = [
             date: 'June 9, 2026',
             readTime: '15 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoSm-WMJ7X5hl8I7NTDF8dc6AzAQZ6cG8eWg&s',
       },
       {
             icon: 'TrendingUp',
