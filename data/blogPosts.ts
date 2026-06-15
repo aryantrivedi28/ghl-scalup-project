@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Video',
+            tag: 'Comparison',
+            title: 'GoHighLevel vs Kartra (2026): Honest Comparison for Course Creators and Agencies',
+            excerpt: 'GHL wins for agencies needing CRM, SMS, AI and sub-accounts. Kartra wins for course creators needing native video hosting, helpdesk, and webinars. Real 2026 pricing and an honest verdict for both audiences.',
+            slug: 'gohighlevel-vs-kartra',
+            date: 'June 15, 2026',
+            readTime: '20 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'ClipboardList',
             tag: 'Checklist',
             title: 'The Complete GoHighLevel Migration Checklist (2026)',
