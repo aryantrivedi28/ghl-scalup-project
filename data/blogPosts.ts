@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Trophy',
+            tag: 'Comparison',
+            title: 'Best CRM to Migrate Into GoHighLevel: Comparing 5 Platforms (2026)',
+            excerpt: 'HubSpot, ActiveCampaign, ClickFunnels, Kajabi and Zoho ranked by migration difficulty into GoHighLevel. What transfers, what breaks, and realistic timelines for each.',
+            slug: 'best-crm-to-migrate-to-gohighlevel',
+            date: 'June 16, 2026',
+            readTime: '21 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'Video',
             tag: 'Comparison',
             title: 'GoHighLevel vs Kartra (2026): Honest Comparison for Course Creators and Agencies',
