@@ -421,7 +421,7 @@ export default function BestCRMToMigrateToGHLClient() {
                     <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Simple migration</th>
                     <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Standard migration</th>
                     <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Complex migration</th>
-                  </td>
+                  </tr>
                 </thead>
                 <tbody>
                   {timelineData.map((item, idx) => (
@@ -430,10 +430,10 @@ export default function BestCRMToMigrateToGHLClient() {
                       <td className="py-3 px-3 text-[#5C6880]">{item.simple}</td>
                       <td className="py-3 px-3 text-[#5C6880]">{item.standard}</td>
                       <td className="py-3 px-3 text-[#5C6880]">{item.complex}</td>
-                    </td>
+                    </tr>
                   ))}
                 </tbody>
-              </td>
+              </table>
             </div>
 
             <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
