@@ -14,6 +14,28 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Wrench',
+            tag: 'Home Services',
+            title: 'GoHighLevel for HVAC, Plumbers and Roofers: Complete 2026 Guide',
+            excerpt: '30 to 45% of inbound calls go missed at home service businesses. GoHighLevel fixes that with instant text-back, emergency routing, and automated reviews — built for HVAC, plumbing, and roofing.',
+            slug: 'gohighlevel-for-home-services',
+            date: 'June 18, 2026',
+            readTime: '21 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&h=500&fit=crop',
+      },
+      {
+            icon: 'Package',
+            tag: 'SaaS',
+            title: 'SaaS Consolidation Using GoHighLevel: The Agency Playbook (2026)',
+            excerpt: 'How agencies turn tool sprawl into a packaged SaaS offering using GoHighLevel: pricing tiers, the retainer-to-recurring shift, and real MRR scaling examples.',
+            slug: 'saas-consolidation-gohighlevel-agency-playbook',
+            date: 'June 17, 2026',
+            readTime: '19 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'Trophy',
             tag: 'Comparison',
             title: 'Best CRM to Migrate Into GoHighLevel: Comparing 5 Platforms (2026)',

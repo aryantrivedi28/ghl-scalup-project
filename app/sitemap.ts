@@ -243,6 +243,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
     {
+      url: `${baseUrl}/blog/gohighlevel-for-home-services`,
+      lastModified: new Date('2026-06-18'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/blog/saas-consolidation-gohighlevel-agency-playbook`,
+      lastModified: new Date('2026-06-17'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/blog/best-crm-to-migrate-to-gohighlevel`,
       lastModified: new Date('2026-06-16'),
       changeFrequency: 'monthly',
