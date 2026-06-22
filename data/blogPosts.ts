@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Bot',
+            tag: 'AI',
+            title: 'GoHighLevel AI Employee: Voice AI, Conversation AI and Workflow AI Explained (2026)',
+            excerpt: 'GHL uses \'AI\' to describe 8 different features. 3 are included free, 3 cost extra, 2 are add-ons. This guide covers what each one actually does, what it costs, and which to set up first. Verified from GHL\'s official docs.',
+            slug: 'gohighlevel-ai-employee',
+            date: 'June 19, 2026',
+            readTime: '21 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'Wrench',
             tag: 'Home Services',
             title: 'GoHighLevel for HVAC, Plumbers and Roofers: Complete 2026 Guide',
