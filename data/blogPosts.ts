@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'ShieldAlert',
+            tag: 'A2P 10DLC',
+            title: 'GoHighLevel A2P Campaign Rejected: What It Means and How to Fix It (2026)',
+            excerpt: 'Your GHL A2P campaign was rejected by carriers, not by GoHighLevel. This guide covers every common rejection reason, the exact fix for each one, how to resubmit without paying another $15 fee, and how to appeal.',
+            slug: 'a2p-campaign-rejected-fix',
+            date: 'June 21, 2026',
+            readTime: '20 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'Bot',
             tag: 'AI',
             title: 'GoHighLevel AI Employee: Voice AI, Conversation AI and Workflow AI Explained (2026)',
