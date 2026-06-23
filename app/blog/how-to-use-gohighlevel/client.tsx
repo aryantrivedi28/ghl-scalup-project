@@ -107,27 +107,27 @@ export default function HowToUseGoHighLevelClient() {
   const faqs = [
     {
       q: "Is GoHighLevel easy to use for beginners?",
-      a: "GoHighLevel has a genuine learning curve — it is a comprehensive platform covering CRM, automation, funnels, phone, email, and reputation management, and that breadth means more to learn than a single-purpose tool. Most beginners are functional within 1 to 2 weeks. The learning curve is front-loaded: once you understand how contacts, pipelines, and workflows connect to each other, the rest of the platform follows the same logic throughout. GHL has its own knowledge base, community, and support team, and there are extensive third-party tutorial resources. A basic setup takes approximately 4 to 8 hours spread over a few days."
+      a: "GoHighLevel has a genuine learning curve it is a comprehensive platform covering CRM, automation, funnels, phone, email, and reputation management, and that breadth means more to learn than a single-purpose tool. Most beginners are functional within 1 to 2 weeks. The learning curve is front-loaded: once you understand how contacts, pipelines, and workflows connect to each other, the rest of the platform follows the same logic throughout. GHL has its own knowledge base, community, and support team, and there are extensive third-party tutorial resources. A basic setup takes approximately 4 to 8 hours spread over a few days."
     },
     {
       q: "What do you need to set up first in GoHighLevel?",
-      a: "Complete these in order before building any funnels or automations: business profile (name, address, time zone, logo), email sending domain (connect a subdomain in Settings — Email Services and add the DNS records to your domain registrar), phone system (LC Phone or Twilio), calendar (create one calendar with your availability before anything that involves booking), and team member access if others are using the account. The Launchpad checklist GHL shows on first login covers the most critical setup tasks — complete it before building anything."
+      a: "Complete these in order before building any funnels or automations: business profile (name, address, time zone, logo), email sending domain (connect a subdomain in Settings Email Services and add the DNS records to your domain registrar), phone system (LC Phone or Twilio), calendar (create one calendar with your availability before anything that involves booking), and team member access if others are using the account. The Launchpad checklist GHL shows on first login covers the most critical setup tasks complete it before building anything."
     },
     {
       q: "How long does it take to learn GoHighLevel?",
-      a: "Most beginners are functional within 1 to 2 weeks, meaning they can build basic pipelines, run automations, and send messages to contacts. Becoming proficient enough to configure advanced workflows, funnels, and sub-account architecture for client accounts takes most people 1 to 3 months of regular use. The platform is extensive — there is always more to learn — but the fundamentals (contacts, pipelines, automations) follow consistent logic that transfers across every area of the platform."
+      a: "Most beginners are functional within 1 to 2 weeks, meaning they can build basic pipelines, run automations, and send messages to contacts. Becoming proficient enough to configure advanced workflows, funnels, and sub-account architecture for client accounts takes most people 1 to 3 months of regular use. The platform is extensive there is always more to learn but the fundamentals (contacts, pipelines, automations) follow consistent logic that transfers across every area of the platform."
     },
     {
       q: "What is the difference between an agency view and a sub-account in GoHighLevel?",
-      a: "Agency View is the top-level management layer — it is where you manage billing, create client sub-accounts, configure white-label settings, and control which features each sub-account can access. Sub-account View (also called Location View) is where the actual business tools live: contacts, pipelines, funnels, automations, conversations, and calendars. If you are a solo business owner using GHL for your own business, your one sub-account is where you spend all your time. If you are an agency managing multiple clients, each client is a separate sub-account inside your Agency View."
+      a: "Agency View is the top-level management layer it is where you manage billing, create client sub-accounts, configure white-label settings, and control which features each sub-account can access. Sub-account View (also called Location View) is where the actual business tools live: contacts, pipelines, funnels, automations, conversations, and calendars. If you are a solo business owner using GHL for your own business, your one sub-account is where you spend all your time. If you are an agency managing multiple clients, each client is a separate sub-account inside your Agency View."
     },
     {
       q: "Do I need to know how to code to use GoHighLevel?",
-      a: "No. GoHighLevel is a no-code platform. Funnels, websites, automations, workflows, and integrations are all built through visual interfaces without writing code. Some advanced customisations (embedding GHL forms on a third-party website, connecting to non-native integrations) may involve copying and pasting code snippets that GHL generates for you — but no coding knowledge is required to write or modify those snippets."
+      a: "No. GoHighLevel is a no-code platform. Funnels, websites, automations, workflows, and integrations are all built through visual interfaces without writing code. Some advanced customisations (embedding GHL forms on a third-party website, connecting to non-native integrations) may involve copying and pasting code snippets that GHL generates for you but no coding knowledge is required to write or modify those snippets."
     },
     {
       q: "What is a GoHighLevel Snapshot?",
-      a: "A Snapshot is a complete, pre-built copy of a GHL setup that can be deployed to a new sub-account in one click. It contains pipeline stages, automation workflows, funnel pages, form templates, and other configurations. Agencies use Snapshots to onboard new clients quickly without rebuilding the same system from scratch each time. Pre-built Snapshots exist for specific industries — dental, real estate, home services, coaching — and can be customised after deployment."
+      a: "A Snapshot is a complete, pre-built copy of a GHL setup that can be deployed to a new sub-account in one click. It contains pipeline stages, automation workflows, funnel pages, form templates, and other configurations. Agencies use Snapshots to onboard new clients quickly without rebuilding the same system from scratch each time. Pre-built Snapshots exist for specific industries dental, real estate, home services, coaching and can be customised after deployment."
     },
     {
       q: "What should I build first in GoHighLevel?",
@@ -152,7 +152,7 @@ export default function HowToUseGoHighLevelClient() {
   const setupSteps = [
     { 
       step: 'Business profile', 
-      desc: 'Go to Settings and complete your business name, address, time zone, and business hours. Upload your logo. This information feeds into confirmation emails, booking pages, and client-facing pages — getting it right first saves editing later.' 
+      desc: 'Go to Settings and complete your business name, address, time zone, and business hours. Upload your logo. This information feeds into confirmation emails, booking pages, and client-facing pages getting it right first saves editing later.' 
     },
     { 
       step: 'Email sending domain', 
@@ -160,11 +160,11 @@ export default function HowToUseGoHighLevelClient() {
     },
     { 
       step: 'Phone system', 
-      desc: 'Go to Settings, then Phone Numbers. GHL offers its built-in phone system (LC Phone). If you already have a Twilio account, you can connect it instead. For most new users, starting with LC Phone is simpler — you can port numbers later if needed. Purchase or configure a phone number before building any SMS automations.' 
+      desc: 'Go to Settings, then Phone Numbers. GHL offers its built-in phone system (LC Phone). If you already have a Twilio account, you can connect it instead. For most new users, starting with LC Phone is simpler you can port numbers later if needed. Purchase or configure a phone number before building any SMS automations.' 
     },
     { 
-      step: 'Email choice — LC Email or Mailgun', 
-      desc: 'LC Email (GHL\'s built-in email) is the faster starting point for most users. If you plan to send high-volume email campaigns across multiple clients, Mailgun (a third-party provider) offers stronger deliverability. You do not need to make this decision on day one — you can start with LC Email and switch later.' 
+      step: 'Email choice LC Email or Mailgun', 
+      desc: 'LC Email (GHL\'s built-in email) is the faster starting point for most users. If you plan to send high-volume email campaigns across multiple clients, Mailgun (a third-party provider) offers stronger deliverability. You do not need to make this decision on day one you can start with LC Email and switch later.' 
     },
     { 
       step: 'Calendar', 
@@ -180,7 +180,7 @@ export default function HowToUseGoHighLevelClient() {
     },
     { 
       step: 'Complete the Launchpad checklist', 
-      desc: 'Return to the Launchpad and verify all critical items are checked off. This is GHL\'s own recommended setup sequence — it exists for a reason and covers the connections that everything else depends on.' 
+      desc: 'Return to the Launchpad and verify all critical items are checked off. This is GHL\'s own recommended setup sequence it exists for a reason and covers the connections that everything else depends on.' 
     },
   ];
 
@@ -209,7 +209,7 @@ export default function HowToUseGoHighLevelClient() {
   ];
 
   const afterBasics = [
-    'A2P 10DLC registration: If you are in the United States and plan to send automated SMS, you need to complete A2P 10DLC registration before sending at volume. This is a US carrier requirement — it is mandatory, not optional. Register your brand and campaign through Settings, Phone Numbers, A2P Registration.',
+    'A2P 10DLC registration: If you are in the United States and plan to send automated SMS, you need to complete A2P 10DLC registration before sending at volume. This is a US carrier requirement it is mandatory, not optional. Register your brand and campaign through Settings, Phone Numbers, A2P Registration.',
     'More automations: Add the new lead instant follow-up sequence (SMS within 60 seconds of form submission, email within 2 minutes), the appointment reminder sequence (72 hours, 24 hours, and 2 hours before), and the post-service Google review request.',
     'Reputation management: Set up automated Google review requests to fire after every completed appointment or service. This is the highest-return automation for any local service business and takes under an hour to configure.',
     'Sub-account Snapshots (for agencies): If you are managing multiple client accounts, build a Snapshot of your working setup once it is stable and tested. Deploy it to new sub-accounts instead of rebuilding everything from scratch each time.',
@@ -253,7 +253,7 @@ export default function HowToUseGoHighLevelClient() {
 
           {/* Author */}
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center rounded-full">
+            <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
               <img
                 src="/web-app-manifest-192x192.png"
                 alt="GHL Scale Up"
@@ -268,7 +268,7 @@ export default function HowToUseGoHighLevelClient() {
 
           {/* Intro Paragraph */}
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
-            Opening GoHighLevel for the first time is genuinely overwhelming. The sidebar has more options than most people expect, there are multiple ways to do almost everything, and the terminology — sub-accounts, pipelines, Snapshots, workflows, triggers — takes time to make sense. <Link href="/" className="text-[#0E9BF0] hover:underline font-medium">GHL Scale Up</Link> has onboarded hundreds of agencies and businesses onto GoHighLevel. This guide covers the setup sequence that actually works: what to do first, what to skip until later, and the mistakes that slow most beginners down the most.
+            Opening GoHighLevel for the first time is genuinely overwhelming. The sidebar has more options than most people expect, there are multiple ways to do almost everything, and the terminology sub-accounts, pipelines, Snapshots, workflows, triggers takes time to make sense. <Link href="/" className="text-[#0E9BF0] hover:underline font-medium">GHL Scale Up</Link> has onboarded hundreds of agencies and businesses onto GoHighLevel. This guide covers the setup sequence that actually works: what to do first, what to skip until later, and the mistakes that slow most beginners down the most.
           </p>
         </div>
       </section>
@@ -287,7 +287,7 @@ export default function HowToUseGoHighLevelClient() {
                 <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Quick Orientation</span>
               </div>
               <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
-                Most beginners are functional within 1 to 2 weeks. A basic setup — business profile, email sending domain, first pipeline, booking calendar, and one automation — takes approximately 4 to 8 hours spread over a few days.
+                Most beginners are functional within 1 to 2 weeks. A basic setup including a business profile, email sending domain, first pipeline, booking calendar, and one automation takes approximately 4 to 8 hours spread over a few days.
               </p>
               <p className="text-sm text-[#5C6880] leading-relaxed">
                 The platform is not simple, but the learning curve is front-loaded. Once you understand how contacts, pipelines, and workflows connect to each other, the rest of the platform follows the same logic throughout. For an honest assessment of the platform's strengths and weaknesses before you commit: <Link href="/blog/gohighlevel-review" className="text-[#0E9BF0] hover:underline">GoHighLevel Review 2026 →</Link>
@@ -318,7 +318,7 @@ export default function HowToUseGoHighLevelClient() {
               1. How Does the GoHighLevel Dashboard Work?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              When you first log in, GHL shows a Launchpad checklist. This is your starting point — it surfaces the most important setup tasks in one place. Complete these before building anything else.
+              When you first log in, GHL shows a Launchpad checklist. This is your starting point it surfaces the most important setup tasks in one place. Complete these before building anything else.
             </p>
 
             <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Agency View vs. Sub-Account View</h3>
@@ -327,7 +327,7 @@ export default function HowToUseGoHighLevelClient() {
             </p>
             <ul className="space-y-3 mb-6 text-sm text-[#5C6880] list-disc list-inside">
               <li><strong className="text-[#1A2236]">Agency View:</strong> Manages your agency-level settings, sub-accounts, billing, and white-label configuration. If you are on the Unlimited or Agency Pro plan, this is where you create and manage separate client accounts.</li>
-              <li><strong className="text-[#1A2236]">Sub-account view (also called Location View):</strong> This is where the actual business tools live — contacts, pipelines, funnels, automations, calendars, conversations. Every client account you manage is a separate sub-account. If you are a solo business owner, your own business is your one sub-account.</li>
+              <li><strong className="text-[#1A2236]">Sub-account view (also called Location View):</strong> This is where the actual business tools live contacts, pipelines, funnels, automations, calendars, conversations. Every client account you manage is a separate sub-account. If you are a solo business owner, your own business is your one sub-account.</li>
             </ul>
 
             <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Core Sections You Will Use Most</h3>
@@ -380,7 +380,7 @@ export default function HowToUseGoHighLevelClient() {
               3. How Does the GoHighLevel CRM Work?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The CRM is where all your contacts live. It is the foundation that every other feature — automations, pipelines, conversations, funnels — builds on top of.
+              The CRM is where all your contacts live. It is the foundation that every other feature automations, pipelines, conversations, funnels builds on top of.
             </p>
 
             <ul className="space-y-3 mb-6 text-sm text-[#5C6880]">
@@ -388,16 +388,16 @@ export default function HowToUseGoHighLevelClient() {
                 <strong className="text-[#1A2236]">Contacts:</strong> Every person your business interacts with is a contact record. A contact stores their name, email, phone number, custom field values, tags, and a complete timeline of every conversation, email, SMS, call, and workflow event associated with them.
               </li>
               <li>
-                <strong className="text-[#1A2236]">Tags:</strong> Labels you apply to contacts to categorise them (for example, 'new lead,' 'appointment booked,' 'client'). Tags are used to trigger automations, filter lists, and segment contacts. Keep tags simple and consistent from the start — too many tags create confusion quickly.
+                <strong className="text-[#1A2236]">Tags:</strong> Labels you apply to contacts to categorise them (for example, 'new lead,' 'appointment booked,' 'client'). Tags are used to trigger automations, filter lists, and segment contacts. Keep tags simple and consistent from the start too many tags create confusion quickly.
               </li>
               <li>
-                <strong className="text-[#1A2236]">Custom fields:</strong> If your business needs to store information that GHL's default fields do not cover (for example, the type of service requested, the date of a last appointment, or a lead source), you can create custom fields. Create only the fields you genuinely need — you can always add more later.
+                <strong className="text-[#1A2236]">Custom fields:</strong> If your business needs to store information that GHL's default fields do not cover (for example, the type of service requested, the date of a last appointment, or a lead source), you can create custom fields. Create only the fields you genuinely need you can always add more later.
               </li>
               <li>
                 <strong className="text-[#1A2236]">Smart lists:</strong> Saved filter views of your contacts based on criteria you define. For example, a smart list of all contacts tagged 'appointment booked' who have not responded in the last 7 days. Smart lists update dynamically as contacts meet or stop meeting the criteria.
               </li>
               <li>
-                <strong className="text-[#1A2236]">Conversations:</strong> Every message — SMS, email, website chat, social DMs — with a contact is visible in one unified inbox under the Conversations section. This is where you see and respond to inbound messages from leads and clients without switching between tools.
+                <strong className="text-[#1A2236]">Conversations:</strong> Every message SMS, email, website chat, social DMs with a contact is visible in one unified inbox under the Conversations section. This is where you see and respond to inbound messages from leads and clients without switching between tools.
               </li>
             </ul>
 
@@ -409,7 +409,7 @@ export default function HowToUseGoHighLevelClient() {
               A pipeline is the visual board that shows where every lead is in your sales or service process. It is the feature most beginners find immediately intuitive.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Go to Opportunities in the left sidebar, then create a new pipeline. A pipeline has stages — each stage represents a step in your process. A simple starting pipeline looks like this:
+              Go to Opportunities in the left sidebar, then create a new pipeline. A pipeline has stages each stage represents a step in your process. A simple starting pipeline looks like this:
             </p>
 
             <div className="overflow-x-auto my-6">
@@ -443,7 +443,7 @@ export default function HowToUseGoHighLevelClient() {
                 <span className="text-sm font-bold text-[#0E9BF0]">THE KEY INSIGHT</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                A pipeline without actions attached to each stage is just a spreadsheet with a nice interface. The power comes when moving a contact to a new stage triggers an automation — sending an SMS, assigning a task, or moving them into a nurture sequence. Build at least one automation per stage transition before considering your pipeline live.
+                A pipeline without actions attached to each stage is just a spreadsheet with a nice interface. The power comes when moving a contact to a new stage triggers an automation sending an SMS, assigning a task, or moving them into a nurture sequence. Build at least one automation per stage transition before considering your pipeline live.
               </p>
             </div>
 
@@ -452,7 +452,7 @@ export default function HowToUseGoHighLevelClient() {
               5. How Do You Build Your First Automation?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Go to Automation in the left sidebar, then Workflows, then New Workflow. You can start from scratch or use one of GHL's pre-built Recipes — template automations that cover common use cases. For a first automation, use a Recipe. The Missed Call Text Back recipe is the one we recommend building first.
+              Go to Automation in the left sidebar, then Workflows, then New Workflow. You can start from scratch or use one of GHL's pre-built Recipes template automations that cover common use cases. For a first automation, use a Recipe. The Missed Call Text Back recipe is the one we recommend building first.
             </p>
 
             <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">How a Workflow Works</h3>
@@ -470,7 +470,7 @@ export default function HowToUseGoHighLevelClient() {
                 <span className="text-sm font-bold text-[#25C97D]">THE SIMPLEST WORKFLOW TO START WITH</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                <strong>Trigger:</strong> Call status — No Answer. <strong>Action:</strong> Send SMS: 'Sorry we missed your call — what can we help with?' Fires within 60 seconds of a missed call.
+                <strong>Trigger:</strong> Call status No Answer. <strong>Action:</strong> Send SMS: 'Sorry we missed your call what can we help with?' Fires within 60 seconds of a missed call.
               </p>
             </div>
 
@@ -498,22 +498,22 @@ export default function HowToUseGoHighLevelClient() {
 
             <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Booking Calendar</h3>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Go to Calendars and create a calendar. Set your availability, meeting duration, and buffer time between appointments. A booking link is generated automatically — share it via SMS, embed it on a web page, or add it to your funnel. When a contact books, a confirmation SMS and email fire automatically, and GHL adds the appointment to your calendar. This replaces Calendly for most service businesses.
+              Go to Calendars and create a calendar. Set your availability, meeting duration, and buffer time between appointments. A booking link is generated automatically share it via SMS, embed it on a web page, or add it to your funnel. When a contact books, a confirmation SMS and email fire automatically, and GHL adds the appointment to your calendar. This replaces Calendly for most service businesses.
             </p>
 
             <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Funnels</h3>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Go to Sites, then Funnels, then New Funnel. A funnel in GHL is a sequence of pages — typically a landing page that captures a lead's contact information and a thank-you page that delivers what was promised. GHL has templates for different funnel types. Choose the closest template to your use case and edit it rather than building from scratch.
+              Go to Sites, then Funnels, then New Funnel. A funnel in GHL is a sequence of pages typically a landing page that captures a lead's contact information and a thank-you page that delivers what was promised. GHL has templates for different funnel types. Choose the closest template to your use case and edit it rather than building from scratch.
             </p>
             <ul className="space-y-2 mb-6 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">Every funnel needs a form:</strong> The form is what captures the contact's details and adds them to your CRM. When the form is submitted, it can also trigger a workflow — which sends the first follow-up automatically.</li>
+              <li><strong className="text-[#1A2236]">Every funnel needs a form:</strong> The form is what captures the contact's details and adds them to your CRM. When the form is submitted, it can also trigger a workflow which sends the first follow-up automatically.</li>
               <li><strong className="text-[#1A2236]">Connect the form to a pipeline stage:</strong> When a form is submitted, set the workflow to automatically add the contact to the first stage of your pipeline. Now every funnel lead shows up in your pipeline without any manual action.</li>
               <li><strong className="text-[#1A2236]">Test before running traffic:</strong> Submit the form yourself using a test email address. Verify the contact appears in your CRM, the tag is applied correctly, and the follow-up workflow fires. Do not run paid ads to an untested funnel.</li>
             </ul>
 
             <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Snapshots</h3>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              If you are building a GHL system for a specific type of business — a dental practice, a real estate agency, a coaching business — a Snapshot is a complete pre-built copy of that business type's GHL setup. One click installs the pipeline stages, automations, funnel pages, and form structures into a new sub-account. For agencies, Snapshots cut client onboarding from days to hours.
+              If you are building a GHL system for a specific type of business a dental practice, a real estate agency, a coaching business a Snapshot is a complete pre-built copy of that business type's GHL setup. One click installs the pipeline stages, automations, funnel pages, and form structures into a new sub-account. For agencies, Snapshots cut client onboarding from days to hours.
             </p>
             <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
               For the full Snapshot guide: <Link href="/blog/how-to-create-gohighlevel-snapshot" className="text-[#0E9BF0] hover:underline">How to Create a GoHighLevel Snapshot →</Link>
@@ -608,7 +608,7 @@ export default function HowToUseGoHighLevelClient() {
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Want your GoHighLevel setup done correctly from day one?</h3>
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
-                  GHL Scale Up handles the setup so you can focus on your business. Business profile, email domain, phone, calendar, pipeline, core automations, and team training — all configured and tested.
+                  GHL Scale Up handles the setup so you can focus on your business. Business profile, email domain, phone, calendar, pipeline, core automations, and team training all configured and tested.
                 </p>
                 <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
                   Book Your Free Strategy Call
