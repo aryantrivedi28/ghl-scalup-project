@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Compass',
+            tag: 'Tutorial',
+            title: 'How to Use GoHighLevel: Complete Beginner\'s Tutorial (2026)',
+            excerpt: 'New to GoHighLevel? This beginner\'s tutorial walks you through account setup, CRM, pipelines, funnels, automations, and calendar step by step — in plain English. Most people are functional in 1 to 2 weeks.',
+            slug: 'how-to-use-gohighlevel',
+            date: 'June 22, 2026',
+            readTime: '22 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'ShieldAlert',
             tag: 'A2P 10DLC',
             title: 'GoHighLevel A2P Campaign Rejected: What It Means and How to Fix It (2026)',
