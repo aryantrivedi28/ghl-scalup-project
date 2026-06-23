@@ -16,7 +16,8 @@ import {
   User,
   Brain,
   DollarSign,
-  Search
+  Search,
+  Wrench
 } from 'lucide-react';
 
 // Types
@@ -27,7 +28,7 @@ interface FormData {
   phone: string;
   country: string;
   phoneCode: string;
-  developerType: string; // New field: "GHL Expert" or "Marketing Expert"
+  developerType: string; // New field: "GHL Expert", "Marketing Expert", or "Project Management"
   experienceLevel: string;
   expertiseArea: string;
   customExpertise: string;
@@ -38,6 +39,7 @@ interface FormData {
   specialisations: string;
   availability: string;
   extraInfo: string;
+  toolsKnown: string; // New field for project management tools
 }
 
 // Country data with phone codes
@@ -373,7 +375,8 @@ export default function WorkWithUsPage() {
     portfolioLink: '',
     specialisations: '',
     availability: '',
-    extraInfo: ''
+    extraInfo: '',
+    toolsKnown: '' // New field
   });
 
   const [resumeFile, setResumeFile] = useState<File | null>(null);
@@ -413,15 +416,54 @@ export default function WorkWithUsPage() {
     'X (Twitter)'
   ];
 
+  // Project Management Expertise Options
+  const projectManagementExpertiseOptions = [
+    'Agile Project Management',
+    'Scrum Master',
+    'Sprint Planning',
+    'Stakeholder Management',
+    'Risk Management',
+    'Quality Assurance',
+    'Cross-functional Collaboration',
+    'Resource Allocation',
+    'Budget Management',
+    'Timeline Tracking',
+    'Gantt Charts',
+    'Kanban Management',
+    'Waterfall Model',
+    'Hybrid Project Management'
+  ];
+
+  // Project Management Tools Options
+  const projectManagementToolsOptions = [
+    'Jira',
+    'Asana',
+    'Trello',
+    'Monday.com',
+    'ClickUp',
+    'Basecamp',
+    'Notion',
+    'Smartsheet',
+    'Wrike',
+    'Linear',
+    'Azure DevOps',
+    'GitHub Projects'
+  ];
+
   // Get dynamic expertise options based on developer type
   const getExpertiseOptions = () => {
     if (formData.developerType === 'GHL Expert') {
       return ghlExpertiseOptions;
     } else if (formData.developerType === 'Marketing Expert') {
       return marketingExpertiseOptions;
+    } else if (formData.developerType === 'Project Management') {
+      return projectManagementExpertiseOptions;
     }
     return [];
   };
+
+  // Check if tools field should be shown
+  const shouldShowTools = formData.developerType === 'Project Management';
 
   // Looking for options
   const lookingForOptions = [
@@ -473,7 +515,8 @@ export default function WorkWithUsPage() {
     setFormData(prev => ({
       ...prev,
       developerType: value,
-      expertiseArea: '' // Reset expertise area when developer type changes
+      expertiseArea: '', // Reset expertise area when developer type changes
+      toolsKnown: '' // Reset tools when developer type changes
     }));
     setShowCustomExpertise(false);
   };
@@ -524,6 +567,7 @@ export default function WorkWithUsPage() {
     submitData.append('specialisations', formData.specialisations);
     submitData.append('availability', formData.availability);
     submitData.append('extraInfo', formData.extraInfo);
+    submitData.append('toolsKnown', formData.toolsKnown); // Send tools field
 
     if (resumeFile) submitData.append('resume', resumeFile);
     if (portfolioFile) submitData.append('portfolio', portfolioFile);
@@ -732,6 +776,7 @@ export default function WorkWithUsPage() {
                         <option value="" className="bg-[#1C2E4A] text-white">Select type</option>
                         <option value="GHL Expert" className="bg-[#1C2E4A] text-white">GHL Expert</option>
                         <option value="Marketing Expert" className="bg-[#1C2E4A] text-white">Marketing Expert</option>
+                        <option value="Project Management" className="bg-[#1C2E4A] text-white">Project Management</option>
                       </select>
                     </div>
                   </div>
@@ -759,7 +804,7 @@ export default function WorkWithUsPage() {
 
                   <div className="space-y-4 sm:space-y-6">
                     <div>
-                      <label className="block text-xs font-medium tracking-wide text-white/50 uppercase mb-1.5 sm:mb-2">GHL Experience Level *</label>
+                      <label className="block text-xs font-medium tracking-wide text-white/50 uppercase mb-1.5 sm:mb-2">Experience Level *</label>
                       <select
                         name="experienceLevel"
                         value={formData.experienceLevel}
@@ -822,6 +867,24 @@ export default function WorkWithUsPage() {
                       )}
                     </div>
 
+                    {/* Tools Known - Only show for Project Management */}
+                    {shouldShowTools && (
+                      <div className="animate-fadeUp">
+                        <label className="block text-xs font-medium tracking-wide text-white/50 uppercase mb-1.5 sm:mb-2">
+                          <Wrench className="inline w-4 h-4 mr-1" />
+                          Tools Known *
+                        </label>
+                        <SearchableSelect
+                          options={projectManagementToolsOptions}
+                          value={formData.toolsKnown}
+                          onChange={(value) => setFormData(prev => ({ ...prev, toolsKnown: value }))}
+                          placeholder="Select project management tools you use"
+                          required
+                        />
+                        <p className="text-xs text-white/30 mt-1">Select the project management tools you're proficient with</p>
+                      </div>
+                    )}
+
                     <div>
                       <label className="block text-xs font-medium tracking-wide text-white/50 uppercase mb-1.5 sm:mb-2">Are you looking for *</label>
                       <select
@@ -848,7 +911,9 @@ export default function WorkWithUsPage() {
                         className="w-full bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base placeholder-white/30 focus:border-[#0E9BF0] focus:outline-none transition-all resize-vertical"
                         placeholder={formData.developerType === 'GHL Expert'
                           ? "e.g. Workflow automations, CRM setup, AI chatbots, funnel building, API integrations, white-labelling..."
-                          : "e.g. Meta Ads, Google Ads, LinkedIn campaigns, YouTube marketing, Twitter/X strategies..."}
+                          : formData.developerType === 'Marketing Expert'
+                          ? "e.g. Meta Ads, Google Ads, LinkedIn campaigns, YouTube marketing, Twitter/X strategies..."
+                          : "e.g. Agile methodologies, team coordination, stakeholder communication, sprint planning, resource management..."}
                       />
                     </div>
                   </div>
@@ -865,7 +930,8 @@ export default function WorkWithUsPage() {
                       disabled={
                         !formData.experienceLevel ||
                         (!formData.expertiseArea && !showCustomExpertise) ||
-                        (showCustomExpertise && !formData.customExpertise)
+                        (showCustomExpertise && !formData.customExpertise) ||
+                        (shouldShowTools && !formData.toolsKnown)
                       }
                       className="bg-gradient-to-r from-[#0E9BF0] to-[#0a7acc] text-white font-poppins font-bold px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl hover:translate-y-[-2px] hover:shadow-lg transition-all flex items-center gap-2 text-sm sm:text-base w-full sm:w-auto justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                     >

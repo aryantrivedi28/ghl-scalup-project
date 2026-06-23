@@ -24,6 +24,7 @@ export async function POST(request: NextRequest) {
     const specialisations = formData.get('specialisations') as string;
     const availability = formData.get('availability') as string;
     const extraInfo = formData.get('extraInfo') as string;
+    const toolsKnown = formData.get('toolsKnown') as string; // NEW FIELD for Project Management
 
     // Validate required fields
     if (!firstName || !lastName || !email || !phone || !country || !developerType) {
@@ -36,6 +37,14 @@ export async function POST(request: NextRequest) {
     if (!experienceLevel || !lookingFor || !rate || !availability) {
       return NextResponse.json(
         { success: false, message: 'Missing required expertise or rate fields' },
+        { status: 400 }
+      );
+    }
+
+    // Validate Project Management specific fields
+    if (developerType === 'Project Management' && !toolsKnown) {
+      return NextResponse.json(
+        { success: false, message: 'Tools known is required for Project Management' },
         { status: 400 }
       );
     }
@@ -87,6 +96,23 @@ export async function POST(request: NextRequest) {
       'X (Twitter)'
     ];
 
+    const validProjectManagementOptions = [
+      'Agile Project Management',
+      'Scrum Master',
+      'Sprint Planning',
+      'Stakeholder Management',
+      'Risk Management',
+      'Quality Assurance',
+      'Cross-functional Collaboration',
+      'Resource Allocation',
+      'Budget Management',
+      'Timeline Tracking',
+      'Gantt Charts',
+      'Kanban Management',
+      'Waterfall Model',
+      'Hybrid Project Management'
+    ];
+
     // Only validate if not custom expertise
     if (!customExpertiseValue) {
       if (developerType === 'GHL Expert' && !validGHLOptions.includes(expertiseArea)) {
@@ -99,6 +125,13 @@ export async function POST(request: NextRequest) {
       if (developerType === 'Marketing Expert' && !validMarketingOptions.includes(expertiseArea)) {
         return NextResponse.json(
           { success: false, message: 'Invalid expertise area for Marketing Expert' },
+          { status: 400 }
+        );
+      }
+
+      if (developerType === 'Project Management' && !validProjectManagementOptions.includes(expertiseArea)) {
+        return NextResponse.json(
+          { success: false, message: 'Invalid expertise area for Project Management' },
           { status: 400 }
         );
       }
@@ -184,6 +217,7 @@ export async function POST(request: NextRequest) {
         custom_expertise: customExpertiseValue,
         looking_for: lookingFor,
         specialisations: specialisations || null,
+        tools_known: toolsKnown || null, // NEW FIELD for Project Management
         
         // Rate & Documents
         rate_expectation: rate,
@@ -205,7 +239,6 @@ export async function POST(request: NextRequest) {
       console.error('Database insert error:', error);
       throw new Error(`Database insert failed: ${error.message}`);
     }
-
 
     // Send webhook to GHL (optional, handle gracefully if fails)
     try {
@@ -231,6 +264,7 @@ export async function POST(request: NextRequest) {
             customExpertise: customExpertiseValue,
             lookingFor,
             specialisations,
+            toolsKnown: toolsKnown || null, // NEW FIELD
             
             // Rate & Docs
             rate,
