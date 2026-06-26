@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Layout',
+            tag: 'Features',
+            title: 'GoHighLevel Funnel Builder: Complete Feature Guide (2026)',
+            excerpt: 'GoHighLevel\'s funnel builder is included free on every plan with unlimited funnels, built-in A/B testing, AI generation, and native CRM integration. Complete guide covering all features, funnel types, and honest limitations.',
+            slug: 'gohighlevel-funnel-builder',
+            date: 'June 14, 2026',
+            readTime: '20 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'Compass',
             tag: 'Tutorial',
             title: 'How to Use GoHighLevel: Complete Beginner\'s Tutorial (2026)',

@@ -243,11 +243,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
     {
-  url: `${baseUrl}/blog/how-to-use-gohighlevel`,
-  lastModified: new Date('2026-06-22'),
-  changeFrequency: 'monthly',
-  priority: 0.8,
-},
+      url: `${baseUrl}/blog/gohighlevel-funnel-builder`,
+      lastModified: new Date('2026-06-24'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/blog/how-to-use-gohighlevel`,
+      lastModified: new Date('2026-06-22'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
     {
       url: `${baseUrl}/blog/a2p-campaign-rejected-fix`,
       lastModified: new Date('2026-06-21'),
