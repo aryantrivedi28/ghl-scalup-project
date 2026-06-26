@@ -75,7 +75,7 @@ export default function GoHighLevelFunnelBuilderClient() {
     },
     {
       q: "Is the GoHighLevel funnel builder free?",
-      a: "Yes, the funnel builder is included in all GoHighLevel plans at no additional cost. Every plan from Starter ($97/month) upward includes the funnel builder with unlimited funnels and funnel steps. There is no separate funnel builder fee and no per-funnel charge. The AI Funnel Builder feature is also included — you may want to verify current access details for the AI Funnel Builder in your specific plan, as AI features and their inclusion in base plans can change."
+      a: "Yes, the funnel builder is included in all GoHighLevel plans at no additional cost. Every plan from Starter ($97/month) upward includes the funnel builder with unlimited funnels and funnel steps. There is no separate funnel builder fee and no per-funnel charge. The AI Funnel Builder feature is also included you may want to verify current access details for the AI Funnel Builder in your specific plan, as AI features and their inclusion in base plans can change."
     },
     {
       q: "What is the difference between a funnel and a website in GoHighLevel?",
@@ -83,19 +83,19 @@ export default function GoHighLevelFunnelBuilderClient() {
     },
     {
       q: "How long does it take to build a funnel in GoHighLevel?",
-      a: "A simple two-page lead capture funnel — landing page and thank-you page — takes approximately 30 to 60 minutes to build from a template, including form setup and basic workflow connection. A more complex sales funnel with an order form, upsell page, and full automation sequence typically takes 2 to 4 hours. Using the AI Funnel Builder reduces initial page creation to 2 to 4 minutes per funnel, though manual refinement of copy, images, branding, and backend connections still requires additional time. Most experienced GHL builders estimate 30 to 45 minutes total for a complete client funnel using AI generation as a starting point."
+      a: "A simple two-page lead capture funnel landing page and thank-you page takes approximately 30 to 60 minutes to build from a template, including form setup and basic workflow connection. A more complex sales funnel with an order form, upsell page, and full automation sequence typically takes 2 to 4 hours. Using the AI Funnel Builder reduces initial page creation to 2 to 4 minutes per funnel, though manual refinement of copy, images, branding, and backend connections still requires additional time. Most experienced GHL builders estimate 30 to 45 minutes total for a complete client funnel using AI generation as a starting point."
     },
     {
       q: "Can you A/B test funnels in GoHighLevel?",
-      a: "Yes. GoHighLevel includes built-in A/B split testing for funnel pages. You create a variant of any funnel step, set the traffic split percentage between the original and the variant, and GHL tracks conversion rates per version in real time. No external split testing tool is required. A/B testing is available on funnel pages only — it is not available on website pages. The standard guidance applies: test one element at a time, and run each test until you have at least 200 to 300 unique visitors per variant before drawing conclusions."
+      a: "Yes. GoHighLevel includes built-in A/B split testing for funnel pages. You create a variant of any funnel step, set the traffic split percentage between the original and the variant, and GHL tracks conversion rates per version in real time. No external split testing tool is required. A/B testing is available on funnel pages only it is not available on website pages. The standard guidance applies: test one element at a time, and run each test until you have at least 200 to 300 unique visitors per variant before drawing conclusions."
     },
     {
       q: "How does the GoHighLevel AI Funnel Builder work?",
-      a: "The AI Funnel Builder generates a complete multi-step funnel with copy, layout, and structure from a text prompt, typically in 2 to 4 minutes. It has two modes: Assist Mode, which guides you through structured questions about your business and offer before generating the funnel, and Build Mode, which accepts free-text prompts and supports live chat refinement. The generated output is approximately 60% done — the structure and copy direction are solid, but you still need to swap stock images for branded photography, refine copy for your exact voice, adjust colours to your brand palette, and configure all backend connections including the form workflow trigger, custom domain, and tracking pixels."
+      a: "The AI Funnel Builder generates a complete multi-step funnel with copy, layout, and structure from a text prompt, typically in 2 to 4 minutes. It has two modes: Assist Mode, which guides you through structured questions about your business and offer before generating the funnel, and Build Mode, which accepts free-text prompts and supports live chat refinement. The generated output is approximately 60% done the structure and copy direction are solid, but you still need to swap stock images for branded photography, refine copy for your exact voice, adjust colours to your brand palette, and configure all backend connections including the form workflow trigger, custom domain, and tracking pixels."
     },
     {
       q: "Can I clone a GoHighLevel funnel across multiple client accounts?",
-      a: "Yes, through Snapshots. A Snapshot is a complete copy of a GHL setup — including funnels, pipelines, workflows, and forms — that can be deployed to a new sub-account in one click. Agencies build a working funnel once, include it in a Snapshot, and deploy the Snapshot to each new client rather than rebuilding from scratch. The funnel then requires client-specific customisation (logo, offer, copy, domain) after deployment."
+      a: "Yes, through Snapshots. A Snapshot is a complete copy of a GHL setup including funnels, pipelines, workflows, and forms that can be deployed to a new sub-account in one click. Agencies build a working funnel once, include it in a Snapshot, and deploy the Snapshot to each new client rather than rebuilding from scratch. The funnel then requires client-specific customisation (logo, offer, copy, domain) after deployment."
     },
   ];
 
@@ -113,12 +113,12 @@ export default function GoHighLevelFunnelBuilderClient() {
   ];
 
   const funnelVsWebsite = [
-    { feature: 'Purpose', funnels: 'Single conversion path — one goal per page', websites: 'Multi-page browsing structure — multiple goals' },
-    { feature: 'Navigation', funnels: 'No navigation menu — visitors follow one linear path', websites: 'Full navigation menu — visitors move freely between pages' },
-    { feature: 'A/B split testing', funnels: 'Available — funnels only', websites: 'Not available on websites' },
-    { feature: 'eCommerce online store', funnels: 'Not available on funnels', websites: 'Available — websites only' },
+    { feature: 'Purpose', funnels: 'Single conversion path one goal per page', websites: 'Multi-page browsing structure multiple goals' },
+    { feature: 'Navigation', funnels: 'No navigation menu visitors follow one linear path', websites: 'Full navigation menu visitors move freely between pages' },
+    { feature: 'A/B split testing', funnels: 'Available funnels only', websites: 'Not available on websites' },
+    { feature: 'eCommerce online store', funnels: 'Not available on funnels', websites: 'Available websites only' },
     { feature: 'Best used for', funnels: 'Ad traffic landing pages, lead capture, appointment booking, sales pages', websites: 'Company homepage, portfolio pages, about us, service directory' },
-    { feature: 'Conversion tracking', funnels: 'Native per-step tracking and split testing', websites: 'Page view tracking only — no built-in A/B testing' },
+    { feature: 'Conversion tracking', funnels: 'Native per-step tracking and split testing', websites: 'Page view tracking only no built-in A/B testing' },
   ];
 
   const funnelTypes = [
@@ -126,13 +126,13 @@ export default function GoHighLevelFunnelBuilderClient() {
       type: 'Lead magnet funnel',
       structure: 'Landing page → Opt-in form → Thank-you page with download',
       bestFor: 'Local businesses, coaches, and agencies capturing leads in exchange for a free resource',
-      integration: 'Form submission triggers instant SMS and email follow-up workflow — lead is in the CRM and the pipeline within seconds'
+      integration: 'Form submission triggers instant SMS and email follow-up workflow lead is in the CRM and the pipeline within seconds'
     },
     {
       type: 'Appointment booking funnel',
       structure: 'Service description page → Calendar booking page → Confirmation page',
       bestFor: 'Any service business where booking a call or appointment is the conversion goal',
-      integration: 'Calendar integration — booking creates a GHL appointment, confirmation SMS and email reminders fire automatically'
+      integration: 'Calendar integration booking creates a GHL appointment, confirmation SMS and email reminders fire automatically'
     },
     {
       type: 'Sales / VSL funnel',
@@ -149,19 +149,19 @@ export default function GoHighLevelFunnelBuilderClient() {
     {
       type: 'Quote request funnel',
       structure: 'Problem-aware landing page → Multi-field qualification form → Thank-you page',
-      bestFor: 'Home services, trades, insurance, roofing — businesses where leads need qualifying before contact',
+      bestFor: 'Home services, trades, insurance, roofing businesses where leads need qualifying before contact',
       integration: 'Form submission creates a contact, adds them to a pipeline stage, and triggers an immediate call or SMS from the assigned team member'
     },
   ];
 
   const buildSteps = [
-    { step: 'Go to Sites → Funnels → Create New Funnel', desc: 'Name the funnel by client and campaign for clarity (for example, "Peak Roofing — Spring Storm Leads"). The naming convention matters when managing multiple client sub-accounts.' },
-    { step: 'Choose a template or start from scratch', desc: 'The template library is organised by industry and funnel type. Choose the closest match to your use case and edit from there. Building from scratch takes significantly longer — start with a template for your first five funnels.' },
-    { step: 'Add funnel steps', desc: 'Click Add New Step for each page in your funnel. Name each step clearly (Opt-in Page, Thank-You, Upsell, Booking Page). The steps appear in sequence — visitors move through them in order.' },
-    { step: 'Edit each page in the drag-and-drop builder', desc: 'Click Edit on any step to open the page editor. Add your headline, body copy, social proof elements, and your form. Keep the form short for cold traffic pages — name, email, and phone is typically enough for a lead capture page.' },
+    { step: 'Go to Sites → Funnels → Create New Funnel', desc: 'Name the funnel by client and campaign for clarity (for example, "Peak Roofing Spring Storm Leads"). The naming convention matters when managing multiple client sub-accounts.' },
+    { step: 'Choose a template or start from scratch', desc: 'The template library is organised by industry and funnel type. Choose the closest match to your use case and edit from there. Building from scratch takes significantly longer start with a template for your first five funnels.' },
+    { step: 'Add funnel steps', desc: 'Click Add New Step for each page in your funnel. Name each step clearly (Opt-in Page, Thank-You, Upsell, Booking Page). The steps appear in sequence visitors move through them in order.' },
+    { step: 'Edit each page in the drag-and-drop builder', desc: 'Click Edit on any step to open the page editor. Add your headline, body copy, social proof elements, and your form. Keep the form short for cold traffic pages name, email, and phone is typically enough for a lead capture page.' },
     { step: 'Connect the form to a workflow', desc: 'In the Automations section, create a workflow with "Form Submitted" as the trigger. Set the filter to your specific funnel form. Add the follow-up actions: SMS within 60 seconds, email within 2 minutes, pipeline stage assignment.' },
-    { step: 'Connect a custom domain', desc: 'Go to Settings — Domains and add your domain or subdomain. Point the CNAME to GHL at your DNS provider. Assign the domain to your funnel. SSL is handled automatically.' },
-    { step: 'Preview on mobile before publishing', desc: 'Toggle to mobile view in the editor. Check every element — headlines, forms, buttons, and images — on mobile. Approximately 60 to 70% of funnel traffic is mobile. A page that looks correct on desktop but breaks on mobile loses most of its traffic before converting.' },
+    { step: 'Connect a custom domain', desc: 'Go to Settings Domains and add your domain or subdomain. Point the CNAME to GHL at your DNS provider. Assign the domain to your funnel. SSL is handled automatically.' },
+    { step: 'Preview on mobile before publishing', desc: 'Toggle to mobile view in the editor. Check every element headlines, forms, buttons, and images on mobile. Approximately 60 to 70% of funnel traffic is mobile. A page that looks correct on desktop but breaks on mobile loses most of its traffic before converting.' },
     { step: 'Submit a test form before running traffic', desc: 'Use a real email address and phone number. Verify the contact appears in your CRM, the correct tag is applied, the pipeline stage is assigned, and the follow-up workflow fires. Fix any gaps before directing paid traffic to the funnel.' },
   ];
 
@@ -172,7 +172,7 @@ export default function GoHighLevelFunnelBuilderClient() {
     },
     {
       title: 'Page loading speed depends on build quality',
-      desc: 'Loading speed in GHL funnels depends on how many elements, videos, and scripts are added to each page. Heavy pages score poorly on Core Web Vitals. Keep funnel pages lean — remove any element that does not directly serve conversion, compress all images before uploading, and avoid embedding external scripts where possible.'
+      desc: 'Loading speed in GHL funnels depends on how many elements, videos, and scripts are added to each page. Heavy pages score poorly on Core Web Vitals. Keep funnel pages lean remove any element that does not directly serve conversion, compress all images before uploading, and avoid embedding external scripts where possible.'
     },
     {
       title: 'Visual design fidelity is functional, not exceptional',
@@ -180,17 +180,17 @@ export default function GoHighLevelFunnelBuilderClient() {
     },
     {
       title: 'No blog capability within funnels',
-      desc: 'Blog content cannot be hosted in the funnel builder. Blogging in GHL requires either the website builder or a third-party integration. This is not a funnel limitation specifically — it is a platform-level characteristic.'
+      desc: 'Blog content cannot be hosted in the funnel builder. Blogging in GHL requires either the website builder or a third-party integration. This is not a funnel limitation specifically it is a platform-level characteristic.'
     },
   ];
 
   const includesList = [
-    { icon: Layout, title: 'Drag-and-drop visual editor', desc: 'Section-based page builder. Add rows, columns, and elements — text, images, video, forms, buttons, countdown timers, testimonials, pricing tables, and more. No coding required. Custom CSS and JavaScript injection are supported for advanced customisations.' },
-    { icon: Smartphone, title: 'Mobile and desktop preview', desc: 'Toggle between mobile and desktop views within the editor. Mobile optimisation requires manual adjustment — GHL\'s mobile editor has improved significantly in 2026 but some elements may require manual responsive tweaks.' },
+    { icon: Layout, title: 'Drag-and-drop visual editor', desc: 'Section-based page builder. Add rows, columns, and elements text, images, video, forms, buttons, countdown timers, testimonials, pricing tables, and more. No coding required. Custom CSS and JavaScript injection are supported for advanced customisations.' },
+    { icon: Smartphone, title: 'Mobile and desktop preview', desc: 'Toggle between mobile and desktop views within the editor. Mobile optimisation requires manual adjustment GHL\'s mobile editor has improved significantly in 2026 but some elements may require manual responsive tweaks.' },
     { icon: FileText, title: 'Built-in form builder with conditional logic', desc: 'Forms inside funnels are native GHL forms. Every submission creates or updates a contact record automatically. Conditional logic allows different fields to show based on a user\'s previous answers. No separate form tool is needed.' },
     { icon: CreditCard, title: 'Native Stripe payment integration', desc: 'Add order forms, one-time payments, subscriptions, and order bumps directly inside the funnel. Payment data flows into GHL revenue reporting natively. One-click upsell pages are available for product funnels.' },
     { icon: Globe, title: 'Custom domain with automatic SSL', desc: 'Each funnel can be published to a custom domain or subdomain. GHL handles the SSL certificate automatically. Setup requires adding a CNAME record at your DNS provider. Most domain configurations take under 10 minutes.' },
-    { icon: Split, title: 'Native A/B split testing', desc: 'Create a variation of any funnel page, set the traffic split percentage, and track conversion rates per variant in real time. Available on funnels only — not on websites.' },
+    { icon: Split, title: 'Native A/B split testing', desc: 'Create a variation of any funnel page, set the traffic split percentage, and track conversion rates per variant in real time. Available on funnels only not on websites.' },
     { icon: Wand2, title: 'AI Funnel Builder', desc: 'Generate a complete multi-step funnel from a text prompt. Two modes: Assist Mode (structured questions to guide AI output) and Build Mode (free-text prompt). Output in 2 to 4 minutes.' },
     { icon: Layers, title: 'Template library', desc: 'Pre-built funnel templates organised by industry and use case. Smaller than ClickFunnels or Leadpages but covers the most common agency needs. Snapshot imports from the GHL marketplace extend the library significantly.' },
     { icon: InfinityIcon, title: 'Unlimited funnels', desc: 'No hard cap on the number of funnels. All GHL plans from Starter upward support unlimited funnels within a sub-account.' },
@@ -234,7 +234,7 @@ export default function GoHighLevelFunnelBuilderClient() {
 
           {/* Author */}
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center rounded-full">
+            <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
               <img
                 src="/web-app-manifest-192x192.png"
                 alt="GHL Scale Up"
@@ -249,7 +249,7 @@ export default function GoHighLevelFunnelBuilderClient() {
 
           {/* Intro Paragraph */}
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
-            Most reviews of GoHighLevel's funnel builder focus on the wrong thing: the drag-and-drop editor quality, the template count, the mobile responsiveness. Those matter, but they are not what makes GHL's funnel builder genuinely powerful. What matters is what happens the moment a visitor submits a form. Their contact record is created in the CRM automatically. A workflow fires. They move into a pipeline stage. An SMS sends within 60 seconds. All of that happens natively, inside the same platform, without a single Zapier step. <Link href="/" className="text-[#0E9BF0] hover:underline font-medium">GHL Scale Up</Link> has built funnels for 200+ GHL accounts across real estate, dental, home services, coaching, and SaaS. This is the complete feature guide — what the builder includes, how to use it, and where its honest limitations are.
+            Most reviews of GoHighLevel's funnel builder focus on the wrong thing: the drag-and-drop editor quality, the template count, the mobile responsiveness. Those matter, but they are not what makes GHL's funnel builder genuinely powerful. What matters is what happens the moment a visitor submits a form. Their contact record is created in the CRM automatically. A workflow fires. They move into a pipeline stage. An SMS sends within 60 seconds. All of that happens natively, inside the same platform, without a single Zapier step. <Link href="/" className="text-[#0E9BF0] hover:underline font-medium">GHL Scale Up</Link> has built funnels for 200+ GHL accounts across real estate, dental, home services, coaching, and SaaS. This is the complete feature guide what the builder includes, how to use it, and where its honest limitations are.
           </p>
         </div>
       </section>
@@ -271,7 +271,7 @@ export default function GoHighLevelFunnelBuilderClient() {
                 GoHighLevel's funnel builder is included in all plans at no extra cost, supports unlimited funnels, and includes a drag-and-drop visual editor, AI funnel generation, native A/B split testing, order forms, upsells, custom domains, and direct integration with GHL's CRM and automation system.
               </p>
               <p className="text-sm text-[#5C6880] leading-relaxed">
-                It is not the most visually polished funnel builder available — the template library is smaller than ClickFunnels or Leadpages and the editor prioritises function over design flexibility. For agencies running lead generation across multiple clients, the native CRM and automation integration outweighs those limitations. The funnel builder is accessed via Sites → Funnels in the GHL left sidebar.
+                It is not the most visually polished funnel builder available the template library is smaller than ClickFunnels or Leadpages and the editor prioritises function over design flexibility. For agencies running lead generation across multiple clients, the native CRM and automation integration outweighs those limitations. The funnel builder is accessed via Sites → Funnels in the GHL left sidebar.
               </p>
             </div>
 
@@ -435,7 +435,7 @@ export default function GoHighLevelFunnelBuilderClient() {
 
             <ul className="space-y-2 mb-6 text-sm text-[#5C6880] list-disc list-inside">
               <li><strong className="text-[#1A2236]">Funnels only:</strong> A/B testing is available on funnel pages but not on website pages. This is confirmed in GHL's official support documentation.</li>
-              <li><strong className="text-[#1A2236]">One variable per test:</strong> The cardinal rule of split testing: change one element per test — headline, CTA text, button colour, hero image, or form length. Testing multiple changes simultaneously makes it impossible to know what caused any difference in conversion rate.</li>
+              <li><strong className="text-[#1A2236]">One variable per test:</strong> The cardinal rule of split testing: change one element per test headline, CTA text, button colour, hero image, or form length. Testing multiple changes simultaneously makes it impossible to know what caused any difference in conversion rate.</li>
               <li><strong className="text-[#1A2236]">Minimum sample size:</strong> Run each test until you have at least 200 to 300 unique visitors per variant before drawing conclusions. Statistical significance matters more than the percentage difference between variants.</li>
               <li><strong className="text-[#1A2236]">Traffic split:</strong> Set the percentage of traffic going to each variant. A 50/50 split reaches statistical significance fastest. You can adjust the split in favour of the winning variant once it has performed better consistently.</li>
               <li><strong className="text-[#1A2236]">What to test first:</strong> Test the headline before anything else. The headline is the highest-leverage element on any landing page. A headline change that improves conversion by 15% is worth more than any design change.</li>
@@ -446,7 +446,7 @@ export default function GoHighLevelFunnelBuilderClient() {
               6. How Does the GoHighLevel AI Funnel Builder Work?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The AI Funnel Builder is GHL's most significant 2026 update to the funnel system. It generates a complete multi-step funnel — with copy, layout, and structure — from a text prompt in 2 to 4 minutes.
+              The AI Funnel Builder is GHL's most significant 2026 update to the funnel system. It generates a complete multi-step funnel with copy, layout, and structure from a text prompt in 2 to 4 minutes.
             </p>
 
             <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Two Modes</h3>
@@ -455,7 +455,7 @@ export default function GoHighLevelFunnelBuilderClient() {
                 <strong className="text-[#1A2236]">Assist Mode:</strong> A guided experience where you answer structured questions about your business, offer, and target audience. The AI generates a niche-specific funnel with proven conversion layouts based on your answers. Best for users who are not sure how to describe their funnel in a single prompt.
               </li>
               <li>
-                <strong className="text-[#1A2236]">Build Mode:</strong> A free-text prompt interface where you describe your vision in natural language and the AI builds from that. Supports live chat refinement — you can type instructions like 'make the headline shorter' or 'change the CTA button colour to blue' and the AI applies the revision in real time.
+                <strong className="text-[#1A2236]">Build Mode:</strong> A free-text prompt interface where you describe your vision in natural language and the AI builds from that. Supports live chat refinement you can type instructions like 'make the headline shorter' or 'change the CTA button colour to blue' and the AI applies the revision in real time.
               </li>
             </ul>
 
@@ -465,7 +465,7 @@ export default function GoHighLevelFunnelBuilderClient() {
                 <span className="text-sm font-bold text-[#F8D000]">THE HONEST '60 PERCENT DONE' FRAMING</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                The AI Funnel Builder gets you to approximately 60% done, not 100%. The output — copy, layout, structure — is a solid starting point. What still requires manual work after AI generation: swapping stock images for your own branded photography, refining copy to match your exact voice and offer, adjusting colours to your brand palette, and configuring all backend connections (form action, workflow trigger, custom domain, tracking pixels). Think of AI generation as starting at 60% done rather than 0% done. For a funnel that previously took 3 to 4 hours to build, this represents a meaningful time reduction to 30 to 45 minutes.
+                The AI Funnel Builder gets you to approximately 60% done, not 100%. The output copy, layout, structure is a solid starting point. What still requires manual work after AI generation: swapping stock images for your own branded photography, refining copy to match your exact voice and offer, adjusting colours to your brand palette, and configuring all backend connections (form action, workflow trigger, custom domain, tracking pixels). Think of AI generation as starting at 60% done rather than 0% done. For a funnel that previously took 3 to 4 hours to build, this represents a meaningful time reduction to 30 to 45 minutes.
               </p>
             </div>
 
@@ -496,7 +496,7 @@ export default function GoHighLevelFunnelBuilderClient() {
                 <span className="text-sm font-bold text-[#F8D000]">FROM OUR FUNNEL BUILDS</span>
               </div>
               <p className="text-sm text-white/80 leading-relaxed mb-3">
-                The highest-performing GHL funnels we have built are not the most visually elaborate — they are the ones with the tightest automation behind them. A clean opt-in page with a workflow that fires an SMS within 60 seconds consistently outperforms a polished page with a 4-hour follow-up delay.
+                The highest-performing GHL funnels we have built are not the most visually elaborate they are the ones with the tightest automation behind them. A clean opt-in page with a workflow that fires an SMS within 60 seconds consistently outperforms a polished page with a 4-hour follow-up delay.
               </p>
               <p className="text-sm text-white/80 leading-relaxed mb-3">
                 See real results from our funnel builds: <Link href="/case-studies" className="text-[#0E9BF0] hover:underline">real GoHighLevel results and case studies →</Link>
@@ -540,9 +540,9 @@ export default function GoHighLevelFunnelBuilderClient() {
             {/* Final CTA */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Need a funnel that actually converts — not just looks good?</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Need a funnel that actually converts not just looks good?</h3>
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
-                  GHL Scale Up builds funnels with the automation that makes them work. Funnel build, form setup, workflow connection, domain configuration, and split test setup — done and tested before handover.
+                  GHL Scale Up builds funnels with the automation that makes them work. Funnel build, form setup, workflow connection, domain configuration, and split test setup done and tested before handover.
                 </p>
                 <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
                   Book Your Free Strategy Call
@@ -622,7 +622,7 @@ export default function GoHighLevelFunnelBuilderClient() {
 
             <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
               <div className="text-sm font-bold text-white mb-2">Need a Funnel That Converts?</div>
-              <p className="text-xs text-white/60 leading-relaxed mb-4">We build funnels with the automation that makes them work — tested and ready for traffic.</p>
+              <p className="text-xs text-white/60 leading-relaxed mb-4">We build funnels with the automation that makes them work tested and ready for traffic.</p>
               <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
                 Get Help
                 <ArrowRight className="w-3 h-3" />
