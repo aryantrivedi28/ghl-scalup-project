@@ -600,7 +600,7 @@ export default function GoHighLevelFunnelBuilderClient() {
               </ul>
             </nav>
 
-            <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
+            <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-2 " style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
                   <img
