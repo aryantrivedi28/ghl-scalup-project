@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Info',
+            tag: 'A2P 10DLC',
+            title: 'What Is A2P 10DLC? Complete Guide for GoHighLevel Users (2026)',
+            excerpt: 'A2P 10DLC is the US carrier registration system every GHL user must complete before sending automated SMS. Required since February 2025. Plain-English explanation of what it is, why it exists, what it costs, and how to register.',
+            slug: 'what-is-a2p-10dlc',
+            date: 'June 27, 2026',
+            readTime: '18 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'Layout',
             tag: 'Features',
             title: 'GoHighLevel Funnel Builder: Complete Feature Guide (2026)',
