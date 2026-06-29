@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Building2',
+            tag: 'A2P 10DLC',
+            title: 'A2P Brand Registration in GoHighLevel: Standard vs Sole Proprietor (2026)',
+            excerpt: 'Step-by-step A2P brand registration guide for GoHighLevel users. Covers Standard Brand (EIN required) and Sole Proprietor (no EIN), the 5 most common rejection reasons, and what happens after approval.',
+            slug: 'a2p-brand-registration-guide',
+            date: 'June 29, 2026',
+            readTime: '19 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'Info',
             tag: 'A2P 10DLC',
             title: 'What Is A2P 10DLC? Complete Guide for GoHighLevel Users (2026)',
