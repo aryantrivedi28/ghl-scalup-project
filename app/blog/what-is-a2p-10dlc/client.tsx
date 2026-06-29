@@ -66,11 +66,11 @@ export default function WhatIsA2P10DLCCLient() {
     },
     {
       q: "Is A2P 10DLC registration required for GoHighLevel?",
-      a: "Yes. Any GoHighLevel user running SMS automations — missed call text back, appointment reminders, lead follow-up sequences, or any other automated SMS — to US phone numbers must complete A2P 10DLC registration. Since February 2025, all major US carriers (AT&T, T-Mobile, Verizon) block SMS and MMS messages from unregistered 10-digit numbers outright. Messages do not get filtered or delayed — they simply do not reach the recipient."
+      a: "Yes. Any GoHighLevel user running SMS automations missed call text back, appointment reminders, lead follow-up sequences, or any other automated SMS to US phone numbers must complete A2P 10DLC registration. Since February 2025, all major US carriers (AT&T, T-Mobile, Verizon) block SMS and MMS messages from unregistered 10-digit numbers outright. Messages do not get filtered or delayed they simply do not reach the recipient."
     },
     {
       q: "What is the difference between brand registration and campaign registration?",
-      a: "Brand registration establishes who you are — it registers your business identity (legal name, EIN, address, business type) with The Campaign Registry. Campaign registration establishes what you will send — it registers the specific type of messages you intend to send (appointment reminders, marketing, customer care), along with a campaign description, sample messages, and documentation of your opt-in flow. Both steps are required before sending any A2P SMS. Brand registration must be completed and approved before campaign registration can be submitted."
+      a: "Brand registration establishes who you are it registers your business identity (legal name, EIN, address, business type) with The Campaign Registry. Campaign registration establishes what you will send it registers the specific type of messages you intend to send (appointment reminders, marketing, customer care), along with a campaign description, sample messages, and documentation of your opt-in flow. Both steps are required before sending any A2P SMS. Brand registration must be completed and approved before campaign registration can be submitted."
     },
     {
       q: "Does A2P 10DLC apply to WhatsApp messages in GoHighLevel?",
@@ -78,22 +78,22 @@ export default function WhatIsA2P10DLCCLient() {
     },
     {
       q: "What happens if you send SMS in GoHighLevel without A2P registration?",
-      a: "Since February 2025, all major US carriers block all SMS and MMS traffic from unregistered 10-digit numbers. Your messages do not arrive late, do not sit in a filter, and do not partially deliver — they simply do not reach the recipient. Your automations will appear to fire correctly inside GoHighLevel, but nothing reaches the person on the other end. Beyond blocking, T-Mobile charges $10,000 per content violation and additional tiered fines for other non-compliance. There is no grace period."
+      a: "Since February 2025, all major US carriers block all SMS and MMS traffic from unregistered 10-digit numbers. Your messages do not arrive late, do not sit in a filter, and do not partially deliver they simply do not reach the recipient. Your automations will appear to fire correctly inside GoHighLevel, but nothing reaches the person on the other end. Beyond blocking, T-Mobile charges $10,000 per content violation and additional tiered fines for other non-compliance. There is no grace period."
     },
     {
       q: "Can I register for A2P 10DLC directly with TCR?",
-      a: "No. A2P 10DLC registration must be submitted through your Campaign Service Provider (CSP) — the SMS platform you use to send messages. For GoHighLevel users, that is LC Phone (GHL's built-in phone system). You complete the registration information in GHL's Trust Center, and LC Phone submits it to The Campaign Registry on your behalf. You cannot register directly with TCR as an end business."
+      a: "No. A2P 10DLC registration must be submitted through your Campaign Service Provider (CSP) the SMS platform you use to send messages. For GoHighLevel users, that is LC Phone (GHL's built-in phone system). You complete the registration information in GHL's Trust Center, and LC Phone submits it to The Campaign Registry on your behalf. You cannot register directly with TCR as an end business."
     },
     {
       q: "How long does A2P 10DLC registration take?",
-      a: "Brand registration typically takes 3 to 7 business days for review by TCR. Once your brand is approved, campaign registration is automatically submitted by GHL on your behalf and typically takes a further 3 to 7 business days. The full process — from starting brand registration to having an approved campaign — generally takes 1 to 2 weeks when the submission is complete and compliant on the first attempt. Incomplete submissions, mismatched EIN information, or missing opt-in documentation extend the timeline through the rejection and resubmission cycle."
+      a: "Brand registration typically takes 3 to 7 business days for review by TCR. Once your brand is approved, campaign registration is automatically submitted by GHL on your behalf and typically takes a further 3 to 7 business days. The full process from starting brand registration to having an approved campaign generally takes 1 to 2 weeks when the submission is complete and compliant on the first attempt. Incomplete submissions, mismatched EIN information, or missing opt-in documentation extend the timeline through the rejection and resubmission cycle."
     },
   ];
 
   useFaqSchema(faqs);
 
   const tocItems = [
-    { id: 'what-means', title: '1. What does A2P 10DLC actually mean — breaking down each part?' },
+    { id: 'what-means', title: '1. What does A2P 10DLC actually mean breaking down each part?' },
     { id: 'why-exists', title: '2. Why does A2P 10DLC exist?' },
     { id: 'who-needs', title: '3. Who needs to register and what happens if you don\'t?' },
     { id: 'how-works', title: '4. How does A2P 10DLC registration work in GoHighLevel?' },
@@ -103,16 +103,16 @@ export default function WhatIsA2P10DLCCLient() {
   ];
 
   const parties = [
-    { party: 'You (the GHL user)', role: 'Submit registration information through GHL\'s Trust Center — business details, campaign description, sample messages, opt-in documentation', control: 'Everything you submit: accuracy, completeness, opt-in flow documentation' },
-    { party: 'Campaign Service Provider (CSP)', role: 'GHL\'s phone system (LC Phone, backed by Twilio) submits your registration to TCR on your behalf. You do not register directly with TCR.', control: 'You select GHL\'s phone system as your provider — the submission process is automated after you complete your inputs' },
-    { party: 'The Campaign Registry (TCR) and carriers', role: 'TCR verifies your brand information and reviews your campaign details. Carriers use TCR\'s approval data to allow or block your messages.', control: 'Nothing — TCR and carrier review is external to GHL and external to you. The review outcome depends entirely on the quality of your submission.' },
+    { party: 'You (the GHL user)', role: 'Submit registration information through GHL\'s Trust Center business details, campaign description, sample messages, opt-in documentation', control: 'Everything you submit: accuracy, completeness, opt-in flow documentation' },
+    { party: 'Campaign Service Provider (CSP)', role: 'GHL\'s phone system (LC Phone, backed by Twilio) submits your registration to TCR on your behalf. You do not register directly with TCR.', control: 'You select GHL\'s phone system as your provider the submission process is automated after you complete your inputs' },
+    { party: 'The Campaign Registry (TCR) and carriers', role: 'TCR verifies your brand information and reviews your campaign details. Carriers use TCR\'s approval data to allow or block your messages.', control: 'Nothing TCR and carrier review is external to GHL and external to you. The review outcome depends entirely on the quality of your submission.' },
   ];
 
   const fees = [
-    { type: 'Brand registration (one-time)', when: 'At initial brand registration', amount: 'Varies by brand type — verify in Trust Center before submitting' },
-    { type: 'Campaign vetting fee (one-time)', when: 'At initial campaign submission', amount: '$15 per campaign (no fee for resubmitting a rejected campaign — fee applies if you delete and recreate)' },
-    { type: 'Monthly campaign fee (recurring)', when: 'Each month the campaign is active', amount: 'Varies by use case — Low Volume Mixed is lower; Mixed and specific use cases are higher' },
-    { type: 'Carrier per-message fees', when: 'Per SMS/MMS segment sent', amount: 'Passthrough carrier rates — varies by carrier, segment length, and message type' },
+    { type: 'Brand registration (one-time)', when: 'At initial brand registration', amount: 'Varies by brand type verify in Trust Center before submitting' },
+    { type: 'Campaign vetting fee (one-time)', when: 'At initial campaign submission', amount: '$15 per campaign (no fee for resubmitting a rejected campaign fee applies if you delete and recreate)' },
+    { type: 'Monthly campaign fee (recurring)', when: 'Each month the campaign is active', amount: 'Varies by use case Low Volume Mixed is lower; Mixed and specific use cases are higher' },
+    { type: 'Carrier per-message fees', when: 'Per SMS/MMS segment sent', amount: 'Passthrough carrier rates varies by carrier, segment length, and message type' },
   ];
 
   const notAffected = [
@@ -176,7 +176,7 @@ export default function WhatIsA2P10DLCCLient() {
 
           {/* Intro Paragraph */}
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
-            If you have just signed up for GoHighLevel and tried to set up SMS automations, you have probably encountered the term A2P 10DLC. It is not optional, it is not a GHL-specific requirement, and since February 2025, unregistered messages simply do not reach recipients — they are blocked by the carriers entirely. <Link href="/" className="text-[#0E9BF0] hover:underline font-medium">GHL Scale Up</Link> has handled A2P 10DLC registration across 200+ client accounts in the US, UK, and Australia. This is the plain-English explanation of what it is, why it exists, what registration involves, and what happens if you skip it.
+            If you have just signed up for GoHighLevel and tried to set up SMS automations, you have probably encountered the term A2P 10DLC. It is not optional, it is not a GHL-specific requirement, and since February 2025, unregistered messages simply do not reach recipients they are blocked by the carriers entirely. <Link href="/" className="text-[#0E9BF0] hover:underline font-medium">GHL Scale Up</Link> has handled A2P 10DLC registration across 200+ client accounts in the US, UK, and Australia. This is the plain-English explanation of what it is, why it exists, what registration involves, and what happens if you skip it.
           </p>
         </div>
       </section>
@@ -226,17 +226,17 @@ export default function WhatIsA2P10DLCCLient() {
               1. What Does A2P 10DLC Actually Mean?
             </h2>
 
-            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">A2P — Application-to-Person</h3>
+            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">A2P Application-to-Person</h3>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              A2P describes any text message sent from a software application to a person's mobile phone. When GoHighLevel fires an automated SMS — a missed-call text back, an appointment reminder, a lead follow-up — that is an A2P message. The opposite is P2P (Person-to-Person): a regular text between two individuals on their personal phones.
+              A2P describes any text message sent from a software application to a person's mobile phone. When GoHighLevel fires an automated SMS a missed-call text back, an appointment reminder, a lead follow-up that is an A2P message. The opposite is P2P (Person-to-Person): a regular text between two individuals on their personal phones.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               The distinction matters because A2P messages are automated at scale. A single business can send thousands of A2P messages per day from one phone number. Carriers created specific rules for A2P traffic because the same infrastructure used for legitimate business messaging was being exploited for spam and phishing at a scale that P2P messaging never reached.
             </p>
 
-            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">10DLC — 10-Digit Long Code</h3>
+            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">10DLC 10-Digit Long Code</h3>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              10DLC stands for 10-Digit Long Code — a standard local-looking US phone number with 10 digits (for example, 415-555-0182). This is the type of number GHL users purchase through LC Phone or Twilio for their SMS automations.
+              10DLC stands for 10-Digit Long Code a standard local-looking US phone number with 10 digits (for example, 415-555-0182). This is the type of number GHL users purchase through LC Phone or Twilio for their SMS automations.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               Before A2P 10DLC existed, businesses sent automated messages from these same numbers with no formal registration, alongside personal texting traffic, with no way for carriers to distinguish legitimate business SMS from spam. The result was a flood of unwanted messages that eroded consumer trust in SMS as a communication channel.
@@ -245,7 +245,7 @@ export default function WhatIsA2P10DLCCLient() {
             <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
               <div className="flex items-center gap-2 mb-2">
                 <Sparkles className="w-4 h-4 text-[#0E9BF0]" />
-                <span className="text-sm font-bold text-[#0E9BF0]">A2P VS 10DLC — ARE THEY THE SAME THING?</span>
+                <span className="text-sm font-bold text-[#0E9BF0]">A2P VS 10DLC ARE THEY THE SAME THING?</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
                 They are two parts of the same system. 'A2P' describes the type of messaging (automated, from an application). '10DLC' describes the type of phone number (a standard 10-digit local number). Together, 'A2P 10DLC' means the carrier registration system for businesses sending automated messages from standard 10-digit phone numbers. If someone refers to '10DLC registration' or 'A2P registration,' they mean the same process.
@@ -260,7 +260,7 @@ export default function WhatIsA2P10DLCCLient() {
               Before 2023, businesses sent automated messages from 10-digit numbers with no registration or verification. Consumers had no way to distinguish a legitimate appointment reminder from a phishing scam. Spam complaints rose. Carriers filtered messages aggressively and inconsistently. Legitimate business messages were blocked alongside spam.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The three major US carriers — AT&T, T-Mobile, and Verizon — created The Campaign Registry (TCR) to solve this. TCR is a centralised database where businesses register their identity (brand registration) and the type of messages they send (campaign registration). Carriers use that verified data to allow, throttle, or block message traffic.
+              The three major US carriers AT&T, T-Mobile, and Verizon created The Campaign Registry (TCR) to solve this. TCR is a centralised database where businesses register their identity (brand registration) and the type of messages they send (campaign registration). Carriers use that verified data to allow, throttle, or block message traffic.
             </p>
 
             <ul className="space-y-2 mb-6 text-sm text-[#5C6880] list-disc list-inside">
@@ -275,7 +275,7 @@ export default function WhatIsA2P10DLCCLient() {
                 <span className="text-sm font-bold text-[#F8D000]">THE LEGAL LAYER ON TOP</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                A2P 10DLC registration is separate from TCPA (Telephone Consumer Protection Act) compliance, but both apply. The TCPA requires explicit consent before sending marketing messages and creates statutory damages of $500 to $1,500 per unsolicited text for willful violations — enforced through class-action litigation. Registration with TCR does not exempt you from TCPA requirements. You still need documented consent from every contact before sending automated SMS. A2P registration and TCPA compliance are two separate obligations.
+                A2P 10DLC registration is separate from TCPA (Telephone Consumer Protection Act) compliance, but both apply. The TCPA requires explicit consent before sending marketing messages and creates statutory damages of $500 to $1,500 per unsolicited text for willful violations enforced through class-action litigation. Registration with TCR does not exempt you from TCPA requirements. You still need documented consent from every contact before sending automated SMS. A2P registration and TCPA compliance are two separate obligations.
               </p>
             </div>
 
@@ -286,17 +286,17 @@ export default function WhatIsA2P10DLCCLient() {
 
             <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Who must register</h3>
             <ul className="space-y-2 mb-6 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">Any US business sending automated SMS from a 10-digit phone number to US recipients — mandatory, no exceptions.</strong></li>
-              <li><strong className="text-[#1A2236]">Any business outside the US sending SMS to US recipients — same requirement applies regardless of where the sender is located.</strong></li>
-              <li><strong className="text-[#1A2236]">Canadian businesses sending to US recipients — A2P registration required.</strong></li>
-              <li><strong className="text-[#1A2236]">GHL users on LC Phone or Twilio running any SMS workflow, missed call text back, appointment reminder, or campaign — all of these are A2P messages requiring registration.</strong></li>
+              <li><strong className="text-[#1A2236]">Any US business sending automated SMS from a 10-digit phone number to US recipients mandatory, no exceptions.</strong></li>
+              <li><strong className="text-[#1A2236]">Any business outside the US sending SMS to US recipients same requirement applies regardless of where the sender is located.</strong></li>
+              <li><strong className="text-[#1A2236]">Canadian businesses sending to US recipients A2P registration required.</strong></li>
+              <li><strong className="text-[#1A2236]">GHL users on LC Phone or Twilio running any SMS workflow, missed call text back, appointment reminder, or campaign all of these are A2P messages requiring registration.</strong></li>
             </ul>
 
             <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Who does not need to register</h3>
             <ul className="space-y-2 mb-6 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">Businesses sending SMS only to Canadian recipients (CA-to-CA) on numbers purchased before March 26, 2025 — confirmed exempt. You may want to verify current requirements if your numbers were purchased after this date.</strong></li>
-              <li><strong className="text-[#1A2236]">Businesses not sending any SMS to US phone numbers — A2P 10DLC does not apply.</strong></li>
-              <li><strong className="text-[#1A2236]">WhatsApp users — WhatsApp messages are transmitted over the internet, not through carrier networks. A2P 10DLC does not apply to WhatsApp messaging in GoHighLevel.</strong></li>
+              <li><strong className="text-[#1A2236]">Businesses sending SMS only to Canadian recipients (CA-to-CA) on numbers purchased before March 26, 2025 confirmed exempt. You may want to verify current requirements if your numbers were purchased after this date.</strong></li>
+              <li><strong className="text-[#1A2236]">Businesses not sending any SMS to US phone numbers A2P 10DLC does not apply.</strong></li>
+              <li><strong className="text-[#1A2236]">WhatsApp users WhatsApp messages are transmitted over the internet, not through carrier networks. A2P 10DLC does not apply to WhatsApp messaging in GoHighLevel.</strong></li>
             </ul>
 
             <div className="bg-[#FEF2F0] border border-[rgba(220,53,69,0.2)] rounded-xl p-4 my-4">
@@ -305,7 +305,7 @@ export default function WhatIsA2P10DLCCLient() {
                 <span className="text-sm font-bold text-[#DC3545]">SINCE FEBRUARY 2025: OUTRIGHT BLOCKING</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed mb-2">
-                Since February 2025, all major US carriers block all SMS and MMS traffic from unregistered 10DLC numbers. Messages do not arrive late. They do not sit in a filter. They simply do not reach the recipient. There is no grace period and no warning system — your automations appear to fire correctly inside GHL but nothing reaches the person on the other end.
+                Since February 2025, all major US carriers block all SMS and MMS traffic from unregistered 10DLC numbers. Messages do not arrive late. They do not sit in a filter. They simply do not reach the recipient. There is no grace period and no warning system your automations appear to fire correctly inside GHL but nothing reaches the person on the other end.
               </p>
               <p className="text-sm text-[#1A2236] leading-relaxed">
                 Beyond blocking, T-Mobile charges $10,000 per content violation and additional tiered fines for other offences. Running SMS automations without registration is not a compliance grey area in 2026.
@@ -349,11 +349,11 @@ export default function WhatIsA2P10DLCCLient() {
             <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">The two registration steps</h3>
             <ul className="space-y-3 mb-6 text-sm text-[#5C6880] list-decimal list-inside">
               <li><strong className="text-[#1A2236]">Brand registration:</strong> Register your business identity with TCR. For most US businesses this requires a valid EIN (Employer Identification Number) and requires your legal business name to match the IRS record exactly. For businesses without an EIN, a Sole Proprietor registration path exists with different requirements and lower throughput limits. For international businesses outside the US, your country's equivalent tax ID applies (BN9 for Canada, Company Number for the UK). Brand registration establishes who you are.</li>
-              <li><strong className="text-[#1A2236]">Campaign registration:</strong> Once your brand is approved, register your messaging campaign — the specific type of messages you will send (appointment reminders, customer care, marketing). Each campaign requires a description, sample messages, opt-in flow documentation, and a link to your Terms of Service and Privacy Policy. Campaign registration establishes what you will send.</li>
+              <li><strong className="text-[#1A2236]">Campaign registration:</strong> Once your brand is approved, register your messaging campaign the specific type of messages you will send (appointment reminders, customer care, marketing). Each campaign requires a description, sample messages, opt-in flow documentation, and a link to your Terms of Service and Privacy Policy. Campaign registration establishes what you will send.</li>
             </ul>
 
             <p className="text-sm text-[#5C6880] leading-relaxed mb-2">
-              Brand registration is accessed through Settings — Phone Numbers — Trust Center in your GHL account. You may want to verify the exact navigation path in your account as the interface updates.
+              Brand registration is accessed through Settings Phone Numbers Trust Center in your GHL account. You may want to verify the exact navigation path in your account as the interface updates.
             </p>
             <p className="text-sm text-[#5C6880] leading-relaxed mb-4">
               For the full brand registration walkthrough: <Link href="/blog/a2p-brand-registration-guide" className="text-[#0E9BF0] hover:underline">A2P Brand Registration Guide →</Link>
@@ -368,7 +368,7 @@ export default function WhatIsA2P10DLCCLient() {
                 <span className="text-sm font-bold text-[#F8D000]">ONE CRITICAL RULE: NO COLD TEXTING</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                A2P registration does not give you permission to text anyone. Registration gives you permission to send messages to contacts who have explicitly consented to receive them. Cold texting — sending SMS to contacts who have not opted in — breaks TCR guidelines, carrier guidelines, and GHL's Phone System policy. Accounts found cold messaging are at high risk of SMS suspension and may not be approved for increased sending limits. Explicit opt-in consent must be obtained and documented before sending any automated SMS, regardless of registration status.
+                A2P registration does not give you permission to text anyone. Registration gives you permission to send messages to contacts who have explicitly consented to receive them. Cold texting sending SMS to contacts who have not opted in breaks TCR guidelines, carrier guidelines, and GHL's Phone System policy. Accounts found cold messaging are at high risk of SMS suspension and may not be approved for increased sending limits. Explicit opt-in consent must be obtained and documented before sending any automated SMS, regardless of registration status.
               </p>
             </div>
 
@@ -377,7 +377,7 @@ export default function WhatIsA2P10DLCCLient() {
               5. What Does A2P 10DLC Registration Cost?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              All A2P fees are passthrough charges from TCR, Twilio, and the carriers. GHL adds no markup to these charges. Prices are set by external providers and may change — always verify current pricing in the Trust Center before submitting.
+              All A2P fees are passthrough charges from TCR, Twilio, and the carriers. GHL adds no markup to these charges. Prices are set by external providers and may change always verify current pricing in the Trust Center before submitting.
             </p>
 
             <div className="overflow-x-auto my-6">
@@ -436,7 +436,7 @@ export default function WhatIsA2P10DLCCLient() {
                 For building GoHighLevel SMS automations after registration is complete: <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-[#0E9BF0] hover:underline">GoHighLevel Workflow Automation Guide →</Link>
               </p>
               <p className="text-sm text-white/80 leading-relaxed">
-                For the missed call text back automation — the most common first SMS workflow to build: <Link href="/blog/gohighlevel-missed-call-text-back" className="text-[#0E9BF0] hover:underline">GoHighLevel Missed Call Text Back →</Link>
+                For the missed call text back automation the most common first SMS workflow to build: <Link href="/blog/gohighlevel-missed-call-text-back" className="text-[#0E9BF0] hover:underline">GoHighLevel Missed Call Text Back →</Link>
               </p>
               <p className="text-sm text-white/80 leading-relaxed mt-3">
                 If you need A2P registration handled for your account or your client accounts: <Link href="/contact" className="text-[#0E9BF0] hover:underline">book a free strategy call at ghlscaleup.com/contact →</Link>
@@ -479,7 +479,7 @@ export default function WhatIsA2P10DLCCLient() {
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Need A2P registration handled for your GHL account?</h3>
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
-                  GHL Scale Up handles A2P 10DLC registration for agencies and their clients. Brand registration, campaign registration, rejection troubleshooting, and resubmission — fully managed.
+                  GHL Scale Up handles A2P 10DLC registration for agencies and their clients. Brand registration, campaign registration, rejection troubleshooting, and resubmission fully managed.
                 </p>
                 <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
                   Book Your Free Strategy Call
@@ -504,7 +504,7 @@ export default function WhatIsA2P10DLCCLient() {
                 </div>
               </div>
               <p className="text-xs text-[#5C6880] leading-relaxed">
-                All facts in this guide are verified against GoHighLevel's official support portal, TCR documentation, and carrier guidelines as of June 2026. Fees and carrier policies may change — verify current requirements in GHL's Trust Center before submitting.
+                All facts in this guide are verified against GoHighLevel's official support portal, TCR documentation, and carrier guidelines as of June 2026. Fees and carrier policies may change verify current requirements in GHL's Trust Center before submitting.
               </p>
               <Link href="/" className="text-[#0E9BF0] text-xs hover:underline mt-2 inline-block">ghlscaleup.com</Link>
             </div>
@@ -559,7 +559,7 @@ export default function WhatIsA2P10DLCCLient() {
 
             <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
               <div className="text-sm font-bold text-white mb-2">A2P Registration Help?</div>
-              <p className="text-xs text-white/60 leading-relaxed mb-4">We handle A2P 10DLC registration for agencies and their clients — brand registration, campaign registration, and rejection troubleshooting.</p>
+              <p className="text-xs text-white/60 leading-relaxed mb-4">We handle A2P 10DLC registration for agencies and their clients brand registration, campaign registration, and rejection troubleshooting.</p>
               <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
                 Get Help
                 <ArrowRight className="w-3 h-3" />
