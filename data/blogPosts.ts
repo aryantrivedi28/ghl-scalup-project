@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'FileCheck',
+            tag: 'A2P 10DLC',
+            title: 'A2P Campaign Registration in GoHighLevel: Step-by-Step Guide (2026)',
+            excerpt: 'How to complete A2P 10DLC campaign registration in GoHighLevel — use case selection, sample messages, opt-in consent, privacy policy requirements, and what happens after you submit. Verified from GHL\'s official docs.',
+            slug: 'a2p-campaign-registration-guide',
+            date: 'July 1, 2026',
+            readTime: '20 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'Building2',
             tag: 'A2P 10DLC',
             title: 'A2P Brand Registration in GoHighLevel: Standard vs Sole Proprietor (2026)',

@@ -243,6 +243,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
     {
+      url: `${baseUrl}/blog/a2p-campaign-registration-guide`,
+      lastModified: new Date('2026-07-01'),
+      changeFrequency: 'monthly',
+      priority: 0.9,  // P0 blog - high priority
+    },
+    {
       url: `${baseUrl}/blog/a2p-brand-registration-guide`,
       lastModified: new Date('2026-06-29'),
       changeFrequency: 'monthly',
