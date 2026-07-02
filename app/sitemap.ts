@@ -243,6 +243,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
     {
+      url: `${baseUrl}/blog/gohighlevel-for-nonprofits`,
+      lastModified: new Date('2026-07-02'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/blog/a2p-campaign-registration-guide`,
       lastModified: new Date('2026-07-01'),
       changeFrequency: 'monthly',

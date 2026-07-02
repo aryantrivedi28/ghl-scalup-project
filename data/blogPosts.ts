@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Heart',
+            tag: 'Nonprofits',
+            title: 'GoHighLevel for Nonprofits: Donor Management and Fundraising (2026)',
+            excerpt: 'GoHighLevel helps nonprofits manage donors, automate fundraising campaigns, coordinate volunteers, and send tax receipts — all from one platform at $97/mo. Complete guide for nonprofit organisations.',
+            slug: 'gohighlevel-for-nonprofits',
+            date: 'July 2, 2026',
+            readTime: '20 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'FileCheck',
             tag: 'A2P 10DLC',
             title: 'A2P Campaign Registration in GoHighLevel: Step-by-Step Guide (2026)',
