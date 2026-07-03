@@ -60,27 +60,27 @@ export default function A2PBrandRejectedFixClient() {
   const faqs = [
     {
       q: "What is the difference between A2P brand rejection and campaign rejection in GoHighLevel?",
-      a: "A2P brand rejection happens at Step 1 of the registration process — The Campaign Registry (TCR) could not verify your business identity based on the information submitted. No campaign registration can be submitted until the brand is approved. Campaign rejection happens at Step 2 — after your brand is approved, the carriers rejected your messaging use case, sample messages, or opt-in documentation. The fixes are completely different. This guide covers brand rejection. For campaign rejection, see: ghlscaleup.com/blog/a2p-campaign-rejected-fix"
+      a: "A2P brand rejection happens at Step 1 of the registration process The Campaign Registry (TCR) could not verify your business identity based on the information submitted. No campaign registration can be submitted until the brand is approved. Campaign rejection happens at Step 2 after your brand is approved, the carriers rejected your messaging use case, sample messages, or opt-in documentation. The fixes are completely different. This guide covers brand rejection. For campaign rejection, see: ghlscaleup.com/blog/a2p-campaign-rejected-fix"
     },
     {
       q: "Why was my A2P brand rejected in GoHighLevel?",
-      a: "The most common confirmed causes of brand rejection are: EIN mismatch with the legal business name (the most frequent cause — a missing 'LLC', transposed digit, or shortened name), a newly issued EIN that has not yet propagated across TCR's verification databases, a PO Box used as the business address instead of a physical street address, DUNS number entered instead of an EIN, or inability to verify a nonprofit or government entity type. Brand rejection is decided by TCR and its verification partners, not by GoHighLevel."
+      a: "The most common confirmed causes of brand rejection are: EIN mismatch with the legal business name (the most frequent cause a missing 'LLC', transposed digit, or shortened name), a newly issued EIN that has not yet propagated across TCR's verification databases, a PO Box used as the business address instead of a physical street address, DUNS number entered instead of an EIN, or inability to verify a nonprofit or government entity type. Brand rejection is decided by TCR and its verification partners, not by GoHighLevel."
     },
     {
       q: "How do I fix an EIN mismatch in A2P brand registration?",
-      a: "Obtain your CP 575 EIN Confirmation Letter from the IRS — this shows the exact legal business name on file. If you do not have it, request a 147c letter from the IRS. Update your brand registration with the name exactly as it appears on the CP 575, character for character, including any entity suffix (LLC, Inc, Corp). When resubmitting or contacting GHL support for manual verification, provide the complete PDF of the CP 575 — not a screenshot and not just the first page. Partial documentation is rejected."
+      a: "Obtain your CP 575 EIN Confirmation Letter from the IRS this shows the exact legal business name on file. If you do not have it, request a 147c letter from the IRS. Update your brand registration with the name exactly as it appears on the CP 575, character for character, including any entity suffix (LLC, Inc, Corp). When resubmitting or contacting GHL support for manual verification, provide the complete PDF of the CP 575 not a screenshot and not just the first page. Partial documentation is rejected."
     },
     {
       q: "My EIN is new. Can I still register for A2P?",
-      a: "You can try, but newly issued EINs may be rejected by TCR because the EIN has not yet propagated across TCR's verification databases. According to GHL's official documentation, you have two options: wait at least 30 to 90 days from the EIN issue date and resubmit, or appeal your verification status for a $10 fee regardless of the outcome. If you choose the appeal, you must provide the complete PDF of your EIN Confirmation Letter (CP 575) — not a screenshot. Verify the current appeal process and fee with GHL support, as these details can change."
+      a: "You can try, but newly issued EINs may be rejected by TCR because the EIN has not yet propagated across TCR's verification databases. According to GHL's official documentation, you have two options: wait at least 30 to 90 days from the EIN issue date and resubmit, or appeal your verification status for a $10 fee regardless of the outcome. If you choose the appeal, you must provide the complete PDF of your EIN Confirmation Letter (CP 575) not a screenshot. Verify the current appeal process and fee with GHL support, as these details can change."
     },
     {
       q: "What happens if I exhaust 3 A2P brand registration attempts?",
-      a: "If you see the error 'Maximum 3 tries exhausted', you cannot resubmit through the normal flow. You must contact GHL support and complete a specific form that GHL references in their documentation. You will need to provide your complete CP 575 EIN Confirmation Letter as a full PDF. Documentation must be from the federal level (IRS) — state-level documents are not accepted for manual EIN verification. Contact GHL support directly to obtain the current form link and instructions, as these are managed through GHL's internal support system."
+      a: "If you see the error 'Maximum 3 tries exhausted', you cannot resubmit through the normal flow. You must contact GHL support and complete a specific form that GHL references in their documentation. You will need to provide your complete CP 575 EIN Confirmation Letter as a full PDF. Documentation must be from the federal level (IRS) state-level documents are not accepted for manual EIN verification. Contact GHL support directly to obtain the current form link and instructions, as these are managed through GHL's internal support system."
     },
     {
       q: "Does A2P brand rejection cost an extra fee?",
-      a: "Resubmitting a rejected brand registration does not typically incur an additional fee — verify this with GHL's current fee documentation, as fee policies can change. However, if you have exhausted 3 registration attempts and need to appeal, GHL's documentation states an appeal fee of $10 applies, regardless of the outcome. For the full breakdown of all A2P fees: ghlscaleup.com/blog/a2p-10dlc-fees-explained"
+      a: "Resubmitting a rejected brand registration does not typically incur an additional fee verify this with GHL's current fee documentation, as fee policies can change. However, if you have exhausted 3 registration attempts and need to appeal, GHL's documentation states an appeal fee of $10 applies, regardless of the outcome. For the full breakdown of all A2P fees: ghlscaleup.com/blog/a2p-10dlc-fees-explained"
     },
     {
       q: "Can GHL Scale Up fix my A2P brand rejection?",
@@ -147,7 +147,7 @@ export default function A2PBrandRejectedFixClient() {
 
           {/* Author */}
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center rounded-full">
+            <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
               <img
                 src="/web-app-manifest-192x192.png"
                 alt="GHL Scale Up"
@@ -178,10 +178,10 @@ export default function A2PBrandRejectedFixClient() {
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
               <div className="flex items-center gap-2 mb-3">
                 <AlertOctagon className="w-5 h-5 text-[#DC3545]" />
-                <span className="text-xs font-bold uppercase tracking-wider text-[#DC3545]">Brand Rejection vs Campaign Rejection — Important Distinction</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-[#DC3545]">Brand Rejection vs Campaign Rejection Important Distinction</span>
               </div>
               <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
-                This blog covers brand rejection — a failure at Step 1 of the A2P process. If your brand was approved but your campaign was rejected, that is a different issue covered in a separate guide.
+                This blog covers brand rejection a failure at Step 1 of the A2P process. If your brand was approved but your campaign was rejected, that is a different issue covered in a separate guide.
               </p>
               <p className="text-sm text-[#5C6880] leading-relaxed">
                 Brand rejection means TCR (The Campaign Registry) could not verify your business identity. Campaign rejection means the carriers rejected your messaging use case. The fixes are different. For campaign rejection: <Link href="/blog/a2p-campaign-rejected-fix" className="text-[#0E9BF0] hover:underline">A2P Campaign Rejected Fix Guide →</Link>
@@ -212,10 +212,10 @@ export default function A2PBrandRejectedFixClient() {
               1. What Is A2P Brand Registration and Who Rejects It?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              A2P brand registration is Step 1 of the A2P 10DLC process. It registers your business identity — your legal name, EIN or Tax ID, business address, and entity type — with The Campaign Registry (TCR), a third-party industry organisation that verifies businesses before their messages are allowed onto US carrier networks.
+              A2P brand registration is Step 1 of the A2P 10DLC process. It registers your business identity your legal name, EIN or Tax ID, business address, and entity type with The Campaign Registry (TCR), a third-party industry organisation that verifies businesses before their messages are allowed onto US carrier networks.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              When GoHighLevel submits your brand registration, it goes to TCR for verification. TCR checks your business information against IRS records and other third-party databases. If TCR cannot verify your business information, your brand registration is rejected. GoHighLevel does not control this decision — the rejection comes from TCR and its verification partners.
+              When GoHighLevel submits your brand registration, it goes to TCR for verification. TCR checks your business information against IRS records and other third-party databases. If TCR cannot verify your business information, your brand registration is rejected. GoHighLevel does not control this decision the rejection comes from TCR and its verification partners.
             </p>
 
             <p className="text-sm text-[#5C6880] leading-relaxed mb-2">
@@ -230,7 +230,7 @@ export default function A2PBrandRejectedFixClient() {
               2. What Are the Confirmed Causes of Brand Rejection in GoHighLevel?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The following rejection causes are confirmed from GHL's official Brand Approval Best Practices documentation (February 2026). According to that guide, a large share of A2P brand rejections come from small mismatches between what is entered and what is on file with the IRS — a missing 'LLC', a transposed digit in the EIN, or an outdated address. Each cause below has a direct fix in Section 3.
+              The following rejection causes are confirmed from GHL's official Brand Approval Best Practices documentation (February 2026). According to that guide, a large share of A2P brand rejections come from small mismatches between what is entered and what is on file with the IRS a missing 'LLC', a transposed digit in the EIN, or an outdated address. Each cause below has a direct fix in Section 3.
             </p>
 
             <div className="overflow-x-auto my-6">
@@ -271,7 +271,7 @@ export default function A2PBrandRejectedFixClient() {
 
             <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Fix 1: EIN mismatch with legal business name</h3>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">The most common brand rejection cause.</strong> Your legal business name in the registration must match exactly what the IRS has on file for that EIN. Even small differences — 'LLC' versus 'L.L.C.', a shortened name, or a trade name instead of the full legal name — cause rejection.
+              <strong className="text-[#1A2236]">The most common brand rejection cause.</strong> Your legal business name in the registration must match exactly what the IRS has on file for that EIN. Even small differences 'LLC' versus 'L.L.C.', a shortened name, or a trade name instead of the full legal name cause rejection.
             </p>
             <ul className="space-y-2 mb-4 text-sm text-[#5C6880] list-decimal list-inside">
               <li><strong className="text-[#1A2236]">Obtain your CP 575 form.</strong> This is the EIN Confirmation Letter the IRS issued when your EIN was assigned. It shows the exact legal name the IRS has on file.</li>
@@ -283,7 +283,7 @@ export default function A2PBrandRejectedFixClient() {
             <div className="bg-[#E8FAF2] border border-[rgba(37,201,125,0.2)] rounded-xl p-4 my-4">
               <div className="flex items-center gap-2 mb-2">
                 <CheckCircle className="w-4 h-4 text-[#25C97D]" />
-                <span className="text-sm font-bold text-[#25C97D]">UPLOAD THE COMPLETE PDF — NOT A SCREENSHOT</span>
+                <span className="text-sm font-bold text-[#25C97D]">UPLOAD THE COMPLETE PDF NOT A SCREENSHOT</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
                 Confirmed from GHL's official documentation: you must provide the complete PDF document of your EIN. If you provide screenshots or just the first page your appeal will be rejected. This applies both to the standard resubmission process and to the $10 appeal for new EINs.
@@ -298,13 +298,13 @@ export default function A2PBrandRejectedFixClient() {
               <strong className="text-[#1A2236]">You have two options confirmed from GHL's official support:</strong>
             </p>
             <ul className="space-y-2 mb-4 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">Option A — Wait and resubmit.</strong> GHL's documentation states to wait at least 30 to 90 days from the EIN issue date before retrying registration. Once that window has passed, resubmit with your complete CP 575 PDF.</li>
-              <li><strong className="text-[#1A2236]">Option B — Pay the $10 appeal fee.</strong> You can appeal your verification status for $10 regardless of the outcome. This is not a guarantee of approval — the outcome is not assured. You must provide the complete PDF document of your EIN. For more detail on A2P fees: <Link href="/blog/a2p-10dlc-fees-explained" className="text-[#0E9BF0] hover:underline">A2P 10DLC Fees Explained →</Link></li>
+              <li><strong className="text-[#1A2236]">Option A Wait and resubmit.</strong> GHL's documentation states to wait at least 30 to 90 days from the EIN issue date before retrying registration. Once that window has passed, resubmit with your complete CP 575 PDF.</li>
+              <li><strong className="text-[#1A2236]">Option B Pay the $10 appeal fee.</strong> You can appeal your verification status for $10 regardless of the outcome. This is not a guarantee of approval the outcome is not assured. You must provide the complete PDF document of your EIN. For more detail on A2P fees: <Link href="/blog/a2p-10dlc-fees-explained" className="text-[#0E9BF0] hover:underline">A2P 10DLC Fees Explained →</Link></li>
             </ul>
 
             <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Fix 3: PO Box used as business address</h3>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Replace the PO Box with your physical street address as registered with the IRS and on your official business documents. Submitting the address of a local branch or any address different from the official registered company address may also produce a mismatch that negatively impacts your Trust Score, even if it does not cause outright rejection — confirmed from GHL's official documentation.
+              Replace the PO Box with your physical street address as registered with the IRS and on your official business documents. Submitting the address of a local branch or any address different from the official registered company address may also produce a mismatch that negatively impacts your Trust Score, even if it does not cause outright rejection confirmed from GHL's official documentation.
             </p>
 
             <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Fix 4: DUNS number used instead of EIN</h3>
@@ -314,7 +314,7 @@ export default function A2PBrandRejectedFixClient() {
 
             <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Fix 5: Nonprofit or government entity type cannot be verified</h3>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Confirmed from GHL's official documentation: the error occurs when TCR cannot verify the organisation as a US-registered nonprofit or government entity. You have two options: update your entity type to one that matches how your organisation is actually legally registered, or provide documents for manual verification of your entity type through GHL support. GHL's documentation references a specific 'Nonprofit and Government Guide to A2P 10DLC' — you may want to search GHL's support portal for this article as it is not linked in the main brand documentation and may contain additional specific guidance for your organisation type.
+              Confirmed from GHL's official documentation: the error occurs when TCR cannot verify the organisation as a US-registered nonprofit or government entity. You have two options: update your entity type to one that matches how your organisation is actually legally registered, or provide documents for manual verification of your entity type through GHL support. GHL's documentation references a specific 'Nonprofit and Government Guide to A2P 10DLC' you may want to search GHL's support portal for this article as it is not linked in the main brand documentation and may contain additional specific guidance for your organisation type.
             </p>
 
             <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Fix 6: Stock symbol or ticker mismatch (Public companies only)</h3>
@@ -332,9 +332,9 @@ export default function A2PBrandRejectedFixClient() {
 
             <ul className="space-y-2 mb-4 text-sm text-[#5C6880] list-decimal list-inside">
               <li><strong className="text-[#1A2236]">Stop making further attempts.</strong> Additional submission attempts at this point are blocked by the system.</li>
-              <li><strong className="text-[#1A2236]">Collect your CP 575 form — the complete PDF, not a screenshot or a partial page.</strong> If you do not have it, request a 147c letter from the IRS.</li>
+              <li><strong className="text-[#1A2236]">Collect your CP 575 form the complete PDF, not a screenshot or a partial page.</strong> If you do not have it, request a 147c letter from the IRS.</li>
               <li><strong className="text-[#1A2236]">Contact GHL support and submit the specific form referenced in GHL's documentation.</strong> GHL's guide states 'please fill out this form' but the form URL is internal to GHL's support flow. Navigate to GHL's support portal and search for 'Maximum 3 tries exhausted' or contact GHL support directly to obtain the correct form.</li>
-              <li><strong className="text-[#1A2236]">Include your complete EIN documentation at the federal level, not the state level.</strong> Documentation must come from the IRS or equivalent federal agency — state-level business registration documents are not sufficient for this process.</li>
+              <li><strong className="text-[#1A2236]">Include your complete EIN documentation at the federal level, not the state level.</strong> Documentation must come from the IRS or equivalent federal agency state-level business registration documents are not sufficient for this process.</li>
             </ul>
 
             <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
@@ -414,7 +414,7 @@ export default function A2PBrandRejectedFixClient() {
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">A2P brand rejected and you need it resolved fast?</h3>
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
-                  GHL Scale Up handles A2P brand registration and rejection fixes. EIN verification, correct brand type, CP 575 documentation, resubmission management, and manual verification support — handled end to end.
+                  GHL Scale Up handles A2P brand registration and rejection fixes. EIN verification, correct brand type, CP 575 documentation, resubmission management, and manual verification support handled end to end.
                 </p>
                 <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
                   Book Your Free Strategy Call
@@ -439,7 +439,7 @@ export default function A2PBrandRejectedFixClient() {
                 </div>
               </div>
               <p className="text-xs text-[#5C6880] leading-relaxed">
-                All information in this guide is verified against GoHighLevel's official support portal documentation as of July 2026. TCR policies, IRS procedures, and GHL's internal processes may change — always verify current requirements in GHL's Trust Center and with GHL support before acting. This is not legal advice.
+                All information in this guide is verified against GoHighLevel's official support portal documentation as of July 2026. TCR policies, IRS procedures, and GHL's internal processes may change always verify current requirements in GHL's Trust Center and with GHL support before acting. This is not legal advice.
               </p>
               <Link href="/" className="text-[#0E9BF0] text-xs hover:underline mt-2 inline-block">ghlscaleup.com</Link>
             </div>
@@ -494,7 +494,7 @@ export default function A2PBrandRejectedFixClient() {
 
             <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
               <div className="text-sm font-bold text-white mb-2">Brand Rejected?</div>
-              <p className="text-xs text-white/60 leading-relaxed mb-4">We handle A2P brand registration and rejection fixes — EIN verification, CP 575 documentation, and resubmission management.</p>
+              <p className="text-xs text-white/60 leading-relaxed mb-4">We handle A2P brand registration and rejection fixes EIN verification, CP 575 documentation, and resubmission management.</p>
               <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
                 Get Help
                 <ArrowRight className="w-3 h-3" />
