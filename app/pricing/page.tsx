@@ -108,7 +108,7 @@ const PricingPage = () => {
               <p className="text-white/60 text-sm mb-4">{plan.description}</p>
 
               <div className="mb-6">
-                <span className="text-4xl font-bold text-white">₹{plan.price}</span>
+                <span className="text-4xl font-bold text-white">${plan.price}</span>
                 <span className="text-white/40 text-sm ml-2">/ month</span>
               </div>
 
