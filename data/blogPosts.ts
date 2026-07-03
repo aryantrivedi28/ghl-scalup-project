@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'AlertOctagon',
+            tag: 'A2P 10DLC',
+            title: 'A2P Brand Rejected in GoHighLevel: What It Means and How to Fix It (2026)',
+            excerpt: 'Your A2P brand registration was rejected by TCR, not GHL. This guide covers every confirmed brand rejection cause — EIN mismatch, new EIN, PO Box, entity type errors — with the exact fix for each.',
+            slug: 'a2p-brand-rejected-fix',
+            date: 'July 3, 2026',
+            readTime: '18 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'Heart',
             tag: 'Nonprofits',
             title: 'GoHighLevel for Nonprofits: Donor Management and Fundraising (2026)',
