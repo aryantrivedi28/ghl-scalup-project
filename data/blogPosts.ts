@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'ClipboardCheck',
+            tag: 'A2P 10DLC',
+            title: 'A2P Opt-In Language for GoHighLevel: Copy-Paste Templates (2026)',
+            excerpt: 'Compliant A2P opt-in language for GoHighLevel forms marketing checkbox, non-marketing checkbox, Privacy Policy clause, and footer text. All templates sourced from GHL\'s official documentation.',
+            slug: 'a2p-opt-in-language-templates',
+            date: 'July 4, 2026',
+            readTime: '20 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'AlertOctagon',
             tag: 'A2P 10DLC',
             title: 'A2P Brand Rejected in GoHighLevel: What It Means and How to Fix It (2026)',
