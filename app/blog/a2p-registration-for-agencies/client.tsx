@@ -62,7 +62,7 @@ export default function A2PRegistrationForAgenciesClient() {
   const faqs = [
     {
       q: "Can I use one A2P registration for all my GoHighLevel clients?",
-      a: "No. Each client sub-account requires its own separate A2P brand registration tied to that client's legal business name and Tax ID. You cannot register your agency's brand and use it to cover multiple client sub-accounts with different business identities. TCR links every approved campaign to a specific brand identity — registering one brand for multiple distinct businesses misrepresents the sender identity, which is exactly what A2P registration exists to prevent. Each client is a separate brand registration and a separate campaign registration."
+      a: "No. Each client sub-account requires its own separate A2P brand registration tied to that client's legal business name and Tax ID. You cannot register your agency's brand and use it to cover multiple client sub-accounts with different business identities. TCR links every approved campaign to a specific brand identity registering one brand for multiple distinct businesses misrepresents the sender identity, which is exactly what A2P registration exists to prevent. Each client is a separate brand registration and a separate campaign registration."
     },
     {
       q: "How many brand registrations can I do with one email address?",
@@ -70,7 +70,7 @@ export default function A2PRegistrationForAgenciesClient() {
     },
     {
       q: "How many brand registrations can I verify with one mobile phone number?",
-      a: "One mobile phone number can be used for OTP verification for a maximum of 3 brand registrations across all TCR registrations ecosystem-wide — not just within GHL. For agencies with 4 or more clients, you need additional mobile phone numbers for OTP verification. The phone number used for OTP cannot be a LeadConnector, Twilio, or CPaaS number — it must be a real personal mobile number."
+      a: "One mobile phone number can be used for OTP verification for a maximum of 3 brand registrations across all TCR registrations ecosystem-wide not just within GHL. For agencies with 4 or more clients, you need additional mobile phone numbers for OTP verification. The phone number used for OTP cannot be a LeadConnector, Twilio, or CPaaS number it must be a real personal mobile number."
     },
     {
       q: "Is A2P registration part of GHL SaaS Mode onboarding?",
@@ -78,11 +78,11 @@ export default function A2PRegistrationForAgenciesClient() {
     },
     {
       q: "How do I track A2P registration status across multiple client sub-accounts?",
-      a: "GHL does not provide an agency-level dashboard showing the A2P registration status of all sub-accounts in one view as of the date of this guide — you may want to verify whether this has changed in GHL's current feature set. The recommended approach is to maintain an external tracking sheet with each client's sub-account name, brand registration date, brand approval status, campaign submission date, campaign approval status, and any rejection notes. Review the status of pending registrations every 2 to 3 business days during the review period."
+      a: "GHL does not provide an agency-level dashboard showing the A2P registration status of all sub-accounts in one view as of the date of this guide you may want to verify whether this has changed in GHL's current feature set. The recommended approach is to maintain an external tracking sheet with each client's sub-account name, brand registration date, brand approval status, campaign submission date, campaign approval status, and any rejection notes. Review the status of pending registrations every 2 to 3 business days during the review period."
     },
     {
       q: "Do I need to re-register when I add new phone numbers to an approved client sub-account?",
-      a: "No. Once a brand and campaign are approved for a sub-account, any additional phone numbers purchased for that sub-account are automatically registered under the same campaign. No new registration submission is needed. It may take several days for the new number's registration to complete — verify the current timing in GHL's Trust Center documentation as it can change."
+      a: "No. Once a brand and campaign are approved for a sub-account, any additional phone numbers purchased for that sub-account are automatically registered under the same campaign. No new registration submission is needed. It may take several days for the new number's registration to complete verify the current timing in GHL's Trust Center documentation as it can change."
     },
     {
       q: "Can GHL Scale Up handle A2P registration for all my agency's clients?",
@@ -104,14 +104,14 @@ export default function A2PRegistrationForAgenciesClient() {
 
   const limits = [
     { limit: 'Email: max 5 brands per address', meaning: 'One email address can only be used for up to 5 brand registrations across all TCR submissions ecosystem-wide.', workaround: 'For agencies with 6+ clients, use multiple email addresses. A common approach: use a Gmail alias system (agency+client1@gmail.com, agency+client2@gmail.com) or create dedicated email addresses per client group.' },
-    { limit: 'Phone: max 3 brands per number (OTP)', meaning: 'The mobile number used to verify identity during brand registration (via OTP) can be used for a maximum of 3 brand registrations ecosystem-wide — not just within GHL.', workaround: 'For agencies with 4+ clients, use different mobile numbers for OTP verification. Team members\' personal mobile numbers can be used as long as they are not Twilio or LeadConnector numbers.' },
+    { limit: 'Phone: max 3 brands per number (OTP)', meaning: 'The mobile number used to verify identity during brand registration (via OTP) can be used for a maximum of 3 brand registrations ecosystem-wide not just within GHL.', workaround: 'For agencies with 4+ clients, use different mobile numbers for OTP verification. Team members\' personal mobile numbers can be used as long as they are not Twilio or LeadConnector numbers.' },
     { limit: 'OTP phone must not be a CPaaS number', meaning: 'The mobile number used for OTP cannot be a number purchased through LeadConnector, Twilio, or any CPaaS provider.', workaround: 'Use a real personal mobile number, not a GHL or Twilio number, for OTP verification steps.' },
     { limit: 'Sole Prop: 1 phone number per campaign', meaning: 'Sole Proprietor brand registrations are limited to one phone number per campaign. Multiple numbers need separate campaign linkage.', workaround: 'For clients who need multiple numbers, Standard Brand registration (requires EIN) supports multiple numbers per campaign without this limitation.' },
     { limit: 'Registration is per sub-account, not per agency', meaning: 'A2P registration is done from inside each client\'s sub-account Trust Center. There is no agency-level bulk registration dashboard.', workaround: 'Build a systematic checklist and collect all client information before logging into each sub-account to register. See Section 4 for the recommended workflow.' }
   ];
 
   const clientInfo = [
-    { info: 'Legal business name (exactly as filed with IRS)', why: 'Must match the EIN record exactly — character for character, including LLC, Inc, or Corp suffix', flag: 'Clients often provide their trading name, not legal name. Ask for their CP 575 or 147c letter.' },
+    { info: 'Legal business name (exactly as filed with IRS)', why: 'Must match the EIN record exactly character for character, including LLC, Inc, or Corp suffix', flag: 'Clients often provide their trading name, not legal name. Ask for their CP 575 or 147c letter.' },
     { info: 'EIN (for Standard Brand)', why: 'Required for Standard Brand registration. Must be 9-digit format XX-XXXXXXX, not DUNS.', flag: 'Clients sometimes provide state registration numbers or DUNS numbers. Clarify you need the federal EIN.' },
     { info: 'Physical business address', why: 'Must be a physical street address. PO Boxes cause rejection for Standard Brand.', flag: 'Many clients use a PO Box as their mailing address. Get the physical registered address.' },
     { info: 'Business website URL', why: 'Carriers verify the website matches the claimed use case and business type.', flag: 'Client website must be live and publicly accessible before submitting. No "coming soon" pages.' },
@@ -119,15 +119,15 @@ export default function A2PRegistrationForAgenciesClient() {
     { info: 'Opt-in form URL or screenshot', why: 'Publicly accessible URL showing the consent form with correct checkbox language.', flag: 'Form is often behind a login or embedded in a funnel not yet live. Must be publicly accessible for carrier review.' },
     { info: 'Privacy Policy URL and Terms of Service URL', why: 'Both required in campaign registration. Must include the required no-mobile-data-sharing clause.', flag: 'Clients often have outdated Privacy Policies without the required SMS data clause.' },
     { info: 'Client email address (for OTP verification)', why: 'Must be a valid email the client can access for the OTP step during registration.', flag: 'Use your own agency email for up to 5 clients, then switch to client-specific emails for subsequent registrations.' },
-    { info: 'Mobile number for OTP (Sole Prop only)', why: 'Personal mobile number required for OTP — cannot be a GHL or Twilio number.', flag: 'Sole Prop clients must provide their personal mobile, not a business VoIP number.' }
+    { info: 'Mobile number for OTP (Sole Prop only)', why: 'Personal mobile number required for OTP cannot be a GHL or Twilio number.', flag: 'Sole Prop clients must provide their personal mobile, not a business VoIP number.' }
   ];
 
   const fees = [
-    { fee: 'Brand registration fee', timing: 'One-time, at registration', perClient: 'Per client sub-account — each registration is billed separately', verify: 'GHL Trust Center — current fee schedules' },
+    { fee: 'Brand registration fee', timing: 'One-time, at registration', perClient: 'Per client sub-account each registration is billed separately', verify: 'GHL Trust Center current fee schedules' },
     { fee: 'Campaign vetting fee ($15 per campaign)', timing: 'One-time, at campaign submission', perClient: 'Per campaign per sub-account', verify: 'GHL Trust Center' },
     { fee: 'Monthly campaign fee (recurring)', timing: 'Monthly while campaign is active', perClient: 'Per campaign per sub-account', verify: 'GHL Trust Center' },
     { fee: 'Carrier per-message charges', timing: 'Per SMS/MMS segment sent', perClient: 'Per sub-account based on their sending volume', verify: 'GHL sub-account billing' },
-    { fee: 'Resubmission (if rejected and edited)', timing: 'No additional fee to edit and resubmit', perClient: 'Per sub-account — but only if editing existing registration, not deleting and recreating', verify: 'GHL official documentation' }
+    { fee: 'Resubmission (if rejected and edited)', timing: 'No additional fee to edit and resubmit', perClient: 'Per sub-account but only if editing existing registration, not deleting and recreating', verify: 'GHL official documentation' }
   ];
 
   return (
@@ -202,7 +202,7 @@ export default function A2PRegistrationForAgenciesClient() {
                 <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Direct Answer</span>
               </div>
               <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
-                No — you cannot register one A2P brand for multiple client sub-accounts in GoHighLevel. Each brand registration represents one business entity.
+                No you cannot register one A2P brand for multiple client sub-accounts in GoHighLevel. Each brand registration represents one business entity.
               </p>
               <p className="text-sm text-[#5C6880] leading-relaxed">
                 Each client sub-account requires its own brand registration tied to that client's legal business name and Tax ID. Campaign registration follows automatically per sub-account once the brand is approved. There are practical limits agencies need to plan for: one email address can be used for a maximum of 5 brand registrations, and one mobile phone number can be used for OTP verification across a maximum of 3 brand registrations ecosystem-wide. For agencies with more than 3 to 5 clients, you will need multiple email addresses and phone numbers before you start.
@@ -233,10 +233,10 @@ export default function A2PRegistrationForAgenciesClient() {
               1. Why Does Every Client Sub-Account Need Its Own A2P Registration?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              GoHighLevel's sub-account architecture gives each client a fully isolated workspace — their own CRM, automations, funnels, and phone numbers. That isolation extends to A2P registration. The Campaign Registry (TCR) links every registered campaign to a specific brand identity (business name, EIN, address). When your client's phone number sends an SMS, TCR's system verifies that the sending number is registered under an approved brand and campaign that belongs to that specific business.
+              GoHighLevel's sub-account architecture gives each client a fully isolated workspace their own CRM, automations, funnels, and phone numbers. That isolation extends to A2P registration. The Campaign Registry (TCR) links every registered campaign to a specific brand identity (business name, EIN, address). When your client's phone number sends an SMS, TCR's system verifies that the sending number is registered under an approved brand and campaign that belongs to that specific business.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Registering your agency's own brand and using it to cover your clients' sub-accounts would mean all of your clients' messages appear to TCR as coming from your agency, not from the client business. This misrepresents the sender identity — which is exactly what A2P registration exists to prevent. Each client is a legally distinct business with its own identity, and TCR requires that identity to match.
+              Registering your agency's own brand and using it to cover your clients' sub-accounts would mean all of your clients' messages appear to TCR as coming from your agency, not from the client business. This misrepresents the sender identity which is exactly what A2P registration exists to prevent. Each client is a legally distinct business with its own identity, and TCR requires that identity to match.
             </p>
 
             <p className="text-sm text-[#5C6880] leading-relaxed mb-2">
@@ -252,7 +252,7 @@ export default function A2PRegistrationForAgenciesClient() {
                 <span className="text-sm font-bold text-[#F8D000]">ONE EXCEPTION THAT AGENCIES ASK ABOUT</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                What if all my sub-accounts are for the same business under the same EIN — for example, separate sub-accounts for each sales rep at one company? This is a confirmed pain point. There is an open feature request on GHL's Ideas board requesting the ability to select multiple sub-accounts under one brand and campaign registration. As of the date of this guide, this feature does not exist — separate registrations are required per sub-account even when the underlying business entity is the same. Check GHL's feature release notes for any updates to this limitation, as it is an actively requested change.
+                What if all my sub-accounts are for the same business under the same EIN for example, separate sub-accounts for each sales rep at one company? This is a confirmed pain point. There is an open feature request on GHL's Ideas board requesting the ability to select multiple sub-accounts under one brand and campaign registration. As of the date of this guide, this feature does not exist separate registrations are required per sub-account even when the underlying business entity is the same. Check GHL's feature release notes for any updates to this limitation, as it is an actively requested change.
               </p>
             </div>
 
@@ -328,12 +328,12 @@ export default function A2PRegistrationForAgenciesClient() {
             <ul className="space-y-3 mb-4 text-sm text-[#5C6880] list-decimal list-inside">
               <li><strong className="text-[#1A2236]">Build a client intake form.</strong> Create a GHL form or a simple document that every new client completes before you begin registration. Include every field from the table in Section 3. Send it to the client and do not begin registration until you have all answers. Missing information discovered mid-registration wastes review cycles.</li>
               <li><strong className="text-[#1A2236]">Verify the EIN before submitting.</strong> Ask the client to provide their CP 575 EIN Confirmation Letter as a complete PDF. Since GHL now allows direct CP 575 upload in the Trust Center (fields auto-fill from the document), this step simultaneously prevents EIN mismatch rejection and speeds up data entry. Verify the legal name on the CP 575 matches exactly what will be entered in the registration form.</li>
-              <li><strong className="text-[#1A2236]">Update the client's website Privacy Policy before opening the Trust Center.</strong> Check that the Privacy Policy includes the required no-mobile-data-sharing clause. Check that both Privacy Policy and Terms of Service links are live and accessible without login. Fix these first — they cannot be added retroactively after submission without potentially requiring a new review cycle.</li>
-              <li><strong className="text-[#1A2236]">Log into the client's sub-account and open Settings — Phone Numbers — Trust Center.</strong> A2P registration is done from inside the client's sub-account, not from your agency-level dashboard. Navigate: Settings, then Phone System, then Trust Center. Click Start Registration under A2P Messaging.</li>
+              <li><strong className="text-[#1A2236]">Update the client's website Privacy Policy before opening the Trust Center.</strong> Check that the Privacy Policy includes the required no-mobile-data-sharing clause. Check that both Privacy Policy and Terms of Service links are live and accessible without login. Fix these first they cannot be added retroactively after submission without potentially requiring a new review cycle.</li>
+              <li><strong className="text-[#1A2236]">Log into the client's sub-account and open Settings Phone Numbers Trust Center.</strong> A2P registration is done from inside the client's sub-account, not from your agency-level dashboard. Navigate: Settings, then Phone System, then Trust Center. Click Start Registration under A2P Messaging.</li>
               <li><strong className="text-[#1A2236]">Upload the CP 575 PDF first.</strong> If the Trust Center shows a CP 575 upload option, upload the complete PDF before entering any details manually. GHL will auto-fill the business name, EIN, and address from the document. This reduces manual data entry errors.</li>
-              <li><strong className="text-[#1A2236]">Complete brand registration and handle OTP.</strong> Use a unique email address (your own for the first 5 clients) and a mobile number that has not been used for more than 2 previous brand registrations. Verify via OTP immediately — do not leave the OTP step pending, as it may expire.</li>
+              <li><strong className="text-[#1A2236]">Complete brand registration and handle OTP.</strong> Use a unique email address (your own for the first 5 clients) and a mobile number that has not been used for more than 2 previous brand registrations. Verify via OTP immediately do not leave the OTP step pending, as it may expire.</li>
               <li><strong className="text-[#1A2236]">Track registration status in a shared log.</strong> Create a simple tracking sheet with each client's sub-account name, brand registration date, brand status, campaign status, and any rejection notes. Review pending registrations every 2 to 3 business days during the review period.</li>
-              <li><strong className="text-[#1A2236]">Add new phone numbers to approved accounts without resubmission.</strong> Once brand and campaign are approved, any additional phone numbers purchased for that sub-account are automatically registered under the same campaign. No new registration submission is needed. It may take several days for registration to complete on newly added numbers — confirm this timing in GHL's current documentation as it can change.</li>
+              <li><strong className="text-[#1A2236]">Add new phone numbers to approved accounts without resubmission.</strong> Once brand and campaign are approved, any additional phone numbers purchased for that sub-account are automatically registered under the same campaign. No new registration submission is needed. It may take several days for registration to complete on newly added numbers confirm this timing in GHL's current documentation as it can change.</li>
             </ul>
 
             <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
@@ -342,7 +342,7 @@ export default function A2PRegistrationForAgenciesClient() {
                 <span className="text-sm font-bold text-[#0E9BF0]">THE SINGLE BIGGEST TIME SAVER</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                Standardise your intake form before you register your first client. Every agency that processes A2P registrations without a standard intake form eventually encounters the same delays: EIN not available, website not live, Privacy Policy not updated, opt-in form behind a login. A 10-minute intake process per client eliminates most of these. The review period (3 to 7 business days per registration) is the unavoidable wait — everything else is controllable.
+                Standardise your intake form before you register your first client. Every agency that processes A2P registrations without a standard intake form eventually encounters the same delays: EIN not available, website not live, Privacy Policy not updated, opt-in form behind a login. A 10-minute intake process per client eliminates most of these. The review period (3 to 7 business days per registration) is the unavoidable wait everything else is controllable.
               </p>
             </div>
 
@@ -351,12 +351,12 @@ export default function A2PRegistrationForAgenciesClient() {
               5. How Does A2P Registration Work With GoHighLevel SaaS Mode?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              If you operate under GHL SaaS Mode, your clients self-sign-up and their sub-accounts are provisioned automatically. A2P registration is not part of the automated provisioning flow — it is a separate step that must be completed after the sub-account is created.
+              If you operate under GHL SaaS Mode, your clients self-sign-up and their sub-accounts are provisioned automatically. A2P registration is not part of the automated provisioning flow it is a separate step that must be completed after the sub-account is created.
             </p>
 
             <ul className="space-y-2 mb-4 text-sm text-[#5C6880] list-disc list-inside">
               <li><strong className="text-[#1A2236]">A2P is not included in SaaS Mode onboarding by default:</strong> When a client signs up through your SaaS Mode pricing page and their sub-account is created from your Snapshot, no A2P registration is submitted automatically. You or the client must complete registration separately for each sub-account.</li>
-              <li><strong className="text-[#1A2236]">Two approaches for SaaS agencies:</strong> (1) Agency-managed registration: you complete A2P registration for each new client sub-account as part of your onboarding service, charging a setup fee. (2) Client-managed registration: you provide clients with instructions or a guide and they complete their own Trust Center registration. Client-managed registration results in more errors — agency-managed produces fewer rejections.</li>
+              <li><strong className="text-[#1A2236]">Two approaches for SaaS agencies:</strong> (1) Agency-managed registration: you complete A2P registration for each new client sub-account as part of your onboarding service, charging a setup fee. (2) Client-managed registration: you provide clients with instructions or a guide and they complete their own Trust Center registration. Client-managed registration results in more errors agency-managed produces fewer rejections.</li>
               <li><strong className="text-[#1A2236]">Rebilling A2P fees:</strong> A2P registration and monthly campaign fees are passthrough charges from TCR and carriers. GHL passes these through at cost with no markup. If you charge clients a setup fee for A2P registration management, this is separate from the passthrough fee. Be clear with clients about which fees are passthrough (they pay for the registration itself) and which are your agency's management fee. For the full fee breakdown: <Link href="/blog/a2p-10dlc-fees-explained" className="text-[#0E9BF0] hover:underline">A2P 10DLC Fees Explained →</Link></li>
               <li><strong className="text-[#1A2236]">For the full SaaS Mode configuration guide:</strong> <Link href="/blog/gohighlevel-saas-mode-setup" className="text-[#0E9BF0] hover:underline">GoHighLevel SaaS Mode Setup Guide →</Link></li>
             </ul>
@@ -366,7 +366,7 @@ export default function A2PRegistrationForAgenciesClient() {
               6. What Does It Cost to Register Multiple Clients?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              All A2P fees are passthrough charges — GHL adds no markup. Fees are set by TCR and the carriers. Verify current fee amounts in GHL's Trust Center before quoting clients, as these can change.
+              All A2P fees are passthrough charges GHL adds no markup. Fees are set by TCR and the carriers. Verify current fee amounts in GHL's Trust Center before quoting clients, as these can change.
             </p>
 
             <div className="overflow-x-auto my-6">
@@ -398,7 +398,7 @@ export default function A2PRegistrationForAgenciesClient() {
                 <span className="text-sm font-bold text-[#F8D000]">SCALE THE MATH BEFORE YOU QUOTE CLIENTS</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                For a 20-client agency, you are looking at 20 separate brand registrations, 20 campaign vetting fees, and 20 monthly campaign fees — in addition to per-message usage charges for each client's sending volume. Build this cost into your client onboarding fee and monthly retainer. Most agencies either pass the fees through directly at cost or include them in a bundled setup fee. Never absorb these costs silently — they are real, per-client, recurring charges.
+                For a 20-client agency, you are looking at 20 separate brand registrations, 20 campaign vetting fees, and 20 monthly campaign fees in addition to per-message usage charges for each client's sending volume. Build this cost into your client onboarding fee and monthly retainer. Most agencies either pass the fees through directly at cost or include them in a bundled setup fee. Never absorb these costs silently they are real, per-client, recurring charges.
               </p>
             </div>
 
@@ -408,7 +408,7 @@ export default function A2PRegistrationForAgenciesClient() {
                 <span className="text-sm font-bold text-[#F8D000]">NEED YOUR AGENCY'S CLIENT REGISTRATIONS MANAGED</span>
               </div>
               <p className="text-sm text-white/80 leading-relaxed mb-3">
-                GHL Scale Up handles A2P registration for agencies and all their client sub-accounts. Intake process, EIN verification, brand registration, campaign submission, rejection troubleshooting, and resubmission — managed for every client.
+                GHL Scale Up handles A2P registration for agencies and all their client sub-accounts. Intake process, EIN verification, brand registration, campaign submission, rejection troubleshooting, and resubmission managed for every client.
               </p>
               <p className="text-sm text-white/80 leading-relaxed mb-3">
                 See results from our A2P setups: <Link href="/case-studies" className="text-[#0E9BF0] hover:underline">real GoHighLevel results and case studies →</Link>
@@ -454,7 +454,7 @@ export default function A2PRegistrationForAgenciesClient() {
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Managing A2P registration across multiple clients?</h3>
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
-                  GHL Scale Up handles A2P registration for your entire client base. Client intake process, EIN verification, brand registration, campaign submission, rejection troubleshooting — managed per sub-account for every client.
+                  GHL Scale Up handles A2P registration for your entire client base. Client intake process, EIN verification, brand registration, campaign submission, rejection troubleshooting managed per sub-account for every client.
                 </p>
                 <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
                   Book Your Free Strategy Call
@@ -479,7 +479,7 @@ export default function A2PRegistrationForAgenciesClient() {
                 </div>
               </div>
               <p className="text-xs text-[#5C6880] leading-relaxed">
-                All information in this guide is verified against GoHighLevel's official support portal documentation as of July 2026. GHL feature availability and TCR policies may change — always verify current requirements in GHL's Trust Center before acting.
+                All information in this guide is verified against GoHighLevel's official support portal documentation as of July 2026. GHL feature availability and TCR policies may change always verify current requirements in GHL's Trust Center before acting.
               </p>
               <Link href="/" className="text-[#0E9BF0] text-xs hover:underline mt-2 inline-block">ghlscaleup.com</Link>
             </div>
@@ -534,7 +534,7 @@ export default function A2PRegistrationForAgenciesClient() {
 
             <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
               <div className="text-sm font-bold text-white mb-2">Multiple Clients to Register?</div>
-              <p className="text-xs text-white/60 leading-relaxed mb-4">We handle A2P registration for agencies and all their client sub-accounts — intake, EIN verification, brand and campaign registration, and rejection troubleshooting.</p>
+              <p className="text-xs text-white/60 leading-relaxed mb-4">We handle A2P registration for agencies and all their client sub-accounts intake, EIN verification, brand and campaign registration, and rejection troubleshooting.</p>
               <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
                 Get Help
                 <ArrowRight className="w-3 h-3" />
