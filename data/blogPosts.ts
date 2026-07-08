@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+  icon: 'Users',
+  tag: 'A2P 10DLC',
+  title: 'A2P Registration for GoHighLevel Agencies: Managing Multiple Clients (2026)',
+  excerpt: 'Every GHL client sub-account needs its own A2P brand and campaign registration. This agency guide covers the per-sub-account rule, email and phone limits, fee structure, and how to manage registrations at scale.',
+  slug: 'a2p-registration-for-agencies',
+  date: 'July 7, 2026',
+  readTime: '20 min read',
+  featured: true,
+  image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=500&fit=crop',
+},
+      {
             icon: 'ClipboardCheck',
             tag: 'A2P 10DLC',
             title: 'A2P Opt-In Language for GoHighLevel: Copy-Paste Templates (2026)',
