@@ -2,9 +2,10 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import RazorpayPayment from '@/components/razorpay/RazorpayPayment';
+import { useRouter } from 'next/navigation';
 
 const PricingPage = () => {
+  const router = useRouter();
   const [selectedPlan, setSelectedPlan] = useState<string>('pro');
 
   const plans = [
@@ -58,17 +59,9 @@ const PricingPage = () => {
     },
   ];
 
-  const handlePaymentSuccess = (data: any) => {
-    console.log('Payment successful:', data);
-    // Redirect to success page or show success message
-    setTimeout(() => {
-      window.location.href = '/payment-success';
-    }, 1500);
-  };
-
-  const handlePaymentFailure = (error: any) => {
-    console.log('Payment failed:', error);
-    // Show error message or redirect to failure page
+  const handlePlanSelect = (planId: string, price: number) => {
+    setSelectedPlan(planId);
+    router.push(`/pay?amount=${price}&plan=${planId}`);
   };
 
   return (
@@ -123,18 +116,17 @@ const PricingPage = () => {
                 ))}
               </ul>
 
-              {/* <RazorpayPayment
-                amount={plan.price}
-                buttonText={`Get Started - ₹${plan.price}`}
-                planDescription={`GoHighLevel ${plan.name}`}
-                onSuccess={handlePaymentSuccess}
-                onFailure={handlePaymentFailure}
-                userDetails={{
-                  name: 'Agency Owner',
-                  email: 'agency@example.com',
-                  contact: '9876543210',
-                }}
-              /> */}
+              {/* Payment Button */}
+              <button
+                onClick={() => handlePlanSelect(plan.id, plan.price)}
+                className={`w-full py-3 rounded-lg text-sm font-semibold transition-all hover:-translate-y-0.5 ${
+                  plan.popular
+                    ? 'bg-[#F8D000] text-[#0B1421] hover:bg-[#FFE44D]'
+                    : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
+                }`}
+              >
+                Get Started - ${plan.price}
+              </button>
             </div>
           ))}
         </div>
