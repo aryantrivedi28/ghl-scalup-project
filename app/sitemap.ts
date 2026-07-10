@@ -243,11 +243,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
     {
-  url: `${baseUrl}/blog/a2p-registration-for-agencies`,
-  lastModified: new Date('2026-07-07'),
-  changeFrequency: 'monthly',
-  priority: 0.8,  // P1 blog
-},
+      url: `${baseUrl}/blog/a2p-10dlc-fees-explained`,
+      lastModified: new Date('2026-07-10'),
+      changeFrequency: 'monthly',
+      priority: 0.8,  // P1 blog
+    },
+    {
+      url: `${baseUrl}/blog/a2p-registration-for-agencies`,
+      lastModified: new Date('2026-07-07'),
+      changeFrequency: 'monthly',
+      priority: 0.8,  // P1 blog
+    },
     {
       url: `${baseUrl}/blog/a2p-opt-in-language-templates`,
       lastModified: new Date('2026-07-04'),
