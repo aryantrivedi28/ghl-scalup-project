@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'AlertOctagon',
+            tag: 'A2P 10DLC',
+            title: 'A2P Error Codes 30882, 30883, 30886 and 30898 Explained (GoHighLevel 2026)',
+            excerpt: 'Your A2P campaign was rejected with an error code. This guide covers what 30882, 30883, 30886, and 30898 mean, which ones can be fixed and resubmitted, and exactly what to change. Sourced from Twilio\'s official docs.',
+            slug: 'a2p-error-codes-explained',
+            date: 'July 11, 2026',
+            readTime: '18 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'DollarSign',
             tag: 'A2P 10DLC',
             title: 'A2P 10DLC Fees Explained: Registration, Monthly and Carrier Costs (2026)',

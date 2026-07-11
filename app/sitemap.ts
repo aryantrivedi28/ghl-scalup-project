@@ -243,6 +243,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
     {
+      url: `${baseUrl}/blog/a2p-error-codes-explained`,
+      lastModified: new Date('2026-07-11'),
+      changeFrequency: 'monthly',
+      priority: 0.7,  // P2 blog
+    },
+    {
       url: `${baseUrl}/blog/a2p-10dlc-fees-explained`,
       lastModified: new Date('2026-07-10'),
       changeFrequency: 'monthly',
