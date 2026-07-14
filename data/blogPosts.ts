@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Gauge',
+            tag: 'A2P 10DLC',
+            title: 'A2P Trust Score and MPS Explained for GoHighLevel Users (2026)',
+            excerpt: 'Your A2P Trust Score determines how many SMS you can send per second and your T-Mobile daily limit. This guide explains how Trust Scores work, who gets one, how MPS is calculated, and how to appeal a low score.',
+            slug: 'a2p-trust-score-mps',
+            date: 'July 13, 2026',
+            readTime: '18 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'AlertOctagon',
             tag: 'A2P 10DLC',
             title: 'A2P Error Codes 30882, 30883, 30886 and 30898 Explained (GoHighLevel 2026)',
