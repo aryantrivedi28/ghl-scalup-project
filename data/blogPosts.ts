@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Phone',
+            tag: 'A2P 10DLC',
+            title: 'Toll-Free vs A2P 10DLC in GoHighLevel: Which Should You Choose? (2026)',
+            excerpt: 'Toll-free numbers bypass A2P 10DLC registration but still need verification. A2P 10DLC gives higher MPS and a local-looking number. Full comparison of cost, approval time, deliverability, and use cases for GHL users.',
+            slug: 'toll-free-vs-a2p-10dlc-gohighlevel',
+            date: 'July 14, 2026',
+            readTime: '19 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'Gauge',
             tag: 'A2P 10DLC',
             title: 'A2P Trust Score and MPS Explained for GoHighLevel Users (2026)',

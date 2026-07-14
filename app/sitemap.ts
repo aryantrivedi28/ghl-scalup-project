@@ -243,6 +243,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
     {
+      url: `${baseUrl}/blog/toll-free-vs-a2p-10dlc-gohighlevel`,
+      lastModified: new Date('2026-07-14'),
+      changeFrequency: 'monthly',
+      priority: 0.7,  // P2 blog
+    },
+    {
       url: `${baseUrl}/blog/a2p-trust-score-mps`,
       lastModified: new Date('2026-07-13'),
       changeFrequency: 'monthly',
