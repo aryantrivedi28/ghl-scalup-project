@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+  icon: 'MapPin',
+  tag: 'A2P 10DLC',
+  title: 'A2P 10DLC for Canadian Numbers in GoHighLevel: 2026 Requirements Guide',
+  excerpt: 'A2P requirements for Canadian GHL numbers depend on two things: where you are sending (Canada vs US) and when the number was purchased (before or after March 26, 2025). Full decision guide.',
+  slug: 'a2p-10dlc-canadian-numbers',
+  date: 'July 15, 2026',
+  readTime: '17 min read',
+  featured: true,
+  image: 'https://images.unsplash.com/photo-1529511582893-2d7e684dd128?w=800&h=500&fit=crop',
+},
+      {
             icon: 'Phone',
             tag: 'A2P 10DLC',
             title: 'Toll-Free vs A2P 10DLC in GoHighLevel: Which Should You Choose? (2026)',
