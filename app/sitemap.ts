@@ -243,11 +243,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
     {
-  url: `${baseUrl}/blog/a2p-10dlc-canadian-numbers`,
-  lastModified: new Date('2026-07-15'),
-  changeFrequency: 'monthly',
-  priority: 0.6,  // P3 blog
-},
+      url: `${baseUrl}/blog/how-to-transfer-ghl-sub-account`,
+      lastModified: new Date('2026-07-16'),
+      changeFrequency: 'monthly',
+      priority: 0.9,  // P0 blog - high priority
+    },
+    {
+      url: `${baseUrl}/blog/a2p-10dlc-canadian-numbers`,
+      lastModified: new Date('2026-07-15'),
+      changeFrequency: 'monthly',
+      priority: 0.6,  // P3 blog
+    },
     {
       url: `${baseUrl}/blog/toll-free-vs-a2p-10dlc-gohighlevel`,
       lastModified: new Date('2026-07-14'),
