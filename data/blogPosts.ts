@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'FileSpreadsheet',
+            tag: 'Migration Guide',
+            title: 'Zoho to GoHighLevel Migration: Complete 2026 Step-by-Step Guide',
+            excerpt: 'Complete step-by-step guide to migrating from Zoho CRM to GoHighLevel in 2026. What transfers, what needs rebuilding, export limits, field mapping, and how to avoid data loss.',
+            slug: 'zoho-to-gohighlevel-migration',
+            date: 'July 18, 2026',
+            readTime: '24 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'IndianRupee',
             tag: 'India Agency',
             title: 'How Indian Agencies Are Building Recurring Revenue on GoHighLevel (2026)',

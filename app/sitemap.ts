@@ -243,6 +243,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
     {
+      url: `${baseUrl}/blog/zoho-to-gohighlevel-migration`,
+      lastModified: new Date('2026-07-18'),
+      changeFrequency: 'monthly',
+      priority: 0.8,  // P1 blog
+    },
+    {
       url: `${baseUrl}/blog/gohighlevel-india-agency`,
       lastModified: new Date('2026-07-17'),
       changeFrequency: 'monthly',
