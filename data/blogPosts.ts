@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'IndianRupee',
+            tag: 'India Agency',
+            title: 'How Indian Agencies Are Building Recurring Revenue on GoHighLevel (2026)',
+            excerpt: 'Publicly reported results, SaaS Mode math and honest verdicts for Indian agencies using GoHighLevel in 2026. Pricing in INR, DPDP compliance, WhatsApp, and what actually works.',
+            slug: 'gohighlevel-india-agency',
+            date: 'July 17, 2026',
+            readTime: '24 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'ArrowLeftRight',
             tag: 'GHL Migration',
             title: 'How to Transfer a GoHighLevel Sub-Account to Another Agency (2026)',

@@ -114,6 +114,7 @@ export default function BlogClient() {
       'Tutorial': 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]',
       'Features': 'bg-[rgba(37,201,125,0.12)] text-[#25C97D] border-[rgba(37,201,125,0.2)]',
       'Nonprofits': 'bg-[rgba(220,53,69,0.12)] text-[#DC3545] border-[rgba(220,53,69,0.2)]',
+      'India Agency': 'bg-[rgba(255,153,51,0.12)] text-[#FF9933] border-[rgba(255,153,51,0.2)]',
     };
     return colors[tag] || 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]';
   };
