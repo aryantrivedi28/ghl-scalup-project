@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'DatabaseIcon',
+            tag: 'Migration Guide',
+            title: 'Salesforce to GoHighLevel Migration: Complete 2026 Guide',
+            excerpt: 'Complete step-by-step guide to migrating from Salesforce to GoHighLevel in 2026. Object mapping, dependency-ordered export, workflow rebuild, and honest complexity assessment.',
+            slug: 'salesforce-to-gohighlevel-migration',
+            date: 'July 20, 2026',
+            readTime: '26 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'FileSpreadsheet',
             tag: 'Migration Guide',
             title: 'Zoho to GoHighLevel Migration: Complete 2026 Step-by-Step Guide',
