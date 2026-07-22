@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Tags',
+            tag: 'Migration Guide',
+            title: 'Keap to GoHighLevel Migration: Complete 2026 Step-by-Step Guide',
+            excerpt: 'Step-by-step guide to migrating from Keap (Infusionsoft) to GoHighLevel in 2026. Contact export, Campaign Builder rebuild, tag mapping, and PlusThis replacements.',
+            slug: 'keap-to-gohighlevel-migration',
+            date: 'July 21, 2026',
+            readTime: '25 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'DatabaseIcon',
             tag: 'Migration Guide',
             title: 'Salesforce to GoHighLevel Migration: Complete 2026 Guide',
