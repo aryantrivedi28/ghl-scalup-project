@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'MailOpen',
+            tag: 'Migration Guide',
+            title: 'Mailchimp to GoHighLevel Migration: Complete 2026 Guide',
+            excerpt: 'Step-by-step guide to migrating from Mailchimp to GoHighLevel in 2026. Export audiences, rebuild automations, preserve deliverability, and unlock CRM plus SMS features.',
+            slug: 'mailchimp-to-gohighlevel-migration',
+            date: 'July 22, 2026',
+            readTime: '23 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'Tags',
             tag: 'Migration Guide',
             title: 'Keap to GoHighLevel Migration: Complete 2026 Step-by-Step Guide',

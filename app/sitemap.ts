@@ -243,6 +243,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
     {
+      url: `${baseUrl}/blog/mailchimp-to-gohighlevel-migration`,
+      lastModified: new Date('2026-07-22'),
+      changeFrequency: 'monthly',
+      priority: 0.7,  // P2 blog
+    },
+    {
       url: `${baseUrl}/blog/keap-to-gohighlevel-migration`,
       lastModified: new Date('2026-07-21'),
       changeFrequency: 'monthly',
