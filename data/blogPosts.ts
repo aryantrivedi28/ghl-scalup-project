@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Rocket',
+            tag: 'SaaS Growth',
+            title: 'How to Get Your First 10 GoHighLevel SaaS Clients (2026 Honest Guide)',
+            excerpt: 'An honest, tactical guide to getting your first 10 GoHighLevel SaaS clients in 2026. Six proven channels, realistic timelines, and what actually works for beginners with no network.',
+            slug: 'how-to-get-first-gohighlevel-saas-clients',
+            date: 'July 25, 2026',
+            readTime: '28 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'MailOpen',
             tag: 'Migration Guide',
             title: 'Mailchimp to GoHighLevel Migration: Complete 2026 Guide',
