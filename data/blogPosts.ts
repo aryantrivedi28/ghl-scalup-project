@@ -22,7 +22,7 @@ export const blogPosts: BlogPost[] = [
             date: 'July 22, 2026',
             readTime: '23 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: 'https://tse1.mm.bing.net/th/id/OIP.fk-UCHPXlru-0tXhJiH-hQHaEo?r=0&rs=1&pid=ImgDetMain&o=7&rm=3',
       },
       {
             icon: 'Tags',
@@ -33,7 +33,7 @@ export const blogPosts: BlogPost[] = [
             date: 'July 21, 2026',
             readTime: '25 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: 'https://tse3.mm.bing.net/th/id/OIP.xPquBwDfRl2mxM9W3rk-3wHaEL?r=0&rs=1&pid=ImgDetMain&o=7&rm=3',
       },
       {
             icon: 'DatabaseIcon',
@@ -44,7 +44,7 @@ export const blogPosts: BlogPost[] = [
             date: 'July 20, 2026',
             readTime: '26 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: 'https://tse1.mm.bing.net/th/id/OIP._jevgUNK1jelvc0qGzi82QHaEL?r=0&rs=1&pid=ImgDetMain&o=7&rm=3',
       },
       {
             icon: 'FileSpreadsheet',
@@ -55,7 +55,7 @@ export const blogPosts: BlogPost[] = [
             date: 'July 18, 2026',
             readTime: '24 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: 'https://th.bing.com/th/id/OIP.Bu0UMU61oMFLJdoMn6BfiQHaEL?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3',
       },
       {
             icon: 'IndianRupee',
@@ -77,7 +77,7 @@ export const blogPosts: BlogPost[] = [
             date: 'July 16, 2026',
             readTime: '22 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: 'https://i.ytimg.com/vi/EPv1mCooLi4/maxresdefault.jpg',
       },
       {
             icon: 'MapPin',

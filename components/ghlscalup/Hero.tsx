@@ -4,6 +4,7 @@
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import BookingModal from '../BookingModal'
+import { Button } from '../ui/button'
 
 const Hero = () => {
   const sectionRef = useRef<HTMLElement>(null)
@@ -56,13 +57,13 @@ const Hero = () => {
               </p>
 
               <div className="flex flex-wrap gap-3 mb-6">
-                <Link
-                  // onClick={() => setOpenBooking(true)}
-                  href="/contact-us"
+                <Button
+                  onClick={() => setOpenBooking(true)}
+                  // href="/contact-us"
                   className="bg-[#F8D000] text-[#0B1421] px-6 py-3 rounded-lg text-sm font-semibold hover:bg-[#FFE44D] hover:-translate-y-0.5 transition-all cursor-pointer"
                 >
                   Schedule My Discovery Call →
-                </Link>
+                </Button>
                 <Link
                   href="/services"
                   className="bg-transparent text-white px-6 py-3 rounded-lg text-sm font-medium border border-white/20 hover:border-white/40 hover:bg-white/5 transition-all"
