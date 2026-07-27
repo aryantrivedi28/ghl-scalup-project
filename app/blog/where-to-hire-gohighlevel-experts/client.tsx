@@ -35,7 +35,11 @@ import {
   Filter,
   Facebook,
   Linkedin as LinkedInIcon,
-  Trophy
+  Trophy,
+  Rocket,
+  Target,
+  BarChart3,
+  HeartHandshake
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
 
@@ -207,6 +211,25 @@ export default function WhereToHireGHLExpertsClient() {
             you two months and needs to be rebuilt. This guide covers every channel,
             what each one is best for, and exactly what to check before you hand over your GHL account.
           </p>
+
+          {/* CTA Button 1: Hero Section */}
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105"
+            >
+              <Rocket className="w-4 h-4" />
+              Need a GHL Expert? Let's Talk
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              href="#agencies"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20"
+            >
+              See Top Agencies
+              <ChevronDown className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -233,6 +256,18 @@ export default function WhereToHireGHLExpertsClient() {
                 a specialist agency is the most reliable option. For small, defined tasks, vetted freelancers on
                 Upwork are cost-effective.
               </p>
+
+              {/* CTA Button 2: Inside TL;DR Box */}
+              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                >
+                  <Target className="w-4 h-4" />
+                  Find Your Perfect GHL Match
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
             </div>
 
             {/* Table of Contents */}
@@ -289,6 +324,21 @@ export default function WhereToHireGHLExpertsClient() {
                 Certification confirms platform knowledge not delivery quality, project management skills, or communication standards.
                 <strong className="text-[#1A2236]"> Certification is a filter, not a guarantee.</strong> Always apply the vetting checklist in Section 8 regardless of certification status.
               </p>
+            </div>
+
+            {/* CTA Button 3: After Official Directory */}
+            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 mb-8 text-center">
+              <p className="text-white/80 text-sm mb-3">
+                <span className="font-bold text-white">Don't want to filter through 478+ profiles?</span> Let our team find the right expert for you.
+              </p>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+              >
+                <BarChart3 className="w-4 h-4" />
+                Get Expert Matching
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
 
             {/* Section 2: Upwork */}
@@ -373,6 +423,20 @@ export default function WhereToHireGHLExpertsClient() {
               </p>
             </div>
 
+            {/* CTA Button 4: After Facebook Groups */}
+            <div className="bg-gradient-to-r from-[#0E9BF0] to-[#0C8AD8] rounded-xl p-6 text-center text-white mb-8">
+              <p className="text-sm font-medium mb-2">🤝 Don't have time to post and vet in Facebook groups?</p>
+              <p className="text-sm text-white/80 mb-4">Our team has already vetted the best GHL experts across all platforms.</p>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 bg-white text-[#0E9BF0] font-bold px-6 py-2.5 rounded-lg hover:bg-[#F8F9FB] transition-all hover:shadow-lg hover:scale-105 text-sm"
+              >
+                <HeartHandshake className="w-4 h-4" />
+                Get Pre-Vetted Experts
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
             {/* Section 5: Clutch, LinkedIn */}
             <h2 id="clutch-linkedin" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               5. Clutch, B2B Review Platforms and LinkedIn
@@ -440,6 +504,20 @@ export default function WhereToHireGHLExpertsClient() {
               → For a full comparison of the best GHL agencies, see our article: <Link href="/blog/best-ghl-expert-agency" className="text-[#0E9BF0] hover:underline">Best GHL Expert Agency to Hire in 2026 →</Link>
             </p>
 
+            {/* CTA Button 5: After Agencies Section */}
+            <div className="bg-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
+              <p className="text-sm font-medium mb-2">🚀 Ready to stop searching and start building?</p>
+              <p className="text-sm text-white/80 mb-4">Get your GHL system built by experts who've done it 200+ times.</p>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+              >
+                <Zap className="w-4 h-4" />
+                Start Your GHL Build
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
             {/* Section 7: Comparison Table */}
             <h2 id="comparison-table" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               7. Comparing All 6 Options: Cost, Quality, Speed
@@ -487,6 +565,20 @@ export default function WhereToHireGHLExpertsClient() {
               ))}
             </div>
 
+            {/* CTA Button 6: Before Red Flags */}
+            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
+              <p className="text-sm font-medium mb-2">🔍 Not sure if your shortlisted expert passes these tests?</p>
+              <p className="text-sm text-white/80 mb-4">Let us review your expert for free and tell you if they're the right fit.</p>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+              >
+                <Search className="w-4 h-4" />
+                Get a Free Expert Review
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
             {/* Section 9: Red Flags */}
             <h2 id="red-flags" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               9. Red Flags to Walk Away From
@@ -510,6 +602,29 @@ export default function WhereToHireGHLExpertsClient() {
               ))}
             </div>
 
+            {/* CTA Button 7: After Red Flags */}
+            <div className="mt-8 p-6 bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl text-center">
+              <p className="text-white font-bold text-lg mb-2">⚠️ Found a red flag in your shortlist?</p>
+              <p className="text-white/60 text-sm mb-4">Skip the risk. Work with a team that has zero red flags and 200+ happy clients.</p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                >
+                  <Shield className="w-4 h-4" />
+                  Hire a Trusted Team
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link
+                  href="/blog/best-ghl-expert-agency"
+                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-white/20 transition-all border border-white/20 text-sm"
+                >
+                  <Trophy className="w-4 h-4" />
+                  See Top Agencies
+                </Link>
+              </div>
+            </div>
+
             {/* Section 10: FAQ */}
             <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
               10. Frequently Asked Questions
@@ -527,6 +642,29 @@ export default function WhereToHireGHLExpertsClient() {
               ))}
             </div>
 
+            {/* CTA Button 8: After FAQ */}
+            <div className="mt-8 p-6 bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl text-center">
+              <p className="text-white font-bold text-lg mb-2">Still Have Questions About Hiring?</p>
+              <p className="text-white/60 text-sm mb-4">Talk to our GHL experts directly. We're here to help you find the right solution.</p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  Ask an Expert
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-white/20 transition-all border border-white/20 text-sm"
+                >
+                  <Phone className="w-4 h-4" />
+                  Call Us
+                </Link>
+              </div>
+            </div>
+
             {/* Internal Links */}
             <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
               <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles in This Series</h3>
@@ -539,7 +677,7 @@ export default function WhereToHireGHLExpertsClient() {
               </div>
             </div>
 
-            {/* CTA Section */}
+            {/* Final CTA Section */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Already searched? Skip the guesswork.</h3>
@@ -547,7 +685,7 @@ export default function WhereToHireGHLExpertsClient() {
                   GHL Scale Up has built 200+ GHL systems. Yours could be next. CRM setup, workflow automation,
                   AI Voice Agent, SaaS Mode, and GHL migrations. 5–7 business day delivery, full documentation included.
                 </p>
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105">
                   Book Your Free Call
                   <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -555,7 +693,7 @@ export default function WhereToHireGHLExpertsClient() {
             </div>
           </main>
 
-          {/* Sidebar */}
+          {/* Sidebar - Fixed Sticky */}
           <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out">
             {/* Table of Contents - Sticky */}
             <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
@@ -586,7 +724,7 @@ export default function WhereToHireGHLExpertsClient() {
             </nav>
 
             {/* About the Author */}
-            <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-2">
+            <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
                   <img
@@ -609,7 +747,7 @@ export default function WhereToHireGHLExpertsClient() {
             </div>
 
             {/* CTA Card */}
-            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-2">
+            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
               <div className="text-sm font-bold text-white mb-2">Need a GHL Expert?</div>
               <p className="text-xs text-white/60 leading-relaxed mb-4">Skip the search. We've built 200+ GHL systems. Let's talk about yours.</p>
               <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
@@ -619,7 +757,7 @@ export default function WhereToHireGHLExpertsClient() {
             </div>
 
             {/* Share Buttons */}
-            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-2">
+            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Share this guide</div>
               <div className="flex gap-2 flex-wrap">
                 <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">

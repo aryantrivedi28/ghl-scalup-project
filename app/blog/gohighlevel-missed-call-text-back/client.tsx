@@ -1,4 +1,3 @@
-// app/blog/gohighlevel-missed-call-text-back/client.tsx
 'use client';
 
 import Link from 'next/link';
@@ -25,7 +24,13 @@ import {
       Award,
       Shield,
       FileText,
-      Target
+      Target,
+      Rocket,
+      BarChart3,
+      Sparkles,
+      TrendingUp,
+      Mail,
+      Search
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
 
@@ -224,6 +229,25 @@ export default function MissedCallTextBackClient() {
                                     GoHighLevel's missed call text back feature fixes this automatically, in 15 seconds,
                                     without any manual effort from your team.
                               </p>
+
+                              {/* CTA Button 1: Hero Section */}
+                              <div className="flex flex-wrap gap-3">
+                                    <Link
+                                          href="/contact"
+                                          className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105"
+                                    >
+                                          <Rocket className="w-4 h-4" />
+                                          Get Your GHL Audited
+                                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                    </Link>
+                                    <Link
+                                          href="#setup-guide"
+                                          className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20"
+                                    >
+                                          Jump to Setup
+                                          <ChevronDown className="w-4 h-4" />
+                                    </Link>
+                              </div>
                         </div>
                   </section>
 
@@ -247,6 +271,18 @@ export default function MissedCallTextBackClient() {
                                                 To set it up: go to Settings → Business Profile → scroll to Missed Call Text Back → toggle it on → write your message → save.
                                                 It takes 5 minutes and requires no workflow. Once active, it runs 24/7 on its own.
                                           </p>
+
+                                          {/* CTA Button 2: Inside TL;DR Box */}
+                                          <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
+                                                <Link
+                                                      href="/contact"
+                                                      className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                                                >
+                                                      <Target className="w-4 h-4" />
+                                                      Need Help Setting This Up?
+                                                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                                </Link>
+                                          </div>
                                     </div>
 
                                     {/* Table of Contents */}
@@ -289,7 +325,7 @@ export default function MissedCallTextBackClient() {
                                                 According to GoHighLevel's own data, <strong>62% of inbound calls go unanswered.</strong> When callers hit voicemail, most of them don't leave a message and don't call back they call the next business in their search results.
                                           </p>
                                           <p className="text-sm text-[#1A2236] leading-relaxed">
-                                                US businesses lose an estimated <strong>\$75 billion annually</strong> to missed calls and poor follow-up. Missed call text back closes this gap.
+                                                US businesses lose an estimated <strong>$75 billion annually</strong> to missed calls and poor follow-up. Missed call text back closes this gap.
                                           </p>
                                     </div>
 
@@ -302,6 +338,21 @@ export default function MissedCallTextBackClient() {
                                                 A dental practice client of ours was missing an average of 14 inbound calls per day most of them from new patient enquiries.
                                                 After activating missed call text back with a booking link in the message, they booked <strong>9 new patient appointments in their first week</strong> from calls they would previously have lost entirely.
                                           </p>
+                                    </div>
+
+                                    {/* CTA Button 3: After Section 1 */}
+                                    <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 mb-8 text-center">
+                                          <p className="text-white/80 text-sm mb-3">
+                                                <span className="font-bold text-white">Want to see exactly how much revenue you're losing to missed calls?</span> Let's run a free audit.
+                                          </p>
+                                          <Link
+                                                href="/contact"
+                                                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                                          >
+                                                <BarChart3 className="w-4 h-4" />
+                                                Get Your Free Call Audit
+                                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                          </Link>
                                     </div>
 
                                     {/* Section 2: Setup Guide */}
@@ -377,6 +428,20 @@ export default function MissedCallTextBackClient() {
                                           </div>
                                     </div>
 
+                                    {/* CTA Button 4: After Setup Guide */}
+                                    <div className="bg-gradient-to-r from-[#0E9BF0] to-[#0C8AD8] rounded-xl p-6 text-center text-white mb-8">
+                                          <p className="text-sm font-medium mb-2">⚡ Don't want to set this up yourself?</p>
+                                          <p className="text-sm text-white/80 mb-4">We'll configure your missed call text back, test it, and set up the workflow version for you.</p>
+                                          <Link
+                                                href="/contact"
+                                                className="group inline-flex items-center gap-2 bg-white text-[#0E9BF0] font-bold px-6 py-2.5 rounded-lg hover:bg-[#F8F9FB] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                                          >
+                                                <Settings className="w-4 h-4" />
+                                                Let Us Set It Up
+                                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                          </Link>
+                                    </div>
+
                                     {/* Section 3: Write Effective Message */}
                                     <h2 id="write-effective-message" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
                                           3. How to Write an Effective Missed Call Text Back Message
@@ -440,6 +505,20 @@ export default function MissedCallTextBackClient() {
                                           })}
                                     </div>
 
+                                    {/* CTA Button 5: After Message Templates */}
+                                    <div className="bg-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
+                                          <p className="text-sm font-medium mb-2">📝 Not sure which template to use for your industry?</p>
+                                          <p className="text-sm text-white/80 mb-4">We'll write custom templates for your business that actually convert.</p>
+                                          <Link
+                                                href="/contact"
+                                                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                                          >
+                                                <Sparkles className="w-4 h-4" />
+                                                Get Custom Templates
+                                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                          </Link>
+                                    </div>
+
                                     {/* Section 5: Connect to Booking Workflow */}
                                     <h2 id="connect-to-workflow" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
                                           5. How to Connect Missed Call Text Back to a Booking Workflow
@@ -480,6 +559,20 @@ export default function MissedCallTextBackClient() {
                                           → Want to understand GHL workflows more broadly first? Read: <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-[#0E9BF0] hover:underline">How to Set Up GoHighLevel Workflow Automation for Beginners</Link>
                                     </p>
 
+                                    {/* CTA Button 6: After Workflow Section */}
+                                    <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
+                                          <p className="text-sm font-medium mb-2">🔧 Want a complete workflow that handles the entire lead journey?</p>
+                                          <p className="text-sm text-white/80 mb-4">We build custom workflows that capture, nurture, and convert every missed call lead.</p>
+                                          <Link
+                                                href="/contact"
+                                                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                                          >
+                                                <TrendingUp className="w-4 h-4" />
+                                                Build My Workflow
+                                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                          </Link>
+                                    </div>
+
                                     {/* Section 6: Troubleshooting */}
                                     <h2 id="troubleshooting" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
                                           6. Why Your Missed Call Text Back Might Not Be Sending
@@ -503,6 +596,29 @@ export default function MissedCallTextBackClient() {
                                           ))}
                                     </div>
 
+                                    {/* CTA Button 7: After Troubleshooting */}
+                                    <div className="mt-8 p-6 bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl text-center">
+                                          <p className="text-white font-bold text-lg mb-2">🔍 Still not working after troubleshooting?</p>
+                                          <p className="text-white/60 text-sm mb-4">We'll fix your missed call text back and make sure it's actually sending.</p>
+                                          <div className="flex flex-wrap justify-center gap-3">
+                                                <Link
+                                                      href="/contact"
+                                                      className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                                                >
+                                                      <Search className="w-4 h-4" />
+                                                      Fix My Setup
+                                                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                                </Link>
+                                                <Link
+                                                      href="/contact"
+                                                      className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-white/20 transition-all border border-white/20 text-sm"
+                                                >
+                                                      <Phone className="w-4 h-4" />
+                                                      Call Support
+                                                </Link>
+                                          </div>
+                                    </div>
+
                                     {/* Section 7: FAQ */}
                                     <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
                                           7. Frequently Asked Questions
@@ -520,6 +636,29 @@ export default function MissedCallTextBackClient() {
                                           ))}
                                     </div>
 
+                                    {/* CTA Button 8: After FAQ */}
+                                    <div className="mt-8 p-6 bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl text-center">
+                                          <p className="text-white font-bold text-lg mb-2">Still Have Questions About Missed Call Text Back?</p>
+                                          <p className="text-white/60 text-sm mb-4">Talk to our GHL experts directly. We've set this up for 200+ businesses.</p>
+                                          <div className="flex flex-wrap justify-center gap-3">
+                                                <Link
+                                                      href="/contact"
+                                                      className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                                                >
+                                                      <MessageCircle className="w-4 h-4" />
+                                                      Ask an Expert
+                                                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                                </Link>
+                                                <Link
+                                                      href="/contact"
+                                                      className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-white/20 transition-all border border-white/20 text-sm"
+                                                >
+                                                      <Mail className="w-4 h-4" />
+                                                      Email Us
+                                                </Link>
+                                          </div>
+                                    </div>
+
                                     {/* Internal Links */}
                                     <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
                                           <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles in This Series</h3>
@@ -532,7 +671,7 @@ export default function MissedCallTextBackClient() {
                                           </div>
                                     </div>
 
-                                    {/* CTA Section */}
+                                    {/* Final CTA Section */}
                                     <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
                                           <div className="relative z-10">
                                                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Already on GoHighLevel?</h3>
@@ -540,7 +679,7 @@ export default function MissedCallTextBackClient() {
                                                       Not sure if your GHL is set up to catch every lead? We audit GHL accounts every week.
                                                       Missed call text back, workflows, pipelines we'll review your whole setup and show you what's missing in 30 minutes.
                                                 </p>
-                                                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                                                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105">
                                                       Book Your Free GHL Audit
                                                       <ArrowRight className="w-4 h-4" />
                                                 </Link>
@@ -548,9 +687,8 @@ export default function MissedCallTextBackClient() {
                                     </div>
                               </main>
 
-                              {/* Sidebar */}
+                              {/* Sidebar - Fixed Sticky */}
                               <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out">
-
                                     {/* Table of Contents */}
                                     <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
                                           <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
@@ -580,8 +718,7 @@ export default function MissedCallTextBackClient() {
                                     </nav>
 
                                     {/* About the Author */}
-                                    <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-2" style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}>
-
+                                    <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
                                           <div className="flex items-center gap-3 mb-4">
                                                 <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
                                                       <img
@@ -602,8 +739,7 @@ export default function MissedCallTextBackClient() {
                                     </div>
 
                                     {/* CTA Card */}
-                                    <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-2" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
-
+                                    <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
                                           <div className="text-sm font-bold text-white mb-2">Missing Calls = Missing Revenue</div>
                                           <p className="text-xs text-white/60 leading-relaxed mb-4">Set up missed call text back in 5 minutes. We'll help you configure it correctly.</p>
                                           <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
@@ -613,7 +749,7 @@ export default function MissedCallTextBackClient() {
                                     </div>
 
                                     {/* Share Buttons */}
-                                    <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-2" style={{ animationDelay: '300ms', animationFillMode: 'forwards' }}>
+                                    <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
                                           <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
                                           <div className="flex gap-2 flex-wrap">
                                                 <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
