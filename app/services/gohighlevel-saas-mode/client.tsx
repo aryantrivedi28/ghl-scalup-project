@@ -873,6 +873,7 @@ export default function GoHighLevelSaaSModeClient() {
 
           {/* Sidebar */}
           <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out">
+            {/* Table of Contents - Sticky */}
             <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
                 <BookOpen className="w-3 h-3" />
@@ -889,7 +890,9 @@ export default function GoHighLevelSaaSModeClient() {
                         }`}
                     >
                       <span className="flex items-start gap-2">
-                        {activeId === item.id && <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />}
+                        {activeId === item.id && (
+                          <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />
+                        )}
                         <span className="flex-1">{item.title}</span>
                       </span>
                     </button>
@@ -898,7 +901,8 @@ export default function GoHighLevelSaaSModeClient() {
               </ul>
             </nav>
 
-            <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
+            {/* About the Author */}
+            <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-2" style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
                   <img
@@ -909,30 +913,45 @@ export default function GoHighLevelSaaSModeClient() {
                 </div>
                 <div>
                   <div className="text-sm font-bold text-white">GHL Scale Up Team</div>
-                  <div className="text-xs text-white/50">GoHighLevel SaaS Specialists</div>
+                  <div className="text-xs text-white/50">GoHighLevel Expert Agency</div>
                 </div>
               </div>
               <p className="text-xs text-white/60 leading-relaxed mb-3">
-                5+ years GHL experience · 200+ builds delivered. All technical details verified as of July 2026.
+                5+ years GHL experience · 200+ projects delivered across real estate, healthcare, SaaS, agencies,
+                and home services in 6 countries.
               </p>
-              <Link href="/" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
+              <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
             </div>
 
-            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
-              <div className="text-sm font-bold text-white mb-2">Need SaaS Mode Setup?</div>
-              <p className="text-xs text-white/60 leading-relaxed mb-4">We configure complete SaaS Mode setups in 5-7 business days. Stripe, SaaS Configurator, Snapshot, rebilling, A2P, and more.</p>
+            {/* CTA Card */}
+            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-2" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
+              <div className="text-sm font-bold text-white mb-2">Need Your GHL Built Right?</div>
+              <p className="text-xs text-white/60 leading-relaxed mb-4">From CRM setup to AI voice agents we build complete GHL systems that actually work.</p>
               <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
-                Get Help
+                Talk to Us
                 <ArrowRight className="w-3 h-3" />
               </Link>
             </div>
 
-            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
+            {/* Share Buttons */}
+            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-2" style={{ animationDelay: '300ms', animationFillMode: 'forwards' }}>
               <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
               <div className="flex gap-2 flex-wrap">
-                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Linkedin className="w-3 h-3" /> LinkedIn</a>
-                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Twitter className="w-3 h-3" /> X</a>
-                <button onClick={() => navigator.clipboard.writeText(window.location.href)} className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"><Copy className="w-3 h-3" /> Copy link</button>
+                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Linkedin className="w-3 h-3" />
+                  LinkedIn
+                </a>
+                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Twitter className="w-3 h-3" />
+                  X
+                </a>
+                <button
+                  onClick={() => navigator.clipboard.writeText(window.location.href)}
+                  className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"
+                >
+                  <Copy className="w-3 h-3" />
+                  Copy link
+                </button>
               </div>
             </div>
           </aside>

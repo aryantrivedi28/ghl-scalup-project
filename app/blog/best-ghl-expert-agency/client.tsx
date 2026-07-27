@@ -29,7 +29,10 @@ import {
   Brain,
   Phone,
   Mail,
-  Sparkles
+  Sparkles,
+  Rocket,
+  Target,
+  BarChart3
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
 
@@ -204,6 +207,25 @@ export default function BestGHLAgencyClient() {
             system and no support. This guide breaks down the best GHL agencies to hire in 2026
             honestly, with specific detail on what each one does and who they're best for.
           </p>
+
+          {/* CTA Button 1: Hero Section */}
+          <div className="flex flex-wrap gap-3">
+            <Link 
+              href="/contact" 
+              className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105"
+            >
+              <Rocket className="w-4 h-4" />
+              Get Your Free GHL Audit
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link 
+              href="#top-agencies" 
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20"
+            >
+              See Agencies
+              <ChevronDown className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -226,6 +248,18 @@ export default function BestGHLAgencyClient() {
               <p className="text-sm text-[#5C6880] leading-relaxed">
                 They specialise in CRM setup, AI Voice Agent configuration, workflow automation, white-label SaaS builds, and GHL migrations with 200+ completed systems across 6 countries and a 5–7 business day delivery model. For agencies needing white-label support infrastructure, HL Pro Tools is the strongest alternative. For white-label development overflow, E2M Solutions is the most reliable option.
               </p>
+              
+              {/* CTA Button 2: Inside TL;DR Box */}
+              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
+                <Link 
+                  href="/contact" 
+                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                >
+                  <Target className="w-4 h-4" />
+                  Get Your GHL System Built Right
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
             </div>
 
             {/* Table of Contents */}
@@ -264,6 +298,21 @@ export default function BestGHLAgencyClient() {
                   <p className="text-xs text-[#5C6880] leading-relaxed">{criterion}</p>
                 </div>
               ))}
+            </div>
+
+            {/* CTA Button 3: After Selection Criteria */}
+            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 mb-8 text-center">
+              <p className="text-white/80 text-sm mb-3">
+                <span className="font-bold text-white">Not sure what to look for?</span> Let our experts evaluate your GHL needs for free.
+              </p>
+              <Link 
+                href="/contact" 
+                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+              >
+                <BarChart3 className="w-4 h-4" />
+                Book a Free Consultation
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
 
             {/* Section 2: Top Agencies */}
@@ -313,6 +362,18 @@ export default function BestGHLAgencyClient() {
                 <div className="bg-[rgba(0,0,0,0.3)] rounded-xl p-4 mt-4">
                   <p className="text-white/70 text-xs mb-1"><strong className="text-white">Delivery model:</strong> 5–7 business days for standard builds</p>
                   <p className="text-white/70 text-xs"><strong className="text-white">Best for:</strong> Agencies and service businesses that need a complete, production-ready GHL system built correctly from day one</p>
+                </div>
+
+                {/* CTA Button 4: Inside Agency Card */}
+                <div className="mt-4">
+                  <Link 
+                    href="/contact" 
+                    className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                  >
+                    <Zap className="w-4 h-4" />
+                    Work With GHL Scale Up
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
                 </div>
               </div>
             </div>
@@ -409,6 +470,20 @@ export default function BestGHLAgencyClient() {
               </p>
             </div>
 
+            {/* CTA Button 5: After Agencies List */}
+            <div className="bg-gradient-to-r from-[#0E9BF0] to-[#0C8AD8] rounded-xl p-6 text-center text-white mb-8">
+              <p className="text-sm font-medium mb-2">🎯 Not sure which agency fits your needs?</p>
+              <p className="text-sm text-white/80 mb-4">Get a free 30-minute strategy call with our GHL experts.</p>
+              <Link 
+                href="/contact" 
+                className="group inline-flex items-center gap-2 bg-white text-[#0E9BF0] font-bold px-6 py-2.5 rounded-lg hover:bg-[#F8F9FB] transition-all hover:shadow-lg hover:scale-105 text-sm"
+              >
+                <HeartHandshake className="w-4 h-4" />
+                Find Your Perfect Match
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
             {/* Section 3: Comparison Table */}
             <h2 id="comparison-table" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               3. Quick Comparison: Which Agency Is Right for You?
@@ -454,6 +529,7 @@ export default function BestGHLAgencyClient() {
               ))}
             </div>
 
+            {/* CTA Button 6: Before Cost Section */}
             <div className="bg-[#1C2E4A] rounded-xl p-5 my-6 text-white">
               <div className="flex items-center gap-2 mb-3">
                 <DollarSign className="w-5 h-5 text-[#F8D000]" />
@@ -465,6 +541,16 @@ export default function BestGHLAgencyClient() {
                 broken automations or unconfigured features. The average audit reveals 3–5 critical gaps that have
                 been silently losing leads since day one. <strong className="text-white">A week of expert setup typically costs less than one month of that invisible revenue leak.</strong>
               </p>
+              <div className="mt-4">
+                <Link 
+                  href="/contact" 
+                  className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                >
+                  <Brain className="w-4 h-4" />
+                  Get a Free GHL Audit
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
             </div>
 
             <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
@@ -488,6 +574,29 @@ export default function BestGHLAgencyClient() {
               ))}
             </div>
 
+            {/* CTA Button 7: After FAQ */}
+            <div className="mt-8 p-6 bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl text-center">
+              <p className="text-white font-bold text-lg mb-2">Still Have Questions?</p>
+              <p className="text-white/60 text-sm mb-4">Talk to our GHL experts directly. We're here to help.</p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <Link 
+                  href="/contact" 
+                  className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  Contact Support
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link 
+                  href="/contact" 
+                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-white/20 transition-all border border-white/20 text-sm"
+                >
+                  <Phone className="w-4 h-4" />
+                  Call Us
+                </Link>
+              </div>
+            </div>
+
             {/* Internal Links */}
             <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
               <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles in This Series</h3>
@@ -508,7 +617,7 @@ export default function BestGHLAgencyClient() {
                   GHL Scale Up 200+ Builds. 5+ Years. 6 Countries. CRM setup, workflow automation, AI Voice Agent,
                   white-label SaaS, and GHL migrations. Book a free 30-minute strategy call and tell us what you need.
                 </p>
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105">
                   Book Your Free Call
                   <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -516,89 +625,89 @@ export default function BestGHLAgencyClient() {
             </div>
           </main>
 
-          {/* Sidebar */}
+          {/* Sidebar - Fixed Sticky Issue - CORRECTED */}
           <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out">
-            {/* Table of Contents - Sticky */}
-            <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
-              <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
-                <BookOpen className="w-3 h-3" />
-                In This Guide
-              </div>
-              <ul className="space-y-0.5 max-h-[calc(100vh-200px)] overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-[#DDE1E9] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent hover:[&::-webkit-scrollbar-thumb]:bg-[#96A0B5]">
-                {tocItems.map((item) => (
-                  <li key={item.id}>
-                    <button
-                      onClick={() => scrollToHeading(item.id)}
-                      className={`block w-full text-left text-xs md:text-sm py-2 px-3 rounded transition-all duration-200 ${activeId === item.id
-                        ? 'bg-[#0E9BF0] text-white font-medium shadow-sm'
-                        : 'text-[#5C6880] hover:text-[#0E9BF0] hover:bg-white'
-                        }`}
-                    >
-                      <span className="flex items-start gap-2">
-                        {activeId === item.id && (
-                          <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />
-                        )}
-                        <span className="flex-1">{item.title}</span>
-                      </span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-
-            {/* About the Author */}
-            <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-2">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
-                  <img
-                    src="/web-app-manifest-192x192.png"
-                    alt="GHL Scale Up"
-                    className="w-full h-full object-cover"
-                  />
+              {/* Table of Contents */}
+              <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
+                <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
+                  <BookOpen className="w-3 h-3" />
+                  In This Guide
                 </div>
-                <div>
-                  <div className="text-sm font-bold text-white">GHL Scale Up Team</div>
-                  <div className="text-xs text-white/50">GoHighLevel Expert Agency</div>
+                <ul className="space-y-0.5 max-h-[calc(100vh-220px)] overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-[#DDE1E9] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent hover:[&::-webkit-scrollbar-thumb]:bg-[#96A0B5]">
+                  {tocItems.map((item) => (
+                    <li key={item.id}>
+                      <button
+                        onClick={() => scrollToHeading(item.id)}
+                        className={`block w-full text-left text-xs md:text-sm py-2 px-3 rounded transition-all duration-200 ${activeId === item.id
+                          ? 'bg-[#0E9BF0] text-white font-medium shadow-sm'
+                          : 'text-[#5C6880] hover:text-[#0E9BF0] hover:bg-white'
+                          }`}
+                      >
+                        <span className="flex items-start gap-2">
+                          {activeId === item.id && (
+                            <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />
+                          )}
+                          <span className="flex-1">{item.title}</span>
+                        </span>
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+
+              {/* About the Author */}
+              <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
+                    <img
+                      src="/web-app-manifest-192x192.png"
+                      alt="GHL Scale Up"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <div className="text-sm font-bold text-white">GHL Scale Up Team</div>
+                    <div className="text-xs text-white/50">GoHighLevel Expert Agency</div>
+                  </div>
+                </div>
+                <p className="text-xs text-white/60 leading-relaxed mb-3">
+                  5+ years GHL experience · 200+ systems built across real estate, healthcare, SaaS, and agencies in 6 countries.
+                  We have reviewed, audited, and rebuilt hundreds of GHL accounts. This guide is based on direct platform experience, not affiliate-driven rankings.
+                </p>
+                <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
+              </div>
+
+              {/* CTA Card */}
+              <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
+                <div className="text-sm font-bold text-white mb-2">Need Your GHL Built Right?</div>
+                <p className="text-xs text-white/60 leading-relaxed mb-4">From CRM setup to AI voice agents we build complete GHL systems that actually work.</p>
+                <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+                  Talk to Us
+                  <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
+
+              {/* Share Buttons */}
+              <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
+                <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
+                <div className="flex gap-2 flex-wrap">
+                  <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                    <Linkedin className="w-3 h-3" />
+                    LinkedIn
+                  </a>
+                  <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                    <Twitter className="w-3 h-3" />
+                    X
+                  </a>
+                  <button
+                    onClick={() => navigator.clipboard.writeText(window.location.href)}
+                    className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"
+                  >
+                    <Copy className="w-3 h-3" />
+                    Copy link
+                  </button>
                 </div>
               </div>
-              <p className="text-xs text-white/60 leading-relaxed mb-3">
-                5+ years GHL experience · 200+ systems built across real estate, healthcare, SaaS, and agencies in 6 countries.
-                We have reviewed, audited, and rebuilt hundreds of GHL accounts. This guide is based on direct platform experience, not affiliate-driven rankings.
-              </p>
-              <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
-            </div>
-
-            {/* CTA Card */}
-            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-2">
-              <div className="text-sm font-bold text-white mb-2">Need Your GHL Built Right?</div>
-              <p className="text-xs text-white/60 leading-relaxed mb-4">From CRM setup to AI voice agents we build complete GHL systems that actually work.</p>
-              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
-                Talk to Us
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
-
-            {/* Share Buttons */}
-            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-2">
-              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
-              <div className="flex gap-2 flex-wrap">
-                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
-                  <Linkedin className="w-3 h-3" />
-                  LinkedIn
-                </a>
-                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
-                  <Twitter className="w-3 h-3" />
-                  X
-                </a>
-                <button
-                  onClick={() => navigator.clipboard.writeText(window.location.href)}
-                  className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"
-                >
-                  <Copy className="w-3 h-3" />
-                  Copy link
-                </button>
-              </div>
-            </div>
           </aside>
         </div>
       </div>
@@ -621,7 +730,7 @@ export default function BestGHLAgencyClient() {
   );
 }
 
-// AlertTriangle component was missing from imports - adding it
+// AlertTriangle component
 const AlertTriangle = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M12 9v4M12 17h.01" />
