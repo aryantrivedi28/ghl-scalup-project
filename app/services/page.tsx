@@ -157,6 +157,12 @@ export default function ServicesPage() {
           title: 'Virtual Assistant for GHL Management',
           description: 'Dedicated GHL VA to manage your account, run campaigns, update pipelines, and handle day-to-day tasks.',
           link: '/services/virtual-assistant'
+        },
+        {
+          icon: Briefcase,
+          title: 'Virtual Assistant for GHL Management',
+          description: 'Dedicated GHL VA to manage your account, run campaigns, update pipelines, and handle day-to-day tasks.',
+          link: '/services/gohighlevel-saas-mode'
         }
       ]
     }
