@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'GitCompare',
+            tag: 'Comparisonn',
+            title: 'GoHighLevel vs Keap: Which CRM Should You Choose in 2026?',
+            excerpt: 'GoHighLevel vs Keap compared honestly for 2026: real pricing, features, automation depth, review scores, and which platform fits your business.',
+            slug: 'gohighlevel-vs-keap-2026-comparison',
+            date: 'July 29, 2026',
+            readTime: '20 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'Rocket',
             tag: 'SaaS Growth',
             title: 'How to Get Your First 10 GoHighLevel SaaS Clients (2026 Honest Guide)',
