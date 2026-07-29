@@ -84,7 +84,7 @@ export default function GoHighLevelVsKeapClient() {
     },
     {
       q: "Which platform is easier to learn for a complete beginner?",
-      a: "Keap generally has a shorter learning curve because it covers fewer features — CRM, email, and invoicing — without the additional modules GoHighLevel includes. GoHighLevel takes longer to learn well but replaces more separate tools once configured. Working with an experienced setup partner shortens the learning curve significantly on either platform."
+      a: "Keap generally has a shorter learning curve because it covers fewer features CRM, email, and invoicing without the additional modules GoHighLevel includes. GoHighLevel takes longer to learn well but replaces more separate tools once configured. Working with an experienced setup partner shortens the learning curve significantly on either platform."
     },
     {
       q: "Can I migrate from Keap to GoHighLevel if I already have contacts and automations built in Keap?",
@@ -330,7 +330,7 @@ export default function GoHighLevelVsKeapClient() {
               2. Is GoHighLevel Really an All-in-One Replacement for Other Tools?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              A common claim in GoHighLevel marketing is that it replaces a stack of separate tools — a funnel builder, an email automation tool, and a scheduling app — with one system. This claim holds up reasonably well when you look at what is actually included.
+              A common claim in GoHighLevel marketing is that it replaces a stack of separate tools a funnel builder, an email automation tool, and a scheduling app with one system. This claim holds up reasonably well when you look at what is actually included.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               <strong className="text-[#1A2236]">What GoHighLevel includes natively</strong>

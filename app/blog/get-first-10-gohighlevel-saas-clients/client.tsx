@@ -226,7 +226,7 @@ export default function GetFirst10GHLSAASClientsClient() {
                 Existing agency owners should add GoHighLevel SaaS to an offer they already sell. First-time founders should start locally, learn from real business owners, and treat the first 10 clients as market validation.
               </p>
               <p className="text-sm text-[#5C6880] leading-relaxed">
-                Do not treat GHL SaaS as a get-rich-quick scheme. The platform creates meaningful advantages — recurring revenue, standardised delivery, and automated workflows — but the idea of earning recurring revenue with no manual effort is only realistic after the offer, onboarding, support, and retention systems have been built properly.
+                Do not treat GHL SaaS as a get-rich-quick scheme. The platform creates meaningful advantages recurring revenue, standardised delivery, and automated workflows but the idea of earning recurring revenue with no manual effort is only realistic after the offer, onboarding, support, and retention systems have been built properly.
               </p>
             </div>
 
@@ -793,7 +793,7 @@ export default function GetFirst10GHLSAASClientsClient() {
                 </div>
               </div>
               <p className="text-xs text-[#5C6880] leading-relaxed">
-                GHL Scale Up is a specialised GoHighLevel implementation and SaaS growth agency founded by Aryan Trivedi. Based in India, we serve agencies and SaaS founders across 6 countries with 200+ GoHighLevel builds delivered. We help agencies and founders design, build, launch, and improve GoHighLevel systems that produce real customer outcomes — not just impressive dashboards. This guide reflects direct experience helping SaaS founders from zero clients through their first 10 and beyond.
+                GHL Scale Up is a specialised GoHighLevel implementation and SaaS growth agency founded by Aryan Trivedi. Based in India, we serve agencies and SaaS founders across 6 countries with 200+ GoHighLevel builds delivered. We help agencies and founders design, build, launch, and improve GoHighLevel systems that produce real customer outcomes not just impressive dashboards. This guide reflects direct experience helping SaaS founders from zero clients through their first 10 and beyond.
               </p>
               <Link href="/" className="text-[#0E9BF0] text-xs hover:underline mt-2 inline-block">ghlscaleup.com</Link>
             </div>
