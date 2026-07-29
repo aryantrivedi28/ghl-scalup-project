@@ -1,8 +1,9 @@
 // app/case-studies/real-estate-agent-rebuild/page.tsx
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Metadata } from 'next';
 import { 
   ArrowRight, 
   Play, 
@@ -17,34 +18,13 @@ import {
   Database, 
   BarChart3, 
   CheckCircle, 
-  ThumbsUp,
-  TrendingUp,
-  Users,
-  PhoneCall,
-  MessageSquare,
-  Zap,
-  Target,
-  Shield,
-  Smartphone,
-  Globe,
-  Bot,
-  FileText,
-  GraduationCap,
   ChevronDown,
-  ChevronRight
+  Rocket,
+  BookOpen,
+  Star,
+  Award,
+  ThumbsUp
 } from 'lucide-react';
-
-export const metadata: Metadata = {
-  title: 'GoHighLevel for Real Estate Agents: Full Rebuild Case Study | GHL Scale Up',
-  description: 'See how GHL Scale Up fixed broken email/SMS delivery and rebuilt a real estate GoHighLevel account funnel, calendar, CRM, and AI voice agents.',
-  keywords: 'gohighlevel for real estate agents, real estate crm automation, ai voice agent for real estate, a2p 10dlc registration real estate, real estate lead reactivation ai, gohighlevel real estate case study',
-  openGraph: {
-    title: 'GoHighLevel for Real Estate Agents: Complete Account Rebuild',
-    description: 'From broken automations to an AI voice receptionist system - a complete GoHighLevel rebuild for a real estate agent',
-    type: 'article',
-    url: 'https://www.ghlscaleup.com/case-studies/real-estate-agent-rebuild',
-  }
-};
 
 export default function RealEstateCaseStudyPage() {
   return (
@@ -52,14 +32,35 @@ export default function RealEstateCaseStudyPage() {
       <HeroSection />
       <ClientSummary />
       <ShortVersion />
+      
+      {/* CTA 1 - After Short Version */}
+      <CTAOne />
+      
       <ChallengeSection />
+      
+      {/* CTA 2 - After Challenge */}
+      <CTATwo />
+      
       <RebuildSection />
+      
+      {/* CTA 3 - After Rebuild */}
+      <CTAThree />
+      
       <AutomationStackSection />
       <InsideReactivationWorkflow />
       <ResultsSection />
+      
+      {/* Clutch Reviews Section */}
+      <ClutchReviewsSection />
+      
+      {/* CTA 4 - After Results */}
+      <CTAFour />
+      
       <TestimonialSection />
       <WhyThisMattersSection />
       <FAQSection />
+      
+      {/* CTA 5 - Final CTA */}
       <CTASection />
     </article>
   );
@@ -102,6 +103,18 @@ function HeroSection() {
             pipelines, and a multi-agent AI voice automation system now handling thousands 
             of real calls a month.
           </p>
+          
+          <div className="mt-6 md:mt-8 flex flex-wrap gap-3 justify-center">
+            <Link href="/contact" className="inline-flex items-center gap-2 bg-[#f6ad55] text-[#1a365d] font-bold px-6 py-3 rounded-lg hover:bg-[#f7c47a] transition-all shadow-lg hover:shadow-xl">
+              <Rocket className="w-4 h-4" />
+              Get Your Free Audit
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link href="#faq" className="inline-flex items-center gap-2 bg-white/10 text-white font-medium px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/10">
+              <BookOpen className="w-4 h-4" />
+              Skip to FAQ
+            </Link>
+          </div>
         </div>
       </div>
     </section>
@@ -169,32 +182,57 @@ function ShortVersion() {
   );
 }
 
+// ==================== CTA 1 ====================
+function CTAOne() {
+  return (
+    <section className="py-8 md:py-12 bg-gradient-to-r from-[#1a365d] to-[#2d4a7a]">
+      <div className="container mx-auto px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/10">
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
+              Got a GoHighLevel Account That's Not Working?
+            </h3>
+            <p className="text-blue-100/80 text-sm md:text-base max-w-2xl mx-auto mb-4 md:mb-6 leading-relaxed">
+              GHL Scale Up audits, fixes, and rebuilds GoHighLevel accounts for real estate agents and agencies. 
+              From deliverability and A2P compliance to funnels, calendars, and AI voice agents.
+            </p>
+            <Link href="/contact" className="inline-flex items-center gap-2 bg-[#f6ad55] text-[#1a365d] font-bold px-6 py-3 rounded-lg hover:bg-[#f7c47a] transition-all shadow-lg hover:shadow-xl">
+              Get Your Free Account Audit
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ==================== CHALLENGE SECTION ====================
 function ChallengeSection() {
   const challenges = [
     {
       icon: Mail,
-      title: "Issue 1 Email Deliverability Failure",
+      title: "Email Deliverability Failure",
       description: "Outbound emails from the account were failing with a 'Forbidden' error and never reaching contacts. Every automated follow-up, confirmation, and nurture email was silently failing leads were going cold without the agent ever knowing a message hadn't sent."
     },
     {
       icon: Phone,
-      title: "Issue 2 Incomplete A2P 10DLC SMS Registration",
-      description: "A2P 10DLC is the carrier-level registration U.S. mobile networks require before a business can reliably send text messages from a 10-digit local number. This agent's registration was incomplete, which meant every SMS workflow missed-call text-back, appointment reminders, follow-up sequences was non-functional at the carrier level, not just misconfigured inside GoHighLevel."
+      title: "Incomplete A2P 10DLC SMS Registration",
+      description: "A2P 10DLC is the carrier-level registration U.S. mobile networks require before a business can reliably send text messages from a 10-digit local number. This agent's registration was incomplete, which meant every SMS workflow missed-call text-back, appointment reminders, follow-up sequences was non-functional at the carrier level."
     },
     {
       icon: BarChart3,
-      title: "Issue 3 An Underperforming Lead Funnel",
+      title: "An Underperforming Lead Funnel",
       description: "The existing lead-generation funnel was functional but not built to convert: weak design, no trust elements, and a flow that let paid or organic traffic drop off before submitting details. For a real estate lead-generation funnel, every abandoned step is ad spend or SEO effort wasted."
     },
     {
       icon: Calendar,
-      title: "Issue 4 A Broken Calendar & Booking Experience",
+      title: "A Broken Calendar & Booking Experience",
       description: "The booking calendar's design and availability configuration didn't reflect a professional real estate brand, and in its broken state was showing incorrect availability meaning very few leads could actually book a call during real working hours."
     },
     {
       icon: Database,
-      title: "Issue 5 A Lead Database With No System Working It",
+      title: "A Lead Database With No System Working It",
       description: "Beyond the day-to-day funnel, a large existing contact database of past inquiries and dormant leads had no reactivation process at all. Every one of those contacts represented a lead the agent had already paid to acquire, sitting unworked."
     }
   ];
@@ -219,7 +257,7 @@ function ChallengeSection() {
           
           <div className="space-y-4 md:space-y-6">
             {challenges.map((challenge, index) => (
-              <div key={index} className="bg-white p-4 md:p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100">
+              <div key={index} className="bg-white p-4 md:p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-red-200">
                 <div className="flex items-start gap-3 md:gap-4">
                   <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-red-50 rounded-lg flex items-center justify-center">
                     <challenge.icon className="w-5 h-5 md:w-6 md:h-6 text-red-600" />
@@ -231,6 +269,31 @@ function ChallengeSection() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ==================== CTA 2 ====================
+function CTATwo() {
+  return (
+    <section className="py-8 md:py-12 bg-gradient-to-r from-[#1a365d] to-[#2d4a7a]">
+      <div className="container mx-auto px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/10">
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
+              🔍 Need a Full Account Audit?
+            </h3>
+            <p className="text-blue-100/80 text-sm md:text-base max-w-2xl mx-auto mb-4 md:mb-6 leading-relaxed">
+              We'll audit your GoHighLevel account, identify every broken system, and provide a clear roadmap 
+              to fix deliverability, automations, and conversion issues.
+            </p>
+            <Link href="/contact" className="inline-flex items-center gap-2 bg-[#f6ad55] text-[#1a365d] font-bold px-6 py-3 rounded-lg hover:bg-[#f7c47a] transition-all shadow-lg hover:shadow-xl">
+              Book Your Free Audit
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </div>
@@ -268,7 +331,7 @@ function RebuildSection() {
       title: "Website Build Repositioned Around a Focused Niche",
       description: "Rather than rebuild a generic real estate site, the new website repositions the agent around a specific, high-intent niche within residential real estate: new construction. Niching down is a well-established real estate marketing strategy it reduces competition with every other local agent and lets one site speak directly to a specific buyer's questions and concerns, instead of competing on a generic 'find your dream home' message.",
       hasImage: true,
-      imageSrc: "/case-study/Picture1.jpg",
+      imageSrc: "/case-study/Picture1.jpeg",
       imageCaption: "The rebuilt website, repositioned around a new-construction buyer niche. Brand name, phone number, and identifying marketing copy have been redacted for client privacy.",
       extraText: "The site was built mobile-responsive with tracking and lead capture wired in throughout every page, not just the homepage."
     },
@@ -305,11 +368,11 @@ function RebuildSection() {
       title: "The AI Voice Receptionist System",
       description: "On top of the base automation layer, a three-agent AI voice system was built to handle the volume no solo agent could manage by phone inbound reception, outbound campaigns, and cold-lead database reactivation, each with its own script and purpose.",
       hasImage: true,
-      imageSrc: "/case-study/Picture2.jpg",
+      imageSrc: "/case-study/Picture2.jpeg",
       imageCaption: "The live Agent List inside GoHighLevel's AI Agents module: a dedicated inbound receptionist agent, an outbound campaign agent, and a reactivation agent, each managed and versioned independently. Phone number redacted for client privacy.",
       extraText: "The inbound agent answers calls on the agent's behalf, qualifies whether the caller is a buyer or seller, gathers contact details and intent, and either books an appointment directly or confirms a prompt follow-up built on a GPT-4.1 conversational model with a natural voice profile, background-noise cancellation, and an ambient sound setting so the call feels like a real front desk rather than a robotic IVR.",
       hasImage2: true,
-      imageSrc2: "/case-study/Picture3.jpg",
+      imageSrc2: "/case-study/Picture3.jpeg",
       imageCaption2: "The inbound voice agent's build screen model, voice, and noise-cancellation settings, plus a live web-call testing panel used before deployment. Script content (which includes business-identifying details) has been redacted.",
       extraText2: "A second agent handles outbound campaign calling, and a third the reactivation agent is purpose-built to work through the existing contact database, calling leads who have gone quiet and re-opening the conversation instead of leaving them to sit cold indefinitely."
     },
@@ -371,7 +434,7 @@ function RebuildSection() {
                       <div className="mt-4">
                         <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-80 bg-gray-200 rounded-lg overflow-hidden">
                           <Image
-                            src={item.imageSrc || "/placeholder-image.jpg"}
+                            src={item.imageSrc || "/placeholder-image.jpeg"}
                             alt={item.imageCaption || "Case study image"}
                             fill
                             className="object-cover"
@@ -389,7 +452,7 @@ function RebuildSection() {
                       <div className="mt-4">
                         <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-80 bg-gray-200 rounded-lg overflow-hidden">
                           <Image
-                            src={item.imageSrc2 || "/placeholder-image.jpg"}
+                            src={item.imageSrc2 || "/placeholder-image.jpeg"}
                             alt={item.imageCaption2 || "Case study image"}
                             fill
                             className="object-cover"
@@ -406,6 +469,31 @@ function RebuildSection() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ==================== CTA 3 ====================
+function CTAThree() {
+  return (
+    <section className="py-8 md:py-12 bg-gradient-to-r from-[#1a365d] to-[#2d4a7a]">
+      <div className="container mx-auto px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/10">
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
+              🤖 Want AI Voice Agents for Your Real Estate Business?
+            </h3>
+            <p className="text-blue-100/80 text-sm md:text-base max-w-2xl mx-auto mb-4 md:mb-6 leading-relaxed">
+              From inbound reception to outbound campaigns and database reactivation we build custom AI voice systems 
+              that handle thousands of calls a month, 24/7.
+            </p>
+            <Link href="/contact" className="inline-flex items-center gap-2 bg-[#f6ad55] text-[#1a365d] font-bold px-6 py-3 rounded-lg hover:bg-[#f7c47a] transition-all shadow-lg hover:shadow-xl">
+              Build Your AI Voice System
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </div>
@@ -477,11 +565,10 @@ function AutomationStackSection() {
               </p>
             </div>
             
-            {/* Automation List Image */}
             <div className="max-w-3xl mx-auto mb-6 md:mb-8">
               <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-80 bg-gray-200 rounded-lg overflow-hidden">
                 <Image
-                  src="/case-study/Picture4.jpg"
+                  src="/case-study/Picture4.jpeg"
                   alt="The live automations list for the account, showing publish status and real enrollment counts pulled directly from GoHighLevel"
                   fill
                   className="object-cover"
@@ -571,7 +658,7 @@ function InsideReactivationWorkflow() {
           <div className="max-w-3xl mx-auto">
             <div className="relative w-full h-64 sm:h-72 md:h-80 lg:h-96 bg-gray-200 rounded-lg overflow-hidden">
               <Image
-                src="/case-study/Picture5.jpg"
+                src="/case-study/Picture5.jpeg"
                 alt="The workflow builder view of the database reactivation automation a branching sequence of AI voice calls, conditional checks, and timed retry steps"
                 fill
                 className="object-cover"
@@ -591,51 +678,15 @@ function InsideReactivationWorkflow() {
 // ==================== RESULTS SECTION ====================
 function ResultsSection() {
   const metrics = [
-    { 
-      label: "Attempted calls", 
-      value: "7,105", 
-      description: "Total outbound AI voice calls placed in 17 days"
-    },
-    { 
-      label: "Connected calls", 
-      value: "5,471", 
-      description: "77% of attempted calls connected"
-    },
-    { 
-      label: "Human answered", 
-      value: "1,339", 
-      description: "19% of all attempts reached a live person"
-    },
-    { 
-      label: "Voicemail", 
-      value: "4,132", 
-      description: "58% of attempts landed in voicemail"
-    },
-    { 
-      label: "No answer", 
-      value: "466", 
-      description: "7% of attempts"
-    },
-    { 
-      label: "Failed", 
-      value: "1,168", 
-      description: "16% of attempts (carrier/technical failures)"
-    },
-    { 
-      label: "Actions triggered", 
-      value: "59", 
-      description: "Bookings/handoffs triggered by call outcome"
-    },
-    { 
-      label: "Sentiment", 
-      value: "97% positive", 
-      description: "Of conversations with a live person"
-    },
-    { 
-      label: "Unattempted calls", 
-      value: "214", 
-      description: "Remaining in queue at time of snapshot"
-    }
+    { label: "Attempted calls", value: "7,105", description: "Total outbound AI voice calls placed in 17 days" },
+    { label: "Connected calls", value: "5,471", description: "77% of attempted calls connected" },
+    { label: "Human answered", value: "1,339", description: "19% of all attempts reached a live person" },
+    { label: "Voicemail", value: "4,132", description: "58% of attempts landed in voicemail" },
+    { label: "No answer", value: "466", description: "7% of attempts" },
+    { label: "Failed", value: "1,168", description: "16% of attempts (carrier/technical failures)" },
+    { label: "Actions triggered", value: "59", description: "Bookings/handoffs triggered by call outcome" },
+    { label: "Sentiment", value: "97% positive", description: "Of conversations with a live person" },
+    { label: "Unattempted calls", value: "214", description: "Remaining in queue at time of snapshot" }
   ];
 
   return (
@@ -656,11 +707,10 @@ function ResultsSection() {
             </div>
           </div>
           
-          {/* Results Dashboard Image */}
           <div className="max-w-3xl mx-auto mb-6 md:mb-8">
             <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-80 bg-gray-200 rounded-lg overflow-hidden">
               <Image
-                src="/case-study/Picture6.jpg"
+                src="/case-study/Picture6.jpeg"
                 alt="Outbound AI voice performance dashboard, a recent 17-day window: 7,105 attempted calls, 5,471 connected, 97% positive sentiment"
                 fill
                 className="object-cover"
@@ -705,6 +755,115 @@ function ResultsSection() {
             <p className="text-sm md:text-base text-gray-700">
               <span className="font-semibold">📌 ADD ONCE AVAILABLE:</span> revenue or appointment outcomes tied to the 59 triggered actions, and an updated snapshot once the 12-Month Dormant Drip and 30-Day No Response Nurture workflows both live but not yet enrolling contacts have run for a full cycle.
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ==================== CLUTCH REVIEWS SECTION ====================
+function ClutchReviewsSection() {
+  const reviews = [
+    {
+      id: 1,
+      imageSrc: "/case-study/clutch-review-1.png",
+      alt: "Clutch review - 5 star rating for GHL Scale Up"
+    },
+    {
+      id: 2,
+      imageSrc: "/case-study/clutch-review-2.png",
+      alt: "Clutch review - Client testimonial for GoHighLevel services"
+    },
+    {
+      id: 3,
+      imageSrc: "/case-study/clutch-review-3.png",
+      alt: "Clutch review - Verified review for GHL Scale Up"
+    }
+  ];
+
+  return (
+    <section className="py-16 md:py-20 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-8 md:mb-12">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <Award className="w-6 h-6 text-[#f6ad55]" />
+              <span className="inline-block bg-[#3182ce]/10 text-[#3182ce] font-semibold text-xs md:text-sm uppercase tracking-wider px-3 md:px-4 py-1.5 md:py-2 rounded-full">
+                Client Reviews
+              </span>
+            </div>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1a365d] mt-2 mb-3 md:mb-4">
+              What Our Clients Say
+            </h2>
+            <p className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              Real reviews from real clients who trusted us with their GoHighLevel systems.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+            {reviews.map((review) => (
+              <div 
+                key={review.id} 
+                className="group bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="relative w-full h-48 md:h-56 lg:h-64 bg-gray-100 overflow-hidden">
+                  <Image
+                    src={review.imageSrc}
+                    alt={review.alt}
+                    fill
+                    className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
+                  />
+                </div>
+                <div className="p-3 md:p-4 text-center">
+                  <div className="flex items-center justify-center gap-1 mb-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 text-[#f6ad55] fill-[#f6ad55]" />
+                    ))}
+                  </div>
+                  <p className="text-xs text-gray-500">Verified Clutch Review</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 text-center">
+            <Link 
+              href="https://clutch.co/profile/ghl-scale-up" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-[#3182ce] font-semibold hover:text-[#2b6cb0] transition-colors group"
+            >
+              <ThumbsUp className="w-4 h-4" />
+              See all reviews on Clutch
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ==================== CTA 4 ====================
+function CTAFour() {
+  return (
+    <section className="py-8 md:py-12 bg-gradient-to-r from-[#1a365d] to-[#2d4a7a]">
+      <div className="container mx-auto px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/10">
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
+              📊 Want Results Like This for Your Business?
+            </h3>
+            <p className="text-blue-100/80 text-sm md:text-base max-w-2xl mx-auto mb-4 md:mb-6 leading-relaxed">
+              From deliverability fixes to AI voice agents that handle thousands of calls we build GoHighLevel 
+              systems that actually work and deliver real results.
+            </p>
+            <Link href="/contact" className="inline-flex items-center gap-2 bg-[#f6ad55] text-[#1a365d] font-bold px-6 py-3 rounded-lg hover:bg-[#f7c47a] transition-all shadow-lg hover:shadow-xl">
+              Start Your Project
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </div>
@@ -832,7 +991,7 @@ function FAQSection() {
   ];
 
   return (
-    <section className="py-16 md:py-20 bg-gray-50">
+    <section className="py-16 md:py-20 bg-gray-50" id="faq">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8 md:mb-12">
@@ -867,7 +1026,7 @@ function FAQSection() {
   );
 }
 
-// ==================== CTA SECTION ====================
+// ==================== FINAL CTA SECTION ====================
 function CTASection() {
   return (
     <section className="relative py-16 md:py-24 overflow-hidden">
@@ -896,14 +1055,14 @@ function CTASection() {
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 bg-white text-[#1a365d] font-semibold rounded-xl hover:bg-gray-100 transition-all duration-300 text-base md:text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 group"
+              className="inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 bg-[#f6ad55] text-[#1a365d] font-bold rounded-xl hover:bg-[#f7c47a] transition-all duration-300 text-base md:text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 group"
             >
-              Get Started
+              Get Your Free Audit
               <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
             <Link
               href="/book-a-call"
-              className="inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 bg-[#2d4a7a] text-white font-semibold rounded-xl hover:bg-[#1a365d] transition-all duration-300 text-base md:text-lg border-2 border-white/20 hover:border-white/40 transform hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 bg-white/10 text-white font-medium rounded-xl hover:bg-white/20 transition-all duration-300 text-base md:text-lg border-2 border-white/20 hover:border-white/40 transform hover:-translate-y-0.5"
             >
               Book a Call
             </Link>
