@@ -15,6 +15,10 @@ import {
   Lightbulb,
   CheckCircle,
   FileText,
+  Rocket,
+  Target,
+  Users,
+  Sparkles,
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
 
@@ -206,6 +210,19 @@ export default function GetFirst10GHLSAASClientsClient() {
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
             Many GoHighLevel SaaS founders contact <Link href="/" className="text-[#0E9BF0] hover:underline font-medium">GHL Scale Up</Link> with two questions: How much will the setup cost, and how quickly will the business break even and start making a profit? The honest answer is that there is no universal timeline. A GHL SaaS business follows the same basic rules as every other business. You need a clear market, a useful offer, customer acquisition, onboarding, support, and retention. The software does not remove those fundamentals.
           </p>
+
+          {/* Hero CTA */}
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all shadow-lg hover:shadow-xl">
+              <Rocket className="w-4 h-4" />
+              Book Your Strategy Call
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link href="#faq" className="inline-flex items-center gap-2 bg-white/10 text-white font-medium px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/10">
+              <BookOpen className="w-4 h-4" />
+              Skip to FAQ
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -228,6 +245,21 @@ export default function GetFirst10GHLSAASClientsClient() {
               <p className="text-sm text-[#5C6880] leading-relaxed">
                 Do not treat GHL SaaS as a get-rich-quick scheme. The platform creates meaningful advantages recurring revenue, standardised delivery, and automated workflows but the idea of earning recurring revenue with no manual effort is only realistic after the offer, onboarding, support, and retention systems have been built properly.
               </p>
+            </div>
+
+            {/* CTA 1 - After BLUF */}
+            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 md:p-8 text-center my-6">
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
+                🚀 Ready to Get Your First 10 SaaS Clients?
+              </h3>
+              <p className="text-white/60 text-sm max-w-2xl mx-auto mb-6 leading-relaxed">
+                GHL Scale Up helps founders and agencies with SaaS Mode setup, niche-specific snapshots, onboarding systems, workflows, and go-to-market execution.
+              </p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-8 py-3 rounded-lg hover:bg-[#FFE44D] transition-all shadow-lg hover:shadow-xl">
+                <Target className="w-4 h-4" />
+                Book Your Free Strategy Call
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
 
             {/* Table of Contents */}
@@ -304,6 +336,21 @@ export default function GetFirst10GHLSAASClientsClient() {
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               This route is more manual in the beginning. That is not a weakness. The conversations, objections, and customer behaviour you observe will become the foundation of a scalable offer later.
             </p>
+
+            {/* CTA 2 - After Section 1 */}
+            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 md:p-8 text-center my-6">
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
+                🎯 Need Help Choosing Your Entry Path?
+              </h3>
+              <p className="text-white/60 text-sm max-w-2xl mx-auto mb-6 leading-relaxed">
+                Whether you're an agency owner or starting from scratch, GHL Scale Up helps you build the right offer, configure your SaaS, and acquire your first clients.
+              </p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-8 py-3 rounded-lg hover:bg-[#FFE44D] transition-all shadow-lg hover:shadow-xl">
+                <Users className="w-4 h-4" />
+                Get Expert Guidance
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
 
             {/* Section 2: Get Rich Quick */}
             <h2 id="get-rich-quick" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
@@ -470,6 +517,21 @@ export default function GetFirst10GHLSAASClientsClient() {
               The first ten clients are not only revenue. They are customer research, proof, testimonials, referrals, and product development.
             </p>
 
+            {/* CTA 3 - After Section 5 */}
+            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 md:p-8 text-center my-6">
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
+                🏢 Ready to Start Your Local Outreach?
+              </h3>
+              <p className="text-white/60 text-sm max-w-2xl mx-auto mb-6 leading-relaxed">
+                We help you build the right offer, create your demo, design your flyer and visiting card, and plan your local outreach strategy.
+              </p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-8 py-3 rounded-lg hover:bg-[#FFE44D] transition-all shadow-lg hover:shadow-xl">
+                <Target className="w-4 h-4" />
+                Build Your Local Strategy
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
             {/* Section 6: Flyer and Card */}
             <h2 id="flyer-card" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               6. What Should Your Flyer and Visiting Card Include?
@@ -579,6 +641,21 @@ export default function GetFirst10GHLSAASClientsClient() {
               </p>
             </div>
 
+            {/* CTA 4 - After Section 8 */}
+            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 md:p-8 text-center my-6">
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
+                ✍️ Want to Build a Content Strategy That Attracts Clients?
+              </h3>
+              <p className="text-white/60 text-sm max-w-2xl mx-auto mb-6 leading-relaxed">
+                We help SaaS founders create content that builds trust, demonstrates expertise, and attracts the right customers — from blog posts to social media and video content.
+              </p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-8 py-3 rounded-lg hover:bg-[#FFE44D] transition-all shadow-lg hover:shadow-xl">
+                <Sparkles className="w-4 h-4" />
+                Get Content Strategy Help
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
             {/* Section 9: Scaled Channels */}
             <h2 id="scaled-channels" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               9. When Should You Add Google Ads, SEO, AEO, and Scaled Outreach?
@@ -679,6 +756,21 @@ export default function GetFirst10GHLSAASClientsClient() {
               </ul>
             </div>
 
+            {/* CTA 5 - After 90-Day Plan */}
+            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 md:p-8 text-center my-6">
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
+                📋 Need a Custom 90-Day Plan for Your SaaS?
+              </h3>
+              <p className="text-white/60 text-sm max-w-2xl mx-auto mb-6 leading-relaxed">
+                GHL Scale Up helps you build a tailored go-to-market plan, from offer design and demo creation to local outreach, content strategy, and client onboarding.
+              </p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-8 py-3 rounded-lg hover:bg-[#FFE44D] transition-all shadow-lg hover:shadow-xl">
+                <Users className="w-4 h-4" />
+                Get Your Custom Plan
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
             <div className="overflow-x-auto my-6">
               <table className="w-full border-collapse text-sm">
                 <thead>
@@ -700,7 +792,7 @@ export default function GetFirst10GHLSAASClientsClient() {
               </table>
             </div>
 
-            {/* CTA Section */}
+            {/* CTA Section - Internal */}
             <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-5 my-6 text-center text-white">
               <div className="flex items-center gap-2 mb-3 justify-center">
                 <Star className="w-5 h-5 text-[#F8D000]" />
@@ -733,6 +825,21 @@ export default function GetFirst10GHLSAASClientsClient() {
             <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
               Every recommendation in this guide is drawn from working with real GoHighLevel SaaS founders and agency owners across 6 countries. See <Link href="/case-studies" className="text-[#0E9BF0] hover:underline">real GoHighLevel results and case studies</Link> to review actual client outcomes.
             </p>
+
+            {/* CTA 6 - Before FAQ */}
+            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 md:p-8 text-center my-6">
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
+                🚀 Ready to Build Your GoHighLevel SaaS Offer?
+              </h3>
+              <p className="text-white/60 text-sm max-w-2xl mx-auto mb-6 leading-relaxed">
+                GHL Scale Up helps founders and agencies with SaaS Mode setup, niche-specific snapshots, onboarding systems, workflows, support processes, and go-to-market execution.
+              </p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-8 py-3 rounded-lg hover:bg-[#FFE44D] transition-all shadow-lg hover:shadow-xl">
+                <Rocket className="w-4 h-4" />
+                Book Your Free Strategy Call
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
 
             {/* Section 12: FAQ */}
             <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
