@@ -59,5 +59,13 @@ export const faqData: FAQItem[] = [
   {
     question: "How do I get started with GHL Scale Up?",
     answer: "Fill out the contact form on this page or email aryan@ghlscaleup.com. Aryan personally reviews every inquiry and reaches out within a few hours via phone or email to schedule a free 30-minute strategy call. On the call, we understand your business goals, audit your current setup if you have one, and give you a clear plan with scope, timeline, and pricing. No sales pitch — just a technical conversation."
+  },
+  {
+    question: "How do I hire a GoHighLevel expert?",
+    answer: "Start by defining the scope — a one-off workflow fix is a different hire than a full CRM build or white-label SaaS setup. For small, defined tasks, freelance platforms like Upwork or Fiverr work fine. For anything larger, check that the expert or agency is GHL-certified, ask to see past builds or case studies, and confirm whether pricing is fixed-scope or hourly before committing. GHL Scale Up works on fixed-price projects with a clear scope document after the first strategy call, so there are no surprise invoices. Book a free strategy call to get a scoped plan before you hire anyone."
+  },
+  {
+    question: "What's the best GoHighLevel agency to work with?",
+    answer: "The best GoHighLevel agency depends on what you need built, but a few things separate a strong one from a generic marketing agency that happens to use GHL: GHL-only specialization (not one of fifteen platforms they support), a track record of completed builds you can actually see, and a process that includes training and handoff, not just delivery. GHL Scale Up specializes exclusively in GoHighLevel — 200+ projects delivered for 50+ agencies across 6 countries, with every build including team onboarding so you're not dependent on us to run your own system. Explore our GHL services or see case studies to check the fit."
   }
 ];
