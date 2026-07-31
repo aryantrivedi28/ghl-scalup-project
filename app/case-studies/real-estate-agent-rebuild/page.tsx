@@ -23,12 +23,15 @@ import {
   BookOpen,
   Star,
   Award,
-  ThumbsUp
+  ThumbsUp,
+  Youtube
 } from 'lucide-react';
 
 export default function RealEstateCaseStudyPage() {
   return (
     <article className="min-h-screen bg-white">
+      {/* Video Section - Now at the Top */}
+      <VideoSection />
       <HeroSection />
       <ClientSummary />
       <ShortVersion />
@@ -56,7 +59,6 @@ export default function RealEstateCaseStudyPage() {
       {/* CTA 4 - After Results */}
       <CTAFour />
       
-      <TestimonialSection />
       <WhyThisMattersSection />
       <FAQSection />
       
@@ -66,55 +68,93 @@ export default function RealEstateCaseStudyPage() {
   );
 }
 
+// ==================== VIDEO SECTION ====================
+function VideoSection() {
+  return (
+    <section className="py-8 md:py-12 bg-[#F8F9FB] border-b border-[#DDE1E9]">
+      <div className="container mx-auto px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-4 md:mb-6">
+            <span className="inline-flex items-center gap-2 bg-white text-[#0E9BF0] text-xs font-semibold px-3 py-1 rounded-full border border-[#DDE1E9]">
+              <Youtube className="w-3.5 h-3.5" />
+              Client Testimonial
+            </span>
+            <h2 className="text-xl md:text-2xl font-bold text-[#1A2236] mt-3">
+              Watch Our Client's Experience
+            </h2>
+          </div>
+          
+          <div className="relative w-full aspect-video bg-[#0B1628] rounded-xl overflow-hidden shadow-lg border border-[#DDE1E9]">
+            <iframe
+              className="absolute inset-0 w-full h-full"
+              src="https://www.youtube.com/embed/CZ-YRG3q0Nc?autoplay=0&rel=0&modestbranding=1&showinfo=0&color=white&iv_load_policy=3"
+              title="GHL Scale Up Client Testimonial"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              loading="lazy"
+            ></iframe>
+          </div>
+          
+          <p className="text-xs md:text-sm text-[#5C6880] text-center mt-3">
+            Real client testimonial - See how we transformed their GoHighLevel system
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ==================== HERO SECTION ====================
 function HeroSection() {
   return (
-    <section className="relative bg-gradient-to-br from-[#1a365d] via-[#2d4a7a] to-[#1a365d] text-white py-16 md:py-24 lg:py-32 overflow-hidden">
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-64 md:w-96 h-64 md:h-96 bg-[#4299e1] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-64 md:w-96 h-64 md:h-96 bg-[#2b6cb0] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] md:w-[800px] h-[400px] md:h-[800px] bg-[#3182ce] rounded-full filter blur-3xl opacity-10"></div>
-      </div>
-      
-      <div className="absolute inset-0 opacity-5" style={{
-        backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
-        backgroundSize: '40px 40px'
-      }}></div>
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-xs md:text-sm font-medium mb-6 md:mb-8 border border-white/10">
-            <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-[#f6ad55] rounded-full animate-pulse"></span>
-            Case Study
+    <section className="bg-[#0B1628] py-12 md:py-[72px] px-4 md:px-6 relative overflow-hidden">
+      <div className="absolute -top-[120px] -right-[120px] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(14,155,240,0.12)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute -bottom-[80px] -left-[80px] w-[360px] h-[360px] bg-[radial-gradient(circle,rgba(37,201,125,0.08)_0%,transparent_70%)] pointer-events-none" />
+
+      <div className="max-w-[760px] mx-auto relative z-10">
+        <div className="flex flex-wrap gap-2 mb-4">
+          <span className="bg-[rgba(14,155,240,0.15)] text-[#0E9BF0] text-[11px] font-semibold px-2.5 py-1 rounded-full">Case Study</span>
+          <span className="bg-[rgba(37,201,125,0.15)] text-[#25C97D] text-[11px] font-semibold px-2.5 py-1 rounded-full">Real Estate</span>
+          <span className="bg-[rgba(248,208,0,0.15)] text-[#F8D000] text-[11px] font-semibold px-2.5 py-1 rounded-full">GoHighLevel</span>
+          <span className="bg-[rgba(14,155,240,0.15)] text-[#0E9BF0] text-[11px] font-semibold px-2.5 py-1 rounded-full">AI Voice</span>
+        </div>
+
+        <h1 className="text-[clamp(28px,6vw,46px)] font-extrabold leading-[1.2] md:leading-[1.15] text-white mb-4 md:mb-5 tracking-[-0.02em]">
+          GoHighLevel for Real Estate Agents:{' '}
+          <span className="text-[#F8D000]">A Complete Account Rebuild</span>
+        </h1>
+
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
+            <img
+              src="/web-app-manifest-192x192.png"
+              alt="GHL Scale Up"
+              className="w-full h-full object-cover"
+            />
           </div>
-          
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight tracking-tight">
-            GoHighLevel for Real Estate Agents:{' '}
-            <span className="text-[#f6ad55] block sm:inline">A Complete Account Rebuild</span>
-          </h1>
-          
-          <p className="text-lg md:text-xl lg:text-2xl text-blue-100/90 max-w-3xl mx-auto mb-4 md:mb-6 font-light">
-            From Broken Automations to an AI Voice Receptionist System
-          </p>
-          
-          <p className="text-base md:text-lg text-blue-200/80 max-w-2xl mx-auto leading-relaxed">
-            A full GoHighLevel rebuild for a U.S. real estate agent deliverability fixed, 
-            a niche-focused website, a rebuilt lead funnel, working calendars, complete CRM 
-            pipelines, and a multi-agent AI voice automation system now handling thousands 
-            of real calls a month.
-          </p>
-          
-          <div className="mt-6 md:mt-8 flex flex-wrap gap-3 justify-center">
-            <Link href="/contact" className="inline-flex items-center gap-2 bg-[#f6ad55] text-[#1a365d] font-bold px-6 py-3 rounded-lg hover:bg-[#f7c47a] transition-all shadow-lg hover:shadow-xl">
-              <Rocket className="w-4 h-4" />
-              Get Your Free Audit
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link href="#faq" className="inline-flex items-center gap-2 bg-white/10 text-white font-medium px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/10">
-              <BookOpen className="w-4 h-4" />
-              Skip to FAQ
-            </Link>
+          <div>
+            <div className="text-sm font-medium text-white">GHL Scale Up Team</div>
+            <div className="text-xs text-white/50">GoHighLevel Expert Agency · Updated August 2026</div>
           </div>
+        </div>
+
+        <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
+          A full GoHighLevel rebuild for a U.S. real estate agent deliverability fixed, 
+          a niche-focused website, a rebuilt lead funnel, working calendars, complete CRM 
+          pipelines, and a multi-agent AI voice automation system now handling thousands 
+          of real calls a month.
+        </p>
+
+        <div className="flex flex-wrap gap-3">
+          <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+            <Rocket className="w-4 h-4" />
+            Get Your Free Audit
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+          <Link href="#faq" className="inline-flex items-center gap-2 bg-white/10 text-white font-medium px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/10">
+            <BookOpen className="w-4 h-4" />
+            Skip to FAQ
+          </Link>
         </div>
       </div>
     </section>
@@ -131,18 +171,18 @@ function ClientSummary() {
   ];
 
   return (
-    <section className="py-12 md:py-16 bg-gray-50 border-b border-gray-200">
+    <section className="py-12 md:py-16 bg-[#F8F9FB] border-b border-[#DDE1E9]">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {stats.map((stat, index) => (
-              <div key={index} className="bg-white p-4 md:p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[#3182ce]/20 group">
-                <div className="w-10 h-10 md:w-12 md:h-12 bg-[#ebf8ff] rounded-lg flex items-center justify-center mb-3 md:mb-4 group-hover:bg-[#3182ce] transition-colors duration-300">
-                  <stat.icon className="w-5 h-5 md:w-6 md:h-6 text-[#3182ce] group-hover:text-white transition-colors duration-300" />
+              <div key={index} className="bg-white p-4 md:p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-[#DDE1E9] hover:border-[#0E9BF0]/20 group">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-[#F8F9FB] rounded-lg flex items-center justify-center mb-3 md:mb-4 group-hover:bg-[#0E9BF0] transition-colors duration-300">
+                  <stat.icon className="w-5 h-5 md:w-6 md:h-6 text-[#0E9BF0] group-hover:text-white transition-colors duration-300" />
                 </div>
-                <p className="text-xs md:text-sm font-medium text-gray-500 uppercase tracking-wider mb-1">{stat.label}</p>
-                <p className="text-base md:text-lg font-semibold text-gray-900">{stat.value}</p>
-                <p className="text-xs md:text-sm text-gray-600">{stat.sub}</p>
+                <p className="text-xs md:text-sm font-medium text-[#5C6880] uppercase tracking-wider mb-1">{stat.label}</p>
+                <p className="text-base md:text-lg font-semibold text-[#1A2236]">{stat.value}</p>
+                <p className="text-xs md:text-sm text-[#5C6880]">{stat.sub}</p>
               </div>
             ))}
           </div>
@@ -157,23 +197,23 @@ function ShortVersion() {
   return (
     <section className="py-12 md:py-16 container mx-auto px-4">
       <div className="max-w-4xl mx-auto">
-        <div className="relative bg-gradient-to-r from-[#ebf8ff] to-[#e6f7ff] border-l-4 border-[#3182ce] p-4 md:p-8 rounded-r-xl shadow-sm">
-          <div className="absolute -top-3 -left-3 bg-[#3182ce] text-white rounded-full p-1.5 md:p-2">
+        <div className="relative bg-[#F8F9FB] border-l-4 border-[#0E9BF0] p-4 md:p-8 rounded-r-xl shadow-sm">
+          <div className="absolute -top-3 -left-3 bg-[#0E9BF0] text-white rounded-full p-1.5 md:p-2">
             <Quote className="w-4 h-4 md:w-5 md:h-5" />
           </div>
           <div className="pl-2 md:pl-4">
-            <p className="text-sm md:text-lg text-gray-800 leading-relaxed">
-              <span className="font-semibold text-[#1a365d]">This real estate agent's GoHighLevel account looked complete but wasn't functioning:</span> 
+            <p className="text-sm md:text-lg text-[#1A2236] leading-relaxed">
+              <span className="font-semibold">This real estate agent's GoHighLevel account looked complete but wasn't functioning:</span> 
               outbound emails were silently failing, SMS couldn't legally send, the lead funnel wasn't converting, 
               the booking calendar was misconfigured, and a growing contact database had no system working it at all. 
-              <span className="font-semibold text-[#3182ce]"> GHL Scale Up audited the account, rebuilt every broken system end-to-end, 
+              <span className="font-semibold text-[#0E9BF0]"> GHL Scale Up audited the account, rebuilt every broken system end-to-end, 
               repositioned the business around a focused niche, and layered in a three-agent AI voice automation system 
               now placing thousands of real calls a month.</span>
             </p>
           </div>
         </div>
         
-        <p className="text-gray-600 mt-6 text-center max-w-3xl mx-auto text-sm md:text-base">
+        <p className="text-[#5C6880] mt-6 text-center max-w-3xl mx-auto text-sm md:text-base">
           This case study covers the full rebuild deliverability, website, funnels, calendars, CRM, core automations, 
           and the AI voice agent system plus real performance data pulled from the live GoHighLevel dashboard.
         </p>
@@ -185,18 +225,18 @@ function ShortVersion() {
 // ==================== CTA 1 ====================
 function CTAOne() {
   return (
-    <section className="py-8 md:py-12 bg-gradient-to-r from-[#1a365d] to-[#2d4a7a]">
+    <section className="py-8 md:py-12 bg-[#0B1628]">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/10">
+          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/10">
             <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
               Got a GoHighLevel Account That's Not Working?
             </h3>
-            <p className="text-blue-100/80 text-sm md:text-base max-w-2xl mx-auto mb-4 md:mb-6 leading-relaxed">
+            <p className="text-white/60 text-sm md:text-base max-w-2xl mx-auto mb-4 md:mb-6 leading-relaxed">
               GHL Scale Up audits, fixes, and rebuilds GoHighLevel accounts for real estate agents and agencies. 
               From deliverability and A2P compliance to funnels, calendars, and AI voice agents.
             </p>
-            <Link href="/contact" className="inline-flex items-center gap-2 bg-[#f6ad55] text-[#1a365d] font-bold px-6 py-3 rounded-lg hover:bg-[#f7c47a] transition-all shadow-lg hover:shadow-xl">
+            <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
               Get Your Free Account Audit
               <ArrowRight className="w-4 h-4" />
             </Link>
@@ -238,18 +278,18 @@ function ChallengeSection() {
   ];
 
   return (
-    <section className="py-16 md:py-20 bg-gray-50">
+    <section className="py-16 md:py-20 bg-[#F8F9FB]">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-8 md:mb-12">
-            <span className="inline-block bg-[#3182ce]/10 text-[#3182ce] font-semibold text-xs md:text-sm uppercase tracking-wider px-3 md:px-4 py-1.5 md:py-2 rounded-full mb-3 md:mb-4">
+            <span className="inline-block bg-[#0E9BF0]/10 text-[#0E9BF0] font-semibold text-xs md:text-sm uppercase tracking-wider px-3 md:px-4 py-1.5 md:py-2 rounded-full mb-3 md:mb-4">
               The Challenge
             </span>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1a365d] mt-2 mb-3 md:mb-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1A2236] mt-2 mb-3 md:mb-4">
               A Real Estate CRM That Looked Ready but Wasn't Working
             </h2>
-            <div className="bg-[#ebf8ff] border-l-4 border-[#3182ce] p-3 md:p-4 rounded-r-lg max-w-3xl mx-auto mb-6 md:mb-8">
-              <p className="text-sm md:text-base text-gray-700 italic">
+            <div className="bg-white border-l-4 border-[#0E9BF0] p-3 md:p-4 rounded-r-lg max-w-3xl mx-auto mb-6 md:mb-8">
+              <p className="text-sm md:text-base text-[#5C6880] italic">
                 "A real estate CRM automation system is only as good as its delivery. The account had the right structure in place, but several critical failures meant leads were never actually being followed up with."
               </p>
             </div>
@@ -257,14 +297,14 @@ function ChallengeSection() {
           
           <div className="space-y-4 md:space-y-6">
             {challenges.map((challenge, index) => (
-              <div key={index} className="bg-white p-4 md:p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-red-200">
+              <div key={index} className="bg-white p-4 md:p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-[#DDE1E9] hover:border-red-200">
                 <div className="flex items-start gap-3 md:gap-4">
                   <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-red-50 rounded-lg flex items-center justify-center">
                     <challenge.icon className="w-5 h-5 md:w-6 md:h-6 text-red-600" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-1 md:mb-2 text-sm md:text-base">{challenge.title}</h4>
-                    <p className="text-sm md:text-base text-gray-600 leading-relaxed">{challenge.description}</p>
+                    <h4 className="font-semibold text-[#1A2236] mb-1 md:mb-2 text-sm md:text-base">{challenge.title}</h4>
+                    <p className="text-sm md:text-base text-[#5C6880] leading-relaxed">{challenge.description}</p>
                   </div>
                 </div>
               </div>
@@ -279,18 +319,18 @@ function ChallengeSection() {
 // ==================== CTA 2 ====================
 function CTATwo() {
   return (
-    <section className="py-8 md:py-12 bg-gradient-to-r from-[#1a365d] to-[#2d4a7a]">
+    <section className="py-8 md:py-12 bg-[#0B1628]">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/10">
+          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/10">
             <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
               🔍 Need a Full Account Audit?
             </h3>
-            <p className="text-blue-100/80 text-sm md:text-base max-w-2xl mx-auto mb-4 md:mb-6 leading-relaxed">
+            <p className="text-white/60 text-sm md:text-base max-w-2xl mx-auto mb-4 md:mb-6 leading-relaxed">
               We'll audit your GoHighLevel account, identify every broken system, and provide a clear roadmap 
               to fix deliverability, automations, and conversion issues.
             </p>
-            <Link href="/contact" className="inline-flex items-center gap-2 bg-[#f6ad55] text-[#1a365d] font-bold px-6 py-3 rounded-lg hover:bg-[#f7c47a] transition-all shadow-lg hover:shadow-xl">
+            <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
               Book Your Free Audit
               <ArrowRight className="w-4 h-4" />
             </Link>
@@ -393,14 +433,14 @@ function RebuildSection() {
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-8 md:mb-12">
-            <span className="inline-block bg-[#3182ce]/10 text-[#3182ce] font-semibold text-xs md:text-sm uppercase tracking-wider px-3 md:px-4 py-1.5 md:py-2 rounded-full mb-3 md:mb-4">
+            <span className="inline-block bg-[#0E9BF0]/10 text-[#0E9BF0] font-semibold text-xs md:text-sm uppercase tracking-wider px-3 md:px-4 py-1.5 md:py-2 rounded-full mb-3 md:mb-4">
               The Rebuild
             </span>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1a365d] mt-2 mb-3 md:mb-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1A2236] mt-2 mb-3 md:mb-4">
               A Complete GoHighLevel System Built for Real Estate
             </h2>
-            <div className="bg-[#ebf8ff] border-l-4 border-[#3182ce] p-3 md:p-4 rounded-r-lg max-w-3xl mx-auto mb-6 md:mb-8">
-              <p className="text-sm md:text-base text-gray-700 italic">
+            <div className="bg-[#F8F9FB] border-l-4 border-[#0E9BF0] p-3 md:p-4 rounded-r-lg max-w-3xl mx-auto mb-6 md:mb-8">
+              <p className="text-sm md:text-base text-[#5C6880] italic">
                 "GHL Scale Up didn't patch individual issues the account was rebuilt end-to-end so deliverability, the website, funnels, the calendar, the CRM, and automation all work as one connected system instead of a set of separate fixes."
               </p>
             </div>
@@ -408,22 +448,22 @@ function RebuildSection() {
           
           <div className="space-y-6 md:space-y-8 lg:space-y-12">
             {rebuildItems.map((item, index) => (
-              <div key={index} className="bg-white p-4 md:p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100">
+              <div key={index} className="bg-white p-4 md:p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-[#DDE1E9]">
                 <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-6">
                   <div className="flex-shrink-0">
-                    <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-[#3182ce] to-[#2b6cb0] text-white rounded-xl flex items-center justify-center font-bold text-base md:text-lg">
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-[#0E9BF0] text-white rounded-xl flex items-center justify-center font-bold text-base md:text-lg">
                       {item.number}
                     </div>
                   </div>
                   <div className="flex-1 w-full">
-                    <h4 className="text-lg md:text-xl font-semibold text-[#1a365d] mb-2 md:mb-3">{item.title}</h4>
-                    <p className="text-sm md:text-base text-gray-600 leading-relaxed mb-3">{item.description}</p>
+                    <h4 className="text-lg md:text-xl font-semibold text-[#1A2236] mb-2 md:mb-3">{item.title}</h4>
+                    <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-3">{item.description}</p>
                     
                     {item.bullets && (
                       <ul className="space-y-1.5 md:space-y-2 mt-2 md:mt-3">
                         {item.bullets.map((bullet, idx) => (
-                          <li key={idx} className="flex items-start gap-2 text-sm md:text-base text-gray-600">
-                            <CheckCircle className="w-4 h-4 text-[#3182ce] mt-0.5 flex-shrink-0" />
+                          <li key={idx} className="flex items-start gap-2 text-sm md:text-base text-[#5C6880]">
+                            <CheckCircle className="w-4 h-4 text-[#0E9BF0] mt-0.5 flex-shrink-0" />
                             <span>{bullet}</span>
                           </li>
                         ))}
@@ -432,7 +472,7 @@ function RebuildSection() {
                     
                     {item.hasImage && (
                       <div className="mt-4">
-                        <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-80 bg-gray-200 rounded-lg overflow-hidden">
+                        <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-80 bg-[#F8F9FB] rounded-lg overflow-hidden">
                           <Image
                             src={item.imageSrc || "/placeholder-image.jpeg"}
                             alt={item.imageCaption || "Case study image"}
@@ -441,16 +481,16 @@ function RebuildSection() {
                             sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, 800px"
                           />
                         </div>
-                        <p className="text-xs md:text-sm text-gray-500 mt-2 italic">{item.imageCaption}</p>
+                        <p className="text-xs md:text-sm text-[#5C6880] mt-2 italic">{item.imageCaption}</p>
                         {item.extraText && (
-                          <p className="text-sm md:text-base text-gray-600 mt-3">{item.extraText}</p>
+                          <p className="text-sm md:text-base text-[#5C6880] mt-3">{item.extraText}</p>
                         )}
                       </div>
                     )}
                     
                     {item.hasImage2 && (
                       <div className="mt-4">
-                        <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-80 bg-gray-200 rounded-lg overflow-hidden">
+                        <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-80 bg-[#F8F9FB] rounded-lg overflow-hidden">
                           <Image
                             src={item.imageSrc2 || "/placeholder-image.jpeg"}
                             alt={item.imageCaption2 || "Case study image"}
@@ -459,9 +499,9 @@ function RebuildSection() {
                             sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, 800px"
                           />
                         </div>
-                        <p className="text-xs md:text-sm text-gray-500 mt-2 italic">{item.imageCaption2}</p>
+                        <p className="text-xs md:text-sm text-[#5C6880] mt-2 italic">{item.imageCaption2}</p>
                         {item.extraText2 && (
-                          <p className="text-sm md:text-base text-gray-600 mt-3">{item.extraText2}</p>
+                          <p className="text-sm md:text-base text-[#5C6880] mt-3">{item.extraText2}</p>
                         )}
                       </div>
                     )}
@@ -479,18 +519,18 @@ function RebuildSection() {
 // ==================== CTA 3 ====================
 function CTAThree() {
   return (
-    <section className="py-8 md:py-12 bg-gradient-to-r from-[#1a365d] to-[#2d4a7a]">
+    <section className="py-8 md:py-12 bg-[#0B1628]">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/10">
+          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/10">
             <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
               🤖 Want AI Voice Agents for Your Real Estate Business?
             </h3>
-            <p className="text-blue-100/80 text-sm md:text-base max-w-2xl mx-auto mb-4 md:mb-6 leading-relaxed">
+            <p className="text-white/60 text-sm md:text-base max-w-2xl mx-auto mb-4 md:mb-6 leading-relaxed">
               From inbound reception to outbound campaigns and database reactivation we build custom AI voice systems 
               that handle thousands of calls a month, 24/7.
             </p>
-            <Link href="/contact" className="inline-flex items-center gap-2 bg-[#f6ad55] text-[#1a365d] font-bold px-6 py-3 rounded-lg hover:bg-[#f7c47a] transition-all shadow-lg hover:shadow-xl">
+            <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
               Build Your AI Voice System
               <ArrowRight className="w-4 h-4" />
             </Link>
@@ -549,24 +589,24 @@ function AutomationStackSection() {
   ];
 
   return (
-    <section className="py-16 md:py-20 bg-gray-50">
+    <section className="py-16 md:py-20 bg-[#F8F9FB]">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-8 md:mb-12">
-            <span className="inline-block bg-[#3182ce]/10 text-[#3182ce] font-semibold text-xs md:text-sm uppercase tracking-wider px-3 md:px-4 py-1.5 md:py-2 rounded-full mb-3 md:mb-4">
+            <span className="inline-block bg-[#0E9BF0]/10 text-[#0E9BF0] font-semibold text-xs md:text-sm uppercase tracking-wider px-3 md:px-4 py-1.5 md:py-2 rounded-full mb-3 md:mb-4">
               Automation Stack
             </span>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1a365d] mt-2 mb-3 md:mb-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1A2236] mt-2 mb-3 md:mb-4">
               The Automation Stack Behind the System
             </h2>
-            <div className="bg-[#ebf8ff] border-l-4 border-[#3182ce] p-3 md:p-4 rounded-r-lg max-w-3xl mx-auto mb-6 md:mb-8">
-              <p className="text-sm md:text-base text-gray-700 italic">
+            <div className="bg-white border-l-4 border-[#0E9BF0] p-3 md:p-4 rounded-r-lg max-w-3xl mx-auto mb-6 md:mb-8">
+              <p className="text-sm md:text-base text-[#5C6880] italic">
                 "The AI voice agents don't run in isolation they're triggered and supported by a full workflow stack, covering everything from the first inbound call to a year-long dormant-lead drip."
               </p>
             </div>
             
             <div className="max-w-3xl mx-auto mb-6 md:mb-8">
-              <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-80 bg-gray-200 rounded-lg overflow-hidden">
+              <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-80 bg-[#F8F9FB] rounded-lg overflow-hidden">
                 <Image
                   src="/case-study/Picture4.jpeg"
                   alt="The live automations list for the account, showing publish status and real enrollment counts pulled directly from GoHighLevel"
@@ -575,27 +615,27 @@ function AutomationStackSection() {
                   sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, 800px"
                 />
               </div>
-              <p className="text-xs md:text-sm text-gray-500 mt-2 italic text-center">
+              <p className="text-xs md:text-sm text-[#5C6880] mt-2 italic text-center">
                 The live automations list for the account, showing publish status and real enrollment counts pulled directly from GoHighLevel. Account title redacted for client privacy.
               </p>
             </div>
           </div>
           
-          <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-200">
+          <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-[#DDE1E9]">
             <div className="overflow-x-auto">
-              <table className="min-w-[600px] md:min-w-full divide-y divide-gray-200">
-                <thead className="bg-gradient-to-r from-gray-50 to-gray-100">
+              <table className="min-w-[600px] md:min-w-full divide-y divide-[#DDE1E9]">
+                <thead className="bg-[#F8F9FB]">
                   <tr>
-                    <th className="px-4 md:px-6 py-3 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-700">Workflow</th>
-                    <th className="px-4 md:px-6 py-3 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-700">Status</th>
-                    <th className="px-4 md:px-6 py-3 md:py-4 text-right text-xs md:text-sm font-semibold text-gray-700">Total Enrolled</th>
-                    <th className="px-4 md:px-6 py-3 md:py-4 text-right text-xs md:text-sm font-semibold text-gray-700">Active</th>
+                    <th className="px-4 md:px-6 py-3 md:py-4 text-left text-xs md:text-sm font-semibold text-[#1A2236]">Workflow</th>
+                    <th className="px-4 md:px-6 py-3 md:py-4 text-left text-xs md:text-sm font-semibold text-[#1A2236]">Status</th>
+                    <th className="px-4 md:px-6 py-3 md:py-4 text-right text-xs md:text-sm font-semibold text-[#1A2236]">Total Enrolled</th>
+                    <th className="px-4 md:px-6 py-3 md:py-4 text-right text-xs md:text-sm font-semibold text-[#1A2236]">Active</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-200">
+                <tbody className="divide-y divide-[#DDE1E9]">
                   {workflows.map((workflow, index) => (
-                    <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}>
-                      <td className="px-4 md:px-6 py-3 md:py-4 text-xs md:text-sm text-gray-900 font-medium">{workflow.name}</td>
+                    <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-[#F8F9FB]/50'}>
+                      <td className="px-4 md:px-6 py-3 md:py-4 text-xs md:text-sm text-[#1A2236] font-medium">{workflow.name}</td>
                       <td className="px-4 md:px-6 py-3 md:py-4 text-xs md:text-sm">
                         <span className={`inline-flex items-center px-2 md:px-3 py-0.5 md:py-1 rounded-full text-xs font-semibold ${
                           workflow.status === 'Published' 
@@ -605,12 +645,12 @@ function AutomationStackSection() {
                           {workflow.status}
                         </span>
                       </td>
-                      <td className="px-4 md:px-6 py-3 md:py-4 text-xs md:text-sm text-gray-900 text-right font-semibold">
+                      <td className="px-4 md:px-6 py-3 md:py-4 text-xs md:text-sm text-[#1A2236] text-right font-semibold">
                         {workflow.totalEnrolled.toLocaleString()}
                       </td>
-                      <td className="px-4 md:px-6 py-3 md:py-4 text-xs md:text-sm text-gray-900 text-right">
+                      <td className="px-4 md:px-6 py-3 md:py-4 text-xs md:text-sm text-[#1A2236] text-right">
                         <span className={`font-semibold ${
-                          workflow.active > 0 ? 'text-[#3182ce]' : 'text-gray-400'
+                          workflow.active > 0 ? 'text-[#0E9BF0]' : 'text-[#5C6880]'
                         }`}>
                           {workflow.active}
                         </span>
@@ -622,15 +662,15 @@ function AutomationStackSection() {
             </div>
           </div>
           
-          <div className="mt-6 bg-gradient-to-r from-[#ebf8ff] to-[#e6f7ff] border border-[#3182ce]/20 rounded-xl p-4 md:p-6 shadow-sm">
+          <div className="mt-6 bg-white border border-[#0E9BF0]/20 rounded-xl p-4 md:p-6 shadow-sm">
             <div className="flex flex-col sm:flex-row items-start gap-3 md:gap-4">
-              <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-[#3182ce] text-white rounded-xl flex items-center justify-center">
+              <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-[#0E9BF0] text-white rounded-xl flex items-center justify-center">
                 <Database className="w-5 h-5 md:w-6 md:h-6" />
               </div>
               <div>
-                <h4 className="font-semibold text-[#1a365d] mb-1 text-base md:text-lg">Database Reactivation Highlight</h4>
-                <p className="text-sm md:text-base text-gray-700">
-                  The headline number here is the database reactivation workflow: <span className="font-bold text-[#3182ce] text-lg md:text-xl">1,262</span> previously cold contacts have been enrolled into an automated sequence that places a voice AI call, listens for a response, and branches the conversation based on what the lead says a workload that would take a solo agent weeks to work manually by phone.
+                <h4 className="font-semibold text-[#1A2236] mb-1 text-base md:text-lg">Database Reactivation Highlight</h4>
+                <p className="text-sm md:text-base text-[#5C6880]">
+                  The headline number here is the database reactivation workflow: <span className="font-bold text-[#0E9BF0] text-lg md:text-xl">1,262</span> previously cold contacts have been enrolled into an automated sequence that places a voice AI call, listens for a response, and branches the conversation based on what the lead says a workload that would take a solo agent weeks to work manually by phone.
                 </p>
               </div>
             </div>
@@ -647,16 +687,16 @@ function InsideReactivationWorkflow() {
     <section className="py-16 md:py-20">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1a365d] text-center mb-4 md:mb-6">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1A2236] text-center mb-4 md:mb-6">
             Inside the Reactivation Workflow
           </h2>
           
-          <p className="text-sm md:text-base text-gray-600 text-center max-w-3xl mx-auto mb-6 md:mb-8 leading-relaxed">
+          <p className="text-sm md:text-base text-[#5C6880] text-center max-w-3xl mx-auto mb-6 md:mb-8 leading-relaxed">
             The database reactivation workflow follows a branching call-and-wait structure: it places the AI voice call, checks whether the contact responds or confirms interest, and branches down different paths depending on the outcome re-attempting later, tagging the lead as interested, or handing off for human follow-up repeating the cycle across multiple wait/retry stages rather than a single one-shot call.
           </p>
           
           <div className="max-w-3xl mx-auto">
-            <div className="relative w-full h-64 sm:h-72 md:h-80 lg:h-96 bg-gray-200 rounded-lg overflow-hidden">
+            <div className="relative w-full h-64 sm:h-72 md:h-80 lg:h-96 bg-[#F8F9FB] rounded-lg overflow-hidden">
               <Image
                 src="/case-study/Picture5.jpeg"
                 alt="The workflow builder view of the database reactivation automation a branching sequence of AI voice calls, conditional checks, and timed retry steps"
@@ -665,7 +705,7 @@ function InsideReactivationWorkflow() {
                 sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, 800px"
               />
             </div>
-            <p className="text-xs md:text-sm text-gray-500 mt-2 italic text-center">
+            <p className="text-xs md:text-sm text-[#5C6880] mt-2 italic text-center">
               The workflow builder view of the database reactivation automation a branching sequence of AI voice calls, conditional checks, and timed retry steps.
             </p>
           </div>
@@ -690,25 +730,25 @@ function ResultsSection() {
   ];
 
   return (
-    <section className="py-16 md:py-20 bg-gray-50">
+    <section className="py-16 md:py-20 bg-[#F8F9FB]">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-8 md:mb-12">
-            <span className="inline-block bg-[#3182ce]/10 text-[#3182ce] font-semibold text-xs md:text-sm uppercase tracking-wider px-3 md:px-4 py-1.5 md:py-2 rounded-full mb-3 md:mb-4">
+            <span className="inline-block bg-[#0E9BF0]/10 text-[#0E9BF0] font-semibold text-xs md:text-sm uppercase tracking-wider px-3 md:px-4 py-1.5 md:py-2 rounded-full mb-3 md:mb-4">
               The Results
             </span>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1a365d] mt-2 mb-3 md:mb-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1A2236] mt-2 mb-3 md:mb-4">
               Real Performance Data from the Live Dashboard
             </h2>
-            <div className="bg-[#ebf8ff] border-l-4 border-[#3182ce] p-3 md:p-4 rounded-r-lg max-w-3xl mx-auto mb-6 md:mb-8">
-              <p className="text-sm md:text-base text-gray-700 italic">
+            <div className="bg-white border-l-4 border-[#0E9BF0] p-3 md:p-4 rounded-r-lg max-w-3xl mx-auto mb-6 md:mb-8">
+              <p className="text-sm md:text-base text-[#5C6880] italic">
                 "Pulled directly from the live GoHighLevel AI Agents dashboard for a recent 17-day window actual call volume and outcomes, not projections."
               </p>
             </div>
           </div>
           
           <div className="max-w-3xl mx-auto mb-6 md:mb-8">
-            <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-80 bg-gray-200 rounded-lg overflow-hidden">
+            <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-80 bg-[#F8F9FB] rounded-lg overflow-hidden">
               <Image
                 src="/case-study/Picture6.jpeg"
                 alt="Outbound AI voice performance dashboard, a recent 17-day window: 7,105 attempted calls, 5,471 connected, 97% positive sentiment"
@@ -717,27 +757,27 @@ function ResultsSection() {
                 sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, 800px"
               />
             </div>
-            <p className="text-xs md:text-sm text-gray-500 mt-2 italic text-center">
+            <p className="text-xs md:text-sm text-[#5C6880] mt-2 italic text-center">
               Outbound AI voice performance dashboard, a recent 17-day window: 7,105 attempted calls, 5,471 connected, 97% positive sentiment.
             </p>
           </div>
           
-          <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-200 mb-6 md:mb-8">
+          <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-[#DDE1E9] mb-6 md:mb-8">
             <div className="overflow-x-auto">
-              <table className="min-w-[500px] md:min-w-full divide-y divide-gray-200">
-                <thead className="bg-gradient-to-r from-gray-50 to-gray-100">
+              <table className="min-w-[500px] md:min-w-full divide-y divide-[#DDE1E9]">
+                <thead className="bg-[#F8F9FB]">
                   <tr>
-                    <th className="px-4 md:px-6 py-3 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-700">Metric</th>
-                    <th className="px-4 md:px-6 py-3 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-700">Value</th>
-                    <th className="px-4 md:px-6 py-3 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-700">What it means</th>
+                    <th className="px-4 md:px-6 py-3 md:py-4 text-left text-xs md:text-sm font-semibold text-[#1A2236]">Metric</th>
+                    <th className="px-4 md:px-6 py-3 md:py-4 text-left text-xs md:text-sm font-semibold text-[#1A2236]">Value</th>
+                    <th className="px-4 md:px-6 py-3 md:py-4 text-left text-xs md:text-sm font-semibold text-[#1A2236]">What it means</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-200">
+                <tbody className="divide-y divide-[#DDE1E9]">
                   {metrics.map((metric, index) => (
-                    <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}>
-                      <td className="px-4 md:px-6 py-3 md:py-4 text-xs md:text-sm font-medium text-gray-900">{metric.label}</td>
-                      <td className="px-4 md:px-6 py-3 md:py-4 text-xs md:text-sm font-semibold text-[#3182ce]">{metric.value}</td>
-                      <td className="px-4 md:px-6 py-3 md:py-4 text-xs md:text-sm text-gray-600">{metric.description}</td>
+                    <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-[#F8F9FB]/50'}>
+                      <td className="px-4 md:px-6 py-3 md:py-4 text-xs md:text-sm font-medium text-[#1A2236]">{metric.label}</td>
+                      <td className="px-4 md:px-6 py-3 md:py-4 text-xs md:text-sm font-semibold text-[#0E9BF0]">{metric.value}</td>
+                      <td className="px-4 md:px-6 py-3 md:py-4 text-xs md:text-sm text-[#5C6880]">{metric.description}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -745,15 +785,15 @@ function ResultsSection() {
             </div>
           </div>
           
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 md:p-6 mb-6">
-            <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+          <div className="bg-white rounded-xl shadow-sm border border-[#DDE1E9] p-4 md:p-6 mb-6">
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed">
               Percentages above are calculated directly from the dashboard's own totals (each figure sums to the 7,105 attempted calls shown). Alongside this, deliverability that previously failed outright now authenticates and sends, SMS workflows are carrier-compliant following A2P 10DLC completion, the rebuilt funnel is live, and the calendar reflects correct availability instead of the original broken configuration.
             </p>
           </div>
           
-          <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4 md:p-6">
-            <p className="text-sm md:text-base text-gray-700">
-              <span className="font-semibold">📌 ADD ONCE AVAILABLE:</span> revenue or appointment outcomes tied to the 59 triggered actions, and an updated snapshot once the 12-Month Dormant Drip and 30-Day No Response Nurture workflows both live but not yet enrolling contacts have run for a full cycle.
+          <div className="bg-[#F8F9FB] border border-[#0E9BF0]/20 rounded-xl p-4 md:p-6">
+            <p className="text-sm md:text-base text-[#5C6880]">
+              <span className="font-semibold text-[#1A2236]">📌 ADD ONCE AVAILABLE:</span> revenue or appointment outcomes tied to the 59 triggered actions, and an updated snapshot once the 12-Month Dormant Drip and 30-Day No Response Nurture workflows both live but not yet enrolling contacts have run for a full cycle.
             </p>
           </div>
         </div>
@@ -788,15 +828,15 @@ function ClutchReviewsSection() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-8 md:mb-12">
             <div className="flex items-center justify-center gap-2 mb-3">
-              <Award className="w-6 h-6 text-[#f6ad55]" />
-              <span className="inline-block bg-[#3182ce]/10 text-[#3182ce] font-semibold text-xs md:text-sm uppercase tracking-wider px-3 md:px-4 py-1.5 md:py-2 rounded-full">
+              <Award className="w-6 h-6 text-[#0E9BF0]" />
+              <span className="inline-block bg-[#0E9BF0]/10 text-[#0E9BF0] font-semibold text-xs md:text-sm uppercase tracking-wider px-3 md:px-4 py-1.5 md:py-2 rounded-full">
                 Client Reviews
               </span>
             </div>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1a365d] mt-2 mb-3 md:mb-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1A2236] mt-2 mb-3 md:mb-4">
               What Our Clients Say
             </h2>
-            <p className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-sm md:text-base text-[#5C6880] max-w-2xl mx-auto leading-relaxed">
               Real reviews from real clients who trusted us with their GoHighLevel systems.
             </p>
           </div>
@@ -805,9 +845,9 @@ function ClutchReviewsSection() {
             {reviews.map((review) => (
               <div 
                 key={review.id} 
-                className="group bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                className="group bg-white border border-[#DDE1E9] rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
-                <div className="relative w-full h-48 md:h-56 lg:h-64 bg-gray-100 overflow-hidden">
+                <div className="relative w-full h-48 md:h-56 lg:h-64 bg-[#F8F9FB] overflow-hidden">
                   <Image
                     src={review.imageSrc}
                     alt={review.alt}
@@ -819,10 +859,10 @@ function ClutchReviewsSection() {
                 <div className="p-3 md:p-4 text-center">
                   <div className="flex items-center justify-center gap-1 mb-1">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-[#f6ad55] fill-[#f6ad55]" />
+                      <Star key={i} className="w-4 h-4 text-[#F8D000] fill-[#F8D000]" />
                     ))}
                   </div>
-                  <p className="text-xs text-gray-500">Verified Clutch Review</p>
+                  <p className="text-xs text-[#5C6880]">Verified Clutch Review</p>
                 </div>
               </div>
             ))}
@@ -833,7 +873,7 @@ function ClutchReviewsSection() {
               href="https://clutch.co/profile/ghl-scale-up" 
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[#3182ce] font-semibold hover:text-[#2b6cb0] transition-colors group"
+              className="inline-flex items-center gap-2 text-[#0E9BF0] font-semibold hover:text-[#0E9BF0]/80 transition-colors group"
             >
               <ThumbsUp className="w-4 h-4" />
               See all reviews on Clutch
@@ -849,61 +889,21 @@ function ClutchReviewsSection() {
 // ==================== CTA 4 ====================
 function CTAFour() {
   return (
-    <section className="py-8 md:py-12 bg-gradient-to-r from-[#1a365d] to-[#2d4a7a]">
+    <section className="py-8 md:py-12 bg-[#0B1628]">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/10">
+          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/10">
             <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
               📊 Want Results Like This for Your Business?
             </h3>
-            <p className="text-blue-100/80 text-sm md:text-base max-w-2xl mx-auto mb-4 md:mb-6 leading-relaxed">
+            <p className="text-white/60 text-sm md:text-base max-w-2xl mx-auto mb-4 md:mb-6 leading-relaxed">
               From deliverability fixes to AI voice agents that handle thousands of calls we build GoHighLevel 
               systems that actually work and deliver real results.
             </p>
-            <Link href="/contact" className="inline-flex items-center gap-2 bg-[#f6ad55] text-[#1a365d] font-bold px-6 py-3 rounded-lg hover:bg-[#f7c47a] transition-all shadow-lg hover:shadow-xl">
+            <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
               Start Your Project
               <ArrowRight className="w-4 h-4" />
             </Link>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ==================== TESTIMONIAL SECTION ====================
-function TestimonialSection() {
-  return (
-    <section className="py-16 md:py-20 bg-gradient-to-br from-[#1a365d] to-[#2d4a7a] text-white">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-8 lg:p-12 text-center">
-            <div className="relative">
-              <div className="absolute -top-4 -left-4 text-white/10">
-                <Quote className="w-12 h-12 md:w-20 md:h-20" />
-              </div>
-              <div className="w-16 h-16 md:w-24 md:h-24 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6 md:mb-8 border-2 border-white/20 hover:scale-110 transition-transform duration-300 cursor-pointer">
-                <Play className="w-8 h-8 md:w-10 md:h-10 text-white ml-1" />
-              </div>
-            </div>
-            
-            <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-3 md:mb-4">▶ VIDEO TESTIMONIAL PLACEHOLDER</h3>
-            
-            <p className="text-blue-100/80 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-              Embed the client video testimonial here once recorded. If the client wants to remain anonymous on camera too, consider voice-only, silhouette, or an on-screen text testimonial instead.
-            </p>
-            
-            <div className="w-16 md:w-20 h-1 bg-[#f6ad55] mx-auto mt-6 md:mt-8 mb-4 md:mb-6"></div>
-            
-            <p className="text-blue-200/60 text-xs md:text-sm italic">
-              *Add a short captioned pull-quote beneath the video once available, for AEO/GEO extractability.*
-            </p>
-            
-            <div className="mt-4 md:mt-6 p-3 md:p-4 bg-white/5 rounded-lg border border-white/10">
-              <p className="text-blue-200/70 text-xs md:text-sm">
-                [INSERT PULL-QUOTE FROM TESTIMONIAL ONCE AVAILABLE keep phrasing generic if the client wants to stay unnamed, e.g. "a Florida real estate agent" rather than a full name.]
-              </p>
-            </div>
           </div>
         </div>
       </div>
@@ -926,14 +926,14 @@ function WhyThisMattersSection() {
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-8 md:mb-12">
-            <span className="inline-block bg-[#3182ce]/10 text-[#3182ce] font-semibold text-xs md:text-sm uppercase tracking-wider px-3 md:px-4 py-1.5 md:py-2 rounded-full mb-3 md:mb-4">
+            <span className="inline-block bg-[#0E9BF0]/10 text-[#0E9BF0] font-semibold text-xs md:text-sm uppercase tracking-wider px-3 md:px-4 py-1.5 md:py-2 rounded-full mb-3 md:mb-4">
               Key Takeaways
             </span>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1a365d] mt-2 mb-3 md:mb-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1A2236] mt-2 mb-3 md:mb-4">
               Why This Matters for Other Real Estate Agents
             </h2>
-            <div className="bg-[#ebf8ff] border-l-4 border-[#3182ce] p-3 md:p-4 rounded-r-lg max-w-3xl mx-auto mb-6 md:mb-8">
-              <p className="text-sm md:text-base text-gray-700 italic">
+            <div className="bg-[#F8F9FB] border-l-4 border-[#0E9BF0] p-3 md:p-4 rounded-r-lg max-w-3xl mx-auto mb-6 md:mb-8">
+              <p className="text-sm md:text-base text-[#5C6880] italic">
                 "The failures in this account are common, not unusual most real estate agents running GoHighLevel have at least one of these issues without realizing it."
               </p>
             </div>
@@ -941,12 +941,12 @@ function WhyThisMattersSection() {
           
           <div className="space-y-3 md:space-y-4">
             {points.map((point, index) => (
-              <div key={index} className="group bg-white p-4 md:p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border-l-4 border-[#3182ce] hover:border-[#2b6cb0]">
+              <div key={index} className="group bg-white p-4 md:p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border-l-4 border-[#0E9BF0] hover:border-[#0E9BF0]">
                 <div className="flex items-start gap-3 md:gap-4">
-                  <div className="flex-shrink-0 w-6 h-6 md:w-8 md:h-8 bg-[#ebf8ff] rounded-full flex items-center justify-center group-hover:bg-[#3182ce] transition-colors duration-300">
-                    <span className="text-[#3182ce] group-hover:text-white font-bold text-xs md:text-sm">•</span>
+                  <div className="flex-shrink-0 w-6 h-6 md:w-8 md:h-8 bg-[#F8F9FB] rounded-full flex items-center justify-center group-hover:bg-[#0E9BF0] transition-colors duration-300">
+                    <span className="text-[#0E9BF0] group-hover:text-white font-bold text-xs md:text-sm">•</span>
                   </div>
-                  <p className="text-sm md:text-base text-gray-700 leading-relaxed">{point}</p>
+                  <p className="text-sm md:text-base text-[#5C6880] leading-relaxed">{point}</p>
                 </div>
               </div>
             ))}
@@ -986,34 +986,34 @@ function FAQSection() {
     },
     {
       question: "How much does a GoHighLevel setup cost for a real estate agent?",
-      answer: "Setup costs vary by scope. A full end-to-end rebuild deliverability fixes, website, funnels, calendars, CRM, automations, and AI voice agents is typically a one-time project investment, often paired with an optional ongoing monthly maintenance plan. [Confirm final published pricing language before publishing.]"
+      answer: "Setup costs vary by scope. A full end-to-end rebuild deliverability fixes, website, funnels, calendars, CRM, automations, and AI voice agents is typically a one-time project investment, often paired with an optional ongoing monthly maintenance plan."
     }
   ];
 
   return (
-    <section className="py-16 md:py-20 bg-gray-50" id="faq">
+    <section className="py-16 md:py-20 bg-[#F8F9FB]" id="faq">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8 md:mb-12">
-            <span className="inline-block bg-[#3182ce]/10 text-[#3182ce] font-semibold text-xs md:text-sm uppercase tracking-wider px-3 md:px-4 py-1.5 md:py-2 rounded-full mb-3 md:mb-4">
+            <span className="inline-block bg-[#0E9BF0]/10 text-[#0E9BF0] font-semibold text-xs md:text-sm uppercase tracking-wider px-3 md:px-4 py-1.5 md:py-2 rounded-full mb-3 md:mb-4">
               FAQ
             </span>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1a365d] mt-2 mb-3 md:mb-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1A2236] mt-2 mb-3 md:mb-4">
               Frequently Asked Questions
             </h2>
           </div>
           
           <div className="space-y-3 md:space-y-4">
             {faqs.map((faq, index) => (
-              <div key={index} className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow duration-300">
+              <div key={index} className="bg-white border border-[#DDE1E9] rounded-xl overflow-hidden hover:shadow-md transition-shadow duration-300">
                 <details className="group">
-                  <summary className="flex items-center justify-between w-full px-4 md:px-6 py-4 md:py-5 text-left cursor-pointer hover:bg-gray-50 transition-colors duration-200">
-                    <span className="text-sm md:text-base font-semibold text-[#1a365d] pr-4">{faq.question}</span>
-                    <span className="flex-shrink-0 text-[#3182ce] group-open:rotate-180 transition-transform duration-300">
+                  <summary className="flex items-center justify-between w-full px-4 md:px-6 py-4 md:py-5 text-left cursor-pointer hover:bg-[#F8F9FB] transition-colors duration-200">
+                    <span className="text-sm md:text-base font-semibold text-[#1A2236] pr-4">{faq.question}</span>
+                    <span className="flex-shrink-0 text-[#0E9BF0] group-open:rotate-180 transition-transform duration-300">
                       <ChevronDown className="w-4 h-4 md:w-5 md:h-5" />
                     </span>
                   </summary>
-                  <div className="px-4 md:px-6 pb-4 md:pb-5 text-sm md:text-base text-gray-600 leading-relaxed border-t border-gray-100 pt-3 md:pt-4">
+                  <div className="px-4 md:px-6 pb-4 md:pb-5 text-sm md:text-base text-[#5C6880] leading-relaxed border-t border-[#DDE1E9] pt-3 md:pt-4">
                     {faq.answer}
                   </div>
                 </details>
@@ -1030,17 +1030,17 @@ function FAQSection() {
 function CTASection() {
   return (
     <section className="relative py-16 md:py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#1a365d] via-[#2d4a7a] to-[#1a365d]"></div>
+      <div className="absolute inset-0 bg-[#0B1628]"></div>
       
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-64 md:w-96 h-64 md:h-96 bg-[#4299e1] rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
-        <div className="absolute -bottom-40 -left-40 w-64 md:w-96 h-64 md:h-96 bg-[#2b6cb0] rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-[#3182ce] rounded-full filter blur-3xl opacity-5"></div>
+        <div className="absolute -top-40 -right-40 w-64 md:w-96 h-64 md:h-96 bg-[#0E9BF0]/20 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+        <div className="absolute -bottom-40 -left-40 w-64 md:w-96 h-64 md:h-96 bg-[#0E9BF0]/20 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-[#0E9BF0]/10 rounded-full filter blur-3xl opacity-5"></div>
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <span className="inline-block bg-white/10 backdrop-blur-sm text-white font-semibold text-xs md:text-sm uppercase tracking-wider px-3 md:px-4 py-1.5 md:py-2 rounded-full mb-4 md:mb-6 border border-white/10">
+          <span className="inline-block bg-[#0E9BF0]/20 text-white font-semibold text-xs md:text-sm uppercase tracking-wider px-3 md:px-4 py-1.5 md:py-2 rounded-full mb-4 md:mb-6 border border-[#0E9BF0]/30">
             Ready to Transform Your Real Estate Business
           </span>
           
@@ -1048,37 +1048,37 @@ function CTASection() {
             Want a GoHighLevel System That Actually Works for Your Real Estate Business?
           </h2>
           
-          <p className="text-base md:text-xl text-blue-100/90 mb-6 md:mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base md:text-xl text-white/60 mb-6 md:mb-10 max-w-2xl mx-auto leading-relaxed">
             GHL Scale Up audits, fixes, and rebuilds GoHighLevel accounts for real estate agents and agencies from deliverability and A2P compliance to funnels, calendars, full automation, and AI voice agents.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 bg-[#f6ad55] text-[#1a365d] font-bold rounded-xl hover:bg-[#f7c47a] transition-all duration-300 text-base md:text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 group"
+              className="inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 bg-[#F8D000] text-[#0B1421] font-bold rounded-xl hover:bg-[#FFE44D] transition-all duration-300 text-base md:text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 group"
             >
               Get Your Free Audit
               <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
             <Link
-              href="/book-a-call"
+              href="/contact"
               className="inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 bg-white/10 text-white font-medium rounded-xl hover:bg-white/20 transition-all duration-300 text-base md:text-lg border-2 border-white/20 hover:border-white/40 transform hover:-translate-y-0.5"
             >
               Book a Call
             </Link>
           </div>
           
-          <div className="mt-6 md:mt-8 flex flex-wrap items-center justify-center gap-4 md:gap-6 text-blue-200/70 text-xs md:text-sm">
+          <div className="mt-6 md:mt-8 flex flex-wrap items-center justify-center gap-4 md:gap-6 text-white/50 text-xs md:text-sm">
             <div className="flex items-center gap-1.5 md:gap-2">
-              <CheckCircle className="w-3 h-3 md:w-4 md:h-4 text-[#f6ad55]" />
+              <CheckCircle className="w-3 h-3 md:w-4 md:h-4 text-[#0E9BF0]" />
               <span>Free Consultation</span>
             </div>
             <div className="flex items-center gap-1.5 md:gap-2">
-              <CheckCircle className="w-3 h-3 md:w-4 md:h-4 text-[#f6ad55]" />
+              <CheckCircle className="w-3 h-3 md:w-4 md:h-4 text-[#0E9BF0]" />
               <span>No Obligation</span>
             </div>
             <div className="flex items-center gap-1.5 md:gap-2">
-              <CheckCircle className="w-3 h-3 md:w-4 md:h-4 text-[#f6ad55]" />
+              <CheckCircle className="w-3 h-3 md:w-4 md:h-4 text-[#0E9BF0]" />
               <span>Expert Team</span>
             </div>
           </div>
