@@ -45,6 +45,7 @@ const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const ghlServices = [
+    { icon: Search, iconBg: 'green', title: 'GoHighLevel SaaS Mode', desc: 'GoHighLevel SaaS Mode: The Complete 2026 Guide (Everything You Need)', link: '/services/gohighlevel-saas-mode' },
     { icon: Settings, iconBg: 'blue', title: 'CRM Setup & Configuration', desc: 'Pipelines, contacts, tags, migration', link: '/services/crm-setup' },
     { icon: Zap, iconBg: 'green', title: 'Workflow & Marketing Automation', desc: 'Triggers, sequences, conditional logic', link: '/services/workflow-automation' },
     { icon: FileText, iconBg: 'yellow', title: 'Sales Funnel Development', desc: 'Landing pages, opt-ins, order forms', link: '/services/funnel-development' },
@@ -59,7 +60,8 @@ const Navigation = () => {
     { icon: BarChart, iconBg: 'yellow', title: 'Reporting & Dashboards', desc: 'Custom analytics, pipeline tracking', link: '/services/reporting' },
     { icon: GraduationCap, iconBg: 'green', title: 'Membership & Course Sites', desc: 'Online courses, gated content, drip', link: '/services/membership-sites' },
     { icon: Users, iconBg: 'yellow', title: 'GHL Training & Onboarding', desc: 'Team training, SOPs, documentation', link: '/services/training' },
-    { icon: Briefcase, iconBg: 'blue', title: 'Virtual Assistant for GHL Management', desc: 'Dedicated GHL VA to manage your account, run campaigns, update pipelines, and handle day-to-day tasks.', link: '/services/virtual-assistant' }
+    { icon: Briefcase, iconBg: 'blue', title: 'Virtual Assistant for GHL Management', desc: 'Dedicated GHL VA to manage your account, run campaigns, update pipelines, and handle day-to-day tasks.', link: '/services/virtual-assistant' },
+    
   ]
 
   const marketingServices = [
