@@ -160,8 +160,8 @@ export default function ServicesPage() {
         },
         {
           icon: Briefcase,
-          title: 'Virtual Assistant for GHL Management',
-          description: 'Dedicated GHL VA to manage your account, run campaigns, update pipelines, and handle day-to-day tasks.',
+          title: 'GoHighLevel SaaS Mode: The Complete 2026 Guide',
+          description: 'Everything about GoHighLevel SaaS Mode in one place: what it is, how it works, real pricing, how to get clients, why they cancel, and honest answers to what people are actually asking on Reddit. Updated July 2026.',
           link: '/services/gohighlevel-saas-mode'
         }
       ]
