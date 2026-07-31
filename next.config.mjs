@@ -3,9 +3,20 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+
   images: {
     unoptimized: true,
   },
-}
 
-export default nextConfig
+  async redirects() {
+    return [
+      {
+        source: "/blog/how-to-get-first-gohighlevel-saas-clients",
+        destination: "/blog/get-first-10-gohighlevel-saas-clients",
+        permanent: true,
+      },
+    ];
+  },
+};
+
+export default nextConfig;
