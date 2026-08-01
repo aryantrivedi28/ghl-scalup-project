@@ -108,11 +108,12 @@ export default async function Home() {
       <Services />
       <WhyChooseUs />
       <Process />
+      <Testimonials testimonials={testimonials} />
       <ContactCTA />
       <Industries />
       
       {/* Pass testimonials data to the component */}
-      <Testimonials testimonials={testimonials} />
+
       <Blog />
 
       {/* FAQ Section - Visible on homepage */}
