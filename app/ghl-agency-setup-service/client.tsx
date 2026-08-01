@@ -179,7 +179,7 @@ export default function ClientPage() {
                 </Link>
               </div>
               <p className="text-[13px] text-white/45 flex items-center gap-2 flex-wrap">
-                <span className="text-[#25C97D]">✦</span> 200+ GHL builds delivered
+                <span className="text-[#25C97D]">✦</span> 200+ GHL Projects Delivered
                 <span className="text-white/30">·</span> 6 countries
                 <span className="text-white/30">·</span> Fixed price, no hourly billing
                 <span className="text-white/30">·</span> Zero data loss
@@ -422,7 +422,7 @@ export default function ClientPage() {
             <p className="text-base text-[#4A5568] leading-relaxed">We do not configure accounts and leave you to figure out why something is broken two weeks later. Every setup is tested before handover.</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_18px] text-center shadow-[0_2px_12px_rgba(28,46,74,0.06)]"><div className="text-[32px] font-extrabold text-[#0E9BF0] leading-none mb-1">200+</div><div className="text-[12px] text-[#8A9BB0] uppercase tracking-wide">GHL Accounts Configured and Delivered</div></div>
+            <div className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_18px] text-center shadow-[0_2px_12px_rgba(28,46,74,0.06)]"><div className="text-[32px] font-extrabold text-[#0E9BF0] leading-none mb-1">200+</div><div className="text-[12px] text-[#8A9BB0] uppercase tracking-wide">GHL Projects Delivered</div></div>
             <div className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_18px] text-center shadow-[0_2px_12px_rgba(28,46,74,0.06)]"><div className="text-[32px] font-extrabold text-[#0E9BF0] leading-none mb-1">0</div><div className="text-[12px] text-[#8A9BB0] uppercase tracking-wide">Setups Delivered with Broken Integrations</div></div>
             <div className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_18px] text-center shadow-[0_2px_12px_rgba(28,46,74,0.06)]"><div className="text-[32px] font-extrabold text-[#0E9BF0] leading-none mb-1">6</div><div className="text-[12px] text-[#8A9BB0] uppercase tracking-wide">Countries US, UK, UAE, AU, SG, IN</div></div>
             <div className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_18px] text-center shadow-[0_2px_12px_rgba(28,46,74,0.06)]"><div className="text-[32px] font-extrabold text-[#0E9BF0] leading-none mb-1">2-3wks</div><div className="text-[12px] text-[#8A9BB0] uppercase tracking-wide">Average Delivery from Brief to Live Account</div></div>

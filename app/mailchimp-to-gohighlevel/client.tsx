@@ -88,7 +88,7 @@ export default function ClientPage() {
                 </Link>
               </div>
               <p className="text-[13px] text-white/45 flex items-center gap-2 flex-wrap">
-                <span className="text-[#25C97D]">✦</span> 200+ GHL builds and migrations delivered
+                <span className="text-[#25C97D]">✦</span> 200+ GHL projects delivered
                 <span className="text-white/30">·</span> Zero compliance violations across all migrations
                 <span className="text-white/30">·</span> 6 countries served
                 <span className="text-white/30">·</span> Fixed price, no hourly billing
@@ -527,7 +527,7 @@ export default function ClientPage() {
             <h2 className="text-[clamp(23px,3vw,36px)] font-extrabold text-[#1C2E4A] leading-[1.22] tracking-[-0.4px] mb-3">Mailchimp to GoHighLevel Migration Results</h2>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            <div className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_18px] text-center shadow-[0_2px_12px_rgba(28,46,74,0.06)]"><div className="text-[32px] font-extrabold text-[#0E9BF0] leading-none mb-1">200+</div><div className="text-[12px] text-[#8A9BB0] uppercase tracking-wide">GHL Builds and Migrations Delivered</div></div>
+            <div className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_18px] text-center shadow-[0_2px_12px_rgba(28,46,74,0.06)]"><div className="text-[32px] font-extrabold text-[#0E9BF0] leading-none mb-1">200+</div><div className="text-[12px] text-[#8A9BB0] uppercase tracking-wide">GHL Projects Delivered</div></div>
             <div className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_18px] text-center shadow-[0_2px_12px_rgba(28,46,74,0.06)]"><div className="text-[32px] font-extrabold text-[#0E9BF0] leading-none mb-1">0</div><div className="text-[12px] text-[#8A9BB0] uppercase tracking-wide">Compliance Violations Across All Migrations</div></div>
             <div className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_18px] text-center shadow-[0_2px_12px_rgba(28,46,74,0.06)]"><div className="text-[32px] font-extrabold text-[#0E9BF0] leading-none mb-1">6</div><div className="text-[12px] text-[#8A9BB0] uppercase tracking-wide">Countries US, UK, UAE, AU, SG, IN</div></div>
             <div className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_18px] text-center shadow-[0_2px_12px_rgba(28,46,74,0.06)]"><div className="text-[32px] font-extrabold text-[#0E9BF0] leading-none mb-1">2–3wks</div><div className="text-[12px] text-[#8A9BB0] uppercase tracking-wide">Average Mailchimp Migration Delivery Time</div></div>

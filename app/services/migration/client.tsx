@@ -222,7 +222,7 @@ export default function MigrationClient() {
                 </Link>
               </div>
               <p className="text-[13px] text-white/45 flex items-center gap-2 flex-wrap">
-                <span className="text-[#25C97D]">✦</span> 200+ GHL builds and migrations delivered
+                <span className="text-[#25C97D]">✦</span> 200+ GHL projects delivered
                 <span className="text-white/30">·</span> Zero data loss across all projects
                 <span className="text-white/30">·</span> 6 countries
                 <span className="text-white/30">·</span> Fixed price, no hourly billing
@@ -232,7 +232,7 @@ export default function MigrationClient() {
               <div className="text-[11px] font-bold tracking-[1.5px] uppercase text-[#F8D000] mb-5">Platforms We Migrate From</div>
               <div className="grid grid-cols-2 gap-4 mb-5">
                 <div className="bg-white/5 rounded-xl p-4 text-center"><div className="text-2xl font-extrabold text-[#F8D000]">10+</div><div className="text-[12px] text-white/50">Source Platforms Supported</div></div>
-                <div className="bg-white/5 rounded-xl p-4 text-center"><div className="text-2xl font-extrabold text-[#F8D000]">200+</div><div className="text-[12px] text-white/50">Migrations Delivered</div></div>
+                <div className="bg-white/5 rounded-xl p-4 text-center"><div className="text-2xl font-extrabold text-[#F8D000]">200+</div><div className="text-[12px] text-white/50">Projects Delivered</div></div>
                 <div className="bg-white/5 rounded-xl p-4 text-center"><div className="text-2xl font-extrabold text-[#F8D000]">0</div><div className="text-[12px] text-white/50">Data Loss Incidents</div></div>
                 <div className="bg-white/5 rounded-xl p-4 text-center"><div className="text-2xl font-extrabold text-[#F8D000]">$100</div><div className="text-[12px] text-white/50">Starting Price</div></div>
               </div>
@@ -543,7 +543,7 @@ export default function MigrationClient() {
             <p className="text-base text-[#4A5568] leading-relaxed">Every number below is from a real migration project delivered by GHL Scale Up.</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            <div className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_18px] text-center shadow-[0_2px_12px_rgba(28,46,74,0.06)]"><div className="text-[32px] font-extrabold text-[#0E9BF0] leading-none mb-1">200+</div><div className="text-[12px] text-[#8A9BB0] uppercase tracking-wide">GHL Builds and Migrations Delivered</div></div>
+            <div className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_18px] text-center shadow-[0_2px_12px_rgba(28,46,74,0.06)]"><div className="text-[32px] font-extrabold text-[#0E9BF0] leading-none mb-1">200+</div><div className="text-[12px] text-[#8A9BB0] uppercase tracking-wide">GHL Projects Delivered</div></div>
             <div className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_18px] text-center shadow-[0_2px_12px_rgba(28,46,74,0.06)]"><div className="text-[32px] font-extrabold text-[#0E9BF0] leading-none mb-1">0</div><div className="text-[12px] text-[#8A9BB0] uppercase tracking-wide">Data Loss Incidents Across All Migrations</div></div>
             <div className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_18px] text-center shadow-[0_2px_12px_rgba(28,46,74,0.06)]"><div className="text-[32px] font-extrabold text-[#0E9BF0] leading-none mb-1">6</div><div className="text-[12px] text-[#8A9BB0] uppercase tracking-wide">Countries US, UK, UAE, AU, SG, IN</div></div>
             <div className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_18px] text-center shadow-[0_2px_12px_rgba(28,46,74,0.06)]"><div className="text-[32px] font-extrabold text-[#0E9BF0] leading-none mb-1">70%</div><div className="text-[12px] text-[#8A9BB0] uppercase tracking-wide">Average Reduction in Manual Work Post-Migration</div></div>
