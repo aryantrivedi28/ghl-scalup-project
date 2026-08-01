@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'CalendarClock',
+            tag: 'Featuress',
+            title: 'GoHighLevel Calendar & Booking: Complete Setup Guide + Calendly Comparison (2026)',
+            excerpt: 'How the GoHighLevel calendar and booking system works in 2026: every calendar type, full setup walkthrough, sync troubleshooting, no-show automation, and an honest Calendly cost comparison.',
+            slug: 'gohighlevel-calendar-booking',
+            date: 'July 30, 2026',
+            readTime: '22 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1506784365847-bbad939e9335?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'Target',
             tag: 'SaaS Growth',
             title: 'How to Get Your First 10 GoHighLevel SaaS Clients (2026)',
