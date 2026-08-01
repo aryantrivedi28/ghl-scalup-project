@@ -30,8 +30,6 @@ import {
 export default function RealEstateCaseStudyPage() {
   return (
     <article className="min-h-screen bg-white">
-      {/* Video Section - Now at the Top */}
-      <VideoSection />
       <HeroSection />
       <ClientSummary />
       <ShortVersion />
@@ -49,6 +47,9 @@ export default function RealEstateCaseStudyPage() {
       {/* CTA 3 - After Rebuild */}
       <CTAThree />
       
+      {/* Video Section - Now in the Middle */}
+      <VideoSection />
+      
       <AutomationStackSection />
       <InsideReactivationWorkflow />
       <ResultsSection />
@@ -65,42 +66,6 @@ export default function RealEstateCaseStudyPage() {
       {/* CTA 5 - Final CTA */}
       <CTASection />
     </article>
-  );
-}
-
-// ==================== VIDEO SECTION ====================
-function VideoSection() {
-  return (
-    <section className="py-8 md:py-12 bg-[#F8F9FB] border-b border-[#DDE1E9]">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-4 md:mb-6">
-            <span className="inline-flex items-center gap-2 bg-white text-[#0E9BF0] text-xs font-semibold px-3 py-1 rounded-full border border-[#DDE1E9]">
-              <Youtube className="w-3.5 h-3.5" />
-              Client Testimonial
-            </span>
-            <h2 className="text-xl md:text-2xl font-bold text-[#1A2236] mt-3">
-              Watch Our Client's Experience
-            </h2>
-          </div>
-          
-          <div className="relative w-full aspect-video bg-[#0B1628] rounded-xl overflow-hidden shadow-lg border border-[#DDE1E9]">
-            <iframe
-              className="absolute inset-0 w-full h-full"
-              src="https://www.youtube.com/embed/CZ-YRG3q0Nc?autoplay=0&rel=0&modestbranding=1&showinfo=0&color=white&iv_load_policy=3"
-              title="GHL Scale Up Client Testimonial"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              loading="lazy"
-            ></iframe>
-          </div>
-          
-          <p className="text-xs md:text-sm text-[#5C6880] text-center mt-3">
-            Real client testimonial - See how we transformed their GoHighLevel system
-          </p>
-        </div>
-      </div>
-    </section>
   );
 }
 
@@ -535,6 +500,46 @@ function CTAThree() {
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ==================== VIDEO SECTION ====================
+function VideoSection() {
+  return (
+    <section className="py-16 md:py-20 bg-[#F8F9FB] border-t border-[#DDE1E9] border-b border-[#DDE1E9]">
+      <div className="container mx-auto px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-6 md:mb-8">
+            <span className="inline-flex items-center gap-2 bg-white text-[#0E9BF0] text-xs font-semibold px-3 py-1 rounded-full border border-[#DDE1E9]">
+              <Youtube className="w-3.5 h-3.5" />
+              Client Testimonial
+            </span>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#1A2236] mt-3">
+              Watch Our Client's Experience
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] mt-2 max-w-2xl mx-auto">
+              See how we transformed this real estate agent's GoHighLevel system from broken automations 
+              to a fully functioning AI-powered lead generation machine.
+            </p>
+          </div>
+          
+          <div className="relative w-full aspect-video bg-[#0B1628] rounded-xl overflow-hidden shadow-lg border border-[#DDE1E9]">
+            <iframe
+              className="absolute inset-0 w-full h-full"
+              src="https://www.youtube.com/embed/CZ-YRG3q0Nc?autoplay=0&rel=0&modestbranding=1&showinfo=0&color=white&iv_load_policy=3"
+              title="GHL Scale Up Client Testimonial"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              loading="lazy"
+            ></iframe>
+          </div>
+          
+          <p className="text-xs md:text-sm text-[#5C6880] text-center mt-3">
+            Real client testimonial - See how we transformed their GoHighLevel system
+          </p>
         </div>
       </div>
     </section>
