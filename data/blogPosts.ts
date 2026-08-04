@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'LayoutIcon',
+            tag: 'Features',
+            title: 'GoHighLevel Website Builder: Complete 2026 Guide + WordPress Comparison',
+            excerpt: 'Everything about the GoHighLevel website builder in 2026: templates, SEO settings, ecommerce, blogging, setup steps, honest limitations, and a real WordPress cost comparison.',
+            slug: 'gohighlevel-website-builder',
+            date: 'July 31, 2026',
+            readTime: '22 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'CalendarClock',
             tag: 'Featuress',
             title: 'GoHighLevel Calendar & Booking: Complete Setup Guide + Calendly Comparison (2026)',
