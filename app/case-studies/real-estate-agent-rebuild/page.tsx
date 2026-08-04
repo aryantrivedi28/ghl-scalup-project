@@ -33,6 +33,9 @@ export default function RealEstateCaseStudyPage() {
       <HeroSection />
       <ClientSummary />
       <ShortVersion />
+
+            {/* Video Section - Now in the Middle */}
+      <VideoSection />
       
       {/* CTA 1 - After Short Version */}
       <CTAOne />
@@ -47,8 +50,7 @@ export default function RealEstateCaseStudyPage() {
       {/* CTA 3 - After Rebuild */}
       <CTAThree />
       
-      {/* Video Section - Now in the Middle */}
-      <VideoSection />
+
       
       <AutomationStackSection />
       <InsideReactivationWorkflow />
