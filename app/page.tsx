@@ -105,10 +105,11 @@ export default async function Home() {
       <Hero />
       <StatsBar />
       <About />
+      <Testimonials testimonials={testimonials} />
       <Services />
       <WhyChooseUs />
       <Process />
-      <Testimonials testimonials={testimonials} />
+
       <ContactCTA />
       <Industries />
       
