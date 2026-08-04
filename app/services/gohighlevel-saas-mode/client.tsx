@@ -24,6 +24,8 @@ import {
   PlayCircle,
   FileText,
   TrendingUp,
+  Quote,
+  Star,
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
 
@@ -35,6 +37,7 @@ export default function GoHighLevelSaaSModeClient() {
       const sections = [
         'what-is-saas-mode',
         'is-legit',
+        'testimonial',
         'oversaturated',
         'real-cost',
         'positioning',
@@ -122,6 +125,7 @@ export default function GoHighLevelSaaSModeClient() {
   const tocItems = [
     { id: 'what-is-saas-mode', title: 'What is GoHighLevel SaaS Mode?' },
     { id: 'is-legit', title: 'Is it legit or a guru scam?' },
+    { id: 'testimonial', title: 'Client Testimonial' },
     { id: 'oversaturated', title: 'Is it oversaturated in 2026?' },
     { id: 'real-cost', title: 'What does it cost, really?' },
     { id: 'positioning', title: 'SaaS vs SwaS vs Agency' },
@@ -339,6 +343,79 @@ export default function GoHighLevelSaaSModeClient() {
     </Link>
   );
 
+  // Testimonial Section Component
+  const TestimonialSection = () => (
+    <section id="testimonial" className="py-12 md:py-16 bg-gradient-to-br from-[#1a365d] to-[#2d4a7a] text-white rounded-xl my-8 overflow-hidden">
+      <div className="container mx-auto px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-6 md:mb-8">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-xs md:text-sm font-medium border border-white/10 mb-4">
+              <Star className="w-4 h-4 text-[#f6ad55] fill-[#f6ad55]" />
+              <span>Client Testimonial</span>
+            </div>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3">
+              What Our Clients Say
+            </h2>
+            <p className="text-blue-100/80 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+              Real feedback from real clients who trusted us with their GoHighLevel systems.
+            </p>
+          </div>
+
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-8 lg:p-10">
+            <div className="relative">
+              <div className="absolute -top-4 -left-4 text-white/10">
+                <Quote className="w-12 h-12 md:w-16 md:h-16" />
+              </div>
+              
+              {/* Video Embed */}
+              <div className="relative w-full aspect-video bg-black/30 rounded-xl overflow-hidden mb-6">
+                <iframe
+                  src="https://www.youtube.com/embed/YgSBBP37b0M"
+                  title="Client Testimonial - GHL Scale Up"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+
+              <div className="text-center">
+                <div className="flex items-center justify-center gap-1 mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-[#f6ad55] fill-[#f6ad55]" />
+                  ))}
+                </div>
+                
+                <p className="text-blue-100/90 text-base md:text-lg max-w-2xl mx-auto leading-relaxed italic">
+                  "Working with GHL Scale Up transformed how we manage leads and follow-ups. Their team not only fixed our deliverability issues but built an AI voice system that handles thousands of calls a month. We've seen a dramatic increase in appointment bookings and lead conversion."
+                </p>
+                
+                <div className="w-16 md:w-20 h-1 bg-[#f6ad55] mx-auto mt-4 md:mt-6 mb-3 md:mb-4"></div>
+                
+                <p className="text-blue-200/80 text-sm md:text-base font-medium">
+                  — Ashleey, Real Estate Agent
+                </p>
+                <p className="text-blue-200/50 text-xs md:text-sm">
+                  Verified Client · GHL Scale Up
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 text-center">
+            <Link 
+              href="/case-studies"
+              className="inline-flex items-center gap-2 text-blue-200/80 hover:text-white transition-colors text-sm md:text-base group"
+            >
+              <BookOpen className="w-4 h-4" />
+              Read More Case Studies
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+
   return (
     <>
       {/* Progress Bar */}
@@ -442,6 +519,9 @@ export default function GoHighLevelSaaSModeClient() {
             ))}
           </div>
         </div>
+
+                {/* ==================== TESTIMONIAL SECTION ==================== */}
+        <TestimonialSection />
 
         {/* Section 1: What Is SaaS Mode */}
         <h2 id="what-is-saas-mode" className="text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold tracking-[-0.03em] leading-[1.12] text-[#1C2E4A] mt-10 mb-4">
@@ -549,13 +629,7 @@ export default function GoHighLevelSaaSModeClient() {
           </p>
         </div>
 
-        {/* <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
-          <div className="flex items-center gap-2 mb-2">
-            <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
-            <span className="text-sm font-bold text-[#0E9BF0]">PROOF THIS WORKS AT SCALE</span>
-          </div>
-          <SmallBlogCard blog={featuredBlogs[4]} compact={true} />
-        </div> */}
+
 
         {/* Section 3: Oversaturated */}
         <h2 id="oversaturated" className="text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold tracking-[-0.03em] leading-[1.12] text-[#1C2E4A] mt-12 mb-4">
@@ -861,14 +935,6 @@ export default function GoHighLevelSaaSModeClient() {
           </div>
           <SmallBlogCard blog={featuredBlogs[1]} compact={true} />
         </div>
-
-        {/* <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
-          <div className="flex items-center gap-2 mb-2">
-            <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
-            <span className="text-sm font-bold text-[#0E9BF0]">REAL-WORLD EXAMPLE</span>
-          </div>
-          <SmallBlogCard blog={featuredBlogs[4]} compact={true} />
-        </div> */}
 
         <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
           <div className="flex items-center gap-2 mb-2">
