@@ -514,7 +514,7 @@ export default function MigrationClient() {
                 <div className="bg-white border border-[#E8EDF4] rounded-2xl p-8 shadow-[0_4px_24px_rgba(28,46,74,0.07)]">
                   <div className="text-[12px] font-bold tracking-[1px] uppercase text-[#8A9BB0] mb-2">GoHighLevel Migration Service</div>
                   <div className="text-[13px] text-[#8A9BB0] mb-1">Migrations start from</div>
-                  <div className="text-[52px] font-extrabold text-[#1C2E4A] leading-none mb-1.5">$1,500 <span className="text-[18px] font-normal text-[#8A9BB0]">USD</span></div>
+                  <div className="text-[52px] font-extrabold text-[#1C2E4A] leading-none mb-1.5">$100 <span className="text-[18px] font-normal text-[#8A9BB0]">USD</span></div>
                   <div className="text-[13px] text-[#8A9BB0] mb-5">One-time fixed fee · Scope agreed before work starts · No hourly billing</div>
                   <div className="h-px bg-[#E8EDF4] mb-5"></div>
                   <div className="flex flex-col gap-2.5 mb-6">
@@ -558,7 +558,7 @@ export default function MigrationClient() {
             <div className="flex flex-col gap-3.5">
               <div className="bg-white rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center gap-4 border border-[#E8EDF4]"><div className="text-[28px] font-extrabold text-[#25C97D] whitespace-nowrap">70%</div><div className="text-[13px] text-[#4A5568] leading-tight">Reduction in manual follow-up work within 30 days of migration</div></div>
               <div className="bg-white rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center gap-4 border border-[#E8EDF4]"><div className="text-[28px] font-extrabold text-[#25C97D] whitespace-nowrap">4wks</div><div className="text-[13px] text-[#4A5568] leading-tight">Full migration from HubSpot and ActiveCampaign to live GHL system</div></div>
-              <div className="bg-white rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center gap-4 border border-[#E8EDF4]"><div className="text-[28px] font-extrabold text-[#25C97D] whitespace-nowrap">$150</div><div className="text-[13px] text-[#4A5568] leading-tight">Monthly saving after replacing the full tool stack with GoHighLevel</div></div>
+              <div className="bg-white rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center gap-4 border border-[#E8EDF4]"><div className="text-[28px] font-extrabold text-[#25C97D] whitespace-nowrap">$100</div><div className="text-[13px] text-[#4A5568] leading-tight">Monthly saving after replacing the full tool stack with GoHighLevel</div></div>
             </div>
           </div>
         </div>
