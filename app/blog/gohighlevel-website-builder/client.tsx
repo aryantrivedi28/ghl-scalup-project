@@ -127,12 +127,12 @@ export default function GoHighLevelWebsiteBuilderClient() {
   ];
 
   const mistakes = [
-    'Choosing a template based purely on visual appeal without checking whether its section structure fits your actual content.',
-    'Skipping per-page SEO settings entirely, leaving every page with a generic auto-generated title tag.',
-    'Publishing a page without testing the mobile layout on an actual device.',
-    'Connecting a form without configuring the workflow that should fire when it is submitted.',
-    'Attempting to migrate a large, content-heavy WordPress blog into the GoHighLevel website builder instead of keeping it on WordPress.',
-    'Underestimating migration time by assuming any part of the WordPress-to-GoHighLevel process is automated.'
+    'Choosing a template based purely on visual appeal without checking whether its section structure fits your actual content, leading to hours of restructuring later.',
+    'Skipping per-page SEO settings entirely, leaving every page with a generic auto-generated title tag that hurts search visibility from day one.',
+    'Publishing a page without testing the mobile layout on an actual device, relying only on the editor\'s built-in preview mode.',
+    'Connecting a form without configuring the workflow that should fire when it is submitted, so leads sit in the CRM with no follow-up sequence.',
+    'Attempting to migrate a large, content-heavy WordPress blog into the GoHighLevel website builder instead of keeping it on WordPress and connecting the two systems.',
+    'Underestimating migration time by assuming any part of the WordPress-to-GoHighLevel process is automated, when every page requires manual rebuilding.'
   ];
 
   return (
@@ -173,7 +173,7 @@ export default function GoHighLevelWebsiteBuilderClient() {
 
           {/* Author */}
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
+            <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center rounded-full">
               <img
                 src="/web-app-manifest-192x192.png"
                 alt="GHL Scale Up"
@@ -189,6 +189,14 @@ export default function GoHighLevelWebsiteBuilderClient() {
           {/* Intro Paragraph */}
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
             If you are researching the GoHighLevel website builder, you are likely trying to answer one of four questions: what can it actually build, is it good enough to replace WordPress, what does it cost compared to your current website stack, and what are the real limitations nobody mentions in a sales pitch. At <Link href="/" className="text-[#0E9BF0] hover:underline font-medium">GHL Scale Up</Link>, we build websites inside GoHighLevel for agencies and service businesses every week, and we have also migrated dozens of businesses away from WordPress onto it, and occasionally the other direction. This guide covers what the GoHighLevel website builder actually is, every major feature in depth, a full setup walkthrough, an honest WordPress comparison, and the specific limitations you should know about before committing.
+          </p>
+
+          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
+            The GoHighLevel website builder is a native, drag-and-drop website creation tool built directly into the GoHighLevel platform, using the same underlying editor technology as GoHighLevel's funnel builder. It exists to let agencies and businesses build a complete marketing website, without a separate hosting provider, a separate CRM integration, or a separate booking tool, because the website, the CRM, the calendar, and the automation engine are all the same system.
+          </p>
+
+          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
+            The honest starting point, before any feature list, is this: the GoHighLevel website builder is not trying to be a better version of WordPress for every use case. It is solving a different problem, specifically the problem of a service business or agency currently paying for a WordPress site plus a separate CRM, plus a separate funnel builder, plus a separate booking tool, and stitching them together with plugins and Zapier. For that exact situation, the GoHighLevel website builder replaces the entire stack. For a content-heavy blog, a large ecommerce catalogue, or a highly custom design build, WordPress remains the stronger choice, and this guide says so honestly rather than pretending otherwise.
           </p>
         </div>
       </section>
@@ -210,7 +218,7 @@ export default function GoHighLevelWebsiteBuilderClient() {
                 The GoHighLevel website builder is a drag-and-drop website creation tool included on every GoHighLevel plan starting at $97/month, with no separate hosting fee, no separate SSL certificate cost, and no per-page charge.
               </p>
               <p className="text-sm text-[#5C6880] leading-relaxed">
-                It includes 100 to 200+ pre-built templates, per-page SEO fields, a built-in blogging module, custom domain support, custom CSS/JS/HTML code blocks, and an ecommerce store builder. Every form submission, page visit, and purchase on a GoHighLevel website automatically flows into the same CRM used for calendars, automations, and pipelines, with zero integration required. It is a strong replacement for WordPress specifically for lead-generation and service-business websites. It is not a strong replacement for WordPress for content-heavy publishing operations, large ecommerce catalogues, or highly custom development work.
+                It includes 100 to 200+ pre-built templates depending on the source counted, per-page SEO fields, a built-in blogging module, custom domain support, custom CSS/JS/HTML code blocks, and an ecommerce store builder. Every form submission, page visit, and purchase on a GoHighLevel website automatically flows into the same CRM used for calendars, automations, and pipelines, with zero integration required. It is a strong replacement for WordPress specifically for lead-generation and service-business websites. It is not a strong replacement for WordPress for content-heavy publishing operations, large ecommerce catalogues, or highly custom development work, since there is no automated WordPress-to-GoHighLevel import and every page must be manually rebuilt inside GoHighLevel's editor.
               </p>
             </div>
 
@@ -243,6 +251,9 @@ export default function GoHighLevelWebsiteBuilderClient() {
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               The GoHighLevel website builder was built to solve a specific problem agencies kept running into: a client's WordPress website, their CRM, their booking tool, and their email marketing platform were all separate systems that did not talk to each other reliably. When a visitor filled out a form on the WordPress site, getting that submission into the CRM required a Zapier connection, a plugin, or a manual export, and any one of those integration points could quietly break without anyone noticing for weeks.
             </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              The natural next question is what happens when someone fills out a form on a website built with the GoHighLevel website builder instead. The answer is that the submission creates a contact record directly in the GoHighLevel CRM, can trigger a workflow that sends an automated email and SMS confirmation, adds the contact to a pipeline stage, fires an internal notification to the business owner, and can optionally book a calendar appointment, all without a single external integration or third-party connection point that could fail.
+            </p>
 
             <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
               <div className="flex items-center gap-2 mb-2">
@@ -258,6 +269,19 @@ export default function GoHighLevelWebsiteBuilderClient() {
             <h2 id="vs-funnel" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               2. How Does the GoHighLevel Website Builder Differ From the GoHighLevel Funnel Builder?
             </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              This is one of the most common points of confusion for anyone new to GoHighLevel, since the GoHighLevel website builder and the GoHighLevel funnel builder share the same underlying drag-and-drop editing technology. The difference is purpose, not technology.
+            </p>
+
+            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">The GoHighLevel Website Builder's purpose</h3>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              The GoHighLevel website builder is designed to create a full, multi-page website with persistent navigation, a header and footer that appear across every page, a blog section, and a general-purpose site structure that a visitor can browse the way they would browse any normal business website. It is meant to represent your business as a whole, not guide a visitor through one single, linear conversion path.
+            </p>
+
+            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">The GoHighLevel Funnel Builder's purpose</h3>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              The GoHighLevel funnel builder is designed to create a focused, linear sequence of pages built around a single specific goal, such as booking a call, registering for a webinar, or purchasing a specific product. A funnel typically has no persistent navigation menu at all, deliberately, because the entire purpose is to remove distractions and keep the visitor moving toward one single next step, page by page, rather than letting them browse freely.
+            </p>
 
             <div className="overflow-x-auto my-6">
               <table className="w-full border-collapse text-sm">
@@ -293,23 +317,28 @@ export default function GoHighLevelWebsiteBuilderClient() {
               </table>
             </div>
 
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              A natural follow-up question is whether a business needs both. Most service businesses using the GoHighLevel website builder for their main site also build one or more funnels for specific campaigns, such as a lead magnet download or a limited-time offer, since the two tools are built to work together rather than as alternatives to each other.
+            </p>
+
             {/* Section 3: Templates */}
             <h2 id="templates" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               3. What Templates Does the GoHighLevel Website Builder Include?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The GoHighLevel website builder ships with a library of pre-built templates, with different sources citing figures ranging from just over 100 to more than 200, depending on whether the count includes industry-specific variations or only distinct base layouts. These templates are organised primarily by industry and business type, covering common local business categories such as home services, medical and dental practices, real estate, coaching and consulting, fitness studios, and professional services.
+              The GoHighLevel website builder ships with a library of pre-built templates, with different sources citing figures ranging from just over 100 to more than 200, depending on whether the count includes industry-specific variations or only distinct base layouts. This range should be verified directly inside your account, since GoHighLevel adds templates periodically and the exact count changes over time.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              These templates are organised primarily by industry and business type, covering common local business categories such as home services, medical and dental practices, real estate, coaching and consulting, fitness studios, and professional services. Selecting a template that matches your industry gives you a starting structure with relevant section types already in place, such as a services grid, a testimonials section, or a booking call-to-action, rather than starting from a completely blank page.
             </p>
 
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">HOW TEMPLATE QUALITY COMPARES TO A FULLY CUSTOM DESIGN</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                It is worth being direct about template quality here. The GoHighLevel website builder's templates are functional and convert reasonably well, but they are not the most visually refined page-building experience available on the market. You will occasionally fight with column spacing, and some default templates look more generic than a fully custom WordPress theme or a dedicated design tool like Webflow would produce. If a highly unique, award-winning visual design is the primary goal, the GoHighLevel website builder is not the right tool for that specific job.
-              </p>
-            </div>
+            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">How template quality compares to a fully custom design</h3>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              It is worth being direct about template quality here rather than only promoting it. The GoHighLevel website builder's templates are functional and convert reasonably well, but they are not the most visually refined page-building experience available on the market. You will occasionally fight with column spacing, and some default templates look more generic than a fully custom WordPress theme or a dedicated design tool like Webflow would produce. If a highly unique, award-winning visual design is the primary goal, the GoHighLevel website builder is not the right tool for that specific job, and this guide would rather tell you that now than after you have invested a week configuring a site around a template.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Where the GoHighLevel website builder's templates genuinely earn their reputation is speed to launch and reliable technical performance. Every template renders correctly on mobile devices, loads from GoHighLevel's managed content delivery network, and connects to the CRM automatically, with zero separate hosting configuration required.
+            </p>
 
             <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
               <div className="flex items-center gap-2 mb-2">
@@ -325,21 +354,40 @@ export default function GoHighLevelWebsiteBuilderClient() {
             <h2 id="build-first-page" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               4. How Do You Build Your First Page With the GoHighLevel Website Builder?
             </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Building a functional first page with the GoHighLevel website builder typically takes 60 to 90 minutes for someone unfamiliar with the platform, and 20 to 30 minutes once you have built a handful of pages and understand the editor's logic.
+            </p>
 
-            <ol className="space-y-2 mb-6 text-sm text-[#5C6880] list-decimal list-inside">
-              <li><strong className="text-[#1A2236]">Choose a starting template:</strong> From the Sites section, select Websites, then New Website, and choose either a blank canvas or a pre-built template.</li>
-              <li><strong className="text-[#1A2236]">Set up your site-wide settings:</strong> Configure your primary brand color, logo, default fonts, and favicon before editing individual pages.</li>
-              <li><strong className="text-[#1A2236]">Edit the homepage:</strong> Click into any section to edit text, images, or layout. The editor supports independent editing for mobile and desktop layouts.</li>
-              <li><strong className="text-[#1A2236]">Connect a contact form:</strong> Add a form element and either build a new form or select an existing one. Every field maps to the CRM automatically.</li>
-              <li><strong className="text-[#1A2236]">Configure per-page SEO settings:</strong> For every page, open the SEO tab and set a unique title tag, meta description, and Open Graph image.</li>
-              <li><strong className="text-[#1A2236]">Connect your custom domain:</strong> Under Domains, add your domain and update DNS records to point to GoHighLevel's hosting.</li>
-              <li><strong className="text-[#1A2236]">Test the full page:</strong> View it on an actual mobile device and submit a test form entry to confirm the CRM receives it correctly.</li>
+            <ol className="space-y-3 mb-6 text-sm text-[#5C6880] list-decimal list-inside">
+              <li><strong className="text-[#1A2236]">Step 1: Choose a starting template inside the GoHighLevel website builder</strong><br />
+              From the Sites section of your sub-account, select Websites, then New Website, and choose either a blank canvas or one of the pre-built templates covered in Section 3. For most first-time builds, starting from an industry-relevant template is faster than a blank canvas, since it establishes a sensible section order you can then edit rather than design from scratch.</li>
+              
+              <li><strong className="text-[#1A2236]">Step 2: Set up your site-wide settings before editing individual pages</strong><br />
+              Before customising any single page, configure the settings that apply across the entire site: your primary brand color, your logo, your default fonts, and your favicon. Doing this first means every new page you add automatically inherits consistent branding, rather than needing to fix inconsistent styling across pages later.</li>
+              
+              <li><strong className="text-[#1A2236]">Step 3: Edit the homepage using the GoHighLevel website builder's drag-and-drop editor</strong><br />
+              Click into any section to edit its text, images, or layout directly. The GoHighLevel website builder's editor supports independent editing for mobile and desktop layouts, meaning you can adjust how a section looks on a phone screen without that change affecting the desktop version, and without writing any CSS media queries manually.</li>
+              
+              <li><strong className="text-[#1A2236]">Step 4: Connect a contact form to your CRM inside the GoHighLevel website builder</strong><br />
+              Add a form element from the elements panel and either build a new form or select an existing one from your account. Every field on this form maps to a corresponding field in the GoHighLevel CRM automatically, and you can configure which workflow fires the moment a visitor submits it, whether that is a welcome email sequence, an internal notification, or a calendar booking prompt.</li>
+              
+              <li><strong className="text-[#1A2236]">Step 5: Configure per-page SEO settings inside the GoHighLevel website builder</strong><br />
+              For every page, open the SEO tab and set a unique title tag, a meta description, and an Open Graph image for social sharing previews. This step is covered in full depth in Section 5, since it is frequently skipped and directly affects how the page performs in search results.</li>
+              
+              <li><strong className="text-[#1A2236]">Step 6: Connect your custom domain to the GoHighLevel website builder</strong><br />
+              Under Domains in your account settings, add your domain and update its DNS records to point to GoHighLevel's hosting, typically a CNAME or A record change made at your domain registrar. GoHighLevel automatically provisions a free SSL certificate for every connected domain, so there is no separate SSL purchase or configuration step required, and no ongoing renewal to manage manually.</li>
+              
+              <li><strong className="text-[#1A2236]">Step 7: Test the full page on both mobile and desktop before publishing</strong><br />
+              Before making any page live, view it on an actual mobile device, not just the editor's mobile preview mode, and submit a test form entry to confirm the CRM receives it correctly and any connected workflow fires as expected. Skipping this test is how a page goes live with a broken form, unreadable mobile text sizing, or a missing SSL certificate that has not finished provisioning yet.</li>
             </ol>
 
             {/* Section 5: SEO Features */}
             <h2 id="seo-features" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               5. What SEO Features Does the GoHighLevel Website Builder Include?
             </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              The GoHighLevel website builder includes foundational, page-level SEO controls, but it is important to be precise about what this does and does not cover, since a natural next question after hearing 'it has SEO features' is whether that is comparable to a dedicated WordPress SEO plugin.
+            </p>
 
             <div className="bg-[#E8FAF2] border border-[rgba(37,201,125,0.2)] rounded-xl p-4 my-4">
               <div className="flex items-center gap-2 mb-2">
@@ -347,11 +395,11 @@ export default function GoHighLevelWebsiteBuilderClient() {
                 <span className="text-sm font-bold text-[#25C97D]">What the GoHighLevel website builder's SEO settings include</span>
               </div>
               <ul className="space-y-1 text-sm text-[#1A2236] list-disc list-inside">
-                <li>Per-page title tag and meta description fields</li>
-                <li>Open Graph image configuration for social sharing</li>
-                <li>Canonical URL configuration</li>
-                <li>Automatic mobile responsiveness</li>
-                <li>Fast page load times from managed CDN</li>
+                <li>Per-page title tag and meta description fields, editable independently for every single page on the site.</li>
+                <li>Open Graph image configuration, controlling how a page appears when shared on social media or messaging apps.</li>
+                <li>Canonical URL configuration, useful for preventing duplicate content issues across similar pages.</li>
+                <li>Automatic mobile responsiveness, which is itself a ranking factor Google weighs heavily.</li>
+                <li>Fast page load times from GoHighLevel's managed content delivery network, another factor that affects search ranking.</li>
               </ul>
             </div>
 
@@ -360,12 +408,9 @@ export default function GoHighLevelWebsiteBuilderClient() {
                 <XCircle className="w-4 h-4 text-[#DC3545]" />
                 <span className="text-sm font-bold text-[#DC3545]">What the GoHighLevel website builder's SEO settings do not include</span>
               </div>
-              <ul className="space-y-1 text-sm text-[#1A2236] list-disc list-inside">
-                <li>Readability scoring</li>
-                <li>Automated internal linking suggestions</li>
-                <li>XML sitemap customisation at a granular level</li>
-                <li>Schema markup templates for every content type</li>
-              </ul>
+              <p className="text-sm text-[#1A2236] leading-relaxed">
+                The GoHighLevel website builder does not include the depth of SEO tooling that a dedicated WordPress plugin like Yoast SEO or RankMath provides, such as readability scoring, automated internal linking suggestions, XML sitemap customisation at a granular level, or schema markup templates for every content type. For a business publishing a small number of core service pages, this is not a meaningful gap. For a content marketing operation publishing dozens of articles per month and running a programmatic SEO strategy, this gap becomes significant, and is one of the clearest reasons WordPress remains the stronger choice for that specific use case, covered further in Section 8.
+              </p>
             </div>
 
             {/* Section 6: Ecommerce */}
@@ -373,7 +418,7 @@ export default function GoHighLevelWebsiteBuilderClient() {
               6. Can the GoHighLevel Website Builder Run an Online Store?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Yes. The GoHighLevel website builder includes a dedicated ecommerce store builder, using the same drag-and-drop, no-code approach as the rest of the platform. GoHighLevel's own marketing material states a store can be built and launched in as little as 30 minutes, though this figure should be treated as a best-case estimate.
+              Yes. The GoHighLevel website builder includes a dedicated ecommerce store builder, using the same drag-and-drop, no-code approach as the rest of the platform. GoHighLevel's own marketing material states a store can be built and launched in as little as 30 minutes, though this figure should be treated as a best-case estimate for a simple catalogue rather than a guaranteed timeline for every store.
             </p>
 
             <div className="bg-[#E8FAF2] border border-[rgba(37,201,125,0.2)] rounded-xl p-4 my-4">
@@ -382,13 +427,13 @@ export default function GoHighLevelWebsiteBuilderClient() {
                 <span className="text-sm font-bold text-[#25C97D]">What the GoHighLevel website builder's ecommerce features include</span>
               </div>
               <ul className="space-y-1 text-sm text-[#1A2236] list-disc list-inside">
-                <li>Customisable store templates</li>
-                <li>Secure payment integration</li>
-                <li>Inventory management</li>
-                <li>Order tracking</li>
-                <li>Automatic tax calculation</li>
-                <li>Mobile-optimised store design</li>
-                <li>Multi-currency and multilingual support</li>
+                <li>Customisable store templates as a starting point for product catalogue layout.</li>
+                <li>Secure payment integration for processing customer transactions directly on the site.</li>
+                <li>Inventory management to track stock levels across products.</li>
+                <li>Order tracking so both the business and the customer can follow fulfilment status.</li>
+                <li>Automatic tax calculation based on the applicable jurisdiction.</li>
+                <li>Mobile-optimised store design, since a large share of online shopping happens on phones.</li>
+                <li>Multi-currency support and multilingual configuration for businesses selling internationally.</li>
               </ul>
             </div>
 
@@ -398,7 +443,7 @@ export default function GoHighLevelWebsiteBuilderClient() {
                 <span className="text-sm font-bold text-[#F8D000]">Who should use the GoHighLevel website builder's store, and who should not</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                The GoHighLevel website builder's ecommerce features are well suited to a service business selling a small number of digital products, physical add-ons, or simple merchandise alongside its core service offering. It is not built to compete with a dedicated ecommerce platform like Shopify for a large product catalogue, complex variant management, or high-volume order processing.
+                The GoHighLevel website builder's ecommerce features are well suited to a service business selling a small number of digital products, physical add-ons, or simple merchandise alongside its core service offering. It is not built to compete with a dedicated ecommerce platform like Shopify for a large product catalogue, complex variant management, or high-volume order processing. A business planning to sell hundreds of SKUs with detailed variant options should evaluate a dedicated ecommerce platform rather than assuming the GoHighLevel website builder's store will scale to that need.
               </p>
             </div>
 
@@ -410,13 +455,24 @@ export default function GoHighLevelWebsiteBuilderClient() {
               Yes, the GoHighLevel website builder includes a dedicated blogging module, and it is built to integrate directly with GoHighLevel's Social Planner, meaning a published blog post can be scheduled for automatic distribution across connected social media accounts without a separate step.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              For a service business publishing occasional articles to support local SEO, a handful of posts per month covering service-area topics or frequently asked questions, the GoHighLevel website builder's blog feature is sufficient and keeps everything inside one system. For a content marketing operation publishing 50 or more articles per month, managing multiple freelance contributors, running an editorial calendar, or building large-scale programmatic SEO content, WordPress's content management infrastructure remains meaningfully more capable.
+              The natural next question is whether this blogging module is a genuine substitute for WordPress specifically as a content publishing platform, and the honest answer is that it depends entirely on your publishing volume. For a service business publishing occasional articles to support local SEO, a handful of posts per month covering service-area topics or frequently asked questions, the GoHighLevel website builder's blog feature is sufficient and keeps everything inside one system. For a content marketing operation publishing 50 or more articles per month, managing multiple freelance contributors, running an editorial calendar, or building large-scale programmatic SEO content, WordPress's content management infrastructure, including the Gutenberg block editor, revision history, multi-author workflows, and custom taxonomies, remains meaningfully more capable, and this is one of the clearest lines where WordPress is still the correct tool for the job.
             </p>
 
             {/* Section 8: Vs WordPress */}
             <h2 id="vs-wordpress" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               8. How Does the GoHighLevel Website Builder Compare to WordPress?
             </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              This is the single most searched comparison related to the GoHighLevel website builder, and it deserves a direct, numbers-based answer rather than a vague 'it depends.'
+            </p>
+
+            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">The cost stack comparison</h3>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              A single WordPress site with managed hosting typically costs relatively little on its own, often in the range of a few dollars to $30 to $50 per month depending on the host. The real cost appears once you add the tools a service business actually needs alongside it: a CRM, an email marketing platform, an appointment booking tool, and a funnel or landing page builder. Stitched together, this stack commonly runs $300 to $700 per month across four or five separate subscriptions for a single business, before accounting for the time spent keeping all of them connected and working.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              At agency scale, running 10 WordPress client sites, the cost compounds further. Managed hosting alone typically runs $30 to $50 per site per month, plugin licenses across the portfolio commonly add $100 to $300 per month, and ongoing maintenance labor, patching plugins, resolving conflicts, and fixing broken integrations, typically consumes 10 to 30 hours per month. At a typical agency billing rate of $75 per hour, that maintenance labor alone costs $750 to $2,250 per month, on top of hosting and licensing.
+            </p>
 
             <div className="overflow-x-auto my-6">
               <table className="w-full border-collapse text-sm">
@@ -439,6 +495,16 @@ export default function GoHighLevelWebsiteBuilderClient() {
               </table>
             </div>
 
+            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">What WordPress still does better than the GoHighLevel website builder</h3>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              WordPress remains the correct choice for content-heavy websites, blogs publishing at high volume, large ecommerce stores with complex catalogues, and businesses requiring highly custom development work built on WordPress's enormous plugin and developer ecosystem. WordPress also allows full source-code access, meaning a developer can modify absolutely anything, while the GoHighLevel website builder, despite supporting custom CSS, JavaScript, and HTML blocks, keeps you working within its own platform structure rather than granting full code-level access the way self-hosted WordPress does.
+            </p>
+
+            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">What the GoHighLevel website builder does better than WordPress</h3>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              For a service business or agency whose website exists primarily to generate and convert leads, the GoHighLevel website builder's native CRM integration, included booking calendar, included automation engine, and single flat monthly cost regardless of how many tools you would otherwise need, make it the stronger choice. There is no plugin conflict risk, no separate hosting to secure and patch, and no integration point between systems that can silently break.
+            </p>
+
             <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
               <div className="flex items-center gap-2 mb-2">
                 <Lightbulb className="w-4 h-4 text-[#0E9BF0]" />
@@ -453,28 +519,34 @@ export default function GoHighLevelWebsiteBuilderClient() {
             <h2 id="limitations" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               9. What Are the Limitations of the GoHighLevel Website Builder?
             </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Being direct about limitations here matters more than another feature list, since every genuine limitation below is something you should know before building, not discover after launch.
+            </p>
 
             <ul className="space-y-1 mb-6 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">No automated WordPress import:</strong> Every page must be manually rebuilt.</li>
-              <li><strong className="text-[#1A2236]">Template design ceiling:</strong> Functional but not the most visually refined option available.</li>
-              <li><strong className="text-[#1A2236]">SEO tooling depth:</strong> Covers fundamentals but lacks depth of dedicated WordPress SEO plugins.</li>
-              <li><strong className="text-[#1A2236]">No full source-code access:</strong> Custom CSS/JS/HTML supported but within platform structure.</li>
-              <li><strong className="text-[#1A2236]">Ecommerce ceiling:</strong> Suits small to moderate catalogues but not large-scale ecommerce.</li>
+              <li><strong className="text-[#1A2236]">No automated WordPress import:</strong> There is no tool that automatically imports an existing WordPress site into the GoHighLevel website builder. Every single page must be manually rebuilt inside GoHighLevel's editor, which is the single biggest time cost in any migration, covered in full in Section 10.</li>
+              <li><strong className="text-[#1A2236]">Template design ceiling:</strong> As covered in Section 3, the GoHighLevel website builder's templates are functional but not the most visually refined option available, and you will occasionally fight with column spacing and layout quirks that a more mature page-builder ecosystem has already solved.</li>
+              <li><strong className="text-[#1A2236]">SEO tooling depth:</strong> As covered in Section 5, the built-in SEO features cover the fundamentals but lack the depth of a dedicated WordPress SEO plugin for large-scale content operations.</li>
+              <li><strong className="text-[#1A2236]">No full source-code access:</strong> While custom CSS, JavaScript, and HTML blocks are supported, you remain within GoHighLevel's platform structure rather than having the complete code-level control self-hosted WordPress provides.</li>
+              <li><strong className="text-[#1A2236]">Ecommerce ceiling:</strong> As covered in Section 6, the store builder suits a small to moderate product catalogue well but is not built to compete with a dedicated ecommerce platform at large scale.</li>
             </ul>
 
             {/* Section 10: Migrate WordPress */}
             <h2 id="migrate-wordpress" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               10. How Do You Migrate an Existing WordPress Site to the GoHighLevel Website Builder?
             </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Migrating from WordPress to the GoHighLevel website builder is a manual rebuild process, not an automated import, and planning for this correctly prevents the most common migration mistake, which is underestimating the time required.
+            </p>
 
             <ol className="space-y-1 mb-6 text-sm text-[#5C6880] list-decimal list-inside">
-              <li><strong className="text-[#1A2236]">Audit your existing WordPress site's page and content inventory:</strong> List every page, its purpose, and the content it contains.</li>
-              <li><strong className="text-[#1A2236]">Select the closest-matching GoHighLevel website builder template:</strong> Choose a template that most closely resembles your existing site's structure.</li>
-              <li><strong className="text-[#1A2236]">Rebuild each page manually inside the GoHighLevel website builder's editor:</strong> Recreate your content, images, and layout page by page.</li>
-              <li><strong className="text-[#1A2236]">Recreate your forms and connect them to CRM workflows:</strong> Rebuild lead capture forms and connect them to the appropriate CRM workflow.</li>
-              <li><strong className="text-[#1A2236]">Update your domain's DNS to point to GoHighLevel hosting:</strong> Change your domain's DNS records to point to GoHighLevel.</li>
-              <li><strong className="text-[#1A2236]">Set up 301 redirects for any changed URLs:</strong> Configure 301 redirects to preserve existing search rankings.</li>
-              <li><strong className="text-[#1A2236]">Keep the WordPress site accessible until the new site is fully verified:</strong> Do not cancel WordPress hosting until you have confirmed everything is working correctly.</li>
+              <li><strong className="text-[#1A2236]">Audit your existing WordPress site's page and content inventory:</strong> List every page, its purpose, and the content it contains, so nothing is missed once you begin rebuilding inside the GoHighLevel website builder.</li>
+              <li><strong className="text-[#1A2236]">Select the closest-matching GoHighLevel website builder template:</strong> Choose a template from Section 3's library that most closely resembles your existing site's structure, to minimise the amount of section-by-section restructuring required.</li>
+              <li><strong className="text-[#1A2236]">Rebuild each page manually inside the GoHighLevel website builder's editor:</strong> Recreate your content, images, and layout page by page. There is no shortcut here. This is the step that takes the most time in any migration.</li>
+              <li><strong className="text-[#1A2236]">Recreate your forms and connect them to CRM workflows:</strong> Any lead capture form on the old WordPress site needs to be rebuilt using the GoHighLevel website builder's form element and connected to the appropriate CRM workflow, as covered in Section 4.</li>
+              <li><strong className="text-[#1A2236]">Update your domain's DNS to point to GoHighLevel hosting:</strong> Once the new site is fully built and tested, change your domain's DNS records to point to GoHighLevel, which automatically provisions a free SSL certificate for the connected domain.</li>
+              <li><strong className="text-[#1A2236]">Set up 301 redirects for any changed URLs:</strong> If any page URLs differ between your old WordPress site and the new GoHighLevel website builder site, configure 301 redirects to preserve existing search rankings and prevent broken links from external sites still pointing to your old URLs.</li>
+              <li><strong className="text-[#1A2236]">Keep the WordPress site accessible until the new site is fully verified:</strong> Do not cancel WordPress hosting until you have confirmed every page, form, and redirect on the new GoHighLevel website builder site is working correctly in a live test.</li>
             </ol>
 
             {/* Section 11: Mistakes */}
@@ -554,7 +626,7 @@ export default function GoHighLevelWebsiteBuilderClient() {
             {/* Author Section */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 my-6">
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
+                <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
                   <img
                     src="/web-app-manifest-192x192.png"
                     alt="GHL Scale Up"
@@ -567,7 +639,7 @@ export default function GoHighLevelWebsiteBuilderClient() {
                 </div>
               </div>
               <p className="text-xs text-[#5C6880] leading-relaxed">
-                GHL Scale Up is a specialised GoHighLevel implementation and SaaS growth agency founded by Aryan Trivedi. Based in India, we serve agencies and SaaS founders across 6 countries with 200+ GoHighLevel builds delivered, including website builds and WordPress migrations. This guide reflects direct experience building and migrating real client websites inside the GoHighLevel website builder.
+                GHL Scale Up is a specialised GoHighLevel implementation and SaaS growth agency founded by Aryan Trivedi. Based in India, we serve agencies and SaaS founders across 6 countries with 200+ GoHighLevel builds delivered, including website builds and WordPress migrations. This guide reflects direct experience building and migrating real client websites inside the GoHighLevel website builder, combined with independently verified 2026 feature and pricing data.
               </p>
               <Link href="/" className="text-[#0E9BF0] text-xs hover:underline mt-2 inline-block">ghlscaleup.com</Link>
             </div>
