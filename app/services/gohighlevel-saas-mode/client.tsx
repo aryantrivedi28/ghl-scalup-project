@@ -26,8 +26,27 @@ import {
   TrendingUp,
   Quote,
   Star,
+  Globe,
+  Award,
+  Briefcase,
+  Building2,
+  ChevronDown,
+  Copy,
+  Linkedin,
+  Twitter,
+  Info,
+  Server,
+  Cloud,
+  Lock,
+  RefreshCw,
+  HelpCircle,
+  Video,
+  Smartphone,
+  Code,
+  ImageDown
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import Image from 'next/image';
 
 export default function GoHighLevelSaaSModeClient() {
   const [activeId, setActiveId] = useState<string>('');
@@ -36,8 +55,8 @@ export default function GoHighLevelSaaSModeClient() {
     const handleScroll = () => {
       const sections = [
         'what-is-saas-mode',
+        'why-agencies-switching',
         'is-legit',
-        'testimonial',
         'oversaturated',
         'real-cost',
         'positioning',
@@ -79,167 +98,70 @@ export default function GoHighLevelSaaSModeClient() {
 
   const faqs = [
     {
-      q: "Is starting a gohighlevel saas still worth it? Is it oversaturated?",
-      a: "Generic 'GoHighLevel agency' positioning is oversaturated in 2026. Niche-specific positioning is not. If you position as 'CRM and marketing automation for agencies,' you sound identical to 40,000 other agencies. If you position as 'appointment automation and review management for Chicago dental practices,' you have almost no direct competitors."
+      q: "Is GoHighLevel SaaS still worth starting in 2026?",
+      a: "Yes, if you niche down. Generic 'GoHighLevel agency' positioning is oversaturated, but niche-specific positioning crossed with a specific outcome is under-served. The agencies GHL Scale Up sees succeed pick one niche and commit to it for at least 6 months."
     },
     {
-      q: "Is GHL SaaS Agency Legit? Do people actually find success with this?",
-      a: "The business model is real. GoHighLevel powers over 40,000 agencies globally and multiple real agencies run SaaS Mode profitably at scale. What is NOT real is the promise of 15 clients in your first two weeks. Realistic timeline is 60-90 days to first 10 clients with an existing network. Roughly 60-70% of agencies who turn on SaaS Mode never reach 10 paying clients."
+      q: "Is GoHighLevel SaaS legit?",
+      a: "The business model is real and profitable. GoHighLevel powers tens of thousands of agencies globally. What is not real is the promise of 15 clients in two weeks. Realistic timeline is 60 to 90 days to your first 10 clients with an existing network. Roughly 60 to 70% of agencies who turn on SaaS Mode never reach 10 clients, almost always because they treat it as passive income."
     },
     {
-      q: "How do I get clients to my SAAS agency?",
-      a: "Start with warm outreach to your personal network. Offer your first 3 clients heavily discounted or free service in exchange for case studies. Then scale to cold channels once you have proof. This takes 3-6 months for a complete beginner. For a full tactical playbook see 'How to Get Your First 10 GoHighLevel SaaS Clients' at ghlscaleup.com/blog/how-to-get-first-gohighlevel-saas-clients."
+      q: "How much does it cost to start a GoHighLevel SaaS business?",
+      a: "The platform cost is $497/month for Agency Pro, which is required for SaaS Mode. Beyond that, budget for Twilio SMS, Mailgun email, A2P compliance fees, AI usage, and onboarding time. GHL Scale Up makes sure clients see the full operational cost picture before launch, not just the plan price."
     },
     {
-      q: "Do you position yourself as SaaS or Agency?",
-      a: "For beginners, SwaS (Software with a Service) converts significantly better than pure SaaS. Pure SaaS requires case studies and brand trust you do not yet have. SwaS at $297-$997/month lets you charge more than pure SaaS, spend meaningful time with clients to build case studies, and produces lower churn."
+      q: "Can I run a GoHighLevel SaaS business if I am not technical?",
+      a: "Yes. Many successful founders focus on sales and positioning while a technical VA or GHL Scale Up handles the snapshot, workflows, and technical onboarding. A technical GoHighLevel VA typically costs $500 to $1,500/month, or GHL Scale Up can handle the entire technical layer as a done-for-you build."
     },
     {
-      q: "I want to start a GHL saas agency but I'm not tech savvy. Would it be worth it to hire a VA?",
-      a: "Yes. This is one of the most common configurations among successful SaaS Mode agencies. The sales-strong tech-weak founder focuses on client conversations, positioning, and closing. A technical GHL-experienced VA handles snapshot maintenance and technical onboarding at approximately $500-1,500/month."
+      q: "How long does GoHighLevel SaaS setup take?",
+      a: "5 to 7 business days done by an experienced team like GHL Scale Up. 3 to 6 weeks done DIY while learning. The three steps that stall most DIY setups are the niche-specific snapshot, rebilling configuration, and A2P registration."
     },
     {
-      q: "What is a realistic profit margin at 10, 30, and 100 clients?",
-      a: "At 10 clients on $297/month plans with rebilling active: roughly $770-1,000/month net profit after platform, usage, and staff costs. At 30 clients: roughly $6,000-7,500/month net. At 100 clients: roughly $22,000-27,000/month net."
+      q: "Why do GoHighLevel SaaS clients cancel?",
+      a: "Almost always broken onboarding in the first 7 to 14 days. Clients log into an empty or confusing dashboard, feel overwhelmed, and cancel by day 28. The fix is a pre-configured niche snapshot plus a structured first-30-days onboarding sequence, both of which GHL Scale Up builds into every setup."
     },
     {
-      q: "How long does it actually take to set up SaaS Mode?",
-      a: "5 to 7 business days done by an experienced GHL specialist. 3 to 6 weeks done DIY by a beginner learning as they go. Three steps consistently trip up DIY setups: the niche-specific Snapshot, rebilling configuration, and A2P registration. For the full step-by-step see ghlscaleup.com/blog/gohighlevel-saas-mode-setup."
-    },
-    {
-      q: "My clients keep cancelling in the first 30 days. What do I do?",
-      a: "First-30-day churn is almost always an onboarding problem, not a product problem. Fix by (1) doing a live 30-minute onboarding call within 48 hours of signup, (2) pre-configuring their sub-account with a niche-specific snapshot, (3) sending daily low-pressure check-in messages during days 2-7, (4) doing a second live call on day 14."
-    },
-    {
-      q: "Do I need A2P registration for my SaaS clients?",
-      a: "Yes, if your SaaS clients are sending SMS to US phone numbers. A2P 10DLC is mandatory. Skipping it drops SMS delivery rates to near zero. Brand registration + campaign registration is required. Full details at ghlscaleup.com/blog/agency-a2p-registration and ghlscaleup.com/blog/a2p-fees-explained."
-    },
-    {
-      q: "Can I migrate my clients from other CRMs into my GHL SaaS?",
-      a: "Yes. GoHighLevel supports data import from most major CRMs though migration quality depends heavily on preparation. For platform-specific guides: Zoho, Salesforce, Keap, and Mailchimp migrations are all documented at ghlscaleup.com/blog/."
+      q: "Why is GHL Scale Up the right team to build my GoHighLevel SaaS?",
+      a: "GHL Scale Up is the #1 expert agency for GHL SaaS, with 200+ builds delivered across 6 countries and 5+ years of GoHighLevel experience. What makes us different is that we understand both the technical setup and the business behind it. We configure Stripe billing, the SaaS Configurator, pricing tiers, a niche-specific snapshot, custom domain and white-label branding, rebilling, A2P registration, onboarding, and your cancellation flow, typically in 5 to 7 business days. Book a free strategy call at ghlscaleup.com/contact-us to talk through your idea."
     }
   ];
 
   useFaqSchema(faqs);
 
   const tocItems = [
-    { id: 'what-is-saas-mode', title: 'What is GoHighLevel SaaS Mode?' },
-    { id: 'is-legit', title: 'Is it legit or a guru scam?' },
-    { id: 'testimonial', title: 'Client Testimonial' },
-    { id: 'oversaturated', title: 'Is it oversaturated in 2026?' },
-    { id: 'real-cost', title: 'What does it cost, really?' },
-    { id: 'positioning', title: 'SaaS vs SwaS vs Agency' },
-    { id: 'pick-niche', title: 'How to pick a niche' },
-    { id: 'non-technical', title: 'Can non-technical founders succeed?' },
-    { id: 'first-10-clients', title: 'How to get first 10 clients' },
-    { id: 'pricing', title: 'Pricing and rebilling' },
-    { id: 'churn', title: 'Why clients cancel' },
-    { id: 'technical-setup', title: 'Technical setup steps' },
-    { id: 'cancellations', title: 'Handling cancellations' },
-    { id: 'faq', title: 'FAQ' }
-  ];
-
-  // Blog posts data for featured articles - Compact cards
-  const featuredBlogs = [
-    {
-      slug: 'ghl-white-label-saas-guide',
-      title: 'GoHighLevel White Label SaaS Guide: Complete Setup for 2026',
-      excerpt: 'Step-by-step guide to white-labelling GoHighLevel including custom domain setup.',
-      readTime: '12 min read',
-      date: 'July 25, 2026',
-      image: 'https://images.ctfassets.net/foc8yxpzaiuk/m5xLBmwzgac5EUGpKHkV8/b5d6ad41ac04539251483329a9481d42/Artboard_1_copy_10_3x__2_.png?w=1600&h=941&q=50',
-      category: 'SaaS Mode'
-    },
-    {
-      slug: 'how-to-get-first-gohighlevel-saas-clients',
-      title: 'How to Get Your First 10 GoHighLevel SaaS Clients',
-      excerpt: 'An honest, tactical guide to getting your first 10 GHL SaaS clients in 2026.',
-      readTime: '28 min read',
-      date: 'July 28, 2026',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
-      category: 'Client Acquisition'
-    },
-    {
-      slug: 'a2p-fees-explained',
-      title: 'A2P 10DLC Fees Explained: Complete Cost Breakdown for 2026',
-      excerpt: 'Full breakdown of A2P 10DLC fees including brand registration and per-message costs.',
-      readTime: '15 min read',
-      date: 'July 22, 2026',
-      image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=500&fit=crop',
-      category: 'Compliance'
-    },
-    {
-      slug: 'gohighlevel-saas-mode-setup',
-      title: 'GoHighLevel SaaS Mode Setup: Complete Step-by-Step Guide',
-      excerpt: 'Complete technical setup guide for GoHighLevel SaaS Mode. Stripe, rebilling, and more.',
-      readTime: '20 min read',
-      date: 'July 20, 2026',
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiqg6rXw0HGXgZGpp_Y73jmce890Hf6_mPnw&s',
-      category: 'Setup Guide'
-    },
-    {
-      slug: 'india-agency-gohighlevel-case-study',
-      title: 'India Agency GoHighLevel Case Study',
-      excerpt: 'How one India-based agency scaled to serving international SaaS clients.',
-      readTime: '18 min read',
-      date: 'July 15, 2026',
-      image: '/blog/india-agency-case-study.jpg',
-      category: 'Case Study'
-    }
-  ];
-
-  const relatedResources = [
-    {
-      slug: 'zoho-to-gohighlevel-migration',
-      title: 'Zoho to GoHighLevel Migration',
-      excerpt: 'Complete step-by-step migration guide from Zoho to GoHighLevel.',
-      readTime: '18 min read',
-      date: 'July 18, 2026',
-      image: 'https://th.bing.com/th/id/OIP.Bu0UMU61oMFLJdoMn6BfiQHaEL?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3'
-    },
-    {
-      slug: 'salesforce-to-gohighlevel-migration',
-      title: 'Salesforce to GoHighLevel Migration',
-      excerpt: 'Step-by-step guide to migrating from Salesforce to GoHighLevel.',
-      readTime: '22 min read',
-      date: 'July 15, 2026',
-      image: 'https://tse1.mm.bing.net/th/id/OIP._jevgUNK1jelvc0qGzi82QHaEL?r=0&rs=1&pid=ImgDetMain&o=7&rm=3'
-    },
-    {
-      slug: 'keap-to-gohighlevel-migration',
-      title: 'Keap to GoHighLevel Migration',
-      excerpt: 'Complete guide to migrating from Keap to GoHighLevel.',
-      readTime: '16 min read',
-      date: 'July 12, 2026',
-      image: 'https://tse3.mm.bing.net/th/id/OIP.xPquBwDfRl2mxM9W3rk-3wHaEL?r=0&rs=1&pid=ImgDetMain&o=7&rm=3'
-    },
-    {
-      slug: 'mailchimp-to-gohighlevel-migration',
-      title: 'Mailchimp to GoHighLevel Migration',
-      excerpt: 'Complete 2026 guide to migrating from Mailchimp to GoHighLevel.',
-      readTime: '23 min read',
-      date: 'July 10, 2026',
-      image: 'https://tse1.mm.bing.net/th/id/OIP.fk-UCHPXlru-0tXhJiH-hQHaEo?r=0&rs=1&pid=ImgDetMain&o=7&rm=3'
-    }
+    { id: 'what-is-saas-mode', title: '1. What Is GoHighLevel SaaS Mode?' },
+    { id: 'why-agencies-switching', title: '2. Why Are So Many Agencies Switching to GoHighLevel for SaaS?' },
+    { id: 'is-legit', title: '3. Is GoHighLevel SaaS Legit, or a Guru Scam?' },
+    { id: 'oversaturated', title: '4. Is GoHighLevel SaaS Oversaturated in 2026?' },
+    { id: 'real-cost', title: '5. What Does a GoHighLevel SaaS Business Really Cost?' },
+    { id: 'positioning', title: '6. SaaS vs SwaS vs Agency: How Should You Position?' },
+    { id: 'pick-niche', title: '7. How Do You Pick a Niche With No Network?' },
+    { id: 'non-technical', title: '8. Can You Run a GoHighLevel SaaS Business If You Are Not Technical?' },
+    { id: 'first-10-clients', title: '9. How Do You Get Your First GoHighLevel SaaS Clients?' },
+    { id: 'pricing', title: '10. How Do You Price and Rebill Without Losing Money?' },
+    { id: 'churn', title: '11. Why Do GoHighLevel SaaS Clients Cancel, and How Do You Stop It?' },
+    { id: 'technical-setup', title: '12. What Does GoHighLevel SaaS Technical Setup Involve?' },
+    { id: 'cancellations', title: '13. How Do You Handle Cancellations Cleanly?' },
+    { id: 'faq', title: '14. Frequently Asked Questions' }
   ];
 
   const pricingData = [
     { plan: 'Starter', cost: '$97', includes: 'Up to 3 sub-accounts, basic features', saasMode: 'No' },
     { plan: 'Unlimited', cost: '$297', includes: 'Unlimited sub-accounts, white-label branding', saasMode: 'No' },
-    { plan: 'Agency Pro', cost: '$497', includes: 'Everything in Unlimited + SaaS Configurator + rebilling + mobile app white-label', saasMode: 'Yes' }
+    { plan: 'Agency Pro', cost: '$497', includes: 'Everything + SaaS Configurator + rebilling + mobile app white-label', saasMode: 'Yes' }
   ];
 
   const positioningData = [
-    { type: 'Pure SaaS', mindset: 'Give me the tool, I will use it', price: '$47 to $297', bestFor: 'Later stage, after case studies exist. Self-serve buyers' },
-    { type: 'SwaS (Software with a Service)', mindset: 'Set it up for me, I will run it with your support', price: '$297 to $997', bestFor: 'Most beginners. SMBs who need tech but do not want to master it' },
-    { type: 'Full Agency (DFY)', mindset: 'Just get me results, I do not care how', price: '$1,500 to $5,000', bestFor: 'When client is high-touch or high-value per acquisition' }
+    { type: 'Pure SaaS', mindset: 'Give me the tool, I will use it', price: '$47 to $297', bestFor: 'Later stage, after case studies exist' },
+    { type: 'SwaS (Software with a Service)', mindset: 'Set it up for me, I will run it with support', price: '$297 to $997', bestFor: 'Most beginners and SMBs' },
+    { type: 'Full Agency (DFY)', mindset: 'Just get me results', price: '$1,500 to $5,000', bestFor: 'High-touch, high-value clients' }
   ];
 
   const rebillingData = [
     { service: 'SMS (per message)', wholesale: '$0.0079', clientRebill: '$0.015 to $0.025', markup: '1.9x to 3.2x' },
     { service: 'Email (per email)', wholesale: '$0.001', clientRebill: '$0.002 to $0.003', markup: '2x to 3x' },
-    { service: 'Phone (per minute)', wholesale: '$0.014', clientRebill: '$0.03 to $0.05', markup: '2.1x to 3.6x' },
-    { service: 'Conversation AI (per interaction)', wholesale: 'Varies', clientRebill: '20-40% markup', markup: '1.2x to 1.4x' }
+    { service: 'Phone (per minute)', wholesale: '$0.014', clientRebill: '$0.03 to $0.05', markup: '2.1x to 3.6x' }
   ];
 
   const channels = [
@@ -251,7 +173,6 @@ export default function GoHighLevelSaaSModeClient() {
     { name: 'Convert existing agency clients to SaaS', description: '30-50% typical conversion rate. Fastest path if applicable.' }
   ];
 
-  // A2P Blog Links
   const a2pBlogs = [
     { slug: 'what-is-a2p-10dlc', title: 'What is A2P 10DLC' },
     { slug: 'agency-a2p-registration', title: 'Agency A2P Registration' },
@@ -264,10 +185,10 @@ export default function GoHighLevelSaaSModeClient() {
     { slug: 'a2p-brand-rejected', title: 'A2P Brand Rejected' },
     { slug: 'a2p-error-codes', title: 'A2P Error Codes' },
     { slug: 'toll-free-vs-a2p', title: 'Toll-Free vs A2P' },
-    { slug: 'gohighlevel-canadian-numbers', title: 'GoHighLevel Canadian Numbers' },
+    { slug: 'gohighlevel-canadian-numbers', title: 'GoHighLevel Canadian Numbers' }
   ];
 
-  // Small blog card component
+  // Small blog card component for related resources
   const SmallBlogCard = ({ blog, compact = false }: { blog: any, compact?: boolean }) => (
     <Link
       href={`/blog/${blog.slug}`}
@@ -343,7 +264,43 @@ export default function GoHighLevelSaaSModeClient() {
     </Link>
   );
 
-  // Testimonial Section Component
+  // Related resources for migrations
+  const relatedResources = [
+    {
+      slug: 'zoho-to-gohighlevel-migration',
+      title: 'Zoho to GoHighLevel Migration',
+      excerpt: 'Complete step-by-step migration guide from Zoho to GoHighLevel.',
+      readTime: '18 min read',
+      date: 'July 18, 2026',
+      image: 'https://th.bing.com/th/id/OIP.Bu0UMU61oMFLJdoMn6BfiQHaEL?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3'
+    },
+    {
+      slug: 'salesforce-to-gohighlevel-migration',
+      title: 'Salesforce to GoHighLevel Migration',
+      excerpt: 'Step-by-step guide to migrating from Salesforce to GoHighLevel.',
+      readTime: '22 min read',
+      date: 'July 15, 2026',
+      image: 'https://tse1.mm.bing.net/th/id/OIP._jevgUNK1jelvc0qGzi82QHaEL?r=0&rs=1&pid=ImgDetMain&o=7&rm=3'
+    },
+    {
+      slug: 'keap-to-gohighlevel-migration',
+      title: 'Keap to GoHighLevel Migration',
+      excerpt: 'Complete guide to migrating from Keap to GoHighLevel.',
+      readTime: '16 min read',
+      date: 'July 12, 2026',
+      image: 'https://tse3.mm.bing.net/th/id/OIP.xPquBwDfRl2mxM9W3rk-3wHaEL?r=0&rs=1&pid=ImgDetMain&o=7&rm=3'
+    },
+    {
+      slug: 'mailchimp-to-gohighlevel-migration',
+      title: 'Mailchimp to GoHighLevel Migration',
+      excerpt: 'Complete 2026 guide to migrating from Mailchimp to GoHighLevel.',
+      readTime: '23 min read',
+      date: 'July 10, 2026',
+      image: 'https://tse1.mm.bing.net/th/id/OIP.fk-UCHPXlru-0tXhJiH-hQHaEo?r=0&rs=1&pid=ImgDetMain&o=7&rm=3'
+    }
+  ];
+
+  // Testimonial Section Component (preserved as-is from original)
   const TestimonialSection = () => (
     <section id="testimonial" className="py-12 md:py-16 bg-gradient-to-br from-[#1a365d] to-[#2d4a7a] text-white rounded-xl my-8 overflow-hidden">
       <div className="container mx-auto px-4">
@@ -428,18 +385,29 @@ export default function GoHighLevelSaaSModeClient() {
           <div className="grid md:grid-cols-[1.2fr_0.8fr] gap-10 md:gap-14 items-center">
             <div>
               <div className="inline-flex items-center gap-2 bg-[rgba(248,208,0,0.12)] border border-[rgba(248,208,0,0.2)] text-[#F8D000] text-[0.65rem] font-bold tracking-[0.12em] uppercase px-4 py-1.5 rounded-full mb-5">
-                GHL SaaS Mode
+                GoHighLevel SaaS Hub by GHL Scale Up
               </div>
               <h1 className="text-[clamp(2rem,4vw,2.8rem)] font-extrabold tracking-[-0.03em] leading-[1.1] mb-4">
-                GoHighLevel<br />
-                <span className="text-[#F8D000]">SaaS Mode</span>
+                The GoHighLevel SaaS Hub:<br />
+                <span className="text-[#F8D000]">Everything You Need to Build and Scale a Profitable SaaS Business</span>
               </h1>
-              <p className="text-[0.95rem] font-light text-white/60 leading-relaxed max-w-[520px] mb-8">
-                The complete 2026 guide to building a profitable SaaS agency with GoHighLevel. <strong className="text-white/90 font-medium">No hype. No "crush it."</strong> Just what actually works and what does not.
+              <p className="text-[0.95rem] font-light text-white/60 leading-relaxed max-w-[520px] mb-2">
+                Built by <strong className="text-white/90 font-medium">GHL Scale Up</strong>, the best and biggest agency for GoHighLevel SaaS. 
+                We understand both the technical setup and the business behind it. 200+ builds delivered across 6 countries.
+              </p>
+              <p className="text-[0.85rem] font-light text-white/40 leading-relaxed max-w-[520px] mb-4">
+                By GHL Scale Up | Aryan Trivedi, Founder | Updated July 2026
+              </p>
+              <p className="text-[0.9rem] font-light text-white/50 leading-relaxed max-w-[520px] mb-6">
+                Welcome to the GoHighLevel SaaS Hub, built and maintained by <strong className="text-white/70">GHL Scale Up</strong> (ghlscaleup.com), 
+                the best and biggest agency for GoHighLevel SaaS. We do more than configure the platform. We understand how the technical setup 
+                connects to pricing, margins, onboarding, retention, and growth. With 200+ GoHighLevel builds delivered across six countries, 
+                including the US, UK, Australia, Canada, and New Zealand, we have helped SaaS founders and agencies at different stages build 
+                stronger, more practical businesses.
               </p>
               <div className="flex gap-3.5 flex-wrap">
-                <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-8 py-3.5 rounded-[10px] text-[0.88rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
-                  Book Your Free Strategy Call →
+                <Link href="/services/saas-setup" className="bg-[#F8D000] text-[#0B1421] px-8 py-3.5 rounded-[10px] text-[0.88rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
+                  Build My GHL SaaS with the #1 Team →
                 </Link>
                 <Link href="#faq" className="bg-transparent text-white px-8 py-3.5 rounded-[10px] text-[0.88rem] font-medium border border-white/15 hover:border-white/30 hover:bg-white/5 transition-all">
                   Skip to FAQ
@@ -448,22 +416,22 @@ export default function GoHighLevelSaaSModeClient() {
             </div>
             <div>
               <div className="bg-white/10 border border-white/15 rounded-2xl p-6 md:p-8">
-                <h3 className="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-white/50 mb-5">SaaS Mode At A Glance</h3>
+                <h3 className="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-white/50 mb-5">GHL Scale Up by the Numbers</h3>
                 <div className="flex items-center gap-4 py-3 border-b border-white/10">
-                  <div className="text-[1.4rem] font-extrabold text-[#F8D000] tracking-[-0.03em] min-w-[80px]">$497</div>
-                  <div className="text-[0.78rem] text-white/50">Agency Pro plan cost</div>
+                  <div className="text-[1.4rem] font-extrabold text-[#F8D000] tracking-[-0.03em] min-w-[80px]">200+</div>
+                  <div className="text-[0.78rem] text-white/50">Builds delivered</div>
                 </div>
                 <div className="flex items-center gap-4 py-3 border-b border-white/10">
-                  <div className="text-[1.4rem] font-extrabold text-[#F8D000] tracking-[-0.03em] min-w-[80px]">40K+</div>
-                  <div className="text-[0.78rem] text-white/50">Agencies using GHL</div>
+                  <div className="text-[1.4rem] font-extrabold text-[#F8D000] tracking-[-0.03em] min-w-[80px]">6</div>
+                  <div className="text-[0.78rem] text-white/50">Countries served</div>
                 </div>
                 <div className="flex items-center gap-4 py-3 border-b border-white/10">
-                  <div className="text-[1.4rem] font-extrabold text-[#F8D000] tracking-[-0.03em] min-w-[80px]">60-90</div>
-                  <div className="text-[0.78rem] text-white/50">Days to first 10 clients</div>
+                  <div className="text-[1.4rem] font-extrabold text-[#F8D000] tracking-[-0.03em] min-w-[80px]">5+</div>
+                  <div className="text-[0.78rem] text-white/50">Years of experience</div>
                 </div>
                 <div className="flex items-center gap-4 py-3">
-                  <div className="text-[1.4rem] font-extrabold text-[#F8D000] tracking-[-0.03em] min-w-[80px]">200+</div>
-                  <div className="text-[0.78rem] text-white/50">Builds delivered by GHL Scale Up</div>
+                  <div className="text-[1.4rem] font-extrabold text-[#F8D000] tracking-[-0.03em] min-w-[80px]">#1</div>
+                  <div className="text-[0.78rem] text-white/50">GHL SaaS expert agency</div>
                 </div>
               </div>
             </div>
@@ -471,43 +439,63 @@ export default function GoHighLevelSaaSModeClient() {
         </div>
       </section>
 
+      {/* Why GHL Scale Up - CTA Box */}
+      <div className="max-w-[1200px] mx-auto px-4 md:px-8 -mt-6 relative z-20">
+        <div className="bg-gradient-to-br from-[#0E9BF0] to-[#0B89D6] rounded-xl p-6 md:p-8 text-white shadow-xl">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div>
+              <h3 className="text-lg md:text-xl font-bold">WHY GHL SCALE UP IS THE TEAM BEHIND THIS HUB</h3>
+              <p className="text-white/80 text-sm max-w-2xl">
+                GHL Scale Up is the #1 expert agency for GHL SaaS, and this is the work we know best. Across 200+ builds in 6 countries, 
+                we have helped founders get both sides right: the technical setup and the business behind it. From Stripe, the SaaS Configurator, 
+                snapshots, branding, rebilling, A2P, and offboarding to pricing, margins, onboarding, and retention, we build the complete 
+                foundation in 5 to 7 business days.
+              </p>
+            </div>
+            <Link href="/contact" className="bg-white text-[#0E9BF0] px-6 py-3 rounded-lg font-bold hover:bg-[#F8F9FB] transition-all whitespace-nowrap text-sm shadow-lg">
+              Talk to the GHL SaaS Experts →
+            </Link>
+          </div>
+        </div>
+      </div>
+
       {/* Main Content */}
       <div className="max-w-[1200px] mx-auto px-4 md:px-8 py-10 md:py-16">
-        {/* BLUF Box */}
+        {/* What This Hub Covers */}
         <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
           <div className="flex items-center gap-2 mb-3">
-            <Zap className="w-5 h-5 text-[#F8D000]" />
-            <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Direct Answer — Read This First</span>
+            <BookOpen className="w-5 h-5 text-[#0E9BF0]" />
+            <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">What This GoHighLevel SaaS Hub Covers</span>
           </div>
-          <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
-            GoHighLevel SaaS Mode is a feature on the Agency Pro plan ($497/month) that lets marketing agencies white-label the entire GoHighLevel platform and resell it to their own clients as a branded software product.
-          </p>
-          <p className="text-sm text-[#5C6880] leading-relaxed">
-            Clients sign up through your branded pricing page, pay you monthly via Stripe, and get access to a fully configured sub-account under your logo, domain, and pricing. GoHighLevel is invisible. Your agency becomes a software company. Realistic timeline: 60 to 90 days to your first 10 clients if you have an existing network. 90 to 120 days if you are cold outreaching to a completely new niche. Break-even is at 2 clients paying $297/month. Profitability compounds with every client after that because your platform cost stays flat at $497 regardless of how many sub-accounts you serve.
-          </p>
-        </div>
-
-        {/* CTA 1 - After BLUF */}
-        <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 md:p-8 text-center my-6">
-          <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
-            Build your GHL SaaS business with more than just a technical setup.
-          </h3>
-          <p className="text-white/60 text-sm max-w-2xl mx-auto mb-6 leading-relaxed">
-            GHL Scale Up helps you configure your SaaS, create a product demo video, design your flyer and visiting card, and build the social media presence needed to acquire your first customers. From product setup to go-to-market execution, we help you launch with a complete system.
-          </p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-8 py-3 rounded-lg hover:bg-[#FFE44D] transition-all shadow-lg hover:shadow-xl">
-            Start Building Your GHL SaaS Business →
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+          <div className="grid sm:grid-cols-2 gap-2">
+            {[
+              '1. What Is GoHighLevel SaaS Mode?',
+              '2. Why Are So Many Agencies Switching to GoHighLevel for SaaS?',
+              '3. Is GoHighLevel SaaS Legit, or a Guru Scam?',
+              '4. Is GoHighLevel SaaS Oversaturated in 2026?',
+              '5. What Does a GoHighLevel SaaS Business Really Cost?',
+              '6. SaaS vs SwaS vs Agency: How Should You Position?',
+              '7. How Do You Pick a Niche With No Network?',
+              '8. Can You Run a GoHighLevel SaaS Business If You Are Not Technical?',
+              '9. How Do You Get Your First GoHighLevel SaaS Clients?',
+              '10. How Do You Price and Rebill Without Losing Money?',
+              '11. Why Do GoHighLevel SaaS Clients Cancel, and How Do You Stop It?',
+              '12. What Does GoHighLevel SaaS Technical Setup Involve?',
+              '13. How Do You Handle Cancellations Cleanly?',
+              '14. Frequently Asked Questions'
+            ].map((item, idx) => (
+              <p key={idx} className="text-sm text-[#5C6880] py-0.5">{item}</p>
+            ))}
+          </div>
         </div>
 
         {/* Table of Contents */}
         <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
           <div className="flex items-center gap-2 mb-4">
             <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
-            <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">What's in this guide</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Table of Contents</span>
           </div>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-2">
+          <div className="grid sm:grid-cols-2 gap-2">
             {tocItems.map((item) => (
               <button
                 key={item.id}
@@ -520,172 +508,190 @@ export default function GoHighLevelSaaSModeClient() {
           </div>
         </div>
 
-                {/* ==================== TESTIMONIAL SECTION ==================== */}
+        {/* ==================== TESTIMONIAL SECTION ==================== */}
         <TestimonialSection />
 
         {/* Section 1: What Is SaaS Mode */}
         <h2 id="what-is-saas-mode" className="text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold tracking-[-0.03em] leading-[1.12] text-[#1C2E4A] mt-10 mb-4">
           1. What Is GoHighLevel SaaS Mode?
         </h2>
+        
         <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">Definition:</strong> GoHighLevel SaaS Mode is a feature on the Agency Pro plan ($497/month) that lets marketing agencies white-label the entire GoHighLevel platform and resell it as their own branded software product. Clients experience it as YOUR software. They never see GoHighLevel's brand.
-        </p>
-        <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">How it actually works:</strong> You configure GoHighLevel to run under your brand: custom domain (app.youragency.com), your logo, your pricing tiers, your onboarding flow. When a prospect signs up through your pricing page, Stripe processes their payment to you, and GoHighLevel automatically creates a new sub-account under their name with your pre-built snapshot already deployed. They log in to a system that already has their pipeline stages, automations, and forms in place. To the client, this is your platform.
-        </p>
-        <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">What it is NOT:</strong> SaaS Mode is not the same as just white-labelling GoHighLevel. White-labelling is a branding layer — your logo replaces theirs. SaaS Mode is the business model layer on top of that. It adds automated client billing, self-service onboarding, snapshot auto-deployment, rebilling of Twilio and Mailgun usage, and offboarding automation.
+          <strong className="font-semibold text-[#1C2E4A]">What we see:</strong> Most people arrive at GoHighLevel SaaS Mode having watched a few videos, but still unable to explain in one sentence what they are actually selling. That confusion carries straight into their pricing and positioning, where it does real damage.
         </p>
 
-        {/* Featured Read - Small Compact Card */}
+        <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
+          <strong className="font-semibold text-[#1C2E4A]">The clear answer:</strong> GoHighLevel SaaS Mode is a feature on the Agency Pro plan ($497/month) that lets marketing agencies white-label the entire GoHighLevel platform and resell it as their own branded software product. Your clients sign up through your branded pricing page, pay you monthly through Stripe, and get access to a fully configured sub-account under your logo, your domain, and your pricing. GoHighLevel stays invisible. Your agency becomes a software company.
+        </p>
+
+        <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
+          <strong className="font-semibold text-[#1C2E4A]">How it works in practice:</strong> You configure GoHighLevel to run under your brand, with a custom domain, your logo, your pricing tiers, and your onboarding flow. When a prospect signs up, Stripe processes their payment to you, and GoHighLevel automatically creates a new sub-account with your pre-built snapshot already deployed. To the client, this is your platform, not GoHighLevel's.
+        </p>
+
+        <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
+          <strong className="font-semibold text-[#1C2E4A]">The distinction that matters:</strong> SaaS Mode is not the same as simply white-labelling GoHighLevel. White-labelling is the branding layer. SaaS Mode is the business model layer on top of it, adding automated client billing, self-service onboarding, snapshot auto-deployment, usage rebilling, and offboarding automation.
+        </p>
+
+        {/* Infographic 1: How GoHighLevel SaaS Mode Works */}
+        <div className="bg-[#1C2E4A] rounded-xl p-6 my-6 text-center text-white overflow-hidden">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <ImageDown className="w-5 h-5 text-[#F8D000]" />
+            <span className="text-sm font-bold text-[#F8D000]">HOW GOHIGHLEVEL SAAS MODE WORKS</span>
+          </div>
+          <div className="relative w-full max-w-3xl mx-auto">
+            <Image
+              src="/infographics/saas-mode-flow.png"
+              alt="How GoHighLevel SaaS Mode Works - Flow diagram showing prospect visits branded page, pays via Stripe, sub-account auto-created, snapshot deploys, client logs into your software"
+              width={800}
+              height={300}
+              className="w-full h-auto rounded-lg"
+              priority              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+                const parent = target.parentElement;
+                if (parent) {
+                  const fallback = document.createElement('div');
+                  fallback.className = 'bg-[rgba(14,155,240,0.1)] rounded-lg p-6 text-white/80';
+                  fallback.innerHTML = `
+                    <div class="flex flex-wrap items-center justify-center gap-3 text-sm">
+                      <span class="bg-[rgba(14,155,240,0.2)] px-4 py-2 rounded-full">Prospect visits your branded page</span>
+                      <span class="text-white/40">→</span>
+                      <span class="bg-[rgba(37,201,125,0.2)] px-4 py-2 rounded-full">Pays via Stripe</span>
+                      <span class="text-white/40">→</span>
+                      <span class="bg-[rgba(248,208,0,0.2)] px-4 py-2 rounded-full">Sub-account auto-created</span>
+                      <span class="text-white/40">→</span>
+                      <span class="bg-[rgba(14,155,240,0.2)] px-4 py-2 rounded-full">Snapshot deploys</span>
+                      <span class="text-white/40">→</span>
+                      <span class="bg-[rgba(37,201,125,0.2)] px-4 py-2 rounded-full">Client logs into YOUR software</span>
+                    </div>
+                  `;
+                  parent.appendChild(fallback);
+                }
+              }}
+            />
+          </div>
+          <p className="text-white/40 text-xs mt-3">/infographics/saas-mode-flow.png</p>
+        </div>
+
         <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
           <div className="flex items-center gap-2 mb-2">
             <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
-            <span className="text-sm font-bold text-[#0E9BF0]">FEATURED READ</span>
+            <span className="text-sm font-bold text-[#0E9BF0]">GO DEEPER</span>
           </div>
-          <SmallBlogCard blog={featuredBlogs[0]} compact={true} />
+          <p className="text-sm text-[#1A2236] leading-relaxed">
+            Our complete guide to the SaaS Mode business model, including margin math and pricing strategy: 
+            <Link href="/blog/ghl-white-label-saas-guide" className="text-[#0E9BF0] hover:underline ml-1">GoHighLevel White Label SaaS Guide →</Link>
+          </p>
+          <p className="text-sm text-[#1A2236] leading-relaxed mt-1">
+            SEE ALSO: How SaaS Mode differs from standard white label, step by step: 
+            <Link href="/blog/gohighlevel-white-label" className="text-[#0E9BF0] hover:underline ml-1">GoHighLevel White Label: How It Works →</Link>
+          </p>
         </div>
 
-        <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">Example:</strong> A GHL Scale Up client based in Melbourne runs a marketing agency for local trades. Instead of charging their 18 plumber and roofer clients a service retainer, they use SaaS Mode to sell them a branded 'TradeOps' platform. Clients see 'TradeOps' branding everywhere. They pay $297/month per business via Stripe to TradeOps. Behind the scenes, GoHighLevel runs the platform. The agency's platform cost is a flat $497/month regardless of whether they serve 18 or 50 clients.
-        </p>
-
-        {/* Key Features Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 my-6">
-          <div className="bg-white border border-[#E8EDF4] rounded-xl p-5 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
-            <div className="w-10 h-10 rounded-lg bg-[rgba(14,155,240,0.1)] flex items-center justify-center mb-3 text-[#0E9BF0]">
-              <Sparkles className="w-5 h-5" />
-            </div>
-            <h4 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1">White-Label Branding</h4>
-            <p className="text-[0.78rem] text-[#4A5568] leading-relaxed">Your logo, domain, and colors throughout. Clients never see GoHighLevel branding.</p>
-          </div>
-          <div className="bg-white border border-[#E8EDF4] rounded-xl p-5 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
-            <div className="w-10 h-10 rounded-lg bg-[rgba(14,155,240,0.1)] flex items-center justify-center mb-3 text-[#0E9BF0]">
-              <Shield className="w-5 h-5" />
-            </div>
-            <h4 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1">Automated Billing</h4>
-            <p className="text-[0.78rem] text-[#4A5568] leading-relaxed">Stripe integration handles client payments, subscriptions, and prorated billing automatically.</p>
-          </div>
-          <div className="bg-white border border-[#E8EDF4] rounded-xl p-5 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
-            <div className="w-10 h-10 rounded-lg bg-[rgba(14,155,240,0.1)] flex items-center justify-center mb-3 text-[#0E9BF0]">
-              <Layers className="w-5 h-5" />
-            </div>
-            <h4 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1">Snapshot Auto-Deployment</h4>
-            <p className="text-[0.78rem] text-[#4A5568] leading-relaxed">Pre-built templates deploy instantly when a new client signs up.</p>
-          </div>
-          <div className="bg-white border border-[#E8EDF4] rounded-xl p-5 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:border-[#0E9BF0] transition-all">
-            <div className="w-10 h-10 rounded-lg bg-[rgba(14,155,240,0.1)] flex items-center justify-center mb-3 text-[#0E9BF0]">
-              <Settings className="w-5 h-5" />
-            </div>
-            <h4 className="text-[0.9rem] font-bold text-[#1C2E4A] mb-1">Usage Rebilling</h4>
-            <p className="text-[0.78rem] text-[#4A5568] leading-relaxed">Pass Twilio, Mailgun, and AI usage costs to clients with your markup.</p>
-          </div>
-        </div>
-
-        {/* Featured Blog Cards - Section 1 (Standard cards with images) */}
-        <div className="my-6">
-          <div className="flex items-center justify-between mb-4">
-            <h4 className="text-sm font-bold text-[#1C2E4A] flex items-center gap-2">
-              <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
-              Featured Reads
-            </h4>
-            <Link href="/blog" className="text-xs text-[#0E9BF0] hover:underline flex items-center gap-1">
-              View All <ArrowRight className="w-3 h-3" />
-            </Link>
-          </div>
-          <div className="grid sm:grid-cols-2 gap-4">
-            {featuredBlogs.slice(1, 3).map((blog, index) => (
-              <SmallBlogCard key={index} blog={blog} compact={false} />
-            ))}
-          </div>
-        </div>
-
-        {/* Section 2: Is Legit */}
-        <h2 id="is-legit" className="text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold tracking-[-0.03em] leading-[1.12] text-[#1C2E4A] mt-12 mb-4">
-          2. Is GoHighLevel SaaS Actually Legit, or Is It Another Guru Scam?
+        {/* Section 2: Why Agencies Switching */}
+        <h2 id="why-agencies-switching" className="text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold tracking-[-0.03em] leading-[1.12] text-[#1C2E4A] mt-12 mb-4">
+          2. Why Are So Many Agencies Switching to GoHighLevel for SaaS?
         </h2>
+        
         <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          This is one of the most common questions on Reddit. A Reddit user recently posted: 'Is GHL SaaS Agency Legit? On YouTube they make it seem like it's as easy as white labelling, creating a few ads, then onboarding new users, but there must be a catch.' The skepticism is fair. The YouTube guru culture around GHL has genuinely damaged trust in the model.
-        </p>
-        <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">The honest answer:</strong> The business model is real. GoHighLevel powers over 40,000 agencies globally and generates hundreds of millions in ARR. Real agencies are running SaaS Mode profitably. What is NOT real is the promise that you will hit 15 clients in your first two weeks. Actual timelines are much longer. Actual failure rates are much higher than the guru content admits.
+          <strong className="font-semibold text-[#1C2E4A]">What we see:</strong> Founders often ask us whether the shift toward GoHighLevel is real or just influencer hype. Having completed 200+ migrations and builds, we can tell you it is real, and it is driven by math, not marketing.
         </p>
 
         <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">What the successful SaaS Mode agencies have in common:</strong> Every profitable SaaS Mode agency we have observed shares four traits. One, they picked a specific niche and stuck with it for at least 6 months. Two, they had either an existing network or a real content strategy before turning on paid ads. Three, they charged $197 or more per client, not $47. Four, they invested heavily in onboarding to prevent first-30-day churn.
+          <strong className="font-semibold text-[#1C2E4A]">The five reasons agencies switch:</strong> Tool consolidation (replacing 8 to 12 subscriptions with one flat rate), the sub-account architecture that makes multi-client management actually work, white-label SaaS revenue as a new income stream competitors cannot match, AI features that have matured to genuine business value, and a cost calculation that becomes impossible to ignore at 3 or more clients.
         </p>
 
         <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">What the failing SaaS Mode agencies have in common:</strong> Every failed SaaS Mode agency we have seen made at least two of these mistakes. Priced at $47-$97 to seem 'competitive.' Switched niches every 30 days when results were slow. Used the default GoHighLevel snapshot instead of building a niche-specific one. Skipped onboarding automation entirely, expecting clients to figure it out on their own. Signed up for Agency Pro before validating any offer with real prospects.
+          <strong className="font-semibold text-[#1C2E4A]">Why this matters for your SaaS:</strong> The same architecture that makes GoHighLevel compelling for agencies is exactly what makes a SaaS business possible. Sub-accounts, snapshots, and flat-rate pricing are the foundation your entire SaaS is built on. Understanding why agencies are switching helps you understand why the SaaS opportunity exists in the first place.
+        </p>
+
+        <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
+          <div className="flex items-center gap-2 mb-2">
+            <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
+            <span className="text-sm font-bold text-[#0E9BF0]">GO DEEPER</span>
+          </div>
+          <p className="text-sm text-[#1A2236] leading-relaxed">
+            The full breakdown of why agencies are moving to GoHighLevel in 2026: 
+            <Link href="/blog/why-agencies-switching-to-gohighlevel" className="text-[#0E9BF0] hover:underline ml-1">Why Agencies Are Switching to GoHighLevel →</Link>
+          </p>
+          <p className="text-sm text-[#1A2236] leading-relaxed mt-1">
+            THE AGENCY FOUNDATION: How agencies use GoHighLevel's architecture to run unlimited clients from one dashboard: 
+            <Link href="/blog/gohighlevel-for-agencies" className="text-[#0E9BF0] hover:underline ml-1">GoHighLevel for Agencies: The Complete 2026 Guide →</Link>
+          </p>
+        </div>
+
+        {/* Section 3: Is Legit */}
+        <h2 id="is-legit" className="text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold tracking-[-0.03em] leading-[1.12] text-[#1C2E4A] mt-12 mb-4">
+          3. Is GoHighLevel SaaS Legit, or a Guru Scam?
+        </h2>
+        
+        <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
+          <strong className="font-semibold text-[#1C2E4A]">What we see:</strong> This is one of the first questions almost everyone asks us, and it is a fair one. A Reddit user put it well: 'Is GHL SaaS Agency Legit? On YouTube they make it seem like it's as easy as white labelling, creating a few ads, then onboarding new users, but there must be a catch.' The guru culture around GoHighLevel has genuinely damaged trust in a real business model.
+        </p>
+
+        <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
+          <strong className="font-semibold text-[#1C2E4A]">The honest answer:</strong> The business model is real. GoHighLevel powers tens of thousands of agencies globally and generates hundreds of millions in ARR. Real agencies run SaaS Mode profitably, and we have built many of them. What is not real is the promise that you will hit 15 clients in your first two weeks. Actual timelines are longer and actual failure rates are higher than the guru content admits.
+        </p>
+
+        <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
+          <strong className="font-semibold text-[#1C2E4A]">What the profitable GoHighLevel SaaS agencies have in common:</strong> Across our builds, every profitable SaaS Mode agency picked a specific niche and stuck with it for at least 6 months, had either an existing network or a real content strategy before spending on ads, charged $197 or more per client, and invested in onboarding to prevent first-30-day churn.
         </p>
 
         <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
           <div className="flex items-center gap-2 mb-2">
             <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-            <span className="text-sm font-bold text-[#F8D000]">THE UNCOMFORTABLE TRUTH</span>
+            <span className="text-sm font-bold text-[#F8D000]">THE UNCOMFORTABLE TRUTH WE TELL EVERY CLIENT</span>
           </div>
           <p className="text-sm text-[#1A2236] leading-relaxed">
-            Roughly 60-70% of agencies who turn on SaaS Mode never reach 10 paying clients. Not because the model is fake, but because they treat it as passive income when it actually requires the same focused effort as any real business. If you are looking for something that runs itself while you sleep, this is not it. If you are willing to work a niche for 6-12 months, the model absolutely works. GHL Scale Up has seen both outcomes multiple times.
+            Roughly 60 to 70% of agencies who turn on SaaS Mode never reach 10 paying clients. Not because the model is fake, but because they treat it as passive income when it actually requires the same focused effort as any real business. If you are willing to work a niche for 6 to 12 months, the model absolutely works, and GHL Scale Up exists to remove the technical and strategic guesswork.
           </p>
         </div>
 
+        <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
+          <div className="flex items-center gap-2 mb-2">
+            <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
+            <span className="text-sm font-bold text-[#0E9BF0]">PROOF IT WORKS AT SCALE</span>
+          </div>
+          <p className="text-sm text-[#1A2236] leading-relaxed">
+            See how one agency scaled to serving international SaaS clients: 
+            <Link href="/case-studies" className="text-[#0E9BF0] hover:underline ml-1">International GoHighLevel SaaS Case Study →</Link>
+          </p>
+        </div>
 
-
-        {/* Section 3: Oversaturated */}
+        {/* Section 4: Oversaturated */}
         <h2 id="oversaturated" className="text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold tracking-[-0.03em] leading-[1.12] text-[#1C2E4A] mt-12 mb-4">
-          3. Is It Too Late to Start? Is GHL SaaS Oversaturated in 2026?
+          4. Is GoHighLevel SaaS Oversaturated in 2026?
         </h2>
+        
         <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          Another common Reddit question: 'Is starting a gohighlevel saas still worth it? Is it oversaturated or just the beginning?'
+          <strong className="font-semibold text-[#1C2E4A]">What we see:</strong> Another question we get constantly: 'Is starting a GoHighLevel SaaS still worth it, or is it oversaturated?' The fear is understandable, but it is usually based on a misunderstanding of what is actually saturated.
         </p>
+
         <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">The direct answer:</strong> Generic 'GoHighLevel agency' positioning is oversaturated. Niche-specific positioning is not.
+          <strong className="font-semibold text-[#1C2E4A]">The direct answer:</strong> Generic 'GoHighLevel agency' positioning is oversaturated. Niche-specific positioning is not. If your positioning is 'CRM plus marketing automation plus SMS for agencies,' you sound identical to tens of thousands of other GoHighLevel agencies. If your positioning is 'appointment automation and review management for Chicago dental practices,' you have almost no competitors.
         </p>
+
         <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">Why generic is saturated:</strong> If your positioning is 'CRM plus marketing automation plus SMS plus email plus AI for agencies,' you sound identical to 40,000 other GoHighLevel agencies. Google and AI engines cannot tell you apart. Prospects cannot either. This is genuinely saturated.
-        </p>
-        <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">Why niche-specific is not:</strong> If your positioning is 'appointment automation and review management for Chicago dental practices,' you have almost no competitors. The market is not saturated — the top of the funnel is. Every specific niche crossed with a specific outcome is under-served.
+          <strong className="font-semibold text-[#1C2E4A]">Why the niche approach wins:</strong> Every specific niche crossed with a specific outcome is under-served. The top of the funnel, the generic 'marketing agency' space, is crowded. The specific problems inside specific industries are not. This is the single most important strategic decision we help clients get right before we build anything.
         </p>
 
         <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
           <div className="flex items-center gap-2 mb-2">
             <Lightbulb className="w-4 h-4 text-[#0E9BF0]" />
-            <span className="text-sm font-bold text-[#0E9BF0]">THE PROOF POINT</span>
+            <span className="text-sm font-bold text-[#0E9BF0]">THE PROOF POINT WE SHARE</span>
           </div>
           <p className="text-sm text-[#1A2236] leading-relaxed">
-            Search Google for 'best CRM for orthodontists.' Now search 'best CRM for HVAC companies with 5-20 trucks.' Notice how much thinner the results get when you get specific. That thinness is your opportunity. Every under-served niche is a market. The reason competitors have not filled it is that they are all chasing the same broad 'marketing agency' positioning.
+            Search 'best CRM for orthodontists,' then search 'best CRM for HVAC companies with 5 to 20 trucks.' Notice how much thinner the results get as you get specific. That thinness is your opportunity. Every under-served niche is a market waiting for someone to position clearly around it.
           </p>
         </div>
 
-        <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">What is genuinely different in 2026 vs 2022:</strong> Buyers are more sophisticated. They will not fall for 'we help agencies scale' generic pitches. They want specific outcomes for their specific industry. This raises the bar for everyone but also creates a defensible moat for agencies who take the time to genuinely specialise.
-        </p>
-
-        {/* CTA 2 - After Section 3 */}
-        <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 md:p-8 text-center my-8">
-          <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
-            You do not just need someone to set up GoHighLevel. You need a partner who understands how to sell it.
-          </h3>
-          <p className="text-white/60 text-sm max-w-2xl mx-auto mb-6 leading-relaxed">
-            GHL Scale Up combines GHL SaaS setup with practical acquisition support, including demo videos, sales flyers, visiting cards, social media strategy, onboarding, and customer conversion. This makes us one of the best-suited agencies for founders serious about building a sustainable GHL SaaS business.
-          </p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-8 py-3 rounded-lg hover:bg-[#FFE44D] transition-all shadow-lg hover:shadow-xl">
-            Book Your GHL SaaS Strategy Call →
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-
-        {/* Section 4: Real Cost */}
+        {/* Section 5: Real Cost */}
         <h2 id="real-cost" className="text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold tracking-[-0.03em] leading-[1.12] text-[#1C2E4A] mt-12 mb-4">
-          4. What Does GoHighLevel SaaS Mode Cost, Really?
+          5. What Does a GoHighLevel SaaS Business Really Cost?
         </h2>
+        
         <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">Definition:</strong> The visible cost is $497/month for Agency Pro. The real cost is higher once you include usage fees, tools, and hidden operational costs.
-        </p>
-
-        <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">The direct plan cost:</strong>
+          Most guides stop at the $497 plan price. The real costs show up later in messaging, email, AI usage, compliance, and onboarding time. We help you see that full picture early, so your pricing and margins are based on reality.
         </p>
 
         <div className="overflow-x-auto my-6">
@@ -721,23 +727,81 @@ export default function GoHighLevelSaaSModeClient() {
         </div>
 
         <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">The hidden costs you MUST budget for:</strong> Every guide focuses on the $497 plan cost. Almost none cover the operational costs that determine whether you actually make money.
+          <strong className="font-semibold text-[#1C2E4A]">The hidden costs we make sure you budget for:</strong> Twilio SMS usage (approximately $0.0079 per SMS wholesale), Mailgun email usage (approximately $0.001 per email), A2P 10DLC compliance fees, AI usage (Conversation AI, Voice AI, and Workflow AI carry per-usage costs), and onboarding staff time (realistically 4 to 8 hours per new client).
         </p>
 
-        <ul className="space-y-2 mb-4 text-[0.9rem] font-light text-[#4A5568] list-disc list-inside">
-          <li><strong className="font-semibold text-[#1C2E4A]">Twilio SMS usage:</strong> Approximately $0.0079 per SMS wholesale. If your average client sends 3,000 SMS/month, that is roughly $23.70 per client in Twilio cost.</li>
-          <li><strong className="font-semibold text-[#1C2E4A]">Mailgun email usage:</strong> Approximately $0.001 per email. If average client sends 20,000 emails/month, roughly $20 per client in Mailgun cost.</li>
-          <li><strong className="font-semibold text-[#1C2E4A]">A2P 10DLC compliance fees:</strong> A one-time brand registration fee (~$4-$45) plus per-campaign registration fees (~$10-$50 depending on use case) plus recurring monthly campaign fees.</li>
-          <li><strong className="font-semibold text-[#1C2E4A]">AI usage:</strong> Conversation AI, AI Voice Agent, and Workflow AI have per-usage costs on top of platform fees. Budget approximately $30-100/month per active AI client.</li>
-          <li><strong className="font-semibold text-[#1C2E4A]">Onboarding staff time:</strong> Realistically 4-8 hours per new client for setup and first-week support. Budget approximately $200-400 per client at typical VA rates.</li>
-        </ul>
+        {/* Infographic 2: The Real Cost Stack */}
+        <div className="bg-[#1C2E4A] rounded-xl p-6 my-6 text-white overflow-hidden">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <DollarSign className="w-5 h-5 text-[#F8D000]" />
+            <span className="text-sm font-bold text-[#F8D000]">THE REAL COST STACK OF A GOHIGHLEVEL SAAS</span>
+          </div>
+          <div className="relative w-full max-w-3xl mx-auto">
+            <Image
+              src="/infographics/real-cost-stack.png"
+              alt="The Real Cost Stack of a GoHighLevel SaaS - Layered cost graphic showing $497 base plan plus Twilio, Mailgun, A2P fees, AI usage, and onboarding costs"
+              width={800}
+              height={400}
+              className="w-full h-auto rounded-lg"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+                const parent = target.parentElement;
+                if (parent) {
+                  const fallback = document.createElement('div');
+                  fallback.className = 'grid grid-cols-2 md:grid-cols-3 gap-3';
+                  fallback.innerHTML = `
+                    <div class="bg-[rgba(14,155,240,0.15)] rounded-lg p-3 text-center">
+                      <p class="text-xs text-white/60">Base Plan</p>
+                      <p class="text-lg font-bold text-[#F8D000]">$497</p>
+                      <p class="text-xs text-white/40">Agency Pro</p>
+                    </div>
+                    <div class="bg-[rgba(37,201,125,0.15)] rounded-lg p-3 text-center">
+                      <p class="text-xs text-white/60">Twilio</p>
+                      <p class="text-lg font-bold text-[#25C97D]">$0.0079</p>
+                      <p class="text-xs text-white/40">Per SMS</p>
+                    </div>
+                    <div class="bg-[rgba(248,208,0,0.15)] rounded-lg p-3 text-center">
+                      <p class="text-xs text-white/60">Mailgun</p>
+                      <p class="text-lg font-bold text-[#F8D000]">$0.001</p>
+                      <p class="text-xs text-white/40">Per email</p>
+                    </div>
+                    <div class="bg-[rgba(220,53,69,0.15)] rounded-lg p-3 text-center">
+                      <p class="text-xs text-white/60">A2P Fees</p>
+                      <p class="text-lg font-bold text-[#DC3545]">$4-45</p>
+                      <p class="text-xs text-white/40">Brand reg</p>
+                    </div>
+                    <div class="bg-[rgba(139,92,246,0.15)] rounded-lg p-3 text-center">
+                      <p class="text-xs text-white/60">AI Usage</p>
+                      <p class="text-lg font-bold text-[#8B5CF6]">$30-100</p>
+                      <p class="text-xs text-white/40">Per active client</p>
+                    </div>
+                    <div class="bg-[rgba(14,155,240,0.15)] rounded-lg p-3 text-center">
+                      <p class="text-xs text-white/60">Onboarding</p>
+                      <p class="text-lg font-bold text-[#0E9BF0]">$200-400</p>
+                      <p class="text-xs text-white/40">Per new client</p>
+                    </div>
+                  `;
+                  parent.appendChild(fallback);
+                }
+              }}
+            />
+          </div>
+          <p className="text-white/40 text-xs text-center mt-3">/infographics/real-cost-stack.png</p>
+        </div>
 
         <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
+          <div className="flex items-center gap-2 mb-2">
+            <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
+            <span className="text-sm font-bold text-[#0E9BF0]">A2P COST DEEP DIVE</span>
+          </div>
           <p className="text-sm text-[#1A2236] leading-relaxed">
-            <strong className="text-[#0E9BF0]">A2P COST DEEP DIVE:</strong> A2P fees confuse most SaaS Mode agencies. Full breakdown of what you pay, what you rebill, and what the actual per-client cost looks like: <Link href="/blog/a2p-fees-explained" className="text-[#0E9BF0] hover:underline">A2P Fees Explained →</Link>
+            A2P fees confuse most SaaS agencies. Full breakdown of what you pay and what you rebill: 
+            <Link href="/blog/a2p-fees-explained" className="text-[#0E9BF0] hover:underline ml-1">A2P Fees Explained →</Link>
           </p>
-          <p className="text-sm text-[#1A2236] leading-relaxed mt-2">
-            <strong className="text-[#0E9BF0]">SERVING CANADIAN CLIENTS?</strong> Canadian numbers have different rules than US A2P. Full guide: <Link href="/blog/gohighlevel-canadian-numbers" className="text-[#0E9BF0] hover:underline">GoHighLevel Canadian Numbers →</Link>
+          <p className="text-sm text-[#1A2236] leading-relaxed mt-1">
+            FULL PLAN PRICING: Every GoHighLevel plan, usage fee, and AI cost explained: 
+            <Link href="/blog/gohighlevel-pricing" className="text-[#0E9BF0] hover:underline ml-1">GoHighLevel Pricing: All Plans Explained →</Link>
           </p>
         </div>
 
@@ -747,29 +811,30 @@ export default function GoHighLevelSaaSModeClient() {
             <span className="text-sm font-bold text-[#F8D000]">THE REBILLING SAFETY VALVE</span>
           </div>
           <p className="text-sm text-[#1A2236] leading-relaxed">
-            This is why rebilling matters: If you do NOT rebill Twilio and Mailgun to your clients, you eat those costs from your margin. On a $297/month plan, if a client uses $50 in SMS and $30 in email, your effective revenue drops to $217. Multiply by 20 clients and you are losing $1,600/month you should be earning. Rebilling passes usage costs to the client at a markup you control. Section 9 covers rebilling math in detail.
+            This is why rebilling matters, and why we configure it on every build. If you do not rebill Twilio and Mailgun to your clients, you absorb those costs from your margin. On a $297/month plan, if a client uses $50 in SMS and $30 in email, your effective revenue drops to $217. Across 20 clients that is $1,600/month you should be earning. Section 10 covers the rebilling math in full.
           </p>
         </div>
 
-        <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">Example — realistic P&L at 10 clients:</strong> A GHL Scale Up client running a med spa SaaS at 10 clients on $297/month plans: gross revenue $2,970/month. Platform cost $497. Twilio + Mailgun (rebilled at 2x markup, net cost after rebill roughly $200/month total). Onboarding + support staff cost $1,500/month at 15 hours per week at $25/hr VA rate. Net profit: approximately $773/month. This is real but modest. At 30 clients on the same setup, net profit jumps to approximately $6,590/month because platform cost stays flat at $497. This is why SaaS Mode economics only become interesting past 20-25 clients.
-        </p>
-
-        {/* Featured Blog Cards - Section 2 */}
-        <div className="my-6">
-          <div className="grid sm:grid-cols-2 gap-4">
-            {featuredBlogs.slice(2, 4).map((blog, index) => (
-              <SmallBlogCard key={index} blog={blog} compact={false} />
-            ))}
-          </div>
+        <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 md:p-8 text-center my-8">
+          <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
+            Want to know whether the numbers actually work?
+          </h3>
+          <p className="text-white/60 text-sm max-w-2xl mx-auto mb-6 leading-relaxed">
+            As the #1 expert agency for GHL SaaS, GHL Scale Up maps your full cost, pricing, and margin picture before you spend a single dollar.
+          </p>
+          <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-8 py-3 rounded-lg hover:bg-[#FFE44D] transition-all shadow-lg hover:shadow-xl">
+            Talk to the GHL SaaS Experts →
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
 
-        {/* Section 5: Positioning */}
+        {/* Section 6: Positioning */}
         <h2 id="positioning" className="text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold tracking-[-0.03em] leading-[1.12] text-[#1C2E4A] mt-12 mb-4">
-          5. What Is the Difference Between SaaS, SwaS, and Agency?
+          6. SaaS vs SwaS vs Agency: How Should You Position?
         </h2>
+        
         <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          A Reddit post from an established agency owner captured this well: 'Do you position yourself as SaaS or Agency? I have one high-level business already doing just under 20k MRR. Do you think buyers like this are more receptive to SaaS positioning or Software with a Service (SwaS/agency)?'
+          <strong className="font-semibold text-[#1C2E4A]">What we see:</strong> An established agency owner on Reddit captured the dilemma: 'Do you position yourself as SaaS or Agency? I have one high-level business already doing just under 20k MRR. Do you think buyers are more receptive to SaaS positioning or Software with a Service?' We help clients answer exactly this before they build.
         </p>
 
         <div className="overflow-x-auto my-6">
@@ -797,62 +862,111 @@ export default function GoHighLevelSaaSModeClient() {
 
         <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
           <div className="flex items-center gap-2 mb-2">
-            <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-            <span className="text-sm font-bold text-[#F8D000]">THE HONEST RECOMMENDATION FOR BEGINNERS</span>
+            <Lightbulb className="w-4 h-4 text-[#F8D000]" />
+            <span className="text-sm font-bold text-[#F8D000]">What we recommend to beginners</span>
           </div>
           <p className="text-sm text-[#1A2236] leading-relaxed">
-            Start as SwaS. Pure SaaS requires case studies, brand trust, and product polish you do not yet have. Full Agency requires delivery capacity you do not yet have. SwaS lets you charge more than pure SaaS, spend enough time with clients to build meaningful case studies, and produces much lower churn because clients feel supported. Convert to pure SaaS only after 5-10 case studies and a smooth self-service onboarding.
+            Start as SwaS. Pure SaaS requires case studies, brand trust, and product polish you do not yet have. Full Agency requires delivery capacity you do not yet have. SwaS lets you charge more than pure SaaS, spend enough time with clients to build real case studies, and produces much lower churn because clients feel supported.
           </p>
         </div>
-
-        <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">The honest recommendation for the 20K MRR agency owner from the Reddit post:</strong> SwaS is almost certainly the right answer for a more sophisticated new industry. Sophisticated buyers do not want to be handed a login and figure it out themselves. They want a partner who knows their industry AND provides the platform. You can charge 3-5x more than pure SaaS pricing while your delivery burden stays manageable.
-        </p>
 
         <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
           <div className="flex items-center gap-2 mb-2">
             <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
             <span className="text-sm font-bold text-[#0E9BF0]">THE WHITE-LABEL LAYER</span>
           </div>
-          <SmallBlogCard blog={featuredBlogs[0]} compact={true} />
+          <p className="text-sm text-[#1A2236] leading-relaxed">
+            How white-labelling fits all three positioning models: 
+            <Link href="/blog/gohighlevel-white-label" className="text-[#0E9BF0] hover:underline ml-1">GoHighLevel White Label: How It Works →</Link>
+          </p>
         </div>
 
-        {/* Section 6: Pick Niche */}
+        {/* Section 7: Pick Niche */}
         <h2 id="pick-niche" className="text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold tracking-[-0.03em] leading-[1.12] text-[#1C2E4A] mt-12 mb-4">
-          6. How Do You Pick a Niche When You Have No Network?
+          7. How Do You Pick a Niche With No Network?
         </h2>
+        
         <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          The most common paralysis point. Every guide says 'pick a niche' but almost none explain HOW.
+          <strong className="font-semibold text-[#1C2E4A]">What we see:</strong> Niche paralysis stops more of our prospective clients than any other single issue. Everyone says 'pick a niche' but almost nobody explains how. Here is the framework we walk clients through.
         </p>
-        <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">The 5-factor niche selection framework:</strong>
-        </p>
-        <ul className="space-y-1 mb-4 text-[0.9rem] font-light text-[#4A5568] list-decimal list-inside">
-          <li><strong className="font-semibold text-[#1C2E4A]">Proximity:</strong> Which industries are you geographically or socially near? Proximity beats preference every time for beginners.</li>
-          <li><strong className="font-semibold text-[#1C2E4A]">Network overlap:</strong> Which industries do the people you already know work in? Your first 3 clients are far more likely to come from someone connected to your existing network than from cold outreach.</li>
-          <li><strong className="font-semibold text-[#1C2E4A]">Price ceiling:</strong> Can this industry actually pay $297+/month? Higher-value transactions per customer = higher software price tolerance.</li>
-          <li><strong className="font-semibold text-[#1C2E4A]">Competition density:</strong> How many other GHL agencies already serve this niche in your target geography? Niche within niche (HVAC companies with 5-20 trucks in Texas) is thin.</li>
-          <li><strong className="font-semibold text-[#1C2E4A]">Personal knowledge:</strong> How much do you already know about this industry's daily operations, pain points, and vocabulary? You cannot sell to a niche you do not understand.</li>
-        </ul>
 
-        <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">The proximity rule for total beginners:</strong> If you have zero network and zero industry knowledge, pick a niche you have geographic proximity to and go in person. Walk into local businesses. Ask questions. Learn the industry before you try to sell to it.
-        </p>
+        <ol className="space-y-2 mb-4 text-[0.9rem] font-light text-[#4A5568] list-decimal list-inside">
+          <li><strong className="font-semibold text-[#1C2E4A]">Proximity:</strong> Which industries are you geographically or socially near? Proximity beats preference for beginners.</li>
+          <li><strong className="font-semibold text-[#1C2E4A]">Network overlap:</strong> Which industries do the people you already know work in? Your first 3 clients usually come from someone connected to your existing network.</li>
+          <li><strong className="font-semibold text-[#1C2E4A]">Price ceiling:</strong> Can this industry pay $297+/month? Higher transaction value per customer means higher software price tolerance.</li>
+          <li><strong className="font-semibold text-[#1C2E4A]">Competition density:</strong> How many GoHighLevel agencies already serve this niche in your geography? Niche within niche is thin.</li>
+          <li><strong className="font-semibold text-[#1C2E4A]">Personal knowledge:</strong> How well do you understand this industry's daily operations and vocabulary? You cannot sell to a niche you do not understand.</li>
+        </ol>
 
         <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
           <div className="flex items-center gap-2 mb-2">
             <Lightbulb className="w-4 h-4 text-[#0E9BF0]" />
-            <span className="text-sm font-bold text-[#0E9BF0]">NICHES THAT WORK CONSISTENTLY IN 2026</span>
+            <span className="text-sm font-bold text-[#0E9BF0]">NICHES WE SEE WORK CONSISTENTLY</span>
           </div>
           <p className="text-sm text-[#1A2236] leading-relaxed">
-            Based on our observations across GHL Scale Up client deployments: Real estate agents (individual, not brokerages), dental practices, med spas, HVAC companies with 5-20 trucks, roofing contractors, chiropractors, personal injury law firms, boutique fitness studios, cleaning services, and pest control companies. All share: high transaction value, poor tech adoption industry-wide, and clear ROI once GHL is deployed.
+            Based on our builds across GHL Scale Up clients: real estate agents, dental practices, med spas, HVAC companies with 5 to 20 trucks, roofing contractors, chiropractors, personal injury law firms, boutique fitness studios, cleaning services, and pest control. All share high transaction value, poor industry-wide tech adoption, and clear ROI once GoHighLevel is deployed.
           </p>
         </div>
 
-        {/* CTA 3 - After Section 6 */}
+        {/* Infographic 3: 5-Factor Niche Selection Framework */}
+        <div className="bg-[#1C2E4A] rounded-xl p-6 my-6 text-white overflow-hidden">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Target className="w-5 h-5 text-[#F8D000]" />
+            <span className="text-sm font-bold text-[#F8D000]">THE 5-FACTOR NICHE SELECTION FRAMEWORK</span>
+          </div>
+          <div className="relative w-full max-w-3xl mx-auto">
+            <Image
+              src="/infographics/niche-selection-framework.png"
+              alt="5-Factor Niche Selection Framework - Radar chart showing Proximity, Network Overlap, Price Ceiling, Competition Density, and Personal Knowledge"
+              width={800}
+              height={400}
+              className="w-full h-auto rounded-lg"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+                const parent = target.parentElement;
+                if (parent) {
+                  const fallback = document.createElement('div');
+                  fallback.className = 'grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3';
+                  fallback.innerHTML = `
+                    <div class="bg-[rgba(14,155,240,0.15)] rounded-lg p-3 text-center">
+                      <div class="text-2xl mb-1">📍</div>
+                      <p class="text-xs font-bold text-[#0E9BF0]">Proximity</p>
+                      <p class="text-xs text-white/50">Geographic or social nearness</p>
+                    </div>
+                    <div class="bg-[rgba(37,201,125,0.15)] rounded-lg p-3 text-center">
+                      <div class="text-2xl mb-1">🔗</div>
+                      <p class="text-xs font-bold text-[#25C97D]">Network Overlap</p>
+                      <p class="text-xs text-white/50">People you already know</p>
+                    </div>
+                    <div class="bg-[rgba(248,208,0,0.15)] rounded-lg p-3 text-center">
+                      <div class="text-2xl mb-1">💰</div>
+                      <p class="text-xs font-bold text-[#F8D000]">Price Ceiling</p>
+                      <p class="text-xs text-white/50">Can they pay $297+?</p>
+                    </div>
+                    <div class="bg-[rgba(220,53,69,0.15)] rounded-lg p-3 text-center">
+                      <div class="text-2xl mb-1">⚔️</div>
+                      <p class="text-xs font-bold text-[#DC3545]">Competition Density</p>
+                      <p class="text-xs text-white/50">How many GHL agencies?</p>
+                    </div>
+                    <div class="bg-[rgba(139,92,246,0.15)] rounded-lg p-3 text-center">
+                      <div class="text-2xl mb-1">🧠</div>
+                      <p class="text-xs font-bold text-[#8B5CF6]">Personal Knowledge</p>
+                      <p class="text-xs text-white/50">Industry understanding</p>
+                    </div>
+                  `;
+                  parent.appendChild(fallback);
+                }
+              }}
+            />
+          </div>
+          <p className="text-white/40 text-xs text-center mt-3">/infographics/niche-selection-framework.png</p>
+        </div>
+
+        {/* CTA 1 - After Section 7 */}
         <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 md:p-8 text-center my-8">
           <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
-            Ready to pick your niche and build a winning SaaS?
+            Need help picking your niche?
           </h3>
           <p className="text-white/60 text-sm max-w-2xl mx-auto mb-6 leading-relaxed">
             GHL Scale Up helps you validate your niche, build a niche-specific Snapshot, and configure your entire SaaS Mode setup. From technical configuration to go-to-market strategy, we help you launch with confidence.
@@ -863,55 +977,59 @@ export default function GoHighLevelSaaSModeClient() {
           </Link>
         </div>
 
-        {/* Section 7: Non-Technical */}
+        {/* Section 8: Non-Technical */}
         <h2 id="non-technical" className="text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold tracking-[-0.03em] leading-[1.12] text-[#1C2E4A] mt-12 mb-4">
-          7. Can You Run a GHL SaaS Business If You Are Not Technical?
+          8. Can You Run a GoHighLevel SaaS Business If You Are Not Technical?
         </h2>
+        
         <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          A specific Reddit post captured this persona: 'I want to start a GHL saas agency but I'm not tech savvy. Would it be worth it to hire a VA to handle design and backend stuff so I can focus on marketing and sales?'
-        </p>
-        <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">The direct answer:</strong> Yes. This is a viable path, and one of the most common configurations among successful SaaS Mode agencies.
-        </p>
-        <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">The sales-strong tech-weak model:</strong> You focus on client conversations, positioning, offer construction, closing calls, and account management. A technical VA handles snapshot maintenance, workflow builds, and technical onboarding. Cost of a technical GHL VA: approximately $500-1,500/month depending on experience level.
+          <strong className="font-semibold text-[#1C2E4A]">What we see:</strong> A very common Reddit sentiment: 'I want to start a GHL SaaS agency but I'm not tech savvy. Would it be worth it to hire a VA to handle the backend so I can focus on marketing and sales?' The answer is yes, and it is one of the most common successful configurations we see.
         </p>
 
         <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">What to keep in-house:</strong> Everything client-facing. Sales calls. Positioning strategy. Pricing decisions. Retention conversations.
+          <strong className="font-semibold text-[#1C2E4A]">The sales-strong, tech-light model:</strong> You focus on client conversations, positioning, offers, closing, and account management. A technical VA (or GHL Scale Up) handles snapshot maintenance, workflow builds, and technical onboarding. A technical GoHighLevel VA typically costs $500 to $1,500/month depending on experience.
         </p>
 
         <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">What to outsource to a VA:</strong> Snapshot updates. Custom workflow builds. Client onboarding technical setup. Twilio/Mailgun rebilling configuration. Response to non-critical technical support tickets.
+          <strong className="font-semibold text-[#1C2E4A]">What to keep in-house vs outsource:</strong> Keep everything client-facing, sales calls, positioning, pricing, retention. Outsource snapshot updates, custom workflow builds, technical onboarding, rebilling configuration, and non-critical support. This is exactly the layer GHL Scale Up handles for founders who would rather sell than configure.
         </p>
 
-        <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">How to hire the right technical VA:</strong> Test with a paid trial project before full engagement. Ask them to configure SaaS Mode, deploy a snapshot, and set up rebilling in a sandbox account. Real GHL-experienced VAs will complete this in 3-5 hours. Inexperienced ones will struggle for days.
-        </p>
+        <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
+          <div className="flex items-center gap-2 mb-2">
+            <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
+            <span className="text-sm font-bold text-[#0E9BF0]">NEED A DEDICATED GHL VA?</span>
+          </div>
+          <p className="text-sm text-[#1A2236] leading-relaxed">
+            We provide dedicated GoHighLevel virtual assistants to run your account day to day: 
+            <Link href="/services/virtual-assistant" className="text-[#0E9BF0] hover:underline ml-1">Virtual Assistant for GHL Management →</Link>
+          </p>
+        </div>
 
         <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
           <div className="flex items-center gap-2 mb-2">
             <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-            <span className="text-sm font-bold text-[#F8D000]">WHEN THIS MODEL BREAKS</span>
+            <span className="text-sm font-bold text-[#F8D000]">WHERE THIS MODEL BREAKS</span>
           </div>
           <p className="text-sm text-[#1A2236] leading-relaxed">
-            The sales-strong tech-weak model breaks in two scenarios. One, when the founder tries to save money by using a general-purpose VA instead of a GHL-experienced one. Two, when the founder scales past roughly 25 clients without hiring a second technical VA. One VA can support 15-20 active clients well. Beyond that, you need either a second VA or a full-time technical partner.
+            The tech-light model breaks in two situations. One, when the founder uses a general-purpose VA instead of a GoHighLevel-experienced one. Two, when the founder scales past roughly 25 clients without a second technical resource. One VA can support 15 to 20 active clients well. Beyond that you need a second, or a partner like GHL Scale Up handling the technical layer.
           </p>
         </div>
 
-        {/* Section 8: First 10 Clients */}
+        {/* Section 9: First 10 Clients */}
         <h2 id="first-10-clients" className="text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold tracking-[-0.03em] leading-[1.12] text-[#1C2E4A] mt-12 mb-4">
-          8. How Do You Get Your First 10 SaaS Clients?
+          9. How Do You Get Your First GoHighLevel SaaS Clients?
         </h2>
+        
         <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          The single most common source of frustration. Direct quote from a Reddit post: 'Im doing SAAS for a while now and didn't get a single client probably because im really bad at marketing.'
-        </p>
-        <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">The realistic timeline:</strong> 60-90 days to first 10 clients if you have an existing network and are actively selling 3+ hours per day. 90-120 days if you are cold outreaching to a completely new niche. 6-9 months if you are a complete beginner with no network and part-time effort.
+          <strong className="font-semibold text-[#1C2E4A]">What we see:</strong> This is the single most common source of frustration we hear. One Reddit user put it bluntly: 'Im doing SAAS for a while now and didn't get a single client probably because im really bad at marketing.' Getting the first 10 clients is a different game than scaling past them.
         </p>
 
         <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">Six channels that actually work, ranked by realistic ROI for beginners:</strong>
+          <strong className="font-semibold text-[#1C2E4A]">The realistic timeline we set:</strong> 60 to 90 days to your first 10 clients with an existing network and daily selling effort. 90 to 120 days cold outreaching to a new niche. 6 to 9 months as a complete beginner with no network and part-time effort.
+        </p>
+
+        <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
+          <strong className="font-semibold text-[#1C2E4A]">The approach that works:</strong> Networking and positioning beat cold outreach for the first clients. Warm outreach to your network, active helpful participation where your niche asks questions publicly, and founder-led content that shows how you think all produce warmer leads than cold email. Cold outreach is a supporting channel, not the primary one, until you have proof.
         </p>
 
         <div className="space-y-2 mb-6">
@@ -931,31 +1049,25 @@ export default function GoHighLevelSaaSModeClient() {
         <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
           <div className="flex items-center gap-2 mb-2">
             <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
-            <span className="text-sm font-bold text-[#0E9BF0]">FULL PLAYBOOK — FIRST 10 CLIENTS</span>
-          </div>
-          <SmallBlogCard blog={featuredBlogs[1]} compact={true} />
-        </div>
-
-        <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
-          <div className="flex items-center gap-2 mb-2">
-            <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-            <span className="text-sm font-bold text-[#F8D000]">THE MISTAKE THAT COSTS PEOPLE MONTHS</span>
+            <span className="text-sm font-bold text-[#0E9BF0]">THE FULL PLAYBOOK</span>
           </div>
           <p className="text-sm text-[#1A2236] leading-relaxed">
-            Beginners often pick paid ads or high-volume cold email as their first channel because they feel scalable. But conversion rates on cold traffic without case studies are near zero. Start warm. Prove the offer. THEN scale to cold channels. This sequence, more than any specific tactic, separates agencies that succeed from ones that quit.
+            Our complete step-by-step guide to landing the first 10 clients, with channels, scripts, and a 90-day plan: 
+            <Link href="/blog/get-first-10-gohighlevel-saas-clients" className="text-[#0E9BF0] hover:underline ml-1">How to Get Your First 10 GoHighLevel SaaS Clients →</Link>
           </p>
         </div>
 
-        {/* Section 9: Pricing */}
+        {/* Section 10: Pricing */}
         <h2 id="pricing" className="text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold tracking-[-0.03em] leading-[1.12] text-[#1C2E4A] mt-12 mb-4">
-          9. How Do You Price Your Plans Without Losing Money on Rebilling?
+          10. How Do You Price and Rebill Without Losing Money?
         </h2>
+        
         <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">Definition:</strong> Rebilling is GoHighLevel's feature that lets you resell Twilio SMS, Mailgun email, and other usage costs to your clients at a markup you control. Without rebilling turned on, every message your clients send comes out of your agency wallet.
+          <strong className="font-semibold text-[#1C2E4A]">What we see:</strong> The single most common profit leak we find when auditing GoHighLevel SaaS accounts is rebilling left switched off, or markup set too low to cover overhead. Businesses lose real money here every month without realising it.
         </p>
 
         <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">The single most common SaaS Mode profit leak:</strong> Leaving rebilling switched off, or setting the markup too low to cover operational overhead.
+          <strong className="font-semibold text-[#1C2E4A]">Rebilling defined:</strong> Rebilling is GoHighLevel's feature that lets you resell Twilio SMS, Mailgun email, and other usage costs to your clients at a markup you control. Without it, every message your clients send comes out of your agency wallet.
         </p>
 
         <div className="overflow-x-auto my-6">
@@ -981,145 +1093,234 @@ export default function GoHighLevelSaaSModeClient() {
           </table>
         </div>
 
+        <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
+          <strong className="font-semibold text-[#1C2E4A]">The plan structure we recommend:</strong> Three tiers give clients a clear middle choice without decision paralysis. A Starter tier around $97 to $147/month, a Growth tier around $197 to $247/month, and a Pro tier around $297 to $497/month. Make the middle tier the most attractive, since most SaaS businesses earn the majority of MRR from the mid-tier plan. Never price below $97/month.
+        </p>
+
+        {/* Infographic 4: SaaS Margin at 5/10/20/50 Clients */}
+        <div className="bg-[#1C2E4A] rounded-xl p-6 my-6 text-white overflow-hidden">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <TrendingUp className="w-5 h-5 text-[#F8D000]" />
+            <span className="text-sm font-bold text-[#F8D000]">SAAS MARGIN AT 5 / 10 / 20 / 50 CLIENTS</span>
+          </div>
+          <div className="relative w-full max-w-3xl mx-auto">
+            <Image
+              src="/infographics/saas-margin-chart.png"
+              alt="SaaS Margin at 5, 10, 20, and 50 Clients - Bar chart showing net margin climbing non-linearly as clients grow"
+              width={800}
+              height={350}
+              className="w-full h-auto rounded-lg"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+                const parent = target.parentElement;
+                if (parent) {
+                  const fallback = document.createElement('div');
+                  fallback.className = 'grid grid-cols-2 md:grid-cols-4 gap-3';
+                  fallback.innerHTML = `
+                    <div class="bg-[rgba(14,155,240,0.15)] rounded-lg p-3 text-center">
+                      <p class="text-xs text-white/60">5 Clients</p>
+                      <p class="text-lg font-bold text-[#0E9BF0]">$488</p>
+                      <p class="text-xs text-white/40">Net margin/mo</p>
+                    </div>
+                    <div class="bg-[rgba(37,201,125,0.15)] rounded-lg p-3 text-center">
+                      <p class="text-xs text-white/60">10 Clients</p>
+                      <p class="text-lg font-bold text-[#25C97D]">$1,473</p>
+                      <p class="text-xs text-white/40">Net margin/mo</p>
+                    </div>
+                    <div class="bg-[rgba(248,208,0,0.15)] rounded-lg p-3 text-center">
+                      <p class="text-xs text-white/60">20 Clients</p>
+                      <p class="text-lg font-bold text-[#F8D000]">$3,443</p>
+                      <p class="text-xs text-white/40">Net margin/mo</p>
+                    </div>
+                    <div class="bg-[rgba(220,53,69,0.15)] rounded-lg p-3 text-center">
+                      <p class="text-xs text-white/60">50 Clients</p>
+                      <p class="text-lg font-bold text-[#25C97D]">$9,353</p>
+                      <p class="text-xs text-white/40">Net margin/mo</p>
+                    </div>
+                  `;
+                  parent.appendChild(fallback);
+                }
+              }}
+            />
+          </div>
+          <p className="text-white/40 text-xs text-center mt-3">/infographics/saas-margin-chart.png</p>
+        </div>
+
         <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
-          <p className="text-sm text-[#1A2236] leading-relaxed">
-            <strong className="text-[#0E9BF0]">A2P FEES + REBILLING:</strong> A2P compliance costs are separate from Twilio wholesale. Full breakdown of what to rebill and how: <Link href="/blog/a2p-fees-explained" className="text-[#0E9BF0] hover:underline">A2P Fees Explained →</Link>
-          </p>
-          <p className="text-sm text-[#1A2236] leading-relaxed mt-2">
-            <strong className="text-[#0E9BF0]">TOLL-FREE VS A2P PRICING:</strong> Toll-free numbers have different pricing and compliance vs A2P 10DLC. Choose correctly for your client mix: <Link href="/blog/toll-free-vs-a2p" className="text-[#0E9BF0] hover:underline">Toll-Free vs A2P →</Link>
-          </p>
-        </div>
-
-        <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">Recommended plan structure (three tiers):</strong> Three plans give clients a clear middle choice to anchor on, without decision paralysis of five or six plans.
-        </p>
-
-        <ul className="space-y-2 mb-4 text-[0.9rem] font-light text-[#4A5568] list-disc list-inside">
-          <li><strong className="font-semibold text-[#1C2E4A]">Starter tier ($197/month):</strong> Solo operators and tradies. CRM, booking calendar, basic pipelines, two-way SMS and email. Low SMS/email allowance included, rebilling above.</li>
-          <li><strong className="font-semibold text-[#1C2E4A]">Growth tier ($397/month):</strong> Small teams. Everything in Starter plus advanced automations, unlimited pipelines, AI Voice Agent basic tier, higher SMS/email allowance.</li>
-          <li><strong className="font-semibold text-[#1C2E4A]">Pro tier ($697/month):</strong> Established businesses. Everything in Growth plus AI Voice Agent unlimited, full Conversation AI, reputation management, priority support.</li>
-        </ul>
-
-        <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
           <div className="flex items-center gap-2 mb-2">
-            <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-            <span className="text-sm font-bold text-[#F8D000]">PRICING MISTAKE #1 — CHARGING TOO LITTLE</span>
+            <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
+            <span className="text-sm font-bold text-[#0E9BF0]">TOLL-FREE VS A2P</span>
           </div>
           <p className="text-sm text-[#1A2236] leading-relaxed">
-            $47/month plans attract price-sensitive clients who churn at high rates and demand excessive support. Every SaaS Mode agency we have observed that priced at $47-$97 either churned out or repriced upward within 12 months. Even $197 is toward the low end.
+            Choosing the right number type for your client mix: 
+            <Link href="/blog/toll-free-vs-a2p" className="text-[#0E9BF0] hover:underline ml-1">Toll-Free vs A2P →</Link>
           </p>
         </div>
 
         <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
           <div className="flex items-center gap-2 mb-2">
             <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-            <span className="text-sm font-bold text-[#F8D000]">PRICING MISTAKE #2 — LEAVING REBILLING OFF</span>
+            <span className="text-sm font-bold text-[#F8D000]">THE PRICING MISTAKE WE FIX MOST OFTEN</span>
           </div>
           <p className="text-sm text-[#1A2236] leading-relaxed">
-            If you do not enable rebilling, you are subsidising your clients' Twilio and Mailgun bills out of your margin. A single client sending 20,000 SMS/month costs you $158 in Twilio. On a $297/month plan with rebilling off, your effective revenue drops to $139.
+            Charging too little and leaving rebilling off, together. $47/month plans attract price-sensitive clients who churn fast and demand heavy support. Combine that with rebilling switched off, and a single client sending 20,000 SMS/month can quietly erase your margin. Every agency we have seen priced at $47 to $97 either churned out or repriced upward within 12 months.
           </p>
         </div>
 
-        {/* Section 10: Churn */}
+        {/* Section 11: Churn */}
         <h2 id="churn" className="text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold tracking-[-0.03em] leading-[1.12] text-[#1C2E4A] mt-12 mb-4">
-          10. Why Do SaaS Clients Cancel, and How Do You Stop It?
+          11. Why Do GoHighLevel SaaS Clients Cancel, and How Do You Stop It?
         </h2>
+        
         <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          This is the deepest documented pain point in the ecosystem. A post on ideas.gohighlevel.com from an agency owner captured the client-side experience with exact quotes: 'What do I do first?' 'Where do I upload contacts?' 'How do I connect my tools?' 'Why is nothing set up yet?'
+          <strong className="font-semibold text-[#1C2E4A]">What we see:</strong> This is the deepest and most expensive problem in the whole model, and the one we spend the most time preventing. An agency owner on ideas.gohighlevel.com captured the client experience exactly: 'What do I do first?' 'Where do I upload contacts?' 'Why is nothing set up yet?' Broken onboarding in the first 7 to 14 days is the single biggest cause of churn.
         </p>
+
         <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">The single biggest cause of SaaS Mode churn:</strong> Broken onboarding in the first 7-14 days.
-        </p>
-        <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">What actually happens when a new client cancels in month 1:</strong> They pay you, get access to a platform, log in on day 2, feel overwhelmed, look for a video walkthrough, cannot find one specific to their business, close the tab, and never return. By day 14 they have forgotten what they signed up for. By day 28 they cancel through Stripe.
+          <strong className="font-semibold text-[#1C2E4A]">What actually happens when a client cancels in month 1:</strong> They pay you, get access, log in on day 2, feel overwhelmed, look for a walkthrough specific to their business, cannot find one, close the tab, and never return. By day 14 they have forgotten what they signed up for. By day 28 they cancel through Stripe.
         </p>
 
         <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
           <div className="flex items-center gap-2 mb-2">
             <Lightbulb className="w-4 h-4 text-[#0E9BF0]" />
-            <span className="text-sm font-bold text-[#0E9BF0]">The first-30-days playbook that prevents this</span>
+            <span className="text-sm font-bold text-[#0E9BF0]">The first-30-days playbook we build in</span>
           </div>
           <ol className="space-y-1 text-sm text-[#1A2236] list-decimal list-inside">
-            <li><strong className="text-[#0E9BF0]">Day 0 (signup):</strong> Automated welcome email with ONE clear next action: schedule a 30-minute onboarding call.</li>
-            <li><strong className="text-[#0E9BF0]">Day 1:</strong> Live onboarding call. Personally walk them through their specific configuration.</li>
-            <li><strong className="text-[#0E9BF0]">Days 2-7:</strong> Daily check-in messages via SMS asking one specific question.</li>
-            <li><strong className="text-[#0E9BF0]">Day 7:</strong> Milestone celebration. 'You have hit your first week.'</li>
-            <li><strong className="text-[#0E9BF0]">Day 14:</strong> Second live call. Review progress. Address blockers. Introduce one advanced feature.</li>
-            <li><strong className="text-[#0E9BF0]">Day 21:</strong> Case-study-style email showing results a similar client achieved.</li>
-            <li><strong className="text-[#0E9BF0]">Day 30:</strong> Retention check-in. 'You have completed month 1. Here is what month 2 looks like.'</li>
+            <li>An automated day-0 welcome with one clear next action</li>
+            <li>A live day-1 onboarding call</li>
+            <li>Daily light-touch check-ins through day 7</li>
+            <li>A day-7 milestone celebration</li>
+            <li>A second live call on day 14</li>
+            <li>A day-21 results email</li>
+            <li>A day-30 retention check-in</li>
+            <li>Plus a pre-configured snapshot so the client logs into a working system rather than an empty dashboard</li>
           </ol>
         </div>
 
         <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">Platform-side onboarding needs to happen BEFORE the client logs in for the first time.</strong> This means your Snapshot is pre-configured with their pipeline stages, their tags, their industry-specific automations, their forms. When they log in on day 2, they see a working system, not an empty dashboard. This is the difference between activation and abandonment.
-        </p>
-
-        <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">Migrating clients from other platforms:</strong> If your SaaS client is moving from another CRM or marketing platform, the migration itself is the biggest churn risk. Poor data mapping in the first week destroys trust. Full step-by-step guides for the most common migrations:
+          <strong className="font-semibold text-[#1C2E4A]">Migrating clients in is itself a churn risk:</strong> If your SaaS client is moving from another CRM, a poor migration in week one destroys trust immediately. We have published detailed guides for the most common migrations so this step goes smoothly:
         </p>
 
         <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
           <div className="flex items-center gap-2 mb-2">
             <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
-            <span className="text-sm font-bold text-[#0E9BF0]">MOVING CLIENTS FROM OTHER PLATFORMS</span>
+            <span className="text-sm font-bold text-[#0E9BF0]">CLIENT MIGRATION GUIDES</span>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
             {relatedResources.map((resource, idx) => (
               <SmallBlogCard key={idx} blog={resource} compact={true} />
             ))}
           </div>
+          <p className="text-sm text-[#1A2236] leading-relaxed mt-2">
+            FULL MIGRATION SERVICE: We handle client migrations end to end: 
+            <Link href="/services/migration" className="text-[#0E9BF0] hover:underline ml-1">GoHighLevel Migration Service →</Link>
+          </p>
         </div>
 
-        {/* Section 11: Technical Setup */}
+        {/* Section 12: Technical Setup */}
         <h2 id="technical-setup" className="text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold tracking-[-0.03em] leading-[1.12] text-[#1C2E4A] mt-12 mb-4">
-          11. What Does the Technical Setup Actually Involve?
+          12. What Does GoHighLevel SaaS Technical Setup Involve?
         </h2>
+        
         <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">Definition:</strong> SaaS Mode setup is a nine-step technical process. Done by someone experienced, it takes 5 to 7 business days. Done by a beginner learning as they go, it takes 3-6 weeks.
+          <strong className="font-semibold text-[#1C2E4A]">What we see:</strong> Founders consistently underestimate the technical setup, then lose weeks to it. Done by an experienced team it takes 5 to 7 business days. Done DIY while learning, it takes 3 to 6 weeks, and three steps trip almost everyone up: the snapshot, rebilling, and A2P registration.
         </p>
 
-        <ol className="space-y-1 mb-4 text-[0.9rem] font-light text-[#4A5568] list-decimal list-inside">
-          <li><strong className="font-semibold text-[#1C2E4A]">Upgrade to Agency Pro ($497/month):</strong> SaaS Mode is only available on this plan.</li>
-          <li><strong className="font-semibold text-[#1C2E4A]">Connect Stripe:</strong> Under Agency Settings → Payments. Verify your Stripe account can process payments in your target currency.</li>
-          <li><strong className="font-semibold text-[#1C2E4A]">Configure the SaaS Configurator:</strong> This is where your pricing tiers, plan features, sign-up page, and cancellation flow are set. Budget 8-12 hours of focused work.</li>
-          <li><strong className="font-semibold text-[#1C2E4A]">Build your master Snapshot:</strong> Your niche-specific template that deploys to every new client automatically. Budget 30-60 hours for a genuinely niche-specific snapshot. Reusable across every client.</li>
-          <li><strong className="font-semibold text-[#1C2E4A]">Set up your custom domain and white-label:</strong> Point app.youragency.com to GoHighLevel. Configure DNS records. Upload logo, favicon, color scheme, email footer branding.</li>
-          <li><strong className="font-semibold text-[#1C2E4A]">Configure rebilling:</strong> Under Agency Settings → SaaS Configurator → Rebilling. Set markup for Twilio SMS, Mailgun email, and other usage-based services.</li>
-          <li><strong className="font-semibold text-[#1C2E4A]">Register for A2P 10DLC:</strong> Required for any US-based SMS sending. Brand registration + campaign registration. Without this, SMS delivery drops to near zero.</li>
-          <li><strong className="font-semibold text-[#1C2E4A]">Verify email sending domain:</strong> Configure SPF, DKIM, and DMARC records for your sending domain. Skipping this destroys deliverability from day one.</li>
-          <li><strong className="font-semibold text-[#1C2E4A]">End-to-end test with a real Stripe payment:</strong> Create a $1 test product, visit your sign-up page as if you were a customer, complete the payment, confirm sub-account creation, Snapshot deployment, and welcome email.</li>
-        </ol>
+        <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
+          <strong className="font-semibold text-[#1C2E4A]">The setup, in order:</strong> Upgrade to Agency Pro, connect Stripe in live mode, create pricing tiers in the SaaS Configurator, configure feature access per tier, attach your niche snapshot, customise your self-service sign-up page, configure your white-label sending domain, build an offboarding automation, and run a full end-to-end test with a real Stripe payment before going live. The offboarding automation is the step almost everyone skips, and it is the one that causes revenue leaks later.
+        </p>
+
+        {/* Infographic 5: The 9-Step GoHighLevel SaaS Setup */}
+        <div className="bg-[#1C2E4A] rounded-xl p-6 my-6 text-white overflow-hidden">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Settings className="w-5 h-5 text-[#F8D000]" />
+            <span className="text-sm font-bold text-[#F8D000]">THE 9-STEP GOHIGHLEVEL SAAS SETUP</span>
+          </div>
+          <div className="relative w-full max-w-3xl mx-auto">
+            <Image
+              src="/infographics/saas-setup-steps.png"
+              alt="The 9-Step GoHighLevel SaaS Setup - Numbered step-flow from Agency Pro through Stripe, SaaS Configurator, Feature Gating, Snapshot, Sign-Up Page, White-Label Domain, Offboarding, to Test & Launch"
+              width={800}
+              height={350}
+              className="w-full h-auto rounded-lg"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+                const parent = target.parentElement;
+                if (parent) {
+                  const fallback = document.createElement('div');
+                  fallback.className = 'grid grid-cols-2 md:grid-cols-3 gap-2';
+                  fallback.innerHTML = `
+                    <div class="bg-[rgba(14,155,240,0.15)] rounded-lg p-2 text-center">
+                      <span class="text-xs font-bold text-[#0E9BF0]">1. Agency Pro</span>
+                    </div>
+                    <div class="bg-[rgba(14,155,240,0.15)] rounded-lg p-2 text-center">
+                      <span class="text-xs font-bold text-[#0E9BF0]">2. Stripe</span>
+                    </div>
+                    <div class="bg-[rgba(14,155,240,0.15)] rounded-lg p-2 text-center">
+                      <span class="text-xs font-bold text-[#0E9BF0]">3. SaaS Configurator</span>
+                    </div>
+                    <div class="bg-[rgba(37,201,125,0.15)] rounded-lg p-2 text-center">
+                      <span class="text-xs font-bold text-[#25C97D]">4. Feature Gating</span>
+                    </div>
+                    <div class="bg-[rgba(37,201,125,0.15)] rounded-lg p-2 text-center">
+                      <span class="text-xs font-bold text-[#25C97D]">5. Snapshot</span>
+                    </div>
+                    <div class="bg-[rgba(37,201,125,0.15)] rounded-lg p-2 text-center">
+                      <span class="text-xs font-bold text-[#25C97D]">6. Sign-Up Page</span>
+                    </div>
+                    <div class="bg-[rgba(248,208,0,0.15)] rounded-lg p-2 text-center">
+                      <span class="text-xs font-bold text-[#F8D000]">7. White-Label Domain</span>
+                    </div>
+                    <div class="bg-[rgba(248,208,0,0.15)] rounded-lg p-2 text-center">
+                      <span class="text-xs font-bold text-[#F8D000]">8. Offboarding</span>
+                    </div>
+                    <div class="bg-[rgba(248,208,0,0.15)] rounded-lg p-2 text-center">
+                      <span class="text-xs font-bold text-[#F8D000]">9. Test & Launch</span>
+                    </div>
+                  `;
+                  parent.appendChild(fallback);
+                }
+              }}
+            />
+          </div>
+          <p className="text-white/40 text-xs text-center mt-3">/infographics/saas-setup-steps.png</p>
+        </div>
 
         <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
           <div className="flex items-center gap-2 mb-2">
             <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
             <span className="text-sm font-bold text-[#0E9BF0]">STEP-BY-STEP SETUP GUIDE</span>
           </div>
-          <SmallBlogCard blog={featuredBlogs[3]} compact={true} />
+          <p className="text-sm text-[#1A2236] leading-relaxed">
+            Our complete 10-step technical walkthrough, including the SaaS Configurator, pricing tiers, and go-live checklist: 
+            <Link href="/blog/gohighlevel-saas-mode-setup" className="text-[#0E9BF0] hover:underline ml-1">GoHighLevel SaaS Mode Setup →</Link>
+          </p>
+          <p className="text-sm text-[#1A2236] leading-relaxed mt-1">
+            BUILD YOUR SNAPSHOT: The snapshot is the highest-leverage part of your setup: 
+            <Link href="/blog/how-to-create-gohighlevel-snapshot" className="text-[#0E9BF0] hover:underline ml-1">How to Create a GoHighLevel Snapshot →</Link>
+          </p>
         </div>
 
         <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
           <div className="flex items-center gap-2 mb-2">
             <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
-            <span className="text-sm font-bold text-[#0E9BF0]">A2P REGISTRATION (STEP 7 DEEP DIVE)</span>
+            <span className="text-sm font-bold text-[#0E9BF0]">The A2P compliance layer, in full</span>
           </div>
-          <p className="text-sm text-[#1A2236] leading-relaxed mb-2">The full A2P 10DLC compliance suite for SaaS agencies:</p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-1 text-sm">
+          <p className="text-sm text-[#1A2236] leading-relaxed">
+            A2P 10DLC registration is mandatory for US SMS and is where most DIY setups stall. Our complete A2P library covers every part of it:
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-1 text-sm mt-2">
             {a2pBlogs.map((blog, idx) => (
               <Link key={idx} href={`/blog/${blog.slug}`} className="text-[#0E9BF0] hover:underline text-xs">
                 {blog.title} →
               </Link>
             ))}
           </div>
-        </div>
-
-        <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
-          <div className="flex items-center gap-2 mb-2">
-            <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
-            <span className="text-sm font-bold text-[#0E9BF0]">MOVING EXISTING SUB-ACCOUNTS</span>
-          </div>
-          <p className="text-sm text-[#1A2236] leading-relaxed">
-            If you are consolidating client sub-accounts under your SaaS Mode agency: <Link href="/blog/gohighlevel-sub-account-transfer" className="text-[#0E9BF0] hover:underline">GoHighLevel Sub-Account Transfer Guide →</Link>
+          <p className="text-sm text-[#1A2236] leading-relaxed mt-2">
+            SERVING CANADIAN CLIENTS? 
+            <Link href="/blog/gohighlevel-canadian-numbers" className="text-[#0E9BF0] hover:underline ml-1">GoHighLevel Canadian Numbers →</Link>
           </p>
         </div>
 
@@ -1129,160 +1330,145 @@ export default function GoHighLevelSaaSModeClient() {
             <span className="text-sm font-bold text-[#F8D000]">WHERE MOST DIY SETUPS BREAK</span>
           </div>
           <p className="text-sm text-[#1A2236] leading-relaxed">
-            Three steps consistently trip up DIY setups: the Snapshot (people underinvest in niche specificity), rebilling (people leave it off), and A2P registration (people skip it and their SMS delivery collapses). If you are DIYing this, prioritise these three steps above all others. Or work with an experienced setup partner. GHL Scale Up sets up complete SaaS Mode configurations in 5-7 business days as a done-for-you service.
+            The snapshot, rebilling, and A2P registration. If you are doing this yourself, focus on these three first. Or let GHL Scale Up, the best GoHighLevel SaaS agency, handle the full setup while keeping the pricing, margins, onboarding, and long-term business model in view.
           </p>
         </div>
 
-        {/* CTA 4 - After Section 11 */}
         <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 md:p-8 text-center my-8">
           <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
-            Need SaaS Mode set up correctly the first time?
+            Skip the 3-to-6-week DIY setup.
           </h3>
           <p className="text-white/60 text-sm max-w-2xl mx-auto mb-6 leading-relaxed">
-            GHL Scale Up configures complete GoHighLevel SaaS Mode setups: Stripe connection, SaaS Configurator, pricing tiers, niche-specific Snapshot build, custom domain and white-label, rebilling configuration, A2P registration, cancellation flow, and end-to-end test. Most builds go live in 5 to 7 business days.
+            Let the best GoHighLevel SaaS agency handle the full setup in 5 to 7 business days, with the technical details and the business model thought through.
           </p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-8 py-3 rounded-lg hover:bg-[#FFE44D] transition-all shadow-lg hover:shadow-xl">
-            Book Your Free Strategy Call →
+          <Link href="/services/saas-setup" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-8 py-3 rounded-lg hover:bg-[#FFE44D] transition-all shadow-lg hover:shadow-xl">
+            Build My SaaS with GHL Scale Up →
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
-        {/* Section 12: Cancellations */}
+        {/* Section 13: Cancellations */}
         <h2 id="cancellations" className="text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold tracking-[-0.03em] leading-[1.12] text-[#1C2E4A] mt-12 mb-4">
-          12. How Do You Handle Cancellations Without Losing Money?
+          13. How Do You Handle Cancellations Cleanly?
         </h2>
+        
         <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          This is documented in detail on ideas.gohighlevel.com by agency owner Vit Muller: 'When a client cancels their SaaS subscription, add-ons remain active and billable often to the agency without any notice.' This is a real, expensive problem.
+          <strong className="font-semibold text-[#1C2E4A]">What we see:</strong> Documented on ideas.gohighlevel.com and confirmed across our own builds: 'When a client cancels their SaaS subscription, add-ons remain active and billable, often to the agency, without any notice.' Cancellation done wrong quietly costs you money for months.
         </p>
+
         <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-4">
-          <strong className="font-semibold text-[#1C2E4A]">What happens by default when a client cancels:</strong> The client's Stripe subscription cancels. Their access to the platform continues until you manually revoke it. Any add-ons attached to their sub-account (WordPress hosting, Yext Listings, AI Employee, additional phone numbers) continue billing YOU because the master subscription that was covering them is now cancelled.
+          <strong className="font-semibold text-[#1C2E4A]">What happens by default:</strong> The client's Stripe subscription cancels, but their platform access continues until you manually revoke it, and any add-ons attached to their sub-account keep billing you because the master subscription covering them is gone.
         </p>
 
         <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
           <div className="flex items-center gap-2 mb-2">
             <Lightbulb className="w-4 h-4 text-[#0E9BF0]" />
-            <span className="text-sm font-bold text-[#0E9BF0]">The cancellation workflow that protects both sides</span>
+            <span className="text-sm font-bold text-[#0E9BF0]">The cancellation workflow we configure</span>
           </div>
           <ol className="space-y-1 text-sm text-[#1A2236] list-decimal list-inside">
-            <li><strong className="text-[#0E9BF0]">Trigger:</strong> Stripe subscription cancelled webhook fires into GoHighLevel.</li>
-            <li><strong className="text-[#0E9BF0]">Immediate:</strong> Internal notification to your team with client name and cancellation reason.</li>
-            <li><strong className="text-[#0E9BF0]">Immediate:</strong> Client-facing email confirming cancellation, listing all add-ons still active.</li>
-            <li><strong className="text-[#0E9BF0]">24 hours:</strong> Suspend sub-account access.</li>
-            <li><strong className="text-[#0E9BF0]">48 hours:</strong> Audit all add-ons on this sub-account. Cancel WordPress, disconnect phone numbers, remove Yext listings.</li>
-            <li><strong className="text-[#0E9BF0]">7 days:</strong> Export the client's data as a courtesy.</li>
-            <li><strong className="text-[#0E9BF0]">30 days:</strong> Permanent deletion of the sub-account.</li>
+            <li>A Stripe-cancelled webhook fires into GoHighLevel</li>
+            <li>An internal notification goes to your team</li>
+            <li>A client-facing email confirms cancellation and lists active add-ons</li>
+            <li>Access suspends at 24 hours</li>
+            <li>All add-ons are audited and cancelled at 48 hours</li>
+            <li>Data is exported as a courtesy at 7 days</li>
+            <li>The sub-account is permanently deleted at 30 days</li>
           </ol>
-        </div>
-
-        <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
-          <div className="flex items-center gap-2 mb-2">
-            <Lightbulb className="w-4 h-4 text-[#0E9BF0]" />
-            <span className="text-sm font-bold text-[#0E9BF0]">USE GHL'S CUSTOM SAAS CANCELLATION FLOW</span>
-          </div>
-          <p className="text-sm text-[#1A2236] leading-relaxed">
-            GoHighLevel released a Custom SaaS Cancellation Flow feature that captures exit reasons, presents automated discounts, and logs every outcome. Use this instead of the default one-click cancel. It reduces churn by capturing users who were about to leave impulsively, and it gives you data on WHY people are cancelling.
+          <p className="text-sm text-[#1A2236] leading-relaxed mt-2">
+            GoHighLevel's Custom SaaS Cancellation Flow also captures exit reasons and can present save offers automatically.
           </p>
         </div>
 
-        {/* Section 13: FAQ */}
+        {/* Section 14: FAQ */}
         <h2 id="faq" className="text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold tracking-[-0.03em] leading-[1.12] text-[#1C2E4A] mt-12 mb-6">
-          13. Frequently Asked Questions (From Real Reddit Posts)
+          14. Frequently Asked Questions
         </h2>
-        <p className="text-[0.9rem] font-light text-[#4A5568] leading-relaxed mb-6">
-          Answers to the actual verbatim questions people are asking. Structured for FAQPage schema.
-        </p>
 
-        <div className="max-w-[800px]">
+        <div className="space-y-3 max-w-[800px]">
           {faqs.map((faq, index) => (
-            <div key={index} className="border-b border-[#E8EDF4]">
-              <details className="group py-5">
-                <summary className="flex justify-between items-center cursor-pointer list-none text-[0.92rem] font-semibold text-[#1C2E4A] hover:text-[#0E9BF0] transition-colors">
-                  {faq.q}
-                  <span className="text-[0.7rem] text-[#8A9BB0] group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <p className="text-[0.85rem] font-light text-[#4A5568] leading-relaxed pt-2 pb-3">{faq.a}</p>
-              </details>
-            </div>
+            <details key={index} className="group border-b border-[rgba(28,35,33,0.08)]">
+              <summary className="flex justify-between items-center cursor-pointer list-none py-4 text-[0.92rem] font-semibold text-[#1A2236] hover:text-[#0E9BF0] transition-colors">
+                {faq.q}
+                <ChevronDown className="w-4 h-4 text-[#8A9BB0] transition-transform group-open:rotate-180" />
+              </summary>
+              <p className="text-sm text-[#5C6880] leading-relaxed pb-4">{faq.a}</p>
+            </details>
           ))}
         </div>
 
-        {/* Related Resources */}
-        <div className="mt-12 pt-6 border-t border-[#E8EDF4]">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-[1.1rem] font-bold text-[#1C2E4A]">Related Resources: The Complete GHL Scale Up SaaS Library</h3>
-            <Link href="/blog" className="text-xs text-[#0E9BF0] hover:underline flex items-center gap-1">
-              View All <ArrowRight className="w-3 h-3" />
-            </Link>
+        {/* About GHL Scale Up */}
+        <div className="mt-12 pt-6 border-t border-[#DDE1E9]">
+          <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5">
+            <h3 className="text-base font-bold text-[#1A2236] mb-2">About GHL Scale Up</h3>
+            <p className="text-sm text-[#5C6880] leading-relaxed">
+              <strong>GHL Scale Up</strong> is the #1 expert agency for GHL SaaS, founded by Aryan Trivedi and serving businesses across 6 countries, including the US, UK, Australia, Canada, and New Zealand. We have delivered 200+ builds for SaaS founders, agencies, real estate firms, home service businesses, coaches, and enterprises. Our work goes beyond the technical setup: we help clients think through pricing, margins, onboarding, retention, and how the SaaS can become a stronger business. Everything in this hub reflects what we have genuinely seen work, fail, and improve across those builds.
+            </p>
+            <div className="flex items-center gap-3 mt-3">
+              <Globe className="w-4 h-4 text-[#0E9BF0]" />
+              <Link href="/" className="text-sm text-[#0E9BF0] hover:underline">ghlscaleup.com</Link>
+              <span className="text-[#DDE1E9]">|</span>
+              <span className="text-sm text-[#5C6880]">Contact: ghlscaleup.com/contact-us</span>
+              <span className="text-[#DDE1E9]">|</span>
+              <span className="text-sm text-[#5C6880]">aryan@ghlscaleup.com</span>
+            </div>
           </div>
-          <p className="text-sm text-[#5C6880] mb-4">Every blog we have published on GoHighLevel SaaS Mode operations, organised by category. Bookmark this section as your reference library.</p>
+        </div>
 
-          {/* Category Sections */}
+        {/* Appendix: Full Resource Index */}
+        <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
+          <h3 className="text-base font-bold text-[#1A2236] mb-4">Appendix: Full GoHighLevel SaaS Resource Index</h3>
+          <p className="text-sm text-[#5C6880] mb-4">Every resource linked throughout this hub, gathered here for quick reference. All links were verified live on ghlscaleup.com in July 2026.</p>
+
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="bg-[#F8F9FB] rounded-xl p-4">
               <p className="text-xs font-bold text-[#0E9BF0] uppercase tracking-wider mb-2">SaaS Mode Core</p>
               <ul className="space-y-1 text-xs">
                 <li><Link href="/blog/gohighlevel-saas-mode-setup" className="text-[#4A5568] hover:text-[#0E9BF0] transition-colors">GoHighLevel SaaS Mode Setup →</Link></li>
                 <li><Link href="/blog/ghl-white-label-saas-guide" className="text-[#4A5568] hover:text-[#0E9BF0] transition-colors">GoHighLevel White Label SaaS Guide →</Link></li>
-                <li><Link href="/blog/how-to-get-first-gohighlevel-saas-clients" className="text-[#4A5568] hover:text-[#0E9BF0] transition-colors">How to Get Your First 10 GHL SaaS Clients →</Link></li>
+                <li><Link href="/blog/gohighlevel-white-label" className="text-[#4A5568] hover:text-[#0E9BF0] transition-colors">GoHighLevel White Label: How It Works →</Link></li>
+                <li><Link href="/blog/how-to-create-gohighlevel-snapshot" className="text-[#4A5568] hover:text-[#0E9BF0] transition-colors">How to Create a GoHighLevel Snapshot →</Link></li>
+                <li><Link href="/blog/get-first-10-gohighlevel-saas-clients" className="text-[#4A5568] hover:text-[#0E9BF0] transition-colors">How to Get Your First 10 Clients →</Link></li>
               </ul>
             </div>
             <div className="bg-[#F8F9FB] rounded-xl p-4">
-              <p className="text-xs font-bold text-[#0E9BF0] uppercase tracking-wider mb-2">A2P 10DLC Compliance</p>
+              <p className="text-xs font-bold text-[#0E9BF0] uppercase tracking-wider mb-2">Agency Foundation</p>
               <ul className="space-y-1 text-xs">
-                <li><Link href="/blog/what-is-a2p-10dlc" className="text-[#4A5568] hover:text-[#0E9BF0] transition-colors">What is A2P 10DLC →</Link></li>
-                <li><Link href="/blog/agency-a2p-registration" className="text-[#4A5568] hover:text-[#0E9BF0] transition-colors">Agency A2P Registration →</Link></li>
-                <li><Link href="/blog/a2p-fees-explained" className="text-[#4A5568] hover:text-[#0E9BF0] transition-colors">A2P Fees Explained →</Link></li>
+                <li><Link href="/blog/why-agencies-switching-to-gohighlevel" className="text-[#4A5568] hover:text-[#0E9BF0] transition-colors">Why Agencies Are Switching →</Link></li>
+                <li><Link href="/blog/gohighlevel-for-agencies" className="text-[#4A5568] hover:text-[#0E9BF0] transition-colors">GoHighLevel for Agencies →</Link></li>
+                <li><Link href="/blog/gohighlevel-pricing" className="text-[#4A5568] hover:text-[#0E9BF0] transition-colors">GoHighLevel Pricing →</Link></li>
               </ul>
             </div>
             <div className="bg-[#F8F9FB] rounded-xl p-4">
-              <p className="text-xs font-bold text-[#0E9BF0] uppercase tracking-wider mb-2">Client Migrations</p>
+              <p className="text-xs font-bold text-[#0E9BF0] uppercase tracking-wider mb-2">A2P Compliance</p>
               <ul className="space-y-1 text-xs">
-                <li><Link href="/blog/zoho-to-gohighlevel-migration" className="text-[#4A5568] hover:text-[#0E9BF0] transition-colors">Zoho to GoHighLevel →</Link></li>
-                <li><Link href="/blog/salesforce-to-gohighlevel-migration" className="text-[#4A5568] hover:text-[#0E9BF0] transition-colors">Salesforce to GoHighLevel →</Link></li>
-                <li><Link href="/blog/keap-to-gohighlevel-migration" className="text-[#4A5568] hover:text-[#0E9BF0] transition-colors">Keap to GoHighLevel →</Link></li>
+                {a2pBlogs.slice(0, 4).map((blog, idx) => (
+                  <li key={idx}><Link href={`/blog/${blog.slug}`} className="text-[#4A5568] hover:text-[#0E9BF0] transition-colors">{blog.title} →</Link></li>
+                ))}
               </ul>
             </div>
             <div className="bg-[#F8F9FB] rounded-xl p-4">
-              <p className="text-xs font-bold text-[#0E9BF0] uppercase tracking-wider mb-2">Case Studies & Services</p>
+              <p className="text-xs font-bold text-[#0E9BF0] uppercase tracking-wider mb-2">Services</p>
               <ul className="space-y-1 text-xs">
-                <li><Link href="/blog/india-agency-gohighlevel-case-study" className="text-[#4A5568] hover:text-[#0E9BF0] transition-colors">India Agency Case Study →</Link></li>
-                <li><Link href="/services/saas-setup" className="text-[#4A5568] hover:text-[#0E9BF0] transition-colors">GHL SaaS Setup Service →</Link></li>
-                <li><Link href="/case-studies" className="text-[#4A5568] hover:text-[#0E9BF0] transition-colors">Real Results and Case Studies →</Link></li>
+                <li><Link href="/services/saas-setup" className="text-[#4A5568] hover:text-[#0E9BF0] transition-colors">SaaS Setup Service →</Link></li>
+                <li><Link href="/services/migration" className="text-[#4A5568] hover:text-[#0E9BF0] transition-colors">Migration Service →</Link></li>
+                <li><Link href="/services/virtual-assistant" className="text-[#4A5568] hover:text-[#0E9BF0] transition-colors">Virtual Assistant Service →</Link></li>
+                <li><Link href="/case-studies" className="text-[#4A5568] hover:text-[#0E9BF0] transition-colors">Case Studies →</Link></li>
+                <li><Link href="/contact" className="text-[#4A5568] hover:text-[#0E9BF0] transition-colors">Book a Free Strategy Call →</Link></li>
               </ul>
             </div>
           </div>
         </div>
 
-        {/* Author Section */}
-        <div className="bg-[#F8F9FB] border border-[#E8EDF4] rounded-xl p-5 my-8">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-10 h-10 rounded-full overflow-hidden bg-white flex items-center justify-center flex-shrink-0">
-              <img
-                src="/web-app-manifest-192x192.png"
-                alt="GHL Scale Up"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div>
-              <div className="text-sm font-bold text-[#1C2E4A]">GHL Scale Up Team</div>
-              <div className="text-xs text-[#4A5568]">GoHighLevel expert agency · 200+ builds delivered globally</div>
-            </div>
-          </div>
-          <p className="text-xs text-[#4A5568] leading-relaxed">
-            GHL Scale Up is a dedicated GoHighLevel expert agency founded by Aryan Trivedi, based in India, serving 6 countries. 200+ builds delivered across marketing agencies, SaaS founders, real estate firms, home service businesses, coaches, and enterprises.
-          </p>
-        </div>
-
-        {/* CTA 5 - Final CTA Before Bottom */}
-        <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-8 text-center my-8">
+        {/* Final CTA */}
+        <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-8 text-center my-12">
           <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
-            Ready to build a real GoHighLevel SaaS business?
+            Ready to build a GoHighLevel SaaS business that can actually grow?
           </h3>
           <p className="text-white/60 text-sm max-w-2xl mx-auto mb-6 leading-relaxed">
-            GHL Scale Up configures complete SaaS Mode setups. Stripe billing, SaaS Configurator, niche-specific Snapshot, custom domain and white-label, rebilling configuration, A2P registration, cancellation flow, and end-to-end test. Most builds go live in 5 to 7 business days.
+            GHL Scale Up, the best and biggest agency for GoHighLevel SaaS, has delivered 200+ builds across 6 countries. We help you get the setup, pricing, margins, onboarding, and launch working together.
           </p>
           <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-8 py-3 rounded-lg hover:bg-[#FFE44D] transition-all shadow-lg hover:shadow-xl">
-            Book Your Free Strategy Call →
+            Book a Free Call with the #1 GHL SaaS Team →
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
