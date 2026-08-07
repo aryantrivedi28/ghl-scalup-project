@@ -3,8 +3,8 @@ import Script from 'next/script';
 import GoHighLevelSaaSModeClient from './client';
 
 export const metadata: Metadata = {
-  title: 'GoHighLevel SaaS Mode: The Complete 2026 Guide (Everything You Need) | GHL Scale Up',
-  description: 'Everything about GoHighLevel SaaS Mode in one place: what it is, how it works, real pricing, how to get clients, why they cancel, and honest answers to what people are actually asking on Reddit. Updated July 2026.',
+  title: 'GoHighLevel SaaS Mode: Build a Profitable SaaS Agency',
+  description: 'Everything to launch a profitable GoHighLevel SaaS business: real pricing, niche selection, getting clients, and setup. Honest 2026 guide from 200+ builds.',
   keywords: 'gohighlevel saas mode, ghl agency, white label saas, recurring revenue, gohighlevel saas guide, ghl saas agency, gohighlevel saas mode setup, how to start gohighlevel saas agency',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {

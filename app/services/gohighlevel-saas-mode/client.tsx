@@ -300,7 +300,7 @@ export default function GoHighLevelSaaSModeClient() {
     }
   ];
 
-  // Testimonial Section Component (preserved as-is from original)
+  // Testimonial Section Component
   const TestimonialSection = () => (
     <section id="testimonial" className="py-12 md:py-16 bg-gradient-to-br from-[#1a365d] to-[#2d4a7a] text-white rounded-xl my-8 overflow-hidden">
       <div className="container mx-auto px-4">
@@ -373,6 +373,46 @@ export default function GoHighLevelSaaSModeClient() {
     </section>
   );
 
+  // Infographic 1: GHL Scale Up by the Numbers (missing from code)
+  const InfographicNumbers = () => (
+    <div className="bg-[#1C2E4A] rounded-xl p-6 my-6 text-center text-white overflow-hidden">
+                <div className="relative w-full max-w-3xl mx-auto">
+            <Image
+              src="/infographics/saas-mode-flow2.png"
+              alt="How GoHighLevel SaaS Mode Works - Flow diagram showing prospect visits branded page, pays via Stripe, sub-account auto-created, snapshot deploys, client logs into your software"
+              width={800}
+              height={300}
+              className="w-full h-auto rounded-lg"
+              priority
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+                const parent = target.parentElement;
+                if (parent) {
+                  const fallback = document.createElement('div');
+                  fallback.className = 'bg-[rgba(14,155,240,0.1)] rounded-lg p-6 text-white/80';
+                  fallback.innerHTML = `
+                    <div class="flex flex-wrap items-center justify-center gap-3 text-sm">
+                      <span class="bg-[rgba(14,155,240,0.2)] px-4 py-2 rounded-full">Prospect visits your branded page</span>
+                      <span class="text-white/40">→</span>
+                      <span class="bg-[rgba(37,201,125,0.2)] px-4 py-2 rounded-full">Pays via Stripe</span>
+                      <span class="text-white/40">→</span>
+                      <span class="bg-[rgba(248,208,0,0.2)] px-4 py-2 rounded-full">Sub-account auto-created</span>
+                      <span class="text-white/40">→</span>
+                      <span class="bg-[rgba(14,155,240,0.2)] px-4 py-2 rounded-full">Snapshot deploys</span>
+                      <span class="text-white/40">→</span>
+                      <span class="bg-[rgba(37,201,125,0.2)] px-4 py-2 rounded-full">Client logs into YOUR software</span>
+                    </div>
+                  `;
+                  parent.appendChild(fallback);
+                }
+              }}
+            />
+          </div>
+      <p className="text-white/40 text-xs text-center mt-3">Image: /infographics/ghl-scaleup-numbers.png</p>
+    </div>
+  );
+
   return (
     <>
       {/* Progress Bar */}
@@ -404,6 +444,16 @@ export default function GoHighLevelSaaSModeClient() {
                 connects to pricing, margins, onboarding, retention, and growth. With 200+ GoHighLevel builds delivered across six countries, 
                 including the US, UK, Australia, Canada, and New Zealand, we have helped SaaS founders and agencies at different stages build 
                 stronger, more practical businesses.
+              </p>
+              <p className="text-[0.9rem] font-light text-white/40 leading-relaxed max-w-[520px] mb-6">
+                Think of this hub as a practical starting point for building a GoHighLevel SaaS business. Each section covers a real question 
+                founders ask us, explains what works in simple terms, and links to a deeper guide when you need it. Whether you are checking if 
+                the model makes sense, choosing a niche, pricing your plans, or working through the setup, you can find the next clear step here.
+              </p>
+              <p className="text-[0.9rem] font-light text-white/30 leading-relaxed max-w-[520px] mb-6">
+                We created this hub because most GoHighLevel SaaS content sits at one of two extremes: hype that makes the business look effortless, 
+                or technical explanations that ignore how the business actually makes money. Everything here comes from real builds, real client 
+                conversations, and the lessons we have picked up while solving these problems again and again.
               </p>
               <div className="flex gap-3.5 flex-wrap">
                 <Link href="/services/saas-setup" className="bg-[#F8D000] text-[#0B1421] px-8 py-3.5 rounded-[10px] text-[0.88rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
@@ -459,35 +509,13 @@ export default function GoHighLevelSaaSModeClient() {
         </div>
       </div>
 
+      {/* Infographic: GHL Scale Up by the Numbers - NEW */}
+      <div className="max-w-[1200px] mx-auto px-4 md:px-8">
+        <InfographicNumbers />
+      </div>
+
       {/* Main Content */}
       <div className="max-w-[1200px] mx-auto px-4 md:px-8 py-10 md:py-16">
-        {/* What This Hub Covers */}
-        <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
-          <div className="flex items-center gap-2 mb-3">
-            <BookOpen className="w-5 h-5 text-[#0E9BF0]" />
-            <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">What This GoHighLevel SaaS Hub Covers</span>
-          </div>
-          <div className="grid sm:grid-cols-2 gap-2">
-            {[
-              '1. What Is GoHighLevel SaaS Mode?',
-              '2. Why Are So Many Agencies Switching to GoHighLevel for SaaS?',
-              '3. Is GoHighLevel SaaS Legit, or a Guru Scam?',
-              '4. Is GoHighLevel SaaS Oversaturated in 2026?',
-              '5. What Does a GoHighLevel SaaS Business Really Cost?',
-              '6. SaaS vs SwaS vs Agency: How Should You Position?',
-              '7. How Do You Pick a Niche With No Network?',
-              '8. Can You Run a GoHighLevel SaaS Business If You Are Not Technical?',
-              '9. How Do You Get Your First GoHighLevel SaaS Clients?',
-              '10. How Do You Price and Rebill Without Losing Money?',
-              '11. Why Do GoHighLevel SaaS Clients Cancel, and How Do You Stop It?',
-              '12. What Does GoHighLevel SaaS Technical Setup Involve?',
-              '13. How Do You Handle Cancellations Cleanly?',
-              '14. Frequently Asked Questions'
-            ].map((item, idx) => (
-              <p key={idx} className="text-sm text-[#5C6880] py-0.5">{item}</p>
-            ))}
-          </div>
-        </div>
 
         {/* Table of Contents */}
         <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
@@ -506,6 +534,20 @@ export default function GoHighLevelSaaSModeClient() {
               </button>
             ))}
           </div>
+        </div>
+
+        {/* Want the best GoHighLevel SaaS agency in your corner? - CTA */}
+        <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 md:p-8 text-center my-8">
+          <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
+            Want the best GoHighLevel SaaS agency in your corner?
+          </h3>
+          <p className="text-white/60 text-sm max-w-2xl mx-auto mb-6 leading-relaxed">
+            GHL Scale Up brings the technical build and the business thinking together, so your SaaS is not just configured, but ready to sell and grow.
+          </p>
+          <Link href="/services/saas-setup" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-8 py-3 rounded-lg hover:bg-[#FFE44D] transition-all shadow-lg hover:shadow-xl">
+            Build My GHL SaaS with the #1 Team →
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
 
         {/* ==================== TESTIMONIAL SECTION ==================== */}
@@ -545,7 +587,8 @@ export default function GoHighLevelSaaSModeClient() {
               width={800}
               height={300}
               className="w-full h-auto rounded-lg"
-              priority              onError={(e) => {
+              priority
+              onError={(e) => {
                 const target = e.target as HTMLImageElement;
                 target.style.display = 'none';
                 const parent = target.parentElement;

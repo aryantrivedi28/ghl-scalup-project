@@ -3,8 +3,8 @@ import Script from 'next/script';
 import GoHighLevelSaaSModeSetupClient from './client';
 
 export const metadata: Metadata = {
-  title: 'GoHighLevel SaaS Mode: Complete Setup Guide for Agencies (2026) | GHL Scale Up',
-  description: 'Step-by-step GoHighLevel SaaS Mode setup: Stripe connection, pricing tiers, feature gating, Snapshot attachment, white-label domain, and go-live checklist. Agency Pro required. Full technical guide.',
+  title: 'GoHighLevel SaaS Mode Setup: Step-by-Step Guide for Beginners',
+  description: 'Set up GoHighLevel SaaS Mode the easy way. A plain-English, step-by-step guide covering , pricing plans, snapshots, and going live. No tech skills needed.',
   keywords: 'GoHighLevel SaaS Mode setup, how to set up GoHighLevel SaaS Mode, GoHighLevel SaaS Mode tutorial 2026, GoHighLevel SaaS configurator setup, GoHighLevel SaaS Mode Stripe setup, GoHighLevel SaaS pricing tiers setup, GoHighLevel SaaS Mode go live checklist',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {
