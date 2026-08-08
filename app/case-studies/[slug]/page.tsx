@@ -30,12 +30,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 // Main page component
 export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string }> }) {
-  // const { slug } = await params;
-  // const caseStudy = await getCaseStudyBySlug(slug);
+  const { slug } = await params;
+  const caseStudy = await getCaseStudyBySlug(slug);
   
-  // if (!caseStudy) {
-  //   notFound();
-  // }
+  if (!caseStudy) {
+    notFound();
+  }
   
-  // return <CaseStudyDetail caseStudy={caseStudy} />;
+  return <CaseStudyDetail caseStudy={caseStudy} />;
 }
