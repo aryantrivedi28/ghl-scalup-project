@@ -1,13 +1,11 @@
 // app/case-studies/page.tsx
-import { getAllCaseStudies } from '@/lib/sanity';
 import CaseStudyCard from '@/components/case-studies/CaseStudyCard';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import Link from 'next/link';
-import Image from 'next/image';
-import { ArrowRight, Building2, Users, Calendar, BarChart3, Phone, Mail, Database } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export const metadata = {
-  title: 'GHL Scale Up Case Studies — Real GoHighLevel Results',
+  title: 'GHL Scale Up Case Studies Real GoHighLevel Results',
   description: 'See real outcomes from GHL Scale Up builds — specific numbers, real businesses, real results. 200+ builds across real estate, healthcare, SaaS, and marketing agencies.',
   keywords: 'GoHighLevel case studies, GHL success stories, CRM implementation results, marketing automation case studies, lead generation results, sales pipeline management case studies',
   alternates: {
@@ -15,8 +13,8 @@ export const metadata = {
   }
 };
 
-// Hardcoded case study data for all case studies
-const hardcodedCaseStudies = [
+// All 6 hardcoded case studies with correct image paths
+const caseStudies = [
   {
     _id: 'real-estate-agent-rebuild',
     title: 'Real Estate Agent: Complete GHL Rebuild & AI Voice System',
@@ -31,8 +29,7 @@ const hardcodedCaseStudies = [
     challenge: 'Outbound emails were failing, SMS couldn\'t legally send, the lead funnel wasn\'t converting, and a growing contact database had no system working it at all.',
     solution: 'GHL Scale Up audited the account, rebuilt every broken system end-to-end, repositioned the business around a focused niche, and layered in a three-agent AI voice automation system.',
     featured: true,
-    publishedAt: '2026-08-01',
-    __hardcoded: true
+    publishedAt: '2026-08-01'
   },
   {
     _id: 'gohighlevel-parent-saas-multi-crm-automation-energy-platform',
@@ -42,14 +39,13 @@ const hardcodedCaseStudies = [
     excerpt: 'Unified multiple business verticals under one GoHighLevel SaaS structure, with AI-driven automation cutting lead response time to under a minute.',
     image: {
       asset: {
-        url: '/case-study/Picture1.jpeg'
+        url: '/case-study/Picture12.jpeg'
       }
     },
     challenge: 'Lead handling, follow-ups, payments, and reporting were fragmented across systems, making it difficult to maintain consistency, speed, and operational visibility.',
     solution: 'GHL Scale Up architected and implemented a parent SaaS structure inside GoHighLevel, letting RiverEnergia manage multiple CRM brands under a single, branded ecosystem.',
     featured: true,
-    publishedAt: '2026-08-05',
-    __hardcoded: true
+    publishedAt: '2026-08-05'
   },
   {
     _id: 'gohighlevel-website-setup-automation-fix',
@@ -59,14 +55,13 @@ const hardcodedCaseStudies = [
     excerpt: 'A service-based business had broken surveys, unreliable email automation, and inconsistent campaign delivery — with no dedicated GoHighLevel website to support lead capture.',
     image: {
       asset: {
-        url: '/case-study/Picture1.jpeg'
+        url: '/case-study/Picture12.jpeg'
       }
     },
     challenge: 'Surveys not functioning correctly, email automation workflows broken, campaign delivery inconsistent, no dedicated GoHighLevel-integrated website.',
     solution: 'GHL Scale Up diagnosed the broken systems, built a custom GoHighLevel website, and rebuilt the automation from the ground up — establishing a reliable end-to-end communication system.',
     featured: false,
-    publishedAt: '2026-08-10',
-    __hardcoded: true
+    publishedAt: '2026-08-10'
   },
   {
     _id: 'gohighlevel-ai-automation-customer-management-marketing-agency',
@@ -76,14 +71,13 @@ const hardcodedCaseStudies = [
     excerpt: 'A performance marketing agency was relying on disconnected tools and manual workflows — until GHL Scale Up built a complete GoHighLevel agency system with AI-powered workflows.',
     image: {
       asset: {
-        url: '/case-study/Picture1.jpeg'
+        url: '/case-study/Picture12.jpeg'
       }
     },
     challenge: 'Delayed lead responses, inconsistent follow-ups, heavy operational workload with team members spending time on repetitive tasks that could have been automated.',
     solution: 'GHL Scale Up designed and implemented a complete GoHighLevel setup with AI-powered workflows, centralizing customer management and automating lead response, scheduling, and follow-ups.',
     featured: false,
-    publishedAt: '2026-08-12',
-    __hardcoded: true
+    publishedAt: '2026-08-12'
   },
   {
     _id: 'gohighlevel-multi-location-automation-property-website-real-estate',
@@ -93,14 +87,13 @@ const hardcodedCaseStudies = [
     excerpt: 'A growing real estate brand needed a structured, location-aware system — not a patchwork of spreadsheets and inboxes per office.',
     image: {
       asset: {
-        url: '/case-study/Picture1.jpeg'
+        url: '/case-study/Picture12.jpeg'
       }
     },
     challenge: 'Manual, fragmented multi-location operations with delayed responses, no centralized lead tracking, and operational complexity as the brand grew into new regions.',
     solution: 'GHL Scale Up implemented a multi-subaccount GoHighLevel architecture with location-based property websites and automated buyer/seller workflows.',
     featured: false,
-    publishedAt: '2026-08-14',
-    __hardcoded: true
+    publishedAt: '2026-08-14'
   },
   {
     _id: 'gohighlevel-affiliate-management-automation-media-company',
@@ -110,32 +103,17 @@ const hardcodedCaseStudies = [
     excerpt: 'A media and performance-driven business was running multiple affiliate campaigns manually — creating bottlenecks in lead nurturing, affiliate tracking, and reporting.',
     image: {
       asset: {
-        url: '/case-study/Picture1.jpeg'
+        url: '/case-study/Picture12.jpeg'
       }
     },
     challenge: 'Inconsistent lead follow-ups, unclear affiliate performance tracking, and reporting that required significant manual effort.',
     solution: 'GHL Scale Up built a custom GoHighLevel affiliate management system with automated lead nurturing and real-time reporting dashboards.',
     featured: false,
-    publishedAt: '2026-08-16',
-    __hardcoded: true
+    publishedAt: '2026-08-16'
   }
 ];
 
 export default async function CaseStudiesPage() {
-  // Fetch case studies from Sanity
-  const sanityCaseStudies = await getAllCaseStudies();
-  
-  // Combine hardcoded case studies with Sanity case studies
-  // Featured ones appear first, then all others
-  const allCaseStudies = [
-    ...hardcodedCaseStudies,
-    ...sanityCaseStudies
-  ];
-
-  // Separate featured and non-featured
-  const featuredStudies = allCaseStudies.filter((s: any) => s.featured === true);
-  const regularStudies = allCaseStudies.filter((s: any) => s.featured !== true);
-
   return (
     <>
       <Breadcrumb items={[{ label: 'Case Studies' }]} />
@@ -182,44 +160,16 @@ export default async function CaseStudiesPage() {
       {/* Case Studies Grid */}
       <section className="py-16 bg-white">
         <div className="max-w-[1200px] mx-auto px-4 md:px-8">
-          {allCaseStudies.length === 0 ? (
+          {caseStudies.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-[#4A5568]">No case studies found. Add some in Sanity!</p>
+              <p className="text-[#4A5568]">No case studies found.</p>
             </div>
           ) : (
-            <>
-              {/* Featured Case Studies */}
-              {featuredStudies.length > 0 && (
-                <>
-                  <div className="mb-4">
-                    <h2 className="text-xl font-bold text-[#1C2E4A] flex items-center gap-2">
-                      <span className="text-[#F8D000]">★</span> Featured Case Studies
-                    </h2>
-                  </div>
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                    {featuredStudies.map((caseStudy: any) => (
-                      <CaseStudyCard key={caseStudy._id} caseStudy={caseStudy} />
-                    ))}
-                  </div>
-                </>
-              )}
-
-              {/* All Case Studies */}
-              {regularStudies.length > 0 && (
-                <>
-                  {featuredStudies.length > 0 && (
-                    <div className="mb-4">
-                      <h2 className="text-xl font-bold text-[#1C2E4A]">All Case Studies</h2>
-                    </div>
-                  )}
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {regularStudies.map((caseStudy: any) => (
-                      <CaseStudyCard key={caseStudy._id} caseStudy={caseStudy} />
-                    ))}
-                  </div>
-                </>
-              )}
-            </>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {caseStudies.map((caseStudy) => (
+                <CaseStudyCard key={caseStudy._id} caseStudy={caseStudy} />
+              ))}
+            </div>
           )}
         </div>
       </section>
