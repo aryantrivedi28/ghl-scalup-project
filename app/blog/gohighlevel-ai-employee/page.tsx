@@ -3,8 +3,8 @@ import Script from 'next/script';
 import GoHighLevelAIEmployeeClient from './client';
 
 export const metadata: Metadata = {
-  title: 'GoHighLevel AI Employee: Voice AI, Conversation AI and Workflow AI Explained (2026) | GHL Scale Up',
-  description: 'GHL uses \'AI\' to describe 8 different features. 3 are included free, 3 cost extra, 2 are add-ons. This guide covers what each one actually does, what it costs, and which to set up first. Verified from GHL\'s official docs.',
+  title: 'GoHighLevel AI Employee: Voice AI, Chat AI & Pricing',
+  description: 'What GoHighLevel AI Employee actually includes: Voice AI, Conversation AI, Workflow AI, real pricing, setup, and honest limits. A clear guide, not marketing.',
   keywords: 'gohighlevel ai employee, gohighlevel voice ai, gohighlevel conversation ai, gohighlevel ai employee pricing, gohighlevel voice ai pricing, what is gohighlevel ai employee, gohighlevel workflow ai, gohighlevel ai features 2026',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {
