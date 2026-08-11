@@ -5,44 +5,18 @@ import { useState, useEffect } from 'react';
 import {
   CheckCircle2,
   BookOpen,
-  Zap,
   AlertTriangle,
   Lightbulb,
-  Sparkles,
-  Shield,
-  Layers,
   Settings,
   Clock,
   ArrowRight,
-  Users,
-  Rocket,
-  BarChart3,
   DollarSign,
   Target,
-  Phone,
-  Mail,
-  PlayCircle,
-  FileText,
   TrendingUp,
   Quote,
   Star,
   Globe,
-  Award,
-  Briefcase,
-  Building2,
   ChevronDown,
-  Copy,
-  Linkedin,
-  Twitter,
-  Info,
-  Server,
-  Cloud,
-  Lock,
-  RefreshCw,
-  HelpCircle,
-  Video,
-  Smartphone,
-  Code,
   ImageDown
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
@@ -480,7 +454,7 @@ export default function GoHighLevelSaaSModeClient() {
                   <div className="text-[0.78rem] text-white/50">Years of experience</div>
                 </div>
                 <div className="flex items-center gap-4 py-3">
-                  <div className="text-[1.4rem] font-extrabold text-[#F8D000] tracking-[-0.03em] min-w-[80px]">#1</div>
+                  <div className="text-[1.4rem] font-extrabold text-[#F8D000] tracking-[-0.03em] min-w-[80px]">No. 1</div>
                   <div className="text-[0.78rem] text-white/50">GHL SaaS expert agency</div>
                 </div>
               </div>
