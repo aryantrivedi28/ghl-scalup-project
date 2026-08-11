@@ -60,12 +60,20 @@ export default function AboutClient() {
 
   const coreTeam = [
     {
-      initials: 'KS',
-      image: '/team/kunal.png',
-      linkedin: 'https://www.linkedin.com/in/kunal-kumar-2ab402263',
-      name: 'Kunal Sharma',
-      role: 'Tech Lead',
-      bio: 'Kunal is the technical brain behind GHL Scale Up. He owns the architecture decisions, internal tooling, system design, and engineering standards across the organization. He does not work on client projects directly instead, he builds the frameworks, templates, and processes that every client project is built on top of. When a system scales without breaking, it is because Kunal designed the foundation.'
+      initials: 'PK',
+      image: '/team/pavan.jpeg',
+      linkedin: 'https://www.linkedin.com/in/socialpavan',
+      name: 'Pavan Koli',
+      role: 'GoHighLevel (GHL) Expert',
+      bio: 'Pavan is a GoHighLevel (GHL) Expert at the GHL Scale Up team, specializing in GHL setup, CRM automation, funnels, workflows, AI solutions, and lead management systems. With hands-on experience in building and optimizing GHL ecosystems, he helps businesses streamline their sales and marketing processes, automate follow-ups, and create scalable systems that drive lead conversion and business growth.'
+    },
+    {
+      initials: 'RS',
+      image: '/team/rishabh.jpg',
+      linkedin: 'https://www.linkedin.com/in/rishabhshukla18',
+      name: 'Rishabh Shukla',
+      role: 'Founder’s Office and Project Management team',
+      bio: 'Rishabh Shukla is part of the Founder’s Office and Project Management team at GHL Scale Up, where he manages communication between clients and the execution team. He ensures smooth coordination, keeps clients informed with timely project updates, tracks ongoing deliverables, and helps ensure projects stay aligned with client expectations, timelines, and requirements.'
     },
     {
       initials: 'RD',
@@ -74,6 +82,14 @@ export default function AboutClient() {
       name: 'Radhika',
       role: 'Growth Associate',
       bio: 'Drives client acquisition, partnerships, and brand growth for GHL Scale Up. Radhika connects the dots between what clients need and what we deliver handling outreach, onboarding coordination, and making sure every project starts with clear goals and ends with measurable outcomes. She is the first person most clients speak with.'
+    },
+    {
+      initials: 'KS',
+      image: '/team/kunal.png',
+      linkedin: 'https://www.linkedin.com/in/kunal-kumar-2ab402263',
+      name: 'Kunal Sharma',
+      role: 'Tech Specialist',
+      bio: 'Kunal is the technical brain behind GHL Scale Up. He owns the architecture decisions, internal tooling, system design, and engineering standards across the organization. He does not work on client projects directly instead, he builds the frameworks, templates, and processes that every client project is built on top of. When a system scales without breaking, it is because Kunal designed the foundation.'
     },
   ];
 
