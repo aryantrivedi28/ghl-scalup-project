@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Target',
+            tag: 'SaaS Growth',
+            title: 'How to Choose a Niche for Your GoHighLevel SaaS Business (2026)',
+            excerpt: 'How to choose a niche for a GoHighLevel SaaS business: a simple framework, the most profitable niches, how to validate demand, and how to know if your niche is right.',
+            slug: 'how-to-choose-gohighlevel-saas-niche',
+            date: 'August 11, 2026',
+            readTime: '20 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'LayoutIcon',
             tag: 'Features',
             title: 'GoHighLevel Website Builder: Complete 2026 Guide + WordPress Comparison',
