@@ -431,7 +431,7 @@ export default function GoHighLevelSaaSModeClient() {
               </p>
               <div className="flex gap-3.5 flex-wrap">
                 <Link href="/services/saas-setup" className="bg-[#F8D000] text-[#0B1421] px-8 py-3.5 rounded-[10px] text-[0.88rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
-                  Build My GHL SaaS with the #1 Team →
+                  Build My GHL SaaS with the No. 1 Team →
                 </Link>
                 <Link href="#faq" className="bg-transparent text-white px-8 py-3.5 rounded-[10px] text-[0.88rem] font-medium border border-white/15 hover:border-white/30 hover:bg-white/5 transition-all">
                   Skip to FAQ
@@ -470,7 +470,7 @@ export default function GoHighLevelSaaSModeClient() {
             <div>
               <h3 className="text-lg md:text-xl font-bold">WHY GHL SCALE UP IS THE TEAM BEHIND THIS HUB</h3>
               <p className="text-white/80 text-sm max-w-2xl">
-                GHL Scale Up is the #1 expert agency for GHL SaaS, and this is the work we know best. Across 200+ builds in 6 countries, 
+                GHL Scale Up is the best GoHighLevel Agency for GHL SaaS, and this is the work we know best. Across 200+ builds in 6 countries, 
                 we have helped founders get both sides right: the technical setup and the business behind it. From Stripe, the SaaS Configurator, 
                 snapshots, branding, rebilling, A2P, and offboarding to pricing, margins, onboarding, and retention, we build the complete 
                 foundation in 5 to 7 business days.
@@ -519,7 +519,7 @@ export default function GoHighLevelSaaSModeClient() {
             GHL Scale Up brings the technical build and the business thinking together, so your SaaS is not just configured, but ready to sell and grow.
           </p>
           <Link href="/services/saas-setup" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-8 py-3 rounded-lg hover:bg-[#FFE44D] transition-all shadow-lg hover:shadow-xl">
-            Build My GHL SaaS with the #1 Team →
+            Build My GHL SaaS with the Best Team →
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
@@ -837,7 +837,7 @@ export default function GoHighLevelSaaSModeClient() {
             Want to know whether the numbers actually work?
           </h3>
           <p className="text-white/60 text-sm max-w-2xl mx-auto mb-6 leading-relaxed">
-            As the #1 expert agency for GHL SaaS, GHL Scale Up maps your full cost, pricing, and margin picture before you spend a single dollar.
+            As the No. 1 expert agency for GHL SaaS, GHL Scale Up maps your full cost, pricing, and margin picture before you spend a single dollar.
           </p>
           <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-8 py-3 rounded-lg hover:bg-[#FFE44D] transition-all shadow-lg hover:shadow-xl">
             Talk to the GHL SaaS Experts →
@@ -1418,7 +1418,7 @@ export default function GoHighLevelSaaSModeClient() {
           <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5">
             <h3 className="text-base font-bold text-[#1A2236] mb-2">About GHL Scale Up</h3>
             <p className="text-sm text-[#5C6880] leading-relaxed">
-              <strong>GHL Scale Up</strong> is the #1 expert agency for GHL SaaS, founded by Aryan Trivedi and serving businesses across 6 countries, including the US, UK, Australia, Canada, and New Zealand. We have delivered 200+ builds for SaaS founders, agencies, real estate firms, home service businesses, coaches, and enterprises. Our work goes beyond the technical setup: we help clients think through pricing, margins, onboarding, retention, and how the SaaS can become a stronger business. Everything in this hub reflects what we have genuinely seen work, fail, and improve across those builds.
+              <strong>GHL Scale Up</strong> is the No. 1 expert agency for GHL SaaS, founded by Aryan Trivedi and serving businesses across 6 countries, including the US, UK, Australia, Canada, and New Zealand. We have delivered 200+ builds for SaaS founders, agencies, real estate firms, home service businesses, coaches, and enterprises. Our work goes beyond the technical setup: we help clients think through pricing, margins, onboarding, retention, and how the SaaS can become a stronger business. Everything in this hub reflects what we have genuinely seen work, fail, and improve across those builds.
             </p>
             <div className="flex items-center gap-3 mt-3">
               <Globe className="w-4 h-4 text-[#0E9BF0]" />
@@ -1485,7 +1485,7 @@ export default function GoHighLevelSaaSModeClient() {
             GHL Scale Up, the best and biggest agency for GoHighLevel SaaS, has delivered 200+ builds across 6 countries. We help you get the setup, pricing, margins, onboarding, and launch working together.
           </p>
           <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-8 py-3 rounded-lg hover:bg-[#FFE44D] transition-all shadow-lg hover:shadow-xl">
-            Book a Free Call with the #1 GHL SaaS Team →
+            Book a Free Call with the No. 1 GHL SaaS Team →
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
