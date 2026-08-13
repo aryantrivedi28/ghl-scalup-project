@@ -18,21 +18,27 @@ import { useFaqSchema } from '@/hooks/useFaqSchema';
 export default function SellGHLToLocalBusinessesClient() {
   const [activeId, setActiveId] = useState<string>('');
 
-useEffect(() => {
-  const sections = [
-    'how-to-choose',
-    'why-niche-matters',
-    'good-fit',
-    'framework',
-    'common-niches',
-    'underserved',
-    'validate',
-    'already-have-niche',
-    'understand-market',
-    'mistakes',
-    'finalize',
-    'faq'
-  ];
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = [
+        'can-you-build',
+        'what-are-you-selling',
+        'business-models',
+        'choose-niche',
+        'find-problem',
+        'what-to-sell-first',
+        'package-offer',
+        'pricing',
+        'find-clients',
+        'sales-conversation',
+        'objections',
+        'delivery',
+        'retention',
+        'beginners-get-wrong',
+        'first-90-days',
+        'where-ghl-fits',
+        'faq'
+      ];
 
   const handleScroll = () => {
     let currentSection = sections[0];
@@ -63,7 +69,11 @@ useEffect(() => {
   return () => {
     window.removeEventListener('scroll', handleScroll);
   };
-}, []);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scrollToHeading = (id: string) => {
     const element = document.getElementById(id);
@@ -786,7 +796,7 @@ useEffect(() => {
                 </div>
                 <div>
                   <div className="text-sm font-bold text-white">GHL Scale Up Team</div>
-                  <div className="text-xs text-white/50">Niche Strategy Specialists</div>
+                  <div className="text-xs text-white/50">Local Business Sales Specialists</div>
                 </div>
               </div>
               <p className="text-xs text-white/60 leading-relaxed mb-3">
@@ -796,8 +806,8 @@ useEffect(() => {
             </div>
 
             <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
-              <div className="text-sm font-bold text-white mb-2">Need Help Choosing Your Niche?</div>
-              <p className="text-xs text-white/60 leading-relaxed mb-4">We help you validate your niche and build the snapshot, automations, and SaaS setup around it — technical or not.</p>
+              <div className="text-sm font-bold text-white mb-2">Ready to Start Selling?</div>
+              <p className="text-xs text-white/60 leading-relaxed mb-4">We handle the technical build so you can focus on selling and serving clients.</p>
               <Link href="/contact-us" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
                 Get Help
                 <ArrowRight className="w-3 h-3" />
