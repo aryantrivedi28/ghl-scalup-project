@@ -786,7 +786,7 @@ useEffect(() => {
                 </div>
                 <div>
                   <div className="text-sm font-bold text-white">GHL Scale Up Team</div>
-                  <div className="text-xs text-white/50">Local Business Sales Specialists</div>
+                  <div className="text-xs text-white/50">Niche Strategy Specialists</div>
                 </div>
               </div>
               <p className="text-xs text-white/60 leading-relaxed mb-3">
@@ -796,8 +796,8 @@ useEffect(() => {
             </div>
 
             <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
-              <div className="text-sm font-bold text-white mb-2">Ready to Start Selling?</div>
-              <p className="text-xs text-white/60 leading-relaxed mb-4">We handle the technical build so you can focus on selling and serving clients.</p>
+              <div className="text-sm font-bold text-white mb-2">Need Help Choosing Your Niche?</div>
+              <p className="text-xs text-white/60 leading-relaxed mb-4">We help you validate your niche and build the snapshot, automations, and SaaS setup around it — technical or not.</p>
               <Link href="/contact-us" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
                 Get Help
                 <ArrowRight className="w-3 h-3" />
