@@ -18,43 +18,52 @@ import { useFaqSchema } from '@/hooks/useFaqSchema';
 export default function SellGHLToLocalBusinessesClient() {
   const [activeId, setActiveId] = useState<string>('');
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = [
-        'can-you-build',
-        'what-are-you-selling',
-        'business-models',
-        'choose-niche',
-        'find-problem',
-        'what-to-sell-first',
-        'package-offer',
-        'pricing',
-        'find-clients',
-        'sales-conversation',
-        'objections',
-        'delivery',
-        'retention',
-        'beginners-get-wrong',
-        'first-90-days',
-        'where-ghl-fits',
-        'faq'
-      ];
+useEffect(() => {
+  const sections = [
+    'how-to-choose',
+    'why-niche-matters',
+    'good-fit',
+    'framework',
+    'common-niches',
+    'underserved',
+    'validate',
+    'already-have-niche',
+    'understand-market',
+    'mistakes',
+    'finalize',
+    'faq'
+  ];
 
-      for (const id of sections) {
-        const element = document.getElementById(id);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 150) {
-            setActiveId(id);
-            break;
-          }
-        }
+  const handleScroll = () => {
+    let currentSection = sections[0];
+
+    for (const id of sections) {
+      const element = document.getElementById(id);
+
+      if (!element) continue;
+
+      const rect = element.getBoundingClientRect();
+
+      if (rect.top <= 180) {
+        currentSection = id;
+      } else {
+        break;
       }
-    };
+    }
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    setActiveId(currentSection);
+  };
+
+  handleScroll();
+
+  window.addEventListener('scroll', handleScroll, {
+    passive: true
+  });
+
+  return () => {
+    window.removeEventListener('scroll', handleScroll);
+  };
+}, []);
 
   const scrollToHeading = (id: string) => {
     const element = document.getElementById(id);
