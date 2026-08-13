@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Handshake',
+            tag: 'Sales Guide',
+            title: 'How to Sell GoHighLevel to Local Businesses (Without Sounding Like You\'re Selling Software)',
+            excerpt: 'An honest, tactical guide to selling GoHighLevel to local businesses: what to sell, who to sell it to, how to price it, and how to land your first client without sounding like every other person in their inbox.',
+            slug: 'sell-gohighlevel-to-local-businesses',
+            date: 'August 13, 2026',
+            readTime: '22 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'Target',
             tag: 'SaaS Growth',
             title: 'How to Choose a Niche for Your GoHighLevel SaaS Business (2026)',
