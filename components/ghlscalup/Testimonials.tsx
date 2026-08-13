@@ -6,6 +6,7 @@ import Link from 'next/link';
 import TestimonialCard from '@/components/testimonials/TestimonialCard';
 import InfoVideo from '@/components/testimonials/InfoVideo';
 import { Play, Youtube } from 'lucide-react';
+import Image from 'next/image';
 
 interface Testimonial {
   _id: string;
@@ -115,51 +116,45 @@ export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
               </div>
             </div>
 
-            {/* Video 3: New Client Review - Links to Case Study */}
-            <Link 
-              href="/case-studies/real-estate-agent-rebuild"
-              className="block bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer"
-            >
-              <div className="relative aspect-video bg-[#0B1628] flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 md:w-20 md:h-20 bg-[#0E9BF0] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                    <Play className="w-7 h-7 md:w-9 md:h-9 text-white ml-1" />
-                  </div>
-                </div>
-                
-                
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1628] via-transparent to-transparent opacity-60"></div>
-                
-                <div className="absolute inset-0 flex items-center justify-center opacity-20">
-                  <Youtube className="w-24 h-24 md:w-32 md:h-32 text-white" />
-                </div>
-                
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-[#0B1628] to-transparent">
-                  <p className="text-white font-semibold text-sm md:text-base">Real Estate Agent Review</p>
-                  <p className="text-white/60 text-xs md:text-sm">Watch the full case study →</p>
-                </div>
-              </div>
-              
-              {/* <div className="p-4">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h4 className="font-semibold text-[#1C2E4A] text-sm md:text-base">Client Success Story</h4>
-                    <p className="text-xs text-[#4A5568]">Real Estate Agent • AI Voice System</p>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <span className="text-[#F8D000] text-sm">★</span>
-                    <span className="text-[#F8D000] text-sm">★</span>
-                    <span className="text-[#F8D000] text-sm">★</span>
-                    <span className="text-[#F8D000] text-sm">★</span>
-                    <span className="text-[#F8D000] text-sm">★</span>
-                  </div>
-                </div>
-                <p className="text-xs text-[#0E9BF0] mt-2 inline-flex items-center gap-1 group-hover:gap-2 transition-all">
-                  Read full case study 
-                  <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
-                </p>
-              </div> */}
-            </Link>
+{/* Video 3: Real Estate Agent Review */}
+<Link
+  href="/case-studies/real-estate-agent-rebuild"
+  className="block bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer"
+>
+  <div className="relative aspect-video bg-[#0B1628] flex items-center justify-center overflow-hidden">
+
+    {/* Background Image */}
+    <Image
+      src="/real-estate-review.png"
+      alt="Real Estate Agent Client Review"
+      fill
+      className="object-cover transition-transform duration-500 group-hover:scale-105"
+      priority
+    />
+
+    {/* Dark overlay */}
+    <div className="absolute inset-0 bg-[#0B1628]/40 group-hover:bg-[#0B1628]/50 transition-all duration-300" />
+
+    {/* Bottom gradient */}
+    <div className="absolute inset-0 bg-gradient-to-t from-[#0B1628] via-transparent to-transparent opacity-80" />
+
+    {/* Play Button */}
+    <div className="relative z-10 w-16 h-16 md:w-16 md:h-16 bg-[#F8D000] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+      <Play className="w-7 h-7 md:w-9 md:h-9 text-black/90 ml-1" />
+    </div>
+
+    {/* Bottom Text */}
+    <div className="absolute bottom-0 left-0 right-0 z-10 p-4 bg-gradient-to-t from-[#0B1628] to-transparent">
+      <p className="text-white font-semibold text-sm md:text-base">
+        Real Estate Agent Review
+      </p>
+
+      <p className="text-white/70 text-xs md:text-sm">
+        Watch the full case study →
+      </p>
+    </div>
+  </div>
+</Link>
           </div>
         </div>
 
