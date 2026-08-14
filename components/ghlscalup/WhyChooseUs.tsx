@@ -84,11 +84,10 @@ const WhyChooseUs = () => {
             <span className="w-[22px] h-[2px] bg-[#0E9BF0] rounded"></span>
           </div>
           <h2 className="text-2xl md:text-[clamp(1.8rem,3.5vw,2.5rem)] font-extrabold tracking-[-0.03em] leading-[1.2] mb-4 text-[#1C2E4A] px-4">
-            We've the Infrastructure to<br className="hidden sm:block" />Grow Your <span className="text-[#0E9BF0]">GHL Revenue</span>
+            Why Hire GHL Scale Up as Your <span className="text-[#0E9BF0]">GoHighLevel Agency</span>
           </h2>
-          <p className="text-sm md:text-base text-[#4A5568] leading-relaxed max-w-[580px] mx-auto mb-8 md:mb-12 px-4">
-            When you hire GoHighLevel experts from GHL Scale Up, you get a dedicated team —
-            not a freelancer juggling 15 platforms.
+          <p className="text-sm md:text-base text-[#4A5568] leading-relaxed max-w-[650px] mx-auto mb-8 md:mb-12 px-4">
+            When you hire GHL Scale Up, you get a dedicated GoHighLevel team---not a freelancer juggling multiple platforms. We combine GHL-only specialization, technical implementation, AI automation, and a repeatable delivery process to build systems that can scale with your business.
           </p>
         </div>
 

@@ -41,7 +41,7 @@ const Hero = () => {
             {/* Left Side - Content */}
             <div className="fade-in">
               <div className="inline-block bg-[rgba(248,208,0,0.12)] border border-[rgba(248,208,0,0.2)] text-[#F8D000] text-xs font-bold tracking-wider uppercase px-4 py-1.5 rounded-full mb-5">
-                GoHighLevel Expert Agency
+                GoHighLevel Agency & Experts
               </div>
 
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
@@ -51,15 +51,12 @@ const Hero = () => {
               </h1>
 
               <p className="text-white/70 text-base leading-relaxed mb-6">
-                We are a team of <strong className="text-white">GoHighLevel specialists</strong> who set up,
-                automate, and manage your entire GHL system. From CRM and funnels to AI workflows
-                and white-label SaaS you focus on selling, we handle the tech.
+                GHL Scale Up is a specialized GoHighLevel agency that helps agencies and businesses build, automate, and scale their GHL systems. Our GoHighLevel experts handle CRM setup, workflow automation, AI, funnels, integrations, migrations, and white-label SaaS so you can focus on growth.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-6">
                 <Button
                   onClick={() => setOpenBooking(true)}
-                  // href="/contact-us"
                   className="bg-[#F8D000] text-[#0B1421] px-6 py-3 rounded-lg text-sm font-semibold hover:bg-[#FFE44D] hover:-translate-y-0.5 transition-all cursor-pointer"
                 >
                   Schedule My Discovery Call →

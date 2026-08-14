@@ -101,11 +101,10 @@ const Services = () => {
             <span className="w-[22px] h-[2px] bg-[#0E9BF0] rounded"></span>
           </div>
           <h2 className="text-2xl md:text-[clamp(1.8rem,3.5vw,2.5rem)] font-extrabold tracking-[-0.03em] leading-[1.2] mb-4 text-[#1C2E4A] px-4">
-            Expert GoHighLevel Development<br className="hidden sm:block" />Services for <span className="text-[#0E9BF0]">Agencies & Businesses</span>
+            GoHighLevel Agency Services for <span className="text-[#0E9BF0]">Agencies & Businesses</span>
           </h2>
           <p className="text-sm md:text-base text-[#4A5568] leading-relaxed max-w-[580px] mx-auto mb-8 md:mb-12 px-4">
-            From GoHighLevel CRM setup to advanced AI workflow automation, our GHL developers build
-            complete systems that drive leads, automate follow-ups, and grow your recurring revenue.
+            Our GoHighLevel agency services cover the full lifecycle of your GHL system---from CRM setup and automation to AI, funnels, SaaS, integrations, and ongoing optimization. Our experts build connected systems designed around your sales process, customer journey, and growth goals.
           </p>
         </div>
 

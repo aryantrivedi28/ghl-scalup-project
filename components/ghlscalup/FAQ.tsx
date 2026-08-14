@@ -45,7 +45,7 @@ export default function FAQ() {
               Frequently Asked Questions
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Got Questions? <span className="text-[#F8D000]">We've Got Answers.</span>
+              <span className="text-[#F8D000]">GoHighLevel Agency</span> FAQs
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
               Everything you need to know about GoHighLevel and working with GHL Scale Up

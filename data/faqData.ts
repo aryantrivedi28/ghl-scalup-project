@@ -4,6 +4,55 @@ export interface FAQItem {
 }
 
 export const faqData: FAQItem[] = [
+  // ============================================================
+  // COMMERCIAL QUESTIONS - Moved to the top (Section 12)
+  // ============================================================
+  
+  {
+    question: "What does GHL Scale Up do?",
+    answer: "GHL Scale Up is a dedicated GoHighLevel expert agency. We build complete GHL systems for businesses — CRM setup, pipeline configuration, workflow automation, AI voice agents, white-label SaaS mode, Shopify and third-party integrations, and funnel or website builds inside GHL. Beyond GHL, we also offer SEO, Google Ads, Meta Ads, Shopify development, and social media marketing — all integrated with your GHL system so leads flow seamlessly from ads to CRM to automation. We have delivered 200+ projects for 50+ clients across 6 countries."
+  },
+  {
+    question: "What does a GoHighLevel agency do?",
+    answer: "A GoHighLevel agency plans, builds, and manages GHL systems for businesses and agencies. This can include CRM setup, pipelines, workflow automation, funnels, websites, AI agents, integrations, migrations, reporting, and white-label SaaS. GHL Scale Up provides end-to-end GoHighLevel implementation, training, and ongoing support based on each client's goals and workflows."
+  },
+  {
+    question: "How long does it take to set up GoHighLevel?",
+    answer: "A complete GoHighLevel setup typically takes 2-4 weeks depending on scope. A basic CRM with pipelines and 5-7 core automations takes 2-3 weeks. A full white-label SaaS configuration with snapshots, Stripe rebilling, Twilio, Mailgun, and custom domain takes 3-5 weeks. Simple workflow fixes or single integrations can be done in 2-5 business days. GHL Scale Up provides a clear fixed timeline after the first strategy call. No estimates, no guesswork — you know exactly when each milestone will be delivered."
+  },
+  {
+    question: "Can you migrate me from HubSpot, Salesforce, or another CRM to GoHighLevel?",
+    answer: "Yes. We handle full CRM migrations from HubSpot, Salesforce, Zoho, Pipedrive, ActiveCampaign, Mailchimp, Kajabi, ClickFunnels, Kartra, and most other platforms. A typical migration includes exporting all contacts, tags, and custom fields, mapping them correctly inside GHL, importing historical conversations and notes, rebuilding automations and pipelines to match your existing workflows, and training your team on the new system. Most migrations take 2-4 weeks depending on data volume and the number of active automations that need rebuilding."
+  },
+  {
+    question: "How much does it cost to hire GHL Scale Up?",
+    answer: "Our GoHighLevel setup projects typically start at $1,500-$3,000 for standard CRM and automation builds. White-label SaaS configurations, multi-location deployments, and complex integrations are priced based on scope. We work on fixed-price projects with clear scope documents — no hourly billing, no surprise invoices. After the first strategy call, you receive a detailed scope document with deliverables, timeline, and exact pricing so you know what you are paying for before you commit."
+  },
+  {
+    question: "Do you work with clients outside India?",
+    answer: "Yes. GHL Scale Up is a remote-first agency. We have delivered projects for clients in the United States, United Kingdom, UAE, Australia, Singapore, Canada, and across India. Our team's working hours overlap with both US and European business hours. We run daily async updates via Slack, email, or your preferred communication channel so you always know project status regardless of timezone."
+  },
+  {
+    question: "What support do you provide after the GHL setup is complete?",
+    answer: "Every GHL Scale Up project includes team onboarding and training so your internal team can operate the system confidently. After the build, we offer optional monthly retainers for ongoing optimization, new workflow builds, troubleshooting, and technical support. Many clients continue working with us as their outsourced GHL team, adding new automations as their business grows."
+  },
+  {
+    question: "How do I hire a GoHighLevel expert?",
+    answer: "Start by defining the scope — a one-off workflow fix is a different hire than a full CRM build or white-label SaaS setup. For small, defined tasks, freelance platforms like Upwork or Fiverr work fine. For anything larger, check that the expert or agency is GHL-certified, ask to see past builds or case studies, and confirm whether pricing is fixed-scope or hourly before committing. GHL Scale Up works on fixed-price projects with a clear scope document after the first strategy call, so there are no surprise invoices. Book a free strategy call to get a scoped plan before you hire anyone."
+  },
+  {
+    question: "What's the best GoHighLevel agency to work with?",
+    answer: "The best GoHighLevel agency depends on what you need built, but a few things separate a strong one from a generic marketing agency that happens to use GHL: GHL-only specialization (not one of fifteen platforms they support), a track record of completed builds you can actually see, and a process that includes training and handoff, not just delivery. GHL Scale Up specializes exclusively in GoHighLevel — 200+ projects delivered for 50+ agencies across 6 countries, with every build including team onboarding so you're not dependent on us to run your own system. Explore our GHL services or see case studies to check the fit."
+  },
+  {
+    question: "How do I get started with GHL Scale Up?",
+    answer: "Fill out the contact form on this page or email aryan@ghlscaleup.com. Aryan personally reviews every inquiry and reaches out within a few hours via phone or email to schedule a free 30-minute strategy call. On the call, we understand your business goals, audit your current setup if you have one, and give you a clear plan with scope, timeline, and pricing. No sales pitch — just a technical conversation."
+  },
+
+  // ============================================================
+  // EDUCATIONAL QUESTIONS - Moved to the bottom (Section 12)
+  // ============================================================
+  
   {
     question: "What is GoHighLevel (GHL)?",
     answer: "GoHighLevel, often abbreviated as GHL, is an all-in-one marketing and CRM platform built for agencies, coaches, and service businesses. It combines CRM, email and SMS marketing, sales funnels, appointment scheduling, workflow automation, AI voice agents, and white-label SaaS capabilities into a single dashboard. GoHighLevel replaces 10+ separate marketing tools and starts at $97/month. At GHL Scale Up, we specialize exclusively in GoHighLevel implementation. We have built 200+ GHL systems across 6 countries — from simple CRM setups to full white-label SaaS platforms."
@@ -21,51 +70,15 @@ export const faqData: FAQItem[] = [
     answer: "GoHighLevel is worth it if you are currently paying for 3 or more separate tools like a CRM, email platform, SMS tool, calendar booking system, and funnel builder. GHL consolidates all of this into one platform starting at $97/month, which typically saves agencies $200-$500 per month compared to separate tool subscriptions. The main trade-off is a learning curve — GHL has 300+ features and most businesses take 2-4 weeks to feel competent using it themselves. This is exactly why GHL Scale Up exists. We build and configure everything for you, so your team goes from zero to fully operational in 2-3 weeks without the learning curve."
   },
   {
-    question: "What does GHL Scale Up do?",
-    answer: "GHL Scale Up is a dedicated GoHighLevel expert agency. We build complete GHL systems for businesses — CRM setup, pipeline configuration, workflow automation, AI voice agents, white-label SaaS mode, Shopify and third-party integrations, and funnel or website builds inside GHL. Beyond GHL, we also offer SEO, Google Ads, Meta Ads, Shopify development, and social media marketing — all integrated with your GHL system so leads flow seamlessly from ads to CRM to automation. We have delivered 200+ projects for 50+ clients across 6 countries."
-  },
-  {
-    question: "How long does it take to set up GoHighLevel?",
-    answer: "A complete GoHighLevel setup typically takes 2-4 weeks depending on scope. A basic CRM with pipelines and 5-7 core automations takes 2-3 weeks. A full white-label SaaS configuration with snapshots, Stripe rebilling, Twilio, Mailgun, and custom domain takes 3-5 weeks. Simple workflow fixes or single integrations can be done in 2-5 business days. GHL Scale Up provides a clear fixed timeline after the first strategy call. No estimates, no guesswork — you know exactly when each milestone will be delivered."
+    question: "What is a GoHighLevel snapshot?",
+    answer: "A GoHighLevel snapshot is a pre-built template containing pipelines, workflows, funnels, websites, email and SMS templates, triggers, and custom fields that can be deployed to any sub-account in minutes. Agencies use snapshots to standardize setup across multiple clients and cut new-client onboarding from weeks to hours. GHL Scale Up builds custom industry-specific snapshots for our clients — dental, real estate, home services, fitness, coaching, legal, and more — so you can onboard new clients without rebuilding the system every time."
   },
   {
     question: "What is GoHighLevel SaaS Mode and how does it work?",
     answer: "SaaS Mode is a feature on GoHighLevel's Agency Pro plan ($497/month) that lets agencies resell GHL as their own branded software. You set custom pricing for sub-accounts, collect payments directly via Stripe, and your clients never see the GoHighLevel name — the entire platform appears under your brand, logo, and domain. This turns agencies from service providers into software companies with recurring monthly revenue. Setting up SaaS Mode correctly requires configuring custom domains, branded login pages, Stripe rebilling, Twilio, Mailgun, and reusable snapshots. GHL Scale Up has built white-label SaaS platforms for multiple agency clients and can launch yours in 3-5 weeks."
   },
   {
-    question: "What is a GoHighLevel snapshot?",
-    answer: "A GoHighLevel snapshot is a pre-built template containing pipelines, workflows, funnels, websites, email and SMS templates, triggers, and custom fields that can be deployed to any sub-account in minutes. Agencies use snapshots to standardize setup across multiple clients and cut new-client onboarding from weeks to hours. GHL Scale Up builds custom industry-specific snapshots for our clients — dental, real estate, home services, fitness, coaching, legal, and more — so you can onboard new clients without rebuilding the system every time."
-  },
-  {
-    question: "Can you migrate me from HubSpot, Salesforce, or another CRM to GoHighLevel?",
-    answer: "Yes. We handle full CRM migrations from HubSpot, Salesforce, Zoho, Pipedrive, ActiveCampaign, Mailchimp, Kajabi, ClickFunnels, Kartra, and most other platforms. A typical migration includes exporting all contacts, tags, and custom fields, mapping them correctly inside GHL, importing historical conversations and notes, rebuilding automations and pipelines to match your existing workflows, and training your team on the new system. Most migrations take 2-4 weeks depending on data volume and the number of active automations that need rebuilding."
-  },
-  {
     question: "Do I need to already have a GoHighLevel account to work with you?",
     answer: "No. If you do not have an account, we can set one up for you or guide you through purchasing the right plan directly from GoHighLevel. If you already have an account — even one that has been sitting unused for months — we audit what is there, identify gaps, and rebuild from where you are. More than half of our clients come to us with half-configured GHL accounts that have been collecting dust."
-  },
-  {
-    question: "How much does it cost to hire GHL Scale Up?",
-    answer: "Our GoHighLevel setup projects typically start at $1,500-$3,000 for standard CRM and automation builds. White-label SaaS configurations, multi-location deployments, and complex integrations are priced based on scope. We work on fixed-price projects with clear scope documents — no hourly billing, no surprise invoices. After the first strategy call, you receive a detailed scope document with deliverables, timeline, and exact pricing so you know what you are paying for before you commit."
-  },
-  {
-    question: "Do you work with clients outside India?",
-    answer: "Yes. GHL Scale Up is a remote-first agency. We have delivered projects for clients in the United States, United Kingdom, UAE, Australia, Singapore, Canada, and across India. Our team's working hours overlap with both US and European business hours. We run daily async updates via Slack, email, or your preferred communication channel so you always know project status regardless of timezone."
-  },
-  {
-    question: "What support do you provide after the GHL setup is complete?",
-    answer: "Every GHL Scale Up project includes team onboarding and training so your internal team can operate the system confidently. After the build, we offer optional monthly retainers for ongoing optimization, new workflow builds, troubleshooting, and technical support. Many clients continue working with us as their outsourced GHL team, adding new automations as their business grows."
-  },
-  {
-    question: "How do I get started with GHL Scale Up?",
-    answer: "Fill out the contact form on this page or email aryan@ghlscaleup.com. Aryan personally reviews every inquiry and reaches out within a few hours via phone or email to schedule a free 30-minute strategy call. On the call, we understand your business goals, audit your current setup if you have one, and give you a clear plan with scope, timeline, and pricing. No sales pitch — just a technical conversation."
-  },
-  {
-    question: "How do I hire a GoHighLevel expert?",
-    answer: "Start by defining the scope — a one-off workflow fix is a different hire than a full CRM build or white-label SaaS setup. For small, defined tasks, freelance platforms like Upwork or Fiverr work fine. For anything larger, check that the expert or agency is GHL-certified, ask to see past builds or case studies, and confirm whether pricing is fixed-scope or hourly before committing. GHL Scale Up works on fixed-price projects with a clear scope document after the first strategy call, so there are no surprise invoices. Book a free strategy call to get a scoped plan before you hire anyone."
-  },
-  {
-    question: "What's the best GoHighLevel agency to work with?",
-    answer: "The best GoHighLevel agency depends on what you need built, but a few things separate a strong one from a generic marketing agency that happens to use GHL: GHL-only specialization (not one of fifteen platforms they support), a track record of completed builds you can actually see, and a process that includes training and handoff, not just delivery. GHL Scale Up specializes exclusively in GoHighLevel — 200+ projects delivered for 50+ agencies across 6 countries, with every build including team onboarding so you're not dependent on us to run your own system. Explore our GHL services or see case studies to check the fit."
   }
 ];

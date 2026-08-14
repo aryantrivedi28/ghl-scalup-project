@@ -37,30 +37,19 @@ const About = () => {
             </div>
 
             <h2 className="text-[clamp(1.8rem,3.5vw,2.5rem)] font-extrabold tracking-[-0.03em] leading-[1.12] mb-4 text-[#1C2E4A]">
-              The Force Behind Your<br />
-              <span className="text-[#0E9BF0]">GoHighLevel Growth</span>
+              <span className="text-[#0E9BF0]">GoHighLevel Agency</span> Built for Scalable Growth
             </h2>
 
             <p className="text-[0.92rem] font-light text-[#4A5568] leading-relaxed mb-4">
-              We are <strong className="font-semibold text-[#1C2E4A]">GHL Scale Up</strong>, a specialized GoHighLevel agency that helps marketing agencies,
-              SaaS founders, coaches, and service businesses unlock the full potential of the HighLevel platform.
+              GHL Scale Up is a specialized GoHighLevel agency helping marketing agencies, SaaS founders, coaches, and lead-driven service businesses build systems that turn leads into customers and customers into recurring revenue.
             </p>
 
             <p className="text-[0.92rem] font-light text-[#4A5568] leading-relaxed mb-4">
-              Our team has delivered <strong className="font-semibold text-[#1C2E4A]">200+ high-performance systems</strong> including CRM setups,
-              automation workflows, sales funnels, and AI-driven lead handling across global markets like the US, UK,
-              Australia, and India.
+              Our GoHighLevel experts have delivered <strong className="font-semibold text-[#1C2E4A]">200+ systems</strong> across <strong className="font-semibold text-[#1C2E4A]">6 countries</strong>, including CRM setups, workflow automations, sales funnels, AI-powered lead handling, integrations, migrations, and white-label SaaS implementations.
             </p>
 
             <p className="text-[0.92rem] font-light text-[#4A5568] leading-relaxed mb-4">
-              We built GHL Scale Up with a clear focus: most businesses don’t need another generalist agency — they need
-              a <strong className="font-semibold text-[#1C2E4A]">GoHighLevel-native partner</strong> who understands how to build scalable,
-              revenue-generating systems that actually work in the real world.
-            </p>
-
-            <p className="text-[0.92rem] font-light text-[#4A5568] leading-relaxed mb-4">
-              Whether you need a complete CRM setup, AI-powered lead response system, high-converting funnels,
-              or a white-label SaaS infrastructure, we handle everything end-to-end so you can focus on growth.
+              Instead of treating GoHighLevel as just another tool, we build around your business model, customer journey, and growth goals. From initial architecture and implementation to training and ongoing optimization, we handle the technical side of GHL so your team can focus on selling and scaling.
             </p>
 
             <p>

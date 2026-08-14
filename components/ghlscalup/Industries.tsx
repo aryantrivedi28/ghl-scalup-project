@@ -66,7 +66,7 @@ const Industries = () => {
               <span className="w-[22px] h-[2px] bg-[#0E9BF0] rounded"></span>
             </div>
             <h2 className="text-2xl md:text-[clamp(1.8rem,3.5vw,2.5rem)] font-extrabold tracking-[-0.03em] leading-[1.2] mb-4 text-white px-4">
-              GoHighLevel Solutions for<br className="hidden sm:block" />Every <span className="text-[#F8D000]">Lead-Driven Business</span>
+              GoHighLevel Agency Solutions for <span className="text-[#F8D000]">Lead-Driven Businesses</span>
             </h2>
             <p className="text-sm md:text-base text-white/50 leading-relaxed max-w-[580px] mx-auto mb-8 md:mb-12 px-4">
               If your growth depends on leads and follow-ups, we have built a GHL system for your industry.

@@ -24,9 +24,9 @@ const Footer = () => {
                 <Image src="/ghlscalup.png" alt="GHL Scale Up" width={150} height={100} className="h-12 w-auto cursor-pointer hover:opacity-80 transition-opacity" />
               </Link>
             </div>
+            {/* NEW FOOTER AGENCY STATEMENT - Section 15 */}
             <p className="text-[0.82rem] text-[#8A9BB0] font-light leading-relaxed max-w-[300px]">
-              The #1 GoHighLevel expert agency for marketing agencies and businesses. We build complete
-              GHL systems CRM, automation, AI, funnels, SaaS so you can scale without the tech headaches.
+              GHL Scale Up is a specialized GoHighLevel agency for marketing agencies and businesses. We build complete GHL systems across CRM, automation, AI, funnels, SaaS, integrations, and migration.
             </p>
           </div>
 

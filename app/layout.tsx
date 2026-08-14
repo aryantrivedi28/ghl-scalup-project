@@ -22,11 +22,13 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.ghlscaleup.com'),
-  title: 'GoHighLevel Experts & GHL Agency Services | GHL Scale Up',
-  description: 'Partner with GHL Scale Up -- GoHighLevel agency with 200+ builds across 6 countries. CRM, automation, AI Voice Agent, white-label SaaS, and GHL migrations. Book a free call.',
+  // NEW TITLE: GoHighLevel Agency & Experts | GHL Scale Up (Section 1)
+  title: 'GoHighLevel Agency & Experts | GHL Scale Up',
+  // NEW META DESCRIPTION: Section 2
+  description: 'GHL Scale Up is a GoHighLevel agency helping businesses and agencies build CRM, automation, AI, SaaS, funnels, and more. 200+ GHL projects.',
 
   alternates: {
-    canonical: '/',
+    canonical: '/', // DO NOT CHANGE (Section 16)
   },
 
   // Complete icons configuration for all devices
@@ -47,8 +49,10 @@ export const metadata: Metadata = {
 
   // Open Graph for social media (Facebook, LinkedIn, etc.)
   openGraph: {
-    title: 'GoHighLevel Expert Agency | GHL Scale Up',
-    description: 'GHL Scale Up builds complete GoHighLevel systems CRM setup, automation, AI agents & white-label SaaS.',
+    // Updated to match new title
+    title: 'GoHighLevel Agency & Experts | GHL Scale Up',
+    // Updated to match new description
+    description: 'GHL Scale Up is a GoHighLevel agency helping businesses and agencies build CRM, automation, AI, SaaS, funnels, and more. 200+ GHL projects.',
     url: 'https://www.ghlscaleup.com',
     siteName: 'GHL Scale Up',
     images: [
@@ -72,20 +76,22 @@ export const metadata: Metadata = {
   // Twitter Card for Twitter sharing
   twitter: {
     card: 'summary_large_image',
-    title: 'GoHighLevel Expert Agency | GHL Scale Up',
-    description: 'GHL Scale Up builds complete GoHighLevel systems CRM setup, automation, AI agents & white-label SaaS.',
+    // Updated to match new title
+    title: 'GoHighLevel Agency & Experts | GHL Scale Up',
+    // Updated to match new description
+    description: 'GHL Scale Up is a GoHighLevel agency helping businesses and agencies build CRM, automation, AI, SaaS, funnels, and more. 200+ GHL projects.',
     images: ['/web-app-manifest-512x512.png'],
     creator: '@ghlscaleup',
     site: '@ghlscaleup',
   },
 
-  // Additional metadata for SEO
+  // Additional metadata for SEO - DO NOT CHANGE (Section 16)
   robots: {
-    index: true,
-    follow: true,
+    index: true,    // DO NOT CHANGE (Section 16)
+    follow: true,   // DO NOT CHANGE (Section 16)
     googleBot: {
-      index: true,
-      follow: true,
+      index: true,  // DO NOT CHANGE (Section 16)
+      follow: true, // DO NOT CHANGE (Section 16)
       'max-video-preview': -1,
       'max-image-preview': 'large',
       'max-snippet': -1,
@@ -116,6 +122,7 @@ export const metadata: Metadata = {
   applicationName: 'GHL Scale Up',
   authors: [{ name: 'GHL Scale Up' }],
   generator: 'Next.js',
+  // Keywords can stay as-is or be removed (not a ranking factor - Section 3)
   keywords: ['GoHighLevel', 'GHL', 'CRM Setup', 'Automation', 'AI Agents', 'White Label SaaS', 'Marketing Automation'],
   referrer: 'origin-when-cross-origin',
   creator: 'GHL Scale Up',
@@ -160,7 +167,7 @@ export default function RootLayout({
         '@id': 'https://www.ghlscaleup.com/#website',
         url: 'https://www.ghlscaleup.com',
         name: 'GHL Scale Up',
-        description: 'GoHighLevel Expert Agency for CRM setup, automation, funnels, and SaaS',
+        description: 'GHL Scale Up is a GoHighLevel agency helping businesses and agencies build CRM, automation, AI, SaaS, funnels, and more. 200+ GHL projects.',
         publisher: {
           '@id': 'https://www.ghlscaleup.com/#organization',
         },
