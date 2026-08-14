@@ -15,6 +15,8 @@ import FAQ from '@/components/ghlscalup/FAQ'
 import FAQSchema from '@/components/ghlscalup/FAQSchema'
 import { getAllTestimonialsForHomepage } from '@/lib/sanity'
 import { getVideoSchemaData } from '@/data/youtube-videos'
+import CaseStudies from '@/components/ghlscalup/CaseStudies'
+import { getCaseStudies } from '@/lib/caseStudiesData'
 
 export default async function Home() {
   // Fetch testimonials from Sanity
@@ -27,6 +29,8 @@ export default async function Home() {
   
   // Get video data from separate file
   const videos = getVideoSchemaData();
+
+  const caseStudies = getCaseStudies();
 
   // Generate video schema for all YouTube videos
   const videoSchema = {
@@ -105,6 +109,7 @@ export default async function Home() {
       <Hero />
       <StatsBar />
       <About />
+      <CaseStudies caseStudies={caseStudies} />
       <Testimonials testimonials={testimonials} />
       <Services />
       <WhyChooseUs />
