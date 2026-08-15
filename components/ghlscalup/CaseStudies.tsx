@@ -50,7 +50,7 @@ export default function CaseStudies({ caseStudies }: CaseStudiesProps) {
             Case Studies
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-[-0.03em] text-[#1C2E4A] mb-4">
-            Real <span className="text-[#F8D000]"> GoHighLevel </span> Systems We’ve Built
+            <span className="text-[#F8D000]"> GoHighLevel </span> Systems We’ve Built
           </h2>
           <p className="text-[#5C6880] text-base max-w-[600px] mx-auto">
             Our work spans CRM architecture, workflow automation, AI lead handling, funnels, migrations, and white-label SaaS. Here are examples of the systems we have implemented:
