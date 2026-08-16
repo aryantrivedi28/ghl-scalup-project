@@ -63,8 +63,53 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
+    const ghlCasestudy: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/case-studies/real-estate-agent-rebuild`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/case-studies/gohighlevel-parent-saas-multi-crm-automation-energy-platform`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/case-studies/gohighlevel-website-setup-automation-fix`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/case-studies/gohighlevel-ai-automation-customer-management-marketing-agency`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/case-studies/gohighlevel-multi-location-automation-property-website-real-estate`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/case-studies/gohighlevel-affiliate-management-automation-media-company`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+  ]
+
   // GHL Services
   const ghlServices: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/services/gohighlevel-saas-mode`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
     {
       url: `${baseUrl}/services/crm-setup`,
       lastModified: currentDate,
@@ -242,6 +287,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/blog/is-gohighlevel-saas-business-legit`,
+      lastModified: new Date('2026-08-16'),
+      changeFrequency: 'monthly',
+      priority: 0.9,  // High priority - addresses key skepticism intent
+    },
     {
       url: `${baseUrl}/blog/how-to-choose-gohighlevel-saas-niche`,
       lastModified: new Date('2026-08-11'),
@@ -688,6 +739,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...mainPages,
+    ...ghlCasestudy,
     ...ghlServices,
     ...marketingServices,
     ...blogPosts,

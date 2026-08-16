@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+  icon: 'ShieldCheck',
+  tag: 'SaaS Legitimacy',
+  title: 'Is a GoHighLevel SaaS Business Legit? An Honest 2026 Answer',
+  excerpt: 'Is a GoHighLevel SaaS business legit or a scam? An honest look at the platform, the real risks, whether you need tech skills, and who actually succeeds.',
+  slug: 'is-gohighlevel-saas-business-legit',
+  date: 'August 16, 2026',
+  readTime: '18 min read',
+  featured: true,
+  image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+},
+      {
             icon: 'Handshake',
             tag: 'Sales Guide',
             title: 'How to Sell GoHighLevel to Local Businesses (Without Sounding Like You\'re Selling Software)',
