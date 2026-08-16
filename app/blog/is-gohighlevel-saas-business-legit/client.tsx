@@ -196,7 +196,7 @@ export default function IsGoHighLevelSAASLegitClient() {
 
                               {/* Author */}
                               <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center rounded-full">
+                                    <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
                                           <img
                                                 src="/web-app-manifest-192x192.png"
                                                 alt="GHL Scale Up"
@@ -593,7 +593,7 @@ export default function IsGoHighLevelSAASLegitClient() {
                                     {/* Author Section */}
                                     <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 my-6">
                                           <div className="flex items-center gap-3 mb-3">
-                                                <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
+                                                <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
                                                       <img
                                                             src="/web-app-manifest-192x192.png"
                                                             alt="GHL Scale Up"
@@ -641,7 +641,7 @@ export default function IsGoHighLevelSAASLegitClient() {
 
                                     <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
                                           <div className="flex items-center gap-3 mb-4">
-                                                <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
+                                                <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
                                                       <img
                                                             src="/web-app-manifest-192x192.png"
                                                             alt="GHL Scale Up"
