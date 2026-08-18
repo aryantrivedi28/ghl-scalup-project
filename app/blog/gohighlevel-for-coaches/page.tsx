@@ -1,27 +1,28 @@
+// app/blog/gohighlevel-for-coaches/page.tsx
 import { Metadata } from 'next';
 import Script from 'next/script';
 import GoHighLevelForCoachesClient from './client';
 
 export const metadata: Metadata = {
-  title: 'GoHighLevel for Coaches and Consultants (2026 Guide)',
-  description: 'GHL automates discovery call booking, follow-up, and review collection for coaches. Replaces Calendly, Kajabi, and Mailchimp for $97/mo.',
-  keywords: 'GoHighLevel for coaches, GoHighLevel for consultants, GoHighLevel coaching business 2026, GHL for life coaches, GoHighLevel discovery call automation coaches, best CRM for coaches 2026, GoHighLevel for business coaches',
+  title: 'GoHighLevel for Coaches: Automate, Book Clients & Scale (2026)',
+  description: 'How coaches use GoHighLevel to capture leads, automate follow-up, book discovery calls, onboard clients, and scale, plus honest pricing, limits, and what to automate first.',
+  keywords: 'GoHighLevel for coaches, GoHighLevel coaching automation, GHL CRM for coaches, GoHighLevel coaching funnel, GoHighLevel for business coaches, GoHighLevel for life coaches, GoHighLevel for executive coaches, GoHighLevel cost for coaches',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {
-    title: 'GoHighLevel for Coaches and Consultants (2026 Guide)',
-    description: 'Book more discovery calls, automate lead follow-up, deliver group programs, and collect reviews replacing Calendly, Kajabi, and Mailchimp for $97/mo.',
+    title: 'GoHighLevel for Coaches: Automate, Book Clients & Scale (2026)',
+    description: 'How coaches use GoHighLevel to capture leads, automate follow-up, book discovery calls, onboard clients, and scale, plus honest pricing, limits, and what to automate first.',
     type: 'article',
-    publishedTime: '2026-06-02T00:00:00Z',
-    modifiedTime: '2026-06-02T00:00:00Z',
+    publishedTime: '2026-07-01T00:00:00Z',
+    modifiedTime: '2026-07-01T00:00:00Z',
     authors: ['GHL Scale Up Team'],
-    tags: ['GoHighLevel', 'Coaches', 'Consultants', 'Coaching CRM', '2026'],
+    tags: ['GoHighLevel', 'Coaches', 'Consultants', 'Coaching CRM', '2026', 'Automation'],
     images: [{ url: 'https://www.ghlscaleup.com/images/blog/ghl-for-coaches-og.jpg', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
     site: '@ghlscaleup',
-    title: 'GoHighLevel for Coaches and Consultants (2026 Guide)',
-    description: 'Book more discovery calls, automate lead follow-up, deliver group programs. Complete guide for coaches and consultants.',
+    title: 'GoHighLevel for Coaches: Automate, Book Clients & Scale (2026)',
+    description: 'How coaches use GoHighLevel to capture leads, automate follow-up, book discovery calls, onboard clients, and scale. Complete guide with pricing and what to automate first.',
     images: ['https://www.ghlscaleup.com/images/blog/ghl-for-coaches-og.jpg'],
   },
   alternates: {
@@ -40,11 +41,11 @@ export default function GoHighLevelForCoachesPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "GoHighLevel for Coaches and Consultants (2026 Guide)",
-            "description": "GoHighLevel helps coaches book more discovery calls, automate lead follow-up, deliver group programs, and collect reviews replacing Calendly, Kajabi, and Mailchimp for $97/mo.",
+            "headline": "GoHighLevel for Coaches: Automate, Book Clients & Scale (2026)",
+            "description": "How coaches use GoHighLevel to capture leads, automate follow-up, book discovery calls, onboard clients, and scale, plus honest pricing, limits, and what to automate first.",
             "image": "https://www.ghlscaleup.com/images/blog/ghl-for-coaches-og.jpg",
-            "datePublished": "2026-06-02",
-            "dateModified": "2026-06-02",
+            "datePublished": "2026-07-01",
+            "dateModified": "2026-07-01",
             "author": {
               "@type": "Organization",
               "name": "GHL Scale Up Team",
