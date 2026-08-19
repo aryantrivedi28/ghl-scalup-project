@@ -22,7 +22,7 @@ export const blogPosts: BlogPost[] = [
             date: 'August 19, 2026',
             readTime: '25 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: 'https://tse2.mm.bing.net/th/id/OIP.CjefsBB7L4sMAfLrV1781wHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3',
       },
       {
             icon: 'ShieldCheck',
@@ -33,7 +33,7 @@ export const blogPosts: BlogPost[] = [
             date: 'August 16, 2026',
             readTime: '18 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: 'https://vkreview.com/wp-content/uploads/2025/11/Is-GoHighLevel-a-SaaS-A-Complete-2025-Guide-for-Agencies-and-Entrepreneurs-768x768.png',
       },
       {
             icon: 'Handshake',
@@ -44,7 +44,7 @@ export const blogPosts: BlogPost[] = [
             date: 'August 13, 2026',
             readTime: '22 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: 'https://i.ytimg.com/vi/oSV6lB7BEOM/maxresdefault.jpg',
       },
       {
             icon: 'Target',
@@ -55,7 +55,7 @@ export const blogPosts: BlogPost[] = [
             date: 'August 11, 2026',
             readTime: '20 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: 'https://torchbankz.com/wp-content/uploads/2024/02/Highlevel-niches-.jpg',
       },
       {
             icon: 'LayoutIcon',
@@ -88,7 +88,7 @@ export const blogPosts: BlogPost[] = [
             date: 'July 29, 2026',
             readTime: '25 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: 'https://tse2.mm.bing.net/th/id/OIP.ucOWGcKCaXU23lWV8uZp9QHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3',
       },
       {
             icon: 'GitCompare',
