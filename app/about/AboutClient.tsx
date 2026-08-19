@@ -258,59 +258,105 @@ export default function AboutClient() {
       </div>
 
       {/* Founder Section */}
-      <section className="py-12 sm:py-16 md:py-20 bg-white">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8">
-          <div className="grid md:grid-cols-[0.85fr_1.15fr] gap-8 md:gap-12 lg:gap-14 items-center">
-            <div className="relative fade-in order-1 md:order-1 mx-auto md:mx-0">
-              <div className="max-w-[240px] sm:max-w-[280px] md:max-w-[320px] lg:max-w-[380px] mx-auto bg-[#F4F7FA] border border-[#E8EDF4] rounded-2xl flex flex-col items-center justify-center gap-3 p-6 sm:p-8 md:p-10 text-center">
-                <div className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-full overflow-hidden bg-gradient-to-br from-[#0E9BF0] to-[#25C97D]">
-                  <Image
-                    src="/team/aryan_t.jpeg"
-                    alt="Aryan Trivedi - Founder & CEO"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 640px) 112px, (max-width: 768px) 128px, (max-width: 1024px) 144px, 160px"
-                  />
-                </div>
-                <p className="text-[0.7rem] sm:text-[0.75rem] md:text-[0.78rem] text-[#8A9BB0] font-normal">Founder & CEO</p>
-              </div>
-              <div className="absolute bottom-2 right-2 sm:bottom-3 md:bottom-5 bg-[#F8D000] text-[#0B1421] px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 rounded-lg sm:rounded-xl text-[0.55rem] sm:text-[0.6rem] md:text-[0.68rem] font-bold shadow-lg whitespace-nowrap">
-                Founder & CEO
-              </div>
-            </div>
-            <div className="fade-in order-2 md:order-2 text-center md:text-left">
-              <div className="inline-flex items-center gap-2.5 text-[0.65rem] font-bold tracking-[0.12em] uppercase text-[#F8D000] mb-3">
-                <span className="w-[22px] h-[2px] bg-[#F8D000] rounded"></span>
-                Meet the Founder
-              </div>
-              <div className="text-2xl sm:text-[1.6rem] md:text-[1.8rem] font-extrabold text-[#1C2E4A] tracking-[-0.03em] mb-1">Aryan Trivedi</div>
-              <div className="text-[0.75rem] sm:text-[0.8rem] md:text-[0.85rem] font-medium text-[#0E9BF0] mb-3 md:mb-4">Founder & CEO, GHL Scale Up</div>
-              <div className="space-y-3">
-                <p className="text-sm sm:text-[0.85rem] md:text-[0.9rem] font-light text-[#4A5568] leading-relaxed">
-                  Aryan is a product strategist and entrepreneur who built GHL Scale Up from the ground up starting as a freelancer network for startups and evolving it into a full-stack execution partner specializing in GoHighLevel CRM systems, automation, and white-label agency delivery.
-                </p>
-                <p className="text-sm sm:text-[0.85rem] md:text-[0.9rem] font-light text-[#4A5568] leading-relaxed">
-                  After personally overseeing 200+ GoHighLevel projects across real estate, home services, SaaS, energy, and marketing agencies in 6 countries, Aryan launched <strong className="font-semibold text-[#1C2E4A]">GHL Scale Up</strong> to solve a recurring problem: most businesses invest in GoHighLevel but never get the architecture right.
-                </p>
-                <p className="text-sm sm:text-[0.85rem] md:text-[0.9rem] font-light text-[#4A5568] leading-relaxed">
-                  His approach is simple <strong className="font-semibold text-[#1C2E4A]">understand how the business sells, then build the GHL system that makes that process faster and more automated.</strong> No generic templates. No overengineered setups. Just systems that hold up at scale and grow revenue.
-                </p>
-                <p className="text-sm sm:text-[0.85rem] md:text-[0.9rem] font-light text-[#4A5568] leading-relaxed">
-                  Based in Indore, India, Aryan leads a team of GHL specialists, automation engineers, and marketing strategists who work inside GoHighLevel every single day.
-                </p>
-              </div>
-              <div className="flex justify-center md:justify-start gap-2.5 mt-5">
-                <Link href="https://www.linkedin.com/in/aryantrivedi" target="_blank" className="w-10 h-10 rounded-lg bg-[#F4F7FA] border border-[#E8EDF4] flex items-center justify-center text-[#4A5568] hover:bg-[#0E9BF0] hover:text-white transition-all">
-                  <Linkedin className="w-4 h-4" />
-                </Link>
-                <Link href="mailto:aryan@ghlscaleup.com" className="w-10 h-10 rounded-lg bg-[#F4F7FA] border border-[#E8EDF4] flex items-center justify-center text-[#4A5568] hover:bg-[#0E9BF0] hover:text-white transition-all">
-                  <Mail className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
+<section className="py-12 sm:py-16 md:py-20 bg-white">
+  <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8">
+    <div className="grid md:grid-cols-[0.85fr_1.15fr] gap-8 md:gap-12 lg:gap-14 items-center">
+      <div className="relative fade-in order-1 md:order-1 mx-auto md:mx-0">
+        <div className="max-w-[240px] sm:max-w-[280px] md:max-w-[320px] lg:max-w-[380px] mx-auto bg-[#F4F7FA] border border-[#E8EDF4] rounded-2xl flex flex-col items-center justify-center gap-3 p-6 sm:p-8 md:p-10 text-center">
+          <div className="relative w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 lg:w-44 lg:h-44 rounded-full overflow-hidden bg-gradient-to-br from-[#0E9BF0] to-[#25C97D]">
+            <Image
+              src="/team/aryan_t.jpeg"
+              alt="Aryan Trivedi - Founder & CEO"
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 124px, (max-width: 768px) 132px, (max-width: 1024px) 148px, 164px"
+            />
           </div>
+          <p className="text-[0.7rem] sm:text-[0.75rem] md:text-[0.78rem] text-[#8A9BB0] font-normal">
+            Founder & CEO
+          </p>
         </div>
-      </section>
+
+        <div className="absolute bottom-2 right-2 sm:bottom-3 md:bottom-5 bg-[#F8D000] text-[#0B1421] px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 rounded-lg sm:rounded-xl text-[0.55rem] sm:text-[0.6rem] md:text-[0.68rem] font-bold shadow-lg whitespace-nowrap">
+          Founder & CEO
+        </div>
+      </div>
+
+      <div className="fade-in order-2 md:order-2 text-center md:text-left">
+        <div className="inline-flex items-center gap-2.5 text-[0.65rem] font-bold tracking-[0.12em] uppercase text-[#F8D000] mb-3">
+          <span className="w-[22px] h-[2px] bg-[#F8D000] rounded"></span>
+          Meet the Founder
+        </div>
+
+        <div className="text-2xl sm:text-[1.6rem] md:text-[1.8rem] font-extrabold text-[#1C2E4A] tracking-[-0.03em] mb-1">
+          Aryan Trivedi
+        </div>
+
+        <div className="text-[0.75rem] sm:text-[0.8rem] md:text-[0.85rem] font-medium text-[#0E9BF0] mb-3 md:mb-4">
+          Founder & CEO, GHL Scale Up
+        </div>
+
+        <div className="space-y-3">
+          <p className="text-sm sm:text-[0.85rem] md:text-[0.9rem] font-light text-[#4A5568] leading-relaxed">
+            Based in <strong className="font-semibold text-[#1C2E4A]">Gurugram, India</strong>,
+            Aryan is a product strategist and entrepreneur who built GHL Scale Up from the
+            ground up. What started as a freelancer network helping startups execute projects
+            has evolved into a full-stack <strong className="font-semibold text-[#1C2E4A]">
+              GoHighLevel agency and execution partner
+            </strong>, specializing in GoHighLevel CRM systems, workflow automation, AI solutions,
+            and white-label agency delivery.
+          </p>
+
+          <p className="text-sm sm:text-[0.85rem] md:text-[0.9rem] font-light text-[#4A5568] leading-relaxed">
+            After personally overseeing <strong className="font-semibold text-[#1C2E4A]">
+              200+ GoHighLevel projects
+            </strong> across real estate, home services, SaaS, energy, and marketing agencies in
+            <strong className="font-semibold text-[#1C2E4A]"> 6 countries</strong>, Aryan launched
+            GHL Scale Up to solve a recurring problem: businesses invest in GoHighLevel but often
+            struggle to build the right CRM architecture and automation systems around the way
+            they actually sell.
+          </p>
+
+          <p className="text-sm sm:text-[0.85rem] md:text-[0.9rem] font-light text-[#4A5568] leading-relaxed">
+            His approach is simple:{' '}
+            <strong className="font-semibold text-[#1C2E4A]">
+              understand how the business sells, then build the GoHighLevel system that makes
+              that process faster, more efficient, and more automated.
+            </strong>{' '}
+            No generic templates. No overengineered setups. Just practical systems designed
+            around how the business operates and built to support growth.
+          </p>
+
+          <p className="text-sm sm:text-[0.85rem] md:text-[0.9rem] font-light text-[#4A5568] leading-relaxed">
+            Aryan leads the growth and direction of GHL Scale Up alongside a team of{' '}
+            <strong className="font-semibold text-[#1C2E4A]">
+              GoHighLevel specialists, automation engineers, and marketing strategists
+            </strong>{' '}
+            who work with businesses and agencies on CRM setup, workflow automation, AI
+            solutions, and white-label GoHighLevel systems.
+          </p>
+        </div>
+
+        <div className="flex justify-center md:justify-start gap-2.5 mt-5">
+          <Link
+            href="https://www.linkedin.com/in/aryantrivedi"
+            target="_blank"
+            className="w-10 h-10 rounded-lg bg-[#F4F7FA] border border-[#E8EDF4] flex items-center justify-center text-[#4A5568] hover:bg-[#0E9BF0] hover:text-white transition-all"
+          >
+            <Linkedin className="w-4 h-4" />
+          </Link>
+
+          <Link
+            href="mailto:aryan@ghlscaleup.com"
+            className="w-10 h-10 rounded-lg bg-[#F4F7FA] border border-[#E8EDF4] flex items-center justify-center text-[#4A5568] hover:bg-[#0E9BF0] hover:text-white transition-all"
+          >
+            <Mail className="w-4 h-4" />
+          </Link>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Core Team */}
       <section className="py-12 sm:py-16 md:py-20 bg-[#F4F7FA]">

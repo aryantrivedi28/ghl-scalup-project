@@ -63,7 +63,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-    const ghlCasestudy: MetadataRoute.Sitemap = [
+  const ghlCasestudy: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/case-studies/real-estate-agent-rebuild`,
       lastModified: currentDate,
@@ -287,6 +287,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/blog/best-crm-for-coaches`,
+      lastModified: new Date('2026-08-19'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
     {
       url: `${baseUrl}/blog/is-gohighlevel-saas-business-legit`,
       lastModified: new Date('2026-08-16'),
