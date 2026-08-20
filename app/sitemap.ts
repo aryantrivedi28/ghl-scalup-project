@@ -288,6 +288,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
     {
+      url: `${baseUrl}/blog/best-crm-for-nonprofits`,
+      lastModified: new Date('2026-08-20'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/blog/best-crm-for-coaches`,
       lastModified: new Date('2026-08-19'),
       changeFrequency: 'monthly',
@@ -297,7 +303,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/blog/is-gohighlevel-saas-business-legit`,
       lastModified: new Date('2026-08-16'),
       changeFrequency: 'monthly',
-      priority: 0.9,  // High priority - addresses key skepticism intent
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/blog/how-to-choose-gohighlevel-saas-niche`,

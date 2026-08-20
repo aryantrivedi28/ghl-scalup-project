@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'HeartHandshake',
+            tag: 'Nonprofit CRM',
+            title: 'The Complete Guide to Choosing a CRM for Nonprofit Organisations (2026)',
+            excerpt: 'GoHighLevel, Salesforce, Bloomerang or HubSpot? An honest comparison of the best CRMs for nonprofits by donor management, fundraising, automation, pricing and total cost of ownership.',
+            slug: 'best-crm-for-nonprofits',
+            date: 'August 20, 2026',
+            readTime: '28 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'Target',
             tag: 'CRM Guide',
             title: 'The Complete Guide to Choosing a CRM for a Coaching Business (2026)',

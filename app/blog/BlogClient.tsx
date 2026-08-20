@@ -122,6 +122,7 @@ export default function BlogClient() {
       'Sales Guide': 'bg-[rgba(248,208,0,0.12)] text-[#F8D000] border-[rgba(248,208,0,0.2)]',
       'SaaS Legitimacy': 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]',
         'CRM Guide': 'bg-[rgba(37,201,125,0.12)] text-[#25C97D] border-[rgba(37,201,125,0.2)]',
+         'Nonprofit CRM': 'bg-[rgba(220,53,69,0.12)] text-[#DC3545] border-[rgba(220,53,69,0.2)]',
     };
     return colors[tag] || 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]';
   };
