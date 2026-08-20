@@ -247,8 +247,8 @@ export default function BestCRMForNonprofitsClient() {
 
           {/* H1 */}
           <h1 className="text-[clamp(28px,6vw,46px)] font-extrabold leading-[1.2] md:leading-[1.15] text-white mb-4 md:mb-5 tracking-[-0.02em]">
-            The Complete Guide to Choosing a CRM:<br />
-            <span className="text-[#F8D000]">For Nonprofit Organisations (2026)</span>
+            Best CRM for Nonprofit Organisations:<br />
+            <span className="text-[#F8D000]">An Honest 2026 Comparison</span>
           </h1>
 
           {/* Author */}

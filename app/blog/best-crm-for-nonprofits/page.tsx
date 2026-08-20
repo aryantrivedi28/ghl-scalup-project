@@ -3,8 +3,8 @@ import Script from 'next/script';
 import BestCRMForNonprofitsClient from './client';
 
 export const metadata: Metadata = {
-  title: 'The Complete Guide to Choosing a CRM for Nonprofit Organisations (2026) | GHL Scale Up',
-  description: 'GoHighLevel, Salesforce, Bloomerang or HubSpot? An honest comparison of the best CRMs for nonprofits by donor management, fundraising, automation, pricing and total cost of ownership.',
+  title: 'Best CRM for Nonprofit Organisations (2026)',
+  description: 'Best CRM for nonprofit organisations: GoHighLevel, Salesforce, Bloomerang, HubSpot and more compared honestly on cost, fundraising and automation.',
   keywords: 'best crm for nonprofits, nonprofit crm, donor management software, fundraising crm, gohighlevel for nonprofits, salesforce nonprofit cloud, bloomerang, neon one, hubspot nonprofit, crm for charities, nonprofit donor management, best crm for small nonprofits, nonprofit fundraising software',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {
