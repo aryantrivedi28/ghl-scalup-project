@@ -4,13 +4,18 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import {
   ArrowRight,
+  CheckCircle2,
   ChevronDown,
   Copy,
   Linkedin,
   Twitter,
   BookOpen,
   Zap,
+  Star,
+  AlertTriangle,
+  Info,
   Lightbulb,
+
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
 
@@ -247,13 +252,13 @@ export default function BestCRMForNonprofitsClient() {
 
           {/* H1 */}
           <h1 className="text-[clamp(28px,6vw,46px)] font-extrabold leading-[1.2] md:leading-[1.15] text-white mb-4 md:mb-5 tracking-[-0.02em]">
-            Best CRM for Nonprofit Organisations:<br />
-            <span className="text-[#F8D000]">An Honest 2026 Comparison</span>
+            The Complete Guide to Choosing a CRM:<br />
+            <span className="text-[#F8D000]">For Nonprofit Organisations (2026)</span>
           </h1>
 
           {/* Author */}
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
+            <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center rounded-full">
               <img
                 src="/web-app-manifest-192x192.png"
                 alt="GHL Scale Up"
@@ -266,7 +271,7 @@ export default function BestCRMForNonprofitsClient() {
             </div>
           </div>
 
-          {/* Intro Paragraphs */}
+          {/* Intro Paragraphs - EXACTLY as in document */}
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
             Choosing the best CRM for nonprofit organisations is not simply a matter of comparing feature lists. A charity, foundation, association or community organisation may need to manage donors, volunteers, members, beneficiaries, sponsors, events and recurring giving from the same relationship database. At the same time, nonprofit teams usually have tighter budgets and fewer technical resources than commercial organisations.
           </p>
@@ -295,10 +300,10 @@ export default function BestCRMForNonprofitsClient() {
                 <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Quick Answer</span>
               </div>
               <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
-                There is no single best nonprofit CRM for every organisation.
+                There is no single best nonprofit CRM for every organisation, but for small and mid-sized nonprofits that want to bring CRM, donor communication, forms, calendars, email, SMS and workflow automation into one system, GoHighLevel deserves to be one of the first platforms evaluated.
               </p>
               <p className="text-sm text-[#5C6880] leading-relaxed">
-                For small and mid-sized nonprofits that want to bring CRM, donor communication, forms, calendars, email, SMS and workflow automation into one system, GoHighLevel deserves to be one of the first platforms evaluated. It is particularly strong when the organisation's biggest problem is fragmented tools and manual follow-up rather than highly specialised grant or enterprise fundraising administration. For organisations with more specialised requirements, Salesforce Nonprofit Cloud, Blackbaud, Bloomerang and Neon One can be stronger fits. HubSpot, Zoho and Microsoft Dynamics 365 also have clear use cases.
+                It is particularly strong when the organisation's biggest problem is fragmented tools and manual follow-up rather than highly specialised grant or enterprise fundraising administration. For organisations with more specialised requirements, Salesforce Nonprofit Cloud, Blackbaud, Bloomerang and Neon One can be stronger fits. HubSpot, Zoho and Microsoft Dynamics 365 also have clear use cases. The right decision still depends on the nonprofit's size, fundraising model, technical capacity and existing technology stack.
               </p>
             </div>
 
@@ -327,12 +332,11 @@ export default function BestCRMForNonprofitsClient() {
                 <strong className="text-white">Need help designing the CRM architecture before choosing a platform?</strong>
               </p>
               <Link href="/services/crm-setup" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                Explore GHL Scale Up
-                <ArrowRight className="w-4 h-4" />
+                Explore GHL Scale Up →
               </Link>
             </div>
 
-            {/* Section 1: What Is Nonprofit CRM */}
+            {/* Section 1: What Is Nonprofit CRM - EXACTLY as in document */}
             <h2 id="what-is-nonprofit-crm" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-8 mb-4">
               What Is a CRM for Nonprofit Organisations?
             </h2>
@@ -348,7 +352,7 @@ export default function BestCRMForNonprofitsClient() {
             <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
               <div className="flex items-center gap-2 mb-2">
                 <Lightbulb className="w-4 h-4 text-[#0E9BF0]" />
-                <span className="text-sm font-bold text-[#0E9BF0]">EXAMPLE: FIRST-TIME DONOR JOURNEY</span>
+                <span className="text-sm font-bold text-[#0E9BF0]">For example, consider a first-time donor. The operational journey might look like this:</span>
               </div>
               <ol className="space-y-1 text-sm text-[#1A2236] list-decimal list-inside">
                 <li>A supporter completes a donation form.</li>
@@ -366,7 +370,7 @@ export default function BestCRMForNonprofitsClient() {
               The value is not the individual automation step. The value comes from having the data, rules and communication history connected so the organisation can manage the relationship consistently.
             </p>
 
-            {/* Section 2: Why Need CRM */}
+            {/* Section 2: Why Need CRM - EXACTLY as in document */}
             <h2 id="why-need-crm" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               Why Do Nonprofits Need a CRM?
             </h2>
@@ -390,25 +394,91 @@ export default function BestCRMForNonprofitsClient() {
               A CRM should reduce these problems by creating a shared source of relationship data. It does not automatically fix bad processes, however. A poorly designed CRM can simply turn a spreadsheet problem into a more expensive database problem. Data architecture, field definitions, segmentation and ownership therefore matter as much as the software license.
             </p>
 
-            {/* Section 3: What to Look For */}
+            {/* Section 3: What to Look For - EXACTLY as in document */}
             <h2 id="what-to-look-for" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               What Should a Nonprofit Look for in CRM Software?
             </h2>
 
-            <div className="space-y-4 mb-6">
-              {whatToLookFor.map((item, idx) => (
-                <div key={idx} className="bg-white border border-[#DDE1E9] rounded-xl p-4">
-                  <h3 className="text-base font-bold text-[#1A2236] mb-2">{item.title}</h3>
-                  <ul className="space-y-0.5 text-sm text-[#5C6880] list-disc list-inside">
-                    {item.items.map((subItem, subIdx) => (
-                      <li key={subIdx}>{subItem}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
+            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">1. Donor and Constituent Management</h3>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              The database should support a complete relationship record rather than only a name, email address and donation amount. At minimum, teams should be able to understand who the constituent is, how they have interacted with the organisation and what actions the organisation should take next.
+            </p>
+            <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
+              <li>Contact and organisation records</li>
+              <li>Donation and transaction history</li>
+              <li>Custom fields for mission-specific information</li>
+              <li>Relationship history and notes</li>
+              <li>Segmentation and lists</li>
+              <li>Communication preferences</li>
+              <li>Household or organisation relationships where relevant</li>
+              <li>Major-donor or high-value supporter workflows</li>
+            </ul>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              This is particularly important for recurring donors and major gifts. The CRM should help a fundraiser see the relationship as a timeline rather than a series of disconnected transactions.
+            </p>
 
-            {/* Section 4: Best CRM Software */}
+            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">2. Fundraising and Donation Management</h3>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              A nonprofit fundraising CRM should connect campaigns, donations and supporter records. Depending on the organisation, important capabilities may include recurring donations, online giving forms, campaign attribution, peer-to-peer fundraising, major gifts, pledges, payment processing and donor acknowledgements.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Not every nonprofit needs every feature. A local community organisation may only need reliable donation forms and recurring payments. A large institution may need complex campaign structures, moves management, grantmaking or planned-giving capabilities. The key is to define the fundraising model before evaluating software.
+            </p>
+
+            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">3. Marketing and Communication Automation</h3>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Marketing automation is increasingly relevant to nonprofits because donor relationships rarely end after a transaction. A first-time donor may need a thank-you message, impact communication, recurring-giving invitation and periodic stewardship. A lapsed donor may need a different journey entirely.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              A useful automation sequence might be: New donor → acknowledgement → impact story → engagement check → recurring giving invitation. Another might be: inactive donor → re-engagement message → response tracking → staff task for personal follow-up.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              The CRM should allow teams to control triggers, timing, segmentation, exclusions and handoffs. Automation should support human relationships, not remove them.
+            </p>
+
+            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">4. Email, SMS and Two-Way Communication</h3>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Nonprofits often communicate across email, SMS, forms, events and phone calls. A CRM becomes more useful when these touchpoints can be associated with the constituent record.
+            </p>
+            <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
+              <li>Email campaigns and newsletters</li>
+              <li>SMS communication where appropriate and consented</li>
+              <li>Automated reminders and follow-ups</li>
+              <li>Two-way conversations</li>
+              <li>Templates and reusable communication</li>
+              <li>Segmentation by donor or supporter behaviour</li>
+            </ul>
+
+            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">5. Reporting and Analytics</h3>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              A nonprofit CRM should answer operational questions, not just produce attractive dashboards. Leadership may need to know how many new donors were acquired, how many first-time donors became repeat donors, which campaigns produced donations, how recurring giving is changing, and where engagement is declining.
+            </p>
+            <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
+              <li>Donor acquisition</li>
+              <li>Donor retention and reactivation</li>
+              <li>Recurring donor growth</li>
+              <li>Average donation</li>
+              <li>Campaign performance</li>
+              <li>Fundraising pipeline</li>
+              <li>Engagement and communication performance</li>
+              <li>Volunteer participation</li>
+              <li>ROI or cost-per-acquisition where the organisation tracks it</li>
+            </ul>
+
+            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">6. Integrations</h3>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Integration capability can matter more than a long native feature list. If the nonprofit already relies on accounting software, a payment processor, event platform, website forms, email system or fundraising application, the CRM needs a reliable way to exchange data.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Before purchasing, map every system that creates or changes constituent data. Then determine whether each connection is native, available through an integration platform such as Zapier or Make, or requires API development.
+            </p>
+
+            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">7. Security, Permissions and Data Governance</h3>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Nonprofit databases can contain sensitive constituent information. The CRM should therefore provide appropriate user permissions, role-based access and administrative controls. Organisations should also establish their own rules for data retention, backups, exports, access reviews and change management. Do not assume that a product's security features automatically make an organisation compliant with every legal or regulatory requirement.
+            </p>
+
+            {/* Section 4: Best CRM Software - EXACTLY as in document */}
             <h2 id="best-crm-software" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               Best CRM Software for Nonprofit Organisations in 2026
             </h2>
@@ -429,21 +499,24 @@ export default function BestCRMForNonprofitsClient() {
 
             <h4 className="text-base font-bold text-[#1C2E4A] mt-4 mb-2">Where GHL Has a Clear Advantage</h4>
             <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
-              <li>Automation is native to the operating model. A form submission can trigger a workflow. A pipeline-stage change can create a task. A missed appointment can trigger a follow-up. A donor can enter a re-engagement sequence based on defined criteria.</li>
-              <li>GHL brings communication channels closer to the CRM. Email and SMS can be tied to contact records and workflow logic.</li>
-              <li>GHL is flexible. Nonprofits do not all organise their relationships the same way. Custom fields, tags, pipelines and workflows allow the system to be designed around the organisation.</li>
-              <li>GHL can reduce tool sprawl. When a nonprofit is paying separately for a CRM, email marketing platform, SMS tool, form builder, appointment scheduler and automation connector, the combined cost and administration can become significant.</li>
+              <li>First, automation is native to the operating model. A form submission can trigger a workflow. A pipeline-stage change can create a task. A missed appointment can trigger a follow-up. A donor can enter a re-engagement sequence based on defined criteria. This reduces the amount of repetitive administrative work that nonprofit staff have to perform manually.</li>
+              <li>Second, GHL brings communication channels closer to the CRM. Email and SMS can be tied to contact records and workflow logic, allowing the organisation to build consistent journeys rather than sending disconnected campaigns from separate tools.</li>
+              <li>Third, GHL is flexible. Nonprofits do not all organise their relationships the same way. One organisation may need donor, volunteer and event pipelines; another may need supporter, sponsor and membership journeys. Custom fields, tags, pipelines and workflows allow the system to be designed around the organisation rather than forcing every team into the same structure.</li>
+              <li>Fourth, GHL can reduce tool sprawl. When a nonprofit is paying separately for a CRM, email marketing platform, SMS tool, form builder, appointment scheduler and automation connector, the combined cost and administration can become significant. A unified GHL build can replace or consolidate several of those functions, although specialised fundraising or accounting systems may still remain in the stack.</li>
             </ul>
 
             <h4 className="text-base font-bold text-[#1C2E4A] mt-4 mb-2">Where GHL Should Not Be Oversold</h4>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              If your nonprofit's core requirement is sophisticated grant management, complex planned giving, donor-advised fund tracking, advanced volunteer portals or enterprise fundraising administration, a dedicated nonprofit CRM may be a better foundation. GHL should be selected because it fits the organisation's actual workflow, not simply because it can be configured to imitate another platform.
+              A strong recommendation also needs boundaries. If your nonprofit's core requirement is sophisticated grant management, complex planned giving, donor-advised fund tracking, advanced volunteer portals or enterprise fundraising administration, a dedicated nonprofit CRM may be a better foundation. GHL should be selected because it fits the organisation's actual workflow, not simply because it can be configured to imitate another platform.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              For nonprofits whose needs are primarily donor engagement, communication, forms, recurring donation journeys, event registration, volunteer coordination and automated follow-up, however, GoHighLevel can be a particularly practical option. The value comes from the combination of CRM + automation + communication rather than any single feature.
             </p>
 
             <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
               <div className="flex items-center gap-2 mb-2">
                 <Lightbulb className="w-4 h-4 text-[#0E9BF0]" />
-                <span className="text-sm font-bold text-[#0E9BF0]">BEST FOR</span>
+                <span className="text-sm font-bold text-[#0E9BF0]">Best for:</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
                 Small and mid-sized nonprofits that want an integrated CRM, donor communication, forms, calendars, email, SMS and workflow automation without assembling several separate tools.
@@ -451,16 +524,19 @@ export default function BestCRMForNonprofitsClient() {
             </div>
 
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              GoHighLevel is one of the strongest general-purpose CRM and automation options for nonprofits whose priority is operational consolidation. It combines CRM and pipelines with forms, funnels, email, SMS, calendars, automation and integrations. That means a nonprofit can capture a supporter, segment the record, trigger an acknowledgement, schedule follow-up, assign a staff task and measure engagement inside one connected workflow instead of moving data between multiple systems.
+              GoHighLevel is one of the strongest general-purpose CRM and automation options for nonprofits whose priority is operational consolidation. It combines CRM and pipelines with forms, funnels, email, SMS, calendars, automation and integrations. That means a nonprofit can capture a supporter, segment the record, trigger an acknowledgement, schedule follow-up, assign a staff task and measure engagement inside one connected workflow instead of moving data between multiple systems. GHL Scale Up's current nonprofit guide specifically positions GHL for donor CRM, automated email and SMS, recurring donation processing through Stripe, volunteer scheduling, event registration and automated follow-up.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              It is important to be precise about where GoHighLevel fits. It is not a purpose-built nonprofit fundraising database, so organisations that require deep grant management, complex pledge tracking, donor-advised fund workflows or specialised nonprofit accounting/reporting should consider a dedicated nonprofit platform alongside or instead of GHL. For many smaller nonprofits, however, those are not the core operational problems. Their bigger issue is that donor capture, communication, event registration, volunteer coordination and follow-up live in disconnected systems. That is exactly where GHL can create disproportionate value.
             </p>
 
             <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
               <div className="flex items-center gap-2 mb-2">
-                <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
-                <span className="text-sm font-bold text-[#0E9BF0]">RELATED READ</span>
+                <Lightbulb className="w-4 h-4 text-[#0E9BF0]" />
+                <span className="text-sm font-bold text-[#0E9BF0]">Best suited to:</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                For a deeper dive into how nonprofits use GoHighLevel: <Link href="/blog/gohighlevel-for-nonprofits" className="text-[#0E9BF0] hover:underline">GoHighLevel for Nonprofits: Donor Management and Fundraising Automation →</Link>
+                Nonprofits that want to consolidate several operational tools, automate donor and supporter journeys, reduce manual administration and give a lean team a single system for communication and relationship management.
               </p>
             </div>
 
@@ -470,8 +546,7 @@ export default function BestCRMForNonprofitsClient() {
                 <strong className="text-white">See how a structured GHL CRM setup can map your nonprofit's processes into pipelines, fields and permissions.</strong>
               </p>
               <Link href="/services/crm-setup" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                Explore GHL Scale Up
-                <ArrowRight className="w-4 h-4" />
+                Explore GHL Scale Up →
               </Link>
             </div>
 
@@ -497,7 +572,7 @@ export default function BestCRMForNonprofitsClient() {
               Blackbaud's enterprise fundraising CRM is positioned specifically for large-scale fundraising and supports complex giving programs including major and planned gifts. Blackbaud states that its enterprise fundraising CRM is designed for higher education, healthcare, international NGOs and large nonprofits. Pricing is quote-based rather than publicly listed for the enterprise CRM.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Its strongest argument is depth in fundraising. It is less compelling if the organisation simply wants a lightweight CRM for contacts, forms and automated communication.
+              Its strongest argument is depth in fundraising. It is less compelling if the organisation simply wants a lightweight CRM for contacts, forms and automated communication. Implementation and commercial evaluation should therefore be based on the complexity of the fundraising operation rather than the size of the contact database alone.
             </p>
 
             <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">4. Bloomerang</h3>
@@ -508,8 +583,21 @@ export default function BestCRMForNonprofitsClient() {
               Bloomerang currently lists its CRM from $125 per month billed annually, fundraising from $40 per month when purchased as part of the bundle, and volunteer management from $119 per month. Its CRM includes donor management, predictive giving insights, marketing and engagement, reporting, major-gift management, grant tracking and membership management.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The platform is attractive when donor retention and fundraising are central to the organisation's workflow. Its fundraising product also includes donation forms, events, recurring donations, text fundraising and peer-to-peer capabilities.
+              The platform is attractive when donor retention and fundraising are central to the organisation's workflow. Its fundraising product also includes donation forms, events, recurring donations, text fundraising and peer-to-peer capabilities. Payment processing fees are separate and should be included in the total-cost calculation.
             </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              The limitation is that organisations with highly bespoke enterprise architecture may eventually require a more extensible platform. It is also important to evaluate exactly which modules are required rather than comparing only the headline CRM price.
+            </p>
+
+            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
+              <div className="flex items-center gap-2 mb-2">
+                <Lightbulb className="w-4 h-4 text-[#0E9BF0]" />
+                <span className="text-sm font-bold text-[#0E9BF0]">Best suited to:</span>
+              </div>
+              <p className="text-sm text-[#1A2236] leading-relaxed">
+                Nonprofits that want to consolidate several operational tools, automate donor and supporter journeys, reduce manual administration and give a lean team a single system for communication and relationship management.
+              </p>
+            </div>
 
             <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">5. Neon One / Neon CRM</h3>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
@@ -517,6 +605,9 @@ export default function BestCRMForNonprofitsClient() {
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               Neon CRM currently starts at $99 per month. Neon One describes its model as revenue-based rather than record-based, with unlimited contacts and additional modules for areas such as memberships, events and volunteers. Core capabilities include supporter profiles, reporting, automated workflows, grant management, campaigns and forms, peer-to-peer fundraising, recurring gifts, payment processing, email marketing and text messaging.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              The revenue-based model can be attractive to organisations that would otherwise worry about contact-count pricing. The trade-off is that total cost depends on the organisation's revenue and selected modules, so the starting price should not be treated as a universal monthly cost.
             </p>
 
             <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">6. HubSpot</h3>
@@ -529,6 +620,9 @@ export default function BestCRMForNonprofitsClient() {
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               HubSpot also has a nonprofit program. Eligible nonprofits in North America, Australia and New Zealand can receive a 40% discount on current list prices for net-new Professional or Enterprise products under the program's conditions.
             </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              The platform is strong for content, email, lead capture, marketing automation and general CRM operations. The limitation for nonprofits is that specialised fundraising, donor-management and nonprofit accounting requirements may require additional systems or custom architecture.
+            </p>
 
             <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">7. Microsoft Dynamics 365</h3>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
@@ -536,6 +630,9 @@ export default function BestCRMForNonprofitsClient() {
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               Dynamics 365 can be compelling when the nonprofit already uses Microsoft 365, Power Platform, Azure or related enterprise systems. Its advantage is less about being a ready-made donor database and more about building an integrated operational environment.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              The key consideration is implementation. Dynamics can support complex workflows, permissions and integrations, but a nonprofit should validate the exact fundraising, constituent and volunteer requirements that need to be configured or sourced through complementary solutions.
             </p>
 
             <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">8. Zoho CRM</h3>
@@ -546,7 +643,7 @@ export default function BestCRMForNonprofitsClient() {
               Zoho CRM offers a free edition for up to three users. Its public pricing currently lists Standard at $14 per user per month annually, Professional at $23, Enterprise at $40 and Ultimate at $52.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Its strengths include workflows, forms, custom modules, reporting, process automation, APIs and a broad application ecosystem.
+              Its strengths include workflows, forms, custom modules, reporting, process automation, APIs and a broad application ecosystem. The limitation is the same as with other general-purpose CRMs: nonprofit-specific fundraising, donor stewardship and volunteer workflows may require configuration or additional tools.
             </p>
 
             {/* Section 5: Comparison Table */}
@@ -587,7 +684,7 @@ export default function BestCRMForNonprofitsClient() {
               </table>
             </div>
 
-            {/* Section 6: Which CRM by Type */}
+            {/* Section 6: Which CRM by Type - EXACTLY as in document */}
             <h2 id="which-crm-by-type" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               Which CRM Is Best for Different Types of Nonprofits?
             </h2>
@@ -596,25 +693,31 @@ export default function BestCRMForNonprofitsClient() {
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               For a small nonprofit, ease of adoption and total cost usually matter more than having hundreds of advanced features. Neon One, Bloomerang, Zoho and GoHighLevel can all be considered depending on whether the organisation prioritises specialised nonprofit functionality or automation and flexibility.
             </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              A small nonprofit should avoid paying for enterprise architecture it cannot maintain. The better question is: Can the team keep the database clean, run its important workflows and generate the reports leadership actually needs?
+            </p>
 
             <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Best CRM for a Growing Nonprofit</h3>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               A growing nonprofit needs to think one stage ahead. Neon One and Bloomerang are strong candidates for nonprofit-specific growth, while HubSpot, Zoho and GoHighLevel become interesting when marketing automation and integration are central to growth.
             </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              If the organisation expects complex programs, grantmaking or extensive customisation, Salesforce should enter the evaluation earlier rather than after the current CRM becomes a bottleneck.
+            </p>
 
             <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Best CRM for a Large Nonprofit</h3>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Salesforce Nonprofit Cloud, Blackbaud and Dynamics 365 are more appropriate starting points for large or operationally complex organisations.
+              Salesforce Nonprofit Cloud, Blackbaud and Dynamics 365 are more appropriate starting points for large or operationally complex organisations. The final decision should depend on fundraising model, program management, volunteer operations, data governance and the existing technology ecosystem.
             </p>
 
             <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Best CRM for Donor Management</h3>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Bloomerang, Blackbaud, Salesforce Nonprofit Cloud and Neon One are the strongest candidates when donor management is the primary requirement. GoHighLevel can support donor journeys, but it should not be treated as a substitute for every specialised fundraising function.
+              Bloomerang, Blackbaud, Salesforce Nonprofit Cloud and Neon One are the strongest candidates when donor management is the primary requirement because their product positioning and feature sets are designed around nonprofit relationships and fundraising. GoHighLevel can support donor journeys, but it should not be treated as a substitute for every specialised fundraising function.
             </p>
 
             <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Best CRM for Fundraising</h3>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              For sophisticated fundraising operations, Blackbaud and Salesforce are strong choices. Bloomerang and Neon One are compelling for organisations that need integrated fundraising without enterprise-level complexity.
+              For sophisticated fundraising operations, Blackbaud and Salesforce are strong choices. Bloomerang and Neon One are compelling for organisations that need integrated fundraising without enterprise-level complexity. A general-purpose CRM can work, but only if the organisation clearly defines which fundraising capabilities will remain in external systems.
             </p>
 
             <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Best CRM for Nonprofit Marketing Automation</h3>
@@ -624,17 +727,17 @@ export default function BestCRMForNonprofitsClient() {
 
             <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Best Affordable CRM for Nonprofits</h3>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Affordability depends on total cost, not just subscription price. Zoho and the free foundation of HubSpot can be inexpensive starting points. Neon One and Bloomerang provide nonprofit-specific functionality at lower entry points than many enterprise systems. Salesforce's nonprofit program can also materially change the economics for eligible organisations.
+              Affordability depends on total cost, not just subscription price. Zoho and the free foundation of HubSpot can be inexpensive starting points. Neon One and Bloomerang provide nonprofit-specific functionality at lower entry points than many enterprise systems. Salesforce's nonprofit program can also materially change the economics for eligible organisations. The implementation burden still needs to be included.
             </p>
 
             <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Best CRM for Organisations with Limited Technical Resources</h3>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Bloomerang, Neon One and HubSpot are worth evaluating, while GoHighLevel can be effective when configured properly by an implementation partner.
+              A platform that looks inexpensive can become expensive if staff spend weeks maintaining it. Nonprofits with limited technical capacity should prioritise usability, onboarding, support, migration assistance and the ability to run core workflows without custom development. Bloomerang, Neon One and HubSpot are worth evaluating, while GoHighLevel can be effective when configured properly by an implementation partner.
             </p>
 
             <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Best CRM for Extensive Customisation</h3>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Salesforce is the strongest candidate in this shortlist when the organisation requires extensive data architecture and customisation. Dynamics 365 and Zoho can also support significant configuration.
+              Salesforce is the strongest candidate in this shortlist when the organisation requires extensive data architecture and customisation. Dynamics 365 and Zoho can also support significant configuration. The trade-off is that customisation creates long-term governance responsibility.
             </p>
 
             {/* Section 7: Specialized vs General */}
@@ -696,16 +799,6 @@ export default function BestCRMForNonprofitsClient() {
               The correct decision is therefore not 'Is GHL a nonprofit CRM?' but 'Which nonprofit processes can GHL manage well, and which specialised processes should remain elsewhere?'
             </p>
 
-            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
-                <span className="text-sm font-bold text-[#0E9BF0]">RELATED READ</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                For a deeper dive into how nonprofits use GoHighLevel specifically: <Link href="/blog/gohighlevel-for-nonprofits" className="text-[#0E9BF0] hover:underline">GoHighLevel for Nonprofits: Donor Management and Fundraising Automation →</Link>
-              </p>
-            </div>
-
             {/* Section 9: Automation */}
             <h2 id="automation" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               How Nonprofits Can Use CRM Automation
@@ -727,22 +820,11 @@ export default function BestCRMForNonprofitsClient() {
             <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
               <div className="flex items-center gap-2 mb-2">
                 <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
-                <span className="text-sm font-bold text-[#0E9BF0]">RELATED READ</span>
+                <span className="text-sm font-bold text-[#0E9BF0]">Want to see how GHL workflow automation can be structured around real nonprofit triggers and journeys?</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                Want to see how GHL workflow automation can be structured around real nonprofit triggers and journeys? <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-[#0E9BF0] hover:underline">GoHighLevel Workflow Automation Guide →</Link>
+                <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-[#0E9BF0] hover:underline">Explore GHL Scale Up →</Link>
               </p>
-            </div>
-
-            {/* CTA 3 - After Automation Section */}
-            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
-              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
-                <strong className="text-white">Want to see how GHL workflow automation can be structured around real nonprofit triggers and journeys?</strong>
-              </p>
-              <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                Explore GHL Scale Up
-                <ArrowRight className="w-4 h-4" />
-              </Link>
             </div>
 
             {/* Section 10: Common Mistakes */}
@@ -765,11 +847,55 @@ export default function BestCRMForNonprofitsClient() {
               How to Choose the Right CRM for Your Nonprofit
             </h2>
 
-            <ol className="space-y-1 mb-4 text-sm text-[#5C6880] list-decimal list-inside">
-              {howToChooseSteps.map((item, idx) => (
-                <li key={idx}><strong className="text-[#1A2236]">{item}</strong></li>
-              ))}
-            </ol>
+            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Define your constituent types</h3>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              List donors, members, volunteers, beneficiaries, sponsors, partners and other relationship types.
+            </p>
+
+            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Map current processes</h3>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Document what happens from first interaction through donation, event, volunteer activity and ongoing stewardship.
+            </p>
+
+            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Identify critical integrations</h3>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              List payment, accounting, website, forms, email, event, calendar and reporting systems.
+            </p>
+
+            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Define fundraising requirements</h3>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Separate simple donation collection from advanced fundraising, grants, major gifts or recurring giving.
+            </p>
+
+            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Define communication requirements</h3>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Decide which email, SMS, phone and event journeys should be automated.
+            </p>
+
+            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Identify automation opportunities</h3>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Prioritise repetitive tasks that create delays or inconsistent supporter experiences.
+            </p>
+
+            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Calculate total cost of ownership</h3>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Include software, modules, payment processing, migration, integrations, implementation, training and ongoing administration.
+            </p>
+
+            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Evaluate implementation complexity</h3>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Ask who will own the system after launch and what technical skills are available internally.
+            </p>
+
+            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Test with real workflows</h3>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Do not rely only on demos. Test a donation, a volunteer application, a campaign journey and a reporting scenario.
+            </p>
+
+            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Plan migration and training</h3>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Clean the data, map fields, test imports, document processes and train staff before the full launch.
+            </p>
 
             {/* Section 12: Implementation */}
             <h2 id="implementation" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
@@ -780,6 +906,10 @@ export default function BestCRMForNonprofitsClient() {
               Buying a CRM is only the beginning. The implementation determines whether the system becomes a useful operating layer or another database staff members avoid.
             </p>
 
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              A practical implementation normally includes:
+            </p>
+
             <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
               {implementationSteps.map((item, idx) => (
                 <li key={idx}>{item}</li>
@@ -787,7 +917,11 @@ export default function BestCRMForNonprofitsClient() {
             </ul>
 
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              For GoHighLevel specifically, architecture should be decided before workflows are built. Configure the system around the organisation's real operating model, not around a generic template.
+              For GoHighLevel specifically, architecture should be decided before workflows are built. GHL Scale Up's CRM setup process follows discovery and process mapping with pipeline and field configuration, migration and cleanup, integration and automation wiring, and testing and training.
+            </p>
+
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              That same principle applies regardless of platform: configure the system around the organisation's real operating model, not around a generic template.
             </p>
 
             {/* Section 13: Cost */}
@@ -808,18 +942,12 @@ export default function BestCRMForNonprofitsClient() {
             </p>
 
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Those figures are useful for initial comparison, but they are not directly comparable. One platform may bundle fundraising or volunteer tools while another charges separately. One may price per user, another by revenue, another by database size, and another by product modules. This is why total cost of ownership is the better decision metric.
+              Those figures are useful for initial comparison, but they are not directly comparable. One platform may bundle fundraising or volunteer tools while another charges separately. One may price per user, another by revenue, another by database size, and another by product modules.
             </p>
 
-            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
-                <span className="text-sm font-bold text-[#0E9BF0]">RELATED READ</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                For a full breakdown of GoHighLevel pricing: <Link href="/blog/gohighlevel-pricing" className="text-[#0E9BF0] hover:underline">GoHighLevel Pricing: All Plans Explained →</Link>
-              </p>
-            </div>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              This is why total cost of ownership is the better decision metric.
+            </p>
 
             {/* Section 14: FAQ */}
             <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
@@ -871,8 +999,7 @@ export default function BestCRMForNonprofitsClient() {
                   Start with a CRM audit and implementation discussion. GHL Scale Up helps nonprofits design and implement GoHighLevel systems around their actual constituent journey.
                 </p>
                 <Link href="/services/crm-setup" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                  Explore GHL Scale Up
-                  <ArrowRight className="w-4 h-4" />
+                  Explore GHL Scale Up →
                 </Link>
               </div>
             </div>
@@ -880,7 +1007,7 @@ export default function BestCRMForNonprofitsClient() {
             {/* Author Section */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 my-6">
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
+                <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
                   <img
                     src="/web-app-manifest-192x192.png"
                     alt="GHL Scale Up"
@@ -928,7 +1055,7 @@ export default function BestCRMForNonprofitsClient() {
 
             <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
+                <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
                   <img
                     src="/web-app-manifest-192x192.png"
                     alt="GHL Scale Up"
