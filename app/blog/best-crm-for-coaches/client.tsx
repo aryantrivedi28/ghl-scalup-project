@@ -367,6 +367,14 @@ export default function BestCRMForCoachesClient() {
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
             This guide compares them by business model, sales process, delivery model, pricing, automation, scalability and total cost of ownership so you can choose the platform that actually fits your coaching business.
           </p>
+
+          {/* CTA 1: Hero Section CTA */}
+          <div className="mt-6">
+            <Link href="/contact-us" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all shadow-lg hover:shadow-xl">
+              Book a Free CRM Strategy Call
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -553,6 +561,20 @@ export default function BestCRMForCoachesClient() {
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               HighLevel also has usage and optional charges for services such as email, phone, WhatsApp and AI. Phone-system charges can remain separate, and messaging rates changed during 2026. Treat the subscription as one part of total cost rather than the entire cost.
             </p>
+
+            {/* CTA 2: After GoHighLevel Section */}
+            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 md:p-8 text-center my-8">
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
+                Ready to implement GoHighLevel for your coaching business?
+              </h3>
+              <p className="text-white/60 text-sm max-w-2xl mx-auto mb-6 leading-relaxed">
+                GHL Scale Up helps coaches design and implement GoHighLevel systems built around their actual sales process and customer journey.
+              </p>
+              <Link href="/contact-us" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-8 py-3 rounded-lg hover:bg-[#FFE44D] transition-all shadow-lg hover:shadow-xl">
+                Book a Free Strategy Call →
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
 
             {/* Section 5: HubSpot */}
             <h2 id="hubspot" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
@@ -895,6 +917,20 @@ export default function BestCRMForCoachesClient() {
               <li>Rebuild and test business logic instead of blindly copying every old automation.</li>
               <li>Migrate in a controlled way and monitor deliverability, bookings, notifications and reporting after launch.</li>
             </ul>
+
+            {/* CTA 3: Before Automation Section */}
+            <div className="bg-gradient-to-br from-[#0E9BF0] to-[#0B89D6] rounded-xl p-6 md:p-8 text-center my-8 text-white">
+              <h3 className="text-xl md:text-2xl font-bold mb-3">
+                Need help with your CRM migration?
+              </h3>
+              <p className="text-white/80 text-sm max-w-2xl mx-auto mb-6 leading-relaxed">
+                GHL Scale Up handles the entire migration process so you can focus on coaching, not technical setup.
+              </p>
+              <Link href="/contact-us" className="inline-flex items-center gap-2 bg-white text-[#0E9BF0] font-bold px-8 py-3 rounded-lg hover:bg-[#F8F9FB] transition-all shadow-lg">
+                Get Migration Help →
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
 
             {/* Section 16: Automate First */}
             <h2 id="automate-first" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
