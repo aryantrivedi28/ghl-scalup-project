@@ -425,8 +425,9 @@ export default function WhereToHireGHLExpertsClient() {
 
             {/* CTA Button 4: After Facebook Groups */}
             <div className="bg-gradient-to-r from-[#0E9BF0] to-[#0C8AD8] rounded-xl p-6 text-center text-white mb-8">
-              <p className="text-sm font-medium mb-2">🤝 Don't have time to post and vet in Facebook groups?</p>
-              <p className="text-sm text-white/80 mb-4">Our team has already vetted the best GHL experts across all platforms.</p>
+              <p className="text-sm font-medium mb-2">Still looking for the right GHL expert?
+              </p>
+              <p className="text-sm text-white/80 mb-4">Skip the freelancer search. Get your CRM, workflows, funnels and integrations implemented by a specialised GoHighLevel Agency.</p>
               <Link
                 href="/contact"
                 className="group inline-flex items-center gap-2 bg-white text-[#0E9BF0] font-bold px-6 py-2.5 rounded-lg hover:bg-[#F8F9FB] transition-all hover:shadow-lg hover:scale-105 text-sm"
