@@ -173,7 +173,7 @@ export default function WhereToHireGHLExpertsClient() {
         <div className="absolute -top-[120px] -right-[120px] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(14,155,240,0.12)_0%,transparent_70%)] pointer-events-none" />
         <div className="absolute -bottom-[80px] -left-[80px] w-[360px] h-[360px] bg-[radial-gradient(circle,rgba(37,201,125,0.08)_0%,transparent_70%)] pointer-events-none" />
 
-        <div className="max-w-[760px] mx-auto relative z-10">
+        <div className="max-w-7xl mx-auto relative z-10">
           {/* Post Tags / Category Labels */}
           <div className="flex flex-wrap gap-2 mb-4">
             <span className="bg-[rgba(14,155,240,0.15)] text-[#0E9BF0] text-[11px] font-semibold px-2.5 py-1 rounded-full">Hire GHL Expert</span>
@@ -204,7 +204,7 @@ export default function WhereToHireGHLExpertsClient() {
           </div>
 
           {/* Introductory Paragraph */}
-          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
+          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-6xl">
             Hundreds of people now call themselves GoHighLevel experts. Most are not.
             Knowing where to look and more importantly, how to filter before you hire
             is the difference between a system that runs your business and one that costs
@@ -234,7 +234,7 @@ export default function WhereToHireGHLExpertsClient() {
       </section>
 
       {/* Main Layout */}
-      <div className="max-w-[1080px] mx-auto px-4 md:px-6 py-10 md:py-16">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-16">
         <div className="grid lg:grid-cols-[1fr_280px] gap-8 md:gap-16 items-start">
 
           {/* Article Content */}
@@ -724,6 +724,16 @@ export default function WhereToHireGHLExpertsClient() {
               </ul>
             </nav>
 
+                        {/* CTA Card */}
+            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
+              <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
+              <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
+              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+                Book a 30 min Free Call
+                <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
+
             {/* About the Author */}
             <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="flex items-center gap-3 mb-4">
@@ -747,15 +757,7 @@ export default function WhereToHireGHLExpertsClient() {
               <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
             </div>
 
-            {/* CTA Card */}
-            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
-              <div className="text-sm font-bold text-white mb-2">Need a GHL Expert?</div>
-              <p className="text-xs text-white/60 leading-relaxed mb-4">Skip the search. We've built 200+ GHL systems. Let's talk about yours.</p>
-              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
-                Talk to Us
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
+
 
             {/* Share Buttons */}
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
