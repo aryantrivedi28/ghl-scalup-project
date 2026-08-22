@@ -156,7 +156,7 @@ export default function GoHighLevelForCoachesClient() {
     {
       icon: <Users className="w-5 h-5" />,
       title: 'Capturing and managing coaching leads',
-      problem: 'Your leads arrive from everywhere — an Instagram DM, a webinar signup, a referral, a landing page, a lead magnet — and they end up scattered across inboxes, notebooks and your memory. Some never get logged, and some never get a reply.',
+      problem: 'Your leads arrive from everywhere an Instagram DM, a webinar signup, a referral, a landing page, a lead magnet and they end up scattered across inboxes, notebooks and your memory. Some never get logged, and some never get a reply.',
       solution: 'Every lead source feeds into one CRM. A coach can capture leads through GoHighLevel forms, funnels, and landing pages, or connect existing sources, and every new lead lands in the same place with its source tagged. Nothing sits in a DM waiting to be forgotten.',
       benefit: 'Any coach running multi-channel lead generation, especially those getting leads from social plus ads plus referrals at the same time.'
     },
@@ -169,7 +169,7 @@ export default function GoHighLevelForCoachesClient() {
     {
       icon: <Calendar className="w-5 h-5" />,
       title: 'Booking discovery and strategy calls automatically',
-      problem: 'The back-and-forth to schedule a call — "does Tuesday work? no, how about Thursday?" — loses momentum and leads. Manual booking is friction, and friction kills warm prospects.',
+      problem: 'The back-and-forth to schedule a call "does Tuesday work? no, how about Thursday?" loses momentum and leads. Manual booking is friction, and friction kills warm prospects.',
       solution: 'GoHighLevel\'s built-in calendar lets qualified leads book directly into your schedule, with confirmation and reminder messages handled automatically. The booking connects to the CRM, so the lead\'s record, source, and application answers are all attached to the appointment before you ever get on the call.',
       benefit: 'Every coach who sells through discovery, strategy, or sales calls, which is the majority of the industry.'
     },
@@ -189,12 +189,12 @@ export default function GoHighLevelForCoachesClient() {
       icon: <BarChart3 className="w-5 h-5" />,
       title: 'Managing the sales pipeline and knowing where revenue is',
       problem: 'You can\'t see your business. You have a vague sense of who\'s interested, but no clear picture of how many prospects are at each stage or where deals are stalling.',
-      solution: 'A visual pipeline moves each prospect through stages — new lead, call booked, call held, proposal, client — so you can see your pipeline at a glance, spot where prospects drop off, and forecast revenue instead of guessing.'
+      solution: 'A visual pipeline moves each prospect through stages new lead, call booked, call held, proposal, client so you can see your pipeline at a glance, spot where prospects drop off, and forecast revenue instead of guessing.'
     },
     {
       icon: <UserPlus className="w-5 h-5" />,
       title: 'Onboarding new clients without the manual scramble',
-      problem: 'Someone finally says yes, and now you\'re manually sending the welcome email, the payment link, the intake form, the scheduling link, the contract — the same sequence every time, by hand.',
+      problem: 'Someone finally says yes, and now you\'re manually sending the welcome email, the payment link, the intake form, the scheduling link, the contract the same sequence every time, by hand.',
       solution: 'A client onboarding workflow triggers automatically on payment: welcome sequence, intake form, booking link for the first session, and any documents, all sent in the right order without you touching it.'
     },
     {
@@ -337,7 +337,7 @@ export default function GoHighLevelForCoachesClient() {
           {/* Introductory Paragraph */}
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
             If you run a coaching business, you already know the real bottleneck isn't your coaching.
-            It's everything around it — the leads that come in from Instagram and never get a reply,
+            It's everything around it the leads that come in from Instagram and never get a reply,
             the discovery calls that no-show, the follow-up you meant to send three days ago, the past
             clients you've lost track of.
           </p>
@@ -370,7 +370,7 @@ export default function GoHighLevelForCoachesClient() {
                 sales-and-follow-up engine: it captures leads from every source into one CRM, responds within seconds, books
                 discovery calls automatically, sends reminders to cut no-shows, and keeps nurturing prospects who aren't ready yet.
                 It also hosts courses and memberships and can run your client onboarding. Where it's weaker is premium course
-                delivery — dedicated platforms like Kajabi still offer a more polished student experience.
+                delivery dedicated platforms like Kajabi still offer a more polished student experience.
               </p>
               <p className="text-sm text-[#5C6880] leading-relaxed mt-2">
                 GoHighLevel runs <strong className="text-[#0E9BF0]">$97 to $497 per month</strong> depending on plan, with usage costs
@@ -405,7 +405,7 @@ export default function GoHighLevelForCoachesClient() {
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               <strong className="text-[#1A2236]">GoHighLevel is an all-in-one platform that combines a CRM, calendar booking,
               funnels, email and SMS automation, pipelines, forms, and course/membership hosting in one system</strong>, and for
-              coaches it functions as the operational backend of the business — the layer that captures leads, books calls,
+              coaches it functions as the operational backend of the business the layer that captures leads, books calls,
               follows up, and onboards clients automatically. Instead of stitching together a scheduler, an email tool, a course
               platform, a form builder and a spreadsheet, a coach can run the entire path from first click to paying client inside
               one platform.
@@ -513,8 +513,8 @@ export default function GoHighLevelForCoachesClient() {
 
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed">
               The reason this matters: in most coaching businesses, that entire journey runs through the founder personally.
-              Every stage needs you. GoHighLevel automates the connective tissue between stages — the capture, the follow-up,
-              the booking, the reminders, the onboarding — so your personal attention goes to the coaching and the sales
+              Every stage needs you. GoHighLevel automates the connective tissue between stages the capture, the follow-up,
+              the booking, the reminders, the onboarding so your personal attention goes to the coaching and the sales
               conversations, not the admin between them. You stay human where it counts and let the system handle the rest.
             </p>
 
@@ -524,7 +524,7 @@ export default function GoHighLevelForCoachesClient() {
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
               Here are practical workflows a coaching business can build in GoHighLevel. Each one is a chain of automated steps
-              triggered by something the lead or client does. These are illustrative templates to show the structure — your exact
+              triggered by something the lead or client does. These are illustrative templates to show the structure your exact
               setup would be tailored to your business.
             </p>
 
@@ -567,7 +567,7 @@ export default function GoHighLevelForCoachesClient() {
               What Should a Coach <span className="text-[#0E9BF0]">Automate First?</span>
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              You should not try to automate everything at once — that's how coaches end up with a half-built system they never
+              You should not try to automate everything at once that's how coaches end up with a half-built system they never
               finish. Prioritise by what recovers revenue you're already losing, in this order.
             </p>
 
@@ -642,7 +642,7 @@ export default function GoHighLevelForCoachesClient() {
                 <strong>The one to think hardest about is Kajabi.</strong> It's widely documented that GoHighLevel's course
                 delivery is good-enough rather than best-in-class, while Kajabi's student-facing experience and community
                 features are more polished. The practical rule: if your primary product is a premium course with a rich
-                community experience, you may keep Kajabi for delivery and use GoHighLevel for everything else — the marketing,
+                community experience, you may keep Kajabi for delivery and use GoHighLevel for everything else the marketing,
                 sales, CRM and automation. If your primary engine is lead generation, calls, and 1-to-1 or group coaching,
                 GoHighLevel can run the whole business and its membership module handles course delivery adequately.
               </p>
@@ -681,7 +681,7 @@ export default function GoHighLevelForCoachesClient() {
 
             <div className="bg-[#E8FAF2] border border-[rgba(37,201,125,0.2)] rounded-xl p-4 my-4">
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                <strong className="text-[#25C97D]">For most coaches, the $97 Starter plan is the honest answer</strong> — it
+                <strong className="text-[#25C97D]">For most coaches, the $97 Starter plan is the honest answer</strong> it
                 includes the CRM, booking, funnels, forms, automation and course hosting a coaching business actually uses.
                 The higher plans exist for agencies and resellers, not for a coach running their own practice. Budget for usage
                 on top: SMS, email and AI features are billed by consumption, which for a typical coaching business commonly
@@ -695,8 +695,8 @@ export default function GoHighLevelForCoachesClient() {
                 <strong className="text-[#1A2236]">There's a second cost worth naming honestly: implementation.</strong> The
                 software is affordable; the time to design and build the workflows, funnels, forms, pipeline and onboarding
                 correctly is the real investment. You can learn it and build it yourself over a few weeks, or work with an
-                implementation partner who builds it around your business. That's a genuine cost either way — your time or a
-                fee — and it's worth deciding deliberately which one you're spending.
+                implementation partner who builds it around your business. That's a genuine cost either way your time or a
+                fee and it's worth deciding deliberately which one you're spending.
               </p>
             </div>
 
@@ -718,7 +718,7 @@ export default function GoHighLevelForCoachesClient() {
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed">
               It's less compelling if you're a coach who's full purely by referral, not actively marketing, and just needs to
-              track a handful of contacts. In that case you'd be buying a commercial kitchen to make toast — a simpler tool
+              track a handful of contacts. In that case you'd be buying a commercial kitchen to make toast a simpler tool
               would serve you better until you start generating leads at volume. The honest test is whether you have a
               lead-and-sales process worth automating. If you do, GoHighLevel is one of the strongest options in 2026. If you
               don't yet, it can wait.
@@ -736,7 +736,7 @@ export default function GoHighLevelForCoachesClient() {
               <div className="bg-white border border-[#DDE1E9] rounded-xl p-3">
                 <div className="flex items-start gap-3">
                   <XCircle className="w-5 h-5 text-[#DC3545] flex-shrink-0 mt-0.5" />
-                  <p className="text-sm text-[#1A2236]"><strong className="text-[#1A2236]">Your primary product is a premium course</strong> where the student and community experience is the main differentiator — a dedicated platform like Kajabi may deliver that better, though you can still use GoHighLevel for marketing and sales.</p>
+                  <p className="text-sm text-[#1A2236]"><strong className="text-[#1A2236]">Your primary product is a premium course</strong> where the student and community experience is the main differentiator a dedicated platform like Kajabi may deliver that better, though you can still use GoHighLevel for marketing and sales.</p>
                 </div>
               </div>
               <div className="bg-white border border-[#DDE1E9] rounded-xl p-3">
@@ -748,7 +748,7 @@ export default function GoHighLevelForCoachesClient() {
               <div className="bg-white border border-[#DDE1E9] rounded-xl p-3">
                 <div className="flex items-start gap-3">
                   <XCircle className="w-5 h-5 text-[#DC3545] flex-shrink-0 mt-0.5" />
-                  <p className="text-sm text-[#1A2236]"><strong className="text-[#1A2236]">Your operation is genuinely simple</strong> — a few clients, mostly referral, no real lead flow — where a full CRM and automation platform is more than you need.</p>
+                  <p className="text-sm text-[#1A2236]"><strong className="text-[#1A2236]">Your operation is genuinely simple</strong> a few clients, mostly referral, no real lead flow where a full CRM and automation platform is more than you need.</p>
                 </div>
               </div>
               <div className="bg-white border border-[#DDE1E9] rounded-xl p-3">
@@ -769,15 +769,15 @@ export default function GoHighLevelForCoachesClient() {
               How GHL Scale Up Helps Coaches <span className="text-[#0E9BF0]">Implement GoHighLevel</span>
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Everything above is buildable. The catch is that building it well — the workflows that fire correctly, the pipeline
+              Everything above is buildable. The catch is that building it well the workflows that fire correctly, the pipeline
               that reflects your real sales process, the onboarding that doesn't break, the messaging compliance that keeps your
-              texts delivering — takes real time and a real learning curve. A half-built system quietly costs you the leads it
+              texts delivering takes real time and a real learning curve. A half-built system quietly costs you the leads it
               was supposed to save.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               That's the gap we fill. GHL Scale Up designs and builds GoHighLevel systems around how a coaching business actually
-              runs — lead capture and instant follow-up, discovery-call booking and reminders, sales pipeline, client onboarding,
-              reactivation and testimonial collection — tested and live, so you're not spending weeks in tutorials instead of
+              runs lead capture and instant follow-up, discovery-call booking and reminders, sales pipeline, client onboarding,
+              reactivation and testimonial collection tested and live, so you're not spending weeks in tutorials instead of
               coaching. If you'd rather have the system built correctly around your business than assemble it yourself, that's
               the conversation to have with us.
             </p>
@@ -816,14 +816,14 @@ export default function GoHighLevelForCoachesClient() {
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               GoHighLevel is, for most actively-marketing coaches, the strongest single system available in 2026 for running the
-              business around the coaching — capturing leads, answering them instantly, booking calls, cutting no-shows,
+              business around the coaching capturing leads, answering them instantly, booking calls, cutting no-shows,
               following up, onboarding clients, and keeping past leads and clients in play. Its clearest weakness is premium
               course delivery, where dedicated platforms still lead, and it's overkill for a coach with no real lead flow to
               automate.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed">
-              The practical move is to look back at the leaks described here — the leads that don't get answered, the calls that
-              no-show, the follow-up that doesn't happen, the onboarding you do by hand — and start with the one costing you the
+              The practical move is to look back at the leaks described here the leads that don't get answered, the calls that
+              no-show, the follow-up that doesn't happen, the onboarding you do by hand and start with the one costing you the
               most. Automate lead capture and instant follow-up first, prove it recovers revenue, then build outward. Whether
               you build it yourself or have it built, the goal is the same: a coaching business that runs on systems, so your
               energy goes into coaching and closing, not admin.

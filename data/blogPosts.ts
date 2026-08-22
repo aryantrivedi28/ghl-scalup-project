@@ -14,6 +14,28 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Users',
+            tag: 'Implementation',
+            title: 'GoHighLevel Agency vs Freelancer: Who Should You Hire? (2026 Guide)',
+            excerpt: 'GoHighLevel agency vs freelancer: compare cost, skills, support, project management and risks to choose the right GHL provider for your project.',
+            slug: 'gohighlevel-agency-vs-freelancer',
+            date: 'August 22, 2026',
+            readTime: '26 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=500&fit=crop',
+      },
+      {
+            icon: 'HeartHandshake',
+            tag: 'Nonprofit CRM',
+            title: '10 Key Features Every Nonprofit CRM Should Have: A Practical Buyer\'s Guide (2026)',
+            excerpt: 'Explore the 10 nonprofit CRM features that matter most, from donor management and fundraising to automation, reporting, integrations, and where GoHighLevel fits.',
+            slug: 'nonprofit-crm-features',
+            date: 'August 22, 2026',
+            readTime: '28 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'HeartHandshake',
             tag: 'Nonprofit CRM',
             title: 'The Complete Guide to Choosing a CRM for Nonprofit Organisations (2026)',

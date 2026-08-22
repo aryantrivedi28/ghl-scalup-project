@@ -288,6 +288,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
     {
+      url: `${baseUrl}/blog/gohighlevel-agency-vs-freelancer`,
+      lastModified: new Date('2026-08-22'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/blog/nonprofit-crm-features`,
+      lastModified: new Date('2026-08-22'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/blog/best-crm-for-nonprofits`,
       lastModified: new Date('2026-08-20'),
       changeFrequency: 'monthly',
