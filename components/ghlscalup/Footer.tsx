@@ -20,7 +20,7 @@ const Footer = () => {
     const pathname = usePathname()
   
     const hideHeaderPaths = [
-      '/landing-page',
+      '/gohighlevel-for-doctors',
       '/payment-success',
       '/checkout'
     ]

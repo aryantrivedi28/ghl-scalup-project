@@ -52,12 +52,16 @@ const Navigation = () => {
   const pathname = usePathname()
 
   const hideHeaderPaths = [
-    '/landing-page',
+    '/gohighlevel-for-doctors',
     '/payment-success',
     '/checkout'
   ]
 
-  if (hideHeaderPaths.includes(pathname)) {
+  const shouldHideHeader =
+    hideHeaderPaths.includes(pathname) ||
+    pathname.startsWith('/landing-page/')
+
+  if (shouldHideHeader) {
     return null
   }
 
