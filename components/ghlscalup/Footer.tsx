@@ -1,6 +1,9 @@
+'use client'
 // components/ghlscalup/Footer.tsx
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
+
 import {
   Mail,
   Phone,
@@ -14,6 +17,18 @@ import {
 } from 'lucide-react'
 
 const Footer = () => {
+    const pathname = usePathname()
+  
+    const hideHeaderPaths = [
+      '/landing-page',
+      '/payment-success',
+      '/checkout'
+    ]
+  
+    if (hideHeaderPaths.includes(pathname)) {
+      return null
+    }
+
   return (
     <footer className="bg-[#0B1421] text-white pt-16 pb-0">
       <div className="max-w-[1200px] mx-auto px-4 md:px-8">

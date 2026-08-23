@@ -51,7 +51,7 @@ export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
 
   // Ensure testimonials is an array
   const testimonialsArray = Array.isArray(testimonials) ? testimonials : [];
-  
+
   // Show ALL testimonials (no filtering)
   const displayedTestimonials = testimonialsArray;
   const hasMoreTestimonials = displayedTestimonials.length > visibleCount;
@@ -76,14 +76,14 @@ export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
   return (
     <section className="py-12 md:py-20 bg-[#F4F7FA]" id="testimonials" ref={sectionRef}>
       <div className="max-w-[1200px] mx-auto px-4 md:px-8">
-        
+
         {/* Section Header */}
         <div className="text-center fade-in">
           <div className="inline-flex items-center gap-2.5 text-[0.68rem] font-bold tracking-[0.12em] uppercase text-[#0E9BF0] mb-3.5 justify-center">
             Client Testimonials
           </div>
           <h2 className="text-2xl md:text-[clamp(1.8rem,3.5vw,2.5rem)] font-extrabold tracking-[-0.03em] leading-[1.2] mb-4 text-[#1C2E4A] px-4">
-            Stories from Agencies Who<br className="hidden sm:block" /> 
+            Stories from Agencies Who<br className="hidden sm:block" />
             <span className="text-[#0E9BF0]">Trust Our GHL Expertise</span>
           </h2>
           <p className="text-[#4A5568] text-sm md:text-base max-w-2xl mx-auto mb-8 md:mb-12 px-4">
@@ -116,45 +116,45 @@ export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
               </div>
             </div>
 
-{/* Video 3: Real Estate Agent Review */}
-<Link
-  href="/case-studies/real-estate-agent-rebuild"
-  className="block bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer"
->
-  <div className="relative aspect-video bg-[#0B1628] flex items-center justify-center overflow-hidden">
+            {/* Video 3: Real Estate Agent Review */}
+            <Link
+              href="/case-studies/real-estate-agent-rebuild"
+              className="block bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer"
+            >
+              <div className="relative aspect-video bg-[#0B1628] flex items-center justify-center overflow-hidden">
 
-    {/* Background Image */}
-    <Image
-      src="/real-estate-review.png"
-      alt="Real Estate Agent Client Review"
-      fill
-      className="object-cover transition-transform duration-500 group-hover:scale-105"
-      priority
-    />
+                {/* Background Image */}
+                <Image
+                  src="/real-estate-review.png"
+                  alt="Real Estate Agent Client Review"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  priority
+                />
 
-    {/* Dark overlay */}
-    <div className="absolute inset-0 bg-[#0B1628]/40 group-hover:bg-[#0B1628]/50 transition-all duration-300" />
+                {/* Dark overlay */}
+                <div className="absolute inset-0 bg-[#0B1628]/40 group-hover:bg-[#0B1628]/50 transition-all duration-300" />
 
-    {/* Bottom gradient */}
-    <div className="absolute inset-0 bg-gradient-to-t from-[#0B1628] via-transparent to-transparent opacity-80" />
+                {/* Bottom gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1628] via-transparent to-transparent opacity-80" />
 
-    {/* Play Button */}
-    <div className="relative z-10 w-16 h-16 md:w-16 md:h-16 bg-[#F8D000] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
-      <Play className="w-7 h-7 md:w-9 md:h-9 text-black/90 ml-1" />
-    </div>
+                {/* Play Button */}
+                <div className="relative z-10 w-16 h-16 md:w-16 md:h-16 bg-[#F8D000] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <Play className="w-7 h-7 md:w-9 md:h-9 text-black/90 ml-1" />
+                </div>
 
-    {/* Bottom Text */}
-    <div className="absolute bottom-0 left-0 right-0 z-10 p-4 bg-gradient-to-t from-[#0B1628] to-transparent">
-      <p className="text-white font-semibold text-sm md:text-base">
-        Real Estate Agent Review
-      </p>
+                {/* Bottom Text */}
+                <div className="absolute bottom-0 left-0 right-0 z-10 p-4 bg-gradient-to-t from-[#0B1628] to-transparent">
+                  <p className="text-white font-semibold text-sm md:text-base">
+                    Real Estate Agent Review
+                  </p>
 
-      <p className="text-white/70 text-xs md:text-sm">
-        Watch the full case study →
-      </p>
-    </div>
-  </div>
-</Link>
+                  <p className="text-white/70 text-xs md:text-sm">
+                    Watch the full case study →
+                  </p>
+                </div>
+              </div>
+            </Link>
           </div>
         </div>
 
@@ -164,7 +164,7 @@ export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
             <h3 className="text-lg md:text-xl font-bold text-[#1C2E4A] mb-6 text-center">
               What Our Clients Say
             </h3>
-            
+
             {/* Grid Layout */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               {displayedTestimonials.slice(0, visibleCount).map((testimonial, index) => (
@@ -177,7 +177,7 @@ export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
                 </div>
               ))}
             </div>
-            
+
             {/* Load More Button */}
             {hasMoreTestimonials && (
               <div className="text-center mt-8 md:mt-10">

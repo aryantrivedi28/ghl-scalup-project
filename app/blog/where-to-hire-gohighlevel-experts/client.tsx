@@ -433,7 +433,7 @@ export default function WhereToHireGHLExpertsClient() {
                 className="group inline-flex items-center gap-2 bg-white text-[#0E9BF0] font-bold px-6 py-2.5 rounded-lg hover:bg-[#F8F9FB] transition-all hover:shadow-lg hover:scale-105 text-sm"
               >
                 <HeartHandshake className="w-4 h-4" />
-                Get Pre-Vetted Experts
+                Contact GHL Scale Up
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>

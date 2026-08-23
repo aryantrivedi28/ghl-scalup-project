@@ -5,6 +5,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import {
   ChevronDown,
   Settings,
@@ -41,8 +42,25 @@ import {
   MessageCircle,
 } from 'lucide-react'
 
+
+
+
+
+
 const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
+
+  const hideHeaderPaths = [
+    '/landing-page',
+    '/payment-success',
+    '/checkout'
+  ]
+
+  if (hideHeaderPaths.includes(pathname)) {
+    return null
+  }
+
 
   const ghlServices = [
     { icon: Search, iconBg: 'green', title: 'GoHighLevel SaaS Mode', desc: 'GoHighLevel SaaS Mode: The Complete 2026 Guide (Everything You Need)', link: '/services/gohighlevel-saas-mode' },
@@ -61,7 +79,7 @@ const Navigation = () => {
     { icon: GraduationCap, iconBg: 'green', title: 'Membership & Course Sites', desc: 'Online courses, gated content, drip', link: '/services/membership-sites' },
     { icon: Users, iconBg: 'yellow', title: 'GHL Training & Onboarding', desc: 'Team training, SOPs, documentation', link: '/services/training' },
     { icon: Briefcase, iconBg: 'blue', title: 'Virtual Assistant for GHL Management', desc: 'Dedicated GHL VA to manage your account, run campaigns, update pipelines, and handle day-to-day tasks.', link: '/services/virtual-assistant' },
-    
+
   ]
 
   const marketingServices = [
@@ -233,7 +251,7 @@ const Navigation = () => {
           <div className="md:hidden fixed left-0 right-0 bg-[#1C2E4A] py-6 px-4 z-[999] border-t border-white/10 overflow-y-auto max-h-[calc(100vh-72px)]" style={{ top: '72px' }}>
             <ul className="flex flex-col gap-4 list-none">
               <li><Link href="/about" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link></li>
-              
+
               {/* GHL Services - Mobile */}
               <li>
                 <details className="group">
@@ -247,7 +265,7 @@ const Navigation = () => {
                   </div>
                 </details>
               </li>
-              
+
               {/* Migration Services - Mobile */}
               <li>
                 <details className="group">
@@ -261,7 +279,7 @@ const Navigation = () => {
                   </div>
                 </details>
               </li>
-              
+
               {/* Marketing - Mobile */}
               <li>
                 <details className="group">
@@ -275,7 +293,7 @@ const Navigation = () => {
                   </div>
                 </details>
               </li>
-              
+
               <li><Link href="/how-we-work" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>How We Work</Link></li>
               <li><Link href="/case-studies" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>Case Studies</Link></li>
               <li><Link href="/blog" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>Blogs</Link></li>
