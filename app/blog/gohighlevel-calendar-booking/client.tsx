@@ -41,7 +41,6 @@ export default function GoHighLevelCalendarBookingClient() {
           const rect = element.getBoundingClientRect();
           if (rect.top <= 150) {
             setActiveId(id);
-            break;
           }
         }
       }
@@ -167,12 +166,12 @@ export default function GoHighLevelCalendarBookingClient() {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* Hero Section - WIDE */}
       <section className="bg-[#0B1628] py-12 md:py-[72px] px-4 md:px-6 relative overflow-hidden">
         <div className="absolute -top-[120px] -right-[120px] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(14,155,240,0.12)_0%,transparent_70%)] pointer-events-none" />
         <div className="absolute -bottom-[80px] -left-[80px] w-[360px] h-[360px] bg-[radial-gradient(circle,rgba(37,201,125,0.08)_0%,transparent_70%)] pointer-events-none" />
 
-        <div className="max-w-[760px] mx-auto relative z-10">
+        <div className="max-w-7xl mx-auto relative z-10">
           {/* Post Tags */}
           <div className="flex flex-wrap gap-2 mb-4">
             <span className="bg-[rgba(14,155,240,0.15)] text-[#0E9BF0] text-[11px] font-semibold px-2.5 py-1 rounded-full">Calendar</span>
@@ -202,27 +201,94 @@ export default function GoHighLevelCalendarBookingClient() {
             </div>
           </div>
 
-          {/* Intro Paragraphs */}
-          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
+          {/* Intro Paragraphs - NO max-w constraint */}
+          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6">
             If you are researching the GoHighLevel calendar and booking system, you are likely trying to answer one of three questions: what can it actually do, how do you set it up correctly the first time, and can it replace the Calendly subscription you are already paying for. At <Link href="/" className="text-[#0E9BF0] hover:underline font-medium">GHL Scale Up</Link>, we configure GoHighLevel calendars for agencies and service businesses every week, and we see the same handful of misconfigurations cause the same handful of problems, over and over. This guide covers every calendar type in detail, a full step-by-step setup walkthrough, the sync and troubleshooting issues that come up most often, and an honest, numbers-based comparison with Calendly.
           </p>
 
-          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
+          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6">
             GoHighLevel includes a full appointment booking system on every plan starting at $97 a month. It is not a stripped-down scheduling widget bolted onto a CRM as an afterthought. It supports individual bookings, team round-robin routing, group class capacity limits, and service-specific booking pages, and every single booking automatically creates or updates a contact record and can trigger a workflow, without any manual data entry or a separate integration.
           </p>
 
-          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
+          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6">
             The honest caveat, and the reason this guide runs long, is that a calendar system this capable only performs as well as its configuration. Buffer times, minimum notice periods, external calendar sync, plan-level feature restrictions, and reminder automations all need to be set correctly. Get any one of them wrong and you either lose visible availability, double-book a team member, or watch no-shows continue exactly as before you "automated" anything.
           </p>
         </div>
       </section>
 
-      {/* Main Layout */}
-      <div className="max-w-[1080px] mx-auto px-4 md:px-6 py-10 md:py-16">
-        <div className="grid lg:grid-cols-[1fr_280px] gap-8 md:gap-16 items-start">
+      {/* MAIN LAYOUT - Sidebar on LEFT, Content on RIGHT */}
+      <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-16">
+        <div className="grid lg:grid-cols-[280px_1fr] gap-8 md:gap-12 items-start">
+          
+          {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
+          <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
+            <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
+              <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
+                <BookOpen className="w-3 h-3" />
+                In This Guide
+              </div>
+              <ul className="space-y-0.5 max-h-[calc(100vh-200px)] overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-[#DDE1E9] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent hover:[&::-webkit-scrollbar-thumb]:bg-[#96A0B5]">
+                {tocItems.map((item) => (
+                  <li key={item.id}>
+                    <button
+                      onClick={() => scrollToHeading(item.id)}
+                      className={`block w-full text-left text-xs md:text-sm py-2 px-3 rounded transition-all duration-200 ${activeId === item.id
+                        ? 'bg-[#0E9BF0] text-white font-medium shadow-sm'
+                        : 'text-[#5C6880] hover:text-[#0E9BF0] hover:bg-white'
+                        }`}
+                    >
+                      <span className="flex items-start gap-2">
+                        {activeId === item.id && <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />}
+                        <span className="flex-1">{item.title}</span>
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </nav>
 
-          {/* Article Content */}
-          <main className="min-w-0">
+            {/* CTA Card - Need Calendar Setup? */}
+            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
+              <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
+              <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
+              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+                Book a 30 min Free Call
+                <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
+
+            <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
+                  <img
+                    src="/web-app-manifest-192x192.png"
+                    alt="GHL Scale Up"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <div className="text-sm font-bold text-white">GHL Scale Up Team</div>
+                  <div className="text-xs text-white/50">Calendar & Booking Specialists</div>
+                </div>
+              </div>
+              <p className="text-xs text-white/60 leading-relaxed mb-3">
+                5+ years GHL experience · 200+ builds delivered. All technical details verified as of July 2026.
+              </p>
+              <Link href="/" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
+            </div>
+
+            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
+              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
+              <div className="flex gap-2 flex-wrap">
+                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Linkedin className="w-3 h-3" /> LinkedIn</a>
+                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Twitter className="w-3 h-3" /> X</a>
+                <button onClick={() => navigator.clipboard.writeText(window.location.href)} className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"><Copy className="w-3 h-3" /> Copy link</button>
+              </div>
+            </div>
+          </aside>
+
+          {/* ==================== RIGHT COLUMN: BLOG CONTENT ==================== */}
+          <main className="min-w-0 order-2">
 
             {/* BLUF Box */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
@@ -238,8 +304,8 @@ export default function GoHighLevelCalendarBookingClient() {
               </p>
             </div>
 
-            {/* Table of Contents */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
+            {/* Table of Contents - Mobile Only */}
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8 lg:hidden">
               <div className="flex items-center gap-2 mb-4">
                 <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
                 <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">What's in this guide</span>
@@ -760,72 +826,6 @@ export default function GoHighLevelCalendarBookingClient() {
               <Link href="/" className="text-[#0E9BF0] text-xs hover:underline mt-2 inline-block">ghlscaleup.com</Link>
             </div>
           </main>
-
-          {/* Sidebar */}
-          <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out">
-            <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
-              <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
-                <BookOpen className="w-3 h-3" />
-                In This Guide
-              </div>
-              <ul className="space-y-0.5 max-h-[calc(100vh-200px)] overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-[#DDE1E9] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent hover:[&::-webkit-scrollbar-thumb]:bg-[#96A0B5]">
-                {tocItems.map((item) => (
-                  <li key={item.id}>
-                    <button
-                      onClick={() => scrollToHeading(item.id)}
-                      className={`block w-full text-left text-xs md:text-sm py-2 px-3 rounded transition-all duration-200 ${activeId === item.id
-                        ? 'bg-[#0E9BF0] text-white font-medium shadow-sm'
-                        : 'text-[#5C6880] hover:text-[#0E9BF0] hover:bg-white'
-                        }`}
-                    >
-                      <span className="flex items-start gap-2">
-                        {activeId === item.id && <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />}
-                        <span className="flex-1">{item.title}</span>
-                      </span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-
-            <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
-                  <img
-                    src="/web-app-manifest-192x192.png"
-                    alt="GHL Scale Up"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-white">GHL Scale Up Team</div>
-                  <div className="text-xs text-white/50">Calendar & Booking Specialists</div>
-                </div>
-              </div>
-              <p className="text-xs text-white/60 leading-relaxed mb-3">
-                5+ years GHL experience · 200+ builds delivered. All technical details verified as of July 2026.
-              </p>
-              <Link href="/" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
-            </div>
-
-            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
-              <div className="text-sm font-bold text-white mb-2">Need Calendar Setup?</div>
-              <p className="text-xs text-white/60 leading-relaxed mb-4">We configure your GoHighLevel calendars, round-robin rules, sync, and no-show automation — so your booking system works correctly from day one.</p>
-              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
-                Get Help
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
-
-            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
-              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
-              <div className="flex gap-2 flex-wrap">
-                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Linkedin className="w-3 h-3" /> LinkedIn</a>
-                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Twitter className="w-3 h-3" /> X</a>
-                <button onClick={() => navigator.clipboard.writeText(window.location.href)} className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"><Copy className="w-3 h-3" /> Copy link</button>
-              </div>
-            </div>
-          </aside>
         </div>
       </div>
 
