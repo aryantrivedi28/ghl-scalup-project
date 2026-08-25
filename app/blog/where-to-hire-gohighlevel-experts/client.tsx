@@ -14,24 +14,13 @@ import {
   Shield,
   DollarSign,
   Users,
-  Building2,
-  Award,
   AlertTriangle,
-  Clock,
-  Calendar,
   Star,
   Search,
   Briefcase,
-  Globe,
   MessageCircle,
-  Settings,
-  Brain,
   Phone,
-  Mail,
-  Sparkles,
   AlertCircle,
-  XCircle,
-  TrendingUp,
   Filter,
   Facebook,
   Linkedin as LinkedInIcon,
@@ -39,12 +28,14 @@ import {
   Rocket,
   Target,
   BarChart3,
-  HeartHandshake
+  HeartHandshake,
+  XCircle
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export default function WhereToHireGHLExpertsClient() {
   const [activeId, setActiveId] = useState<string>('');
+  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
   // Handle scroll detection for active section
   useEffect(() => {
@@ -70,6 +61,13 @@ export default function WhereToHireGHLExpertsClient() {
             setActiveId(id);
           }
         }
+      }
+
+      // Show floating Project Help card after scrolling past hero section
+      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
+      if (heroSection) {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        setShowFloatingProjectHelp(heroBottom < 0);
       }
     };
 
@@ -151,6 +149,18 @@ export default function WhereToHireGHLExpertsClient() {
     { flag: 'They go quiet during the proposal phase.', cause: 'Poor communication habits that will continue during the build.', fix: 'If they take more than 48 hours to reply to a scoping question before you\'ve paid them, expect the same during the build. Communication speed during sales is usually the best indicator of communication speed during delivery.' },
     { flag: 'They have no process for testing before delivery.', cause: 'Untested workflows can silently fail for weeks before anyone notices.', fix: 'Every real GHL expert tests workflows with a real contact, checks every funnel step, and confirms every integration is live before handover. If they don\'t mention testing, ask directly and if they don\'t do it, walk away.' },
   ];
+
+  // Reusable Project Help Card Component
+  const ProjectHelpCard = () => (
+    <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
+      <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
+      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
+      <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+        Book a 30 min Free Call
+        <ArrowRight className="w-3 h-3" />
+      </Link>
+    </div>
+  );
 
   return (
     <>
@@ -234,12 +244,17 @@ export default function WhereToHireGHLExpertsClient() {
       </section>
 
       {/* MAIN LAYOUT - Sidebar on LEFT, Content on RIGHT */}
-      <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-16">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-10">
         <div className="grid lg:grid-cols-[280px_1fr] gap-8 md:gap-12 items-start">
-          
+
           {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
           <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
             {/* Table of Contents - Sticky */}
+
+
+            <div className="hidden lg:block mb-6">
+              <ProjectHelpCard />
+            </div>
             <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
                 <BookOpen className="w-3 h-3" />
@@ -267,15 +282,8 @@ export default function WhereToHireGHLExpertsClient() {
               </ul>
             </nav>
 
-            {/* CTA Card */}
-            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
-              <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
-              <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
-              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
-                Book a 30 min Free Call
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
+            {/* CTA Card - Static in sidebar (hidden on mobile) */}
+
 
             {/* About the Author */}
             <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
@@ -372,6 +380,11 @@ export default function WhereToHireGHLExpertsClient() {
                   </button>
                 ))}
               </div>
+            </div>
+
+            {/* Mobile Project Help Card - visible on mobile only */}
+            <div className="lg:hidden mb-8">
+              <ProjectHelpCard />
             </div>
 
             {/* Section 1: Official Directory */}

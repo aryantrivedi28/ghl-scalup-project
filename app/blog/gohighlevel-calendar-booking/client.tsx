@@ -150,6 +150,18 @@ export default function GoHighLevelCalendarBookingClient() {
     'Manually auditing every setting when a problem occurs instead of starting with the native Troubleshooting Tool covered in Section 6.'
   ];
 
+  // Project Help Card Component
+  const ProjectHelpCard = () => (
+    <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
+      <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
+      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
+      <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+        Book a 30 min Free Call
+        <ArrowRight className="w-3 h-3" />
+      </Link>
+    </div>
+  );
+
   return (
     <>
       {/* Progress Bar */}
@@ -222,6 +234,11 @@ export default function GoHighLevelCalendarBookingClient() {
           
           {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
           <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
+            {/* Project Help Card - AT THE TOP */}
+            <div className="mb-6">
+              <ProjectHelpCard />
+            </div>
+
             <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
                 <BookOpen className="w-3 h-3" />
@@ -246,16 +263,6 @@ export default function GoHighLevelCalendarBookingClient() {
                 ))}
               </ul>
             </nav>
-
-            {/* CTA Card - Need Calendar Setup? */}
-            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
-              <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
-              <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
-              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
-                Book a 30 min Free Call
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
 
             <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="flex items-center gap-3 mb-4">
@@ -321,6 +328,11 @@ export default function GoHighLevelCalendarBookingClient() {
                   </button>
                 ))}
               </div>
+            </div>
+
+            {/* Mobile Project Help Card - visible on mobile only */}
+            <div className="lg:hidden mb-8">
+              <ProjectHelpCard />
             </div>
 
             {/* Section 1: Calendar Types */}
