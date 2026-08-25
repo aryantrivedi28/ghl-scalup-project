@@ -57,52 +57,10 @@ import {
   Database,
   Layers,
   Settings,
-  Workflow,
-  ZapIcon,
-  ShieldCheck,
-  Sparkle,
-  MessageCircleIcon,
-  BookOpenIcon,
-  BriefcaseIcon,
-  AwardIcon,
-  ThumbsUpIcon,
-  HeartIcon,
-  GlobeIcon,
-  RocketIcon,
-  DollarSignIcon,
-  ClockIcon,
-  CalendarIcon,
-  FileTextIcon,
-  RefreshCwIcon,
-  PhoneCallIcon,
-  Edit3Icon,
-  CalendarDaysIcon,
-  RepeatIcon,
-  UserPlusIcon,
-  BarChart3Icon,
-  MessageSquareIcon,
-  VideoIcon,
-  MicIcon,
-  LineChartIcon,
-  Link2Icon,
-  AlertCircleIcon,
-  CheckIcon,
-  Users2Icon,
-  Building2Icon,
-  ActivityIcon,
-  SearchIcon,
-  SendIcon,
-  SmartphoneIcon,
-  HeadphonesIcon,
-  BotIcon,
-  DatabaseIcon,
-  LayersIcon,
-  SettingsIcon,
-  WorkflowIcon
+  Workflow
 } from 'lucide-react';
 import Testimonials from '@/components/ghlscalup/Testimonials';
 import CaseStudies from '@/components/ghlscalup/CaseStudies';
-import ContactForm from '@/components/ContactForm';
 import { getCaseStudies } from '@/lib/caseStudiesData';
 
 interface LandingPageClientProps {
@@ -124,6 +82,7 @@ export default function LandingPageClient({ testimonials }: LandingPageClientPro
 
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [iframeLoaded, setIframeLoaded] = useState(false);
 
   const caseStudies = getCaseStudies();
 
@@ -1019,7 +978,7 @@ export default function LandingPageClient({ testimonials }: LandingPageClientPro
           </div>
         </section>
 
-        {/* ─── FINAL CTA ─── */}
+        {/* ─── FINAL CTA WITH CALENDAR IFRAME ─── */}
         <section id="assessment-form" className="py-16 md:py-20 lg:py-24 bg-white">
           <div className="max-w-6xl mx-auto px-4">
             <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold tracking-tight leading-[1.1] text-center mb-4 md:mb-6">
@@ -1050,18 +1009,24 @@ export default function LandingPageClient({ testimonials }: LandingPageClientPro
               ))}
             </div>
 
-            {/* Contact Form */}
-            <div className="bg-[#F4F7FA] border border-[#E8EDF4] rounded-2xl p-4 md:p-6 lg:p-8 max-w-2xl mx-auto shadow-sm">
-              <ContactForm
-                variant="light"
-                title="Request a Practice Automation Assessment"
-                subtitle="Fill out the form and our team will reach out within 24 hours to schedule your 20-30 minute assessment."
-                buttonText="Request a Practice Automation Assessment"
-                showDirectBooking={false}
-              />
-              <p className="text-center text-[#8A9BB0] text-[10px] md:text-xs font-light mt-3">
-                ⚠️ Please do not submit patient health information or protected health information through this form.
-              </p>
+            {/* Calendar Iframe */}
+            <div className="bg-[#F4F7FA] border border-[#E8EDF4] rounded-2xl p-4 md:p-6 lg:p-8 max-w-7xl mx-auto shadow-sm">
+              <div className="relative w-full" style={{ height: '800px' }}>
+                {!iframeLoaded && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-[#F4F7FA] rounded-2xl z-10">
+                    <div className="text-center">
+                      <div className="w-12 h-12 border-4 border-[#0E9BF0] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                      <p className="text-[#4A5568] text-sm font-light">Loading calendar...</p>
+                    </div>
+                  </div>
+                )}
+                <iframe
+                  src="https://api.leadconnectorhq.com/widget/booking/v3X1VeODz2sPjpKbySyx"
+                  title="Booking Calendar"
+                  className="w-full h-full border-0 rounded-2xl"
+                  onLoad={() => setIframeLoaded(true)}
+                />
+              </div>
             </div>
           </div>
         </section>
