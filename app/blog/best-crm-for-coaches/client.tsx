@@ -11,51 +11,131 @@ import {
   BookOpen,
   Zap,
   Lightbulb,
+  Rocket,
+  Target,
+  HeartHandshake,
+  MessageCircle,
+  Phone,
+  Search,
+  Trophy,
+  Facebook,
+  AlertCircle,
+  Info,
+  UserCheck,
+  UserX,
+  Compass,
+  FileCheck,
+  CheckCircle,
+  Layers,
+  PanelTop,
+  LayoutDashboard,
+  Settings,
+  Briefcase,
+  LifeBuoy,
+  Award,
+  Timer,
+  Trash2,
+  Download,
+  BarChart3,
+  PieChart,
+  Workflow,
+  Globe,
+  Database,
+  Cloud,
+  GitBranch,
+  Sparkles,
+  GraduationCap,
+  Clock,
+  Shield,
+  Users,
+  Calendar,
+  Mail,
+  Tag,
+  GitMerge,
+  DollarSign,
+  TrendingUp,
+  XCircle,
+  FileText,
+  Server,
+  CreditCard,
+  Smartphone,
+  Layout,
+  Mailbox,
+  Headphones,
+  FileQuestion,
+  HelpCircle,
+  Boxes,
+  Combine,
+  Link2,
+  Webhook,
+  RefreshCw,
+  ListChecks,
+  ClipboardList,
+  Printer,
+  Video,
+  Ticket,
+  TrendingDown,
+  Star,
+  AlertTriangle
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export default function BestCRMForCoachesClient() {
   const [activeId, setActiveId] = useState<string>('');
+  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
   useEffect(() => {
+    const sections = [
+      'quick-answer',
+      'which-crm',
+      'what-should-crm-do',
+      'gohighlevel',
+      'hubspot',
+      'kajabi',
+      'clickfunnels',
+      'comparison',
+      'by-business-model',
+      'high-ticket',
+      'discovery-calls',
+      'pricing-tco',
+      'replace-stack',
+      'two-platforms',
+      'migrate',
+      'automate-first',
+      'ai-matters',
+      'metrics',
+      'mistakes',
+      'why-gohighlevel',
+      'what-ghl-scale-up-brings',
+      'verdict',
+      'faq'
+    ];
+
     const handleScroll = () => {
-      const sections = [
-        'quick-answer',
-        'which-crm',
-        'what-should-crm-do',
-        'gohighlevel',
-        'hubspot',
-        'kajabi',
-        'clickfunnels',
-        'comparison',
-        'by-business-model',
-        'high-ticket',
-        'discovery-calls',
-        'pricing-tco',
-        'replace-stack',
-        'two-platforms',
-        'migrate',
-        'automate-first',
-        'ai-matters',
-        'metrics',
-        'mistakes',
-        'why-gohighlevel',
-        'what-ghl-scale-up-brings',
-        'verdict',
-        'faq'
-      ];
+      let currentSection = sections[0];
 
       for (const id of sections) {
         const element = document.getElementById(id);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 150) {
-            setActiveId(id);
-          }
+        if (!element) continue;
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= 180) {
+          currentSection = id;
+        } else {
+          break;
         }
+      }
+
+      setActiveId(currentSection);
+
+      // Show floating Project Help card after scrolling past hero section
+      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
+      if (heroSection) {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        setShowFloatingProjectHelp(heroBottom < 0);
       }
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -303,6 +383,18 @@ export default function BestCRMForCoachesClient() {
     { stage: 'Lost', support: 'Reason tracking and reactivation' }
   ];
 
+  // Reusable Project Help Card Component
+  const ProjectHelpCard = () => (
+    <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
+      <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
+      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
+      <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+        Book a 30 min Free Call
+        <ArrowRight className="w-3 h-3" />
+      </Link>
+    </div>
+  );
+
   return (
     <>
       {/* Progress Bar */}
@@ -319,7 +411,7 @@ export default function BestCRMForCoachesClient() {
         </div>
       </nav>
 
-      {/* Hero Section - WIDE */}
+      {/* Hero Section - WIDE (KEPT AS IS) */}
       <section className="bg-[#0B1628] py-12 md:py-[72px] px-4 md:px-6 relative overflow-hidden">
         <div className="absolute -top-[120px] -right-[120px] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(14,155,240,0.12)_0%,transparent_70%)] pointer-events-none" />
         <div className="absolute -bottom-[80px] -left-[80px] w-[360px] h-[360px] bg-[radial-gradient(circle,rgba(37,201,125,0.08)_0%,transparent_70%)] pointer-events-none" />
@@ -367,7 +459,7 @@ export default function BestCRMForCoachesClient() {
             This guide compares them by business model, sales process, delivery model, pricing, automation, scalability and total cost of ownership so you can choose the platform that actually fits your coaching business.
           </p>
 
-          {/* CTA 1: Hero Section CTA */}
+          {/* CTA 1: Hero Section CTA (KEPT AS IS) */}
           <div className="mt-6">
             <Link href="/contact-us" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all shadow-lg hover:shadow-xl">
               Book a Free CRM Strategy Call
@@ -383,6 +475,12 @@ export default function BestCRMForCoachesClient() {
           
           {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
           <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
+            {/* Project Help Card - At top of sidebar */}
+            <div className="mb-6">
+              <ProjectHelpCard />
+            </div>
+
+            {/* Table of Contents */}
             <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
                 <BookOpen className="w-3 h-3" />
@@ -408,16 +506,7 @@ export default function BestCRMForCoachesClient() {
               </ul>
             </nav>
 
-            {/* CTA Card - Project Help */}
-            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
-              <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
-              <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
-              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
-                Book a 30 min Free Call
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
-
+            {/* About the Author */}
             <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
@@ -438,6 +527,7 @@ export default function BestCRMForCoachesClient() {
               <Link href="/" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
             </div>
 
+            {/* Share Buttons */}
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
               <div className="flex gap-2 flex-wrap">
@@ -463,6 +553,18 @@ export default function BestCRMForCoachesClient() {
               <p className="text-sm text-[#5C6880] leading-relaxed">
                 For most high-ticket, lead-generation-driven coaching businesses, GoHighLevel is one of the strongest platforms to evaluate first because it can connect lead capture, CRM, calendars, communication and workflow automation in one system. HubSpot is generally the stronger choice when the coaching business needs sophisticated CRM structure, team processes, reporting and B2B account management. Kajabi is usually the more natural fit when courses, memberships, digital products and expert-content delivery are the center of the business. ClickFunnels is a strong candidate when the business is funnel-first and conversion-focused.
               </p>
+
+              {/* CTA Button inside BLUF */}
+              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                >
+                  <Target className="w-4 h-4" />
+                  Get Your Coaching CRM Assessment
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
             </div>
 
             {/* Table of Contents - Mobile Only */}
@@ -482,6 +584,25 @@ export default function BestCRMForCoachesClient() {
                   </button>
                 ))}
               </div>
+            </div>
+
+            {/* Mobile Project Help Card - visible on mobile only */}
+            <div className="lg:hidden mb-8">
+              <ProjectHelpCard />
+            </div>
+
+            {/* CTA 1 - After TOC */}
+            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
+              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
+                <strong className="text-white">Not sure which CRM fits your coaching business?</strong>
+              </p>
+              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
+                Get a free strategy call to discuss your specific coaching model and find the right CRM fit.
+              </p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                Book a Free Strategy Call
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
 
             {/* Section 1: Quick Answer Table */}
@@ -629,14 +750,14 @@ export default function BestCRMForCoachesClient() {
             </p>
 
             {/* CTA 2: After GoHighLevel Section */}
-            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 md:p-8 text-center my-8">
-              <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
+            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 md:p-8 text-center my-8 text-white">
+              <h3 className="text-xl md:text-2xl font-bold mb-3">
                 Ready to implement GoHighLevel for your coaching business?
               </h3>
               <p className="text-white/60 text-sm max-w-2xl mx-auto mb-6 leading-relaxed">
                 GHL Scale Up helps coaches design and implement GoHighLevel systems built around their actual sales process and customer journey.
               </p>
-              <Link href="/contact-us" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-8 py-3 rounded-lg hover:bg-[#FFE44D] transition-all shadow-lg hover:shadow-xl">
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-8 py-3 rounded-lg hover:bg-[#FFE44D] transition-all shadow-lg hover:shadow-xl">
                 Book a Free Strategy Call →
                 <ArrowRight className="w-4 h-4" />
               </Link>
@@ -992,7 +1113,7 @@ export default function BestCRMForCoachesClient() {
               <p className="text-white/80 text-sm max-w-2xl mx-auto mb-6 leading-relaxed">
                 GHL Scale Up handles the entire migration process so you can focus on coaching, not technical setup.
               </p>
-              <Link href="/contact-us" className="inline-flex items-center gap-2 bg-white text-[#0E9BF0] font-bold px-8 py-3 rounded-lg hover:bg-[#F8F9FB] transition-all shadow-lg">
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-white text-[#0E9BF0] font-bold px-8 py-3 rounded-lg hover:bg-[#F8F9FB] transition-all shadow-lg">
                 Get Migration Help →
                 <ArrowRight className="w-4 h-4" />
               </Link>
@@ -1135,6 +1256,17 @@ export default function BestCRMForCoachesClient() {
               GHL Scale Up's positioning is relevant here because it focuses on GoHighLevel implementation, CRM setup, workflow automation, funnels, communication automation, AI systems and migration. Specialist implementation translates the coaching business model into a system the team can operate and improve.
             </p>
 
+            {/* CTA 4 - Before Verdict */}
+            <div className="bg-[#0B1628] rounded-xl p-6 text-center my-6 text-white">
+              <p className="text-sm font-medium mb-2">🎯 Need a CRM designed specifically for your coaching business?</p>
+              <p className="text-sm text-white/80 mb-4">Our team will map your sales process and build a system that actually works for your coaching model.</p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Target className="w-4 h-4" />
+                Get Your Custom CRM Design
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
             {/* Section 22: Verdict */}
             <h2 id="verdict" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               Our Verdict: Which CRM Is Best for Coaches?
@@ -1176,6 +1308,27 @@ export default function BestCRMForCoachesClient() {
               ))}
             </div>
 
+            {/* CTA 5 - After FAQ */}
+            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
+              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
+                <strong className="text-white">Still have questions about choosing a CRM for your coaching business?</strong>
+              </p>
+              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
+                Talk to our coaching CRM specialists directly. We've helped coaches choose and implement the right CRM for their business model.
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                  <MessageCircle className="w-4 h-4" />
+                  Ask an Expert
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20">
+                  <Phone className="w-4 h-4" />
+                  Call Us
+                </Link>
+              </div>
+            </div>
+
             {/* Final CTA */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
@@ -1183,7 +1336,7 @@ export default function BestCRMForCoachesClient() {
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
                   GHL Scale Up helps coaches and coaching businesses implement GoHighLevel systems designed around their actual sales process and customer journey.
                 </p>
-                <Link href="/contact-us" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
                   Book a Free Strategy Call
                   <ArrowRight className="w-4 h-4" />
                 </Link>

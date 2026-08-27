@@ -32,35 +32,74 @@ import {
   Sparkles,
   Rocket,
   Target,
-  BarChart3
+  BarChart3,
+  AlertTriangle,
+  Info,
+  Lightbulb,
+  FileText,
+  UserCheck,
+  UserX,
+  Compass,
+  FileCheck,
+  CheckCircle,
+  Layers,
+  PanelTop,
+  LayoutDashboard,
+  LifeBuoy,
+  Timer,
+  Trash2,
+  Download,
+  PieChart,
+  Workflow,
+  Database,
+  Cloud,
+  GitBranch,
+  GraduationCap,
+  Search,
+  Facebook,
+  AlertCircle
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export default function BestGHLAgencyClient() {
   const [activeId, setActiveId] = useState<string>('');
+  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
   // Handle scroll detection for active section
   useEffect(() => {
+    const sections = [
+      'what-to-look-for',
+      'top-agencies',
+      'comparison-table',
+      'signs-you-need-expert',
+      'faq'
+    ];
+
     const handleScroll = () => {
-      const sections = [
-        'what-to-look-for',
-        'top-agencies',
-        'comparison-table',
-        'signs-you-need-expert',
-        'faq'
-      ];
+      let currentSection = sections[0];
 
       for (const id of sections) {
         const element = document.getElementById(id);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 150) {
-            setActiveId(id);
-          }
+        if (!element) continue;
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= 180) {
+          currentSection = id;
+        } else {
+          break;
         }
+      }
+
+      setActiveId(currentSection);
+
+      // Show floating Project Help card after scrolling past hero section
+      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
+      if (heroSection) {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        setShowFloatingProjectHelp(heroBottom < 0);
       }
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -148,6 +187,18 @@ export default function BestGHLAgencyClient() {
     'You need AI features configured correctly AI Voice Agent, Conversation AI, and Review AI require careful training and testing'
   ];
 
+  // Reusable Project Help Card Component
+  const ProjectHelpCard = () => (
+    <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
+      <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
+      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
+      <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+        Book a 30 min Free Call
+        <ArrowRight className="w-3 h-3" />
+      </Link>
+    </div>
+  );
+
   return (
     <>
       {/* Progress Bar */}
@@ -164,7 +215,7 @@ export default function BestGHLAgencyClient() {
         </div>
       </nav>
 
-      {/* Hero Section - WIDE */}
+      {/* Hero Section - WIDE (KEPT AS IS) */}
       <section className="bg-[#0B1628] py-12 md:py-[72px] px-4 md:px-6 relative overflow-hidden">
         <div className="absolute -top-[120px] -right-[120px] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(14,155,240,0.12)_0%,transparent_70%)] pointer-events-none" />
         <div className="absolute -bottom-[80px] -left-[80px] w-[360px] h-[360px] bg-[radial-gradient(circle,rgba(37,201,125,0.08)_0%,transparent_70%)] pointer-events-none" />
@@ -208,7 +259,7 @@ export default function BestGHLAgencyClient() {
             honestly, with specific detail on what each one does and who they're best for.
           </p>
 
-          {/* CTA Button 1: Hero Section */}
+          {/* CTA Button 1: Hero Section (KEPT AS IS) */}
           <div className="flex flex-wrap gap-3">
             <Link 
               href="/contact" 
@@ -235,6 +286,12 @@ export default function BestGHLAgencyClient() {
           
           {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
           <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
+            {/* Project Help Card - At top of sidebar */}
+            <div className="mb-6">
+              <ProjectHelpCard />
+            </div>
+
+            {/* Table of Contents */}
             <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
                 <BookOpen className="w-3 h-3" />
@@ -262,16 +319,7 @@ export default function BestGHLAgencyClient() {
               </ul>
             </nav>
 
-            {/* CTA Card - Project Help */}
-            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
-              <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
-              <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
-              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
-                Book a 30 min Free Call
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
-
+            {/* About the Author */}
             <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
@@ -293,6 +341,7 @@ export default function BestGHLAgencyClient() {
               <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
             </div>
 
+            {/* Share Buttons */}
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
               <div className="flex gap-2 flex-wrap">
@@ -363,6 +412,25 @@ export default function BestGHLAgencyClient() {
               </div>
             </div>
 
+            {/* Mobile Project Help Card - visible on mobile only */}
+            <div className="lg:hidden mb-8">
+              <ProjectHelpCard />
+            </div>
+
+            {/* CTA 1 - After TOC */}
+            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
+              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
+                <strong className="text-white">Not sure which agency fits your needs?</strong>
+              </p>
+              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
+                Get a free 30-minute strategy call with our GHL experts to evaluate your situation and recommend the right partner.
+              </p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                Book a Free Strategy Call
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
             {/* Section 1: What to Look For */}
             <h2 id="what-to-look-for" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-8 mb-4">
               1. What to Look for in a GHL Expert Agency
@@ -382,7 +450,7 @@ export default function BestGHLAgencyClient() {
               ))}
             </div>
 
-            {/* CTA Button 3: After Selection Criteria */}
+            {/* CTA 2 - After Selection Criteria */}
             <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 mb-8 text-center">
               <p className="text-white/80 text-sm mb-3">
                 <span className="font-bold text-white">Not sure what to look for?</span> Let our experts evaluate your GHL needs for free.
@@ -446,7 +514,7 @@ export default function BestGHLAgencyClient() {
                   <p className="text-white/70 text-xs"><strong className="text-white">Best for:</strong> Agencies and service businesses that need a complete, production-ready GHL system built correctly from day one</p>
                 </div>
 
-                {/* CTA Button 4: Inside Agency Card */}
+                {/* CTA 3 - Inside Agency Card */}
                 <div className="mt-4">
                   <Link 
                     href="/contact" 
@@ -479,6 +547,7 @@ export default function BestGHLAgencyClient() {
               </p>
             </div>
 
+            // ... (Agency #3 - E2M Solutions through Agency #6 - Extendly remain the same)
             {/* Agency #3 - E2M Solutions */}
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-6 mb-6">
               <div className="flex items-center gap-2 mb-2">
@@ -552,7 +621,7 @@ export default function BestGHLAgencyClient() {
               </p>
             </div>
 
-            {/* CTA Button 5: After Agencies List */}
+            {/* CTA 4 - After Agencies List */}
             <div className="bg-gradient-to-r from-[#0E9BF0] to-[#0C8AD8] rounded-xl p-6 text-center text-white mb-8">
               <p className="text-sm font-medium mb-2">🎯 Not sure which agency fits your needs?</p>
               <p className="text-sm text-white/80 mb-4">Get a free 30-minute strategy call with our GHL experts.</p>
@@ -611,7 +680,7 @@ export default function BestGHLAgencyClient() {
               ))}
             </div>
 
-            {/* CTA Button 6: Before Cost Section */}
+            {/* CTA 5 - Before Cost Section */}
             <div className="bg-[#1C2E4A] rounded-xl p-5 my-6 text-white">
               <div className="flex items-center gap-2 mb-3">
                 <DollarSign className="w-5 h-5 text-[#F8D000]" />
@@ -656,7 +725,7 @@ export default function BestGHLAgencyClient() {
               ))}
             </div>
 
-            {/* CTA Button 7: After FAQ */}
+            {/* CTA 6 - After FAQ */}
             <div className="mt-8 p-6 bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl text-center">
               <p className="text-white font-bold text-lg mb-2">Still Have Questions?</p>
               <p className="text-white/60 text-sm mb-4">Talk to our GHL experts directly. We're here to help.</p>
@@ -691,7 +760,7 @@ export default function BestGHLAgencyClient() {
               </div>
             </div>
 
-            {/* CTA Section */}
+            {/* Final CTA Section */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Ready to Hire a GHL Expert?</h3>
@@ -726,11 +795,3 @@ export default function BestGHLAgencyClient() {
     </>
   );
 }
-
-// AlertTriangle component
-const AlertTriangle = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M12 9v4M12 17h.01" />
-    <path d="M12 2L1 21h22L12 2z" />
-  </svg>
-);

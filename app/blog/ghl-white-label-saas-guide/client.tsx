@@ -29,45 +29,78 @@ import {
   Briefcase,
   LifeBuoy,
   Sparkles,
-  Rocket
+  Rocket,
+  HeartHandshake,
+  MessageCircle,
+  Phone,
+  Search,
+  Trophy,
+  Facebook,
+  AlertCircle,
+  Filter,
+  XCircle,
+  HelpCircle,
+  UserCheck,
+  UserX,
+  Compass,
+  FileCheck,
+  CheckCircle,
+  Settings,
+  Cloud,
+  LayoutDashboard,
+  PanelTop
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export default function GHLWhiteLabelSaaSClient() {
   const [activeId, setActiveId] = useState<string>('');
+  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
   // Handle scroll detection for active section
   useEffect(() => {
+    const sections = [
+      'what-is-white-label-saas',
+      'how-white-label-saas-works',
+      'market-size',
+      'benefits-risks',
+      'build-or-buy',
+      'revenue-models',
+      'categories-examples',
+      'choose-platform',
+      'why-gohighlevel',
+      'difference',
+      'setup-steps',
+      'pricing-strategy',
+      'margin-calculator',
+      'common-mistakes',
+      'faq'
+    ];
+
     const handleScroll = () => {
-      const sections = [
-        'what-is-white-label-saas',
-        'how-white-label-saas-works',
-        'market-size',
-        'benefits-risks',
-        'build-or-buy',
-        'revenue-models',
-        'categories-examples',
-        'choose-platform',
-        'why-gohighlevel',
-        'difference',
-        'setup-steps',
-        'pricing-strategy',
-        'margin-calculator',
-        'common-mistakes',
-        'faq'
-      ];
+      let currentSection = sections[0];
 
       for (const id of sections) {
         const element = document.getElementById(id);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 150) {
-            setActiveId(id);
-          }
+        if (!element) continue;
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= 180) {
+          currentSection = id;
+        } else {
+          break;
         }
+      }
+
+      setActiveId(currentSection);
+
+      // Show floating Project Help card after scrolling past hero section
+      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
+      if (heroSection) {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        setShowFloatingProjectHelp(heroBottom < 0);
       }
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -147,7 +180,7 @@ export default function GHLWhiteLabelSaaSClient() {
   const tocItems = [
     { id: 'what-is-white-label-saas', title: '1. What Is White Label SaaS?' },
     { id: 'how-white-label-saas-works', title: '2. How Does White Label SaaS Work?' },
-    { id: 'market-size', title: '3. How Big Is the White Label SaaS Market in 2026?' },
+    { id: 'market-size', title: '3. How Big Is the Market in 2026?' },
     { id: 'benefits-risks', title: '4. What Are the Benefits and Risks?' },
     { id: 'build-or-buy', title: '5. Should You Build or Buy?' },
     { id: 'revenue-models', title: '6. What Are the Revenue Models?' },
@@ -249,6 +282,18 @@ export default function GHLWhiteLabelSaaSClient() {
     { category: 'Communication platforms', examples: 'Various tools', description: 'Voice, SMS, and video tools rebranded for client use.' },
   ];
 
+  // Reusable Project Help Card Component
+  const ProjectHelpCard = () => (
+    <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
+      <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
+      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
+      <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+        Book a 30 min Free Call
+        <ArrowRight className="w-3 h-3" />
+      </Link>
+    </div>
+  );
+
   return (
     <>
       {/* Progress Bar */}
@@ -299,6 +344,25 @@ export default function GHLWhiteLabelSaaSClient() {
             </div>
           </div>
 
+          {/* Hero CTA Buttons */}
+          <div className="flex flex-wrap gap-3 mb-6">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105"
+            >
+              <Rocket className="w-4 h-4" />
+              Launch Your SaaS
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              href="#margin-calculator"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20"
+            >
+              See Margins
+              <ChevronDown className="w-4 h-4" />
+            </Link>
+          </div>
+
           {/* Introductory Paragraphs - NO max-w constraints */}
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6">
             White label SaaS is one of the fastest ways to launch a software business in 2026 without writing a single line of code. 
@@ -330,6 +394,12 @@ export default function GHLWhiteLabelSaaSClient() {
           
           {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
           <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
+            {/* Project Help Card - At top of sidebar */}
+            <div className="mb-6">
+              <ProjectHelpCard />
+            </div>
+
+            {/* Table of Contents */}
             <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
                 <BookOpen className="w-3 h-3" />
@@ -357,16 +427,7 @@ export default function GHLWhiteLabelSaaSClient() {
               </ul>
             </nav>
 
-            {/* CTA Card - Project Help */}
-            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
-              <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
-              <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
-              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
-                Book a 30 min Free Call
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
-
+            {/* About the Author */}
             <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
@@ -388,6 +449,7 @@ export default function GHLWhiteLabelSaaSClient() {
               <Link href="/" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
             </div>
 
+            {/* Share Buttons */}
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Share This Guide</div>
               <div className="flex gap-2 flex-wrap">
@@ -440,6 +502,18 @@ export default function GHLWhiteLabelSaaSClient() {
                   <p key={idx} className="text-sm text-[#5C6880] py-0.5">{item}</p>
                 ))}
               </div>
+
+              {/* CTA Button inside Guide Covers */}
+              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                >
+                  <Target className="w-4 h-4" />
+                  Launch Your SaaS Today
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
             </div>
 
             {/* Table of Contents - Mobile Only */}
@@ -459,6 +533,11 @@ export default function GHLWhiteLabelSaaSClient() {
                   </button>
                 ))}
               </div>
+            </div>
+
+            {/* Mobile Project Help Card - visible on mobile only */}
+            <div className="lg:hidden mb-8">
+              <ProjectHelpCard />
             </div>
 
             {/* Section 1: What Is White Label SaaS? */}
@@ -707,22 +786,6 @@ export default function GHLWhiteLabelSaaSClient() {
               </p>
             </div>
 
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 my-6">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-8 h-8 rounded-full bg-[#0E9BF0] flex items-center justify-center">
-                  <Users className="w-4 h-4 text-white" />
-                </div>
-                <div>
-                  <h4 className="text-sm font-bold text-[#1A2236]">Not sure which white label SaaS platform fits your business?</h4>
-                  <p className="text-sm text-[#5C6880]">GHL Scale Up helps you choose, then builds the whole thing. 200+ builds delivered across 6 countries.</p>
-                </div>
-              </div>
-              <Link href="/contact-us" className="inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-bold px-5 py-2.5 rounded-lg hover:bg-[#0B89D6] transition-all text-sm">
-                Book a Free Strategy Call
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
             {/* Section 9: Why GoHighLevel Is #1 */}
             <h2 id="why-gohighlevel" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               9. Why Is GoHighLevel the Top White Label SaaS Platform for Agencies?
@@ -906,6 +969,20 @@ export default function GHLWhiteLabelSaaSClient() {
               </p>
             </div>
 
+            {/* CTA 1 - After Setup */}
+            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
+              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
+                <strong className="text-white">Need help setting up your GoHighLevel white label SaaS?</strong>
+              </p>
+              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
+                GHL Scale Up builds complete SaaS Mode setups with Stripe billing, pricing tiers, Snapshots, and offboarding automation.
+              </p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                Get SaaS Setup Help
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
             {/* Section 12: Pricing Strategy */}
             <h2 id="pricing-strategy" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               12. How Do You Price Your White Label SaaS Offer?
@@ -996,6 +1073,16 @@ export default function GHLWhiteLabelSaaSClient() {
               </p>
             </div>
 
+            {/* CTA 2 - After Margin Calculator */}
+            <div className="bg-[#1C2E4A] rounded-xl p-6 text-center my-6 text-white">
+              <p className="text-sm font-medium mb-2">📊 Ready to see your exact margins?</p>
+              <p className="text-sm text-white/80 mb-4">Let our team calculate your potential revenue based on your pricing and client count.</p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                Get Your Margin Projection
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
             {/* Section 14: Common Mistakes */}
             <h2 id="common-mistakes" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               14. Common White Label SaaS Mistakes to Avoid
@@ -1025,7 +1112,7 @@ export default function GHLWhiteLabelSaaSClient() {
                 pricing tiers, Snapshot build, onboarding flow, and offboarding automation. Most builds go live in 5 to 7 business days. 
                 See <strong>real GoHighLevel results and case studies</strong> at <Link href="/case-studies" className="text-[#0E9BF0] hover:underline">ghlscaleup.com/case-studies</Link>.
               </p>
-              <Link href="/contact-us" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all text-sm">
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all text-sm">
                 Book Your Free Strategy Call
                 <ArrowRight className="w-4 h-4" />
               </Link>
@@ -1046,6 +1133,27 @@ export default function GHLWhiteLabelSaaSClient() {
                   <p className="text-sm text-[#5C6880] leading-relaxed pb-4">{faq.a}</p>
                 </details>
               ))}
+            </div>
+
+            {/* CTA 3 - After FAQ */}
+            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
+              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
+                <strong className="text-white">Still have questions about white label SaaS?</strong>
+              </p>
+              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
+                Talk to our white label SaaS specialists directly. We're here to help you launch your software product.
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                  <MessageCircle className="w-4 h-4" />
+                  Ask an Expert
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20">
+                  <Phone className="w-4 h-4" />
+                  Call Us
+                </Link>
+              </div>
             </div>
 
             {/* About GHL Scale Up */}
@@ -1083,7 +1191,7 @@ export default function GHLWhiteLabelSaaSClient() {
               </div>
             </div>
 
-            {/* CTA Section */}
+            {/* Final CTA Section */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Ready to launch your white label SaaS?</h3>
@@ -1091,7 +1199,7 @@ export default function GHLWhiteLabelSaaSClient() {
                   GHL Scale Up builds the whole thing and you launch in 5 to 7 days. Stripe, SaaS Configurator, pricing tiers, 
                   Snapshot, sign-up, and offboarding, tested before handover. 200+ builds delivered.
                 </p>
-                <Link href="/contact-us" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
                   Book Your Free Strategy Call
                   <ArrowRight className="w-4 h-4" />
                 </Link>

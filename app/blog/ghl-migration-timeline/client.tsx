@@ -51,35 +51,67 @@ import {
   Download,
   BarChart3,
   PieChart,
-  Workflow
+  Workflow,
+  Target,
+  HeartHandshake,
+  MessageCircle as MessageCircleIcon,
+  Phone as PhoneIcon,
+  Search,
+  Facebook,
+  AlertCircle,
+  Info,
+  Lightbulb,
+  FileText,
+  UserCheck,
+  UserX,
+  Compass,
+  FileCheck,
+  CheckCircle,
+  Layers,
+  PanelTop,
+  LayoutDashboard
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export default function GHLMigrationTimelineClient() {
   const [activeId, setActiveId] = useState<string>('');
+  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
   // Handle scroll detection for active section
   useEffect(() => {
+    const sections = [
+      'timeline-by-platform',
+      'what-drives-timeline',
+      'migration-phases',
+      'diy-vs-expert',
+      'faq'
+    ];
+
     const handleScroll = () => {
-      const sections = [
-        'timeline-by-platform',
-        'what-drives-timeline',
-        'migration-phases',
-        'diy-vs-expert',
-        'faq'
-      ];
+      let currentSection = sections[0];
 
       for (const id of sections) {
         const element = document.getElementById(id);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 150) {
-            setActiveId(id);
-          }
+        if (!element) continue;
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= 180) {
+          currentSection = id;
+        } else {
+          break;
         }
+      }
+
+      setActiveId(currentSection);
+
+      // Show floating Project Help card after scrolling past hero section
+      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
+      if (heroSection) {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        setShowFloatingProjectHelp(heroBottom < 0);
       }
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -167,6 +199,18 @@ export default function GHLMigrationTimelineClient() {
     { complexity: 'Complex migration (20+ automations)', diy: '16 to 30+ weeks', expert: '6 to 10 weeks' },
   ];
 
+  // Reusable Project Help Card Component
+  const ProjectHelpCard = () => (
+    <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
+      <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
+      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
+      <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+        Book a 30 min Free Call
+        <ArrowRight className="w-3 h-3" />
+      </Link>
+    </div>
+  );
+
   return (
     <>
       {/* Progress Bar */}
@@ -218,6 +262,25 @@ export default function GHLMigrationTimelineClient() {
             </div>
           </div>
 
+          {/* Hero CTA Buttons */}
+          <div className="flex flex-wrap gap-3 mb-6">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105"
+            >
+              <Rocket className="w-4 h-4" />
+              Get a Migration Quote
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              href="#timeline-by-platform"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20"
+            >
+              See Timelines
+              <ChevronDown className="w-4 h-4" />
+            </Link>
+          </div>
+
           {/* Introductory Paragraph - NO max-w constraint */}
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6">
             One of the first questions anyone asks before committing to a GoHighLevel migration is: 
@@ -236,6 +299,12 @@ export default function GHLMigrationTimelineClient() {
           
           {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
           <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
+            {/* Project Help Card - At top of sidebar */}
+            <div className="mb-6">
+              <ProjectHelpCard />
+            </div>
+
+            {/* Table of Contents */}
             <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
                 <BookOpen className="w-3 h-3" />
@@ -263,16 +332,7 @@ export default function GHLMigrationTimelineClient() {
               </ul>
             </nav>
 
-            {/* CTA Card - Project Help */}
-            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
-              <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
-              <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
-              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
-                Book a 30 min Free Call
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
-
+            {/* About the Author */}
             <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
@@ -294,6 +354,7 @@ export default function GHLMigrationTimelineClient() {
               <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
             </div>
 
+            {/* Share Buttons */}
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
               <div className="flex gap-2 flex-wrap">
@@ -335,6 +396,18 @@ export default function GHLMigrationTimelineClient() {
                 contacts you have. It is how many active automations you need to rebuild. The contact import itself takes minutes. 
                 Rebuilding a complex multi-branch automation takes 4 to 8 hours. That is the number that determines your migration length.
               </p>
+
+              {/* CTA Button inside BLUF */}
+              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                >
+                  <Target className="w-4 h-4" />
+                  Get Your Migration Timeline
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
             </div>
 
             {/* Table of Contents - Mobile Only */}
@@ -354,6 +427,25 @@ export default function GHLMigrationTimelineClient() {
                   </button>
                 ))}
               </div>
+            </div>
+
+            {/* Mobile Project Help Card - visible on mobile only */}
+            <div className="lg:hidden mb-8">
+              <ProjectHelpCard />
+            </div>
+
+            {/* CTA 1 - After TOC */}
+            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
+              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
+                <strong className="text-white">Not sure how long your migration will take?</strong>
+              </p>
+              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
+                Get a free migration assessment. We review your current setup and give you a realistic timeline and fixed-fee quote.
+              </p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                Book a Free Strategy Call
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
 
             {/* Section 1: Timeline by Platform */}
@@ -489,6 +581,17 @@ export default function GHLMigrationTimelineClient() {
               </p>
             </div>
 
+            {/* CTA 2 - After What Drives Timeline */}
+            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 text-center my-6 text-white">
+              <p className="text-sm font-medium mb-2">🔍 Not sure which automations to keep and which to cut?</p>
+              <p className="text-sm text-white/80 mb-4">Our migration assessment includes a full automation audit to identify what to migrate and what to leave behind.</p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Search className="w-4 h-4" />
+                Get an Automation Audit
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
             {/* Section 3: Migration Phases */}
             <h2 id="migration-phases" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               3. What Happens in Each Phase of a GHL Migration?
@@ -558,13 +661,24 @@ export default function GHLMigrationTimelineClient() {
                 We review your current platform setup, tell you exactly what the migration involves, give you a realistic timeline, and 
                 provide a fixed-fee project quote.
               </p>
-              <Link href="/contact-us" className="inline-flex items-center gap-2 text-[#F8D000] text-sm font-semibold hover:gap-3 transition-all">
-                Book your free assessment at ghlscaleup.com/contact-us
+              <Link href="/contact" className="inline-flex items-center gap-2 text-[#F8D000] text-sm font-semibold hover:gap-3 transition-all">
+                Book your free assessment at ghlscaleup.com/contact
                 <ArrowRight className="w-3 h-3" />
               </Link>
               <p className="text-sm text-white/60 leading-relaxed mt-3">
                 See our full <Link href="/services/migration" className="text-[#0E9BF0] hover:underline">GHL migration service at ghlscaleup.com/services/migration →</Link>
               </p>
+            </div>
+
+            {/* CTA 3 - After DIY vs Expert */}
+            <div className="bg-[#0B1628] rounded-xl p-6 text-center my-6 text-white">
+              <p className="text-sm font-medium mb-2">📊 Want to know exactly how long your migration will take?</p>
+              <p className="text-sm text-white/80 mb-4">Get a personalized migration timeline based on your specific platform, automations, and data volume.</p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Clock className="w-4 h-4" />
+                Get Your Timeline
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
 
             {/* Section 5: FAQ */}
@@ -584,6 +698,27 @@ export default function GHLMigrationTimelineClient() {
               ))}
             </div>
 
+            {/* CTA 4 - After FAQ */}
+            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
+              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
+                <strong className="text-white">Still have questions about your migration timeline?</strong>
+              </p>
+              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
+                Talk to our migration specialists directly. We've completed migrations from HubSpot, ClickFunnels, ActiveCampaign, Kajabi, Zoho, and Salesforce.
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                  <MessageCircleIcon className="w-4 h-4" />
+                  Ask an Expert
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20">
+                  <PhoneIcon className="w-4 h-4" />
+                  Call Us
+                </Link>
+              </div>
+            </div>
+
             {/* Internal Links */}
             <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
               <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles</h3>
@@ -598,7 +733,7 @@ export default function GHLMigrationTimelineClient() {
               </div>
             </div>
 
-            {/* CTA Section */}
+            {/* Final CTA Section */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Ready to start planning your GHL migration?</h3>
@@ -606,7 +741,7 @@ export default function GHLMigrationTimelineClient() {
                   Book a free 30-minute migration assessment. We review your current platform, tell you exactly what the migration 
                   involves, give you a realistic timeline, and provide a fixed-fee quote. No obligation.
                 </p>
-                <Link href="/contact-us" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
                   Book Your Free Assessment
                   <ArrowRight className="w-4 h-4" />
                 </Link>

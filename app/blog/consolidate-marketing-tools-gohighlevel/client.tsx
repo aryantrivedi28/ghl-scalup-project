@@ -16,38 +16,95 @@ import {
   AlertTriangle,
   Compass,
   XCircle,
+  Rocket,
+  Target,
+  HeartHandshake,
+  MessageCircle,
+  Phone,
+  Search,
+  Trophy,
+  Facebook,
+  AlertCircle,
+  Info,
+  Lightbulb,
+  FileText,
+  UserCheck,
+  UserX,
+  CheckCircle2,
+  Layers,
+  PanelTop,
+  LayoutDashboard,
+  Settings,
+  Briefcase,
+  LifeBuoy,
+  Award,
+  Timer,
+  Trash2,
+  Download,
+  BarChart3,
+  PieChart,
+  Workflow,
+  Globe,
+  Database,
+  Cloud,
+  GitBranch,
+  Sparkles,
+  GraduationCap,
+  Clock,
+  Shield,
+  Users,
+  Calendar,
+  Mail,
+  Tag,
+  GitMerge
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export default function ConsolidateMarketingToolsClient() {
   const [activeId, setActiveId] = useState<string>('');
+  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
+  // Handle scroll detection for active section
   useEffect(() => {
+    const sections = [
+      'tool-fragmentation',
+      'what-ghl-replaces',
+      'what-ghl-not-replaces',
+      'calculate-savings',
+      'consolidation-phases',
+      'faq'
+    ];
+
     const handleScroll = () => {
-      const sections = [
-        'tool-fragmentation',
-        'what-ghl-replaces',
-        'what-ghl-not-replaces',
-        'calculate-savings',
-        'consolidation-phases',
-        'faq'
-      ];
+      let currentSection = sections[0];
 
       for (const id of sections) {
         const element = document.getElementById(id);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 150) {
-            setActiveId(id);
-          }
+        if (!element) continue;
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= 180) {
+          currentSection = id;
+        } else {
+          break;
         }
+      }
+
+      setActiveId(currentSection);
+
+      // Show floating Project Help card after scrolling past hero section
+      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
+      if (heroSection) {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        setShowFloatingProjectHelp(heroBottom < 0);
       }
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Handle TOC click with smooth scroll
   const scrollToHeading = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -128,6 +185,18 @@ export default function ConsolidateMarketingToolsClient() {
     'Missed automation gaps between systems',
   ];
 
+  // Reusable Project Help Card Component
+  const ProjectHelpCard = () => (
+    <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
+      <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
+      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
+      <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+        Book a 30 min Free Call
+        <ArrowRight className="w-3 h-3" />
+      </Link>
+    </div>
+  );
+
   return (
     <>
       {/* Progress Bar */}
@@ -179,6 +248,25 @@ export default function ConsolidateMarketingToolsClient() {
             </div>
           </div>
 
+          {/* Hero CTA Buttons */}
+          <div className="flex flex-wrap gap-3 mb-6">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105"
+            >
+              <Rocket className="w-4 h-4" />
+              Consolidate Your Stack
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              href="#calculate-savings"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20"
+            >
+              Calculate Savings
+              <ChevronDown className="w-4 h-4" />
+            </Link>
+          </div>
+
           {/* Introductory Paragraph - NO max-w constraint */}
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6">
             Most agencies and service businesses did not choose their current tool stack deliberately. 
@@ -198,6 +286,12 @@ export default function ConsolidateMarketingToolsClient() {
           
           {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
           <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
+            {/* Project Help Card - At top of sidebar */}
+            <div className="mb-6">
+              <ProjectHelpCard />
+            </div>
+
+            {/* Table of Contents */}
             <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
                 <BookOpen className="w-3 h-3" />
@@ -223,16 +317,7 @@ export default function ConsolidateMarketingToolsClient() {
               </ul>
             </nav>
 
-            {/* CTA Card - Project Help */}
-            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
-              <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
-              <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
-              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
-                Book a 30 min Free Call
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
-
+            {/* About the Author */}
             <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
@@ -254,6 +339,7 @@ export default function ConsolidateMarketingToolsClient() {
               <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
             </div>
 
+            {/* Share Buttons */}
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
               <div className="flex gap-2 flex-wrap">
@@ -281,6 +367,18 @@ export default function ConsolidateMarketingToolsClient() {
                 on tools that require constant integration maintenance. After consolidating to GHL, the same capabilities cost 
                 <strong className="text-[#0E9BF0]"> $97 to $297 per month</strong> with no third-party connectors between them because everything is native.
               </p>
+
+              {/* CTA Button inside BLUF */}
+              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                >
+                  <Target className="w-4 h-4" />
+                  Get Your Consolidation Plan
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
             </div>
 
             {/* Table of Contents - Mobile Only */}
@@ -300,6 +398,25 @@ export default function ConsolidateMarketingToolsClient() {
                   </button>
                 ))}
               </div>
+            </div>
+
+            {/* Mobile Project Help Card - visible on mobile only */}
+            <div className="lg:hidden mb-8">
+              <ProjectHelpCard />
+            </div>
+
+            {/* CTA 1 - After TOC */}
+            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
+              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
+                <strong className="text-white">🚀 Ready to consolidate your marketing tools?</strong>
+              </p>
+              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
+                GHL Scale Up helps agencies and businesses consolidate their entire marketing stack into GoHighLevel — saving time, money, and headaches.
+              </p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                Book Your Free Strategy Call
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
 
             {/* Section 1: Tool Fragmentation */}
@@ -524,6 +641,17 @@ export default function ConsolidateMarketingToolsClient() {
               </p>
             </div>
 
+            {/* CTA 2 - After Calculate Savings */}
+            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 text-center my-6 text-white">
+              <p className="text-sm font-medium mb-2">💰 Want to know exactly how much you could save?</p>
+              <p className="text-sm text-white/80 mb-4">Get a free tool stack audit and consolidation savings estimate tailored to your business.</p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <DollarSign className="w-4 h-4" />
+                Get Your Savings Estimate
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
             {/* Section 5: Consolidation Phases */}
             <h2 id="consolidation-phases" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               5. How to Consolidate to GoHighLevel Without Disrupting Your Business
@@ -563,6 +691,17 @@ export default function ConsolidateMarketingToolsClient() {
               </p>
             </div>
 
+            {/* CTA 3 - After Consolidation Phases */}
+            <div className="bg-[#0B1628] rounded-xl p-6 text-center my-6 text-white">
+              <p className="text-sm font-medium mb-2">📋 Not sure where to start with consolidation?</p>
+              <p className="text-sm text-white/80 mb-4">Our team will audit your current stack, build your GHL system, and guide you through the phased consolidation.</p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Compass className="w-4 h-4" />
+                Get Started Today
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
             {/* Section 6: FAQ */}
             <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
               6. Frequently Asked Questions
@@ -580,6 +719,27 @@ export default function ConsolidateMarketingToolsClient() {
               ))}
             </div>
 
+            {/* CTA 4 - After FAQ */}
+            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
+              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
+                <strong className="text-white">Still have questions about consolidating your tools?</strong>
+              </p>
+              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
+                Talk to our consolidation specialists directly. We've helped 200+ agencies reduce their tool stack and save thousands annually.
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                  <MessageCircle className="w-4 h-4" />
+                  Ask an Expert
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20">
+                  <Phone className="w-4 h-4" />
+                  Call Us
+                </Link>
+              </div>
+            </div>
+
             {/* Internal Links */}
             <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
               <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles</h3>
@@ -593,7 +753,7 @@ export default function ConsolidateMarketingToolsClient() {
               </div>
             </div>
 
-            {/* CTA Section */}
+            {/* Final CTA Section */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Ready to stop managing 6 different tools that do not connect?</h3>
@@ -601,7 +761,7 @@ export default function ConsolidateMarketingToolsClient() {
                   GHL Scale Up consolidates your entire marketing stack into one system. Audit of your current stack, full GHL setup, 
                   data migration, automation rebuild, and phased cancellation support. Book a free 30-minute strategy call.
                 </p>
-                <Link href="/contact-us" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
                   Book Your Free Strategy Call
                   <ArrowRight className="w-4 h-4" />
                 </Link>

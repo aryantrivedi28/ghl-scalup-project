@@ -13,35 +13,114 @@ import {
   AlertTriangle,
   AlertOctagon,
   CheckCircle,
-  
+  Rocket,
+  Target,
+  HeartHandshake,
+  MessageCircle,
+  Phone,
+  Search,
+  Trophy,
+  Facebook,
+  AlertCircle,
+  Info,
+  Lightbulb,
+  FileText,
+  UserCheck,
+  UserX,
+  Compass,
+  FileCheck,
+  CheckCircle as CheckCircleIcon,
+  Layers,
+  PanelTop,
+  LayoutDashboard,
+  Settings,
+  Briefcase,
+  LifeBuoy,
+  Award,
+  Timer,
+  Trash2,
+  Download,
+  BarChart3,
+  PieChart,
+  Workflow,
+  Globe,
+  Database,
+  Cloud,
+  GitBranch,
+  Sparkles,
+  GraduationCap,
+  Clock,
+  Shield,
+  Users,
+  Calendar,
+  Mail,
+  Tag,
+  GitMerge,
+  DollarSign,
+  TrendingUp,
+  XCircle,
+  Server,
+  CreditCard,
+  Smartphone,
+  Layout,
+  Mailbox,
+  Headphones,
+  FileQuestion,
+  HelpCircle,
+  Boxes,
+  Combine,
+  Link2,
+  Webhook,
+  RefreshCw,
+  ListChecks,
+  ClipboardList,
+  Printer,
+  Video,
+  Ticket,
+  TrendingDown,
+  Zap
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export default function A2PBrandRejectedFixClient() {
   const [activeId, setActiveId] = useState<string>('');
+  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
   useEffect(() => {
+    const sections = [
+      'what-is-brand',
+      'rejection-causes',
+      'fix-each-cause',
+      'exhausted-tries',
+      'after-approval',
+      'faq'
+    ];
+
     const handleScroll = () => {
-      const sections = [
-        'what-is-brand',
-        'rejection-causes',
-        'fix-each-cause',
-        'exhausted-tries',
-        'after-approval',
-        'faq'
-      ];
+      let currentSection = sections[0];
 
       for (const id of sections) {
         const element = document.getElementById(id);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 150) {
-            setActiveId(id);
-          }
+        if (!element) continue;
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= 180) {
+          currentSection = id;
+        } else {
+          break;
         }
+      }
+
+      setActiveId(currentSection);
+
+      // Show floating Project Help card after scrolling past hero section
+      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
+      if (heroSection) {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        setShowFloatingProjectHelp(heroBottom < 0);
       }
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -108,6 +187,18 @@ export default function A2PBrandRejectedFixClient() {
     { cause: 'Branch or non-registered address used', what: 'The address of a local branch or a different address from the official registered company address was entered.', source: 'GHL Brand Approval Best Practices (February 2026)' }
   ];
 
+  // Reusable Project Help Card Component
+  const ProjectHelpCard = () => (
+    <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
+      <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
+      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
+      <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+        Book a 30 min Free Call
+        <ArrowRight className="w-3 h-3" />
+      </Link>
+    </div>
+  );
+
   return (
     <>
       {/* Progress Bar */}
@@ -124,7 +215,7 @@ export default function A2PBrandRejectedFixClient() {
         </div>
       </nav>
 
-      {/* Hero Section - WIDE */}
+      {/* Hero Section - WIDE (KEPT AS IS) */}
       <section className="bg-[#0B1628] py-12 md:py-[72px] px-4 md:px-6 relative overflow-hidden">
         <div className="absolute -top-[120px] -right-[120px] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(14,155,240,0.12)_0%,transparent_70%)] pointer-events-none" />
         <div className="absolute -bottom-[80px] -left-[80px] w-[360px] h-[360px] bg-[radial-gradient(circle,rgba(37,201,125,0.08)_0%,transparent_70%)] pointer-events-none" />
@@ -172,6 +263,12 @@ export default function A2PBrandRejectedFixClient() {
           
           {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
           <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
+            {/* Project Help Card - At top of sidebar */}
+            <div className="mb-6">
+              <ProjectHelpCard />
+            </div>
+
+            {/* Table of Contents */}
             <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
                 <BookOpen className="w-3 h-3" />
@@ -197,16 +294,7 @@ export default function A2PBrandRejectedFixClient() {
               </ul>
             </nav>
 
-            {/* CTA Card - Project Help */}
-            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
-              <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
-              <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
-              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
-                Book a 30 min Free Call
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
-
+            {/* About the Author */}
             <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
@@ -227,6 +315,7 @@ export default function A2PBrandRejectedFixClient() {
               <Link href="/" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
             </div>
 
+            {/* Share Buttons */}
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
               <div className="flex gap-2 flex-wrap">
@@ -252,6 +341,18 @@ export default function A2PBrandRejectedFixClient() {
               <p className="text-sm text-[#5C6880] leading-relaxed">
                 Brand rejection means TCR (The Campaign Registry) could not verify your business identity. Campaign rejection means the carriers rejected your messaging use case. The fixes are different. For campaign rejection: <Link href="/blog/a2p-campaign-rejected-fix" className="text-[#0E9BF0] hover:underline">A2P Campaign Rejected Fix Guide →</Link>
               </p>
+
+              {/* CTA 1 - Inside BLUF Box */}
+              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                >
+                  <Target className="w-4 h-4" />
+                  Get Brand Rejection Help
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
             </div>
 
             {/* Table of Contents - Mobile Only */}
@@ -271,6 +372,11 @@ export default function A2PBrandRejectedFixClient() {
                   </button>
                 ))}
               </div>
+            </div>
+
+            {/* Mobile Project Help Card - visible on mobile only */}
+            <div className="lg:hidden mb-8">
+              <ProjectHelpCard />
             </div>
 
             {/* Section 1: What Is Brand Registration */}
@@ -388,6 +494,17 @@ export default function A2PBrandRejectedFixClient() {
               If your company is publicly traded, the stock ticker symbol and the designated stock exchange entered must match available public sources. Update one or both fields to resolve the mismatch. This cause applies only to public company brand registrations.
             </p>
 
+            {/* CTA 2 - After Fix Each Cause */}
+            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 text-center my-6 text-white">
+              <p className="text-sm font-medium mb-2">🔍 Not sure which fix applies to your brand rejection?</p>
+              <p className="text-sm text-white/80 mb-4">Let our team review your rejection and give you a clear path to resolution.</p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Search className="w-4 h-4" />
+                Get Your Brand Reviewed
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
             {/* Section 4: Exhausted Tries */}
             <h2 id="exhausted-tries" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               4. What to Do If You Have Exhausted 3 Registration Attempts
@@ -413,6 +530,17 @@ export default function A2PBrandRejectedFixClient() {
               </p>
             </div>
 
+            {/* CTA 3 - After Exhausted Tries */}
+            <div className="bg-[#0B1628] rounded-xl p-6 text-center my-6 text-white">
+              <p className="text-sm font-medium mb-2">📋 Maxed out your 3 registration attempts?</p>
+              <p className="text-sm text-white/80 mb-4">We can help you navigate the manual verification process and get your brand approved.</p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <FileCheck className="w-4 h-4" />
+                Get Manual Verification Help
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
             {/* Section 5: After Approval */}
             <h2 id="after-approval" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               5. What Happens After Brand Approval?
@@ -428,6 +556,7 @@ export default function A2PBrandRejectedFixClient() {
               <li><strong className="text-[#1A2236]">First SMS workflow to build after A2P approval:</strong> For the missed call text back automation: <Link href="/blog/gohighlevel-missed-call-text-back" className="text-[#0E9BF0] hover:underline">GoHighLevel Missed Call Text Back →</Link></li>
             </ul>
 
+            {/* CTA 4 - After Approval Section */}
             <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-5 my-6 text-white">
               <div className="flex items-center gap-2 mb-3">
                 <Star className="w-5 h-5 text-[#F8D000]" />
@@ -461,6 +590,27 @@ export default function A2PBrandRejectedFixClient() {
               ))}
             </div>
 
+            {/* CTA 5 - After FAQ */}
+            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
+              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
+                <strong className="text-white">Still have questions about your A2P brand rejection?</strong>
+              </p>
+              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
+                Talk to our A2P specialists directly. We've resolved hundreds of brand rejections and fixed every issue in this guide.
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                  <MessageCircle className="w-4 h-4" />
+                  Ask an Expert
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20">
+                  <Phone className="w-4 h-4" />
+                  Call Us
+                </Link>
+              </div>
+            </div>
+
             {/* Related Articles */}
             <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
               <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles</h3>
@@ -475,7 +625,7 @@ export default function A2PBrandRejectedFixClient() {
               </div>
             </div>
 
-            {/* Final CTA */}
+            {/* Final CTA Section */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">A2P brand rejected and you need it resolved fast?</h3>

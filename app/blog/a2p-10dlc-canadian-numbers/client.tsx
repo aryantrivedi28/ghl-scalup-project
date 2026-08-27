@@ -12,35 +12,113 @@ import {
   Zap,
   Star,
   AlertTriangle,
-  Info
+  Info,
+  Rocket,
+  Target,
+  HeartHandshake,
+  MessageCircle,
+  Phone,
+  Search,
+  Trophy,
+  Facebook,
+  AlertCircle,
+  Lightbulb,
+  FileText,
+  UserCheck,
+  UserX,
+  Compass,
+  FileCheck,
+  CheckCircle,
+  Layers,
+  PanelTop,
+  LayoutDashboard,
+  Settings,
+  Briefcase,
+  LifeBuoy,
+  Award,
+  Timer,
+  Trash2,
+  Download,
+  BarChart3,
+  PieChart,
+  Workflow,
+  Globe,
+  Database,
+  Cloud,
+  GitBranch,
+  Sparkles,
+  GraduationCap,
+  Clock,
+  Shield,
+  Users,
+  Calendar,
+  Mail,
+  Tag,
+  GitMerge,
+  DollarSign,
+  TrendingUp,
+  XCircle,
+  Server,
+  CreditCard,
+  Smartphone,
+  Layout,
+  Mailbox,
+  Headphones,
+  FileQuestion,
+  HelpCircle,
+  Boxes,
+  Combine,
+  Link2,
+  Webhook,
+  RefreshCw,
+  ListChecks,
+  ClipboardList,
+  Printer,
+  Video,
+  Ticket,
+  TrendingDown
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export default function A2P10DLCCanadianNumbersClient() {
   const [activeId, setActiveId] = useState<string>('');
+  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
   useEffect(() => {
+    const sections = [
+      'why-different',
+      'decision-matrix',
+      'register-canadian',
+      'persona-verification',
+      'sending-errors',
+      'faq'
+    ];
+
     const handleScroll = () => {
-      const sections = [
-        'why-different',
-        'decision-matrix',
-        'register-canadian',
-        'persona-verification',
-        'sending-errors',
-        'faq'
-      ];
+      let currentSection = sections[0];
 
       for (const id of sections) {
         const element = document.getElementById(id);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 150) {
-            setActiveId(id);
-          }
+        if (!element) continue;
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= 180) {
+          currentSection = id;
+        } else {
+          break;
         }
+      }
+
+      setActiveId(currentSection);
+
+      // Show floating Project Help card after scrolling past hero section
+      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
+      if (heroSection) {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        setShowFloatingProjectHelp(heroBottom < 0);
       }
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -110,6 +188,18 @@ export default function A2P10DLCCanadianNumbersClient() {
     { scenario: 'CA to International messaging (outside US)', canReplace: 'Yes Persona verification only is required for international routes. A2P not needed' }
   ];
 
+  // Reusable Project Help Card Component
+  const ProjectHelpCard = () => (
+    <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
+      <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
+      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
+      <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+        Book a 30 min Free Call
+        <ArrowRight className="w-3 h-3" />
+      </Link>
+    </div>
+  );
+
   return (
     <>
       {/* Progress Bar */}
@@ -126,7 +216,7 @@ export default function A2P10DLCCanadianNumbersClient() {
         </div>
       </nav>
 
-      {/* Hero Section - WIDE */}
+      {/* Hero Section - WIDE (KEPT AS IS) */}
       <section className="bg-[#0B1628] py-12 md:py-[72px] px-4 md:px-6 relative overflow-hidden">
         <div className="absolute -top-[120px] -right-[120px] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(14,155,240,0.12)_0%,transparent_70%)] pointer-events-none" />
         <div className="absolute -bottom-[80px] -left-[80px] w-[360px] h-[360px] bg-[radial-gradient(circle,rgba(37,201,125,0.08)_0%,transparent_70%)] pointer-events-none" />
@@ -174,6 +264,12 @@ export default function A2P10DLCCanadianNumbersClient() {
           
           {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
           <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
+            {/* Project Help Card - At top of sidebar */}
+            <div className="mb-6">
+              <ProjectHelpCard />
+            </div>
+
+            {/* Table of Contents */}
             <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
                 <BookOpen className="w-3 h-3" />
@@ -199,16 +295,7 @@ export default function A2P10DLCCanadianNumbersClient() {
               </ul>
             </nav>
 
-            {/* CTA Card - Canadian Numbers */}
-            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
-              <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
-              <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
-              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
-                Book a 30 min Free Call
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
-
+            {/* About the Author */}
             <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
@@ -229,6 +316,7 @@ export default function A2P10DLCCanadianNumbersClient() {
               <Link href="/" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
             </div>
 
+            {/* Share Buttons */}
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
               <div className="flex gap-2 flex-wrap">
@@ -254,6 +342,18 @@ export default function A2P10DLCCanadianNumbersClient() {
               <p className="text-sm text-[#5C6880] leading-relaxed">
                 CA to CA (sending only to Canadian recipients): If the number was purchased BEFORE March 26, 2025, A2P is NOT required. If the number was purchased ON OR AFTER March 26, 2025, A2P registration OR Persona verification is required. These requirements apply to Canadian 10DLC long code numbers only. Toll-free numbers are not affected by these rules.
               </p>
+
+              {/* CTA 1 - Inside BLUF Box */}
+              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                >
+                  <Target className="w-4 h-4" />
+                  Get Canadian A2P Help
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
             </div>
 
             {/* Table of Contents - Mobile Only */}
@@ -273,6 +373,11 @@ export default function A2P10DLCCanadianNumbersClient() {
                   </button>
                 ))}
               </div>
+            </div>
+
+            {/* Mobile Project Help Card - visible on mobile only */}
+            <div className="lg:hidden mb-8">
+              <ProjectHelpCard />
             </div>
 
             {/* Section 1: Why Different */}
@@ -329,6 +434,17 @@ export default function A2P10DLCCanadianNumbersClient() {
               <p className="text-sm text-[#1A2236] leading-relaxed">
                 If you currently send CA to CA only and your number was purchased before March 26, 2025 you are exempt from registration right now. But if you later decide to message US recipients, A2P registration becomes required immediately. Confirmed from GHL's official Canadian messaging policy article: "If you later message U.S. recipients, you must complete A2P Brand and Campaign registration before sending CA to US messages, even if you previously sent only within Canada." Do not begin CA to US messaging without first completing A2P registration messages will fail with Error 30034.
               </p>
+            </div>
+
+            {/* CTA 2 - After Decision Matrix */}
+            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 text-center my-6 text-white">
+              <p className="text-sm font-medium mb-2">🍁 Not sure which rule applies to your Canadian number?</p>
+              <p className="text-sm text-white/80 mb-4">Let our team review your number's purchase date and messaging routes to give you a clear answer.</p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Search className="w-4 h-4" />
+                Get Your Number Assessed
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
 
             {/* Section 3: Register Canadian */}
@@ -427,6 +543,17 @@ export default function A2P10DLCCanadianNumbersClient() {
               </p>
             </div>
 
+            {/* CTA 3 - After Sending Errors */}
+            <div className="bg-[#0B1628] rounded-xl p-6 text-center my-6 text-white">
+              <p className="text-sm font-medium mb-2">🚫 Getting Error 30034 on your Canadian number?</p>
+              <p className="text-sm text-white/80 mb-4">We can help you complete A2P registration quickly so your messages start delivering to US recipients.</p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Shield className="w-4 h-4" />
+                Fix Your Error Now
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
             <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-5 my-6 text-white">
               <div className="flex items-center gap-2 mb-3">
                 <Star className="w-5 h-5 text-[#F8D000]" />
@@ -462,6 +589,27 @@ export default function A2P10DLCCanadianNumbersClient() {
                   <p className="text-sm text-[#5C6880] leading-relaxed pb-4">{faq.a}</p>
                 </details>
               ))}
+            </div>
+
+            {/* CTA 4 - After FAQ */}
+            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
+              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
+                <strong className="text-white">Still have questions about Canadian A2P requirements?</strong>
+              </p>
+              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
+                Talk to our A2P specialists directly. We've handled Canadian A2P registrations and can help you understand your specific requirements.
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                  <MessageCircle className="w-4 h-4" />
+                  Ask an Expert
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20">
+                  <Phone className="w-4 h-4" />
+                  Call Us
+                </Link>
+              </div>
             </div>
 
             {/* Related Articles */}

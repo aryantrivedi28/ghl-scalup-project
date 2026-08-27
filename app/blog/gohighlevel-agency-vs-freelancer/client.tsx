@@ -49,54 +49,79 @@ import {
   LayoutDashboard,
   LayoutGrid,
   LayoutList,
-  LayoutTemplate
+  LayoutTemplate,
+  Rocket,
+  HeartHandshake,
+  MessageCircle,
+  Phone,
+  Search,
+  Trophy,
+  Facebook,
+  AlertCircle,
+  Star,
+  Filter
 } from 'lucide-react';
+import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export default function GoHighLevelAgencyVsFreelancerClient() {
   const [activeId, setActiveId] = useState<string>('');
+  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
   useEffect(() => {
+    const sections = [
+      'quick-answer',
+      'introduction',
+      'what-is-freelancer',
+      'freelancer-work',
+      'what-is-agency',
+      'agency-questions',
+      'differences',
+      'communication',
+      'skill-sets',
+      'when-freelancer',
+      'when-agency',
+      'cost-comparison',
+      'cost-factors',
+      'agency-worth',
+      'hidden-cost-freelancer',
+      'hidden-risk-agency',
+      'how-to-choose',
+      'vet-freelancer',
+      'vet-agency',
+      'red-flags-freelancer',
+      'red-flags-agency',
+      'professional-implementation',
+      'project-examples',
+      'decision-matrix',
+      'faq',
+      'final-verdict'
+    ];
+
     const handleScroll = () => {
-      const sections = [
-        'quick-answer',
-        'introduction',
-        'what-is-freelancer',
-        'freelancer-work',
-        'what-is-agency',
-        'agency-questions',
-        'differences',
-        'communication',
-        'skill-sets',
-        'when-freelancer',
-        'when-agency',
-        'cost-comparison',
-        'cost-factors',
-        'agency-worth',
-        'hidden-cost-freelancer',
-        'hidden-risk-agency',
-        'how-to-choose',
-        'vet-freelancer',
-        'vet-agency',
-        'red-flags-freelancer',
-        'red-flags-agency',
-        'professional-implementation',
-        'project-examples',
-        'decision-matrix',
-        'faq',
-        'final-verdict'
-      ];
+      let currentSection = sections[0];
 
       for (const id of sections) {
         const element = document.getElementById(id);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 150) {
-            setActiveId(id);
-          }
+        if (!element) continue;
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= 180) {
+          currentSection = id;
+        } else {
+          break;
         }
+      }
+
+      setActiveId(currentSection);
+
+      // Show floating Project Help card after scrolling past hero section
+      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
+      if (heroSection) {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        setShowFloatingProjectHelp(heroBottom < 0);
       }
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -353,6 +378,20 @@ export default function GoHighLevelAgencyVsFreelancerClient() {
     }
   ];
 
+  useFaqSchema(faqs);
+
+  // Reusable Project Help Card Component
+  const ProjectHelpCard = () => (
+    <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
+      <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
+      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
+      <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+        Book a 30 min Free Call
+        <ArrowRight className="w-3 h-3" />
+      </Link>
+    </div>
+  );
+
   return (
     <>
       {/* Progress Bar */}
@@ -404,6 +443,25 @@ export default function GoHighLevelAgencyVsFreelancerClient() {
             </div>
           </div>
 
+          {/* Hero CTA Buttons */}
+          <div className="flex flex-wrap gap-3 mb-6">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105"
+            >
+              <Rocket className="w-4 h-4" />
+              Need Implementation Help? Let's Talk
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              href="#decision-matrix"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20"
+            >
+              See Decision Matrix
+              <ChevronDown className="w-4 h-4" />
+            </Link>
+          </div>
+
           {/* Intro Paragraphs - NO max-w constraint */}
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6">
             Neither a GoHighLevel agency nor a freelancer is automatically the better choice. A freelancer is often the better fit for a small, clearly defined project that can be handled by one capable specialist. A specialised GoHighLevel agency becomes more useful when the implementation involves complex CRM architecture, multiple workflows, integrations, migration, several sub-accounts, project management or ongoing technical support.
@@ -429,6 +487,12 @@ export default function GoHighLevelAgencyVsFreelancerClient() {
           
           {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
           <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
+            {/* Project Help Card - At top of sidebar */}
+            <div className="mb-6">
+              <ProjectHelpCard />
+            </div>
+
+            {/* Table of Contents */}
             <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
                 <BookOpen className="w-3 h-3" />
@@ -454,16 +518,7 @@ export default function GoHighLevelAgencyVsFreelancerClient() {
               </ul>
             </nav>
 
-            {/* CTA Card - Project Help */}
-            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
-              <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
-              <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
-              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
-                Book a 30 min Free Call
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
-
+            {/* About the Author */}
             <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
@@ -484,20 +539,24 @@ export default function GoHighLevelAgencyVsFreelancerClient() {
               <Link href="/" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
             </div>
 
-            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
-              <div className="text-xs font-bold tracking-wider uppercase text-white/40 mb-3 flex items-center gap-2">
-                <Share2 className="w-3 h-3" />
-                Share This Guide
-              </div>
-              <div className="flex gap-2">
-                <button className="bg-white/10 hover:bg-white/20 text-white p-2 rounded-full transition-colors">
-                  <Linkedin className="w-4 h-4" />
-                </button>
-                <button className="bg-white/10 hover:bg-white/20 text-white p-2 rounded-full transition-colors">
-                  <Twitter className="w-4 h-4" />
-                </button>
-                <button className="bg-white/10 hover:bg-white/20 text-white p-2 rounded-full transition-colors">
-                  <Copy className="w-4 h-4" />
+            {/* Share Buttons */}
+            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
+              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Share this guide</div>
+              <div className="flex gap-2 flex-wrap">
+                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Linkedin className="w-3 h-3" />
+                  LinkedIn
+                </a>
+                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Twitter className="w-3 h-3" />
+                  X
+                </a>
+                <button
+                  onClick={() => navigator.clipboard.writeText(window.location.href)}
+                  className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"
+                >
+                  <Copy className="w-3 h-3" />
+                  Copy link
                 </button>
               </div>
             </div>
@@ -505,6 +564,32 @@ export default function GoHighLevelAgencyVsFreelancerClient() {
 
           {/* ==================== RIGHT COLUMN: BLOG CONTENT ==================== */}
           <main className="min-w-0 order-2">
+
+            {/* BLUF / Quick Answer Box */}
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
+              <div className="flex items-center gap-2 mb-3">
+                <Zap className="w-5 h-5 text-[#F8D000]" />
+                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Quick Answer</span>
+              </div>
+              <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
+                Neither a GoHighLevel agency nor a freelancer is automatically the better choice.
+              </p>
+              <p className="text-sm text-[#5C6880] leading-relaxed">
+                A freelancer is often the better fit for a small, clearly defined project that can be handled by one capable specialist. A specialised GoHighLevel agency becomes more useful when the implementation involves complex CRM architecture, multiple workflows, integrations, migration, several sub-accounts, project management or ongoing technical support.
+              </p>
+
+              {/* CTA Button inside BLUF */}
+              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                >
+                  <Target className="w-4 h-4" />
+                  Find Your Perfect GHL Match
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </div>
 
             {/* Table of Contents - Mobile Only */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8 lg:hidden">
@@ -523,6 +608,25 @@ export default function GoHighLevelAgencyVsFreelancerClient() {
                   </button>
                 ))}
               </div>
+            </div>
+
+            {/* Mobile Project Help Card - visible on mobile only */}
+            <div className="lg:hidden mb-8">
+              <ProjectHelpCard />
+            </div>
+
+            {/* CTA 1 - After TOC */}
+            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
+              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
+                <strong className="text-white">Not sure whether your project is small enough for a freelancer or complex enough to require a specialised implementation team?</strong>
+              </p>
+              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
+                GHL Scale Up can help scope the work before you commit to a provider.
+              </p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                Book a Free Strategy Call
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
 
             {/* Section: Quick Answer */}
@@ -790,19 +894,6 @@ export default function GoHighLevelAgencyVsFreelancerClient() {
               ))}
             </div>
 
-            {/* CTA 1 */}
-            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
-              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
-                <strong className="text-white">Not sure whether your project is small enough for a freelancer or complex enough to require a specialised implementation team?</strong>
-              </p>
-              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
-                GHL Scale Up can help scope the work before you commit to a provider.
-              </p>
-              <Link href="/services" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                Explore GHL Scale Up →
-              </Link>
-            </div>
-
             {/* Section: When Agency */}
             <h2 id="when-agency" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               When Should You Hire a GoHighLevel Agency?
@@ -1055,16 +1146,6 @@ export default function GoHighLevelAgencyVsFreelancerClient() {
               ))}
             </div>
 
-            {/* CTA 2 */}
-            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 text-center my-6">
-              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
-                <strong className="text-white">If you already have a GHL account and are unsure whether the architecture, pipelines or automation are set up correctly, a structured CRM and automation audit can identify problems before you invest in more development.</strong>
-              </p>
-              <Link href="/services/crm-setup" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                Explore GHL Scale Up →
-              </Link>
-            </div>
-
             {/* Section: Red Flags Freelancer */}
             <h2 id="red-flags-freelancer" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               Red Flags When Hiring a GHL Freelancer
@@ -1191,12 +1272,12 @@ export default function GoHighLevelAgencyVsFreelancerClient() {
               The matrix should not be read as 'agency wins.' It shows where the delivery model naturally fits. A senior freelancer can be the right choice for a complex project if they have the required expertise and capacity. Likewise, an agency can be the wrong choice for a simple task if its process adds unnecessary cost and coordination.
             </p>
 
-            {/* CTA 3 */}
+            {/* CTA 2 */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
               <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
                 <strong className="text-white">If your GHL project has moved beyond isolated tasks into CRM architecture, complex automation, integrations or ongoing technical execution, GHL Scale Up provides specialised implementation across these workstreams.</strong>
               </p>
-              <Link href="/services" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
                 Explore GHL Scale Up →
               </Link>
             </div>
@@ -1266,7 +1347,7 @@ export default function GoHighLevelAgencyVsFreelancerClient() {
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
                   GHL Scale Up helps businesses design and implement GoHighLevel systems that match their actual business model and operational requirements.
                 </p>
-                <Link href="/contact-us" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
                   Book a Free Strategy Call
                   <ArrowRight className="w-4 h-4" />
                 </Link>

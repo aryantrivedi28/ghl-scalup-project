@@ -16,66 +16,90 @@ import {
   Info,
   Lightbulb,
   FileText,
-
+  Rocket,
+  Target,
+  BarChart3,
+  HeartHandshake,
+  Shield,
+  MessageCircle,
+  Phone,
+  Search,
+  Trophy,
+  Users,
+  DollarSign,
+  Briefcase,
+  Filter,
+  XCircle,
+  Facebook,
+  AlertCircle
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export default function GoHighLevelAIEmployeeClient() {
   const [activeId, setActiveId] = useState<string>('');
+  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
-useEffect(() => {
-  const sections = [
-    'what-is-ai-employee',
-    'at-a-glance',
-    'how-works',
-    'voice-ai',
-    'conversation-ai',
-    'voice-vs-conversation',
-    'workflow-ai',
-    'agent-studio',
-    'knowledge-base',
-    'setup',
-    'pricing',
-    'for-agencies',
-    'workflows',
-    'benefits',
-    'limitations',
-    'which-to-use',
-    'vs-other-tools',
-    'who-should-use',
-    'how-much-automate',
-    'faq',
-    'final-recommendation'
-  ];
+  // Handle scroll detection for active section
+  useEffect(() => {
+    const sections = [
+      'what-is-ai-employee',
+      'at-a-glance',
+      'how-works',
+      'voice-ai',
+      'conversation-ai',
+      'voice-vs-conversation',
+      'workflow-ai',
+      'agent-studio',
+      'knowledge-base',
+      'setup',
+      'pricing',
+      'for-agencies',
+      'workflows',
+      'benefits',
+      'limitations',
+      'which-to-use',
+      'vs-other-tools',
+      'who-should-use',
+      'how-much-automate',
+      'faq',
+      'final-recommendation'
+    ];
 
-  const handleScroll = () => {
-    let currentSection = sections[0];
+    const handleScroll = () => {
+      let currentSection = sections[0];
 
-    for (const id of sections) {
-      const element = document.getElementById(id);
+      for (const id of sections) {
+        const element = document.getElementById(id);
 
-      if (!element) continue;
+        if (!element) continue;
 
-      const rect = element.getBoundingClientRect();
+        const rect = element.getBoundingClientRect();
 
-      if (rect.top <= 180) {
-        currentSection = id;
-      } else {
-        break;
+        if (rect.top <= 180) {
+          currentSection = id;
+        } else {
+          break;
+        }
       }
-    }
 
-    setActiveId(currentSection);
-  };
+      setActiveId(currentSection);
 
-  handleScroll();
+      // Show floating Project Help card after scrolling past hero section
+      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
+      if (heroSection) {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        setShowFloatingProjectHelp(heroBottom < 0);
+      }
+    };
 
-  window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
 
-  return () => {
-    window.removeEventListener('scroll', handleScroll);
-  };
-}, []);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const scrollToHeading = (id: string) => {
     const element = document.getElementById(id);
@@ -218,6 +242,18 @@ useEffect(() => {
   
   const poorCandidates = ['complex negotiation', 'sensitive complaints', 'highly personalized consulting', 'legal decisions', 'medical decisions', 'situations requiring significant human judgment'];
 
+  // Reusable Project Help Card Component
+  const ProjectHelpCard = () => (
+    <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
+      <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
+      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
+      <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+        Book a 30 min Free Call
+        <ArrowRight className="w-3 h-3" />
+      </Link>
+    </div>
+  );
+
   return (
     <>
       {/* Progress Bar */}
@@ -269,6 +305,25 @@ useEffect(() => {
             </div>
           </div>
 
+          {/* Hero CTA Buttons */}
+          <div className="flex flex-wrap gap-3 mb-6">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105"
+            >
+              <Rocket className="w-4 h-4" />
+              Need AI Setup? Let's Talk
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              href="#pricing"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20"
+            >
+              See Pricing
+              <ChevronDown className="w-4 h-4" />
+            </Link>
+          </div>
+
           {/* Intro Paragraphs - NO max-w constraints */}
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6">
             GoHighLevel AI Employee is one of the most searched and most misunderstood parts of the platform, because people expect a single feature and find a collection of separate AI products instead. This guide explains what GoHighLevel AI Employee is, what it includes, how Voice AI, Conversation AI, and Workflow AI each work, how they relate, how pricing works, how to set them up, and where they genuinely help versus where they fall short. Every product claim below is anchored to HighLevel's official documentation. Because HighLevel changes AI features, limits, channels, and billing frequently, treat HighLevel's current AI Product Pricing and feature documentation as the source of truth.
@@ -286,6 +341,12 @@ useEffect(() => {
           
           {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
           <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
+            {/* Project Help Card - At top of sidebar */}
+            <div className="mb-6">
+              <ProjectHelpCard />
+            </div>
+
+            {/* Table of Contents */}
             <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
                 <BookOpen className="w-3 h-3" />
@@ -311,16 +372,7 @@ useEffect(() => {
               </ul>
             </nav>
 
-            {/* CTA Card - Project Help */}
-            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
-              <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
-              <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
-              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
-                Book a 30 min Free Call
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
-
+            {/* About the Author */}
             <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
@@ -341,12 +393,25 @@ useEffect(() => {
               <Link href="/" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
             </div>
 
+            {/* Share Buttons */}
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
-              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
+              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Share this guide</div>
               <div className="flex gap-2 flex-wrap">
-                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Linkedin className="w-3 h-3" /> LinkedIn</a>
-                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Twitter className="w-3 h-3" /> X</a>
-                <button onClick={() => navigator.clipboard.writeText(window.location.href)} className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"><Copy className="w-3 h-3" /> Copy link</button>
+                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Linkedin className="w-3 h-3" />
+                  LinkedIn
+                </a>
+                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Twitter className="w-3 h-3" />
+                  X
+                </a>
+                <button
+                  onClick={() => navigator.clipboard.writeText(window.location.href)}
+                  className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"
+                >
+                  <Copy className="w-3 h-3" />
+                  Copy link
+                </button>
               </div>
             </div>
           </aside>
@@ -366,6 +431,18 @@ useEffect(() => {
               <p className="text-sm text-[#5C6880] leading-relaxed">
                 It includes Voice AI (phone conversations), Conversation AI (text conversations across supported channels), the Workflow AI Builder (creates workflows from natural-language instructions), Reviews AI, Content AI, Funnel & Website AI, Ask AI, and AI Studio. Agent Studio is separate and pay-per-use, it is not included in the AI Employee subscription plans. AI Employee is offered as Pay-Per-Use, AI Employee Growth ($50/month per enabled location), or AI Employee Unlimited ($97/month per enabled location). Phone-system charges for calls still apply even when Voice AI is covered under Unlimited.
               </p>
+
+              {/* CTA Button inside BLUF */}
+              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                >
+                  <Target className="w-4 h-4" />
+                  Get AI Implementation Help
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
             </div>
 
             {/* Table of Contents - Mobile Only */}
@@ -387,6 +464,11 @@ useEffect(() => {
               </div>
             </div>
 
+            {/* Mobile Project Help Card - visible on mobile only */}
+            <div className="lg:hidden mb-8">
+              <ProjectHelpCard />
+            </div>
+
             {/* CTA 1 - After TOC */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
               <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
@@ -395,7 +477,7 @@ useEffect(() => {
               <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
                 GHL Scale Up configures GoHighLevel AI systems around your actual customer journey, not just turning features on.
               </p>
-              <Link href="/contact-us" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
                 Book a Free Strategy Call
                 <ArrowRight className="w-4 h-4" />
               </Link>
@@ -1098,7 +1180,7 @@ useEffect(() => {
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
                   GHL Scale Up builds the system behind the AI: Knowledge Base, Voice AI, Conversation AI, workflows, escalation, testing, and optimization.
                 </p>
-                <Link href="/contact-us" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
                   Book a Free Strategy Call
                   <ArrowRight className="w-4 h-4" />
                 </Link>

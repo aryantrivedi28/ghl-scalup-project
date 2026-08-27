@@ -13,37 +13,80 @@ import {
   Zap,
   Star,
   AlertTriangle,
-  HelpCircle
+  HelpCircle,
+  Rocket,
+  Target,
+  BarChart3,
+  HeartHandshake,
+  Shield,
+  MessageCircle,
+  Phone,
+  Search,
+  Trophy,
+  Users,
+  DollarSign,
+  Briefcase,
+  Filter,
+  XCircle,
+  Facebook,
+  AlertCircle,
+  Clock,
+  Info,
+  Building2,
+  Globe,
+  Database,
+  Layers,
+  Settings,
+  Cloud,
+  UserCheck,
+  UserX,
+  Compass,
+  FileCheck,
+  CheckCircle
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export default function GHLSubAccountToOwnAccountClient() {
   const [activeId, setActiveId] = useState<string>('');
+  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
   // Handle scroll detection for active section
   useEffect(() => {
+    const sections = [
+      'why-own-account',
+      'what-is-eject',
+      'how-to-move',
+      'what-transfers',
+      'what-to-setup',
+      'agency-refuses',
+      'faq'
+    ];
+
     const handleScroll = () => {
-      const sections = [
-        'why-own-account',
-        'what-is-eject',
-        'how-to-move',
-        'what-transfers',
-        'what-to-setup',
-        'agency-refuses',
-        'faq'
-      ];
+      let currentSection = sections[0];
 
       for (const id of sections) {
         const element = document.getElementById(id);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 150) {
-            setActiveId(id);
-          }
+        if (!element) continue;
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= 180) {
+          currentSection = id;
+        } else {
+          break;
         }
+      }
+
+      setActiveId(currentSection);
+
+      // Show floating Project Help card after scrolling past hero section
+      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
+      if (heroSection) {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        setShowFloatingProjectHelp(heroBottom < 0);
       }
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -140,6 +183,18 @@ export default function GHLSubAccountToOwnAccountClient() {
     { route: 'Start a fresh GHL account', steps: ['Sign up directly at gohighlevel.com for a $97/mo or $297/mo account', 'Export what you can (contacts as CSV, document workflows)', 'Rebuild in the new account (GHL Scale Up can handle this)'] },
   ];
 
+  // Reusable Project Help Card Component
+  const ProjectHelpCard = () => (
+    <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
+      <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
+      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
+      <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+        Book a 30 min Free Call
+        <ArrowRight className="w-3 h-3" />
+      </Link>
+    </div>
+  );
+
   return (
     <>
       {/* Progress Bar */}
@@ -191,6 +246,25 @@ export default function GHLSubAccountToOwnAccountClient() {
             </div>
           </div>
 
+          {/* Hero CTA Buttons */}
+          <div className="flex flex-wrap gap-3 mb-6">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105"
+            >
+              <Rocket className="w-4 h-4" />
+              Get Your Own Account
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              href="#what-transfers"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20"
+            >
+              See What Transfers
+              <ChevronDown className="w-4 h-4" />
+            </Link>
+          </div>
+
           {/* Introductory Paragraph - NO max-w constraint */}
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6">
             If you have been running your business inside a GoHighLevel sub-account managed by an agency 
@@ -207,6 +281,12 @@ export default function GHLSubAccountToOwnAccountClient() {
           
           {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
           <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
+            {/* Project Help Card - At top of sidebar */}
+            <div className="mb-6">
+              <ProjectHelpCard />
+            </div>
+
+            {/* Table of Contents */}
             <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
                 <BookOpen className="w-3 h-3" />
@@ -234,16 +314,7 @@ export default function GHLSubAccountToOwnAccountClient() {
               </ul>
             </nav>
 
-            {/* CTA Card - Project Help */}
-            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
-              <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
-              <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
-              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
-                Book a 30 min Free Call
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
-
+            {/* About the Author */}
             <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
@@ -266,6 +337,7 @@ export default function GHLSubAccountToOwnAccountClient() {
               <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
             </div>
 
+            {/* Share Buttons */}
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
               <div className="flex gap-2 flex-wrap">
@@ -307,6 +379,18 @@ export default function GHLSubAccountToOwnAccountClient() {
                 Most of your data (contacts, funnels, workflows, pipelines) transfers. Phone numbers, third-party integrations, 
                 and SaaS settings do not. The process typically takes a few hours to a few days depending on which route you take.
               </p>
+
+              {/* CTA Button inside BLUF */}
+              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                >
+                  <Target className="w-4 h-4" />
+                  Get Help Moving Your Account
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
             </div>
 
             {/* Table of Contents - Mobile Only */}
@@ -326,6 +410,25 @@ export default function GHLSubAccountToOwnAccountClient() {
                   </button>
                 ))}
               </div>
+            </div>
+
+            {/* Mobile Project Help Card - visible on mobile only */}
+            <div className="lg:hidden mb-8">
+              <ProjectHelpCard />
+            </div>
+
+            {/* CTA 1 - After TOC */}
+            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
+              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
+                <strong className="text-white">Ready to move to your own GHL account but not sure where to start?</strong>
+              </p>
+              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
+                GHL Scale Up helps businesses transition from sub-accounts to independent agency accounts with zero data loss.
+              </p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                Book a Free Strategy Call
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
 
             {/* Section 1: Why Own Account */}
@@ -431,6 +534,17 @@ export default function GHLSubAccountToOwnAccountClient() {
               <p className="text-sm text-[#5C6880] leading-relaxed mb-2">Use this if your agency will not cooperate or has already closed.</p>
               <p className="text-sm text-[#5C6880] leading-relaxed">Sign up directly at gohighlevel.com for a $97/month Starter account or $297/month Unlimited account. Your data from the old sub-account does NOT transfer automatically. You will need to export what you can (contacts as CSV, document your workflows) and rebuild in the new account.</p>
               <p className="text-sm text-[#0E9BF0] leading-relaxed mt-2">→ GHL Scale Up can handle this rebuild for you: <Link href="/services/agency-setup" className="text-[#0E9BF0] hover:underline">GoHighLevel agency setup service →</Link></p>
+            </div>
+
+            {/* CTA 2 - After How to Move */}
+            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 text-center my-6 text-white">
+              <p className="text-sm font-medium mb-2">🚀 Not sure which route is right for you?</p>
+              <p className="text-sm text-white/80 mb-4">Let our team assess your situation and recommend the best path forward.</p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Compass className="w-4 h-4" />
+                Get a Free Assessment
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
 
             {/* Section 4: What Transfers */}
@@ -590,6 +704,17 @@ export default function GHLSubAccountToOwnAccountClient() {
               </p>
             </div>
 
+            {/* CTA 3 - After Agency Refuses */}
+            <div className="bg-[#0B1628] rounded-xl p-6 text-center my-6 text-white">
+              <p className="text-sm font-medium mb-2">⚠️ Agency refusing to cooperate?</p>
+              <p className="text-sm text-white/80 mb-4">We can help you transition to your own account with minimal disruption to your business.</p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Shield className="w-4 h-4" />
+                Get Help Now
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
             {/* Section 7: FAQ */}
             <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
               7. Frequently Asked Questions
@@ -607,6 +732,27 @@ export default function GHLSubAccountToOwnAccountClient() {
               ))}
             </div>
 
+            {/* CTA 4 - After FAQ */}
+            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
+              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
+                <strong className="text-white">Still have questions about moving to your own GHL account?</strong>
+              </p>
+              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
+                Talk to our GHL experts directly. We've helped dozens of businesses make this transition successfully.
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                  <MessageCircle className="w-4 h-4" />
+                  Ask an Expert
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20">
+                  <Phone className="w-4 h-4" />
+                  Call Us
+                </Link>
+              </div>
+            </div>
+
             {/* Internal Links */}
             <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
               <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles</h3>
@@ -620,7 +766,7 @@ export default function GHLSubAccountToOwnAccountClient() {
               </div>
             </div>
 
-            {/* CTA Section */}
+            {/* Final CTA Section */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Just got your own GHL account and need help setting it up?</h3>
