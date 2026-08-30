@@ -14,11 +14,76 @@ import {
   AlertTriangle,
   Lightbulb,
   ShieldCheck,
+  Rocket,
+  Target,
+  BarChart3,
+  HeartHandshake,
+  MessageCircle,
+  Phone,
+  Search,
+  Trophy,
+  Facebook,
+  AlertCircle,
+  Info,
+  UserCheck,
+  UserX,
+  Compass,
+  FileCheck,
+  CheckCircle,
+  Layers,
+  PanelTop,
+  LayoutDashboard,
+  Settings,
+  Briefcase,
+  LifeBuoy,
+  Award,
+  Timer,
+  Trash2,
+  Download,
+  PieChart,
+  Workflow,
+  Globe,
+  Database,
+  Cloud,
+  GitBranch,
+  Sparkles,
+  GraduationCap,
+  Clock,
+  Shield,
+  Users,
+  Calendar,
+  Mail,
+  Tag,
+  GitMerge,
+  DollarSign,
+  TrendingUp,
+  XCircle,
+  FileText,
+  Server,
+  CreditCard,
+  Smartphone,
+  Layout,
+  Mailbox,
+  Headphones,
+  FileQuestion,
+  HelpCircle,
+  Boxes,
+  Combine,
+  Link2,
+  Webhook,
+  RefreshCw,
+  ListChecks,
+  ClipboardList,
+  Printer,
+  Video,
+  Ticket,
+  TrendingDown
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export default function GoHighLevelIndiaAgencyClient() {
   const [activeId, setActiveId] = useState<string>('');
+  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,9 +105,15 @@ export default function GoHighLevelIndiaAgencyClient() {
           const rect = element.getBoundingClientRect();
           if (rect.top <= 150) {
             setActiveId(id);
-            break;
           }
         }
+      }
+
+      // Show floating Project Help card after scrolling past hero section
+      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
+      if (heroSection) {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        setShowFloatingProjectHelp(heroBottom < 0);
       }
     };
 
@@ -129,6 +200,18 @@ export default function GoHighLevelIndiaAgencyClient() {
     { plan: 'Agency Pro (SaaS Mode)', usd: '$497', inrMonthly: 'Rs 41,250', inrYearly: 'Rs 4,95,000', bestFor: 'Indian agency reselling GHL as branded SaaS' }
   ];
 
+  // Reusable Project Help Card Component
+  const ProjectHelpCard = () => (
+    <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
+      <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
+      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your India agency setup.</p>
+      <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+        Book a 30 min Free Call
+        <ArrowRight className="w-3 h-3" />
+      </Link>
+    </div>
+  );
+
   return (
     <>
       {/* Progress Bar */}
@@ -150,8 +233,8 @@ export default function GoHighLevelIndiaAgencyClient() {
         <div className="absolute -top-[120px] -right-[120px] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(14,155,240,0.12)_0%,transparent_70%)] pointer-events-none" />
         <div className="absolute -bottom-[80px] -left-[80px] w-[360px] h-[360px] bg-[radial-gradient(circle,rgba(37,201,125,0.08)_0%,transparent_70%)] pointer-events-none" />
 
-        <div className="max-w-[760px] mx-auto relative z-10">
-          {/* Post Tags */}
+        <div className="max-w-7xl mx-auto relative z-10">
+          {/* Post Tags / Category Labels */}
           <div className="flex flex-wrap gap-2 mb-4">
             <span className="bg-[rgba(248,208,0,0.15)] text-[#F8D000] text-[11px] font-semibold px-2.5 py-1 rounded-full">India</span>
             <span className="bg-[rgba(14,155,240,0.15)] text-[#0E9BF0] text-[11px] font-semibold px-2.5 py-1 rounded-full">Agency</span>
@@ -165,7 +248,7 @@ export default function GoHighLevelIndiaAgencyClient() {
             <span className="text-[#F8D000]">Recurring Revenue on GoHighLevel (2026)</span>
           </h1>
 
-          {/* Author */}
+          {/* Author Byline */}
           <div className="flex items-center gap-3 mb-6">
             <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
               <img
@@ -180,25 +263,122 @@ export default function GoHighLevelIndiaAgencyClient() {
             </div>
           </div>
 
-          {/* Intro Paragraph */}
-          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
+          {/* Introductory Paragraph */}
+          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-6xl">
             The GoHighLevel India agency conversation has changed sharply in the last 18 months. What was previously a US and Australia-heavy platform now has a growing Indian agency footprint with events like HighLevel LIVE India 2026 and India-focused fulfilment partners actively serving the market. But the question most Indian agency owners are actually asking is simpler and harder: is this a real business model for me, or is it another SaaS hype cycle? <Link href="/" className="text-[#0E9BF0] hover:underline font-medium">GHL Scale Up</Link> is India-based, and we have built and audited GHL systems for agencies across India, the UK, Australia, and North America. This guide gives you the publicly reported results, the underlying revenue math you can verify yourself, and the honest verdict on where the Indian agency opportunity actually is.
           </p>
+
+          {/* CTA Button 1: Hero Section */}
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105"
+            >
+              <Rocket className="w-4 h-4" />
+              Start Your India Agency
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              href="#getting-started"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20"
+            >
+              See Getting Started
+              <ChevronDown className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Main Layout */}
-      <div className="max-w-[1080px] mx-auto px-4 md:px-6 py-10 md:py-16">
-        <div className="grid lg:grid-cols-[1fr_280px] gap-8 md:gap-16 items-start">
+      {/* MAIN LAYOUT - Sidebar on LEFT, Content on RIGHT */}
+      <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-10">
+        <div className="grid lg:grid-cols-[280px_1fr] gap-8 md:gap-12 items-start">
 
-          {/* Article Content */}
-          <main className="min-w-0">
+          {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
+          <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
+            {/* Project Help Card */}
+            <div className="hidden lg:block mb-6">
+              <ProjectHelpCard />
+            </div>
 
-            {/* BLUF Box */}
+            {/* Table of Contents - Sticky */}
+            <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
+              <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
+                <BookOpen className="w-3 h-3" />
+                In This Guide
+              </div>
+              <ul className="space-y-0.5 max-h-[calc(100vh-200px)] overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-[#DDE1E9] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent hover:[&::-webkit-scrollbar-thumb]:bg-[#96A0B5]">
+                {tocItems.map((item) => (
+                  <li key={item.id}>
+                    <button
+                      onClick={() => scrollToHeading(item.id)}
+                      className={`block w-full text-left text-xs md:text-sm py-2 px-3 rounded transition-all duration-200 ${activeId === item.id
+                        ? 'bg-[#0E9BF0] text-white font-medium shadow-sm'
+                        : 'text-[#5C6880] hover:text-[#0E9BF0] hover:bg-white'
+                        }`}
+                    >
+                      <span className="flex items-start gap-2">
+                        {activeId === item.id && (
+                          <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />
+                        )}
+                        <span className="flex-1">{item.title}</span>
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            {/* About the Author */}
+            <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
+                  <img
+                    src="/web-app-manifest-192x192.png"
+                    alt="GHL Scale Up"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <div className="text-sm font-bold text-white">GHL Scale Up Team</div>
+                  <div className="text-xs text-white/50">GoHighLevel Expert Agency · India-Based</div>
+                </div>
+              </div>
+              <p className="text-xs text-white/60 leading-relaxed mb-3">
+                5+ years GHL experience · 200+ systems built and migrated globally. All technical details verified as of July 2026.
+              </p>
+              <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
+            </div>
+
+            {/* Share Buttons */}
+            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
+              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Share this guide</div>
+              <div className="flex gap-2 flex-wrap">
+                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Linkedin className="w-3 h-3" />
+                  LinkedIn
+                </a>
+                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Twitter className="w-3 h-3" />
+                  X
+                </a>
+                <button
+                  onClick={() => navigator.clipboard.writeText(window.location.href)}
+                  className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"
+                >
+                  <Copy className="w-3 h-3" />
+                  Copy link
+                </button>
+              </div>
+            </div>
+          </aside>
+
+          {/* ==================== RIGHT COLUMN: BLOG CONTENT ==================== */}
+          <main className="min-w-0 order-2">
+            {/* TL;DR / Quick Answer Box (BLUF) */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
               <div className="flex items-center gap-2 mb-3">
                 <Zap className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Direct Answer Read This First</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Quick Answer Read This First</span>
               </div>
               <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
                 For Indian agencies serving Indian clients, GoHighLevel becomes clearly profitable at roughly 10 client sub-accounts based on the SaaS Mode math publicly cited across multiple sources: 10 clients at Rs 24,650/month ($297) is Rs 2,46,500 MRR against an Agency Pro plan cost of Rs 41,250/month ($497).
@@ -206,10 +386,22 @@ export default function GoHighLevelIndiaAgencyClient() {
               <p className="text-sm text-[#5C6880] leading-relaxed">
                 The bigger opportunity is Indian agencies serving international clients (US, UK, Australia) where INR-denominated agency costs create a 60-75% margin advantage over Western competitors. Independently audited India-specific case studies are rare in public reporting the strong publicly available data is the SaaS math itself, the tool-consolidation savings for Indian clients (reported at Rs 50,000-1,50,000/year on disconnected tools), and the DPDP Act 2023 compliance angle that Indian agencies must plan for.
               </p>
+
+              {/* CTA Button 2: Inside TL;DR Box */}
+              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                >
+                  <Target className="w-4 h-4" />
+                  Get Your Agency Setup
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
             </div>
 
-            {/* Table of Contents */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
+            {/* Table of Contents - Mobile Only */}
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8 lg:hidden">
               <div className="flex items-center gap-2 mb-4">
                 <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
                 <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">What's in this guide</span>
@@ -225,6 +417,11 @@ export default function GoHighLevelIndiaAgencyClient() {
                   </button>
                 ))}
               </div>
+            </div>
+
+            {/* Mobile Project Help Card - visible on mobile only */}
+            <div className="lg:hidden mb-8">
+              <ProjectHelpCard />
             </div>
 
             {/* Section 1: Is Used */}
@@ -246,6 +443,21 @@ export default function GoHighLevelIndiaAgencyClient() {
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
               <strong className="text-[#1A2236]">Example:</strong> An Indian digital marketing agency owner in Bengaluru who previously ran Zoho CRM plus Mailchimp plus Razorpay plus Calendly plus a separate WhatsApp Business tool now runs a single GHL sub-account per client. Contact management, funnels, email, SMS, appointment booking, and reputation collection all sit in one platform. This pattern is now common enough that entire agencies specialise in delivering it. For platform background: <Link href="/blog/what-is-gohighlevel" className="text-[#0E9BF0] hover:underline">What Is GoHighLevel →</Link>
             </p>
+
+            {/* CTA Button 3: After Section 1 */}
+            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 mb-8 text-center">
+              <p className="text-white/80 text-sm mb-3">
+                <span className="font-bold text-white">Ready to join the growing Indian GHL ecosystem?</span> Let our team set up your agency system.
+              </p>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+              >
+                <BarChart3 className="w-4 h-4" />
+                Get Agency Setup
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
 
             {/* Section 2: Tool Stack */}
             <h2 id="tool-stack" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
@@ -333,6 +545,20 @@ export default function GoHighLevelIndiaAgencyClient() {
               For the SaaS Mode business model in full detail: <Link href="/blog/ghl-white-label-saas-guide" className="text-[#0E9BF0] hover:underline">GoHighLevel White Label SaaS Guide →</Link>
             </p>
 
+            {/* CTA Button 4: After Revenue Math */}
+            <div className="bg-gradient-to-r from-[#0E9BF0] to-[#0C8AD8] rounded-xl p-6 text-center text-white mb-8">
+              <p className="text-sm font-medium mb-2">Want to build recurring revenue with SaaS Mode?</p>
+              <p className="text-sm text-white/80 mb-4">Get your white-label SaaS setup configured by experts who've done it 200+ times.</p>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 bg-white text-[#0E9BF0] font-bold px-6 py-2.5 rounded-lg hover:bg-[#F8F9FB] transition-all hover:shadow-lg hover:scale-105 text-sm"
+              >
+                <HeartHandshake className="w-4 h-4" />
+                Start Your SaaS Build
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
             {/* Section 4: Cost INR */}
             <h2 id="cost-inr" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               4. What Does GoHighLevel Actually Cost an Indian Agency in INR?
@@ -387,13 +613,30 @@ export default function GoHighLevelIndiaAgencyClient() {
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               <strong className="text-[#1A2236]">Definition:</strong> Not every GHL feature has equal weight in the Indian context. Features that matter most for Indian agencies serving Indian clients are those that align with how Indian consumers actually engage with businesses.
             </p>
-            <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">WhatsApp Business API integration:</strong> WhatsApp is the dominant messaging channel in India, not SMS or email for most consumer-facing businesses. GHL's Unified Inbox pulls in WhatsApp conversations alongside email, SMS, and Instagram DMs. For Indian consumer-facing agencies (real estate, healthcare, education, D2C), this is table stakes.</li>
-              <li><strong className="text-[#1A2236]">AI Voice Agent for Hindi/regional language handling:</strong> The AI Voice Agent supports multiple languages. For Indian service businesses receiving inbound calls in Hindi, Marathi, Tamil, or other regional languages, this becomes a genuine 24/7 answering system rather than a US-only feature. Test with your specific language and accent before committing.</li>
-              <li><strong className="text-[#1A2236]">Sub-account architecture for multi-client management:</strong> The sub-account model is exactly right for Indian agencies who typically serve 5-25 SMB clients simultaneously. Each client sub-account is isolated no risk of cross-contamination of contact data between clients.</li>
-              <li><strong className="text-[#1A2236]">SaaS Mode for INR-denominated reselling:</strong> Agency Pro's SaaS Mode lets Indian agencies charge Indian clients in INR directly (via Stripe India) while the agency's own GHL cost is in USD. This creates a natural currency arbitrage where price increases from USD/INR movement are absorbed by the agency's INR pricing power.</li>
-              <li><strong className="text-[#1A2236]">A2P 10DLC handling for international SMS to US:</strong> Indian agencies serving US clients need to handle A2P 10DLC registration on behalf of those clients. This is a significant service opportunity. For the full walkthrough: <Link href="/blog/a2p-registration-for-agencies" className="text-[#0E9BF0] hover:underline">A2P Registration for Agencies →</Link></li>
-            </ul>
+
+            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 my-4">
+              <ul className="space-y-2">
+                <li className="text-sm text-[#5C6880] flex items-start gap-2"><CheckCircle className="w-3.5 h-3.5 text-[#25C97D] flex-shrink-0 mt-0.5" /><strong className="text-[#1A2236]">WhatsApp Business API integration:</strong> WhatsApp is the dominant messaging channel in India, not SMS or email for most consumer-facing businesses. GHL's Unified Inbox pulls in WhatsApp conversations alongside email, SMS, and Instagram DMs. For Indian consumer-facing agencies (real estate, healthcare, education, D2C), this is table stakes.</li>
+                <li className="text-sm text-[#5C6880] flex items-start gap-2"><CheckCircle className="w-3.5 h-3.5 text-[#25C97D] flex-shrink-0 mt-0.5" /><strong className="text-[#1A2236]">AI Voice Agent for Hindi/regional language handling:</strong> The AI Voice Agent supports multiple languages. For Indian service businesses receiving inbound calls in Hindi, Marathi, Tamil, or other regional languages, this becomes a genuine 24/7 answering system rather than a US-only feature. Test with your specific language and accent before committing.</li>
+                <li className="text-sm text-[#5C6880] flex items-start gap-2"><CheckCircle className="w-3.5 h-3.5 text-[#25C97D] flex-shrink-0 mt-0.5" /><strong className="text-[#1A2236]">Sub-account architecture for multi-client management:</strong> The sub-account model is exactly right for Indian agencies who typically serve 5-25 SMB clients simultaneously. Each client sub-account is isolated no risk of cross-contamination of contact data between clients.</li>
+                <li className="text-sm text-[#5C6880] flex items-start gap-2"><CheckCircle className="w-3.5 h-3.5 text-[#25C97D] flex-shrink-0 mt-0.5" /><strong className="text-[#1A2236]">SaaS Mode for INR-denominated reselling:</strong> Agency Pro's SaaS Mode lets Indian agencies charge Indian clients in INR directly (via Stripe India) while the agency's own GHL cost is in USD. This creates a natural currency arbitrage where price increases from USD/INR movement are absorbed by the agency's INR pricing power.</li>
+                <li className="text-sm text-[#5C6880] flex items-start gap-2"><CheckCircle className="w-3.5 h-3.5 text-[#25C97D] flex-shrink-0 mt-0.5" /><strong className="text-[#1A2236]">A2P 10DLC handling for international SMS to US:</strong> Indian agencies serving US clients need to handle A2P 10DLC registration on behalf of those clients. This is a significant service opportunity. For the full walkthrough: <Link href="/blog/a2p-registration-for-agencies" className="text-[#0E9BF0] hover:underline">A2P Registration for Agencies →</Link></li>
+              </ul>
+            </div>
+
+            {/* CTA Button 5: After Features Section */}
+            <div className="bg-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
+              <p className="text-sm font-medium mb-2">🚀 Need India-specific GHL features configured?</p>
+              <p className="text-sm text-white/80 mb-4">Get WhatsApp API, AI Voice Agent, and SaaS Mode set up for the Indian market.</p>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+              >
+                <Zap className="w-4 h-4" />
+                Configure India Features
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
 
             {/* Section 6: Getting Started */}
             <h2 id="getting-started" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
@@ -402,11 +645,14 @@ export default function GoHighLevelIndiaAgencyClient() {
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               <strong className="text-[#1A2236]">Definition:</strong> Based on publicly documented patterns from India-focused GHL ecosystem sites, three approaches are common:
             </p>
-            <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-decimal list-inside">
-              <li><strong className="text-[#1A2236]">Path A Serve local Indian clients on Starter or Unlimited:</strong> Sign up for the 14-day free trial. Build one sub-account for a first client. Prove the model with a discounted first client (Rs 5,000-10,000/mo) to build a case study. Scale to Unlimited plan at ~3-4 clients.</li>
-              <li><strong className="text-[#1A2236]">Path B Serve international clients from India:</strong> Position as an India-based cost-competitive GHL agency serving US/UK/Australia. This is where the INR cost base becomes a structural margin advantage. Typical pricing to Western clients: $500-2,500/month per client, against GHL platform cost of ~$297.</li>
-              <li><strong className="text-[#1A2236]">Path C Launch as an INR-denominated SaaS product:</strong> Agency Pro plan, SaaS Mode enabled, white-labelled under an Indian brand, priced in INR to Indian SMBs (typically Rs 4,999-19,999/mo per client). Requires more upfront setup but produces recurring INR revenue at scale.</li>
-            </ul>
+
+            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 my-4">
+              <ul className="space-y-2">
+                <li className="text-sm text-[#5C6880] flex items-start gap-2"><span className="text-[#0E9BF0] font-bold">A.</span><strong className="text-[#1A2236]"> Serve local Indian clients on Starter or Unlimited:</strong> Sign up for the 14-day free trial. Build one sub-account for a first client. Prove the model with a discounted first client (Rs 5,000-10,000/mo) to build a case study. Scale to Unlimited plan at ~3-4 clients.</li>
+                <li className="text-sm text-[#5C6880] flex items-start gap-2"><span className="text-[#0E9BF0] font-bold">B.</span><strong className="text-[#1A2236]"> Serve international clients from India:</strong> Position as an India-based cost-competitive GHL agency serving US/UK/Australia. This is where the INR cost base becomes a structural margin advantage. Typical pricing to Western clients: $500-2,500/month per client, against GHL platform cost of ~$297.</li>
+                <li className="text-sm text-[#5C6880] flex items-start gap-2"><span className="text-[#0E9BF0] font-bold">C.</span><strong className="text-[#1A2236]"> Launch as an INR-denominated SaaS product:</strong> Agency Pro plan, SaaS Mode enabled, white-labelled under an Indian brand, priced in INR to Indian SMBs (typically Rs 4,999-19,999/mo per client). Requires more upfront setup but produces recurring INR revenue at scale.</li>
+              </ul>
+            </div>
 
             <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
               <div className="flex items-center gap-2 mb-2">
@@ -429,17 +675,34 @@ export default function GoHighLevelIndiaAgencyClient() {
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               <strong className="text-[#1A2236]">Definition:</strong> Every platform has limitations. Being honest about the Indian-market-specific ones protects Indian agency owners from expensive mistakes.
             </p>
-            <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">Payment gateway integration is Stripe-primary:</strong> GHL integrates natively with Stripe (which does operate in India but with specific onboarding requirements) and Authorize.Net. Direct integration with Razorpay, PayU, Cashfree, or PhonePe is not native requires custom webhook work. This is the single biggest India-specific technical friction.</li>
-              <li><strong className="text-[#1A2236]">Support hours are US-timezone-heavy:</strong> HighLevel's core support team is US-based. India Standard Time overlap with US business hours is limited to early morning IST (US evening). India-specific fulfilment partners like HL Growth Partner exist partly to bridge this gap.</li>
-              <li><strong className="text-[#1A2236]">Currency conversion volatility:</strong> Paying in USD while pricing to Indian clients in INR means your platform cost fluctuates with USD/INR. A 5% adverse currency move erases meaningful margin. Some Indian agencies pass this through with quarterly repricing; others absorb it.</li>
-              <li><strong className="text-[#1A2236]">Community and documentation are US-first:</strong> Most YouTube walkthroughs, case studies, and template libraries assume a US customer context (US phone numbers, US business types, US-specific compliance). Adapting to Indian client needs is real work.</li>
-              <li><strong className="text-[#1A2236]">Twilio-based A2P registration is US-only:</strong> Indian phone numbers do not use A2P 10DLC this only applies to US 10-digit numbers. For Indian agencies serving Indian clients, A2P is irrelevant. For Indian agencies serving US clients, A2P is mandatory.</li>
-            </ul>
+
+            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 my-4">
+              <ul className="space-y-2">
+                <li className="text-sm text-[#5C6880] flex items-start gap-2"><XCircle className="w-3.5 h-3.5 text-[#DC3545] flex-shrink-0 mt-0.5" /><strong className="text-[#1A2236]">Payment gateway integration is Stripe-primary:</strong> GHL integrates natively with Stripe (which does operate in India but with specific onboarding requirements) and Authorize.Net. Direct integration with Razorpay, PayU, Cashfree, or PhonePe is not native requires custom webhook work. This is the single biggest India-specific technical friction.</li>
+                <li className="text-sm text-[#5C6880] flex items-start gap-2"><XCircle className="w-3.5 h-3.5 text-[#DC3545] flex-shrink-0 mt-0.5" /><strong className="text-[#1A2236]">Support hours are US-timezone-heavy:</strong> HighLevel's core support team is US-based. India Standard Time overlap with US business hours is limited to early morning IST (US evening). India-specific fulfilment partners like HL Growth Partner exist partly to bridge this gap.</li>
+                <li className="text-sm text-[#5C6880] flex items-start gap-2"><XCircle className="w-3.5 h-3.5 text-[#DC3545] flex-shrink-0 mt-0.5" /><strong className="text-[#1A2236]">Currency conversion volatility:</strong> Paying in USD while pricing to Indian clients in INR means your platform cost fluctuates with USD/INR. A 5% adverse currency move erases meaningful margin. Some Indian agencies pass this through with quarterly repricing; others absorb it.</li>
+                <li className="text-sm text-[#5C6880] flex items-start gap-2"><XCircle className="w-3.5 h-3.5 text-[#DC3545] flex-shrink-0 mt-0.5" /><strong className="text-[#1A2236]">Community and documentation are US-first:</strong> Most YouTube walkthroughs, case studies, and template libraries assume a US customer context (US phone numbers, US business types, US-specific compliance). Adapting to Indian client needs is real work.</li>
+                <li className="text-sm text-[#5C6880] flex items-start gap-2"><XCircle className="w-3.5 h-3.5 text-[#DC3545] flex-shrink-0 mt-0.5" /><strong className="text-[#1A2236]">Twilio-based A2P registration is US-only:</strong> Indian phone numbers do not use A2P 10DLC this only applies to US 10-digit numbers. For Indian agencies serving Indian clients, A2P is irrelevant. For Indian agencies serving US clients, A2P is mandatory.</li>
+              </ul>
+            </div>
 
             <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
               For agencies considering a full switch from an existing platform: <Link href="/services/migration" className="text-[#0E9BF0] hover:underline">GHL Migration Services →</Link>
             </p>
+
+            {/* CTA Button 6: Before DPDP */}
+            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
+              <p className="text-sm font-medium mb-2">🔍 Overwhelmed by India-specific limitations?</p>
+              <p className="text-sm text-white/80 mb-4">Let us review your agency setup and tell you what needs to be configured for the Indian market.</p>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+              >
+                <Search className="w-4 h-4" />
+                Get a Free Agency Review
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
 
             {/* Section 8: DPDP */}
             <h2 id="dpdp" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
@@ -492,6 +755,29 @@ export default function GoHighLevelIndiaAgencyClient() {
               </p>
             </div>
 
+            {/* CTA Button 7: After DPDP */}
+            <div className="mt-8 p-6 bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl text-center">
+              <p className="text-white font-bold text-lg mb-2">⚠️ Worried about DPDP compliance?</p>
+              <p className="text-white/60 text-sm mb-4">Get your GHL system configured with DPDP-conscious data handling by a India-based team.</p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                >
+                  <Shield className="w-4 h-4" />
+                  Get DPDP-Ready Setup
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link
+                  href="/case-studies"
+                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-white/20 transition-all border border-white/20 text-sm"
+                >
+                  <Trophy className="w-4 h-4" />
+                  See Case Studies
+                </Link>
+              </div>
+            </div>
+
             {/* Section 9: FAQ */}
             <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
               9. Frequently Asked Questions
@@ -509,9 +795,32 @@ export default function GoHighLevelIndiaAgencyClient() {
               ))}
             </div>
 
-            {/* Related Articles */}
+            {/* CTA Button 8: After FAQ */}
+            <div className="mt-8 p-6 bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl text-center">
+              <p className="text-white font-bold text-lg mb-2">Still Have Questions About Building in India?</p>
+              <p className="text-white/60 text-sm mb-4">Talk to our India-based GHL experts directly. We're here to help you find the right solution.</p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  Ask an Expert
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-white/20 transition-all border border-white/20 text-sm"
+                >
+                  <Phone className="w-4 h-4" />
+                  Call Us
+                </Link>
+              </div>
+            </div>
+
+            {/* Internal Links */}
             <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
-              <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles</h3>
+              <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles in This Series</h3>
               <div className="flex flex-wrap gap-3">
                 <Link href="/blog/what-is-gohighlevel" className="text-sm text-[#0E9BF0] hover:underline">What Is GoHighLevel? The Complete 2026 Guide →</Link>
                 <Link href="/blog/ghl-white-label-saas-guide" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel White Label SaaS: How SaaS Mode Works →</Link>
@@ -523,14 +832,14 @@ export default function GoHighLevelIndiaAgencyClient() {
               </div>
             </div>
 
-            {/* Final CTA */}
+            {/* Final CTA Section */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Building an Indian agency on GoHighLevel?</h3>
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
                   GHL Scale Up is India-based and handles this end-to-end. Setup, SaaS Mode configuration, WhatsApp integration, and DPDP-conscious data handling for Indian agencies serving Indian or international clients.
                 </p>
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105">
                   Book Your Free Strategy Call
                   <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -555,75 +864,9 @@ export default function GoHighLevelIndiaAgencyClient() {
               <p className="text-xs text-[#5C6880] leading-relaxed">
                 Every specific figure in this guide is either cited from a public source (with the source named inline) or clearly labelled as arithmetic projection based on GHL's own published pricing. INR conversions assume approximately 83 INR per USD verify current rates before quoting to a client. GoHighLevel pricing, features, and DPDP-related terms change over time always verify current details on gohighlevel.com and with formal legal advice for DPDP compliance.
               </p>
-              <Link href="/" className="text-[#0E9BF0] text-xs hover:underline mt-2 inline-block">ghlscaleup.com</Link>
+              <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline mt-2 inline-block">ghlscaleup.com</Link>
             </div>
           </main>
-
-          {/* Sidebar */}
-          <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out">
-            <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
-              <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
-                <BookOpen className="w-3 h-3" />
-                In This Guide
-              </div>
-              <ul className="space-y-0.5 max-h-[calc(100vh-200px)] overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-[#DDE1E9] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent hover:[&::-webkit-scrollbar-thumb]:bg-[#96A0B5]">
-                {tocItems.map((item) => (
-                  <li key={item.id}>
-                    <button
-                      onClick={() => scrollToHeading(item.id)}
-                      className={`block w-full text-left text-xs md:text-sm py-2 px-3 rounded transition-all duration-200 ${activeId === item.id
-                        ? 'bg-[#0E9BF0] text-white font-medium shadow-sm'
-                        : 'text-[#5C6880] hover:text-[#0E9BF0] hover:bg-white'
-                        }`}
-                    >
-                      <span className="flex items-start gap-2">
-                        {activeId === item.id && <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />}
-                        <span className="flex-1">{item.title}</span>
-                      </span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-
-            <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
-                  <img
-                    src="/web-app-manifest-192x192.png"
-                    alt="GHL Scale Up"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-white">GHL Scale Up Team</div>
-                  <div className="text-xs text-white/50">GoHighLevel Expert Agency · India-Based</div>
-                </div>
-              </div>
-              <p className="text-xs text-white/60 leading-relaxed mb-3">
-                5+ years GHL experience · 200+ systems built and migrated globally. All technical details verified as of July 2026.
-              </p>
-              <Link href="/" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
-            </div>
-
-            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
-              <div className="text-sm font-bold text-white mb-2">Starting an Agency in India?</div>
-              <p className="text-xs text-white/60 leading-relaxed mb-4">We handle GHL setup, SaaS Mode configuration, and WhatsApp integration for Indian agencies with India-timezone support.</p>
-              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
-                Get Help
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
-
-            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
-              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
-              <div className="flex gap-2 flex-wrap">
-                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Linkedin className="w-3 h-3" /> LinkedIn</a>
-                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Twitter className="w-3 h-3" /> X</a>
-                <button onClick={() => navigator.clipboard.writeText(window.location.href)} className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"><Copy className="w-3 h-3" /> Copy link</button>
-              </div>
-            </div>
-          </aside>
         </div>
       </div>
 

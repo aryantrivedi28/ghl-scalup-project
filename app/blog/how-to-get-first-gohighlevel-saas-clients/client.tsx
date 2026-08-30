@@ -13,11 +13,68 @@ import {
   Star,
   AlertTriangle,
   Lightbulb,
+  Rocket,
+  Target,
+  HeartHandshake,
+  MessageCircle,
+  Phone,
+  Search,
+  Trophy,
+  Facebook,
+  Shield,
+  DollarSign,
+  Users,
+  Building2,
+  Calendar,
+  Layout,
+  GitBranch,
+  Sparkles,
+  Award,
+  TrendingUp,
+  Server,
+  Globe,
+  CreditCard,
+  Smartphone,
+  Briefcase,
+  Cloud,
+  Database,
+  Clock,
+  Mail,
+  GraduationCap,
+  Compass,
+  BarChart3,
+  Mailbox,
+  Layers,
+  Workflow,
+  Settings,
+  Link2,
+  Webhook,
+  RefreshCw,
+  ListChecks,
+  ClipboardList,
+  Printer,
+  Video,
+  Ticket,
+  TrendingDown,
+  Info,
+  UserCheck,
+  UserX,
+  PanelTop,
+  LayoutDashboard,
+  LifeBuoy,
+  Timer,
+  Trash2,
+  Download,
+  PieChart,
+  GitMerge,
+  FileCheck,
+  Headphones
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export default function HowToGetFirstGHLSAASClientsClient() {
   const [activeId, setActiveId] = useState<string>('');
+  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,6 +99,13 @@ export default function HowToGetFirstGHLSAASClientsClient() {
             break;
           }
         }
+      }
+
+      // Show floating Project Help card after scrolling past hero section
+      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
+      if (heroSection) {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        setShowFloatingProjectHelp(heroBottom < 0);
       }
     };
 
@@ -136,6 +200,18 @@ export default function HowToGetFirstGHLSAASClientsClient() {
     { mistake: 'Not tracking why prospects say no', detail: 'Every no is data. Fix the specific objection you hear most.' }
   ];
 
+  // Reusable Project Help Card Component
+  const ProjectHelpCard = () => (
+    <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
+      <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
+      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your client acquisition.</p>
+      <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+        Book a 30 min Free Call
+        <ArrowRight className="w-3 h-3" />
+      </Link>
+    </div>
+  );
+
   return (
     <>
       {/* Progress Bar */}
@@ -157,8 +233,8 @@ export default function HowToGetFirstGHLSAASClientsClient() {
         <div className="absolute -top-[120px] -right-[120px] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(14,155,240,0.12)_0%,transparent_70%)] pointer-events-none" />
         <div className="absolute -bottom-[80px] -left-[80px] w-[360px] h-[360px] bg-[radial-gradient(circle,rgba(37,201,125,0.08)_0%,transparent_70%)] pointer-events-none" />
 
-        <div className="max-w-[760px] mx-auto relative z-10">
-          {/* Post Tags */}
+        <div className="max-w-7xl mx-auto relative z-10">
+          {/* Post Tags / Category Labels */}
           <div className="flex flex-wrap gap-2 mb-4">
             <span className="bg-[rgba(248,208,0,0.15)] text-[#F8D000] text-[11px] font-semibold px-2.5 py-1 rounded-full">SaaS</span>
             <span className="bg-[rgba(14,155,240,0.15)] text-[#0E9BF0] text-[11px] font-semibold px-2.5 py-1 rounded-full">Client Acquisition</span>
@@ -166,13 +242,13 @@ export default function HowToGetFirstGHLSAASClientsClient() {
             <span className="bg-[rgba(14,155,240,0.15)] text-[#0E9BF0] text-[11px] font-semibold px-2.5 py-1 rounded-full">2026</span>
           </div>
 
-          {/* H1 */}
+          {/* H1 Headline */}
           <h1 className="text-[clamp(28px,6vw,46px)] font-extrabold leading-[1.2] md:leading-[1.15] text-white mb-4 md:mb-5 tracking-[-0.02em]">
             How to Get Your First 10 GoHighLevel SaaS Clients:<br />
             <span className="text-[#F8D000]">The Honest Guide (2026)</span>
           </h1>
 
-          {/* Author */}
+          {/* Author Byline */}
           <div className="flex items-center gap-3 mb-6">
             <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
               <img
@@ -187,19 +263,127 @@ export default function HowToGetFirstGHLSAASClientsClient() {
             </div>
           </div>
 
-          {/* Intro Paragraph */}
-          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
+          {/* Introductory Paragraph */}
+          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-6xl">
             If you have paid for GoHighLevel Agency Pro at $497/month and cannot get GoHighLevel SaaS clients, you are not the only one. This is the most common Reddit question in the GHL space in 2026: "I am doing SaaS for a while now and did not get a single client because I am really bad at marketing." Getting your first 10 SaaS clients on GoHighLevel is not a marketing problem for most people. It is a positioning, patience, and channel-selection problem. <Link href="/" className="text-[#0E9BF0] hover:underline font-medium">GHL Scale Up</Link> has worked with agencies from zero clients to over 50 SaaS clients. This guide is an honest walk through what actually works, what does not, and the realistic timeline nobody on YouTube will tell you. For the fully-managed path: <Link href="/services/saas-setup" className="text-[#0E9BF0] hover:underline">GHL SaaS setup service →</Link>
           </p>
+
+          {/* CTA Button 1: Hero Section */}
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105"
+            >
+              <Rocket className="w-4 h-4" />
+              Get Client Help
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              href="#channels"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20"
+            >
+              See Channels
+              <ChevronDown className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Main Layout */}
-      <div className="max-w-[1080px] mx-auto px-4 md:px-6 py-10 md:py-16">
-        <div className="grid lg:grid-cols-[1fr_280px] gap-8 md:gap-16 items-start">
+      {/* MAIN LAYOUT - Sidebar on LEFT, Content on RIGHT */}
+      <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-10">
+        <div className="grid lg:grid-cols-[280px_1fr] gap-8 md:gap-12 items-start">
 
-          {/* Article Content */}
-          <main className="min-w-0">
+          {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
+          <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
+            {/* Project Help Card */}
+            <div className="hidden lg:block mb-6">
+              <ProjectHelpCard />
+            </div>
+
+            {/* Table of Contents - Sticky */}
+            <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
+              <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
+                <BookOpen className="w-3 h-3" />
+                In This Guide
+              </div>
+              <ul className="space-y-0.5 max-h-[calc(100vh-200px)] overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-[#DDE1E9] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent hover:[&::-webkit-scrollbar-thumb]:bg-[#96A0B5]">
+                {tocItems.map((item) => (
+                  <li key={item.id}>
+                    <button
+                      onClick={() => scrollToHeading(item.id)}
+                      className={`block w-full text-left text-xs md:text-sm py-2 px-3 rounded transition-all duration-200 ${activeId === item.id
+                        ? 'bg-[#0E9BF0] text-white font-medium shadow-sm'
+                        : 'text-[#5C6880] hover:text-[#0E9BF0] hover:bg-white'
+                        }`}
+                    >
+                      <span className="flex items-start gap-2">
+                        {activeId === item.id && (
+                          <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />
+                        )}
+                        <span className="flex-1">{item.title}</span>
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            {/* About the Author */}
+            <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
+                  <img
+                    src="/web-app-manifest-192x192.png"
+                    alt="GHL Scale Up"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <div className="text-sm font-bold text-white">GHL Scale Up Team</div>
+                  <div className="text-xs text-white/50">GoHighLevel SaaS Specialists</div>
+                </div>
+              </div>
+              <p className="text-xs text-white/60 leading-relaxed mb-3">
+                5+ years GHL experience · 200+ systems built. All technical details verified as of July 2026.
+              </p>
+              <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
+            </div>
+
+            {/* Share Buttons */}
+            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
+              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Share this guide</div>
+              <div className="flex gap-2 flex-wrap">
+                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Linkedin className="w-3 h-3" />
+                  LinkedIn
+                </a>
+                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Twitter className="w-3 h-3" />
+                  X
+                </a>
+                <button
+                  onClick={() => navigator.clipboard.writeText(window.location.href)}
+                  className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"
+                >
+                  <Copy className="w-3 h-3" />
+                  Copy link
+                </button>
+              </div>
+            </div>
+
+            {/* CTA Card */}
+            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
+              <div className="text-sm font-bold text-white mb-2">Need Your First SaaS Clients?</div>
+              <p className="text-xs text-white/60 leading-relaxed mb-4">We build the platform, demo, and onboarding automation so you can focus on selling.</p>
+              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+                Get Help
+                <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
+          </aside>
+
+          {/* ==================== RIGHT COLUMN: BLOG CONTENT ==================== */}
+          <main className="min-w-0 order-2">
 
             {/* BLUF Box */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
@@ -213,10 +397,22 @@ export default function HowToGetFirstGHLSAASClientsClient() {
               <p className="text-sm text-[#5C6880] leading-relaxed">
                 Realistic timeline: 60-90 days to hit 10 clients if you are actively selling and have an existing network. 90-120 days if you are cold outreaching to a completely new niche (ECOSIRE, May 2026). If someone tells you it is faster than this, they are either selling a course or lying.
               </p>
+
+              {/* CTA Button 2: Inside TL;DR Box */}
+              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                >
+                  <Target className="w-4 h-4" />
+                  Get Client Help
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
             </div>
 
-            {/* Table of Contents */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
+            {/* Table of Contents - Mobile Only */}
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8 lg:hidden">
               <div className="flex items-center gap-2 mb-4">
                 <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
                 <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">What's in this guide</span>
@@ -232,6 +428,11 @@ export default function HowToGetFirstGHLSAASClientsClient() {
                   </button>
                 ))}
               </div>
+            </div>
+
+            {/* Mobile Project Help Card - visible on mobile only */}
+            <div className="lg:hidden mb-8">
+              <ProjectHelpCard />
             </div>
 
             {/* Section 1: Why Hard */}
@@ -256,6 +457,21 @@ export default function HowToGetFirstGHLSAASClientsClient() {
               <p className="text-sm text-[#1A2236] leading-relaxed">
                 GHL SaaS is not oversaturated in the way that Instagram influencer culture is oversaturated. It is oversaturated at the top of funnel (everyone pitching the same generic "all-in-one platform" angle). It is under-served at the specific-niche level. A person selling "GHL for chiropractors in the Midwest with a specific pain-recovery workflow" has almost no competition. Niche depth beats platform breadth.
               </p>
+            </div>
+
+            {/* CTA Button 3: After Section 1 */}
+            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 mb-8 text-center">
+              <p className="text-white/80 text-sm mb-3">
+                <span className="font-bold text-white">Struggling to get your first client?</span> Let our team help you refine your offer and positioning.
+              </p>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+              >
+                <BarChart3 className="w-4 h-4" />
+                Get Offer Help
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
 
             {/* Section 2: Timeline */}
@@ -336,6 +552,20 @@ export default function HowToGetFirstGHLSAASClientsClient() {
               For the platform-level guide behind the SaaS positioning: <Link href="/blog/ghl-white-label-saas-guide" className="text-[#0E9BF0] hover:underline">GoHighLevel White Label SaaS Guide →</Link>
             </p>
 
+            {/* CTA Button 4: After Positioning */}
+            <div className="bg-gradient-to-r from-[#0E9BF0] to-[#0C8AD8] rounded-xl p-6 text-center text-white mb-8">
+              <p className="text-sm font-medium mb-2">🤔 Not sure if you should position as SaaS, SwaS, or Agency?</p>
+              <p className="text-sm text-white/80 mb-4">Let us review your business model and recommend the right positioning.</p>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 bg-white text-[#0E9BF0] font-bold px-6 py-2.5 rounded-lg hover:bg-[#F8F9FB] transition-all hover:shadow-lg hover:scale-105 text-sm"
+              >
+                <HeartHandshake className="w-4 h-4" />
+                Get Positioning Advice
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
             {/* Section 4: Channels */}
             <h2 id="channels" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               4. What Are the Six Client Acquisition Channels That Actually Work?
@@ -406,6 +636,20 @@ export default function HowToGetFirstGHLSAASClientsClient() {
               For automating parts of your outreach follow-up sequence once you have first client conversations happening: <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-[#0E9BF0] hover:underline">GoHighLevel Workflow Automation Guide →</Link>
             </p>
 
+            {/* CTA Button 5: After Cold Outreach */}
+            <div className="bg-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
+              <p className="text-sm font-medium mb-2">📝 Need help writing cold outreach that actually gets replies?</p>
+              <p className="text-sm text-white/80 mb-4">We'll help you craft messages that get responses and book demos.</p>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+              >
+                <Sparkles className="w-4 h-4" />
+                Get Outreach Help
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
             {/* Section 6: Beginner */}
             <h2 id="beginner" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               6. What If You Are a Complete Beginner with No Network and No Budget?
@@ -469,6 +713,20 @@ export default function HowToGetFirstGHLSAASClientsClient() {
               For the platform-level guide behind the SaaS positioning: <Link href="/blog/ghl-white-label-saas-guide" className="text-[#0E9BF0] hover:underline">GoHighLevel White Label SaaS Guide →</Link>
             </p>
 
+            {/* CTA Button 6: Before Mistakes */}
+            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
+              <p className="text-sm font-medium mb-2">🔍 Have agency clients you want to convert to SaaS?</p>
+              <p className="text-sm text-white/80 mb-4">We'll help you build the offer and transition strategy that keeps clients happy.</p>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+              >
+                <Search className="w-4 h-4" />
+                Get Conversion Help
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
             {/* Section 8: Mistakes */}
             <h2 id="mistakes" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               8. What Are the Mistakes That Cost People Their First 10 Clients?
@@ -499,6 +757,20 @@ export default function HowToGetFirstGHLSAASClientsClient() {
               </p>
             </div>
 
+            {/* CTA Button 7: Before FAQ */}
+            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
+              <p className="text-sm font-medium mb-2">⚠️ Don't make costly client acquisition mistakes.</p>
+              <p className="text-sm text-white/80 mb-4">Get a free, no-obligation assessment of your client acquisition strategy from experts who've helped 200+ businesses.</p>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+              >
+                <Shield className="w-4 h-4" />
+                Get a Free Assessment
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
             {/* Section 9: FAQ */}
             <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
               9. Frequently Asked Questions
@@ -516,9 +788,32 @@ export default function HowToGetFirstGHLSAASClientsClient() {
               ))}
             </div>
 
+            {/* CTA Button 8: After FAQ */}
+            <div className="mt-8 p-6 bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl text-center">
+              <p className="text-white font-bold text-lg mb-2">Still Have Questions About Getting Clients?</p>
+              <p className="text-white/60 text-sm mb-4">Talk to our client acquisition specialists directly. We've helped 200+ businesses get their first clients.</p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  Ask an Expert
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-white/20 transition-all border border-white/20 text-sm"
+                >
+                  <Phone className="w-4 h-4" />
+                  Call Us
+                </Link>
+              </div>
+            </div>
+
             {/* Related Articles */}
             <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
-              <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles</h3>
+              <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles in This Series</h3>
               <div className="flex flex-wrap gap-3">
                 <Link href="/services/saas-setup" className="text-sm text-[#0E9BF0] hover:underline">GHL SaaS Setup Service →</Link>
                 <Link href="/blog/ghl-white-label-saas-guide" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel White Label SaaS Guide →</Link>
@@ -530,14 +825,14 @@ export default function HowToGetFirstGHLSAASClientsClient() {
               </div>
             </div>
 
-            {/* Final CTA */}
+            {/* Final CTA Section */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Serious about getting your first 10 GoHighLevel SaaS clients?</h3>
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
                   GHL Scale Up builds the platform. You focus on sales. Niche snapshot build, SaaS Mode configuration, custom domain setup, Stripe billing integration, and onboarding automation so your acquisition channels have something real to sell.
                 </p>
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105">
                   Book Your Free Strategy Call
                   <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -565,72 +860,6 @@ export default function HowToGetFirstGHLSAASClientsClient() {
               <Link href="/" className="text-[#0E9BF0] text-xs hover:underline mt-2 inline-block">ghlscaleup.com</Link>
             </div>
           </main>
-
-          {/* Sidebar */}
-          <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out">
-            <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
-              <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
-                <BookOpen className="w-3 h-3" />
-                In This Guide
-              </div>
-              <ul className="space-y-0.5 max-h-[calc(100vh-200px)] overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-[#DDE1E9] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent hover:[&::-webkit-scrollbar-thumb]:bg-[#96A0B5]">
-                {tocItems.map((item) => (
-                  <li key={item.id}>
-                    <button
-                      onClick={() => scrollToHeading(item.id)}
-                      className={`block w-full text-left text-xs md:text-sm py-2 px-3 rounded transition-all duration-200 ${activeId === item.id
-                        ? 'bg-[#0E9BF0] text-white font-medium shadow-sm'
-                        : 'text-[#5C6880] hover:text-[#0E9BF0] hover:bg-white'
-                        }`}
-                    >
-                      <span className="flex items-start gap-2">
-                        {activeId === item.id && <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />}
-                        <span className="flex-1">{item.title}</span>
-                      </span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-
-            <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
-                  <img
-                    src="/web-app-manifest-192x192.png"
-                    alt="GHL Scale Up"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-white">GHL Scale Up Team</div>
-                  <div className="text-xs text-white/50">GoHighLevel SaaS Specialists</div>
-                </div>
-              </div>
-              <p className="text-xs text-white/60 leading-relaxed mb-3">
-                5+ years GHL experience · 200+ systems built. All technical details verified as of July 2026.
-              </p>
-              <Link href="/" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
-            </div>
-
-            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
-              <div className="text-sm font-bold text-white mb-2">Need Your First SaaS Clients?</div>
-              <p className="text-xs text-white/60 leading-relaxed mb-4">We build the platform, demo, and onboarding automation so you can focus on selling.</p>
-              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
-                Get Help
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
-
-            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
-              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
-              <div className="flex gap-2 flex-wrap">
-                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Linkedin className="w-3 h-3" /> LinkedIn</a>
-                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Twitter className="w-3 h-3" /> X</a>
-                <button onClick={() => navigator.clipboard.writeText(window.location.href)} className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"><Copy className="w-3 h-3" /> Copy link</button>
-              </div>
-            </div>
-          </aside>
         </div>
       </div>
 

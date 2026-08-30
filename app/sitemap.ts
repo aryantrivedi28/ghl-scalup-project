@@ -287,6 +287,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
+      {
+    url: `${baseUrl}/blog/is-gohighlevel-worth-it`,
+    lastModified: new Date('2026-08-30'),
+    changeFrequency: 'monthly',
+    priority: 0.9, // High priority for review/decision content
+  },
     {
       url: `${baseUrl}/blog/gohighlevel-agency-vs-freelancer`,
       lastModified: new Date('2026-08-22'),

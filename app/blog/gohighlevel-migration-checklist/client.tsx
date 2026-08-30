@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import {
   ArrowRight,
-  CheckCircle2,
   ChevronDown,
   Copy,
   Linkedin,
@@ -12,61 +11,24 @@ import {
   BookOpen,
   Zap,
   Shield,
-  DollarSign,
-  Users,
-  Building2,
-  Calendar,
   MessageCircle,
   Phone,
-  Layout,
-  GitBranch,
-  Sparkles,
-  Award,
-  TrendingUp,
   Star,
   AlertTriangle,
-  Server,
-  Globe,
-  CreditCard,
-  Smartphone,
-  Briefcase,
   Rocket,
-  Cloud,
-  Database,
-  Clock,
-  Mail,
-  GraduationCap,
-  Heart,
   Target,
-  FileText,
-  Compass,
-  GitCompare,
   BarChart3,
-  Mailbox,
-  Stethoscope,
-  Activity,
-  CalendarDays,
-  XCircle,
-  Layers,
-  Workflow,
-  Headphones,
-  FileQuestion,
-  HelpCircle,
-  Boxes,
-  Combine,
-  Settings,
-  Link2,
-  Webhook,
-  RefreshCw,
-  ListChecks,
-  ClipboardList,
   Download,
-  Printer
+  Printer,
+  Trophy,
+  Search,
+  HeartHandshake
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export default function GHLMigrationChecklistClient() {
   const [activeId, setActiveId] = useState<string>('');
+  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -88,6 +50,13 @@ export default function GHLMigrationChecklistClient() {
             setActiveId(id);
           }
         }
+      }
+
+      // Show floating Project Help card after scrolling past hero section
+      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
+      if (heroSection) {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        setShowFloatingProjectHelp(heroBottom < 0);
       }
     };
 
@@ -275,6 +244,18 @@ export default function GHLMigrationChecklistClient() {
     ]},
   ];
 
+  // Reusable Project Help Card Component
+  const ProjectHelpCard = () => (
+    <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
+      <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
+      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your migration project.</p>
+      <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+        Book a 30 min Free Call
+        <ArrowRight className="w-3 h-3" />
+      </Link>
+    </div>
+  );
+
   return (
     <>
       {/* Progress Bar */}
@@ -285,6 +266,8 @@ export default function GHLMigrationChecklistClient() {
         <div className="max-w-[1080px] mx-auto flex items-center gap-2 text-xs md:text-sm text-[#5C6880] overflow-x-auto whitespace-nowrap">
           <Link href="/" className="hover:text-[#0E9BF0] transition-colors">Home</Link>
           <ArrowRight className="w-3 h-3 text-[#96A0B5]" />
+          <Link href="/blog" className="hover:text-[#0E9BF0] transition-colors">Blog</Link>
+          <ArrowRight className="w-3 h-3 text-[#96A0B5]" />
           <span className="text-[#1A2236] font-medium">GoHighLevel Migration Checklist 2026</span>
         </div>
       </nav>
@@ -294,7 +277,7 @@ export default function GHLMigrationChecklistClient() {
         <div className="absolute -top-[120px] -right-[120px] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(14,155,240,0.12)_0%,transparent_70%)] pointer-events-none" />
         <div className="absolute -bottom-[80px] -left-[80px] w-[360px] h-[360px] bg-[radial-gradient(circle,rgba(37,201,125,0.08)_0%,transparent_70%)] pointer-events-none" />
 
-        <div className="max-w-[760px] mx-auto relative z-10">
+        <div className="max-w-7xl mx-auto relative z-10">
           {/* Post Tags / Category Labels */}
           <div className="flex flex-wrap gap-2 mb-4">
             <span className="bg-[rgba(14,155,240,0.15)] text-[#0E9BF0] text-[11px] font-semibold px-2.5 py-1 rounded-full">Checklist</span>
@@ -325,23 +308,138 @@ export default function GHLMigrationChecklistClient() {
           </div>
 
           {/* Introductory Paragraph */}
-          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
+          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-6xl">
             This is the checklist <strong className="text-white"> GHL Scale Up</strong> uses internally on every 
             GoHighLevel migration we run. 200+ migrations from HubSpot, ClickFunnels, ActiveCampaign, Kajabi, 
             Zoho, and Salesforce. Save this page, print it, or work through it phase by phase. Each item is 
             something we have seen go wrong when skipped.
           </p>
+
+          {/* CTA Button 1: Hero Section */}
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105"
+            >
+              <Rocket className="w-4 h-4" />
+              Start Your Migration
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              href="#phase1"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20"
+            >
+              See Phase 1
+              <ChevronDown className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Main Layout */}
-      <div className="max-w-[1080px] mx-auto px-4 md:px-6 py-10 md:py-16">
-        <div className="grid lg:grid-cols-[1fr_280px] gap-8 md:gap-16 items-start">
+      {/* MAIN LAYOUT - Sidebar on LEFT, Content on RIGHT */}
+      <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-10">
+        <div className="grid lg:grid-cols-[280px_1fr] gap-8 md:gap-12 items-start">
 
-          {/* Article Content */}
-          <main className="min-w-0">
+          {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
+          <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
+            {/* Project Help Card */}
+            <div className="hidden lg:block mb-6">
+              <ProjectHelpCard />
+            </div>
 
-            {/* BLUF Box */}
+            {/* Table of Contents - Sticky */}
+            <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
+              <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
+                <BookOpen className="w-3 h-3" />
+                In This Checklist
+              </div>
+              <ul className="space-y-0.5 max-h-[calc(100vh-200px)] overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-[#DDE1E9] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent hover:[&::-webkit-scrollbar-thumb]:bg-[#96A0B5]">
+                {tocItems.map((item) => (
+                  <li key={item.id}>
+                    <button
+                      onClick={() => scrollToHeading(item.id)}
+                      className={`block w-full text-left text-xs md:text-sm py-2 px-3 rounded transition-all duration-200 ${activeId === item.id
+                        ? 'bg-[#0E9BF0] text-white font-medium shadow-sm'
+                        : 'text-[#5C6880] hover:text-[#0E9BF0] hover:bg-white'
+                        }`}
+                    >
+                      <span className="flex items-start gap-2">
+                        {activeId === item.id && (
+                          <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />
+                        )}
+                        <span className="flex-1">{item.title}</span>
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            {/* About the Author */}
+            <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
+                  <img
+                    src="/web-app-manifest-192x192.png"
+                    alt="GHL Scale Up"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <div className="text-sm font-bold text-white">GHL Scale Up Team</div>
+                  <div className="text-xs text-white/50">GoHighLevel Migration Specialists</div>
+                </div>
+              </div>
+              <p className="text-xs text-white/60 leading-relaxed mb-3">
+                5+ years GHL experience · 200+ migrations completed globally. This checklist reflects our internal migration process as of June 2026.
+              </p>
+              <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
+            </div>
+
+            {/* Share Buttons */}
+            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
+              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Share this guide</div>
+              <div className="flex gap-2 flex-wrap">
+                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Linkedin className="w-3 h-3" />
+                  LinkedIn
+                </a>
+                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Twitter className="w-3 h-3" />
+                  X
+                </a>
+                <button
+                  onClick={() => navigator.clipboard.writeText(window.location.href)}
+                  className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"
+                >
+                  <Copy className="w-3 h-3" />
+                  Copy link
+                </button>
+              </div>
+            </div>
+
+            {/* Save/Print Card */}
+            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
+              <div className="flex items-center gap-2 mb-2">
+                <Download className="w-4 h-4 text-[#F8D000]" />
+                <span className="text-sm font-bold text-white">Save or Print</span>
+              </div>
+              <p className="text-xs text-white/60 leading-relaxed mb-3">
+                Use Ctrl+P (Cmd+P on Mac) to save this page as a PDF or print it.
+              </p>
+              <button
+                onClick={() => window.print()}
+                className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200"
+              >
+                <Printer className="w-3 h-3" />
+                Print / Save as PDF
+              </button>
+            </div>
+          </aside>
+
+          {/* ==================== RIGHT COLUMN: BLOG CONTENT ==================== */}
+          <main className="min-w-0 order-2">
+            {/* TL;DR / Quick Answer Box (BLUF) */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
               <div className="flex items-center gap-2 mb-3">
                 <Zap className="w-5 h-5 text-[#F8D000]" />
@@ -354,10 +452,22 @@ export default function GHLMigrationChecklistClient() {
                 On the other side: 67% of failed migrations used unrealistic 2 to 4 week timelines for complex environments, 
                 and 43% of data issues trace back to inadequate pre-migration data analysis. This checklist exists to put you in the first group.
               </p>
+
+              {/* CTA Button 2: Inside TL;DR Box */}
+              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                >
+                  <Target className="w-4 h-4" />
+                  Get Migration Help
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
             </div>
 
-            {/* Table of Contents */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
+            {/* Table of Contents - Mobile Only */}
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8 lg:hidden">
               <div className="flex items-center gap-2 mb-4">
                 <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
                 <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">The 6 Phases</span>
@@ -373,6 +483,11 @@ export default function GHLMigrationChecklistClient() {
                   </button>
                 ))}
               </div>
+            </div>
+
+            {/* Mobile Project Help Card - visible on mobile only */}
+            <div className="lg:hidden mb-8">
+              <ProjectHelpCard />
             </div>
 
             {/* Phase 1 */}
@@ -414,6 +529,21 @@ export default function GHLMigrationChecklistClient() {
               </p>
             </div>
 
+            {/* CTA Button 3: After Phase 1 */}
+            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 mb-8 text-center">
+              <p className="text-white/80 text-sm mb-3">
+                <span className="font-bold text-white">Don't want to audit yourself?</span> Let our team handle the pre-migration analysis.
+              </p>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+              >
+                <BarChart3 className="w-4 h-4" />
+                Get Audit Support
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
             {/* Phase 2 */}
             <h2 id="phase2" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               Phase 2: GHL Infrastructure Setup (Before Any Data Moves)
@@ -439,6 +569,20 @@ export default function GHLMigrationChecklistClient() {
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* CTA Button 4: After Phase 2 */}
+            <div className="bg-gradient-to-r from-[#0E9BF0] to-[#0C8AD8] rounded-xl p-6 text-center text-white mb-8">
+              <p className="text-sm font-medium mb-2">Need help setting up your GHL infrastructure?</p>
+              <p className="text-sm text-white/80 mb-4">Get custom fields, pipelines, email authentication, and phone setup configured correctly.</p>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 bg-white text-[#0E9BF0] font-bold px-6 py-2.5 rounded-lg hover:bg-[#F8F9FB] transition-all hover:shadow-lg hover:scale-105 text-sm"
+              >
+                <HeartHandshake className="w-4 h-4" />
+                Setup Support
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
 
             {/* Phase 3 */}
@@ -506,6 +650,20 @@ export default function GHLMigrationChecklistClient() {
               For the full guide: <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-[#0E9BF0] hover:underline">GoHighLevel Workflow Automation for Beginners →</Link>
             </p>
 
+            {/* CTA Button 5: After Phase 4 */}
+            <div className="bg-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
+              <p className="text-sm font-medium mb-2">⚡ Overwhelmed by automation rebuild?</p>
+              <p className="text-sm text-white/80 mb-4">Let our team rebuild your automations in GHL's workflow builder correctly the first time.</p>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+              >
+                <Zap className="w-4 h-4" />
+                Automation Help
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
             {/* Phase 5 */}
             <h2 id="phase5" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               Phase 5: Testing and Parallel Running
@@ -532,6 +690,20 @@ export default function GHLMigrationChecklistClient() {
             <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
               For the most common errors found during this phase: <Link href="/blog/ghl-migration-mistakes" className="text-[#0E9BF0] hover:underline">Common GHL Migration Mistakes Agencies Make →</Link>
             </p>
+
+            {/* CTA Button 6: Before Phase 6 */}
+            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
+              <p className="text-sm font-medium mb-2">🔍 Not confident in your testing process?</p>
+              <p className="text-sm text-white/80 mb-4">Let us review your migration setup and identify gaps before you go live.</p>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+              >
+                <Search className="w-4 h-4" />
+                Get a Migration Review
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
 
             {/* Phase 6 */}
             <h2 id="phase6" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
@@ -570,12 +742,35 @@ export default function GHLMigrationChecklistClient() {
                 See real migration results: <Link href="/case-studies" className="text-[#0E9BF0] hover:underline">real GoHighLevel results and case studies →</Link>
               </p>
               <p className="text-sm text-white/80 leading-relaxed">
-                If you would rather have us run this checklist for you, <Link href="/contact-us" className="text-[#0E9BF0] hover:underline">book a free migration assessment </Link> 
-                at ghlscaleup.com/contact-us. We review your current setup and give you a realistic timeline and fixed-fee quote.
+                If you would rather have us run this checklist for you, <Link href="/contact" className="text-[#0E9BF0] hover:underline">book a free migration assessment</Link> 
+                at ghlscaleup.com/contact. We review your current setup and give you a realistic timeline and fixed-fee quote.
               </p>
               <p className="text-sm text-white/60 leading-relaxed mt-3">
                 Our full <Link href="/services/migration" className="text-[#0E9BF0] hover:underline">GoHighLevel migration service →</Link> covers every phase in this checklist, managed end to end.
               </p>
+            </div>
+
+            {/* CTA Button 7: After How We Use This */}
+            <div className="mt-8 p-6 bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl text-center">
+              <p className="text-white font-bold text-lg mb-2">⚠️ Planning a migration soon?</p>
+              <p className="text-white/60 text-sm mb-4">Skip the risk. Let our team run this checklist for you. Free migration assessment with realistic timeline and fixed quote.</p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                >
+                  <Shield className="w-4 h-4" />
+                  Get a Free Assessment
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link
+                  href="/services/migration"
+                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-white/20 transition-all border border-white/20 text-sm"
+                >
+                  <Trophy className="w-4 h-4" />
+                  See Migration Services
+                </Link>
+              </div>
             </div>
 
             {/* FAQ */}
@@ -595,9 +790,32 @@ export default function GHLMigrationChecklistClient() {
               ))}
             </div>
 
+            {/* CTA Button 8: After FAQ */}
+            <div className="mt-8 p-6 bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl text-center">
+              <p className="text-white font-bold text-lg mb-2">Still Have Questions About Your Migration?</p>
+              <p className="text-white/60 text-sm mb-4">Talk to our migration specialists directly. We're here to help you plan your move to GoHighLevel.</p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  Ask an Expert
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-white/20 transition-all border border-white/20 text-sm"
+                >
+                  <Phone className="w-4 h-4" />
+                  Call Us
+                </Link>
+              </div>
+            </div>
+
             {/* Internal Links */}
             <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
-              <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles</h3>
+              <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles in This Series</h3>
               <div className="flex flex-wrap gap-3">
                 <Link href="/blog/what-is-ghl-migration" className="text-sm text-[#0E9BF0] hover:underline">What Is GoHighLevel Migration? Beginner's Guide →</Link>
                 <Link href="/blog/ghl-migration-timeline" className="text-sm text-[#0E9BF0] hover:underline">GHL Migration Timeline: How Long Does It Take? →</Link>
@@ -607,7 +825,7 @@ export default function GHLMigrationChecklistClient() {
               </div>
             </div>
 
-            {/* CTA Section */}
+            {/* Final CTA Section */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Want this checklist managed for you instead?</h3>
@@ -615,87 +833,13 @@ export default function GHLMigrationChecklistClient() {
                   GHL Scale Up runs this exact checklist on every migration. Free 30-minute migration assessment. 
                   We review your current setup, tell you exactly what applies, and give you a realistic timeline and fixed-fee quote.
                 </p>
-                <Link href="/contact-us" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105">
                   Book Your Free Assessment
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
           </main>
-
-          {/* Sidebar */}
-          <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out">
-            <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
-              <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
-                <BookOpen className="w-3 h-3" />
-                In This Checklist
-              </div>
-              <ul className="space-y-0.5 max-h-[calc(100vh-200px)] overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-[#DDE1E9] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent hover:[&::-webkit-scrollbar-thumb]:bg-[#96A0B5]">
-                {tocItems.map((item) => (
-                  <li key={item.id}>
-                    <button
-                      onClick={() => scrollToHeading(item.id)}
-                      className={`block w-full text-left text-xs md:text-sm py-2 px-3 rounded transition-all duration-200 ${activeId === item.id
-                        ? 'bg-[#0E9BF0] text-white font-medium shadow-sm'
-                        : 'text-[#5C6880] hover:text-[#0E9BF0] hover:bg-white'
-                        }`}
-                    >
-                      <span className="flex items-start gap-2">
-                        {activeId === item.id && <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />}
-                        <span className="flex-1">{item.title}</span>
-                      </span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-
-            <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-2" style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
-                  <img
-                    src="/web-app-manifest-192x192.png"
-                    alt="GHL Scale Up"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-white">GHL Scale Up Team</div>
-                  <div className="text-xs text-white/50">GoHighLevel Migration Specialists</div>
-                </div>
-              </div>
-              <p className="text-xs text-white/60 leading-relaxed mb-3">
-                5+ years GHL experience · 200+ migrations completed globally. This checklist reflects our internal migration process as of June 2026.
-              </p>
-              <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
-            </div>
-
-            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-2" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
-              <div className="flex items-center gap-2 mb-2">
-                <Download className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-white">Save or Print</span>
-              </div>
-              <p className="text-xs text-white/60 leading-relaxed mb-3">
-                Use Ctrl+P (Cmd+P on Mac) to save this page as a PDF or print it.
-              </p>
-              <button
-                onClick={() => window.print()}
-                className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200"
-              >
-                <Printer className="w-3 h-3" />
-                Print / Save as PDF
-              </button>
-            </div>
-
-            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-2" style={{ animationDelay: '300ms', animationFillMode: 'forwards' }}>
-              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
-              <div className="flex gap-2 flex-wrap">
-                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Linkedin className="w-3 h-3" /> LinkedIn</a>
-                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Twitter className="w-3 h-3" /> X</a>
-                <button onClick={() => navigator.clipboard.writeText(window.location.href)} className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"><Copy className="w-3 h-3" /> Copy link</button>
-              </div>
-            </div>
-          </aside>
         </div>
       </div>
 

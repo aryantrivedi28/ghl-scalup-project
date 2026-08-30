@@ -12,70 +12,57 @@ import {
   BookOpen,
   Zap,
   Shield,
-  DollarSign,
-  Users,
-  Building2,
-  Calendar,
   MessageCircle,
   Phone,
-  Layout,
-  GitBranch,
-  Sparkles,
   Award,
   TrendingUp,
-  Star,
   AlertTriangle,
-  Server,
-  Globe,
-  CreditCard,
-  Smartphone,
-  Briefcase,
-  Rocket,
-  Cloud,
-  Database,
-  Clock,
-  Mail,
-  GraduationCap,
-  Heart,
   Target,
-  FileText,
-  Compass,
-  GitCompare,
-  BarChart3,
-  Mailbox,
-  Stethoscope,
-  Activity,
-  CalendarDays,
-  XCircle
+  XCircle,
+  Search
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export default function GoHighLevelForDentistsClient() {
   const [activeId, setActiveId] = useState<string>('');
+  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
   useEffect(() => {
+    const sections = [
+      'two-system-model',
+      'patient-pipeline',
+      'automations-roi',
+      'tools-replaces',
+      'hipaa-compliance',
+      'right-for-practice',
+      'faq'
+    ];
+
     const handleScroll = () => {
-      const sections = [
-        'two-system-model',
-        'patient-pipeline',
-        'automations-roi',
-        'tools-replaces',
-        'hipaa-compliance',
-        'right-for-practice',
-        'faq'
-      ];
+      let currentSection = sections[0];
 
       for (const id of sections) {
         const element = document.getElementById(id);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 150) {
-            setActiveId(id);
-          }
+        if (!element) continue;
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= 180) {
+          currentSection = id;
+        } else {
+          break;
         }
+      }
+
+      setActiveId(currentSection);
+
+      // Show floating Project Help card after scrolling past hero section
+      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
+      if (heroSection) {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        setShowFloatingProjectHelp(heroBottom < 0);
       }
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -158,6 +145,18 @@ export default function GoHighLevelForDentistsClient() {
     { title: '6-month recall campaigns', roi: 'Revenue recovery', desc: 'Triggers at 5.5 months to send recall reminder. Recovers 15 to 25% of patients who would otherwise drift away.' },
   ];
 
+  // Reusable Project Help Card Component
+  const ProjectHelpCard = () => (
+    <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
+      <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
+      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
+      <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+        Book a 30 min Free Call
+        <ArrowRight className="w-3 h-3" />
+      </Link>
+    </div>
+  );
+
   return (
     <>
       {/* Progress Bar */}
@@ -174,12 +173,12 @@ export default function GoHighLevelForDentistsClient() {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* Hero Section - KEPT AS IS */}
       <section className="bg-[#0B1628] py-12 md:py-[72px] px-4 md:px-6 relative overflow-hidden">
         <div className="absolute -top-[120px] -right-[120px] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(14,155,240,0.12)_0%,transparent_70%)] pointer-events-none" />
         <div className="absolute -bottom-[80px] -left-[80px] w-[360px] h-[360px] bg-[radial-gradient(circle,rgba(37,201,125,0.08)_0%,transparent_70%)] pointer-events-none" />
 
-        <div className="max-w-[760px] mx-auto relative z-10">
+        <div className="max-w-7xl mx-auto relative z-10">
           {/* Post Tags / Category Labels */}
           <div className="flex flex-wrap gap-2 mb-4">
             <span className="bg-[rgba(14,155,240,0.15)] text-[#0E9BF0] text-[11px] font-semibold px-2.5 py-1 rounded-full">Dental Practice</span>
@@ -210,7 +209,7 @@ export default function GoHighLevelForDentistsClient() {
           </div>
 
           {/* Introductory Paragraph */}
-          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
+          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-6xl">
             Most dental practices have the same problem: the front desk is handling calls during treatment hours, 
             new patient inquiries sit unanswered for hours, recall patients go months without contact, and Google 
             reviews accumulate slowly despite hundreds of satisfied patients. None of these are clinical problems. 
@@ -220,12 +219,78 @@ export default function GoHighLevelForDentistsClient() {
         </div>
       </section>
 
-      {/* Main Layout */}
-      <div className="max-w-[1080px] mx-auto px-4 md:px-6 py-10 md:py-16">
-        <div className="grid lg:grid-cols-[1fr_280px] gap-8 md:gap-16 items-start">
+      {/* MAIN LAYOUT - Sidebar on LEFT, Content on RIGHT */}
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-10 md:py-16">
+        <div className="grid lg:grid-cols-[280px_1fr] gap-8 md:gap-12 items-start">
           
-          {/* Article Content */}
-          <main className="min-w-0">
+          {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
+          <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
+            {/* Project Help Card - At top of sidebar */}
+            <div className="mb-6">
+              <ProjectHelpCard />
+            </div>
+
+            {/* Table of Contents */}
+            <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
+              <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
+                <BookOpen className="w-3 h-3" />
+                In This Guide
+              </div>
+              <ul className="space-y-0.5 max-h-[calc(100vh-200px)] overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-[#DDE1E9] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent hover:[&::-webkit-scrollbar-thumb]:bg-[#96A0B5]">
+                {tocItems.map((item) => (
+                  <li key={item.id}>
+                    <button
+                      onClick={() => scrollToHeading(item.id)}
+                      className={`block w-full text-left text-xs md:text-sm py-2 px-3 rounded transition-all duration-200 ${activeId === item.id
+                        ? 'bg-[#0E9BF0] text-white font-medium shadow-sm'
+                        : 'text-[#5C6880] hover:text-[#0E9BF0] hover:bg-white'
+                        }`}
+                    >
+                      <span className="flex items-start gap-2">
+                        {activeId === item.id && <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />}
+                        <span className="flex-1">{item.title}</span>
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            {/* About the Author */}
+            <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
+                  <img
+                    src="/web-app-manifest-192x192.png"
+                    alt="GHL Scale Up"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <div className="text-sm font-bold text-white">GHL Scale Up Team</div>
+                  <div className="text-xs text-white/50">GoHighLevel Expert Agency</div>
+                </div>
+              </div>
+              <p className="text-xs text-white/60 leading-relaxed mb-3">
+                5+ years GHL experience · 200+ systems built globally including dental practice marketing automation builds across the US, UK, and Australia. 
+                All HIPAA information is for informational purposes only and does not constitute legal or compliance advice.
+              </p>
+              <Link href="/" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
+            </div>
+
+            {/* Share Buttons */}
+            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
+              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
+              <div className="flex gap-2 flex-wrap">
+                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Linkedin className="w-3 h-3" /> LinkedIn</a>
+                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Twitter className="w-3 h-3" /> X</a>
+                <button onClick={() => navigator.clipboard.writeText(window.location.href)} className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"><Copy className="w-3 h-3" /> Copy link</button>
+              </div>
+            </div>
+          </aside>
+
+          {/* ==================== RIGHT COLUMN: BLOG CONTENT ==================== */}
+          <main className="min-w-0 order-2">
 
             {/* BLUF Box */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
@@ -241,10 +306,22 @@ export default function GoHighLevelForDentistsClient() {
                 and a separate booking tool ($20/mo), saving most single-location practices <strong className="text-[#0E9BF0]">$650 to $750 per month</strong> 
                 on tools that do not connect to each other.
               </p>
+
+              {/* CTA Button inside BLUF */}
+              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                >
+                  <Target className="w-4 h-4" />
+                  Get Your Dental Practice Setup
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
             </div>
 
-            {/* Table of Contents */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
+            {/* Table of Contents - Mobile Only */}
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8 lg:hidden">
               <div className="flex items-center gap-2 mb-4">
                 <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
                 <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">What's in this guide</span>
@@ -260,6 +337,25 @@ export default function GoHighLevelForDentistsClient() {
                   </button>
                 ))}
               </div>
+            </div>
+
+            {/* Mobile Project Help Card - visible on mobile only */}
+            <div className="lg:hidden mb-8">
+              <ProjectHelpCard />
+            </div>
+
+            {/* CTA 1 - After TOC */}
+            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
+              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
+                <strong className="text-white">🦷 Ready to automate your dental practice's patient acquisition and retention?</strong>
+              </p>
+              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
+                We build dental practice systems that fill chairs — missed call text-back, appointment reminders, recall campaigns, and Google review automation.
+              </p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                Book a Free Strategy Call
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
 
             {/* Section 1: Two-System Model */}
@@ -385,6 +481,17 @@ export default function GoHighLevelForDentistsClient() {
               </p>
             </div>
 
+            {/* CTA 2 - After Automations */}
+            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 text-center my-6 text-white">
+              <p className="text-sm font-medium mb-2">⚙️ Not sure which automations will deliver the biggest ROI for your practice?</p>
+              <p className="text-sm text-white/80 mb-4">We'll audit your practice and recommend the highest-impact automations first.</p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Target className="w-4 h-4" />
+                Get Your Practice Audit
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
             {/* Section 4: Tools Replaces */}
             <h2 id="tools-replaces" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               4. What Tools Does GoHighLevel Replace for Dental Practices?
@@ -505,11 +612,22 @@ export default function GoHighLevelForDentistsClient() {
 
             <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
               To discuss a setup for your practice: 
-              <Link href="/contact-us" className="text-[#0E9BF0] hover:underline ml-1">book a free strategy call at ghlscaleup.com/contact-us →</Link>
+              <Link href="/contact" className="text-[#0E9BF0] hover:underline ml-1">book a free strategy call at ghlscaleup.com/contact →</Link>
             </p>
             <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
               Our <Link href="/services/crm-setup" className="text-[#0E9BF0] hover:underline">GoHighLevel CRM setup service</Link> includes full dental pipeline configuration, recall workflow setup, review automation, and front desk training.
             </p>
+
+            {/* CTA 3 - Before FAQ */}
+            <div className="bg-[#0B1628] rounded-xl p-6 text-center my-6 text-white">
+              <p className="text-sm font-medium mb-2">🦷 Want to stop losing new patient inquiries to slow follow-up?</p>
+              <p className="text-sm text-white/80 mb-4">Our team builds dental practice systems that fill chairs — missed call text-back, appointment reminders, recall campaigns, and Google review automation.</p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Search className="w-4 h-4" />
+                Get Your Practice Setup
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
 
             {/* Section 7: FAQ */}
             <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
@@ -528,6 +646,27 @@ export default function GoHighLevelForDentistsClient() {
               ))}
             </div>
 
+            {/* CTA 4 - After FAQ */}
+            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
+              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
+                <strong className="text-white">Still have questions about GoHighLevel for your dental practice?</strong>
+              </p>
+              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
+                Talk to our dental practice GHL specialists directly. We've built systems for practices of all sizes.
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                  <MessageCircle className="w-4 h-4" />
+                  Ask an Expert
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20">
+                  <Phone className="w-4 h-4" />
+                  Call Us
+                </Link>
+              </div>
+            </div>
+
             {/* Internal Links */}
             <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
               <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles</h3>
@@ -542,7 +681,7 @@ export default function GoHighLevelForDentistsClient() {
               </div>
             </div>
 
-            {/* CTA Section */}
+            {/* Final CTA Section */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Want to stop losing new patient inquiries to slow follow-up?</h3>
@@ -550,83 +689,15 @@ export default function GoHighLevelForDentistsClient() {
                   GHL Scale Up builds dental practice systems that fill appointments. Missed call text-back, appointment reminders, 
                   recall campaigns, and Google review automation all configured and tested before handover. 5 to 7 business days.
                 </p>
-                <Link href="/contact-us" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
                   Book Your Free Strategy Call
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
           </main>
-
-          {/* Sidebar */}
-          <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out">
-            <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
-              <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
-                <BookOpen className="w-3 h-3" />
-                In This Guide
-              </div>
-              <ul className="space-y-0.5 max-h-[calc(100vh-200px)] overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-[#DDE1E9] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent hover:[&::-webkit-scrollbar-thumb]:bg-[#96A0B5]">
-                {tocItems.map((item) => (
-                  <li key={item.id}>
-                    <button
-                      onClick={() => scrollToHeading(item.id)}
-                      className={`block w-full text-left text-xs md:text-sm py-2 px-3 rounded transition-all duration-200 ${activeId === item.id
-                        ? 'bg-[#0E9BF0] text-white font-medium shadow-sm'
-                        : 'text-[#5C6880] hover:text-[#0E9BF0] hover:bg-white'
-                        }`}
-                    >
-                      <span className="flex items-start gap-2">
-                        {activeId === item.id && <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />}
-                        <span className="flex-1">{item.title}</span>
-                      </span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-
-            <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-2" style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
-                  <img
-                    src="/web-app-manifest-192x192.png"
-                    alt="GHL Scale Up"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-white">GHL Scale Up Team</div>
-                  <div className="text-xs text-white/50">GoHighLevel Expert Agency</div>
-                </div>
-              </div>
-              <p className="text-xs text-white/60 leading-relaxed mb-3">
-                5+ years GHL experience · 200+ systems built globally including dental practice marketing automation builds across the US, UK, and Australia. 
-                All HIPAA information is for informational purposes only and does not constitute legal or compliance advice.
-              </p>
-              <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
-            </div>
-
-            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-2" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
-              <div className="text-sm font-bold text-white mb-2">Want More New Patients?</div>
-              <p className="text-xs text-white/60 leading-relaxed mb-4">We build dental practice systems that fill chairs. 5 to 7 business days.</p>
-              <Link href="/contact-us" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
-                Get Started
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
-
-            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-2" style={{ animationDelay: '300ms', animationFillMode: 'forwards' }}>
-              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
-              <div className="flex gap-2 flex-wrap">
-                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Linkedin className="w-3 h-3" /> LinkedIn</a>
-                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Twitter className="w-3 h-3" /> X</a>
-                <button onClick={() => navigator.clipboard.writeText(window.location.href)} className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"><Copy className="w-3 h-3" /> Copy link</button>
-              </div>
-            </div>
-          </aside>
-
-        </div> {/* ← This closes the grid */}
-      </div> {/* ← This closes the container */}
+        </div>
+      </div>
 
       {/* Progress Bar Script */}
       <script dangerouslySetInnerHTML={{

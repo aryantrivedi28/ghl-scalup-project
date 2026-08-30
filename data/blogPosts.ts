@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Zap',
+            tag: 'Review',
+            title: 'Is GoHighLevel Worth It? An Honest Answer',
+            excerpt: 'Is GoHighLevel worth the money in 2026? Compare pricing, real costs, pros, cons, alternatives and who should use GHL before you buy.',
+            slug: 'is-gohighlevel-worth-it',
+            date: 'August 30, 2026',
+            readTime: '28 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'Users',
             tag: 'Implementation',
             title: 'GoHighLevel Agency vs Freelancer: Who Should You Hire? (2026 Guide)',

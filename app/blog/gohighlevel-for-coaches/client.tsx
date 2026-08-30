@@ -47,43 +47,91 @@ import {
   Send,
   CalendarDays,
   ListChecks,
-  RefreshCw
+  RefreshCw,
+  Trophy,
+  Facebook,
+  AlertCircle,
+  Info,
+  Lightbulb,
+  UserCheck,
+  UserX,
+  Compass,
+  FileCheck,
+  CheckCircle,
+  Layers,
+  PanelTop,
+  LayoutDashboard,
+  Settings,
+  LifeBuoy,
+  Timer,
+  Trash2,
+  Download,
+  PieChart,
+  Workflow,
+  Headphones,
+  FileQuestion,
+  HelpCircle,
+  Boxes,
+  Combine,
+  Link2,
+  Webhook,
+  ListChecks as ListChecksIcon,
+  ClipboardList,
+  Printer,
+  Video,
+  Ticket,
+  TrendingDown,
+  Search
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export default function GoHighLevelForCoachesClient() {
   const [activeId, setActiveId] = useState<string>('');
+  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
   useEffect(() => {
+    const sections = [
+      'short-answer',
+      'what-is',
+      'how-coaches-use',
+      'coaching-journey',
+      'workflows',
+      'use-by-type',
+      'automate-first',
+      'replace-tools',
+      'pricing',
+      'worth-it',
+      'when-not-right',
+      'how-ghl-scale-up-helps',
+      'faq',
+      'takeaway'
+    ];
+
     const handleScroll = () => {
-      const sections = [
-        'short-answer',
-        'what-is',
-        'how-coaches-use',
-        'coaching-journey',
-        'workflows',
-        'use-by-type',
-        'automate-first',
-        'replace-tools',
-        'pricing',
-        'worth-it',
-        'when-not-right',
-        'how-ghl-scale-up-helps',
-        'faq',
-        'takeaway'
-      ];
+      let currentSection = sections[0];
 
       for (const id of sections) {
         const element = document.getElementById(id);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 150) {
-            setActiveId(id);
-          }
+        if (!element) continue;
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= 180) {
+          currentSection = id;
+        } else {
+          break;
         }
+      }
+
+      setActiveId(currentSection);
+
+      // Show floating Project Help card after scrolling past hero section
+      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
+      if (heroSection) {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        setShowFloatingProjectHelp(heroBottom < 0);
       }
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -283,6 +331,18 @@ export default function GoHighLevelForCoachesClient() {
     { plan: 'Agency / SaaS Pro', price: '$497/month', desc: 'Adds SaaS Mode (reselling GoHighLevel as your own software) and rebilling. Only needed if you plan to sell the platform to others, not for coaching your own clients.' }
   ];
 
+  // Reusable Project Help Card Component
+  const ProjectHelpCard = () => (
+    <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
+      <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
+      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
+      <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+        Book a 30 min Free Call
+        <ArrowRight className="w-3 h-3" />
+      </Link>
+    </div>
+  );
+
   return (
     <>
       {/* Progress Bar */}
@@ -299,12 +359,12 @@ export default function GoHighLevelForCoachesClient() {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* Hero Section - WIDE (KEPT AS IS) */}
       <section className="bg-[#0B1628] py-12 md:py-[72px] px-4 md:px-6 relative overflow-hidden">
         <div className="absolute -top-[120px] -right-[120px] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(14,155,240,0.12)_0%,transparent_70%)] pointer-events-none" />
         <div className="absolute -bottom-[80px] -left-[80px] w-[360px] h-[360px] bg-[radial-gradient(circle,rgba(37,201,125,0.08)_0%,transparent_70%)] pointer-events-none" />
 
-        <div className="max-w-[760px] mx-auto relative z-10">
+        <div className="max-w-7xl mx-auto relative z-10">
           {/* Post Tags / Category Labels */}
           <div className="flex flex-wrap gap-2 mb-4">
             <span className="bg-[rgba(14,155,240,0.15)] text-[#0E9BF0] text-[11px] font-semibold px-2.5 py-1 rounded-full">Coaches & Consultants</span>
@@ -335,25 +395,91 @@ export default function GoHighLevelForCoachesClient() {
           </div>
 
           {/* Introductory Paragraph */}
-          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
+          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-6xl">
             If you run a coaching business, you already know the real bottleneck isn't your coaching.
             It's everything around it the leads that come in from Instagram and never get a reply,
             the discovery calls that no-show, the follow-up you meant to send three days ago, the past
             clients you've lost track of.
           </p>
-          <p className="text-base md:text-lg text-white/65 leading-relaxed max-w-[620px]">
+          <p className="text-base md:text-lg text-white/65 leading-relaxed max-w-6xl">
             Most coaches are the coach, the marketer, the closer, the scheduler and the admin team all
             at once, and the business runs on memory and willpower instead of systems.
           </p>
         </div>
       </section>
 
-      {/* Main Layout */}
-      <div className="max-w-[1080px] mx-auto px-4 md:px-6 py-10 md:py-16">
-        <div className="grid lg:grid-cols-[1fr_280px] gap-8 md:gap-16 items-start">
+      {/* MAIN LAYOUT - Sidebar on LEFT, Content on RIGHT */}
+      <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-16">
+        <div className="grid lg:grid-cols-[280px_1fr] gap-8 md:gap-12 items-start">
+          
+          {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
+          <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
+            {/* Project Help Card - At top of sidebar */}
+            <div className="mb-6">
+              <ProjectHelpCard />
+            </div>
 
-          {/* Article Content */}
-          <main className="min-w-0">
+            {/* Table of Contents */}
+            <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
+              <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
+                <BookOpen className="w-3 h-3" />
+                In This Guide
+              </div>
+              <ul className="space-y-0.5 max-h-[calc(100vh-200px)] overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-[#DDE1E9] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent hover:[&::-webkit-scrollbar-thumb]:bg-[#96A0B5]">
+                {tocItems.map((item) => (
+                  <li key={item.id}>
+                    <button
+                      onClick={() => scrollToHeading(item.id)}
+                      className={`block w-full text-left text-xs md:text-sm py-2 px-3 rounded transition-all duration-200 ${activeId === item.id
+                        ? 'bg-[#0E9BF0] text-white font-medium shadow-sm'
+                        : 'text-[#5C6880] hover:text-[#0E9BF0] hover:bg-white'
+                        }`}
+                    >
+                      <span className="flex items-start gap-2">
+                        {activeId === item.id && <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />}
+                        <span className="flex-1">{item.title}</span>
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            {/* About the Author */}
+            <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
+                  <img
+                    src="/web-app-manifest-192x192.png"
+                    alt="GHL Scale Up"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <div className="text-sm font-bold text-white">GHL Scale Up Team</div>
+                  <div className="text-xs text-white/50">GoHighLevel Expert Agency</div>
+                </div>
+              </div>
+              <p className="text-xs text-white/60 leading-relaxed mb-3">
+                5+ years GHL experience · 200+ systems built globally including coaching and consulting businesses across life
+                coaching, business coaching, health coaching, and strategy consulting. All feature details verified as of July 2026.
+              </p>
+              <Link href="/" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
+            </div>
+
+            {/* Share Buttons */}
+            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
+              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
+              <div className="flex gap-2 flex-wrap">
+                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Linkedin className="w-3 h-3" /> LinkedIn</a>
+                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Twitter className="w-3 h-3" /> X</a>
+                <button onClick={() => navigator.clipboard.writeText(window.location.href)} className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"><Copy className="w-3 h-3" /> Copy link</button>
+              </div>
+            </div>
+          </aside>
+
+          {/* ==================== RIGHT COLUMN: BLOG CONTENT ==================== */}
+          <main className="min-w-0 order-2">
 
             {/* BLUF Box - Short Answer */}
             <div id="short-answer" className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
@@ -377,10 +503,22 @@ export default function GoHighLevelForCoachesClient() {
                 (SMS, email, AI) billed on top. If your growth is limited by lead follow-up and booking rather than by course-delivery
                 polish, it's likely an excellent fit.
               </p>
+
+              {/* CTA Button inside BLUF */}
+              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                >
+                  <Target className="w-4 h-4" />
+                  Get Your Coaching GHL Setup
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
             </div>
 
-            {/* Table of Contents */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
+            {/* Table of Contents - Mobile Only */}
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8 lg:hidden">
               <div className="flex items-center gap-2 mb-4">
                 <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
                 <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">What this guide covers</span>
@@ -396,6 +534,25 @@ export default function GoHighLevelForCoachesClient() {
                   </button>
                 ))}
               </div>
+            </div>
+
+            {/* Mobile Project Help Card - visible on mobile only */}
+            <div className="lg:hidden mb-8">
+              <ProjectHelpCard />
+            </div>
+
+            {/* CTA 1 - After TOC */}
+            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
+              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
+                <strong className="text-white">🚀 Want to automate your coaching lead flow and book more discovery calls?</strong>
+              </p>
+              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
+                We build coaching systems that capture leads, respond instantly, book calls, and follow up automatically.
+              </p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                Book a Free Strategy Call
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
 
             {/* Section 1: What Is GoHighLevel for Coaches? */}
@@ -467,7 +624,7 @@ export default function GoHighLevelForCoachesClient() {
               <p className="text-sm text-[#5C6880] leading-relaxed mt-1">
                 GHL Scale Up designs and builds these exact systems around how your coaching business actually runs.
               </p>
-              <Link href="/contact-us" className="inline-flex items-center gap-2 mt-3 text-[#0E9BF0] font-semibold text-sm hover:underline">
+              <Link href="/contact" className="inline-flex items-center gap-2 mt-3 text-[#0E9BF0] font-semibold text-sm hover:underline">
                 BOOK A FREE STRATEGY CALL → <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -648,6 +805,17 @@ export default function GoHighLevelForCoachesClient() {
               </p>
             </div>
 
+            {/* CTA 2 - After Replace Tools */}
+            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 text-center my-6 text-white">
+              <p className="text-sm font-medium mb-2">🛠️ Not sure which tools GoHighLevel can replace in your coaching stack?</p>
+              <p className="text-sm text-white/80 mb-4">We'll review your current tools and build a system that consolidates them.</p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Search className="w-4 h-4" />
+                Get a Tool Stack Review
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
             {/* Section 8: Pricing */}
             <h2 id="pricing" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               How Much Does GoHighLevel Cost <span className="text-[#0E9BF0]">for Coaches?</span>
@@ -782,14 +950,13 @@ export default function GoHighLevelForCoachesClient() {
               the conversation to have with us.
             </p>
 
-            <div className="bg-[#1C2E4A] rounded-xl p-6 text-center text-white my-6">
-              <h3 className="text-lg font-bold mb-3">Want this system built around your coaching business?</h3>
-              <p className="text-sm text-white/60 leading-relaxed mb-4 max-w-md mx-auto">
-                GHL Scale Up designs, builds, and optimises GoHighLevel for lead capture, follow-up, booking, and onboarding,
-                so you can focus on coaching.
-              </p>
-              <Link href="/contact-us" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                BOOK A FREE STRATEGY CALL → <ArrowRight className="w-4 h-4" />
+            {/* CTA 3 - Before FAQ */}
+            <div className="bg-[#0B1628] rounded-xl p-6 text-center my-6 text-white">
+              <p className="text-sm font-medium mb-2">🎯 Want this system built around your coaching business?</p>
+              <p className="text-sm text-white/80 mb-4">GHL Scale Up designs, builds, and optimises GoHighLevel for lead capture, follow-up, booking, and onboarding, so you can focus on coaching.</p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                BOOK A FREE STRATEGY CALL →
+                <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
 
@@ -810,6 +977,27 @@ export default function GoHighLevelForCoachesClient() {
               ))}
             </div>
 
+            {/* CTA 4 - After FAQ */}
+            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
+              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
+                <strong className="text-white">Still have questions about GoHighLevel for your coaching business?</strong>
+              </p>
+              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
+                Talk to our coaching GHL specialists directly. We've built 200+ systems for coaches and consultants.
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                  <MessageCircle className="w-4 h-4" />
+                  Ask an Expert
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20">
+                  <Phone className="w-4 h-4" />
+                  Call Us
+                </Link>
+              </div>
+            </div>
+
             {/* Section 13: Final Takeaway */}
             <h2 id="takeaway" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               Final <span className="text-[#0E9BF0]">Takeaway</span>
@@ -822,8 +1010,7 @@ export default function GoHighLevelForCoachesClient() {
               automate.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed">
-              The practical move is to look back at the leaks described here the leads that don't get answered, the calls that
-              no-show, the follow-up that doesn't happen, the onboarding you do by hand and start with the one costing you the
+              The practical move is to look back at the leaks described here the leads that don't get answered, the calls that              no-show, the follow-up that doesn't happen, the onboarding you do by hand and start with the one costing you the
               most. Automate lead capture and instant follow-up first, prove it recovers revenue, then build outward. Whether
               you build it yourself or have it built, the goal is the same: a coaching business that runs on systems, so your
               energy goes into coaching and closing, not admin.
@@ -840,78 +1027,20 @@ export default function GoHighLevelForCoachesClient() {
               </div>
             </div>
 
+            {/* Final CTA Section */}
+            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
+              <div className="relative z-10">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Ready to automate your coaching business and book more clients?</h3>
+                <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
+                  GHL Scale Up builds complete GoHighLevel systems for coaches — lead capture, instant follow-up, discovery call booking, sales pipeline, and client onboarding. Most builds go live in 5–7 business days.
+                </p>
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                  Book Your Free Strategy Call
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
           </main>
-
-          {/* Sidebar */}
-          <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out">
-            {/* Table of Contents - Sticky */}
-            <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
-              <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
-                <BookOpen className="w-3 h-3" />
-                In This Guide
-              </div>
-              <ul className="space-y-0.5 max-h-[calc(100vh-200px)] overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-[#DDE1E9] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent hover:[&::-webkit-scrollbar-thumb]:bg-[#96A0B5]">
-                {tocItems.map((item) => (
-                  <li key={item.id}>
-                    <button
-                      onClick={() => scrollToHeading(item.id)}
-                      className={`block w-full text-left text-xs md:text-sm py-2 px-3 rounded transition-all duration-200 ${activeId === item.id
-                        ? 'bg-[#0E9BF0] text-white font-medium shadow-sm'
-                        : 'text-[#5C6880] hover:text-[#0E9BF0] hover:bg-white'
-                        }`}
-                    >
-                      <span className="flex items-start gap-2">
-                        {activeId === item.id && <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />}
-                        <span className="flex-1">{item.title}</span>
-                      </span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-
-            {/* About the Author */}
-            <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-2">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
-                  <img
-                    src="/web-app-manifest-192x192.png"
-                    alt="GHL Scale Up"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-white">GHL Scale Up Team</div>
-                  <div className="text-xs text-white/50">GoHighLevel Expert Agency</div>
-                </div>
-              </div>
-              <p className="text-xs text-white/60 leading-relaxed mb-3">
-                5+ years GHL experience · 200+ systems built globally including coaching and consulting businesses across life
-                coaching, business coaching, health coaching, and strategy consulting. All feature details verified as of July 2026.
-              </p>
-              <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
-            </div>
-
-            {/* CTA Card */}
-            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-2">
-              <div className="text-sm font-bold text-white mb-2">Want More Discovery Calls?</div>
-              <p className="text-xs text-white/60 leading-relaxed mb-4">We build coaching systems that book calls on autopilot. 3 to 5 business days.</p>
-              <Link href="/contact-us" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
-                Get Started
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
-
-            {/* Share Buttons */}
-            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-2">
-              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
-              <div className="flex gap-2 flex-wrap">
-                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Linkedin className="w-3 h-3" /> LinkedIn</a>
-                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Twitter className="w-3 h-3" /> X</a>
-                <button onClick={() => navigator.clipboard.writeText(window.location.href)} className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"><Copy className="w-3 h-3" /> Copy link</button>
-              </div>
-            </div>
-          </aside>
         </div>
       </div>
 

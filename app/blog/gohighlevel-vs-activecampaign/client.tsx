@@ -42,12 +42,44 @@ import {
       Compass,
       GitCompare,
       BarChart3,
-      Mailbox
+      Mailbox,
+      Trophy,
+      Facebook,
+      AlertCircle,
+      Info,
+      Lightbulb,
+      UserCheck,
+      UserX,
+      PanelTop,
+      LayoutDashboard,
+      Settings,
+      LifeBuoy,
+      Timer,
+      Trash2,
+      Download,
+      PieChart,
+      Workflow,
+      GitMerge,
+      TrendingDown,
+      XCircle,
+      FileCheck,
+      Link2,
+      Webhook,
+      RefreshCw,
+      ListChecks,
+      ClipboardList,
+      Printer,
+      Video,
+      Ticket,
+      Search,
+      Headphones,
+      HeartHandshake
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export default function GoHighLevelVsActiveCampaignClient() {
       const [activeId, setActiveId] = useState<string>('');
+      const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
       useEffect(() => {
             const handleScroll = () => {
@@ -69,6 +101,13 @@ export default function GoHighLevelVsActiveCampaignClient() {
                                     setActiveId(id);
                               }
                         }
+                  }
+
+                  // Show floating Project Help card after scrolling past hero section
+                  const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
+                  if (heroSection) {
+                        const heroBottom = heroSection.getBoundingClientRect().bottom;
+                        setShowFloatingProjectHelp(heroBottom < 0);
                   }
             };
 
@@ -163,6 +202,18 @@ export default function GoHighLevelVsActiveCampaignClient() {
             { situation: 'Currently on AC, list growing, adding SMS', recommendation: 'Switch to GoHighLevel cost and capability both favour it' },
       ];
 
+      // Reusable Project Help Card Component
+      const ProjectHelpCard = () => (
+            <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
+                  <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
+                  <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your platform decision.</p>
+                  <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+                        Book a 30 min Free Call
+                        <ArrowRight className="w-3 h-3" />
+                  </Link>
+            </div>
+      );
+
       return (
             <>
                   {/* Progress Bar */}
@@ -184,7 +235,7 @@ export default function GoHighLevelVsActiveCampaignClient() {
                         <div className="absolute -top-[120px] -right-[120px] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(14,155,240,0.12)_0%,transparent_70%)] pointer-events-none" />
                         <div className="absolute -bottom-[80px] -left-[80px] w-[360px] h-[360px] bg-[radial-gradient(circle,rgba(37,201,125,0.08)_0%,transparent_70%)] pointer-events-none" />
 
-                        <div className="max-w-[760px] mx-auto relative z-10">
+                        <div className="max-w-7xl mx-auto relative z-10">
                               {/* Post Tags / Category Labels */}
                               <div className="flex flex-wrap gap-2 mb-4">
                                     <span className="bg-[rgba(14,155,240,0.15)] text-[#0E9BF0] text-[11px] font-semibold px-2.5 py-1 rounded-full">Comparison</span>
@@ -215,26 +266,135 @@ export default function GoHighLevelVsActiveCampaignClient() {
                               </div>
 
                               {/* Introductory Paragraph */}
-                              <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
+                              <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-6xl">
                                     GoHighLevel and ActiveCampaign look similar on the surface. Both have CRM features, both run email automations,
                                     both can manage contacts at scale. The comparison breaks down quickly once you look at what each platform is
                                     actually designed to do and who it is designed for. <strong className="text-white"> GHL Scale Up</strong> has
                                     migrated dozens of businesses from ActiveCampaign to GoHighLevel and in several cases recommended against it.
                                     This is the honest version of that comparison.
                               </p>
-                              <p className="text-sm text-white/50 leading-relaxed">
+                              <p className="text-sm text-white/50 leading-relaxed mb-6">
                                     For a broader overview of all GHL alternatives:
                                     <Link href="/blog/gohighlevel-alternatives" className="text-[#0E9BF0] hover:underline ml-1">GoHighLevel Alternatives 2026 →</Link>
                               </p>
+
+                              {/* CTA Button 1: Hero Section */}
+                              <div className="flex flex-wrap gap-3">
+                                    <Link
+                                          href="/contact"
+                                          className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105"
+                                    >
+                                          <Rocket className="w-4 h-4" />
+                                          Get Platform Advice
+                                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                    </Link>
+                                    <Link
+                                          href="#verdict"
+                                          className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20"
+                                    >
+                                          See the Verdict
+                                          <ChevronDown className="w-4 h-4" />
+                                    </Link>
+                              </div>
                         </div>
                   </section>
 
-                  {/* Main Layout */}
-                  <div className="max-w-[1080px] mx-auto px-4 md:px-6 py-10 md:py-16">
-                        <div className="grid lg:grid-cols-[1fr_280px] gap-8 md:gap-16 items-start">
+                  {/* MAIN LAYOUT - Sidebar on LEFT, Content on RIGHT */}
+                  <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-10">
+                        <div className="grid lg:grid-cols-[280px_1fr] gap-8 md:gap-12 items-start">
 
-                              {/* Article Content */}
-                              <main className="min-w-0">
+                              {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
+                              <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
+                                    {/* Project Help Card */}
+                                    <div className="hidden lg:block mb-6">
+                                          <ProjectHelpCard />
+                                    </div>
+
+                                    {/* Table of Contents - Sticky */}
+                                    <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
+                                          <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
+                                                <BookOpen className="w-3 h-3" />
+                                                In This Guide
+                                          </div>
+                                          <ul className="space-y-0.5 max-h-[calc(100vh-200px)] overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-[#DDE1E9] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent hover:[&::-webkit-scrollbar-thumb]:bg-[#96A0B5]">
+                                                {tocItems.map((item) => (
+                                                      <li key={item.id}>
+                                                            <button
+                                                                  onClick={() => scrollToHeading(item.id)}
+                                                                  className={`block w-full text-left text-xs md:text-sm py-2 px-3 rounded transition-all duration-200 ${activeId === item.id
+                                                                        ? 'bg-[#0E9BF0] text-white font-medium shadow-sm'
+                                                                        : 'text-[#5C6880] hover:text-[#0E9BF0] hover:bg-white'
+                                                                        }`}
+                                                            >
+                                                                  <span className="flex items-start gap-2">
+                                                                        {activeId === item.id && (
+                                                                              <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />
+                                                                        )}
+                                                                        <span className="flex-1">{item.title}</span>
+                                                                  </span>
+                                                            </button>
+                                                      </li>
+                                                ))}
+                                          </ul>
+                                    </nav>
+
+                                    {/* About the Author */}
+                                    <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
+                                          <div className="flex items-center gap-3 mb-4">
+                                                <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
+                                                      <img
+                                                            src="/web-app-manifest-192x192.png"
+                                                            alt="GHL Scale Up"
+                                                            className="w-full h-full object-cover"
+                                                      />
+                                                </div>
+                                                <div>
+                                                      <div className="text-sm font-bold text-white">GHL Scale Up Team</div>
+                                                      <div className="text-xs text-white/50">GoHighLevel Expert Agency</div>
+                                                </div>
+                                          </div>
+                                          <p className="text-xs text-white/60 leading-relaxed mb-3">
+                                                5+ years GHL experience · 200+ systems built and migrated globally including ActiveCampaign to GoHighLevel migrations.
+                                                All pricing figures verified from official platform pages as of June 2026.
+                                          </p>
+                                          <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
+                                    </div>
+
+                                    {/* Share Buttons */}
+                                    <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
+                                          <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Share this guide</div>
+                                          <div className="flex gap-2 flex-wrap">
+                                                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                                                      <Linkedin className="w-3 h-3" />
+                                                      LinkedIn
+                                                </a>
+                                                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                                                      <Twitter className="w-3 h-3" />
+                                                      X
+                                                </a>
+                                                <button
+                                                      onClick={() => navigator.clipboard.writeText(window.location.href)}
+                                                      className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"
+                                                >
+                                                      <Copy className="w-3 h-3" />
+                                                      Copy link
+                                                </button>
+                                          </div>
+                                    </div>
+
+                                    {/* CTA Card */}
+                                    <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
+                                          <div className="text-sm font-bold text-white mb-2">Not Sure Which Platform Is Right?</div>
+                                          <p className="text-xs text-white/60 leading-relaxed mb-4">We help you choose the right platform and set it up correctly.</p>
+                                          <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+                                                Get Advice
+                                                <ArrowRight className="w-3 h-3" />
+                                          </Link>
+                                    </div>
+                              </aside>
+
+                              {/* ==================== RIGHT COLUMN: BLOG CONTENT ==================== */}
+                              <main className="min-w-0 order-2">
 
                                     {/* BLUF Box */}
                                     <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
@@ -252,10 +412,22 @@ export default function GoHighLevelVsActiveCampaignClient() {
                                                 <strong className="text-[#0E9BF0]"> $469/month</strong> for one business. GoHighLevel Unlimited costs
                                                 <strong className="text-[#0E9BF0]"> $297/month</strong> for unlimited contacts across unlimited client accounts.
                                           </p>
+
+                                          {/* CTA Button 2: Inside TL;DR Box */}
+                                          <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
+                                                <Link
+                                                      href="/contact"
+                                                      className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                                                >
+                                                      <Target className="w-4 h-4" />
+                                                      Get Platform Advice
+                                                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                                </Link>
+                                          </div>
                                     </div>
 
-                                    {/* Table of Contents */}
-                                    <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
+                                    {/* Table of Contents - Mobile Only */}
+                                    <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8 lg:hidden">
                                           <div className="flex items-center gap-2 mb-4">
                                                 <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
                                                 <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">What's in this guide</span>
@@ -271,6 +443,11 @@ export default function GoHighLevelVsActiveCampaignClient() {
                                                       </button>
                                                 ))}
                                           </div>
+                                    </div>
+
+                                    {/* Mobile Project Help Card - visible on mobile only */}
+                                    <div className="lg:hidden mb-8">
+                                          <ProjectHelpCard />
                                     </div>
 
                                     {/* Section 1: What Built For */}
@@ -290,6 +467,21 @@ export default function GoHighLevelVsActiveCampaignClient() {
                                                 <h3 className="text-base font-bold text-[#1A2236] mb-2">ActiveCampaign: built for email-first marketing teams</h3>
                                                 <p className="text-sm text-[#5C6880] leading-relaxed">ActiveCampaign was designed for businesses that run their customer communication primarily through email. Its automation builder, behavioural segmentation, predictive send-time optimisation, and e-commerce integrations are all built around email as the primary channel. SMS, voice, and booking are either not native or available only as add-ons.</p>
                                           </div>
+                                    </div>
+
+                                    {/* CTA Button 3: After Section 1 */}
+                                    <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 mb-8 text-center">
+                                          <p className="text-white/80 text-sm mb-3">
+                                                <span className="font-bold text-white">Still unsure which platform fits your business model?</span> Let our team help you decide.
+                                          </p>
+                                          <Link
+                                                href="/contact"
+                                                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                                          >
+                                                <BarChart3 className="w-4 h-4" />
+                                                Get Platform Advice
+                                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                          </Link>
                                     </div>
 
                                     {/* Section 2: Pricing */}
@@ -415,6 +607,20 @@ export default function GoHighLevelVsActiveCampaignClient() {
                                           <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-[#0E9BF0] hover:underline ml-1">GoHighLevel Workflow Automation Guide →</Link>
                                     </p>
 
+                                    {/* CTA Button 4: After Feature Comparison */}
+                                    <div className="bg-gradient-to-r from-[#0E9BF0] to-[#0C8AD8] rounded-xl p-6 text-center text-white mb-8">
+                                          <p className="text-sm font-medium mb-2">🔍 Need help comparing specific features for your use case?</p>
+                                          <p className="text-sm text-white/80 mb-4">We'll analyze your current setup and tell you which platform fits better.</p>
+                                          <Link
+                                                href="/contact"
+                                                className="group inline-flex items-center gap-2 bg-white text-[#0E9BF0] font-bold px-6 py-2.5 rounded-lg hover:bg-[#F8F9FB] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                                          >
+                                                <HeartHandshake className="w-4 h-4" />
+                                                Get a Free Analysis
+                                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                          </Link>
+                                    </div>
+
                                     {/* Section 4: When to Switch */}
                                     <h2 id="when-switch" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
                                           4. When Should You Switch from ActiveCampaign to GoHighLevel?
@@ -493,6 +699,20 @@ export default function GoHighLevelVsActiveCampaignClient() {
                                           </div>
                                     </div>
 
+                                    {/* CTA Button 5: After When to Stay */}
+                                    <div className="bg-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
+                                          <p className="text-sm font-medium mb-2">⚡ Still on the fence about switching?</p>
+                                          <p className="text-sm text-white/80 mb-4">Let us review your current setup and give you an honest recommendation including migration effort and timeline.</p>
+                                          <Link
+                                                href="/contact"
+                                                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                                          >
+                                                <Search className="w-4 h-4" />
+                                                Get a Migration Assessment
+                                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                          </Link>
+                                    </div>
+
                                     {/* Section 6: Verdict */}
                                     <h2 id="verdict" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
                                           6. The Verdict: GoHighLevel vs ActiveCampaign
@@ -528,13 +748,27 @@ export default function GoHighLevelVsActiveCampaignClient() {
                                           </p>
                                           <p className="text-sm text-white/80 leading-relaxed">
                                                 And if you want a direct recommendation based on your specific setup,
-                                                <Link href="/contact-us" className="text-[#0E9BF0] hover:underline ml-1">book a free strategy call</Link> we look at your current stack and tell you honestly which platform makes sense.
+                                                <Link href="/contact" className="text-[#0E9BF0] hover:underline ml-1">book a free strategy call</Link> we look at your current stack and tell you honestly which platform makes sense.
                                           </p>
                                     </div>
 
                                     <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
                                           Explore our <Link href="/services/campaign-automation" className="text-[#0E9BF0] hover:underline">email, SMS and WhatsApp automation service</Link> for what we build inside GHL for clients making the switch.
                                     </p>
+
+                                    {/* CTA Button 6: Before FAQ */}
+                                    <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
+                                          <p className="text-sm font-medium mb-2">🔍 Still not sure which platform to choose?</p>
+                                          <p className="text-sm text-white/80 mb-4">Let us review your business model, contact volume, and revenue channels and tell you honestly which platform fits.</p>
+                                          <Link
+                                                href="/contact"
+                                                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                                          >
+                                                <Search className="w-4 h-4" />
+                                                Get a Free Platform Assessment
+                                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                          </Link>
+                                    </div>
 
                                     {/* Section 7: FAQ */}
                                     <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
@@ -553,9 +787,32 @@ export default function GoHighLevelVsActiveCampaignClient() {
                                           ))}
                                     </div>
 
+                                    {/* CTA Button 7: After FAQ */}
+                                    <div className="mt-8 p-6 bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl text-center">
+                                          <p className="text-white font-bold text-lg mb-2">Still Have Questions About Which Platform to Choose?</p>
+                                          <p className="text-white/60 text-sm mb-4">Talk to our GHL experts directly. We've migrated dozens of businesses from ActiveCampaign to GHL and vice versa.</p>
+                                          <div className="flex flex-wrap justify-center gap-3">
+                                                <Link
+                                                      href="/contact"
+                                                      className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                                                >
+                                                      <MessageCircle className="w-4 h-4" />
+                                                      Ask an Expert
+                                                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                                </Link>
+                                                <Link
+                                                      href="/contact"
+                                                      className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-white/20 transition-all border border-white/20 text-sm"
+                                                >
+                                                      <Phone className="w-4 h-4" />
+                                                      Call Us
+                                                </Link>
+                                          </div>
+                                    </div>
+
                                     {/* Internal Links */}
                                     <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
-                                          <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles</h3>
+                                          <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles in This Series</h3>
                                           <div className="flex flex-wrap gap-3">
                                                 <Link href="/blog/gohighlevel-alternatives" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Alternatives: 8 Best Tools Compared →</Link>
                                                 <Link href="/blog/gohighlevel-vs-hubspot" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel vs HubSpot: Honest 2026 Comparison →</Link>
@@ -566,7 +823,7 @@ export default function GoHighLevelVsActiveCampaignClient() {
                                           </div>
                                     </div>
 
-                                    {/* CTA Section */}
+                                    {/* Final CTA Section */}
                                     <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
                                           <div className="relative z-10">
                                                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Deciding between GoHighLevel and ActiveCampaign?</h3>
@@ -575,80 +832,13 @@ export default function GoHighLevelVsActiveCampaignClient() {
                                                       We review your current setup and give you a direct recommendation, including if staying on ActiveCampaign
                                                       makes more sense for your situation.
                                                 </p>
-                                                <Link href="/contact-us" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                                                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105">
                                                       Book Your Free Strategy Call
                                                       <ArrowRight className="w-4 h-4" />
                                                 </Link>
                                           </div>
                                     </div>
                               </main>
-
-                              {/* Sidebar */}
-                              <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out">
-                                    <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
-                                          <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
-                                                <BookOpen className="w-3 h-3" />
-                                                In This Guide
-                                          </div>
-                                          <ul className="space-y-0.5 max-h-[calc(100vh-200px)] overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-[#DDE1E9] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent hover:[&::-webkit-scrollbar-thumb]:bg-[#96A0B5]">
-                                                {tocItems.map((item) => (
-                                                      <li key={item.id}>
-                                                            <button
-                                                                  onClick={() => scrollToHeading(item.id)}
-                                                                  className={`block w-full text-left text-xs md:text-sm py-2 px-3 rounded transition-all duration-200 ${activeId === item.id
-                                                                        ? 'bg-[#0E9BF0] text-white font-medium shadow-sm'
-                                                                        : 'text-[#5C6880] hover:text-[#0E9BF0] hover:bg-white'
-                                                                        }`}
-                                                            >
-                                                                  <span className="flex items-start gap-2">
-                                                                        {activeId === item.id && <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />}
-                                                                        <span className="flex-1">{item.title}</span>
-                                                                  </span>
-                                                            </button>
-                                                      </li>
-                                                ))}
-                                          </ul>
-                                    </nav>
-
-                                    <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-2" style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}>
-                                          <div className="flex items-center gap-3 mb-4">
-                                                <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
-                                                      <img
-                                                            src="/web-app-manifest-192x192.png"
-                                                            alt="GHL Scale Up"
-                                                            className="w-full h-full object-cover"
-                                                      />
-                                                </div>
-                                                <div>
-                                                      <div className="text-sm font-bold text-white">GHL Scale Up Team</div>
-                                                      <div className="text-xs text-white/50">GoHighLevel Expert Agency</div>
-                                                </div>
-                                          </div>
-                                          <p className="text-xs text-white/60 leading-relaxed mb-3">
-                                                5+ years GHL experience · 200+ systems built and migrated globally including ActiveCampaign to GoHighLevel migrations.
-                                                All pricing figures verified from official platform pages as of June 2026.
-                                          </p>
-                                          <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
-                                    </div>
-
-                                    <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-2" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
-                                          <div className="text-sm font-bold text-white mb-2">Not Sure Which Platform Is Right?</div>
-                                          <p className="text-xs text-white/60 leading-relaxed mb-4">We help you choose the right platform and set it up correctly.</p>
-                                          <Link href="/contact-us" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
-                                                Get Advice
-                                                <ArrowRight className="w-3 h-3" />
-                                          </Link>
-                                    </div>
-
-                                    <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-2" style={{ animationDelay: '300ms', animationFillMode: 'forwards' }}>
-                                          <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
-                                          <div className="flex gap-2 flex-wrap">
-                                                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Linkedin className="w-3 h-3" /> LinkedIn</a>
-                                                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Twitter className="w-3 h-3" /> X</a>
-                                                <button onClick={() => navigator.clipboard.writeText(window.location.href)} className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"><Copy className="w-3 h-3" /> Copy link</button>
-                                          </div>
-                                    </div>
-                              </aside>
                         </div>
                   </div>
 

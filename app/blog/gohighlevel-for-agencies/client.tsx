@@ -10,59 +10,61 @@ import {
   Linkedin,
   Twitter,
   BookOpen,
-  Settings,
   Zap,
-  Shield,
   DollarSign,
-  Users,
-  Building2,
-  Calendar,
   MessageCircle,
   Phone,
-  Layout,
-  GitBranch,
-  Sparkles,
   Award,
-  TrendingUp,
   Star,
   AlertTriangle,
-  Server,
-  Globe,
-  CreditCard,
-  Smartphone,
-  Briefcase,
   Rocket,
-  Clock
+  Clock,
+  Target,
+  Search,
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export default function GoHighLevelForAgenciesClient() {
   const [activeId, setActiveId] = useState<string>('');
+  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
   // Handle scroll detection for active section
   useEffect(() => {
+    const sections = [
+      'why-built-for-agencies',
+      'which-plan',
+      'five-features',
+      'onboard-clients',
+      'right-for-agency',
+      'common-mistakes',
+      'faq'
+    ];
+
     const handleScroll = () => {
-      const sections = [
-        'why-built-for-agencies',
-        'which-plan',
-        'five-features',
-        'onboard-clients',
-        'right-for-agency',
-        'common-mistakes',
-        'faq'
-      ];
+      let currentSection = sections[0];
 
       for (const id of sections) {
         const element = document.getElementById(id);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 150) {
-            setActiveId(id);
-          }
+        if (!element) continue;
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= 180) {
+          currentSection = id;
+        } else {
+          break;
         }
+      }
+
+      setActiveId(currentSection);
+
+      // Show floating Project Help card after scrolling past hero section
+      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
+      if (heroSection) {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        setShowFloatingProjectHelp(heroBottom < 0);
       }
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -160,6 +162,18 @@ export default function GoHighLevelForAgenciesClient() {
     { mistake: 'Upgrading to Agency Pro before building the SaaS foundation', fix: 'Start on Unlimited ($297/mo), build your Snapshot library, and validate the agency model. Upgrade to Pro when you are ready to offer self-service sign-up to clients.' },
   ];
 
+  // Reusable Project Help Card Component
+  const ProjectHelpCard = () => (
+    <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
+      <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
+      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
+      <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+        Book a 30 min Free Call
+        <ArrowRight className="w-3 h-3" />
+      </Link>
+    </div>
+  );
+
   return (
     <>
       {/* Progress Bar */}
@@ -176,12 +190,12 @@ export default function GoHighLevelForAgenciesClient() {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* Hero Section - WIDE (KEPT AS IS) */}
       <section className="bg-[#0B1628] py-12 md:py-[72px] px-4 md:px-6 relative overflow-hidden">
         <div className="absolute -top-[120px] -right-[120px] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(14,155,240,0.12)_0%,transparent_70%)] pointer-events-none" />
         <div className="absolute -bottom-[80px] -left-[80px] w-[360px] h-[360px] bg-[radial-gradient(circle,rgba(37,201,125,0.08)_0%,transparent_70%)] pointer-events-none" />
 
-        <div className="max-w-[760px] mx-auto relative z-10">
+        <div className="max-w-7xl mx-auto relative z-10">
           {/* Post Tags / Category Labels */}
           <div className="flex flex-wrap gap-2 mb-4">
             <span className="bg-[rgba(14,155,240,0.15)] text-[#0E9BF0] text-[11px] font-semibold px-2.5 py-1 rounded-full">GoHighLevel for Agencies</span>
@@ -212,7 +226,7 @@ export default function GoHighLevelForAgenciesClient() {
           </div>
 
           {/* Introductory Paragraph */}
-          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
+          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-6xl">
             Most marketing software is built for a single company managing its own customers. 
             GoHighLevel was built for agencies managing multiple clients and that one architectural 
             decision changes everything about the economics, the workflow, and the scale of what's possible.
@@ -223,12 +237,93 @@ export default function GoHighLevelForAgenciesClient() {
         </div>
       </section>
 
-      {/* Main Layout */}
-      <div className="max-w-[1080px] mx-auto px-4 md:px-6 py-10 md:py-16">
-        <div className="grid lg:grid-cols-[1fr_280px] gap-8 md:gap-16 items-start">
+      {/* MAIN LAYOUT - Sidebar on LEFT, Content on RIGHT */}
+      <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-16">
+        <div className="grid lg:grid-cols-[280px_1fr] gap-8 md:gap-12 items-start">
+          
+          {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
+          <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
+            {/* Project Help Card - At top of sidebar */}
+            <div className="mb-6">
+              <ProjectHelpCard />
+            </div>
 
-          {/* Article Content */}
-          <main className="min-w-0">
+            {/* Table of Contents */}
+            <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
+              <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
+                <BookOpen className="w-3 h-3" />
+                In This Guide
+              </div>
+              <ul className="space-y-0.5 max-h-[calc(100vh-200px)] overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-[#DDE1E9] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent hover:[&::-webkit-scrollbar-thumb]:bg-[#96A0B5]">
+                {tocItems.map((item) => (
+                  <li key={item.id}>
+                    <button
+                      onClick={() => scrollToHeading(item.id)}
+                      className={`block w-full text-left text-xs md:text-sm py-2 px-3 rounded transition-all duration-200 ${activeId === item.id
+                        ? 'bg-[#0E9BF0] text-white font-medium shadow-sm'
+                        : 'text-[#5C6880] hover:text-[#0E9BF0] hover:bg-white'
+                        }`}
+                    >
+                      <span className="flex items-start gap-2">
+                        {activeId === item.id && (
+                          <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />
+                        )}
+                        <span className="flex-1">{item.title}</span>
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            {/* About the Author */}
+            <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
+                  <img
+                    src="/web-app-manifest-192x192.png"
+                    alt="GHL Scale Up"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <div className="text-sm font-bold text-white">GHL Scale Up Team</div>
+                  <div className="text-xs text-white/50">GoHighLevel Expert Agency</div>
+                </div>
+              </div>
+              <p className="text-xs text-white/60 leading-relaxed mb-3">
+                5+ years GHL experience · 200+ agency systems built globally across real estate, healthcare, SaaS, 
+                and marketing agencies. We have audited and rebuilt agency GHL accounts in 6 countries. 
+                Everything we publish comes from real accounts, not documentation summaries.
+              </p>
+              <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
+            </div>
+
+            {/* Share Buttons */}
+            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
+              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
+              <div className="flex gap-2 flex-wrap">
+                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Linkedin className="w-3 h-3" />
+                  LinkedIn
+                </a>
+                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Twitter className="w-3 h-3" />
+                  X
+                </a>
+                <button
+                  onClick={() => navigator.clipboard.writeText(window.location.href)}
+                  className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"
+                >
+                  <Copy className="w-3 h-3" />
+                  Copy link
+                </button>
+              </div>
+            </div>
+          </aside>
+
+          {/* ==================== RIGHT COLUMN: BLOG CONTENT ==================== */}
+          <main className="min-w-0 order-2">
 
             {/* TL;DR / Quick Answer Box (BLUF) */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
@@ -245,10 +340,22 @@ export default function GoHighLevelForAgenciesClient() {
                 on the Unlimited plan, <strong className="text-[#0E9BF0]">$497/month for SaaS resale</strong> on Agency Pro. 
                 You can run 100+ client accounts for the same price as running one. That's the agency case for GoHighLevel in two sentences.
               </p>
+
+              {/* CTA Button inside BLUF */}
+              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                >
+                  <Target className="w-4 h-4" />
+                  Get Your Agency GHL Setup
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
             </div>
 
-            {/* Table of Contents */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
+            {/* Table of Contents - Mobile Only */}
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8 lg:hidden">
               <div className="flex items-center gap-2 mb-4">
                 <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
                 <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">What's in this guide</span>
@@ -264,6 +371,25 @@ export default function GoHighLevelForAgenciesClient() {
                   </button>
                 ))}
               </div>
+            </div>
+
+            {/* Mobile Project Help Card - visible on mobile only */}
+            <div className="lg:hidden mb-8">
+              <ProjectHelpCard />
+            </div>
+
+            {/* CTA 1 - After TOC */}
+            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
+              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
+                <strong className="text-white">🚀 Running an agency on GoHighLevel and not scaling?</strong>
+              </p>
+              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
+                Most agency GHL accounts have no Snapshots, basic workflows, and untouched AI features. We audit and rebuild agency accounts every week.
+              </p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                Book a Free Strategy Call
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
 
             {/* Section 1: Why Built for Agencies */}
@@ -436,6 +562,17 @@ export default function GoHighLevelForAgenciesClient() {
               </p>
             </div>
 
+            {/* CTA 2 - After Onboard Clients */}
+            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 text-center my-6 text-white">
+              <p className="text-sm font-medium mb-2">⏱️ Spending 8–40 hours onboarding each new client?</p>
+              <p className="text-sm text-white/80 mb-4">We build production-ready Snapshots that reduce client onboarding to under an hour.</p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Rocket className="w-4 h-4" />
+                Get Your Snapshot Built
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
             {/* Section 5: Decision Framework */}
             <h2 id="right-for-agency" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               5. Is GoHighLevel Right for Your Agency? (Decision Framework)
@@ -515,6 +652,17 @@ export default function GoHighLevelForAgenciesClient() {
               </p>
             </div>
 
+            {/* CTA 3 - Before FAQ */}
+            <div className="bg-[#0B1628] rounded-xl p-6 text-center my-6 text-white">
+              <p className="text-sm font-medium mb-2">🔍 Not sure if your agency GHL setup is built to scale?</p>
+              <p className="text-sm text-white/80 mb-4">We audit agency accounts and find issues most agencies don't know they have. Book a free audit.</p>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Search className="w-4 h-4" />
+                Get a Free Agency Audit
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
             {/* Section 7: FAQ */}
             <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
               7. Frequently Asked Questions About GoHighLevel for Agencies
@@ -532,6 +680,27 @@ export default function GoHighLevelForAgenciesClient() {
               ))}
             </div>
 
+            {/* CTA 4 - After FAQ */}
+            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
+              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
+                <strong className="text-white">Still have questions about GoHighLevel for your agency?</strong>
+              </p>
+              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
+                Talk to our agency GHL specialists directly. We've built 200+ agency systems and know what works.
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                  <MessageCircle className="w-4 h-4" />
+                  Ask an Expert
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20">
+                  <Phone className="w-4 h-4" />
+                  Call Us
+                </Link>
+              </div>
+            </div>
+
             {/* Internal Links */}
             <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
               <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles</h3>
@@ -545,7 +714,7 @@ export default function GoHighLevelForAgenciesClient() {
               </div>
             </div>
 
-            {/* CTA Section */}
+            {/* Final CTA Section */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Running an agency on GoHighLevel?</h3>
@@ -553,99 +722,13 @@ export default function GoHighLevelForAgenciesClient() {
                   Is your agency account actually built to scale? Most agency GHL accounts have no Snapshots, basic workflows, 
                   and untouched AI features. We audit and rebuild agency accounts every week. Book a free 30-minute call.
                 </p>
-                <Link href="/contact-us" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
                   Book Your Free Agency GHL Audit
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
           </main>
-
-          {/* Sidebar */}
-          <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out">
-            {/* Table of Contents - Sticky */}
-            <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
-              <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
-                <BookOpen className="w-3 h-3" />
-                In This Guide
-              </div>
-              <ul className="space-y-0.5 max-h-[calc(100vh-200px)] overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-[#DDE1E9] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent hover:[&::-webkit-scrollbar-thumb]:bg-[#96A0B5]">
-                {tocItems.map((item) => (
-                  <li key={item.id}>
-                    <button
-                      onClick={() => scrollToHeading(item.id)}
-                      className={`block w-full text-left text-xs md:text-sm py-2 px-3 rounded transition-all duration-200 ${activeId === item.id
-                        ? 'bg-[#0E9BF0] text-white font-medium shadow-sm'
-                        : 'text-[#5C6880] hover:text-[#0E9BF0] hover:bg-white'
-                        }`}
-                    >
-                      <span className="flex items-start gap-2">
-                        {activeId === item.id && (
-                          <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />
-                        )}
-                        <span className="flex-1">{item.title}</span>
-                      </span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-
-            {/* About the Author */}
-            <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-2" style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
-                  <img
-                    src="/web-app-manifest-192x192.png"
-                    alt="GHL Scale Up"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-white">GHL Scale Up Team</div>
-                  <div className="text-xs text-white/50">GoHighLevel Expert Agency</div>
-                </div>
-              </div>
-              <p className="text-xs text-white/60 leading-relaxed mb-3">
-                5+ years GHL experience · 200+ agency systems built globally across real estate, healthcare, SaaS, 
-                and marketing agencies. We have audited and rebuilt agency GHL accounts in 6 countries. 
-                Everything we publish comes from real accounts, not documentation summaries.
-              </p>
-              <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
-            </div>
-
-            {/* CTA Card */}
-            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-2" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
-              <div className="text-sm font-bold text-white mb-2">Agency GHL Not Scaling?</div>
-              <p className="text-xs text-white/60 leading-relaxed mb-4">We audit and rebuild agency GHL accounts. 5–7 business day delivery.</p>
-              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
-                Talk to Us
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
-
-            {/* Share Buttons */}
-            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-2" style={{ animationDelay: '300ms', animationFillMode: 'forwards' }}>
-              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
-              <div className="flex gap-2 flex-wrap">
-                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
-                  <Linkedin className="w-3 h-3" />
-                  LinkedIn
-                </a>
-                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
-                  <Twitter className="w-3 h-3" />
-                  X
-                </a>
-                <button
-                  onClick={() => navigator.clipboard.writeText(window.location.href)}
-                  className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"
-                >
-                  <Copy className="w-3 h-3" />
-                  Copy link
-                </button>
-              </div>
-            </div>
-          </aside>
         </div>
       </div>
 

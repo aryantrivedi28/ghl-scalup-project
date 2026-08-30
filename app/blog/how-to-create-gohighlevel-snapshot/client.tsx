@@ -23,12 +23,70 @@ import {
   FolderTree,
   CloudDownload,
   Award,
-  DollarSign
+  DollarSign,
+  Rocket,
+  Target,
+  HeartHandshake,
+  MessageCircle,
+  Phone,
+  Search,
+  Trophy,
+  Facebook,
+  Lightbulb,
+  UserCheck,
+  UserX,
+  Compass,
+  Layers,
+  PanelTop,
+  LayoutDashboard,
+  Briefcase,
+  LifeBuoy,
+  Timer,
+  Trash2,
+  Download,
+  BarChart3,
+  PieChart,
+  Workflow,
+  Globe,
+  Database,
+  Cloud,
+  GitBranch,
+  Sparkles,
+  GraduationCap,
+  Calendar,
+  Mail,
+  Tag,
+  GitMerge,
+  TrendingUp,
+  XCircle,
+  FileText,
+  Server,
+  CreditCard,
+  Smartphone,
+  Layout,
+  Mailbox,
+  Headphones,
+  FileQuestion,
+  HelpCircle,
+  Boxes,
+  Combine,
+  Link2,
+  Webhook,
+  RefreshCw as RefreshCwIcon,
+  ListChecks,
+  ClipboardList,
+  Printer,
+  Video,
+  Ticket,
+  TrendingDown,
+  Info,
+  Star
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export default function CreateSnapshotClient() {
   const [activeId, setActiveId] = useState<string>('');
+  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
   // Handle scroll detection for active section
   useEffect(() => {
@@ -52,6 +110,13 @@ export default function CreateSnapshotClient() {
           }
         }
       }
+
+      // Show floating Project Help card after scrolling past hero section
+      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
+      if (heroSection) {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        setShowFloatingProjectHelp(heroBottom < 0);
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -72,7 +137,7 @@ export default function CreateSnapshotClient() {
   const faqs = [
     {
       q: "What is a GoHighLevel Snapshot?",
-      a: "A GoHighLevel Snapshot is a reusable template that captures the complete configuration of a sub-account including workflows, funnels, pipelines, email and SMS templates, calendars, forms, custom fields, and tags and packages it for deployment to any new or existing sub-account in minutes. Snapshots do not include contacts, conversations, or billing data. They capture system architecture only."
+      a: "A GoHighLevel Snapshot is a reusable template that captures the complete configuration of a sub-account including workflows, funnels, pipelines, email and SMS templates, calendars, custom fields, and tags and packages it for deployment to any new or existing sub-account in minutes. Snapshots do not include contacts, conversations, or billing data. They capture system architecture only."
     },
     {
       q: "How long does it take to create a GoHighLevel Snapshot?",
@@ -179,6 +244,18 @@ export default function CreateSnapshotClient() {
     },
   ];
 
+  // Reusable Project Help Card Component
+  const ProjectHelpCard = () => (
+    <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
+      <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
+      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your Snapshot setup.</p>
+      <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+        Book a 30 min Free Call
+        <ArrowRight className="w-3 h-3" />
+      </Link>
+    </div>
+  );
+
   return (
     <>
       {/* Progress Bar */}
@@ -200,7 +277,7 @@ export default function CreateSnapshotClient() {
         <div className="absolute -top-[120px] -right-[120px] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(14,155,240,0.12)_0%,transparent_70%)] pointer-events-none" />
         <div className="absolute -bottom-[80px] -left-[80px] w-[360px] h-[360px] bg-[radial-gradient(circle,rgba(37,201,125,0.08)_0%,transparent_70%)] pointer-events-none" />
 
-        <div className="max-w-[760px] mx-auto relative z-10">
+        <div className="max-w-7xl mx-auto relative z-10">
           {/* Post Tags / Category Labels */}
           <div className="flex flex-wrap gap-2 mb-4">
             <span className="bg-[rgba(14,155,240,0.15)] text-[#0E9BF0] text-[11px] font-semibold px-2.5 py-1 rounded-full">GHL Agency</span>
@@ -232,18 +309,127 @@ export default function CreateSnapshotClient() {
           </div>
 
           {/* Introductory Paragraph */}
-          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
+          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-6xl">
             If you are an agency owner manually rebuilding funnels, workflows, and pipelines for every new client, you are losing 8–40 hours per onboarding that you will never get back. GoHighLevel Snapshots are the fix and this guide explains exactly how to build and use them.
           </p>
+
+          {/* CTA Button 1: Hero Section */}
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105"
+            >
+              <Rocket className="w-4 h-4" />
+              Get Snapshot Help
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              href="#how-to-create"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20"
+            >
+              See Creation Steps
+              <ChevronDown className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Main Layout */}
-      <div className="max-w-[1080px] mx-auto px-4 md:px-6 py-10 md:py-16">
-        <div className="grid lg:grid-cols-[1fr_280px] gap-8 md:gap-16 items-start">
+      {/* MAIN LAYOUT - Sidebar on LEFT, Content on RIGHT */}
+      <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-10">
+        <div className="grid lg:grid-cols-[280px_1fr] gap-8 md:gap-12 items-start">
 
-          {/* Article Content */}
-          <main className="min-w-0">
+          {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
+          <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
+            {/* Project Help Card */}
+            <div className="hidden lg:block mb-6">
+              <ProjectHelpCard />
+            </div>
+
+            {/* Table of Contents - Sticky */}
+            <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
+              <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
+                <BookOpen className="w-3 h-3" />
+                In This Guide
+              </div>
+              <ul className="space-y-0.5 max-h-[calc(100vh-200px)] overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-[#DDE1E9] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent hover:[&::-webkit-scrollbar-thumb]:bg-[#96A0B5]">
+                {tocItems.map((item) => (
+                  <li key={item.id}>
+                    <button
+                      onClick={() => scrollToHeading(item.id)}
+                      className={`block w-full text-left text-xs md:text-sm py-2 px-3 rounded transition-all duration-200 ${activeId === item.id
+                        ? 'bg-[#0E9BF0] text-white font-medium shadow-sm'
+                        : 'text-[#5C6880] hover:text-[#0E9BF0] hover:bg-white'
+                        }`}
+                    >
+                      <span className="flex items-start gap-2">
+                        {activeId === item.id && (
+                          <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />
+                        )}
+                        <span className="flex-1">{item.title}</span>
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            {/* About the Author */}
+            <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
+                  <img
+                    src="/web-app-manifest-192x192.png"
+                    alt="GHL Scale Up"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <div className="text-sm font-bold text-white">GHL Scale Up Team</div>
+                  <div className="text-xs text-white/50">GoHighLevel Expert Agency</div>
+                </div>
+              </div>
+              <p className="text-xs text-white/60 leading-relaxed mb-3">
+                5+ years GHL experience · 200+ systems built across dental, real estate, home services, SaaS, and agencies globally.
+                We have built and deployed Snapshots in 6 countries.
+              </p>
+              <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
+            </div>
+
+            {/* Share Buttons */}
+            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
+              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Share this guide</div>
+              <div className="flex gap-2 flex-wrap">
+                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Linkedin className="w-3 h-3" />
+                  LinkedIn
+                </a>
+                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Twitter className="w-3 h-3" />
+                  X
+                </a>
+                <button
+                  onClick={() => navigator.clipboard.writeText(window.location.href)}
+                  className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"
+                >
+                  <Copy className="w-3 h-3" />
+                  Copy link
+                </button>
+              </div>
+            </div>
+
+            {/* CTA Card */}
+            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
+              <div className="text-sm font-bold text-white mb-2">Want a Production-Ready Snapshot?</div>
+              <p className="text-xs text-white/60 leading-relaxed mb-4">We'll build you a custom Snapshot for your niche that deploys perfectly every time.</p>
+              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+                Get a Custom Snapshot
+                <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
+          </aside>
+
+          {/* ==================== RIGHT COLUMN: BLOG CONTENT ==================== */}
+          <main className="min-w-0 order-2">
 
             {/* TL;DR / Quick Answer Box (BLUF) */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
@@ -258,10 +444,22 @@ export default function CreateSnapshotClient() {
                 To create one: go to Agency View → Accounts → Snapshots → Create New Snapshot → select your template sub-account → choose assets → save.
                 Deployment takes under 5 minutes. Customisation takes 30–60 minutes. Building from scratch takes 8–40 hours. Snapshots eliminate the rebuild every time.
               </p>
+
+              {/* CTA Button 2: Inside TL;DR Box */}
+              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                >
+                  <Target className="w-4 h-4" />
+                  Get Snapshot Help
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
             </div>
 
-            {/* Table of Contents */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
+            {/* Table of Contents - Mobile Only */}
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8 lg:hidden">
               <div className="flex items-center gap-2 mb-4">
                 <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
                 <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">What's in this guide</span>
@@ -277,6 +475,11 @@ export default function CreateSnapshotClient() {
                   </button>
                 ))}
               </div>
+            </div>
+
+            {/* Mobile Project Help Card - visible on mobile only */}
+            <div className="lg:hidden mb-8">
+              <ProjectHelpCard />
             </div>
 
             {/* Section 1: What Is a Snapshot? */}
@@ -299,12 +502,12 @@ export default function CreateSnapshotClient() {
                 <span className="text-sm font-bold text-[#F8D000]">THE TIME SAVING IN REAL NUMBERS</span>
               </div>
               <p className="text-sm text-white/80 leading-relaxed mb-2">
-                At a conservative agency rate of <strong className="text-white">\$75/hour</strong>: building a client account from scratch takes 8–40 hours
-                costing <strong className="text-white">\$600–\$3,000 in billable time per client</strong>.
+                At a conservative agency rate of <strong className="text-white">$75/hour</strong>: building a client account from scratch takes 8–40 hours
+                costing <strong className="text-white">$600–$3,000 in billable time per client</strong>.
               </p>
               <p className="text-sm text-white/80 leading-relaxed">
                 Deploying and customising a Snapshot takes <strong className="text-white">5–60 minutes</strong>.
-                For a 10-client agency, that is <strong className="text-white">\$6,000–\$30,000 per year</strong> in recovered time.
+                For a 10-client agency, that is <strong className="text-white">$6,000–$30,000 per year</strong> in recovered time.
                 One well-built Snapshot pays for itself with the first deployment.
               </p>
             </div>
@@ -324,6 +527,21 @@ export default function CreateSnapshotClient() {
                 when a client signs up and pays through your white-label platform, a Snapshot deploys to their account automatically.
                 No manual work at all.
               </p>
+            </div>
+
+            {/* CTA Button 3: After Section 1 */}
+            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 mb-8 text-center">
+              <p className="text-white/80 text-sm mb-3">
+                <span className="font-bold text-white">Ready to build your first Snapshot?</span> Let our team help you create a production-ready template.
+              </p>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+              >
+                <BarChart3 className="w-4 h-4" />
+                Get Snapshot Build
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
 
             {/* Section 2: What's Included */}
@@ -410,6 +628,20 @@ export default function CreateSnapshotClient() {
               </p>
             </div>
 
+            {/* CTA Button 4: After Creation Steps */}
+            <div className="bg-gradient-to-r from-[#0E9BF0] to-[#0C8AD8] rounded-xl p-6 text-center text-white mb-8">
+              <p className="text-sm font-medium mb-2">⚡ Don't have time to build your Snapshot from scratch?</p>
+              <p className="text-sm text-white/80 mb-4">We'll build your custom Snapshot with tested workflows, funnels, and pipelines.</p>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 bg-white text-[#0E9BF0] font-bold px-6 py-2.5 rounded-lg hover:bg-[#F8F9FB] transition-all hover:shadow-lg hover:scale-105 text-sm"
+              >
+                <HeartHandshake className="w-4 h-4" />
+                Get Snapshot Build
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
             {/* Section 4: How to Deploy */}
             <h2 id="how-to-deploy" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               4. How to Deploy a GoHighLevel Snapshot to a Client Sub-Account
@@ -453,7 +685,7 @@ export default function CreateSnapshotClient() {
               <p className="text-sm text-white/80 leading-relaxed">
                 If you use Agency Pro (SaaS Mode), you can assign a Snapshot to a pricing plan so it deploys <strong>automatically when a client pays</strong>
                 zero manual work needed. See our guide:
-                {/* <Link href="/blog/gohighlevel-saas-mode" className="text-[#0E9BF0] hover:underline">GoHighLevel SaaS Mode Setup →</Link> */}
+                <Link href="/blog/gohighlevel-saas-mode-setup" className="text-[#0E9BF0] hover:underline ml-1">GoHighLevel SaaS Mode Setup →</Link>
               </p>
             </div>
 
@@ -508,12 +740,26 @@ export default function CreateSnapshotClient() {
               </ul>
             </div>
 
+            {/* CTA Button 5: After Maintenance */}
+            <div className="bg-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
+              <p className="text-sm font-medium mb-2">🔄 Need help maintaining your Snapshot library?</p>
+              <p className="text-sm text-white/80 mb-4">We'll audit your Snapshots and set up a version control system that works.</p>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+              >
+                <RefreshCw className="w-4 h-4" />
+                Get Snapshot Audit
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
             {/* Section 6: Common Mistakes */}
             <h2 id="common-mistakes" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               6. Four Common GoHighLevel Snapshot Mistakes to Avoid
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
-              These are the mistakes we fix most often when auditing agency GHL accounts at GHL Scaleup.
+              These are the mistakes we fix most often when auditing agency GHL accounts at GHL Scale Up.
             </p>
 
             <div className="space-y-4 mb-6">
@@ -543,6 +789,20 @@ export default function CreateSnapshotClient() {
               </p>
             </div>
 
+            {/* CTA Button 6: Before FAQ */}
+            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
+              <p className="text-sm font-medium mb-2">⚠️ Don't make costly Snapshot mistakes.</p>
+              <p className="text-sm text-white/80 mb-4">Get a free, no-obligation Snapshot audit from experts who've built 200+ GHL systems.</p>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+              >
+                <Shield className="w-4 h-4" />
+                Get a Free Audit
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
             {/* Section 7: FAQ */}
             <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
               7. Frequently Asked Questions About GoHighLevel Snapshots
@@ -560,6 +820,29 @@ export default function CreateSnapshotClient() {
               ))}
             </div>
 
+            {/* CTA Button 7: After FAQ */}
+            <div className="mt-8 p-6 bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl text-center">
+              <p className="text-white font-bold text-lg mb-2">Still Have Questions About Snapshots?</p>
+              <p className="text-white/60 text-sm mb-4">Talk to our Snapshot specialists directly. We've built and deployed 200+ systems.</p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  Ask an Expert
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-white/20 transition-all border border-white/20 text-sm"
+                >
+                  <Phone className="w-4 h-4" />
+                  Call Us
+                </Link>
+              </div>
+            </div>
+
             {/* Internal Links */}
             <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
               <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles in This Series</h3>
@@ -571,7 +854,7 @@ export default function CreateSnapshotClient() {
               </div>
             </div>
 
-            {/* CTA Section */}
+            {/* Final CTA Section */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Running a GHL Agency?</h3>
@@ -579,98 +862,13 @@ export default function CreateSnapshotClient() {
                   We build Snapshots that deploy correctly every time. We've built and deployed 200+ GHL systems across every major industry.
                   If you want a production-quality Snapshot built to your exact niche or an audit of your existing one book a free call.
                 </p>
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105">
                   Book Your Free GHL Audit
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
           </main>
-
-          {/* Sidebar */}
-          <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out">
-            {/* Table of Contents - Sticky */}
-            <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
-              <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
-                <BookOpen className="w-3 h-3" />
-                In This Guide
-              </div>
-              <ul className="space-y-0.5 max-h-[calc(100vh-200px)] overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-[#DDE1E9] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent hover:[&::-webkit-scrollbar-thumb]:bg-[#96A0B5]">
-                {tocItems.map((item) => (
-                  <li key={item.id}>
-                    <button
-                      onClick={() => scrollToHeading(item.id)}
-                      className={`block w-full text-left text-xs md:text-sm py-2 px-3 rounded transition-all duration-200 ${activeId === item.id
-                        ? 'bg-[#0E9BF0] text-white font-medium shadow-sm'
-                        : 'text-[#5C6880] hover:text-[#0E9BF0] hover:bg-white'
-                        }`}
-                    >
-                      <span className="flex items-start gap-2">
-                        {activeId === item.id && (
-                          <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />
-                        )}
-                        <span className="flex-1">{item.title}</span>
-                      </span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-
-            {/* About the Author */}
-            <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-2">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
-                  <img
-                    src="/web-app-manifest-192x192.png"
-                    alt="GHL Scaleup"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-white">GHL Scale Up Team</div>
-                  <div className="text-xs text-white/50">GoHighLevel Expert Agency</div>
-                </div>
-              </div>
-              <p className="text-xs text-white/60 leading-relaxed mb-3">
-                5+ years GHL experience · 200+ systems built across dental, real estate, home services, SaaS, and agencies globally.
-                We have built and deployed Snapshots in 6 countries.
-              </p>
-              <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
-            </div>
-
-            {/* CTA Card */}
-            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-2">
-              <div className="text-sm font-bold text-white mb-2">Want a Production-Ready Snapshot?</div>
-              <p className="text-xs text-white/60 leading-relaxed mb-4">We'll build you a custom Snapshot for your niche that deploys perfectly every time.</p>
-              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
-                Get a Custom Snapshot
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
-
-            {/* Share Buttons */}
-            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-2">
-              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
-              <div className="flex gap-2 flex-wrap">
-                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
-                  <Linkedin className="w-3 h-3" />
-                  LinkedIn
-                </a>
-                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
-                  <Twitter className="w-3 h-3" />
-                  X
-                </a>
-                <button
-                  onClick={() => navigator.clipboard.writeText(window.location.href)}
-                  className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"
-                >
-                  <Copy className="w-3 h-3" />
-                  Copy link
-                </button>
-              </div>
-            </div>
-          </aside>
         </div>
       </div>
 
