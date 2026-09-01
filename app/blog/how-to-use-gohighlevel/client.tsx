@@ -57,12 +57,30 @@ import {
   Brain,
   MessageSquare,
   PenTool,
-  Trophy
+  Trophy,
+  HeartHandshake,
+  Search,
+  Facebook,
+  Lightbulb,
+  UserX,
+  PanelTop,
+  LayoutDashboard as LayoutDashboardIcon,
+  LifeBuoy,
+  Timer,
+  Trash2,
+  Download,
+  PieChart,
+  GitMerge,
+  TrendingDown,
+  FileCheck,
+  Headphones,
+  Info
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
 
 export default function HowToUseGoHighLevelClient() {
   const [activeId, setActiveId] = useState<string>('');
+  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -87,6 +105,13 @@ export default function HowToUseGoHighLevelClient() {
             break;
           }
         }
+      }
+
+      // Show floating Project Help card after scrolling past hero section
+      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
+      if (heroSection) {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        setShowFloatingProjectHelp(heroBottom < 0);
       }
     };
 
@@ -215,6 +240,18 @@ export default function HowToUseGoHighLevelClient() {
     'Sub-account Snapshots (for agencies): If you are managing multiple client accounts, build a Snapshot of your working setup once it is stable and tested. Deploy it to new sub-accounts instead of rebuilding everything from scratch each time.',
   ];
 
+  // Reusable Project Help Card Component
+  const ProjectHelpCard = () => (
+    <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
+      <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
+      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your GHL setup.</p>
+      <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+        Book a 30 min Free Call
+        <ArrowRight className="w-3 h-3" />
+      </Link>
+    </div>
+  );
+
   return (
     <>
       {/* Progress Bar */}
@@ -236,8 +273,8 @@ export default function HowToUseGoHighLevelClient() {
         <div className="absolute -top-[120px] -right-[120px] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(14,155,240,0.12)_0%,transparent_70%)] pointer-events-none" />
         <div className="absolute -bottom-[80px] -left-[80px] w-[360px] h-[360px] bg-[radial-gradient(circle,rgba(37,201,125,0.08)_0%,transparent_70%)] pointer-events-none" />
 
-        <div className="max-w-[760px] mx-auto relative z-10">
-          {/* Post Tags */}
+        <div className="max-w-7xl mx-auto relative z-10">
+          {/* Post Tags / Category Labels */}
           <div className="flex flex-wrap gap-2 mb-4">
             <span className="bg-[rgba(14,155,240,0.15)] text-[#0E9BF0] text-[11px] font-semibold px-2.5 py-1 rounded-full">GoHighLevel</span>
             <span className="bg-[rgba(248,208,0,0.15)] text-[#F8D000] text-[11px] font-semibold px-2.5 py-1 rounded-full">Tutorial</span>
@@ -245,13 +282,13 @@ export default function HowToUseGoHighLevelClient() {
             <span className="bg-[rgba(14,155,240,0.15)] text-[#0E9BF0] text-[11px] font-semibold px-2.5 py-1 rounded-full">2026</span>
           </div>
 
-          {/* H1 */}
+          {/* H1 Headline */}
           <h1 className="text-[clamp(28px,6vw,46px)] font-extrabold leading-[1.2] md:leading-[1.15] text-white mb-4 md:mb-5 tracking-[-0.02em]">
             How to Use GoHighLevel:<br />
             <span className="text-[#F8D000]">Complete Beginner's Tutorial (2026)</span>
           </h1>
 
-          {/* Author */}
+          {/* Author Byline */}
           <div className="flex items-center gap-3 mb-6">
             <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
               <img
@@ -266,19 +303,127 @@ export default function HowToUseGoHighLevelClient() {
             </div>
           </div>
 
-          {/* Intro Paragraph */}
-          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-[620px]">
+          {/* Introductory Paragraph */}
+          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-6xl">
             Opening GoHighLevel for the first time is genuinely overwhelming. The sidebar has more options than most people expect, there are multiple ways to do almost everything, and the terminology sub-accounts, pipelines, Snapshots, workflows, triggers takes time to make sense. <Link href="/" className="text-[#0E9BF0] hover:underline font-medium">GHL Scale Up</Link> has onboarded hundreds of agencies and businesses onto GoHighLevel. This guide covers the setup sequence that actually works: what to do first, what to skip until later, and the mistakes that slow most beginners down the most.
           </p>
+
+          {/* CTA Button 1: Hero Section */}
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105"
+            >
+              <Rocket className="w-4 h-4" />
+              Get Setup Help
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              href="#setup-first"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20"
+            >
+              See Setup Steps
+              <ChevronDown className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Main Layout */}
-      <div className="max-w-[1080px] mx-auto px-4 md:px-6 py-10 md:py-16">
-        <div className="grid lg:grid-cols-[1fr_280px] gap-8 md:gap-16 items-start">
+      {/* MAIN LAYOUT - Sidebar on LEFT, Content on RIGHT */}
+      <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-10">
+        <div className="grid lg:grid-cols-[280px_1fr] gap-8 md:gap-12 items-start">
 
-          {/* Article Content */}
-          <main className="min-w-0">
+          {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
+          <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
+            {/* Project Help Card */}
+            <div className="hidden lg:block mb-6">
+              <ProjectHelpCard />
+            </div>
+
+            {/* Table of Contents - Sticky */}
+            <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
+              <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
+                <BookOpen className="w-3 h-3" />
+                In This Guide
+              </div>
+              <ul className="space-y-0.5 max-h-[calc(100vh-200px)] overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-[#DDE1E9] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent hover:[&::-webkit-scrollbar-thumb]:bg-[#96A0B5]">
+                {tocItems.map((item) => (
+                  <li key={item.id}>
+                    <button
+                      onClick={() => scrollToHeading(item.id)}
+                      className={`block w-full text-left text-xs md:text-sm py-2 px-3 rounded transition-all duration-200 ${activeId === item.id
+                        ? 'bg-[#0E9BF0] text-white font-medium shadow-sm'
+                        : 'text-[#5C6880] hover:text-[#0E9BF0] hover:bg-white'
+                        }`}
+                    >
+                      <span className="flex items-start gap-2">
+                        {activeId === item.id && (
+                          <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />
+                        )}
+                        <span className="flex-1">{item.title}</span>
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            {/* About the Author */}
+            <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
+                  <img
+                    src="/web-app-manifest-192x192.png"
+                    alt="GHL Scale Up"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <div className="text-sm font-bold text-white">GHL Scale Up Team</div>
+                  <div className="text-xs text-white/50">GoHighLevel Expert Agency</div>
+                </div>
+              </div>
+              <p className="text-xs text-white/60 leading-relaxed mb-3">
+                5+ years GHL experience · 200+ systems built globally. All technical details verified as of June 2026.
+              </p>
+              <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
+            </div>
+
+            {/* Share Buttons */}
+            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
+              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Share this guide</div>
+              <div className="flex gap-2 flex-wrap">
+                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Linkedin className="w-3 h-3" />
+                  LinkedIn
+                </a>
+                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Twitter className="w-3 h-3" />
+                  X
+                </a>
+                <button
+                  onClick={() => navigator.clipboard.writeText(window.location.href)}
+                  className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"
+                >
+                  <Copy className="w-3 h-3" />
+                  Copy link
+                </button>
+              </div>
+            </div>
+
+            {/* CTA Card */}
+            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
+              <div className="text-sm font-bold text-white mb-2">Need Help Setting Up?</div>
+              <p className="text-xs text-white/60 leading-relaxed mb-4">We handle the full GoHighLevel setup for agencies and service businesses.</p>
+              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+                Get Help
+                <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
+          </aside>
+
+          {/* ==================== RIGHT COLUMN: BLOG CONTENT ==================== */}
+          <main className="min-w-0 order-2">
 
             {/* BLUF Box */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
@@ -292,10 +437,22 @@ export default function HowToUseGoHighLevelClient() {
               <p className="text-sm text-[#5C6880] leading-relaxed">
                 The platform is not simple, but the learning curve is front-loaded. Once you understand how contacts, pipelines, and workflows connect to each other, the rest of the platform follows the same logic throughout. For an honest assessment of the platform's strengths and weaknesses before you commit: <Link href="/blog/gohighlevel-review" className="text-[#0E9BF0] hover:underline">GoHighLevel Review 2026 →</Link>
               </p>
+
+              {/* CTA Button 2: Inside TL;DR Box */}
+              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                >
+                  <Target className="w-4 h-4" />
+                  Get Setup Help
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
             </div>
 
-            {/* Table of Contents */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
+            {/* Table of Contents - Mobile Only */}
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8 lg:hidden">
               <div className="flex items-center gap-2 mb-4">
                 <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
                 <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">What's in this guide</span>
@@ -311,6 +468,11 @@ export default function HowToUseGoHighLevelClient() {
                   </button>
                 ))}
               </div>
+            </div>
+
+            {/* Mobile Project Help Card - visible on mobile only */}
+            <div className="lg:hidden mb-8">
+              <ProjectHelpCard />
             </div>
 
             {/* Section 1: Dashboard */}
@@ -352,6 +514,21 @@ export default function HowToUseGoHighLevelClient() {
               <p className="text-sm text-[#1A2236] leading-relaxed">
                 The most common beginner mistake is opening GHL and immediately trying to build a funnel. The funnel will not work properly until your email domain is configured, your phone system is connected, and your calendar is set up. Complete account setup first. Funnels take 20 minutes to build once the foundation is ready. They take days to troubleshoot when built on an incomplete foundation.
               </p>
+            </div>
+
+            {/* CTA Button 3: After Section 1 */}
+            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 mb-8 text-center">
+              <p className="text-white/80 text-sm mb-3">
+                <span className="font-bold text-white">Overwhelmed by the dashboard?</span> Let our team set up your GHL account correctly from day one.
+              </p>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+              >
+                <BarChart3 className="w-4 h-4" />
+                Get Setup Help
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
 
             {/* Section 2: Setup First */}
@@ -491,6 +668,20 @@ export default function HowToUseGoHighLevelClient() {
               </p>
             </div>
 
+            {/* CTA Button 4: After Automation */}
+            <div className="bg-gradient-to-r from-[#0E9BF0] to-[#0C8AD8] rounded-xl p-6 text-center text-white mb-8">
+              <p className="text-sm font-medium mb-2">⚡ Not sure where to start with automations?</p>
+              <p className="text-sm text-white/80 mb-4">We'll build your first 3 workflows for you so you can start automating immediately.</p>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 bg-white text-[#0E9BF0] font-bold px-6 py-2.5 rounded-lg hover:bg-[#F8F9FB] transition-all hover:shadow-lg hover:scale-105 text-sm"
+              >
+                <HeartHandshake className="w-4 h-4" />
+                Get Workflows Built
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
             {/* Section 6: Funnels and Calendars */}
             <h2 id="funnels-calendars" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               6. How Do You Set Up Funnels and Booking Calendars?
@@ -519,6 +710,20 @@ export default function HowToUseGoHighLevelClient() {
               For the full Snapshot guide: <Link href="/blog/how-to-create-gohighlevel-snapshot" className="text-[#0E9BF0] hover:underline">How to Create a GoHighLevel Snapshot →</Link>
             </p>
 
+            {/* CTA Button 5: After Funnels */}
+            <div className="bg-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
+              <p className="text-sm font-medium mb-2">📱 Need help setting up funnels and calendars?</p>
+              <p className="text-sm text-white/80 mb-4">We'll configure your booking system and build your first funnel properly.</p>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+              >
+                <Calendar className="w-4 h-4" />
+                Get Funnel Setup
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
             {/* Section 7: Mistakes */}
             <h2 id="mistakes" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               7. What Are the Most Common Beginner Mistakes?
@@ -531,6 +736,20 @@ export default function HowToUseGoHighLevelClient() {
                   <p className="text-sm text-[#5C6880] leading-relaxed">{item.desc}</p>
                 </div>
               ))}
+            </div>
+
+            {/* CTA Button 6: Before After Basics */}
+            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
+              <p className="text-sm font-medium mb-2">⚠️ Avoid costly beginner mistakes.</p>
+              <p className="text-sm text-white/80 mb-4">Get a free, no-obligation GHL setup review from experts who've built 200+ systems.</p>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+              >
+                <Shield className="w-4 h-4" />
+                Get a Free Review
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
 
             {/* Section 8: After Basics */}
@@ -552,7 +771,6 @@ export default function HowToUseGoHighLevelClient() {
               ))}
             </div>
 
-            {/* CTA Section */}
             <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-5 my-6 text-white">
               <div className="flex items-center gap-2 mb-3">
                 <Star className="w-5 h-5 text-[#F8D000]" />
@@ -572,6 +790,20 @@ export default function HowToUseGoHighLevelClient() {
               </p>
             </div>
 
+            {/* CTA Button 7: Before FAQ */}
+            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
+              <p className="text-sm font-medium mb-2">🔍 Still not sure how to set up GHL correctly?</p>
+              <p className="text-sm text-white/80 mb-4">Let us review your business and tell you exactly what setup you need.</p>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+              >
+                <Search className="w-4 h-4" />
+                Get a Free Setup Assessment
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
             {/* Section 9: FAQ */}
             <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
               9. Frequently Asked Questions
@@ -589,9 +821,32 @@ export default function HowToUseGoHighLevelClient() {
               ))}
             </div>
 
+            {/* CTA Button 8: After FAQ */}
+            <div className="mt-8 p-6 bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl text-center">
+              <p className="text-white font-bold text-lg mb-2">Still Have Questions About Using GHL?</p>
+              <p className="text-white/60 text-sm mb-4">Talk to our GHL specialists directly. We've onboarded hundreds of businesses.</p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  Ask an Expert
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-white/20 transition-all border border-white/20 text-sm"
+                >
+                  <Phone className="w-4 h-4" />
+                  Call Us
+                </Link>
+              </div>
+            </div>
+
             {/* Related Articles */}
             <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
-              <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles</h3>
+              <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles in This Series</h3>
               <div className="flex flex-wrap gap-3">
                 <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Workflow Automation: Beginner's Guide →</Link>
                 <Link href="/blog/gohighlevel-missed-call-text-back" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Missed Call Text Back: Complete Setup Guide →</Link>
@@ -603,14 +858,14 @@ export default function HowToUseGoHighLevelClient() {
               </div>
             </div>
 
-            {/* Final CTA */}
+            {/* Final CTA Section */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Want your GoHighLevel setup done correctly from day one?</h3>
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
                   GHL Scale Up handles the setup so you can focus on your business. Business profile, email domain, phone, calendar, pipeline, core automations, and team training all configured and tested.
                 </p>
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105">
                   Book Your Free Strategy Call
                   <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -638,72 +893,6 @@ export default function HowToUseGoHighLevelClient() {
               <Link href="/" className="text-[#0E9BF0] text-xs hover:underline mt-2 inline-block">ghlscaleup.com</Link>
             </div>
           </main>
-
-          {/* Sidebar */}
-          <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out">
-            <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
-              <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
-                <BookOpen className="w-3 h-3" />
-                In This Guide
-              </div>
-              <ul className="space-y-0.5 max-h-[calc(100vh-200px)] overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-[#DDE1E9] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent hover:[&::-webkit-scrollbar-thumb]:bg-[#96A0B5]">
-                {tocItems.map((item) => (
-                  <li key={item.id}>
-                    <button
-                      onClick={() => scrollToHeading(item.id)}
-                      className={`block w-full text-left text-xs md:text-sm py-2 px-3 rounded transition-all duration-200 ${activeId === item.id
-                        ? 'bg-[#0E9BF0] text-white font-medium shadow-sm'
-                        : 'text-[#5C6880] hover:text-[#0E9BF0] hover:bg-white'
-                        }`}
-                    >
-                      <span className="flex items-start gap-2">
-                        {activeId === item.id && <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />}
-                        <span className="flex-1">{item.title}</span>
-                      </span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-
-            <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
-                  <img
-                    src="/web-app-manifest-192x192.png"
-                    alt="GHL Scale Up"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-white">GHL Scale Up Team</div>
-                  <div className="text-xs text-white/50">GoHighLevel Expert Agency</div>
-                </div>
-              </div>
-              <p className="text-xs text-white/60 leading-relaxed mb-3">
-                5+ years GHL experience · 200+ systems built globally. All technical details verified as of June 2026.
-              </p>
-              <Link href="/" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
-            </div>
-
-            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
-              <div className="text-sm font-bold text-white mb-2">Need Help Setting Up?</div>
-              <p className="text-xs text-white/60 leading-relaxed mb-4">We handle the full GoHighLevel setup for agencies and service businesses.</p>
-              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
-                Get Help
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
-
-            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
-              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
-              <div className="flex gap-2 flex-wrap">
-                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Linkedin className="w-3 h-3" /> LinkedIn</a>
-                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Twitter className="w-3 h-3" /> X</a>
-                <button onClick={() => navigator.clipboard.writeText(window.location.href)} className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"><Copy className="w-3 h-3" /> Copy link</button>
-              </div>
-            </div>
-          </aside>
         </div>
       </div>
 
