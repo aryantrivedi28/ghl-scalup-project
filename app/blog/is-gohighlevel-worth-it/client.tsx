@@ -75,7 +75,9 @@ import {
   FileCheck,
   Search,
   Info,
-  HeartHandshake
+  HeartHandshake,
+  Trophy,
+  Facebook
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
 
@@ -220,6 +222,7 @@ export default function IsGoHighLevelWorthItClient() {
     { type: 'Cons', items: ['Broad platform means a learning curve', 'Poor architecture can create complexity', 'Implementation requires planning', 'Usage based services can increase the bill', 'Not every specialist feature is best in class', 'Migration can be disruptive if poorly planned', 'Automations need testing and ongoing maintenance'] }
   ];
 
+  // Reusable Project Help Card Component
   const ProjectHelpCard = () => (
     <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
       <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
@@ -326,10 +329,12 @@ export default function IsGoHighLevelWorthItClient() {
 
           {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
           <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
+            {/* Project Help Card */}
             <div className="hidden lg:block mb-6">
               <ProjectHelpCard />
             </div>
 
+            {/* Table of Contents - Sticky */}
             <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
                 <BookOpen className="w-3 h-3" />
@@ -357,6 +362,7 @@ export default function IsGoHighLevelWorthItClient() {
               </ul>
             </nav>
 
+            {/* About the Author */}
             <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
@@ -377,6 +383,7 @@ export default function IsGoHighLevelWorthItClient() {
               <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
             </div>
 
+            {/* Share Buttons */}
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Share this guide</div>
               <div className="flex gap-2 flex-wrap">
@@ -398,6 +405,7 @@ export default function IsGoHighLevelWorthItClient() {
               </div>
             </div>
 
+            {/* CTA Card */}
             <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
               <div className="text-sm font-bold text-white mb-2">Need Help Deciding?</div>
               <p className="text-xs text-white/60 leading-relaxed mb-4">We've helped 200+ businesses choose the right platform and set it up correctly.</p>
@@ -424,6 +432,7 @@ export default function IsGoHighLevelWorthItClient() {
                 GoHighLevel is worth it when the problems created by disconnected tools, slow follow up, manual work or multi client complexity are more expensive than the cost of operating the platform.
               </p>
 
+              {/* CTA Button 2: Inside TL;DR Box */}
               <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
                 <Link
                   href="/contact"
@@ -455,6 +464,7 @@ export default function IsGoHighLevelWorthItClient() {
               </div>
             </div>
 
+            {/* Mobile Project Help Card - visible on mobile only */}
             <div className="lg:hidden mb-8">
               <ProjectHelpCard />
             </div>
@@ -538,6 +548,21 @@ export default function IsGoHighLevelWorthItClient() {
             <p className="text-sm md:text-base font-semibold text-[#1A2236] mb-4">
               Total Cost of Ownership = software + usage + third party services + implementation + maintenance
             </p>
+
+            {/* CTA Button 3: After Pricing */}
+            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 mb-8 text-center">
+              <p className="text-white/80 text-sm mb-3">
+                <span className="font-bold text-white">Confused about GHL pricing and real costs?</span> Let our team break it down for your business.
+              </p>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
+              >
+                <BarChart3 className="w-4 h-4" />
+                Get Cost Clarity
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
 
             {/* Section: Real Cost Is Implementation */}
             <h2 id="real-cost" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
@@ -644,6 +669,20 @@ export default function IsGoHighLevelWorthItClient() {
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               If this is your use case, see the <Link href="/blog/gohighlevel-saas-mode-setup" className="text-[#0E9BF0] hover:underline">GoHighLevel SaaS Mode setup guide</Link> and the <Link href="/services/saas-setup" className="text-[#0E9BF0] hover:underline">white label SaaS setup service</Link>.
             </p>
+
+            {/* CTA Button 4: After SaaS Section */}
+            <div className="bg-gradient-to-r from-[#0E9BF0] to-[#0C8AD8] rounded-xl p-6 text-center text-white mb-8">
+              <p className="text-sm font-medium mb-2">🚀 Thinking of building a SaaS on GHL?</p>
+              <p className="text-sm text-white/80 mb-4">We'll help you decide if it's the right move and set it up correctly.</p>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 bg-white text-[#0E9BF0] font-bold px-6 py-2.5 rounded-lg hover:bg-[#F8F9FB] transition-all hover:shadow-lg hover:scale-105 text-sm"
+              >
+                <HeartHandshake className="w-4 h-4" />
+                Get SaaS Advice
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
 
             {/* Section: Is It Worth Learning */}
             <h2 id="worth-learning" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
@@ -779,7 +818,7 @@ export default function IsGoHighLevelWorthItClient() {
               For a wider comparison, see <Link href="/blog/gohighlevel-alternatives" className="text-[#0E9BF0] hover:underline">GoHighLevel alternatives</Link>.
             </p>
 
-            {/* CTA Button 3: After Alternatives */}
+            {/* CTA Button 5: After Alternatives */}
             <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 mb-8 text-center">
               <p className="text-white/80 text-sm mb-3">
                 <span className="font-bold text-white">Not sure which platform is right for you?</span> Let our team help you decide.
@@ -921,15 +960,15 @@ export default function IsGoHighLevelWorthItClient() {
               If you are evaluating an existing setup, a <Link href="/services/crm-setup" className="text-[#0E9BF0] hover:underline">GoHighLevel CRM setup</Link> can help structure the system around the actual sales process. If you are moving from another platform, start with a <Link href="/services/migration" className="text-[#0E9BF0] hover:underline">GHL migration assessment</Link>.
             </p>
 
-            {/* CTA Button 4: After Final Verdict */}
-            <div className="bg-gradient-to-r from-[#0E9BF0] to-[#0C8AD8] rounded-xl p-6 text-center text-white mb-8">
+            {/* CTA Button 6: After Final Verdict */}
+            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
               <p className="text-sm font-medium mb-2">✅ Ready to make a decision about GoHighLevel?</p>
               <p className="text-sm text-white/80 mb-4">Get a free, no-obligation assessment from experts who've built 200+ GHL systems.</p>
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 bg-white text-[#0E9BF0] font-bold px-6 py-2.5 rounded-lg hover:bg-[#F8F9FB] transition-all hover:shadow-lg hover:scale-105 text-sm"
+                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
               >
-                <HeartHandshake className="w-4 h-4" />
+                <Shield className="w-4 h-4" />
                 Get a Free Assessment
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
@@ -952,7 +991,7 @@ export default function IsGoHighLevelWorthItClient() {
               ))}
             </div>
 
-            {/* CTA Button 5: After FAQ */}
+            {/* CTA Button 7: After FAQ */}
             <div className="mt-8 p-6 bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl text-center">
               <p className="text-white font-bold text-lg mb-2">Still Have Questions About Whether GHL Is Worth It?</p>
               <p className="text-white/60 text-sm mb-4">Talk to our GHL experts directly. We'll give you an honest assessment based on your business.</p>

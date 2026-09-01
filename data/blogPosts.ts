@@ -14,16 +14,16 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
-  icon: 'Workflow',
-  tag: 'Automation',
-  title: 'GoHighLevel Automation: The Workflows Worth Building First',
-  excerpt: 'Learn which GoHighLevel automations to build first, how to prioritize workflows by business impact and ROI, what agencies should automate, and when not to automate.',
-  slug: 'gohighlevel-automation',
-  date: 'August 31, 2026',
-  readTime: '22 min read',
-  featured: true,
-  image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
-},
+            icon: 'Workflow',
+            tag: 'Automation',
+            title: 'GoHighLevel Automation: The Workflows Worth Building First',
+            excerpt: 'Learn which GoHighLevel automations to build first, how to prioritize workflows by business impact and ROI, what agencies should automate, and when not to automate.',
+            slug: 'gohighlevel-automation',
+            date: 'August 31, 2026',
+            readTime: '22 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+      },
       {
             icon: 'Zap',
             tag: 'Review',
@@ -99,7 +99,7 @@ export const blogPosts: BlogPost[] = [
             date: 'August 13, 2026',
             readTime: '22 min read',
             featured: true,
-            image: 'https://i.ytimg.com/vi/oSV6lB7BEOM/maxresdefault.jpg',
+            image: 'https://i.ytimg.com/vi/Xo-OaEEvBKE/maxresdefault.jpg',
       },
       {
             icon: 'Target',
