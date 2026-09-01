@@ -759,7 +759,7 @@ export const blogPosts: BlogPost[] = [
             date: 'May 8, 2026',
             readTime: '18 min read',
             featured: true,
-            image: 'https://i.ytimg.com/vi/Dx4Tf2VX21I/maxresdefault.jpg',
+            image: 'https://ghlbuilds.com/wp-content/uploads/2025/11/how-to-create-a-snapshot-in-gohighlevel.png',
       },
       {
             icon: 'Phone',
