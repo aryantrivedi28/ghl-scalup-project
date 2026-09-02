@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import GoHighLevelAutomationClient from './client';
 
 export const metadata: Metadata = {
-  title: 'GoHighLevel Automation: Workflows Worth Building First',
+  title: 'Best GoHighLevel Automations For Business And Agencies For Highest ROI',
   description: 'Learn which GoHighLevel automations to build first, how to prioritize workflows by business impact and ROI, what agencies should automate, and when not to automate.',
   keywords: 'GoHighLevel automation, GoHighLevel workflows, GoHighLevel workflow automation, GoHighLevel automation examples, best GoHighLevel workflows, GHL automation, GHL workflows, GoHighLevel automations for agencies, GoHighLevel automations for businesses',
   openGraph: {
