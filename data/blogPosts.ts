@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Link2',
+            tag: 'Integration',
+            title: 'Connect Zapier to GoHighLevel: Full Setup Guide (2026)',
+            excerpt: 'Step-by-step guide to connecting Zapier and GoHighLevel through LeadConnector — setup, triggers, field mapping, troubleshooting, and when native automation is the better call.',
+            slug: 'connect-zapier-to-gohighlevel',
+            date: 'September 2, 2026',
+            readTime: '18 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'Workflow',
             tag: 'Automation',
             title: 'GoHighLevel Automation: The Workflows Worth Building First',
