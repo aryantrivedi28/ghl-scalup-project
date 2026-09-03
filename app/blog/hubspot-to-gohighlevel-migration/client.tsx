@@ -10,69 +10,11 @@ import {
   Twitter,
   BookOpen,
   Zap,
-  Star,
   AlertTriangle,
   Clock,
   Rocket,
   Target,
-  HeartHandshake,
-  MessageCircle,
-  Phone,
-  Search,
-  Trophy,
-  Facebook,
-  Shield,
-  DollarSign,
-  Users,
-  Building2,
-  Calendar,
-  Layout,
-  GitBranch,
-  Sparkles,
-  Award,
-  TrendingUp,
-  Server,
-  Globe,
-  CreditCard,
-  Smartphone,
-  Briefcase,
-  Cloud,
-  Database,
-  Clock as ClockIcon,
-  Mail,
-  GraduationCap,
-  Compass,
-  BarChart3,
-  Mailbox,
-  Layers,
-  Workflow,
-  Settings,
-  Link2,
-  Webhook,
-  RefreshCw,
-  ListChecks,
-  ClipboardList,
-  Printer,
-  Video,
-  Ticket,
-  TrendingDown,
   Info,
-  UserCheck,
-  UserX,
-  PanelTop,
-  LayoutDashboard,
-  LifeBuoy,
-  Timer,
-  Trash2,
-  Download,
-  PieChart,
-  GitMerge,
-  FileCheck,
-  Headphones,
-  FileText,
-  CheckCircle2,
-  XCircle,
-  Lightbulb
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
 
@@ -127,28 +69,24 @@ export default function HubSpotToGHLMigrationClient() {
 
   const faqs = [
     {
-      q: "Can you migrate all data from HubSpot to GoHighLevel?",
-      a: "Most contact and deal data can be migrated from HubSpot to GoHighLevel via CSV export and import. What transfers: contacts, custom properties (via field mapping), open deals, and tags. What does not transfer automatically: automation workflows, email templates, landing pages, company associations, deal activity history, and multi-branch workflow logic. These must be rebuilt manually inside GoHighLevel using the equivalent tools."
+      q: "What data transfers automatically from HubSpot to GoHighLevel?",
+      a: "Contacts, custom properties (via field mapping), open deals, and tags transfer via CSV export and import. Automation workflows, email templates, landing pages, company associations, and deal activity history do not transfer automatically and must be rebuilt manually inside GoHighLevel."
     },
     {
       q: "How long does a HubSpot to GoHighLevel migration take?",
-      a: "A straightforward migration with under 5,000 contacts and fewer than five active workflows takes 3–4 weeks. A standard agency migration with 5,000–20,000 contacts and 5–15 workflows takes 4–6 weeks. A complex migration with multiple client accounts or 30+ active workflows takes 6–8 weeks or longer. The contact import itself is fast the workflow recreation is what drives the timeline."
+      a: "A straightforward migration with under 5,000 contacts and fewer than five active workflows takes 3–4 weeks. A standard agency migration with 5,000–20,000 contacts takes 4–6 weeks. Multi-client agency migrations with 30+ workflows typically take 8–12 weeks."
     },
     {
-      q: "What breaks when migrating from HubSpot to GoHighLevel?",
-      a: "The main things that break: HubSpot automation workflows (the trigger logic, branching conditions, and action sequences do not transfer and must be rebuilt), company-to-contact associations, deal activity history and notes (partial exportable as CSV but not auto-imported), email sending domain (requires DKIM/SPF setup and warmup period), and any HubSpot-specific integrations that do not have GHL equivalents."
+      q: "What happens to my HubSpot data if I cancel before finishing the migration?",
+      a: "HubSpot provides a 25-day export window after cancellation. After that, the data is permanently deleted. Don't cancel until your GHL system is fully validated and has run in parallel for at least two weeks."
     },
     {
-      q: "How much does it cost to migrate from HubSpot to GoHighLevel?",
-      a: "DIY migration costs only the time of your team members. Professional migration services typically start from a project fee covering data export, field mapping, pipeline setup, workflow recreation, and parallel testing. Most agencies find the first month of savings on HubSpot subscriptions covers the migration cost entirely, with ongoing savings of $500–8,900+ per month depending on client count."
+      q: "Do HubSpot workflows transfer to GoHighLevel automatically?",
+      a: "No. Workflow logic triggers, branching conditions, and actions must be rebuilt manually in GHL's workflow builder. Contact-based workflows map most directly; deal- and ticket-based workflows require the underlying pipeline structure to be rebuilt first."
     },
     {
-      q: "Should I cancel HubSpot before completing the migration?",
-      a: "No. Keep HubSpot active until: your contacts are fully imported and validated in GHL, all active workflows are rebuilt and tested, you have run both platforms in parallel for at least two weeks, and all lead capture points are redirected to GHL. HubSpot provides a 25-day data export window after cancellation after that, data is deleted. Cancelling prematurely is the most costly migration mistake."
-    },
-    {
-      q: "Can GHL Scale Up handle our HubSpot to GoHighLevel migration?",
-      a: "Yes. GHL Scale Up manages end-to-end HubSpot to GoHighLevel migrations including data export and cleaning, field mapping, pipeline restructure, workflow recreation with trigger replication, email domain configuration and warmup, integration setup, and parallel testing. We have completed 200+ GHL builds including migrations from HubSpot, Salesforce, Zoho, and ActiveCampaign."
+      q: "Can I migrate from HubSpot to GoHighLevel myself, or do I need help?",
+      a: "It's possible to do it yourself if you're comfortable with CSV field mapping and rebuilding automation logic from scratch. For accounts with complex deal associations, multiple client sub-accounts, or 15+ active workflows, most teams find it faster to use a migration service rather than absorbing the learning curve mid-project."
     },
   ];
 
@@ -156,7 +94,7 @@ export default function HubSpotToGHLMigrationClient() {
 
   const tocItems = [
     { id: 'why-migrate', title: '1. Why Agencies Migrate from HubSpot to GoHighLevel' },
-    { id: 'what-transfers', title: '2. What Transfers from HubSpot and What Breaks' },
+    { id: 'what-transfers', title: '2. What Transfers From HubSpot to GoHighLevel (and What Breaks)' },
     { id: 'migration-steps', title: '3. How to Migrate from HubSpot to GoHighLevel (Step-by-Step)' },
     { id: 'how-long', title: '4. How Long Does a HubSpot to GoHighLevel Migration Take?' },
     { id: 'common-mistakes', title: '5. Common HubSpot Migration Mistakes to Avoid' },
@@ -174,30 +112,28 @@ export default function HubSpotToGHLMigrationClient() {
   ];
 
   const transferData = [
-    { asset: 'Contacts (name, email, phone)', action: 'Transfers via CSV import', required: 'Clean and deduplicate before importing' },
-    { asset: 'Custom contact properties', action: 'Requires field mapping to GHL custom fields', required: 'Create GHL custom fields first, then map during import' },
-    { asset: 'Deal pipeline stages', action: 'Requires pipeline restructure in GHL', required: 'Recreate pipeline stages manually, then import open deals' },
-    { asset: 'Active automation workflows', action: 'Does NOT transfer', required: 'Full trigger replication and workflow recreation required' },
-    { asset: 'Email templates', action: 'Does not transfer', required: 'Recreate in GHL email builder' },
-    { asset: 'Landing pages and forms', action: 'Does not transfer', required: 'Rebuild in GHL funnel builder' },
-    { asset: 'Deal activity history and notes', action: 'Partial CSV only', required: 'Export deal notes, import as contact notes in GHL' },
-    { asset: 'HubSpot "company" associations', action: 'Does not transfer cleanly', required: 'Rebuild company groupings using GHL custom fields' },
+    { asset: 'Contacts (name, email, phone)', action: 'Transfers via CSV export/import', required: 'Clean and deduplicate before importing' },
+    { asset: 'Custom contact properties', action: 'Requires field mapping', required: 'Create matching GHL custom fields first, then map during import' },
+    { asset: 'Deal pipeline stages', action: 'Does not transfer as structure', required: 'Recreate pipeline stages manually in GHL, then import open deals' },
+    { asset: 'Deal activity history & notes', action: 'Partial CSV export only', required: 'Export notes separately, import as GHL contact notes' },
+    { asset: 'Company-to-contact associations', action: 'Does not transfer', required: 'Rebuild groupings using GHL custom fields or tags' },
+    { asset: 'Active automation workflows', action: 'Does not transfer', required: 'Full rebuild required in GHL\'s workflow builder' },
+    { asset: 'Email templates', action: 'Does not transfer', required: 'Recreate in GHL\'s email builder' },
+    { asset: 'Landing pages and forms', action: 'Does not transfer', required: 'Rebuild in GHL\'s funnel/form builder' },
     { asset: 'Multi-branch workflow logic', action: 'Does not transfer', required: 'Rebuild using GHL If/Else conditions' },
-    { asset: 'Email sending domain', action: 'Requires DNS reconfiguration', required: 'Set up DKIM/SPF for GHL, warm domain over 2–3 weeks' },
+    { asset: 'Email sending domain', action: 'Requires reconfiguration', required: 'Set up DKIM/SPF for GHL, warm the domain over 2–3 weeks' },
   ];
 
   const timelineData = [
     { type: 'Simple solo business', contacts: 'Under 5,000', workflows: 'Fewer than 5', timeline: '3–4 weeks' },
     { type: 'Standard small agency', contacts: '5,000–20,000', workflows: '5–15', timeline: '4–6 weeks' },
     { type: 'Complex growing agency', contacts: '20,000–50,000', workflows: '15–30+', timeline: '6–8 weeks' },
-    { type: 'Enterprise 10+ client accounts', contacts: '50,000+', workflows: '30+ across clients', timeline: '8–12 weeks' },
+    { type: 'Enterprise (10+ client accounts)', contacts: '50,000+', workflows: '30+ across clients', timeline: '8–12 weeks' },
   ];
 
   const mistakesList = [
-    { mistake: 'Cancelling HubSpot before the migration is validated', fix: 'Keep HubSpot active until you have run GHL in parallel for at least two weeks and confirmed everything works.' },
-    { mistake: 'Migrating every workflow without reviewing whether it should exist', fix: 'Audit your workflows first and only rebuild what actively serves a current business purpose.' },
-    { mistake: 'Skipping email domain warmup', fix: 'Warm your domain over 2–3 weeks of progressively increasing send volume before full sending.' },
-    { mistake: 'Trying to migrate all client accounts simultaneously', fix: 'Migrate one client account completely first, validate, document, then apply learnings to the next.' },
+    { mistake: 'Cancelling before the 25-day window closes without full validation', fix: 'Keep HubSpot active until you have run GHL in parallel for at least two weeks and confirmed everything works.' },
+    { mistake: 'Treating company-to-contact associations as optional', fix: 'Rebuild groupings using GHL custom fields or tags skipping this means losing visibility into which contacts belong to which client account.' },
   ];
 
   // Reusable Project Help Card Component
@@ -259,16 +195,13 @@ export default function HubSpotToGHLMigrationClient() {
             </div>
             <div>
               <div className="text-sm font-medium text-white">GHL Scale Up Team</div>
-              <div className="text-xs text-white/50">GoHighLevel Migration Specialists · 200+ Builds Delivered · Updated May 2026</div>
+              <div className="text-xs text-white/50">GoHighLevel Migration Specialists · 5+ years GHL experience · 200+ migrations completed · Updated 2026</div>
             </div>
           </div>
 
           {/* Introductory Paragraph */}
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-6xl">
-            Moving from HubSpot to GoHighLevel is one of the most impactful infrastructure decisions 
-            a marketing agency can make and one of the easiest to get wrong. This guide covers exactly 
-            what the migration involves, what breaks during the process, and how to move your contacts, 
-            pipelines, and workflows without losing data or disrupting client operations.
+            Moving from HubSpot to GoHighLevel is a structural change, not a simple export-and-import. HubSpot organizes data relationally Companies contain Contacts, Contacts link to Deals through Associations, and Activities fan out across every object. GoHighLevel is contact-centric everything radiates from a flat Contact record. Understanding that mismatch before you export a single row is what separates a clean migration from weeks of manual cleanup afterward.
           </p>
 
           {/* CTA Button 1: Hero Section */}
@@ -347,7 +280,7 @@ export default function HubSpotToGHLMigrationClient() {
                 </div>
               </div>
               <p className="text-xs text-white/60 leading-relaxed mb-3">
-                5+ years GHL experience · 200+ systems built and migrated across real estate, healthcare, SaaS, and agencies globally. 
+                5+ years GHL experience · 200+ systems built and migrated across real estate, healthcare, SaaS, and agencies globally.
                 All migration steps verified against GoHighLevel's official documentation as of May 2026.
               </p>
               <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
@@ -399,11 +332,11 @@ export default function HubSpotToGHLMigrationClient() {
                 Migrating from HubSpot to GoHighLevel involves four core phases.
               </p>
               <p className="text-sm text-[#5C6880] leading-relaxed">
-                Export and clean your HubSpot data, rebuild your pipelines and custom fields in GHL, recreate your automation 
-                workflows using GHL's trigger system, and run both platforms in parallel for 2–3 weeks before cutting over. 
-                Deal history, complex multi-branch workflows, and HubSpot's company associations do not transfer automatically 
-               these must be rebuilt manually. A straightforward migration with clean data takes 4–6 weeks. A complex 
-                agency migration with 10+ clients typically takes 6–8 weeks.
+                Exporting and cleaning your HubSpot data, rebuilding your pipelines and custom fields in GHL, recreating your automation
+                workflows using GHL's trigger system, and running both platforms in parallel for 2–3 weeks before cutover.
+                Contacts and custom properties transfer via CSV with field mapping. Deal history, company associations, and
+                automation logic do not transfer automatically and must be rebuilt manually. A straightforward migration takes
+                3–4 weeks; a multi-client agency migration typically takes 6–8 weeks or longer.
               </p>
 
               {/* CTA Button 2: Inside TL;DR Box */}
@@ -448,8 +381,8 @@ export default function HubSpotToGHLMigrationClient() {
               1. Why Agencies Migrate from HubSpot to GoHighLevel
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The driving reason is almost always cost combined with architecture. HubSpot is built for a single company's 
-              internal marketing and sales team. GoHighLevel is built for agencies managing multiple client accounts. 
+              The driving reason is almost always cost combined with architecture. HubSpot is built for a single company's
+              internal marketing and sales team. GoHighLevel is built for agencies managing multiple client accounts.
               When those two models collide, the economics become impossible to ignore.
             </p>
 
@@ -479,34 +412,21 @@ export default function HubSpotToGHLMigrationClient() {
             </div>
 
             <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              Beyond cost: HubSpot has no native SMS, no AI Voice Agent, no white-label capability, and no sub-account model 
-              for managing multiple client accounts from one dashboard. For a deeper comparison: 
-              <Link href="/blog/gohighlevel-vs-hubspot" className="text-[#0E9BF0] hover:underline ml-1">GoHighLevel vs HubSpot: Honest 2026 Comparison →</Link>
-            </p>
-
-            {/* CTA Button 3: After Section 1 */}
-            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 mb-8 text-center">
-              <p className="text-white/80 text-sm mb-3">
-                <span className="font-bold text-white">Ready to save thousands on your CRM stack?</span> Let our team handle your migration.
-              </p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <BarChart3 className="w-4 h-4" />
-                Get Migration Help
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              Beyond cost: HubSpot has no native SMS, no AI Voice Agent, no white-label capability, and no sub-account model
+              for managing multiple client accounts from one dashboard. For a deeper comparison:{' '}
+              <Link href="/blog/gohighlevel-vs-hubspot" className="text-[#0E9BF0] hover:underline">
+                honest GoHighLevel vs. HubSpot comparison →
               </Link>
-            </div>
+            </p>
 
             {/* Section 2: What Transfers */}
             <h2 id="what-transfers" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              2. What Transfers from HubSpot and What Breaks
+              2. What Transfers From HubSpot to GoHighLevel (and What Breaks)
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Understanding the structural mismatch before you export a single record is what separates a clean migration 
-              from weeks of manual cleanup. HubSpot uses a relational schema: Companies contain Contacts, Contacts link to 
-              Deals via associations, and Activities fan out across every object. GoHighLevel is contact-centric: everything 
+              Understanding the structural mismatch before you export a single record is what separates a clean migration
+              from weeks of manual cleanup. HubSpot uses a relational schema: Companies contain Contacts, Contacts link to
+              Deals via associations, and Activities fan out across every object. GoHighLevel is contact-centric: everything
               radiates from a flat Contact record.
             </p>
 
@@ -531,30 +451,48 @@ export default function HubSpotToGHLMigrationClient() {
               </table>
             </div>
 
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
+            {/* HubSpot Tiers Note */}
+            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
               <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">THE MOST COSTLY MISTAKE</span>
+                <Info className="w-4 h-4 text-[#0E9BF0]" />
+                <span className="text-sm font-bold text-[#0E9BF0]">A NOTE ON HUBSPOT TIERS</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                HubSpot gives you <strong className="text-[#1A2236]">25 days to export your data after you cancel.</strong> 
-                After that window closes, your data is deleted. Do not cancel HubSpot until: all contact data is exported and 
-                validated in GHL, all workflows are rebuilt and tested, and you have run parallel operations for at least 2 weeks.
+                What you can export depends on your plan. Starter accounts have limited API access and fewer custom property slots to begin with. Professional and Enterprise accounts have full API access, which makes bulk export and validation considerably faster if your team has developer resources, using the API instead of manual CSV export is worth the setup time on larger accounts.
               </p>
             </div>
 
-            {/* CTA Button 4: After What Transfers */}
-            <div className="bg-gradient-to-r from-[#0E9BF0] to-[#0C8AD8] rounded-xl p-6 text-center text-white mb-8">
-              <p className="text-sm font-medium mb-2">🔍 Not sure what will break in your migration?</p>
-              <p className="text-sm text-white/80 mb-4">Let us audit your HubSpot setup and tell you exactly what will and won't transfer.</p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-white text-[#0E9BF0] font-bold px-6 py-2.5 rounded-lg hover:bg-[#F8F9FB] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <HeartHandshake className="w-4 h-4" />
-                Get a Free Audit
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
+            {/* Workflow Types Note */}
+            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
+              <div className="flex items-center gap-2 mb-2">
+                <Info className="w-4 h-4 text-[#0E9BF0]" />
+                <span className="text-sm font-bold text-[#0E9BF0]">A NOTE ON WORKFLOW TYPES</span>
+              </div>
+              <p className="text-sm text-[#1A2236] leading-relaxed">
+                HubSpot workflows fall into three categories contact-based, deal-based, and ticket-based. Contact-based workflows (the most common) map most directly to GHL's trigger system. Deal-based and ticket-based workflows generally require rebuilding the underlying pipeline structure in GHL before the workflow logic itself, since GHL doesn't have a separate "ticket" object ticket-style processes are usually rebuilt as a dedicated pipeline.
+              </p>
+            </div>
+
+            {/* The 25-Day Deadline Box */}
+            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
+              <div className="flex items-center gap-2 mb-2">
+                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
+                <span className="text-sm font-bold text-[#F8D000]">THE 25-DAY DEADLINE YOU NEED TO KNOW BEFORE YOU START</span>
+              </div>
+              <p className="text-sm text-[#1A2236] leading-relaxed">
+                This is the single most important fact in this guide. HubSpot gives you <strong>25 days to export your data after you cancel your subscription.</strong> After that window closes, your data is permanently deleted from HubSpot's servers.
+              </p>
+              <p className="text-sm text-[#1A2236] leading-relaxed mt-2">
+                <strong>Do not cancel HubSpot until all three of these are true:</strong>
+              </p>
+              <ul className="text-sm text-[#1A2236] leading-relaxed mt-1 list-disc pl-5 space-y-1">
+                <li>Every contact, deal, and property has been exported and validated inside GoHighLevel</li>
+                <li>Every active workflow has been rebuilt in GHL and tested with real contacts</li>
+                <li>You have run both platforms in parallel for at least two weeks with no critical errors</li>
+              </ul>
+              <p className="text-sm text-[#1A2236] leading-relaxed mt-2">
+                Cancelling early before validating the GHL side is actually working is the single most expensive mistake in a HubSpot migration, because there is no way to go back and re-export once the 25-day window closes.
+              </p>
             </div>
 
             {/* Section 3: Migration Steps */}
@@ -568,7 +506,7 @@ export default function HubSpotToGHLMigrationClient() {
                   <div className="w-6 h-6 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold">1</div>
                   <h3 className="text-base font-bold text-[#1A2236]">Audit your HubSpot account before touching anything</h3>
                 </div>
-                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">List every active workflow, pipeline stage, custom contact property, and integration. Identify what is actively used vs legacy clutter. Migration is your best opportunity to clean up years of technical debt.</p>
+                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">List every active workflow (noting whether it's contact-, deal-, or ticket-based), every pipeline stage, every custom property, and every integration. Migration is the best opportunity you'll get to remove years of unused automation clutter.</p>
               </div>
 
               <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
@@ -576,48 +514,49 @@ export default function HubSpotToGHLMigrationClient() {
                   <div className="w-6 h-6 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold">2</div>
                   <h3 className="text-base font-bold text-[#1A2236]">Export your HubSpot data</h3>
                 </div>
-                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">In HubSpot, go to Contacts → Export to download your contact database as a CSV. Export Deals from Sales → Deals. Export deal notes and activity logs separately these will not carry over automatically.</p>
+                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">Go to Contacts → Export for your contact database. Export Deals separately from Sales → Deals. Export deal notes and activity logs on their own these do not travel with the standard contact/deal export.</p>
               </div>
 
               <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-6 h-6 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold">3</div>
-                  <h3 className="text-base font-bold text-[#1A2236]">Build your GoHighLevel infrastructure</h3>
+                  <h3 className="text-base font-bold text-[#1A2236]">Build your GoHighLevel infrastructure before importing anything</h3>
                 </div>
-                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">Create your custom fields (field mapping), build your pipeline stages (pipeline restructure), configure your GHL email domain with DKIM/SPF/DMARC, and set up your phone number with A2P 10DLC registration.</p>
+                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">Create your custom fields to match your HubSpot properties, build your pipeline stages, and set up your email domain and phone number. For the domain authentication and warmup process specifically, see{' '}
+                  <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-[#0E9BF0] hover:underline">GHL's workflow automation guide</Link> the setup steps are the same regardless of which platform you're migrating from.
+                </p>
               </div>
 
               <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-6 h-6 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold">4</div>
-                  <h3 className="text-base font-bold text-[#1A2236]">Import contacts and validate</h3>
+                  <h3 className="text-base font-bold text-[#1A2236]">Import contacts and validate immediately</h3>
                 </div>
-                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">Import your cleaned contact CSV into GoHighLevel via Contacts → Import. Map each CSV column to the corresponding GHL field. After import, run a data validation check on 50–100 contacts.</p>
+                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">Map each CSV column to its GHL field, then spot-check 50–100 imported contacts before doing anything else. Catching a mapping error now is far cheaper than catching it after workflows are live.</p>
               </div>
 
               <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-6 h-6 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold">5</div>
-                  <h3 className="text-base font-bold text-[#1A2236]">Recreate your automation workflows (trigger replication + workflow recreation)</h3>
+                  <h3 className="text-base font-bold text-[#1A2236]">Rebuild your automation workflows</h3>
                 </div>
-                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">For each active HubSpot workflow, rebuild the equivalent in GHL. Start with your highest-volume workflows. Use GHL's If/Else conditions to replicate branching logic. Test every workflow before activating.</p>
-                <p className="text-sm text-[#0E9BF0] leading-relaxed ml-9 mt-1">→ Need help with workflows? <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-[#0E9BF0] hover:underline">GoHighLevel Workflow Automation Guide →</Link></p>
+                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">Starting with your highest-volume ones. For contact-based workflows, recreate the trigger and action sequence directly. For deal- and ticket-based workflows, confirm your GHL pipeline structure matches before rebuilding the automation logic on top of it. Use If/Else conditions to replicate HubSpot's branching logic.</p>
               </div>
 
               <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-6 h-6 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold">6</div>
-                  <h3 className="text-base font-bold text-[#1A2236]">Run parallel operations for 2–3 weeks</h3>
+                  <h3 className="text-base font-bold text-[#1A2236]">Run both platforms in parallel for 2–3 weeks</h3>
                 </div>
-                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">Keep HubSpot active and run both platforms simultaneously. New leads enter GHL. Existing active deals continue in HubSpot. This parallel period reveals gaps before you are fully committed.</p>
+                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">New leads flow into GHL; existing active deals continue running in HubSpot until they close. This overlap period is what surfaces gaps before you're fully committed.</p>
               </div>
 
               <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-6 h-6 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold">7</div>
-                  <h3 className="text-base font-bold text-[#1A2236]">Cut over and cancel HubSpot</h3>
+                  <h3 className="text-base font-bold text-[#1A2236]">Cut over, then cancel and remember the 25-day window</h3>
                 </div>
-                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">Redirect all lead capture points to GHL. Update embed codes. Run a final data export from HubSpot as backup. Then cancel your HubSpot subscription.</p>
+                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">Redirect all lead-capture points, update embed codes, and take a final backup export from HubSpot before cancelling.</p>
               </div>
             </div>
 
@@ -626,8 +565,8 @@ export default function HubSpotToGHLMigrationClient() {
               4. How Long Does a HubSpot to GoHighLevel Migration Take?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Timeline depends on complexity specifically the number of active workflows, the volume and cleanliness of your contact data, 
-              and whether you are migrating one account or multiple client accounts.
+              These figures run higher than a general GoHighLevel migration's baseline because of HubSpot's relational data structure rebuilding associations and deal history adds real time that a simpler platform migration wouldn't require. For how these compare across other source platforms, see the{' '}
+              <Link href="/blog/ghl-migration-timeline" className="text-[#0E9BF0] hover:underline">general GHL migration timeline guide</Link>.
             </p>
 
             <div className="overflow-x-auto my-6">
@@ -659,29 +598,19 @@ export default function HubSpotToGHLMigrationClient() {
                 <span className="text-sm font-bold text-[#0E9BF0]">WHAT DRIVES TIMELINE</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                The contact import itself takes hours. <strong>The automation rebuild is what takes weeks.</strong> 
-                A complex HubSpot workflow with 10+ branches and conditional logic can take 4–8 hours per workflow to correctly replicate in GHL.
+                The contact import itself takes hours, not weeks. <strong>The automation rebuild is what drives the timeline</strong> a complex multi-branch workflow can take 4–8 hours to correctly replicate in GHL's builder.
               </p>
-            </div>
-
-            {/* CTA Button 5: After Timeline */}
-            <div className="bg-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
-              <p className="text-sm font-medium mb-2">⏱️ Don't want to spend weeks on migration?</p>
-              <p className="text-sm text-white/80 mb-4">We handle the entire migration so you can focus on your business.</p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <ClockIcon className="w-4 h-4" />
-                Get Migration Done Faster
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
             </div>
 
             {/* Section 5: Common Mistakes */}
             <h2 id="common-mistakes" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               5. Common HubSpot Migration Mistakes to Avoid
             </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Most migration mistakes skipping domain warmup, migrating dead automations, cutting over without parallel testing apply to any platform switch, and we've covered those in detail in{' '}
+              <Link href="/blog/ghl-migration-mistakes" className="text-[#0E9BF0] hover:underline">8 common GHL migration mistakes</Link>.
+              Two mistakes, though, are specific to HubSpot's structure:
+            </p>
 
             <div className="space-y-4 mb-6">
               {mistakesList.map((item, idx) => (
@@ -695,38 +624,6 @@ export default function HubSpotToGHLMigrationClient() {
                   </div>
                 </div>
               ))}
-            </div>
-
-            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-5 my-6 text-white">
-              <div className="flex items-center gap-2 mb-3">
-                <Star className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">WE HANDLE THE MIGRATION FOR YOU</span>
-              </div>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                GHL Scale Up manages complete HubSpot to GoHighLevel migrations contact export and cleaning, field mapping, 
-                pipeline restructure, workflow recreation, email domain configuration, and parallel testing.
-              </p>
-              <Link href="/contact" className="inline-flex items-center gap-2 text-[#F8D000] text-sm font-semibold hover:gap-3 transition-all">
-                Book a free migration assessment at ghlscaleup.com/contact
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-              <p className="text-sm text-white/60 leading-relaxed mt-3">
-                → Learn more about our <Link href="/services/migration" className="text-[#0E9BF0] hover:underline">HubSpot to GoHighLevel migration service →</Link>
-              </p>
-            </div>
-
-            {/* CTA Button 6: Before FAQ */}
-            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
-              <p className="text-sm font-medium mb-2">⚠️ Don't risk your data with a DIY migration.</p>
-              <p className="text-sm text-white/80 mb-4">Get a free, no-obligation migration assessment from experts who've done 200+ migrations.</p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <Shield className="w-4 h-4" />
-                Get a Free Assessment
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
             </div>
 
             {/* Section 6: FAQ */}
@@ -746,27 +643,12 @@ export default function HubSpotToGHLMigrationClient() {
               ))}
             </div>
 
-            {/* CTA Button 7: After FAQ */}
-            <div className="mt-8 p-6 bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl text-center">
-              <p className="text-white font-bold text-lg mb-2">Still Have Questions About Migrating from HubSpot?</p>
-              <p className="text-white/60 text-sm mb-4">Talk to our migration specialists directly. We've done 200+ migrations.</p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  Ask an Expert
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-white/20 transition-all border border-white/20 text-sm"
-                >
-                  <Phone className="w-4 h-4" />
-                  Call Us
-                </Link>
-              </div>
+            {/* Contextual CTA inside FAQ */}
+            <div className="mt-4 text-sm text-[#5C6880] leading-relaxed">
+              Deciding whether to leave HubSpot in the first place? See our{' '}
+              <Link href="/blog/gohighlevel-vs-hubspot" className="text-[#0E9BF0] hover:underline">honest GoHighLevel vs. HubSpot comparison</Link>.
+              Ready to have your migration handled end-to-end?{' '}
+              <Link href="/contact" className="text-[#0E9BF0] hover:underline font-medium">Book a free migration assessment</Link> we'll review your account and give you a realistic timeline and fixed quote.
             </div>
 
             {/* Internal Links */}
@@ -778,15 +660,17 @@ export default function HubSpotToGHLMigrationClient() {
                 <Link href="/blog/gohighlevel-pricing" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Pricing: All Plans Explained →</Link>
                 <Link href="/services/migration" className="text-sm text-[#0E9BF0] hover:underline">HubSpot to GoHighLevel Migration Service →</Link>
                 <Link href="/services/crm-setup" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel CRM Setup Service →</Link>
+                <Link href="/blog/ghl-migration-mistakes" className="text-sm text-[#0E9BF0] hover:underline">8 Common GHL Migration Mistakes →</Link>
+                <Link href="/blog/ghl-migration-timeline" className="text-sm text-[#0E9BF0] hover:underline">General GHL Migration Timeline Guide →</Link>
               </div>
             </div>
 
-            {/* Final CTA Section */}
+            {/* Final CTA Section - Single closing CTA */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Ready to move from HubSpot to GoHighLevel?</h3>
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
-                  Don't risk your data. We've done this 200+ times. Field mapping, workflow recreation, pipeline restructure, 
+                  Don't risk your data. We've done this 200+ times. Field mapping, workflow recreation, pipeline restructure,
                   email warmup, and 30-day post-migration support all handled. Book a free migration assessment.
                 </p>
                 <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105">
