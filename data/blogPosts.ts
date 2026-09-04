@@ -22,7 +22,7 @@ export const blogPosts: BlogPost[] = [
             date: 'September 2, 2026',
             readTime: '18 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: 'https://i.ytimg.com/vi/27-I1NPvDPk/maxresdefault.jpg',
       },
       {
             icon: 'Workflow',
@@ -33,7 +33,7 @@ export const blogPosts: BlogPost[] = [
             date: 'August 31, 2026',
             readTime: '22 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: 'https://ghlbuilds.com/wp-content/uploads/2025/12/GoHighLevel-Workflow.png',
       },
       {
             icon: 'Zap',
@@ -44,7 +44,7 @@ export const blogPosts: BlogPost[] = [
             date: 'August 30, 2026',
             readTime: '28 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: 'https://ml.globenewswire.com/Resource/Download/3f69f2c3-1700-4f4e-aad9-2be30c208ed5/gohighlevel.jpg',
       },
       {
             icon: 'Users',
@@ -132,7 +132,7 @@ export const blogPosts: BlogPost[] = [
             date: 'July 31, 2026',
             readTime: '22 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: 'https://www.freedomboundbusiness.com/wp-content/uploads/2023/08/gohighlevel-website-builder-Featured-Image.jpg',
       },
       {
             icon: 'CalendarClock',
@@ -165,7 +165,7 @@ export const blogPosts: BlogPost[] = [
             date: 'July 28, 2026',
             readTime: '20 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: 'https://tse2.mm.bing.net/th/id/OIP.-NdJQID86M6JjLYlbkIBZQHaEI?r=0&rs=1&pid=ImgDetMain&o=7&rm=3',
       },
       {
             icon: 'MailOpen',
