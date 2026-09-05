@@ -3,13 +3,13 @@ import GoHighLevelVsHubSpotClient from './client';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: 'GoHighLevel vs HubSpot (2026): Honest Agency Comparison',
-  description: 'At $297/mo GHL gives unlimited clients. HubSpot charges $890/mo per client account. Full pricing and feature comparison.',
-  keywords: 'gohighlevel vs hubspot, gohighlevel vs hubspot pricing, ghl vs hubspot, gohighlevel vs hubspot for agencies, gohighlevel alternatives, hubspot vs gohighlevel features',
+  title: 'GoHighLevel vs HubSpot (2026): Honest Comparison for Agencies',
+  description: 'Real 2026 pricing, a feature-by-feature breakdown, and an honest verdict on when GoHighLevel wins, when HubSpot wins, and when the answer depends on your business.',
+  keywords: 'gohighlevel vs hubspot, gohighlevel vs hubspot pricing, ghl vs hubspot, gohighlevel vs hubspot for agencies, gohighlevel vs hubspot crm, hubspot vs gohighlevel features, which is better gohighlevel or hubspot',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {
-    title: 'GoHighLevel vs HubSpot (2026): Honest Agency Comparison',
-    description: 'The real differences in pricing, features, and who each platform is actually built for. For agencies managing multiple clients, GHL wins on cost and architecture.',
+    title: 'GoHighLevel vs HubSpot (2026): Honest Comparison for Agencies',
+    description: 'Real 2026 pricing, a feature-by-feature breakdown, and an honest verdict on when GoHighLevel wins, when HubSpot wins, and when the answer depends on your business.',
     type: 'article',
     publishedTime: '2026-05-14T00:00:00Z',
     modifiedTime: '2026-05-14T00:00:00Z',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@ghlscaleup',
     title: 'GoHighLevel vs HubSpot (2026): Honest Comparison for Agencies',
-    description: 'The real differences in pricing, features, and who each platform is actually built for.',
+    description: 'Real 2026 pricing, a feature-by-feature breakdown, and an honest verdict on when GoHighLevel wins, when HubSpot wins, and when the answer depends on your business.',
     images: ['https://www.ghlscaleup.com/images/blog/ghl-vs-hubspot-og.jpg'],
   },
   alternates: {
@@ -39,8 +39,8 @@ export default function GoHighLevelVsHubSpotPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "GoHighLevel vs HubSpot (2026): Honest Comparison for Agencies",
-            "description": "GoHighLevel vs HubSpot — the real differences in pricing, features, and who each platform is actually built for. For agencies managing multiple clients, GHL wins on cost and architecture. For enterprise B2B sales teams, HubSpot wins on depth.",
+            "headline": "GoHighLevel vs HubSpot: Which Platform Is Right for Your Business? (2026)",
+            "description": "GoHighLevel and HubSpot overlap significantly on paper — both offer CRM, marketing automation, and sales tools — but they were built for different buyers, and choosing based on feature-count alone leads to the wrong decision. This comparison uses verified pricing, a category-by-category feature breakdown, and honest treatment of where each platform actually wins.",
             "image": "https://www.ghlscaleup.com/images/blog/ghl-vs-hubspot-og.jpg",
             "datePublished": "2026-05-14",
             "dateModified": "2026-05-14",
@@ -64,8 +64,7 @@ export default function GoHighLevelVsHubSpotPage() {
           })
         }}
       />
-      <GoHighLevelVsHubSpotClient />;
+      <GoHighLevelVsHubSpotClient />
     </>
-  )
-
+  );
 }
