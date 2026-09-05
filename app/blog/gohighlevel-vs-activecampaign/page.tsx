@@ -3,16 +3,16 @@ import Script from 'next/script';
 import GoHighLevelVsActiveCampaignClient from './client';
 
 export const metadata: Metadata = {
-  title: 'GoHighLevel vs ActiveCampaign (2026): Honest Agency Comparison | GHL Scale Up',
-  description: 'GHL wins for agencies needing SMS, sub-accounts and white-label. AC wins for email depth and deliverability. Real 2026 pricing, feature comparison, and an honest verdict on who should switch.',
-  keywords: 'GoHighLevel vs ActiveCampaign, GoHighLevel vs ActiveCampaign 2026, ActiveCampaign vs GoHighLevel for agencies, is GoHighLevel better than ActiveCampaign, GoHighLevel ActiveCampaign pricing comparison, can GoHighLevel replace ActiveCampaign',
+  title: 'GoHighLevel vs ActiveCampaign (2026): Pricing, Features, Verdict',
+  description: 'Real 2026 pricing, an honest look at where ActiveCampaign\'s email automation wins, and where GoHighLevel\'s multi-channel breadth wins — with a clear verdict for your situation.',
+  keywords: 'gohighlevel vs activecampaign, gohighlevel vs activecampaign pricing, gohighlevel vs activecampaign for agencies, is gohighlevel better than activecampaign, gohighlevel activecampaign comparison, activecampaign vs gohighlevel, can gohighlevel replace activecampaign',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {
-    title: 'GoHighLevel vs ActiveCampaign (2026): Honest Agency Comparison',
-    description: 'GHL wins for agencies needing SMS, sub-accounts and white-label. AC wins for email depth and deliverability. Real 2026 pricing and an honest verdict.',
+    title: 'GoHighLevel vs ActiveCampaign (2026): Pricing, Features, Verdict',
+    description: 'Real 2026 pricing, an honest look at where ActiveCampaign\'s email automation wins, and where GoHighLevel\'s multi-channel breadth wins — with a clear verdict for your situation.',
     type: 'article',
-    publishedTime: '2026-06-04T00:00:00Z',
-    modifiedTime: '2026-06-04T00:00:00Z',
+    publishedTime: '2026-05-14T00:00:00Z',
+    modifiedTime: '2026-05-14T00:00:00Z',
     authors: ['GHL Scale Up Team'],
     tags: ['GoHighLevel', 'ActiveCampaign', 'GHL Comparison', 'Email Automation', '2026'],
     images: [{ url: 'https://www.ghlscaleup.com/images/blog/ghl-vs-activecampaign-og.jpg', width: 1200, height: 630 }],
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@ghlscaleup',
-    title: 'GoHighLevel vs ActiveCampaign (2026): Honest Agency Comparison',
-    description: 'GHL wins for agencies needing SMS. AC wins for email depth. Real 2026 pricing and honest verdict.',
+    title: 'GoHighLevel vs ActiveCampaign (2026): Pricing, Features, Verdict',
+    description: 'Real 2026 pricing, an honest look at where ActiveCampaign\'s email automation wins, and where GoHighLevel\'s multi-channel breadth wins.',
     images: ['https://www.ghlscaleup.com/images/blog/ghl-vs-activecampaign-og.jpg'],
   },
   alternates: {
@@ -40,11 +40,11 @@ export default function GoHighLevelVsActiveCampaignPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "GoHighLevel vs ActiveCampaign (2026): Honest Comparison for Agencies",
-            "description": "GHL wins for agencies needing SMS, sub-accounts and white-label. AC wins for email depth and deliverability. Real 2026 pricing, feature comparison, and an honest verdict on who should switch.",
+            "headline": "GoHighLevel vs ActiveCampaign (2026): Honest Comparison",
+            "description": "GoHighLevel and ActiveCampaign both run CRM and email automation, which makes them look interchangeable on the surface. They aren't. ActiveCampaign is built around email as the primary channel; GoHighLevel is built around agencies running multiple channels and multiple clients. The right choice depends on which of those two things your business actually needs — not on which platform has more total features.",
             "image": "https://www.ghlscaleup.com/images/blog/ghl-vs-activecampaign-og.jpg",
-            "datePublished": "2026-06-04",
-            "dateModified": "2026-06-04",
+            "datePublished": "2026-05-14",
+            "dateModified": "2026-05-14",
             "author": {
               "@type": "Organization",
               "name": "GHL Scale Up Team",
