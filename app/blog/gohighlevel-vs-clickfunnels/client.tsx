@@ -18,73 +18,30 @@ import {
   MessageCircle,
   Phone,
   Search,
-  Trophy,
-  Facebook,
-  CheckCircle2,
-  Shield,
-  DollarSign,
-  Users,
-  Building2,
-  Calendar,
-  Layout,
-  GitBranch,
-  Sparkles,
   Award,
-  TrendingUp,
-  Star,
-  Server,
-  Globe,
-  CreditCard,
-  Smartphone,
-  Briefcase,
-  Cloud,
-  Database,
-  Clock,
-  Mail,
-  GraduationCap,
-  FileText,
   BarChart3,
-  Mailbox,
-  XCircle,
-  Layers,
-  Workflow,
-  Settings,
-  Link2,
-  Webhook,
-  RefreshCw,
-  ListChecks,
-  ClipboardList,
-  Printer,
-  Video,
-  Ticket,
-  TrendingDown,
-  Info,
-  Lightbulb,
-  UserCheck,
-  UserX,
-  PanelTop,
-  LayoutDashboard,
-  LifeBuoy,
-  Timer,
-  Trash2,
-  Download,
-  PieChart,
-  GitMerge,
-  FileCheck,
-  Headphones
+  Shield,
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import BookingModal from '@/components/BookingModal'
+import { Button } from '../../../components/ui/button';
 
 export default function GoHighLevelVsClickFunnelsClient() {
   const [activeId, setActiveId] = useState<string>('');
-  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
+      const [openBooking, setOpenBooking] = useState(false);
+    
+      const handleOpenBooking = () => {
+        setOpenBooking(true);
+      };
 
+  // Handle scroll detection for active section
   useEffect(() => {
     const handleScroll = () => {
       const sections = [
         'what-built-for',
         'pricing-comparison',
         'feature-comparison',
+        'patent-lawsuit',
         'when-clickfunnels-right',
         'switching-process',
         'verdict',
@@ -100,19 +57,13 @@ export default function GoHighLevelVsClickFunnelsClient() {
           }
         }
       }
-
-      // Show floating Project Help card after scrolling past hero section
-      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
-      if (heroSection) {
-        const heroBottom = heroSection.getBoundingClientRect().bottom;
-        setShowFloatingProjectHelp(heroBottom < 0);
-      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Handle TOC click with smooth scroll
   const scrollToHeading = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -126,72 +77,81 @@ export default function GoHighLevelVsClickFunnelsClient() {
   const faqs = [
     {
       q: "Is GoHighLevel better than ClickFunnels?",
-      a: "For marketing agencies managing multiple client accounts, yes GoHighLevel is better. It offers a flat $297/month price for unlimited clients, native SMS, AI features, white-label branding, and CRM capabilities that ClickFunnels does not have at any tier. For solo entrepreneurs who only need funnel building and simple email sequences, ClickFunnels is a simpler and faster starting point. The answer depends entirely on whether you are managing one business or multiple clients."
+      a: "For agencies managing multiple client accounts, yes GoHighLevel's flat-rate, unlimited-client architecture, native SMS, and CRM have no ClickFunnels equivalent. For a solo entrepreneur who only needs funnels, ClickFunnels' more polished, purpose-built page editor is a genuine advantage. Neither is objectively better; it depends on whether you're building for one business or several."
     },
     {
       q: "Can GoHighLevel replace ClickFunnels?",
-      a: "Yes, for most users. GoHighLevel includes a full funnel and landing page builder, email marketing, automation workflows, CRM, SMS, booking calendar, and reputation management. Everything ClickFunnels does, GoHighLevel does as part of a broader platform. The main reason someone might keep ClickFunnels is the training ecosystem and community (FunnelHackers, ClickFunnels University) which is more developed than GHL's equivalent."
+      a: "For most agency and multi-channel use cases, yes. GoHighLevel includes a funnel builder, CRM, SMS, automation, and booking in one platform. The main reason to keep ClickFunnels is its more mature page-design tooling and its training ecosystem, both of which remain genuinely stronger than GoHighLevel's equivalents."
     },
     {
       q: "How does GoHighLevel vs ClickFunnels pricing compare in 2026?",
-      a: "Both platforms start at $97/month. At $97/month: GHL gives you 1 sub-account with unlimited contacts and all core features. ClickFunnels gives you 1 workspace, 2 team members, 10,000 contacts, and 20 funnels. At $297/month: GHL gives you unlimited client sub-accounts, unlimited contacts, white-label branding, and every feature. ClickFunnels gives you 10 workspaces and 150,000 contacts for a single business with no CRM, no SMS, and no white-label."
+      a: "Both platforms have a $97/month entry tier and a $297/month higher tier. GoHighLevel's $297 Unlimited plan covers unlimited client sub-accounts and every platform feature. ClickFunnels' $297 Pro plan covers unlimited funnels and contacts for one business, with no CRM depth, native SMS, or white-label option. ClickFunnels consolidated from a three-tier structure to these two plans in 2024 comparisons citing a middle $197 tier are describing the discontinued structure."
     },
     {
       q: "Does ClickFunnels have a CRM?",
-      a: "ClickFunnels 2.0 has basic contact management and a simple pipeline view, but it is not a full CRM. It lacks the depth of GoHighLevel's CRM: no smart lists, no conversation inbox, no native 2-way SMS, no call tracking, and no robust tag-based automation. For businesses that need a proper CRM, GoHighLevel is significantly more capable."
-    },
-    {
-      q: "Does ClickFunnels have native SMS marketing?",
-      a: "No. ClickFunnels does not include native SMS marketing on any plan. You need a third-party integration such as Twilio to send text messages from ClickFunnels. GoHighLevel includes 2-way native SMS on every plan, including the $97/month Starter plan."
+      a: "ClickFunnels 2.0 has basic contact management, but it isn't a full CRM no smart lists, no native 2-way SMS, no conversation inbox, and no tag-based automation depth. Businesses that need real CRM functionality alongside funnels are better served by GoHighLevel."
     },
     {
       q: "What happened with the ClickFunnels lawsuit against GoHighLevel?",
-      a: "In 2024, ClickFunnels filed a patent infringement lawsuit against HighLevel LLC, alleging that GoHighLevel's funnel-building features infringe on a ClickFunnels patent. As of May 2026, the lawsuit is ongoing. Both platforms continue to operate normally. This is publicly documented and worth noting when evaluating either platform."
-    },
-    {
-      q: "How long does it take to switch from ClickFunnels to GoHighLevel?",
-      a: "A simple migration with 3 to 5 funnels and basic email sequences takes 1 to 2 weeks. A standard migration with 8 to 15 funnels takes 2 to 3 weeks. A complex migration with 15+ funnels, membership area, and deep automation takes 3 to 5 weeks. GoHighLevel has a URL import tool that clones ClickFunnels pages, but automations, integrations, and Stripe connections must be rebuilt manually."
+      a: "ClickFunnels sued HighLevel for patent infringement in 2024. The case was dismissed, and the U.S. Court of Appeals for the Federal Circuit affirmed that dismissal on July 2, 2026 HighLevel is the prevailing party. Both platforms operated normally throughout the litigation and continue to do so."
     },
   ];
 
   useFaqSchema(faqs);
 
   const tocItems = [
-    { id: 'what-built-for', title: '1. What Is Each Platform Actually Built For?' },
-    { id: 'pricing-comparison', title: '2. GoHighLevel vs ClickFunnels Pricing Comparison' },
-    { id: 'feature-comparison', title: '3. Feature Comparison Where Each Platform Wins' },
-    { id: 'when-clickfunnels-right', title: '4. When Is ClickFunnels Still the Right Choice?' },
-    { id: 'switching-process', title: '5. What Does Switching from ClickFunnels to GoHighLevel Involve?' },
-    { id: 'verdict', title: '6. The Verdict: Which Platform Should You Choose?' },
-    { id: 'faq', title: '7. Frequently Asked Questions' },
+    { id: 'what-built-for', title: 'What Each Platform Is Actually Built For' },
+    { id: 'pricing-comparison', title: 'GoHighLevel vs ClickFunnels Pricing (Current 2026 Figures)' },
+    { id: 'feature-comparison', title: 'Feature Comparison: Where Each Platform Actually Wins' },
+    { id: 'patent-lawsuit', title: 'The Patent Lawsuit, Updated' },
+    { id: 'when-clickfunnels-right', title: 'When Is ClickFunnels Still the Right Choice?' },
+    { id: 'switching-process', title: 'What Does Switching from ClickFunnels to GoHighLevel Involve?' },
+    { id: 'verdict', title: 'The Verdict: Which Platform Should You Choose?' },
+    { id: 'faq', title: 'Frequently Asked Questions' },
   ];
 
   const pricingData = [
-    { tier: 'Entry plan', ghl: '$97/mo · 1 sub-account, unlimited contacts', clickfunnels: '$97/mo · 1 workspace, 2 team members, 10,000 contacts' },
-    { tier: 'Mid tier', ghl: '$297/mo · unlimited sub-accounts, white-label', clickfunnels: '$197/mo · 5 workspaces, 5 team members, 75,000 contacts' },
-    { tier: 'Top tier', ghl: '$497/mo · SaaS Mode, white-label mobile app', clickfunnels: '$297/mo · 10 workspaces, 10 team members, 150,000 contacts' },
-    { tier: 'Native SMS', ghl: 'Yes included on every plan', clickfunnels: 'No requires third-party' },
-    { tier: 'White-label capability', ghl: 'Yes Unlimited and Pro', clickfunnels: 'No' },
-    { tier: 'SaaS resale', ghl: 'Yes Agency Pro', clickfunnels: 'No' },
+    { tier: 'Entry plan', ghl: '$97/mo Starter, 3 sub-accounts, unlimited contacts', clickfunnels: '$97/mo Startup: 3 brand workspaces, 20 funnels, 100 pages, 10,000 contacts, 1 user seat' },
+    { tier: 'Top plan', ghl: '$297/mo Unlimited, unlimited sub-accounts, white-label', clickfunnels: '$297/mo Pro: unlimited funnels/pages/contacts, Backpack affiliate management, 5 user seats' },
+    { tier: 'Highest tier', ghl: '$497/mo Agency Pro, SaaS Mode, white-label mobile app', clickfunnels: 'No higher tier currently offered' },
+    { tier: 'Native SMS', ghl: 'Yes, included on every plan', clickfunnels: 'No requires third-party integration (e.g., Twilio)' },
+    { tier: 'Order bumps / one-click upsells', ghl: 'Yes, native', clickfunnels: 'Yes, native a mature, original ClickFunnels feature' },
+    { tier: 'White-label capability', ghl: 'Yes (Unlimited and Agency Pro)', clickfunnels: 'Not available' },
+  ];
+
+  const featureData = [
+    { feature: 'Funnel and page design quality', winner: 'ClickFunnels', why: 'More mature page editor and template library independent reviewers consistently rate ClickFunnels\' design polish above GoHighLevel\'s' },
+    { feature: 'Order bumps and one-click upsells', winner: 'Tie', why: 'Both platforms support this natively; ClickFunnels pioneered the mechanic, GoHighLevel replicates it well' },
+    { feature: 'Native SMS', winner: 'GoHighLevel', why: 'ClickFunnels has no native SMS at any tier' },
+    { feature: 'CRM and contact management', winner: 'GoHighLevel', why: 'Full CRM with smart lists and tagging vs. ClickFunnels\' basic contact list' },
+    { feature: 'Multi-client / sub-account management', winner: 'GoHighLevel', why: 'No ClickFunnels equivalent at any price' },
+    { feature: 'AI features (Voice AI, Conversation AI)', winner: 'GoHighLevel', why: 'ClickFunnels has no comparable native AI feature set' },
+    { feature: 'White-label / SaaS resale', winner: 'GoHighLevel', why: 'Not available on ClickFunnels at any tier' },
+    { feature: 'Learning curve for beginners', winner: 'ClickFunnels', why: 'Narrower feature set makes the platform faster to learn' },
+    { feature: 'Training ecosystem and community', winner: 'ClickFunnels', why: 'FunnelHacker community and associated training are more developed than GHL\'s equivalent' },
   ];
 
   const verdictData = [
-    { situation: 'Marketing agency managing 3+ client accounts', platform: 'GoHighLevel Unlimited ($297/mo)', why: 'Sub-account architecture, white-label, unlimited clients, flat price' },
-    { situation: 'Solo entrepreneur funnels only', platform: 'ClickFunnels Launch ($97/mo)', why: 'Lower learning curve, strong templates, no need for CRM or SMS' },
-    { situation: 'Service business needing SMS and booking', platform: 'GoHighLevel Starter ($97/mo)', why: 'Native SMS, missed call text-back, booking calendar' },
-    { situation: 'Agency wanting to resell SaaS', platform: 'GoHighLevel Agency Pro ($497/mo)', why: 'SaaS Mode. ClickFunnels has no white-label capability' },
-    { situation: 'Currently on ClickFunnels with 3+ clients', platform: 'Migrate to GoHighLevel', why: 'Cost savings, sub-account architecture, native SMS and AI' },
+    { situation: 'Marketing agency managing 3+ client accounts', platform: 'GoHighLevel Unlimited ($297/mo)', why: 'Sub-account architecture; ClickFunnels has no equivalent' },
+    { situation: 'Solo entrepreneur, funnels only', platform: 'ClickFunnels Startup ($97/mo)', why: 'More polished page editor, lower learning curve, no need for CRM/SMS' },
+    { situation: 'Service business needing SMS and booking', platform: 'GoHighLevel Starter ($97/mo)', why: 'Native SMS, AI features, booking calendar built in' },
+    { situation: 'Agency wanting to resell as SaaS', platform: 'GoHighLevel Agency Pro ($497/mo)', why: 'ClickFunnels has no white-label option at any tier' },
+    { situation: 'Course creator deep in the FunnelHacker ecosystem', platform: 'ClickFunnels Pro ($297/mo)', why: 'Training and community value may outweigh GHL\'s broader feature set' },
+    { situation: 'Currently on ClickFunnels, adding clients or needing SMS/CRM', platform: 'Consider migrating to GoHighLevel', why: 'Cost and capability both favor the switch once multi-client needs appear' },
   ];
 
   // Reusable Project Help Card Component
   const ProjectHelpCard = () => (
     <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
       <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
-      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your platform decision.</p>
-      <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your migration.</p>
+      <Button
+        onClick={handleOpenBooking}
+        // href="/contact" 
+        className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
         Book a 30 min Free Call
         <ArrowRight className="w-3 h-3" />
-      </Link>
+      </Button>
     </div>
   );
 
@@ -228,7 +188,7 @@ export default function GoHighLevelVsClickFunnelsClient() {
           {/* H1 Headline */}
           <h1 className="text-[clamp(28px,6vw,46px)] font-extrabold leading-[1.2] md:leading-[1.15] text-white mb-4 md:mb-5 tracking-[-0.02em]">
             GoHighLevel vs ClickFunnels (2026):<br />
-            <span className="text-[#F8D000]">Honest Comparison for Agencies</span>
+            <span className="text-[#F8D000]">Which Platform Fits Your Business?</span>
           </h1>
 
           {/* Author Byline */}
@@ -242,17 +202,25 @@ export default function GoHighLevelVsClickFunnelsClient() {
             </div>
             <div>
               <div className="text-sm font-medium text-white">GHL Scale Up Team</div>
-              <div className="text-xs text-white/50">GoHighLevel Specialists · 200+ Builds Delivered · Updated May 2026</div>
+              <div className="text-xs text-white/50">GoHighLevel Specialists · 200+ builds delivered on both platforms · Pricing and legal status independently verified, September 2026</div>
             </div>
           </div>
 
           {/* Introductory Paragraph */}
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-6xl">
-            GoHighLevel and ClickFunnels are two of the most searched platforms in marketing and both have a genuine 
-            case for being the right choice. The problem is they are designed for fundamentally different buyers. 
-            <strong className="text-white"> GHL Scale Up</strong> has built and migrated systems on both platforms. 
-            This is the honest version of the comparison.
+            GoHighLevel and ClickFunnels both build funnels, but that's roughly where the similarity ends. ClickFunnels is a dedicated funnel and page-building tool with a mature design editor. GoHighLevel is a broader agency platform where funnels are one feature among many. The right choice depends on whether you need funnel-building depth for one business or multi-channel breadth for managing several.
           </p>
+
+          {/* Quick Answer Box */}
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 md:p-6 mb-6">
+            <div className="flex items-center gap-2 mb-3">
+              <Zap className="w-5 h-5 text-[#F8D000]" />
+              <span className="text-xs font-bold uppercase tracking-wider text-white/60">Quick answer</span>
+            </div>
+            <p className="text-sm text-white/70 leading-relaxed">
+              GoHighLevel is the stronger fit for agencies managing multiple client accounts its sub-account architecture has no ClickFunnels equivalent. ClickFunnels is the stronger fit for a solo entrepreneur or course creator who wants the most polished funnel-building experience for a single business and doesn't need a CRM, native SMS, or multi-client infrastructure. At $297/month, GoHighLevel gives unlimited client accounts and every platform feature; ClickFunnels' $297/month Pro plan covers one business with unlimited funnels and contacts, but no CRM depth, no native SMS, and no white-label option.
+            </p>
+          </div>
 
           {/* CTA Button 1: Hero Section */}
           <div className="flex flex-wrap gap-3">
@@ -371,34 +339,6 @@ export default function GoHighLevelVsClickFunnelsClient() {
           {/* ==================== RIGHT COLUMN: BLOG CONTENT ==================== */}
           <main className="min-w-0 order-2">
 
-            {/* BLUF Box */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
-              <div className="flex items-center gap-2 mb-3">
-                <Zap className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Quick Answer — Read This First</span>
-              </div>
-              <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
-                GoHighLevel wins for agencies managing multiple clients. ClickFunnels wins for solo entrepreneurs who only need funnels.
-              </p>
-              <p className="text-sm text-[#5C6880] leading-relaxed">
-                At the same price point ($297/month), GoHighLevel gives you unlimited client accounts and every feature in the platform. 
-                ClickFunnels gives you 10 workspaces and 150,000 contacts for a single business. That pricing structure difference usually 
-                ends the comparison for agencies.
-              </p>
-
-              {/* CTA Button 2: Inside TL;DR Box */}
-              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
-                  <Target className="w-4 h-4" />
-                  Get Platform Advice
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </div>
-
             {/* Table of Contents - Mobile Only */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8 lg:hidden">
               <div className="flex items-center gap-2 mb-4">
@@ -423,55 +363,29 @@ export default function GoHighLevelVsClickFunnelsClient() {
               <ProjectHelpCard />
             </div>
 
-            {/* Section 1 */}
+            {/* Section 1: What Each Platform Is Actually Built For */}
             <h2 id="what-built-for" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-8 mb-4">
-              1. What Is Each Platform Actually Built For?
+              What Each Platform Is Actually Built For
             </h2>
-            <div className="grid md:grid-cols-2 gap-5 mb-6">
-              <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-5">
-                <h3 className="text-base font-bold text-[#0E9BF0] mb-2">GoHighLevel: built for agencies managing multiple clients</h3>
-                <p className="text-sm text-[#1A2236] leading-relaxed">GoHighLevel was designed from the ground up for marketing agencies. The sub-account model, Snapshots, white-labelling, and SaaS Mode exist because the platform assumes you are building systems for multiple clients.</p>
-              </div>
-              <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5">
-                <h3 className="text-base font-bold text-[#1A2236] mb-2">ClickFunnels: built for entrepreneurs building and selling offers</h3>
-                <p className="text-sm text-[#5C6880] leading-relaxed">ClickFunnels was built for entrepreneurs, course creators, and product sellers who need to build high-converting sales funnels quickly without technical complexity.</p>
-              </div>
-            </div>
-
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Compass className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">THE SIMPLE TEST</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                Ask yourself: am I building marketing systems for other businesses, or running marketing for my own business? 
-                If you manage clients, GoHighLevel is the answer. If you run one business's funnels, either platform works.
-              </p>
-            </div>
-
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              → <Link href="/blog/gohighlevel-for-agencies" className="text-[#0E9BF0] hover:underline">GoHighLevel for Agencies: The Complete 2026 Guide →</Link>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              GoHighLevel was designed for agencies managing systems for multiple clients. The sub-account model, Snapshots, white-labeling, and SaaS Mode all exist because the platform assumes one operator runs many separate client environments.
             </p>
-
-            {/* CTA Button 3: After Section 1 */}
-            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 mb-8 text-center">
-              <p className="text-white/80 text-sm mb-3">
-                <span className="font-bold text-white">Still unsure which platform fits your business model?</span> Let our team help you decide.
-              </p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <BarChart3 className="w-4 h-4" />
-                Get Platform Advice
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              ClickFunnels was built for entrepreneurs, course creators, and product sellers who need to build high-converting funnels quickly, without the complexity of a broader CRM or agency platform underneath.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              The simple test: are you building marketing systems for other businesses, or running funnels for your own? If you manage clients, GoHighLevel's architecture fits that job directly see{' '}
+              <Link href="/blog/gohighlevel-for-agencies" className="text-[#0E9BF0] hover:underline">GoHighLevel for agencies</Link> for the full picture. If you run one business's funnels, both platforms can work, and the choice comes down to the trade-offs below.
+            </p>
 
             {/* Section 2: Pricing */}
             <h2 id="pricing-comparison" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              2. GoHighLevel vs ClickFunnels Pricing Comparison (2026 Numbers)
+              GoHighLevel vs ClickFunnels Pricing (Current 2026 Figures)
             </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              ClickFunnels restructured its pricing in 2024, consolidating what used to be three plans (Basic/Pro/Funnel Hacker) into two: Startup and Pro. Several older comparison articles, including a prior version of this one, still describe the old three-tier structure the figures below reflect the current plans.
+            </p>
+
             <div className="overflow-x-auto my-6">
               <table className="w-full border-collapse text-sm">
                 <thead>
@@ -493,108 +407,88 @@ export default function GoHighLevelVsClickFunnelsClient() {
               </table>
             </div>
 
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              → <Link href="/blog/gohighlevel-pricing" className="text-[#0E9BF0] hover:underline">GoHighLevel Pricing: All Plans Explained (2026) →</Link>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              For a solo business with one funnel-focused offer, ClickFunnels Pro at $297/month and GoHighLevel Unlimited at $297/month cost the same the difference is entirely in what's included beyond funnels. For an agency managing several clients, GoHighLevel's flat rate covers unlimited accounts where ClickFunnels has no equivalent structure at all. For the full GoHighLevel pricing breakdown, see the{' '}
+              <Link href="/blog/gohighlevel-pricing" className="text-[#0E9BF0] hover:underline">GoHighLevel pricing guide</Link>.
             </p>
 
             {/* Section 3: Feature Comparison */}
             <h2 id="feature-comparison" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              3. Feature Comparison: Where Each Platform Wins
+              Feature Comparison: Where Each Platform Actually Wins
             </h2>
-            <div className="bg-white border border-[#DDE1E9] rounded-xl p-5 my-6">
-              <div className="space-y-3">
-                <div className="flex justify-between items-center pb-2 border-b border-[#DDE1E9]">
-                  <span className="text-sm font-semibold text-[#1A2236]">Feature</span>
-                  <span className="text-sm font-semibold text-[#0E9BF0]">Winner</span>
-                </div>
-                <div className="flex justify-between items-center"><span className="text-sm text-[#5C6880]">Native SMS</span><span className="text-sm font-semibold text-[#0E9BF0]">GoHighLevel</span></div>
-                <div className="flex justify-between items-center"><span className="text-sm text-[#5C6880]">CRM and contact management</span><span className="text-sm font-semibold text-[#0E9BF0]">GoHighLevel</span></div>
-                <div className="flex justify-between items-center"><span className="text-sm text-[#5C6880]">AI features (Voice AI, Conversation AI)</span><span className="text-sm font-semibold text-[#0E9BF0]">GoHighLevel</span></div>
-                <div className="flex justify-between items-center"><span className="text-sm text-[#5C6880]">Booking calendar</span><span className="text-sm font-semibold text-[#0E9BF0]">GoHighLevel</span></div>
-                <div className="flex justify-between items-center"><span className="text-sm text-[#5C6880]">White-label and SaaS resale</span><span className="text-sm font-semibold text-[#0E9BF0]">GoHighLevel</span></div>
-                <div className="flex justify-between items-center"><span className="text-sm text-[#5C6880]">Multi-client management</span><span className="text-sm font-semibold text-[#0E9BF0]">GoHighLevel</span></div>
-                <div className="flex justify-between items-center"><span className="text-sm text-[#5C6880]">Learning curve (easier for beginners)</span><span className="text-sm font-semibold text-[#1A2236]">ClickFunnels</span></div>
-                <div className="flex justify-between items-center"><span className="text-sm text-[#5C6880]">Training ecosystem</span><span className="text-sm font-semibold text-[#1A2236]">ClickFunnels</span></div>
-              </div>
-            </div>
 
-            {/* CTA Button 4: After Feature Comparison */}
-            <div className="bg-gradient-to-r from-[#0E9BF0] to-[#0C8AD8] rounded-xl p-6 text-center text-white mb-8">
-              <p className="text-sm font-medium mb-2">🔍 Need help comparing specific features for your use case?</p>
-              <p className="text-sm text-white/80 mb-4">We'll analyze your current setup and tell you which platform fits better.</p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-white text-[#0E9BF0] font-bold px-6 py-2.5 rounded-lg hover:bg-[#F8F9FB] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <HeartHandshake className="w-4 h-4" />
-                Get a Free Analysis
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-
-            {/* Section 4: ClickFunnels Strengths */}
-            <h2 id="when-clickfunnels-right" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              4. When Is ClickFunnels Still the Right Choice?
-            </h2>
-            <div className="space-y-3 mb-6">
-              <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
-                <p className="text-sm text-[#1A2236]">• <strong>Solo entrepreneur who only needs funnels and basic email</strong> — ClickFunnels' cleaner interface and lower learning curve make it a faster path to results.</p>
-              </div>
-              <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
-                <p className="text-sm text-[#1A2236]">• <strong>Completely non-technical and want to get started quickly</strong> — ClickFunnels is consistently rated easier to learn than GoHighLevel.</p>
-              </div>
-              <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
-                <p className="text-sm text-[#1A2236]">• <strong>Deeply embedded in the FunnelHacker community</strong> — The training ecosystem is one of the most developed in online marketing.</p>
-              </div>
-            </div>
-
-            <div className="bg-[#FEF2F0] border border-[rgba(220,53,69,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#DC3545]" />
-                <span className="text-sm font-bold text-[#DC3545]">NOTE ON THE CLICKFUNNELS PATENT LAWSUIT</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">In 2024, ClickFunnels filed a patent infringement lawsuit against HighLevel LLC. As of May 2026, the lawsuit is ongoing. This does not change the practical comparison of either platform's features or pricing.</p>
-            </div>
-
-            {/* Section 5: Switching */}
-            <h2 id="switching-process" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              5. What Does Switching from ClickFunnels to GoHighLevel Involve?
-            </h2>
-            <div className="space-y-3 mb-6">
-              <div className="bg-white border border-[#DDE1E9] rounded-xl p-3"><p className="text-sm text-[#5C6880]"><strong className="text-[#1A2236]">Funnels:</strong> GoHighLevel has a URL import tool that clones your ClickFunnels pages.</p></div>
-              <div className="bg-white border border-[#DDE1E9] rounded-xl p-3"><p className="text-sm text-[#5C6880]"><strong className="text-[#1A2236]">Contacts:</strong> Export from ClickFunnels as CSV, import into GHL.</p></div>
-              <div className="bg-white border border-[#DDE1E9] rounded-xl p-3"><p className="text-sm text-[#5C6880]"><strong className="text-[#1A2236]">Email sequences:</strong> Rebuild manually as GHL workflows.</p></div>
-              <div className="bg-white border border-[#DDE1E9] rounded-xl p-3"><p className="text-sm text-[#5C6880]"><strong className="text-[#1A2236]">Timeline:</strong> Simple migration: 1 to 2 weeks. Complex: 3 to 5 weeks.</p></div>
-            </div>
-
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              → <Link href="/blog/clickfunnels-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">ClickFunnels to GoHighLevel Migration Guide →</Link>
-            </p>
-
-            {/* CTA Button 5: After Switching Section */}
-            <div className="bg-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
-              <p className="text-sm font-medium mb-2">⚡ Planning to switch from ClickFunnels to GoHighLevel?</p>
-              <p className="text-sm text-white/80 mb-4">Let us handle the migration for you, including funnel import, automation rebuild, and testing.</p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <Search className="w-4 h-4" />
-                Get Migration Help
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-
-            {/* Section 6: Verdict */}
-            <h2 id="verdict" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              6. The Verdict: Which Platform Should You Choose?
-            </h2>
             <div className="overflow-x-auto my-6">
               <table className="w-full border-collapse text-sm">
                 <thead>
                   <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Your situation</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#0E9BF0]">Recommended platform</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Feature</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#F8D000]">Winner</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Why</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {featureData.map((item, idx) => (
+                    <tr key={idx} className="border-b border-[#DDE1E9]">
+                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.feature}</td>
+                      <td className="py-3 px-3 font-semibold text-[#0E9BF0]">{item.winner}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.why}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Section 4: The Patent Lawsuit */}
+            <h2 id="patent-lawsuit" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              The Patent Lawsuit, Updated
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              In April 2024, ClickFunnels (legally Etison LLC) sued HighLevel Inc. in Delaware federal court, alleging that GoHighLevel's funnel-building features infringed on ClickFunnels' patents covering "website creation systems" with directional webpage sequences. <strong>This has since been resolved in HighLevel's favor:</strong> the district court dismissed the case, finding the patents ineligible for protection under Section 101 of the U.S. Patent Act, and on July 2, 2026, the U.S. Court of Appeals for the Federal Circuit affirmed that dismissal. HighLevel is the prevailing party as of this writing, though additional appeals may still be possible.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Practically, this changes nothing about either platform's day-to-day functionality both continued operating normally throughout the litigation. It's worth knowing mainly as a due-diligence data point: the dispute is a resolved legal matter, not an open risk to either platform's continued operation.
+            </p>
+
+            {/* Section 5: When ClickFunnels Is Still the Right Choice */}
+            <h2 id="when-clickfunnels-right" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              When Is ClickFunnels Still the Right Choice?
+            </h2>
+
+            <div className="space-y-3 mb-6">
+              <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
+                <p className="text-sm text-[#1A2236]"><strong>You're a solo entrepreneur or course creator who only needs funnels.</strong> If your business is one offer built around a handful of funnels, ClickFunnels' more polished page editor and mature template library get you to a professional-looking result faster than GoHighLevel's broader, less funnel-specialized builder.</p>
+              </div>
+              <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
+                <p className="text-sm text-[#1A2236]"><strong>You're non-technical and want the fastest path to your first funnel live.</strong> ClickFunnels is consistently rated easier to learn than GoHighLevel precisely because it does less there's no CRM, automation builder, or agency layer to learn around.</p>
+              </div>
+              <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
+                <p className="text-sm text-[#1A2236]"><strong>You're already invested in the FunnelHacker ecosystem.</strong> The training content, community, and event ecosystem (Funnel Builder Secrets, Two Comma Club) built around ClickFunnels is more developed than GoHighLevel's equivalent, and that has real value if you learn primarily through that community.</p>
+              </div>
+              <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
+                <p className="text-sm text-[#1A2236]"><strong>You don't need a CRM, native SMS, or multi-client management at all.</strong> If your business genuinely only needs funnels and basic email, GoHighLevel's additional capability is capability you're paying for and not using.</p>
+              </div>
+            </div>
+
+            {/* Section 6: Switching Process */}
+            <h2 id="switching-process" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              What Does Switching from ClickFunnels to GoHighLevel Involve?
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              If the comparison above points toward switching, GoHighLevel has a URL import tool that clones your ClickFunnels page designs, though automations, payment connections, and tracking all need manual rebuilding. For the complete technical walkthrough, what specifically breaks, and realistic timelines, see{' '}
+              <Link href="/blog/clickfunnels-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">How to Migrate from ClickFunnels to GoHighLevel</Link>.
+            </p>
+
+            {/* Section 7: Verdict */}
+            <h2 id="verdict" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              The Verdict: Which Platform Should You Choose?
+            </h2>
+
+            <div className="overflow-x-auto my-6">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Your Situation</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#0E9BF0]">Recommended Platform</th>
                     <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Why</th>
                   </tr>
                 </thead>
@@ -610,39 +504,11 @@ export default function GoHighLevelVsClickFunnelsClient() {
               </table>
             </div>
 
-            <div className="bg-[#1C2E4A] rounded-xl p-5 my-6 text-white">
-              <div className="flex items-center gap-2 mb-3">
-                <Award className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">SEE THE RESULTS BEFORE DECIDING</span>
-              </div>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                If you are on the fence, see what properly configured GHL systems have delivered for agencies and service businesses:
-                <Link href="/case-studies" className="text-[#0E9BF0] hover:underline ml-1">real GoHighLevel results and case studies →</Link>
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed">
-                And if you want a direct recommendation based on your specific setup,
-                <Link href="/contact" className="text-[#0E9BF0] hover:underline ml-1">book a free strategy call</Link> we look at your current stack and tell you honestly which platform makes sense.
-              </p>
-            </div>
-
-            {/* CTA Button 6: Before FAQ */}
-            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
-              <p className="text-sm font-medium mb-2">🔍 Still not sure which platform to choose?</p>
-              <p className="text-sm text-white/80 mb-4">Let us review your business model, contact volume, and revenue channels and tell you honestly which platform fits.</p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <Search className="w-4 h-4" />
-                Get a Free Platform Assessment
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-
-            {/* Section 7: FAQ */}
+            {/* Section 8: FAQ */}
             <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
-              7. Frequently Asked Questions
+              Frequently Asked Questions
             </h2>
+
             <div className="space-y-3">
               {faqs.map((faq, index) => (
                 <details key={index} className="group border-b border-[rgba(28,35,33,0.08)]">
@@ -655,45 +521,32 @@ export default function GoHighLevelVsClickFunnelsClient() {
               ))}
             </div>
 
-            {/* CTA Button 7: After FAQ */}
-            <div className="mt-8 p-6 bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl text-center">
-              <p className="text-white font-bold text-lg mb-2">Still Have Questions About Which Platform to Choose?</p>
-              <p className="text-white/60 text-sm mb-4">Talk to our GHL experts directly. We've migrated dozens of businesses from ClickFunnels to GHL.</p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  Ask an Expert
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-white/20 transition-all border border-white/20 text-sm"
-                >
-                  <Phone className="w-4 h-4" />
-                  Call Us
-                </Link>
-              </div>
+            {/* Contextual CTA inside FAQ */}
+            <div className="mt-4 text-sm text-[#5C6880] leading-relaxed">
+              Still weighing your options? See our{' '}
+              <Link href="/blog/gohighlevel-alternatives" className="text-[#0E9BF0] hover:underline">GoHighLevel alternatives roundup</Link>. Want a direct recommendation for your specific setup?{' '}
+              <Link href="/contact" className="text-[#0E9BF0] hover:underline font-medium">Book a free platform strategy call</Link>.
             </div>
 
-            {/* Related Articles */}
+            {/* Internal Links */}
             <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
               <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles in This Series</h3>
               <div className="flex flex-wrap gap-3">
-                <Link href="/blog/gohighlevel-vs-hubspot" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel vs HubSpot: Honest 2026 Comparison →</Link>
                 <Link href="/blog/clickfunnels-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">How to Migrate from ClickFunnels to GoHighLevel →</Link>
                 <Link href="/blog/gohighlevel-pricing" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Pricing: All Plans Explained →</Link>
-                <Link href="/services/crm-setup" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel CRM Setup Service →</Link>
+                <Link href="/blog/gohighlevel-alternatives" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Alternatives Roundup →</Link>
+                <Link href="/blog/gohighlevel-vs-hubspot" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel vs HubSpot: Honest 2026 Comparison →</Link>
+                <Link href="/blog/gohighlevel-vs-activecampaign" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel vs ActiveCampaign: Honest 2026 Comparison →</Link>
               </div>
             </div>
 
-            {/* Final CTA Section */}
+            {/* Final CTA Section - Single closing CTA */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Considering GoHighLevel over ClickFunnels?</h3>
-                <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">GHL Scale Up builds GoHighLevel systems that actually work. CRM setup, funnel build, automation, AI Voice Agent, and white-label configuration all done in 5 to 7 business days. 200+ builds delivered.</p>
+                <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
+                  GHL Scale Up builds GoHighLevel systems that actually work. CRM setup, funnel build, automation, AI Voice Agent, and white-label configuration all done in 5 to 7 business days. 200+ builds delivered.
+                </p>
                 <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105">
                   Book Your Free Strategy Call
                   <ArrowRight className="w-4 h-4" />
@@ -703,6 +556,9 @@ export default function GoHighLevelVsClickFunnelsClient() {
           </main>
         </div>
       </div>
+                  {/* Booking Modal - Rendered at root level */}
+                  <BookingModal open={openBooking} setOpen={setOpenBooking} />
+      
 
       {/* Progress Bar Script */}
       <script dangerouslySetInnerHTML={{
