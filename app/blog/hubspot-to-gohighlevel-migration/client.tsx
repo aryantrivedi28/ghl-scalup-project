@@ -15,10 +15,12 @@ import {
   Rocket,
   Target,
   Info,
+  Image as ImageIcon,
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
-import BookingModal from '@/components/BookingModal'
+import BookingModal from '@/components/BookingModal';
 import { Button } from '../../../components/ui/button';
+import Image from 'next/image';
 
 export default function HubSpotToGHLMigrationClient() {
   const [activeId, setActiveId] = useState<string>('');
@@ -135,7 +137,6 @@ export default function HubSpotToGHLMigrationClient() {
       <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your migration.</p>
       <Button
         onClick={handleOpenBooking}
-        // href="/contact" 
         className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
         Book a 30 min Free Call
         <ArrowRight className="w-3 h-3" />
@@ -411,6 +412,29 @@ export default function HubSpotToGHLMigrationClient() {
                   ))}
                 </tbody>
               </table>
+            </div>
+
+            {/* 
+              ============================================================
+              🖼️ IMAGE INSERTED HERE - Full width, responsive, interactive
+              ============================================================
+            */}
+            <div className="my-8 md:my-10 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <div className="relative w-full h-auto bg-[#F8F9FB]">
+                <Image
+                  src="/blog/hubspot-to-ghl-migration-diagram.png"
+                  alt="HubSpot to GoHighLevel migration data mapping and workflow structure overview"
+                  width={1200}
+                  height={500}
+                  className="w-full h-auto object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                />
+              </div>
+              <div className="bg-[#F8F9FB] px-4 py-2.5 text-xs text-[#5C6880] border-t border-[#DDE1E9] flex items-center gap-2">
+                <ImageIcon className="w-3.5 h-3.5" />
+                <span>HubSpot → GoHighLevel: Data mapping and workflow structure overview</span>
+              </div>
             </div>
 
             {/* HubSpot Tiers Note */}

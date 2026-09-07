@@ -14,18 +14,20 @@ import {
   Rocket,
   Target,
   CheckCircle2,
+  Image as ImageIcon,
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
-import BookingModal from '@/components/BookingModal'
+import BookingModal from '@/components/BookingModal';
 import { Button } from '../../../components/ui/button';
+import Image from 'next/image';
 
 export default function GoHighLevelVsHubSpotClient() {
   const [activeId, setActiveId] = useState<string>('');
-    const [openBooking, setOpenBooking] = useState(false);
-  
-    const handleOpenBooking = () => {
-      setOpenBooking(true);
-    };
+  const [openBooking, setOpenBooking] = useState(false);
+
+  const handleOpenBooking = () => {
+    setOpenBooking(true);
+  };
 
   // Handle scroll detection for active section
   useEffect(() => {
@@ -148,7 +150,6 @@ export default function GoHighLevelVsHubSpotClient() {
       <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your migration.</p>
       <Button
         onClick={handleOpenBooking}
-        // href="/contact" 
         className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
         Book a 30 min Free Call
         <ArrowRight className="w-3 h-3" />
@@ -407,6 +408,29 @@ export default function GoHighLevelVsHubSpotClient() {
               </table>
             </div>
 
+            {/* 
+              ============================================================
+              🖼️ IMAGE INSERTED HERE - Full width, responsive, interactive
+              ============================================================
+            */}
+            <div className="my-8 md:my-10 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <div className="relative w-full h-auto bg-[#F8F9FB]">
+                <Image
+                  src="/blog/ghl-vs-hubspot-comparison.png"
+                  alt="GoHighLevel vs HubSpot feature comparison and pricing overview"
+                  width={1200}
+                  height={500}
+                  className="w-full h-auto object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                />
+              </div>
+              <div className="bg-[#F8F9FB] px-4 py-2.5 text-xs text-[#5C6880] border-t border-[#DDE1E9] flex items-center gap-2">
+                <ImageIcon className="w-3.5 h-3.5" />
+                <span>GoHighLevel vs HubSpot: Feature comparison, pricing, and use case overview</span>
+              </div>
+            </div>
+
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-6">
               <p className="text-sm md:text-base text-[#1A2236] leading-relaxed">
                 <strong>The 10-client agency scenario:</strong> GoHighLevel Unlimited covers all 10 clients in separate sub-accounts for a flat $297/month. HubSpot has no sub-account equivalent, so 10 clients require 10 separate Marketing Hub Professional accounts at $890/month each roughly $8,900/month. Neither number is the full story: GoHighLevel adds usage-based fees for SMS, email, and AI features (typically $20–$150/month depending on volume), and HubSpot's contact-scaling costs compound as any client list grows. Factor both in before comparing headline prices directly.
@@ -611,8 +635,8 @@ export default function GoHighLevelVsHubSpotClient() {
         </div>
       </div>
 
-            {/* Booking Modal - Rendered at root level */}
-            <BookingModal open={openBooking} setOpen={setOpenBooking} />
+      {/* Booking Modal - Rendered at root level */}
+      <BookingModal open={openBooking} setOpen={setOpenBooking} />
 
       {/* Progress Bar Script */}
       <script dangerouslySetInnerHTML={{

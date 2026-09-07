@@ -3,16 +3,16 @@ import Script from 'next/script';
 import KajabiToGHLMigrationClient from './client';
 
 export const metadata: Metadata = {
-  title: 'Kajabi to GoHighLevel Migration: What Breaks (2026)',
-  description: 'Course content does not transfer automatically every lesson must be rebuilt manually. Timeline, mistakes, and student re-enrolment.',
-  keywords: 'Kajabi to GoHighLevel migration, migrate from Kajabi to GoHighLevel, Kajabi to GHL migration guide, how to migrate Kajabi to GoHighLevel, Kajabi course content migration GoHighLevel, Kajabi contacts export GoHighLevel',
+  title: 'Kajabi to GoHighLevel Migration Guide (2026): Course Importer Explained',
+  description: 'GoHighLevel\'s Kajabi Course Importer explained: what it actually imports, what still needs rebuilding, and a realistic migration timeline.',
+  keywords: 'kajabi to gohighlevel migration, migrate kajabi to gohighlevel, kajabi course migration gohighlevel, kajabi to ghl migration guide, does gohighlevel have a kajabi importer, can kajabi courses be imported into gohighlevel, what happens to kajabi students when migrating',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {
-    title: 'Kajabi to GoHighLevel Migration: What Breaks (2026)',
-    description: 'Contacts transfer via CSV. Course content must be manually rebuilt in GHL membership module. Honest guide covering what breaks, how long it takes, and how to move without losing your students.',
+    title: 'Kajabi to GoHighLevel Migration Guide (2026): Course Importer Explained',
+    description: 'GoHighLevel\'s Kajabi Course Importer explained: what it actually imports, what still needs rebuilding, and a realistic migration timeline.',
     type: 'article',
-    publishedTime: '2026-05-26T00:00:00Z',
-    modifiedTime: '2026-05-26T00:00:00Z',
+    publishedTime: '2026-05-14T00:00:00Z',
+    modifiedTime: '2026-05-14T00:00:00Z',
     authors: ['GHL Scale Up Team'],
     tags: ['GoHighLevel', 'Kajabi', 'Course Migration', 'Membership Migration', '2026'],
     images: [{ url: 'https://www.ghlscaleup.com/images/blog/kajabi-to-ghl-migration-og.jpg', width: 1200, height: 630 }],
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@ghlscaleup',
-    title: 'Kajabi to GoHighLevel Migration: What Breaks and How to Fix It',
-    description: 'What transfers, what must be rebuilt, and how to move without losing your students.',
+    title: 'Kajabi to GoHighLevel Migration Guide (2026): Course Importer Explained',
+    description: 'GoHighLevel\'s Kajabi Course Importer explained: what it actually imports, what still needs rebuilding, and a realistic migration timeline.',
     images: ['https://www.ghlscaleup.com/images/blog/kajabi-to-ghl-migration-og.jpg'],
   },
   alternates: {
@@ -40,11 +40,11 @@ export default function KajabiToGHLMigrationPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "Kajabi to GoHighLevel Migration: What Breaks (2026)",
-            "description": "Migrating from Kajabi to GoHighLevel? Contacts transfer via CSV. Course content must be manually rebuilt in GHL's membership module. Honest guide covering what breaks, how long it takes, and how to move without losing your students.",
+            "headline": "Kajabi to GoHighLevel Migration: What Actually Transfers (and What Doesn't)",
+            "description": "A lot of migration guides, including an earlier version of this one, claim GoHighLevel has no way to import Kajabi course content. That's no longer accurate. GoHighLevel has a native Kajabi Course Importer and a separate email template importer — each with real limits worth understanding before you plan your timeline.",
             "image": "https://www.ghlscaleup.com/images/blog/kajabi-to-ghl-migration-og.jpg",
-            "datePublished": "2026-05-26",
-            "dateModified": "2026-05-26",
+            "datePublished": "2026-05-14",
+            "dateModified": "2026-05-14",
             "author": {
               "@type": "Organization",
               "name": "GHL Scale Up Team",

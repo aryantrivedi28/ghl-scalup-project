@@ -4,96 +4,40 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import {
       ArrowRight,
-      CheckCircle2,
       ChevronDown,
       Copy,
       Linkedin,
       Twitter,
       BookOpen,
-      Settings,
       Zap,
-      Shield,
-      DollarSign,
-      Users,
-      Building2,
-      Calendar,
-      MessageCircle,
-      Phone,
-      Layout,
-      GitBranch,
-      Sparkles,
-      Award,
-      TrendingUp,
-      Star,
       AlertTriangle,
-      Server,
-      Globe,
-      CreditCard,
-      Smartphone,
-      Briefcase,
-      Rocket,
-      Cloud,
-      Database,
-      FileDown,
-      Upload,
-      RefreshCw,
       Clock,
-      Mail,
-      Tag,
-      GitMerge,
-      Video,
-      BookOpen as BookOpenIcon,
-      GraduationCap,
-      Target,
-      HeartHandshake,
-      Search,
-      Trophy,
-      Facebook,
-      Lightbulb,
-      UserCheck,
-      UserX,
-      Compass,
-      Layers,
-      PanelTop,
-      LayoutDashboard,
-      LifeBuoy,
-      Timer,
-      Trash2,
-      Download,
-      BarChart3,
-      PieChart,
-      Workflow,
-      GitBranch as GitBranchIcon,
-      Link2,
-      Webhook,
-      RefreshCw as RefreshCwIcon,
-      ListChecks,
-      ClipboardList,
-      Printer,
-      Ticket,
-      TrendingDown,
-      Info,
-      Headphones,
-      FileText,
-      XCircle,
-      HelpCircle,
-      Boxes,
-      Combine,
-      Settings as SettingsIcon
+      Rocket,
+      CheckCircle2,
+      Image as ImageIcon,
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import Image from 'next/image';
+import BookingModal from '@/components/BookingModal';
+import { Button } from '../../../components/ui/button';
 
 export default function KajabiToGHLMigrationClient() {
       const [activeId, setActiveId] = useState<string>('');
-      const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
+      const [openBooking, setOpenBooking] = useState(false);
+
+      const handleOpenBooking = () => {
+            setOpenBooking(true);
+      };
 
       // Handle scroll detection for active section
       useEffect(() => {
             const handleScroll = () => {
                   const sections = [
-                        'why-migrate',
+                        'kajabi-course-importer',
+                        'kajabi-email-template-importer',
                         'what-transfers',
                         'migration-steps',
+                        'how-long',
                         'membership-comparison',
                         'common-mistakes',
                         'faq'
@@ -107,13 +51,6 @@ export default function KajabiToGHLMigrationClient() {
                                     setActiveId(id);
                               }
                         }
-                  }
-
-                  // Show floating Project Help card after scrolling past hero section
-                  const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
-                  if (heroSection) {
-                        const heroBottom = heroSection.getBoundingClientRect().bottom;
-                        setShowFloatingProjectHelp(heroBottom < 0);
                   }
             };
 
@@ -135,67 +72,61 @@ export default function KajabiToGHLMigrationClient() {
       const faqs = [
             {
                   q: "Can GoHighLevel import Kajabi course content automatically?",
-                  a: "No. GoHighLevel does not have an automated import tool for Kajabi course content. Every video, text lesson, PDF download, and quiz must be manually rebuilt inside GHL's membership module. This is the most time-consuming phase of a Kajabi migration. Budget 2 to 6 hours per course depending on module and lesson count. Contacts, tags, and email history transfer via CSV export and import only the course content itself requires manual rebuilding."
+                  a: "Yes, for published lessons. GoHighLevel's Kajabi Course Importer brings over videos, images, and text content automatically. Quizzes, assignments, and assessments are not included and must be rebuilt manually, and unpublished lessons don't transfer at all."
+            },
+            {
+                  q: "Does GoHighLevel have a Kajabi email importer too?",
+                  a: "Yes a separate tool imports individual email template designs by sending them to a generated address inside GHL's Email Marketing → Templates section. It imports the visual design only, not the automation logic (triggers, sequences, timing) behind it, which still needs to be rebuilt as a GHL workflow."
             },
             {
                   q: "How long does a Kajabi to GoHighLevel migration take?",
-                  a: "A simple migration with 1 to 2 courses, a small contact list, and basic email sequences takes 2 to 3 weeks. A standard migration with 3 to 5 courses, active community, and 5 to 10 email automations takes 3 to 5 weeks. A complex migration with 6 or more courses, large student database, affiliate program, and extensive automation takes 5 to 8 weeks. The course content rebuild is what drives the timeline not the contact import."
-            },
-            {
-                  q: "Can GoHighLevel replace Kajabi for course creators?",
-                  a: "For course creators who also run coaching businesses, service businesses, or agencies, yes. GoHighLevel's membership module covers the core course delivery features: video lessons, drip scheduling, quizzes, branded member portal, and subscription access via Stripe. What GHL adds is the full operational stack Kajabi lacks: native SMS, AI Voice Agent, booking calendar, CRM pipeline, and multi-client sub-account management. Kajabi remains the stronger choice for pure course-first businesses where the student experience and community are the primary product."
+                  a: "A simple migration with 1–2 courses and minimal quizzes takes 1–2 weeks. A standard migration with 3–5 courses and some assessments takes 3–5 weeks. A complex migration with 6+ courses, heavy assessments, and deep automation takes 5–8 weeks. Quiz/assignment rebuilding and automation logic drive the timeline more than the course content import itself."
             },
             {
                   q: "What happens to my existing Kajabi students during the migration?",
-                  a: "Existing students are re-enrolled in the GHL member portal via an email invitation that explains the platform transition. They create a new login, access the same content in the new portal, and continue their progress. We recommend keeping Kajabi active for 2 to 4 weeks after the GHL portal launches so students can transition at their own pace and any access issues can be resolved before Kajabi is cancelled. Active student access is never disrupted during the parallel period."
+                  a: "Students are invited to create a new login in the GHL member portal. We recommend keeping Kajabi active for 2–4 weeks after the GHL portal launches so students can transition at their own pace, and confirming active access before cancelling Kajabi."
             },
             {
-                  q: "Does GoHighLevel have a community feature like Kajabi Communities?",
-                  a: "Yes. GoHighLevel launched GHL Communities in 2024. It includes a social feed, direct messaging, and group discussion layer that integrates with the membership and course module. As of 2026, GHL Communities covers the core use case of a student and client community. Kajabi Communities is more mature and has a more polished student-facing experience, but GHL Communities is functional and improving with each platform update."
-            },
-            {
-                  q: "How much does a Kajabi to GoHighLevel migration cost?",
-                  a: "Migration project fees depend on the number of courses, student volume, and automation complexity. Contact GHL Scale Up for a fixed-fee quote after a free migration assessment. Most course creators find that within 3 to 6 months of switching, the cost savings from replacing Kajabi, Calendly, and a separate SMS platform with GHL's $97 to $297 per month flat rate recover the migration investment entirely."
+                  q: "Can GoHighLevel replace Kajabi for course creators?",
+                  a: "For course creators who also run coaching, service, or agency operations, yes GoHighLevel's membership module now imports most course content automatically and adds native SMS, AI Voice Agent, booking, and CRM pipeline that Kajabi lacks. Kajabi remains the stronger choice for a pure course-first business where the polished student experience and community are the primary product."
             },
       ];
 
       useFaqSchema(faqs);
 
       const tocItems = [
-            { id: 'why-migrate', title: '1. Why Course Creators and Coaches Migrate from Kajabi to GoHighLevel' },
-            { id: 'what-transfers', title: '2. What Transfers from Kajabi and What Must Be Rebuilt' },
-            { id: 'migration-steps', title: '3. How to Migrate from Kajabi to GoHighLevel (Step-by-Step)' },
-            { id: 'membership-comparison', title: '4. How Does GoHighLevel\'s Membership Module Compare to Kajabi?' },
-            { id: 'common-mistakes', title: '5. Common Kajabi Migration Mistakes to Avoid' },
-            { id: 'faq', title: '6. Frequently Asked Questions' },
-      ];
-
-      const comparisonData = [
-            { item: 'Excellent course and membership delivery', kajabi: 'Yes', ghl: 'Yes functional, less polished UX' },
-            { item: 'Built-in email marketing and automations', kajabi: 'Yes', ghl: 'Yes plus SMS and voice' },
-            { item: 'Kajabi Communities for student engagement', kajabi: 'Yes strong', ghl: 'GHL Communities (launched 2024)' },
-            { item: 'Native 2-way SMS and AI Voice Agent', kajabi: 'No', ghl: 'Yes' },
-            { item: 'Booking calendar for coaching calls', kajabi: 'No', ghl: 'Yes replaces Calendly' },
-            { item: 'Multi-client sub-account architecture', kajabi: 'No', ghl: 'Yes for agencies' },
-            { item: 'Full CRM pipeline for coaching sales', kajabi: 'Limited', ghl: 'Full CRM' },
-            { item: 'White-label branding for agency clients', kajabi: 'No', ghl: 'Yes' },
-            { item: 'Monthly cost', kajabi: '$69 to $399/mo', ghl: '$97 to $297/mo' },
+            { id: 'kajabi-course-importer', title: 'The Kajabi Course Importer: What It Actually Does' },
+            { id: 'kajabi-email-template-importer', title: 'The Kajabi Email Template Importer' },
+            { id: 'what-transfers', title: 'What Transfers vs. What You Rebuild' },
+            { id: 'migration-steps', title: 'Step-by-Step: How to Migrate from Kajabi to GoHighLevel' },
+            { id: 'how-long', title: 'How Long It Actually Takes' },
+            { id: 'membership-comparison', title: 'How Does Kajabi\'s Course Experience Compare to GoHighLevel\'s?' },
+            { id: 'common-mistakes', title: 'Common Mistakes to Avoid' },
+            { id: 'faq', title: 'Frequently Asked Questions' },
       ];
 
       const transferData = [
-            { asset: 'Contacts and students', action: 'Transfers via CSV export and import', required: 'Export from Kajabi, clean CSV, import into GHL with field mapping' },
-            { asset: 'Tags and segments', action: 'Transfers via CSV as tag column', required: 'Create matching tags in GHL before import' },
-            { asset: 'Email automation sequences', action: 'Does NOT transfer', required: 'Full email sequence rebuild in GHL workflow builder' },
-            { asset: 'Course content (videos, text, PDFs, quizzes)', action: 'Does NOT transfer no import tool', required: 'Manually rebuild every lesson, module, and quiz in GHL membership module' },
-            { asset: 'Drip schedule and lesson release timing', action: 'Does NOT transfer', required: 'Rebuild drip logic in GHL membership settings per course' },
-            { asset: 'Member access and enrollment records', action: 'Does NOT transfer directly', required: 'Re-invite existing students to GHL membership portal via email' },
-            { asset: 'Kajabi offers and pricing plans', action: 'Does NOT transfer', required: 'Recreate in GHL order forms connected to Stripe' },
-            { asset: 'Kajabi Communities', action: 'Does NOT transfer', required: 'Move to GHL Communities (launched 2024) or external platform' },
-            { asset: 'Affiliate program data', action: 'Does NOT transfer', required: 'Recreate in GHL affiliate manager' },
-            { asset: 'Landing pages and sales funnels', action: 'Does NOT transfer', required: 'Rebuild in GHL funnel builder' },
+            { asset: 'Course content (published lessons: video, image, text)', action: 'Imports automatically via the Kajabi Course Importer', required: 'Review imported lessons for formatting accuracy' },
+            { asset: 'Quizzes, assignments, assessments', action: 'Imports as empty shells only content not included', required: 'Manually rebuild each one' },
+            { asset: 'Unpublished/draft lessons', action: 'Not imported at all', required: 'Publish in Kajabi first if you want them included, or rebuild manually' },
+            { asset: 'Drip scheduling', action: 'Not part of the course import', required: 'Reconfigure release timing in GHL after import' },
+            { asset: 'Contacts and students', action: 'Transfers via CSV export/import', required: 'Clean the CSV, map fields during import' },
+            { asset: 'Tags and segments', action: 'Transfers via CSV column mapping', required: 'Create matching GHL tags first' },
+            { asset: 'Email template designs', action: 'Imports individually via the Kajabi Email Template Importer', required: 'Import each template you want to reuse, one at a time' },
+            { asset: 'Email automation logic (triggers, sequences, timing)', action: 'Does not transfer', required: 'Rebuild as GHL workflows, using imported templates as content' },
+            { asset: 'Offers and pricing plans', action: 'Does not transfer', required: 'Recreate in GHL order forms, reconnect Stripe' },
+            { asset: 'Kajabi Communities', action: 'Does not transfer', required: 'Rebuild in GHL Communities or migrate to an external platform' },
+            { asset: 'Affiliate program data', action: 'Does not transfer', required: 'Recreate in GHL\'s affiliate manager' },
+            { asset: 'Landing pages and funnels', action: 'Does not transfer via the course tool', required: 'Rebuild in GHL\'s funnel builder' },
       ];
 
-      const membershipComparison = [
+      const timelineData = [
+            { type: 'Simple (1–2 courses, minimal quizzes)', courses: '1–2', timeline: '1–2 weeks' },
+            { type: 'Standard (3–5 courses, some quizzes/assignments, active community)', courses: '3–5', timeline: '3–5 weeks' },
+            { type: 'Complex (6+ courses, heavy assessments, affiliate program, deep automation)', courses: '6+', timeline: '5–8 weeks' },
+      ];
+
+      const membershipData = [
             { feature: 'Course structure (modules and lessons)', kajabi: 'Yes polished, intuitive builder', ghl: 'Yes functional, less polished UX' },
             { feature: 'Video hosting', kajabi: 'Native video hosting included', ghl: 'Video upload supported; many use Vimeo or Wistia' },
             { feature: 'Drip content scheduling', kajabi: 'Yes per-lesson release timing', ghl: 'Yes per-lesson drip available in membership settings' },
@@ -213,10 +144,10 @@ export default function KajabiToGHLMigrationClient() {
       ];
 
       const mistakesList = [
-            { mistake: 'Underestimating the course content rebuild time', fix: 'Audit your content in full before scoping the timeline. Budget 2 to 6 hours per course for a realistic estimate, then add 20% contingency for content that is harder to rebuild than expected.' },
-            { mistake: 'Re-enrolling students before the portal is tested', fix: 'Test the full student experience: create a test account, purchase access, go through every lesson, confirm drip releases work, and verify the mobile experience before a single real student is re-enrolled.' },
-            { mistake: 'Cancelling Kajabi before students have confirmed access in GHL', fix: 'Keep Kajabi active until every active student has logged into the GHL member portal and confirmed their content is accessible. Monitor login rates for 2 to 4 weeks after the transition announcement.' },
-            { mistake: 'Rebuilding Kajabi automations exactly instead of improving them', fix: 'Kajabi automations are email-only. When you rebuild them in GHL, add SMS, voice, and booking steps that Kajabi could never support. Improve as you rebuild do not just copy.' },
+            { mistake: 'Assuming the course importer handles everything.', fix: 'It handles published lesson content well, but quizzes, assignments, and drip settings still need manual work scope your timeline around what\'s actually excluded, not around rebuilding everything from scratch.' },
+            { mistake: 'Leaving lessons unpublished in Kajabi before importing.', fix: 'Only published lessons transfer. Publish everything you want migrated before running the importer, or plan to rebuild those specific lessons manually.' },
+            { mistake: 'Re-enrolling students before testing the portal.', fix: 'Create a test account, go through every lesson, confirm quizzes and drip releases work, and check the mobile experience before a single real student is re-enrolled.' },
+            { mistake: 'Cancelling Kajabi before students confirm access.', fix: 'Keep Kajabi active until every active student has logged into the GHL portal and confirmed their content is accessible.' },
       ];
 
       // Reusable Project Help Card Component
@@ -224,10 +155,12 @@ export default function KajabiToGHLMigrationClient() {
             <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
                   <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
                   <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your migration.</p>
-                  <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+                  <Button
+                        onClick={handleOpenBooking}
+                        className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
                         Book a 30 min Free Call
                         <ArrowRight className="w-3 h-3" />
-                  </Link>
+                  </Button>
             </div>
       );
 
@@ -264,7 +197,7 @@ export default function KajabiToGHLMigrationClient() {
                               {/* H1 Headline */}
                               <h1 className="text-[clamp(28px,6vw,46px)] font-extrabold leading-[1.2] md:leading-[1.15] text-white mb-4 md:mb-5 tracking-[-0.02em]">
                                     Kajabi to GoHighLevel Migration:<br />
-                                    <span className="text-[#F8D000]">What Breaks and How to Fix It (2026)</span>
+                                    <span className="text-[#F8D000]">What Actually Transfers (and What Doesn't)</span>
                               </h1>
 
                               {/* Author Byline */}
@@ -278,18 +211,25 @@ export default function KajabiToGHLMigrationClient() {
                                     </div>
                                     <div>
                                           <div className="text-sm font-medium text-white">GHL Scale Up Team</div>
-                                          <div className="text-xs text-white/50">GoHighLevel Migration Specialists · 200+ Builds Delivered · Updated May 2026</div>
+                                          <div className="text-xs text-white/50">GoHighLevel Migration Specialists · 200+ builds and migrations delivered · Verified against GoHighLevel's official support documentation, September 2026</div>
                                     </div>
                               </div>
 
                               {/* Introductory Paragraph */}
                               <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-6xl">
-                                    Kajabi is one of the best platforms for selling and delivering online courses and membership communities.
-                                    The migration to GoHighLevel is not about Kajabi being bad. It is about what Kajabi cannot do: native SMS,
-                                    AI Voice Agent, multi-client sub-account management, booking calendars, and pipeline CRM for service-based businesses.
-                                    <strong className="text-white"> GHL Scale Up</strong> has completed this migration dozens of times for coaches,
-                                    course creators, and agencies.
+                                    A lot of migration guides, including an earlier version of this one, claim GoHighLevel has no way to import Kajabi course content. That's no longer accurate. GoHighLevel has a native Kajabi Course Importer and a separate email template importer each with real limits worth understanding before you plan your timeline.
                               </p>
+
+                              {/* Quick Answer Box */}
+                              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 md:p-6 mb-6">
+                                    <div className="flex items-center gap-2 mb-3">
+                                          <Zap className="w-5 h-5 text-[#F8D000]" />
+                                          <span className="text-xs font-bold uppercase tracking-wider text-white/60">Quick answer</span>
+                                    </div>
+                                    <p className="text-sm text-white/70 leading-relaxed">
+                                          GoHighLevel's Kajabi Course Importer automatically brings over your published lessons' videos, images, and text content. It does not import quizzes, assignments, or assessments those come through as empty shells and need manual recreation, and unpublished lessons are skipped entirely. A separate Kajabi Email Template Importer can bring over individual email template designs, though the automation logic (triggers, timing, sequences) behind them still needs to be rebuilt in GHL's workflow builder. Contacts and tags transfer via CSV. A straightforward migration with 1–2 courses takes roughly 1–2 weeks for the technical setup; a complex migration with 5+ courses, a community, and heavy quiz/assignment content takes 4–6 weeks.
+                                    </p>
+                              </div>
 
                               {/* CTA Button 1: Hero Section */}
                               <div className="flex flex-wrap gap-3">
@@ -367,8 +307,7 @@ export default function KajabiToGHLMigrationClient() {
                                                 </div>
                                           </div>
                                           <p className="text-xs text-white/60 leading-relaxed mb-3">
-                                                5+ years GHL experience · 200+ systems built and migrated globally including Kajabi migrations for coaches, course creators, and agencies.
-                                                All feature comparisons verified against GoHighLevel and Kajabi official documentation as of May 2026.
+                                                5+ years GHL experience · 200+ systems built and migrated globally including Kajabi migrations for coaches, course creators, and agencies. All feature comparisons verified against GoHighLevel and Kajabi official documentation as of May 2026.
                                           </p>
                                           <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
                                     </div>
@@ -398,7 +337,7 @@ export default function KajabiToGHLMigrationClient() {
                                     {/* CTA Card */}
                                     <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
                                           <div className="text-sm font-bold text-white mb-2">Need Help Migrating from Kajabi?</div>
-                                          <p className="text-xs text-white/60 leading-relaxed mb-4">We handle complete Kajabi to GHL migrations. Course rebuild included.</p>
+                                          <p className="text-xs text-white/60 leading-relaxed mb-4">We handle complete Kajabi to GHL migrations. Course import and quiz rebuild included.</p>
                                           <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
                                                 Get Help
                                                 <ArrowRight className="w-3 h-3" />
@@ -408,36 +347,6 @@ export default function KajabiToGHLMigrationClient() {
 
                               {/* ==================== RIGHT COLUMN: BLOG CONTENT ==================== */}
                               <main className="min-w-0 order-2">
-
-                                    {/* TL;DR / Quick Answer Box (BLUF) */}
-                                    <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
-                                          <div className="flex items-center gap-2 mb-3">
-                                                <Zap className="w-5 h-5 text-[#F8D000]" />
-                                                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Quick Answer Read This First</span>
-                                          </div>
-                                          <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
-                                                Contacts, tags, and email sequences transfer from Kajabi to GoHighLevel.
-                                          </p>
-                                          <p className="text-sm text-[#5C6880] leading-relaxed">
-                                                Course content does <strong className="text-[#1A2236]">not transfer automatically</strong>. Every video, lesson, PDF, and quiz
-                                                must be manually rebuilt inside GHL's membership module. This is the most time-consuming part of a Kajabi migration and cannot be shortcut.
-                                                The trade-off is worth it when you need GHL's SMS, AI, booking, and CRM capabilities. A straightforward migration with 1 to 2 courses
-                                                and a small contact list takes <strong className="text-[#0E9BF0]">2 to 3 weeks</strong>. A complex migration with 5+ courses, a community,
-                                                and active email sequences takes <strong className="text-[#0E9BF0]">4 to 7 weeks</strong>.
-                                          </p>
-
-                                          {/* CTA Button 2: Inside TL;DR Box */}
-                                          <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
-                                                <Link
-                                                      href="/contact"
-                                                      className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                                                >
-                                                      <Target className="w-4 h-4" />
-                                                      Get Migration Help
-                                                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                                </Link>
-                                          </div>
-                                    </div>
 
                                     {/* Table of Contents - Mobile Only */}
                                     <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8 lg:hidden">
@@ -463,73 +372,66 @@ export default function KajabiToGHLMigrationClient() {
                                           <ProjectHelpCard />
                                     </div>
 
-                                    {/* Section 1: Why Migrate */}
-                                    <h2 id="why-migrate" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-8 mb-4">
-                                          1. Why Course Creators and Coaches Migrate from Kajabi to GoHighLevel
+                                    {/* Section: The Kajabi Course Importer */}
+                                    <h2 id="kajabi-course-importer" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-8 mb-4">
+                                          The Kajabi Course Importer: What It Actually Does
                                     </h2>
                                     <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-                                          Kajabi was built for knowledge businesses: people who earn revenue primarily by selling courses and memberships.
-                                          It does that job well. The migration to GHL almost always happens at a specific growth stage: when a course creator
-                                          or coach starts offering done-for-you services, group programs with high-touch follow-up, or agency-level client
-                                          management alongside their course business. At that point, Kajabi's gaps become operational problems rather than minor inconveniences.
+                                          This is the single most misunderstood part of a Kajabi migration, so it's worth being precise about it.
                                     </p>
 
-                                    <div className="overflow-x-auto my-6">
-                                          <table className="w-full border-collapse text-sm">
-                                                <thead>
-                                                      <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
-                                                            <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">What Kajabi provides</th>
-                                                            <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">What makes coaches and agencies move to GHL</th>
-                                                      </tr>
-                                                </thead>
-                                                <tbody>
-                                                      {comparisonData.map((item, idx) => (
-                                                            <tr key={idx} className="border-b border-[#DDE1E9]">
-                                                                  <td className="py-3 px-3 text-[#5C6880]">{item.item} → {item.kajabi === 'No' ? <span className="text-[#DC3545]">Not available</span> : item.kajabi}</td>
-                                                                  <td className="py-3 px-3 text-[#0E9BF0]">{item.ghl}</td>
-                                                            </tr>
-                                                      ))}
-                                                </tbody>
-                                          </table>
-                                    </div>
-
-                                    <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
+                                    <div className="bg-[#E8FAF2] border border-[rgba(37,201,125,0.2)] rounded-xl p-4 my-4">
                                           <div className="flex items-center gap-2 mb-2">
-                                                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                                                <span className="text-sm font-bold text-[#F8D000]">THE HONEST TRADE-OFF</span>
+                                                <CheckCircle2 className="w-4 h-4 text-[#25C97D]" />
+                                                <span className="text-sm font-bold text-[#25C97D]">HOW TO ACCESS IT</span>
                                           </div>
                                           <p className="text-sm text-[#1A2236] leading-relaxed">
-                                                Kajabi's course player, community features, and membership experience are genuinely among the best available for knowledge businesses.
-                                                GHL's membership module is functional but less polished than Kajabi's student-facing experience. If your business is purely course-first
-                                                and you do not need SMS, pipeline CRM, or AI automation, evaluate carefully before switching. If you need GHL's operational capabilities
-                                                and course delivery is one part of a larger business, the migration is almost always the right call.
+                                                In GHL, go to Memberships → Courses → Products → Create Product → Import. You'll create a learner profile inside Kajabi, then enter that learner's login credentials and your Kajabi domain into GHL's importer.
                                           </p>
                                     </div>
 
-                                    {/* CTA Button 3: After Section 1 */}
-                                    <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 mb-8 text-center">
-                                          <p className="text-white/80 text-sm mb-3">
-                                                <span className="font-bold text-white">Not sure if migrating from Kajabi is right for you?</span> Let our team help you decide.
+                                    <div className="bg-[#E8FAF2] border border-[rgba(37,201,125,0.2)] rounded-xl p-4 my-4">
+                                          <div className="flex items-center gap-2 mb-2">
+                                                <CheckCircle2 className="w-4 h-4 text-[#25C97D]" />
+                                                <span className="text-sm font-bold text-[#25C97D]">WHAT IT IMPORTS</span>
+                                          </div>
+                                          <p className="text-sm text-[#1A2236] leading-relaxed">
+                                                All videos, images, and text content for lessons that are published in Kajabi including nested and hidden lessons behind "Show More" sections, per recent reliability improvements to the importer.
                                           </p>
-                                          <Link
-                                                href="/contact"
-                                                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                                          >
-                                                <BarChart3 className="w-4 h-4" />
-                                                Get Migration Advice
-                                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                          </Link>
                                     </div>
 
-                                    {/* Section 2: What Transfers */}
-                                    <h2 id="what-transfers" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-                                          2. What Transfers from Kajabi to GoHighLevel and What Must Be Rebuilt?
+                                    <div className="bg-[#FEF2F0] border border-[rgba(220,53,69,0.2)] rounded-xl p-4 my-4">
+                                          <div className="flex items-center gap-2 mb-2">
+                                                <AlertTriangle className="w-4 h-4 text-[#DC3545]" />
+                                                <span className="text-sm font-bold text-[#DC3545]">WHAT IT DOES NOT IMPORT</span>
+                                          </div>
+                                          <p className="text-sm text-[#1A2236] leading-relaxed">
+                                                Unpublished or draft lessons are skipped entirely. Quizzes, assignments, and assessments are explicitly excluded per GoHighLevel's own documentation, these come through as empty shells that need to be manually rebuilt. Custom CSS themes don't carry over either; GoHighLevel recommends removing custom CSS before importing for the smoothest result.
+                                          </p>
+                                    </div>
+
+                                    <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+                                          Practical implication: for a course that's mostly video lessons with a few quizzes, the importer handles the bulk of the heavy lifting (video and content upload) automatically, and your manual work concentrates on the quizzes and assignments rather than every single lesson.
+                                    </p>
+
+                                    {/* Section: The Kajabi Email Template Importer */}
+                                    <h2 id="kajabi-email-template-importer" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+                                          The Kajabi Email Template Importer
                                     </h2>
                                     <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-                                          <strong className="text-[#1A2236]">The key distinction: data transfers, content does not.</strong> Your contacts, tags,
-                                          and email history move via CSV. Your actual course content every video, text lesson, PDF download, and quiz must be manually
-                                          re-uploaded and rebuilt inside GHL's membership module. There is no automated import tool for Kajabi course content.
+                                          This is a separate tool from the course importer, and it imports something narrower: individual email template designs, not full automation sequences.
                                     </p>
+                                    <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+                                          How it works: in GHL, go to Email Marketing → Templates → New → Import Templates, select "Kajabi" from the source dropdown, and you'll get a dynamically generated email address. Send the Kajabi template you want to import as a test email to that address, then confirm the import in GHL.
+                                    </p>
+                                    <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+                                          What it doesn't do: this brings over the visual design and copy of one email template at a time it does not import the automation logic behind a sequence (the trigger, timing, and branching that made it a "sequence" in Kajabi). That logic still has to be rebuilt manually as a GHL workflow, using the imported template designs as your starting content rather than building the design from scratch.
+                                    </p>
+
+                                    {/* Section: What Transfers vs. What You Rebuild */}
+                                    <h2 id="what-transfers" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+                                          What Transfers vs. What You Rebuild
+                                    </h2>
 
                                     <div className="overflow-x-auto my-6">
                                           <table className="w-full border-collapse text-sm">
@@ -552,95 +454,139 @@ export default function KajabiToGHLMigrationClient() {
                                           </table>
                                     </div>
 
-                                    <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
-                                          <div className="flex items-center gap-2 mb-2">
-                                                <AlertTriangle className="w-4 h-4 text-[#0E9BF0]" />
-                                                <span className="text-sm font-bold text-[#0E9BF0]">THE MOST IMPORTANT THING TO KNOW</span>
+                                    {/* 
+              ============================================================
+              🖼️ IMAGE INSERTED HERE - Full width, responsive, interactive
+              ============================================================
+            */}
+                                    <div className="my-8 md:my-10 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
+                                          <div className="relative w-full h-auto bg-[#F8F9FB]">
+                                                <Image
+                                                      src="/blog/kajabi-to-ghl-migration-guide.png"
+                                                      alt="Kajabi to GoHighLevel migration: Course importer, email importer, and feature comparison overview"
+                                                      width={1200}
+                                                      height={500}
+                                                      className="w-full h-auto object-cover"
+                                                      priority
+                                                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                                                />
                                           </div>
-                                          <p className="text-sm text-[#1A2236] leading-relaxed">
-                                                <strong className="text-[#1A2236]">Course content migration is always manual.</strong> Budget approximately 2 to 6 hours per course
-                                                depending on the number of modules and lessons. A 5-module course with 30 video lessons, PDFs, and quizzes typically takes 4 to 8 hours
-                                                to rebuild inside GHL. This is the honest timeline. Agencies that tell you this can be done in an afternoon are not telling you the full story.
-                                          </p>
+                                          <div className="bg-[#F8F9FB] px-4 py-2.5 text-xs text-[#5C6880] border-t border-[#DDE1E9] flex items-center gap-2">
+                                                <ImageIcon className="w-3.5 h-3.5" />
+                                                <span>Kajabi → GoHighLevel: Course import workflow, email template importer, and feature comparison</span>
+                                          </div>
                                     </div>
 
-                                    {/* Section 3: Migration Steps */}
+                                    {/* Section: Step-by-Step */}
                                     <h2 id="migration-steps" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-                                          3. How to Migrate from Kajabi to GoHighLevel (Step-by-Step)
+                                          Step-by-Step: How to Migrate from Kajabi to GoHighLevel
                                     </h2>
 
                                     <div className="space-y-4 mb-6">
                                           <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
                                                 <div className="flex items-center gap-3 mb-2">
                                                       <div className="w-6 h-6 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold">1</div>
-                                                      <h3 className="text-base font-bold text-[#1A2236]">Audit your Kajabi account before exporting anything</h3>
+                                                      <h3 className="text-base font-bold text-[#1A2236]">Audit your Kajabi account.</h3>
                                                 </div>
-                                                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">List every active course with its module count, lesson count, and content types. List every active email automation with its trigger and purpose. Identify which students are currently active versus which have completed their access period. This audit becomes your migration checklist.</p>
+                                                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">List every course with its module/lesson count and note which lessons are published vs. draft only published lessons will import automatically. List active email sequences and which are worth rebuilding as workflows.</p>
                                           </div>
 
                                           <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
                                                 <div className="flex items-center gap-3 mb-2">
                                                       <div className="w-6 h-6 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold">2</div>
-                                                      <h3 className="text-base font-bold text-[#1A2236]">Export contacts, students, and purchase history</h3>
+                                                      <h3 className="text-base font-bold text-[#1A2236]">Export contacts and student records.</h3>
                                                 </div>
-                                                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">In Kajabi, go to People and export your full contact list as a CSV. Export your student and purchase data separately. Clean the CSV before import: remove duplicates, standardise email formats, and flag any students whose access has expired.</p>
+                                                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">In Kajabi, go to People and export your contact list as CSV, plus student/purchase data separately. Clean the CSV before importing into GHL's Contacts.</p>
                                           </div>
 
                                           <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
                                                 <div className="flex items-center gap-3 mb-2">
                                                       <div className="w-6 h-6 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold">3</div>
-                                                      <h3 className="text-base font-bold text-[#1A2236]">Build your GHL infrastructure before rebuilding any content</h3>
+                                                      <h3 className="text-base font-bold text-[#1A2236]">Run the Kajabi Course Importer for each course.</h3>
                                                 </div>
-                                                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">Create custom fields. Configure email domain with DKIM and SPF. Set up Stripe connection. Create pipeline stages. Build booking calendar. Complete A2P 10DLC SMS registration. These foundations must exist before you layer course content and automation on top.</p>
+                                                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">Go to Memberships → Courses → Products → Create Product → Import, create a Kajabi learner profile for GHL to log in with, and start the import. Do this during off-hours to avoid disrupting current Kajabi learners, and back up any custom themes first.</p>
                                           </div>
 
                                           <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
                                                 <div className="flex items-center gap-3 mb-2">
                                                       <div className="w-6 h-6 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold">4</div>
-                                                      <h3 className="text-base font-bold text-[#1A2236]">Rebuild courses manually in GHL's membership module</h3>
+                                                      <h3 className="text-base font-bold text-[#1A2236]">Review imported courses and rebuild quizzes/assignments.</h3>
                                                 </div>
-                                                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">Create a new membership for each Kajabi product. Recreate module and lesson structure exactly. Upload videos and PDFs. Rebuild quizzes. Configure drip scheduling. Set access control. Test the student login experience before re-enrolling students.</p>
-                                                <p className="text-sm text-[#0E9BF0] leading-relaxed ml-9 mt-1">→ See our <Link href="/services/membership-sites" className="text-[#0E9BF0] hover:underline">GoHighLevel Membership and Course Setup Service →</Link></p>
+                                                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">Check each imported lesson for formatting accuracy, then manually recreate every quiz and assignment the importer left as an empty shell. Reconfigure drip scheduling per course, since it isn't part of the import.</p>
                                           </div>
 
                                           <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
                                                 <div className="flex items-center gap-3 mb-2">
                                                       <div className="w-6 h-6 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold">5</div>
-                                                      <h3 className="text-base font-bold text-[#1A2236]">Rebuild email automations as GHL workflows</h3>
+                                                      <h3 className="text-base font-bold text-[#1A2236]">Import reusable email templates, then rebuild automation logic as workflows.</h3>
                                                 </div>
-                                                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">For each active Kajabi email sequence, recreate it as a GHL workflow. Set the trigger to match. Recreate each email action with the same copy and timing. Extend every sequence to include SMS, voice, and booking actions. Start with your post-purchase onboarding sequence first.</p>
-                                                <p className="text-sm text-[#0E9BF0] leading-relaxed ml-9 mt-1">→ Need help with workflows? <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-[#0E9BF0] hover:underline">GoHighLevel Workflow Automation Guide →</Link></p>
+                                                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">Use the Kajabi Email Template Importer for designs worth keeping, then recreate each sequence's trigger and timing in GHL's workflow builder. See{' '}
+                                                      <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-[#0E9BF0] hover:underline">GoHighLevel's workflow automation guide</Link> for the setup mechanics.
+                                                </p>
                                           </div>
 
                                           <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
                                                 <div className="flex items-center gap-3 mb-2">
                                                       <div className="w-6 h-6 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold">6</div>
-                                                      <h3 className="text-base font-bold text-[#1A2236]">Re-enrol existing students and run parallel</h3>
+                                                      <h3 className="text-base font-bold text-[#1A2236]">Rebuild offers, funnels, and reconnect Stripe.</h3>
                                                 </div>
-                                                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">Send a personalised email to existing Kajabi students inviting them to create their GHL member portal account. Keep Kajabi active for 2 to 4 weeks while students transition. Do not cancel Kajabi until all active students have confirmed access in GHL.</p>
+                                                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">Recreate your pricing plans as GHL order forms and reconnect payment processing none of this comes through the course importer.</p>
+                                          </div>
+
+                                          <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
+                                                <div className="flex items-center gap-3 mb-2">
+                                                      <div className="w-6 h-6 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold">7</div>
+                                                      <h3 className="text-base font-bold text-[#1A2236]">Re-enroll students and run in parallel.</h3>
+                                                </div>
+                                                <p className="text-sm text-[#5C6880] leading-relaxed ml-9">Invite existing students to create their GHL member portal login. Keep Kajabi active for 2–4 weeks while students transition, and don't cancel until active students have confirmed access in GHL.</p>
                                           </div>
                                     </div>
 
-                                    {/* CTA Button 4: After Migration Steps */}
-                                    <div className="bg-gradient-to-r from-[#0E9BF0] to-[#0C8AD8] rounded-xl p-6 text-center text-white mb-8">
-                                          <p className="text-sm font-medium mb-2">⚡ Don't want to spend weeks on course content rebuild?</p>
-                                          <p className="text-sm text-white/80 mb-4">We handle the entire migration including course content rebuild, drip schedule, and student re-enrolment.</p>
-                                          <Link
-                                                href="/contact"
-                                                className="group inline-flex items-center gap-2 bg-white text-[#0E9BF0] font-bold px-6 py-2.5 rounded-lg hover:bg-[#F8F9FB] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                                          >
-                                                <HeartHandshake className="w-4 h-4" />
-                                                Get Migration Done
-                                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                          </Link>
-                                    </div>
-
-                                    {/* Section 4: Membership Comparison */}
-                                    <h2 id="membership-comparison" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-                                          4. How Does GoHighLevel's Membership Module Compare to Kajabi?
+                                    {/* Section: How Long It Actually Takes */}
+                                    <h2 id="how-long" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+                                          How Long It Actually Takes
                                     </h2>
                                     <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-                                          This is the question every Kajabi migrator asks before committing. Here is the honest, specific answer.
+                                          Because course structure and media now import automatically for published lessons, the timeline concentrates on quiz/assignment rebuilding, automation logic, and offer/funnel reconstruction not on re-uploading every video from scratch.
+                                    </p>
+
+                                    <div className="overflow-x-auto my-6">
+                                          <table className="w-full border-collapse text-sm">
+                                                <thead>
+                                                      <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
+                                                            <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Setup Complexity</th>
+                                                            <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Courses</th>
+                                                            <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Estimated Timeline</th>
+                                                      </tr>
+                                                </thead>
+                                                <tbody>
+                                                      {timelineData.map((item, idx) => (
+                                                            <tr key={idx} className="border-b border-[#DDE1E9]">
+                                                                  <td className="py-3 px-3 font-medium text-[#1A2236]">{item.type}</td>
+                                                                  <td className="py-3 px-3 text-[#5C6880]">{item.courses}</td>
+                                                                  <td className="py-3 px-3 text-[#0E9BF0] font-semibold">{item.timeline}</td>
+                                                            </tr>
+                                                      ))}
+                                                </tbody>
+                                          </table>
+                                    </div>
+
+                                    <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
+                                          <div className="flex items-center gap-2 mb-2">
+                                                <Clock className="w-4 h-4 text-[#0E9BF0]" />
+                                                <span className="text-sm font-bold text-[#0E9BF0]">WHAT DRIVES THE TIMELINE</span>
+                                          </div>
+                                          <p className="text-sm text-[#1A2236] leading-relaxed">
+                                                What actually drives the timeline now: the volume of quizzes and assignments needing manual recreation, the number of email automations to rebuild as workflows, and offer/funnel reconstruction not the course content import itself, which runs largely unattended once started.
+                                          </p>
+                                    </div>
+
+                                    {/* Section: Membership Comparison */}
+                                    <h2 id="membership-comparison" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+                                          How Does Kajabi's Course Experience Compare to GoHighLevel's?
+                                    </h2>
+                                    <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+                                          This is the question every Kajabi migrator asks before committing, and the honest answer hasn't changed with the corrected import facts above: Kajabi's course player, community features, and membership experience remain genuinely more polished than GoHighLevel's. GoHighLevel's membership module is functional and improving, but if your business is purely course-first and doesn't need SMS, pipeline CRM, or AI automation, weigh that trade-off carefully. If course delivery is one part of a broader operation that also needs those capabilities, the migration effort now meaningfully reduced by the course importer is easier to justify than it used to be.
                                     </p>
 
                                     <div className="overflow-x-auto my-6">
@@ -653,7 +599,7 @@ export default function KajabiToGHLMigrationClient() {
                                                       </tr>
                                                 </thead>
                                                 <tbody>
-                                                      {membershipComparison.map((item, idx) => (
+                                                      {membershipData.map((item, idx) => (
                                                             <tr key={idx} className="border-b border-[#DDE1E9]">
                                                                   <td className="py-3 px-3 font-medium text-[#1A2236]">{item.feature}</td>
                                                                   <td className="py-3 px-3 text-[#5C6880]">{item.kajabi}</td>
@@ -664,9 +610,9 @@ export default function KajabiToGHLMigrationClient() {
                                           </table>
                                     </div>
 
-                                    {/* Section 5: Common Mistakes */}
+                                    {/* Section: Common Mistakes */}
                                     <h2 id="common-mistakes" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-                                          5. Common Kajabi Migration Mistakes to Avoid
+                                          Common Mistakes to Avoid
                                     </h2>
 
                                     <div className="space-y-4 mb-6">
@@ -683,41 +629,9 @@ export default function KajabiToGHLMigrationClient() {
                                           ))}
                                     </div>
 
-                                    <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-5 my-6 text-white">
-                                          <div className="flex items-center gap-2 mb-3">
-                                                <Star className="w-5 h-5 text-[#F8D000]" />
-                                                <span className="text-sm font-bold text-[#F8D000]">WE HANDLE THIS FOR YOU</span>
-                                          </div>
-                                          <p className="text-sm text-white/80 leading-relaxed mb-3">
-                                                GHL Scale Up manages complete Kajabi to GoHighLevel migrations: contact export and cleaning, course content rebuild in GHL membership,
-                                                drip schedule rebuild, email sequence migration to GHL workflows, student re-enrolment, and post-migration support.
-                                          </p>
-                                          <Link href="/contact" className="inline-flex items-center gap-2 text-[#F8D000] text-sm font-semibold hover:gap-3 transition-all">
-                                                Book a free migration assessment at ghlscaleup.com/contact
-                                                <ArrowRight className="w-3 h-3" />
-                                          </Link>
-                                          <p className="text-sm text-white/60 leading-relaxed mt-3">
-                                                → See our full <Link href="/services/migration" className="text-[#0E9BF0] hover:underline">Kajabi to GoHighLevel migration service →</Link>
-                                          </p>
-                                    </div>
-
-                                    {/* CTA Button 5: Before FAQ */}
-                                    <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
-                                          <p className="text-sm font-medium mb-2">⚠️ Don't risk your course content with a DIY migration.</p>
-                                          <p className="text-sm text-white/80 mb-4">Get a free, no-obligation migration assessment from experts who've done 200+ migrations.</p>
-                                          <Link
-                                                href="/contact"
-                                                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                                          >
-                                                <Shield className="w-4 h-4" />
-                                                Get a Free Assessment
-                                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                          </Link>
-                                    </div>
-
-                                    {/* Section 6: FAQ */}
+                                    {/* Section: FAQ */}
                                     <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
-                                          6. Frequently Asked Questions
+                                          Frequently Asked Questions
                                     </h2>
 
                                     <div className="space-y-3">
@@ -732,53 +646,32 @@ export default function KajabiToGHLMigrationClient() {
                                           ))}
                                     </div>
 
-                                    {/* CTA Button 6: After FAQ */}
-                                    <div className="mt-8 p-6 bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl text-center">
-                                          <p className="text-white font-bold text-lg mb-2">Still Have Questions About Migrating from Kajabi?</p>
-                                          <p className="text-white/60 text-sm mb-4">Talk to our migration specialists directly. We've done 200+ migrations.</p>
-                                          <div className="flex flex-wrap justify-center gap-3">
-                                                <Link
-                                                      href="/contact"
-                                                      className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                                                >
-                                                      <MessageCircle className="w-4 h-4" />
-                                                      Ask an Expert
-                                                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                                </Link>
-                                                <Link
-                                                      href="/contact"
-                                                      className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-white/20 transition-all border border-white/20 text-sm"
-                                                >
-                                                      <Phone className="w-4 h-4" />
-                                                      Call Us
-                                                </Link>
-                                          </div>
+                                    {/* Contextual CTA inside FAQ */}
+                                    <div className="mt-4 text-sm text-[#5C6880] leading-relaxed">
+                                          Want the migration handled end-to-end course import review, quiz rebuild, and student re-enrollment included?{' '}
+                                          <Link href="/contact" className="text-[#0E9BF0] hover:underline font-medium">Book a free migration assessment</Link>.
                                     </div>
 
                                     {/* Internal Links */}
                                     <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
                                           <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles in This Series</h3>
                                           <div className="flex flex-wrap gap-3">
-                                                <Link href="/blog/hubspot-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">How to Migrate from HubSpot to GoHighLevel →</Link>
-                                                <Link href="/blog/clickfunnels-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">How to Migrate from ClickFunnels to GoHighLevel →</Link>
-                                                <Link href="/blog/activecampaign-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">ActiveCampaign to GoHighLevel Migration →</Link>
                                                 <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Workflow Automation for Beginners →</Link>
-                                                <Link href="/blog/gohighlevel-pricing" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Pricing: All Plans Explained →</Link>
-                                                <Link href="/services/migration" className="text-sm text-[#0E9BF0] hover:underline">Kajabi to GoHighLevel Migration Service →</Link>
+                                                <Link href="/blog/gohighlevel-migration-checklist" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Migration Checklist →</Link>
+                                                <Link href="/blog/ghl-migration-timeline" className="text-sm text-[#0E9BF0] hover:underline">GHL Migration Timeline Guide →</Link>
+                                                <Link href="/blog/ghl-migration-mistakes" className="text-sm text-[#0E9BF0] hover:underline">8 Common GHL Migration Mistakes →</Link>
                                           </div>
                                     </div>
 
-                                    {/* Final CTA Section */}
+                                    {/* Final CTA Section - Single closing CTA */}
                                     <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
                                           <div className="relative z-10">
                                                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Migrating from Kajabi to GoHighLevel?</h3>
                                                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
-                                                      The course rebuild is the hard part. We handle it. Course content rebuild, contact migration,
-                                                      drip schedule rebuild, student re-enrolment, and email sequence migration to GHL workflows all handled.
-                                                      Book a free migration assessment.
+                                                      The course import handles the heavy lifting. We handle the rest. Course import review, quiz rebuild, automation migration, and student re-enrollment all handled. Book a free migration assessment.
                                                 </p>
                                                 <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105">
-                                                      Book Your Free Assessment
+                                                      Book Your Free Migration Assessment
                                                       <ArrowRight className="w-4 h-4" />
                                                 </Link>
                                           </div>
@@ -786,6 +679,10 @@ export default function KajabiToGHLMigrationClient() {
                               </main>
                         </div>
                   </div>
+
+                  {/* Booking Modal - Rendered at root level */}
+                  <BookingModal open={openBooking} setOpen={setOpenBooking} />
+
 
                   {/* Progress Bar Script */}
                   <script dangerouslySetInnerHTML={{
