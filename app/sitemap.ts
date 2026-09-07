@@ -288,6 +288,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
     {
+      url: `${baseUrl}/blog/what-a-gohighlevel-migration-service-migrates`,
+      lastModified: new Date('2026-09-08'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/blog/connect-zapier-to-gohighlevel`,
       lastModified: new Date('2026-09-02'),
       changeFrequency: 'monthly',

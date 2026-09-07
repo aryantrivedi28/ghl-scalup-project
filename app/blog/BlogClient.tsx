@@ -124,6 +124,7 @@ export default function BlogClient() {
       'CRM Guide': 'bg-[rgba(37,201,125,0.12)] text-[#25C97D] border-[rgba(37,201,125,0.2)]',
       'Nonprofit CRM': 'bg-[rgba(220,53,69,0.12)] text-[#DC3545] border-[rgba(220,53,69,0.2)]',
       'Integration': 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]',
+      'Migration': 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]',
     };
     return colors[tag] || 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]';
   };

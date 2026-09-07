@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Database',
+            tag: 'Migration',
+            title: 'What a GoHighLevel Migration Actually Includes (2026)',
+            excerpt: 'Contacts, HTML emails, and automation workflows don\'t migrate the same way. Here\'s exactly what transfers, what needs mapping, and what has to be rebuilt — and how to evaluate a provider\'s scope.',
+            slug: 'what-a-gohighlevel-migration-service-migrates',
+            date: 'September 8, 2026',
+            readTime: '16 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'Link2',
             tag: 'Integration',
             title: 'Connect Zapier to GoHighLevel: Full Setup Guide (2026)',
