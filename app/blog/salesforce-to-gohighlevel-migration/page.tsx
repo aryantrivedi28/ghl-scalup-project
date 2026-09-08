@@ -3,16 +3,16 @@ import Script from 'next/script';
 import SalesforceToGoHighLevelMigrationClient from './client';
 
 export const metadata: Metadata = {
-  title: 'Salesforce to GoHighLevel Migration: Complete 2026 Guide | GHL Scale Up',
-  description: 'Complete step-by-step guide to migrating from Salesforce to GoHighLevel in 2026. Object mapping, dependency-ordered export, workflow rebuild, and honest complexity assessment. Updated July 2026.',
-  keywords: 'salesforce to gohighlevel migration, migrate from salesforce to ghl, salesforce gohighlevel data export, salesforce alternative gohighlevel, salesforce vs gohighlevel, salesforce workflows to ghl, salesforce custom objects ghl, salesforce to gohighlevel cost savings',
+  title: 'Salesforce to GoHighLevel Migration Guide (2026): Object Mapping & Rebuild',
+  description: 'Salesforce\'s relational data model mapped to GoHighLevel: Accounts, Custom Objects, Flows, and dependency-ordered migration — corrected against official HighLevel documentation.',
+  keywords: 'salesforce to gohighlevel migration, migrate salesforce to gohighlevel, salesforce data migration to gohighlevel, salesforce custom objects gohighlevel, salesforce workflows to ghl, salesforce to ghl migration, salesforce vs gohighlevel, salesforce alternative gohighlevel',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {
-    title: 'Salesforce to GoHighLevel Migration: Complete 2026 Guide',
-    description: 'Complete step-by-step guide to migrating from Salesforce to GoHighLevel in 2026. Object mapping, dependency-ordered export, workflow rebuild, and honest complexity assessment.',
+    title: 'Salesforce to GoHighLevel Migration Guide (2026): Object Mapping & Rebuild',
+    description: 'Salesforce\'s relational data model mapped to GoHighLevel: Accounts, Custom Objects, Flows, and dependency-ordered migration — corrected against official HighLevel documentation.',
     type: 'article',
-    publishedTime: '2026-07-22T00:00:00Z',
-    modifiedTime: '2026-07-22T00:00:00Z',
+    publishedTime: '2026-05-14T00:00:00Z',
+    modifiedTime: '2026-05-14T00:00:00Z',
     authors: ['GHL Scale Up Team'],
     tags: ['Salesforce to GoHighLevel', 'Salesforce GHL Migration', 'CRM Migration', '2026'],
     images: [{ url: 'https://www.ghlscaleup.com/images/blog/salesforce-to-gohighlevel-migration-og.jpg', width: 1200, height: 630 }],
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@ghlscaleup',
-    title: 'Salesforce to GoHighLevel Migration: Complete 2026 Guide',
-    description: 'Complete step-by-step guide to migrating from Salesforce to GoHighLevel in 2026. Object mapping, dependency-ordered export, workflow rebuild, and honest complexity assessment.',
+    title: 'Salesforce to GoHighLevel Migration Guide (2026): Object Mapping & Rebuild',
+    description: 'Salesforce\'s relational data model mapped to GoHighLevel: Accounts, Custom Objects, Flows, and dependency-ordered migration.',
     images: ['https://www.ghlscaleup.com/images/blog/salesforce-to-gohighlevel-migration-og.jpg'],
   },
   alternates: {
@@ -40,11 +40,11 @@ export default function SalesforceToGoHighLevelMigrationPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "How to Migrate from Salesforce to GoHighLevel in 2026 (Complete Guide)",
-            "description": "Complete step-by-step guide to migrating from Salesforce to GoHighLevel in 2026. Object mapping, dependency-ordered export, workflow rebuild, and honest complexity assessment.",
+            "headline": "Salesforce to GoHighLevel Migration: Complete 2026 Guide",
+            "description": "Migrating from Salesforce to GoHighLevel is the highest-complexity CRM migration in the GHL ecosystem, primarily because Salesforce's relational object model — Leads, Contacts, Accounts, Opportunities, Activities, and Custom Objects with defined parent-child relationships — does not map directly onto GoHighLevel's contact-centric structure. This is a data-architecture problem, not a drag-and-drop setup. Businesses migrate anyway because Salesforce's cost, complexity, and per-user licensing become disproportionate once a team no longer needs enterprise-grade customization. HighLevel does publish an official Salesforce migration guide covering the general process; this guide adds the Salesforce-specific technical depth — object mapping strategy, Custom Object treatment, and dependency-ordered import — that the official guide doesn't cover at this level of detail.",
             "image": "https://www.ghlscaleup.com/images/blog/salesforce-to-gohighlevel-migration-og.jpg",
-            "datePublished": "2026-07-22",
-            "dateModified": "2026-07-22",
+            "datePublished": "2026-05-14",
+            "dateModified": "2026-05-14",
             "author": {
               "@type": "Organization",
               "name": "GHL Scale Up Team",

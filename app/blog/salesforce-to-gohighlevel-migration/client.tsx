@@ -19,70 +19,27 @@ import {
   MessageCircle,
   Phone,
   Search,
-  Trophy,
-  Facebook,
   Shield,
-  DollarSign,
-  Users,
-  Building2,
-  Calendar,
-  Layout,
-  GitBranch,
-  Sparkles,
-  Award,
-  TrendingUp,
-  Server,
-  Globe,
-  CreditCard,
-  Smartphone,
-  Briefcase,
-  Cloud,
-  Database,
-  Clock,
-  Mail,
-  GraduationCap,
-  Compass,
   BarChart3,
-  Mailbox,
-  Layers,
   Workflow,
-  Settings,
-  Link2,
-  Webhook,
-  RefreshCw,
-  ListChecks,
-  ClipboardList,
-  Printer,
-  Video,
-  Ticket,
-  TrendingDown,
   Info,
-  UserCheck,
-  UserX,
-  PanelTop,
-  LayoutDashboard,
-  LifeBuoy,
-  Timer,
-  Trash2,
-  Download,
-  PieChart,
-  GitMerge,
-  FileCheck,
-  Headphones,
-  FileText,
-  XCircle,
-  HelpCircle,
-  Boxes,
-  Combine,
-  RefreshCw as RefreshCwIcon,
-  CalendarDays
+  Image as ImageIcon,
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import BookingModal from '@/components/BookingModal';
+import { Button } from '../../../components/ui/button';
+import Image from 'next/image';
 
 export default function SalesforceToGoHighLevelMigrationClient() {
   const [activeId, setActiveId] = useState<string>('');
-  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
+  const [openBooking, setOpenBooking] = useState(false);
+
+  const handleOpenBooking = () => {
+    setOpenBooking(true);
+  };
+
+  // Handle scroll detection for active section
   useEffect(() => {
     const handleScroll = () => {
       const sections = [
@@ -91,6 +48,7 @@ export default function SalesforceToGoHighLevelMigrationClient() {
         'export-data',
         'custom-objects',
         'rebuild-workflows',
+        'documents-contracts',
         'import-process',
         'sandbox-testing',
         'migration-comparison',
@@ -103,16 +61,8 @@ export default function SalesforceToGoHighLevelMigrationClient() {
           const rect = element.getBoundingClientRect();
           if (rect.top <= 150) {
             setActiveId(id);
-            break;
           }
         }
-      }
-
-      // Show floating Project Help card after scrolling past hero section
-      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
-      if (heroSection) {
-        const heroBottom = heroSection.getBoundingClientRect().bottom;
-        setShowFloatingProjectHelp(heroBottom < 0);
       }
     };
 
@@ -120,6 +70,7 @@ export default function SalesforceToGoHighLevelMigrationClient() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Handle TOC click with smooth scroll
   const scrollToHeading = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -133,46 +84,43 @@ export default function SalesforceToGoHighLevelMigrationClient() {
   const faqs = [
     {
       q: "Can I automatically migrate from Salesforce to GoHighLevel?",
-      a: "No, not directly. Unlike Zoho (which has an official GHL migration guide), GoHighLevel does not publish an official Salesforce migration tool or documented import path for Salesforce Flows, Process Builder, or relational objects. What is possible: exporting Salesforce data via CSV (using Data Export tool, Reports, or Data Loader), mapping fields manually, and importing to GHL via the standard Contacts/Opportunities import. Workflows must be manually rebuilt. Third-party migration services (including GHL Scale Up) handle the full end-to-end process."
+      a: "Partially. HighLevel does publish an official Salesforce migration guide covering the general process exporting contacts, accounts, and opportunities as CSV, then importing and rebuilding pipelines and automations in GHL. What's not automatic: Salesforce Flows, Process Builder, and relational Custom Object structures have no automated import path and must be manually rebuilt."
     },
     {
       q: "How do Salesforce Accounts map to GoHighLevel?",
-      a: "There are three options depending on how your business uses Accounts. Option 1: Map to GHL Companies (built-in module) simplest, works for most SMB use cases where you need to view all Contacts belonging to a Company. Option 2: Map to a GHL Custom Object 'Account' preserves parent-child hierarchy but consumes one of the 10 Custom Object slots. Option 3: Map to a Custom Field 'company-name' on the Contact lightest touch, loses relational integrity but works if you never query Account-level rollups. Choose based on whether your business logic actively uses Account rollups."
+      a: "Three options, depending on how your business uses Accounts. Map to GHL Companies for the simplest approach, suited to most SMB use cases. Map to a Custom Object to preserve parent-child hierarchy at the cost of one Custom Object slot. Map to a Custom Field on the Contact for the lightest touch, if you never need Account-level rollups."
     },
     {
       q: "What happens to Salesforce Custom Objects in GoHighLevel?",
-      a: "GoHighLevel does support Custom Objects on all plans as of current documentation (cited by ClonePartner, April 2026, referencing help.gohighlevel.com). There are three constraints: a 10-object cap, limited unique field types, and support gaps in Email Campaigns, Bulk Email/SMS, Conversations, Calendars, and Payments. Practically, this means (a) migrate your top 8-9 highest-use Custom Objects as GHL Custom Objects, (b) collapse Custom Objects that are essentially additional Contact data into Custom Fields on the Contact record, and (c) archive historical Custom Objects that are rarely queried. Verify current Custom Object plan support in GHL's Trust Center."
+      a: "GoHighLevel supports Custom Objects on every plan, including Starter, as of an October 2025 update, with a cap of 10 Custom Objects per location. Businesses with more than 10 Custom Objects need to prioritize which ones migrate as full Custom Objects versus collapsing into Contact fields or archiving."
     },
     {
       q: "Do Salesforce Flows and Process Builder transfer to GoHighLevel?",
-      a: "No. Salesforce Flows, Process Builder, Approval Processes, and Validation Rules do not export and cannot be automatically imported into GoHighLevel. They must be documented (business intent, trigger conditions, actions in order, exit conditions) and then manually rebuilt in GHL's Workflow Builder using GHL's own trigger and action system. This is the most time-consuming phase of a Salesforce migration typically 40-60% of the total project time depending on automation count."
+      a: "No. They must be documented business intent, trigger conditions, actions in order, exit conditions and manually rebuilt in GHL's Workflow Builder. This is typically the most time-consuming phase of a Salesforce migration."
     },
     {
       q: "How long does a Salesforce to GoHighLevel migration take?",
-      a: "Typical timeline is 4 to 8 weeks depending on data volume, custom object count, workflow complexity, and Sandbox testing depth. A simple migration (under 10,000 contacts, minimal Custom Objects, under 15 automations) can complete in 3-4 weeks. A complex migration (100,000+ contacts, 10+ Custom Objects, 30+ Flows and Process Builder automations, multiple pipeline stages) can take 8-12 weeks. Salesforce is the highest-complexity CRM migration type in the GHL ecosystem confirmed by AutomateToGrow (April 2026)."
-    },
-    {
-      q: "What is the cost difference between Salesforce and GoHighLevel?",
-      a: "It depends on team size. Salesforce per-user pricing ranges from ~$25/user/month (Essentials) to $330/user/month (Unlimited), plus typical add-ons for Marketing Cloud, Service Cloud, and third-party integrations. GoHighLevel is flat-rate: $97-$497/month regardless of user count, plus usage fees for SMS, email, and AI. For a 10-user Salesforce Professional Edition instance (~$800/month base + add-ons), migrating to GoHighLevel Unlimited ($297/month + usage) typically produces $500-$2,000/month in platform cost savings, plus reduced admin overhead. Verify your actual Salesforce spend before quoting savings figures."
+      a: "Typically 4–8 weeks, depending on data volume, Custom Object count, and automation complexity. A simple migration (under 10,000 contacts, minimal Custom Objects, under 15 automations) can complete in 3–4 weeks. A complex migration (100,000+ contacts, 10+ Custom Objects, 30+ automations) can take 8–12 weeks."
     },
     {
       q: "Should I use Salesforce Sandbox for migration testing?",
-      a: "Yes, whenever available. Salesforce Sandbox (Full Sandbox on Enterprise+ editions, Partial Copy Sandbox on lower tiers) gives you a safe environment to test the export process and field mapping without touching production data. Standard approach: refresh Sandbox from Production, run all three export methods in Sandbox first, import to a fresh GHL test sub-account, document any field mapping or format issues found, then apply fixes to the production migration script. This dress rehearsal typically catches 80% of the surprises that would otherwise delay production cutover."
+      a: "Yes, whenever available. Sandbox gives you a safe environment to test export methods and field mapping without touching production data refresh from Production, test exports there, import into a fresh GHL test sub-account, document issues, then apply fixes to the real migration."
     }
   ];
 
   useFaqSchema(faqs);
 
   const tocItems = [
-    { id: 'why-migrate', title: '1. Why do businesses migrate from Salesforce to GoHighLevel?' },
-    { id: 'object-model', title: '2. How does the Salesforce object model translate to GoHighLevel?' },
-    { id: 'export-data', title: '3. How do you export data from Salesforce correctly?' },
-    { id: 'custom-objects', title: '4. How do you handle Salesforce Custom Objects in GHL?' },
-    { id: 'rebuild-workflows', title: '5. How do you rebuild Salesforce workflows in GHL?' },
-    { id: 'import-process', title: '6. What is the dependency-ordered import process?' },
-    { id: 'sandbox-testing', title: '7. How do you handle Salesforce Sandbox testing before cutover?' },
-    { id: 'migration-comparison', title: '8. How does Salesforce migration compare to Zoho or HubSpot?' },
-    { id: 'faq', title: '9. Frequently asked questions' }
+    { id: 'why-migrate', title: '1. Why Do Businesses Migrate from Salesforce to GoHighLevel?' },
+    { id: 'object-model', title: '2. How Does the Salesforce Object Model Translate to GoHighLevel?' },
+    { id: 'export-data', title: '3. How Do You Export Data from Salesforce Correctly?' },
+    { id: 'custom-objects', title: '4. How Do You Handle Salesforce Custom Objects in GHL?' },
+    { id: 'rebuild-workflows', title: '5. How Do You Rebuild Salesforce Workflows in GHL?' },
+    { id: 'documents-contracts', title: '6. Documents, Contracts, and E-Signature' },
+    { id: 'import-process', title: '7. What Is the Dependency-Ordered Import Process?' },
+    { id: 'sandbox-testing', title: '8. How Do You Handle Salesforce Sandbox Testing Before Cutover?' },
+    { id: 'migration-comparison', title: '9. How Does Salesforce Migration Compare to Zoho or HubSpot?' },
+    { id: 'faq', title: '10. Frequently Asked Questions' }
   ];
 
   const objectMapping = [
@@ -211,12 +159,15 @@ export default function SalesforceToGoHighLevelMigrationClient() {
     <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
       <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
       <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your migration.</p>
-      <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+      <Button
+        onClick={handleOpenBooking}
+        className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
         Book a 30 min Free Call
         <ArrowRight className="w-3 h-3" />
-      </Link>
+      </Button>
     </div>
   );
+
 
   return (
     <>
@@ -265,14 +216,25 @@ export default function SalesforceToGoHighLevelMigrationClient() {
             </div>
             <div>
               <div className="text-sm font-medium text-white">GHL Scale Up Team</div>
-              <div className="text-xs text-white/50">GoHighLevel Migration Specialists · 200+ Builds Delivered · Updated July 2026</div>
+              <div className="text-xs text-white/50">GoHighLevel Migration Specialists · 200+ builds delivered · Verified against official HighLevel documentation, September 2026</div>
             </div>
           </div>
 
           {/* Introductory Paragraph */}
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-6xl">
-            Migrating from Salesforce to GoHighLevel is the highest-complexity CRM migration in the GHL ecosystem, primarily because Salesforce's relational object model Leads, Contacts, Accounts, Opportunities, Activities, and Custom Objects with defined parent-child relationships does not map directly to GoHighLevel's contact-centric structure. This is a data-architecture problem, not a drag-and-drop setup. Businesses migrate anyway because Salesforce's cost, complexity, and per-user licensing become disproportionate for teams that no longer need enterprise-grade customisation. <Link href="/" className="text-[#0E9BF0] hover:underline font-medium">GHL Scale Up</Link> has managed Salesforce migrations for mid-market service businesses moving to a unified all-in-one platform. This guide gives you the object mapping strategy, dependency-ordered import process, and honest complexity assessment with a clear note upfront about what is confirmed versus interpreted best practice. For the fully-managed path: <Link href="/services/migration" className="text-[#0E9BF0] hover:underline">GHL Migration Services →</Link>
+            Migrating from Salesforce to GoHighLevel is the highest-complexity CRM migration in the GHL ecosystem, primarily because Salesforce's relational object model Leads, Contacts, Accounts, Opportunities, Activities, and Custom Objects with defined parent-child relationships does not map directly onto GoHighLevel's contact-centric structure. This is a data-architecture problem, not a drag-and-drop setup. Businesses migrate anyway because Salesforce's cost, complexity, and per-user licensing become disproportionate once a team no longer needs enterprise-grade customization.
           </p>
+
+          {/* Direct Answer Box */}
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 md:p-6 mb-6">
+            <div className="flex items-center gap-2 mb-3">
+              <Zap className="w-5 h-5 text-[#F8D000]" />
+              <span className="text-xs font-bold uppercase tracking-wider text-white/60">Direct answer</span>
+            </div>
+            <p className="text-sm text-white/70 leading-relaxed">
+              To migrate from Salesforce to GoHighLevel: (1) audit your Salesforce instance and decide your Account-mapping strategy, (2) export data via Salesforce's Data Export tool or Data Loader in dependency order (Accounts first, then Contacts, then Opportunities), (3) build your GHL infrastructure custom fields, pipelines, and Custom Objects before importing anything, (4) test-import 50–200 records to verify mapping, (5) run the full staged import, (6) rebuild Salesforce Flows and Process Builder automations manually in GHL's Workflow Builder, (7) run both platforms in parallel for 3–4 weeks before cutover. Typical timeline is 4–8 weeks depending on data volume, Custom Object count, and automation complexity. HighLevel does publish an official Salesforce migration guide covering the general process; this guide adds the Salesforce-specific technical depth object mapping strategy, Custom Object treatment, and dependency-ordered import that the official guide doesn't cover at this level of detail.
+            </p>
+          </div>
 
           {/* CTA Button 1: Hero Section */}
           <div className="flex flex-wrap gap-3">
@@ -391,32 +353,6 @@ export default function SalesforceToGoHighLevelMigrationClient() {
           {/* ==================== RIGHT COLUMN: BLOG CONTENT ==================== */}
           <main className="min-w-0 order-2">
 
-            {/* BLUF Box */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
-              <div className="flex items-center gap-2 mb-3">
-                <Zap className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Direct Answer Read This First</span>
-              </div>
-              <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
-                To migrate from Salesforce to GoHighLevel: (1) Audit your Salesforce instance, (2) design the object mapping strategy, (3) export data via Salesforce Data Export tool or Data Loader (dependency order: Accounts first, then Contacts linked to Accounts, then Opportunities linked to Contacts), (4) recreate custom fields, pipelines, and Custom Objects in GHL BEFORE import, (5) test-import 50-200 records to verify, (6) full staged import, (7) rebuild Salesforce Flows and Process Builder automations manually in GHL Workflow Builder, (8) run parallel for 3-4 weeks before cutover.
-              </p>
-              <p className="text-sm text-[#5C6880] leading-relaxed">
-                Timeline: typically 4-8 weeks depending on data volume, custom object count, and workflow complexity. Total complexity: HIGH. Important honesty note: unlike Zoho, GoHighLevel does not publish an official Salesforce migration guide all guidance below is aggregated from ecosystem partners and GHL's general Custom Objects and Import documentation.
-              </p>
-
-              {/* CTA Button 2: Inside TL;DR Box */}
-              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
-                  <Target className="w-4 h-4" />
-                  Get Migration Help
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </div>
-
             {/* Table of Contents - Mobile Only */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8 lg:hidden">
               <div className="flex items-center gap-2 mb-4">
@@ -446,40 +382,24 @@ export default function SalesforceToGoHighLevelMigrationClient() {
               1. Why Do Businesses Migrate from Salesforce to GoHighLevel?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> Businesses migrate from Salesforce to GoHighLevel primarily to reduce total cost of ownership Salesforce's per-user licensing, admin overhead, and third-party integration stack often exceed the actual value the business receives once the team has stopped requiring enterprise-grade customisation.
+              Businesses migrate from Salesforce to GoHighLevel primarily to reduce total cost of ownership. Salesforce's per-user licensing, admin overhead, and third-party integration stack often exceed the actual value once a team has stopped requiring enterprise-grade customization.
             </p>
 
             <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">Per-user pricing at scale:</strong> Salesforce per-user pricing (from ~$25/user/mo Essentials to $330/user/mo Unlimited) compounds with team size. GHL is flat-rate: $97-$497/month regardless of user count.</li>
-              <li><strong className="text-[#1A2236]">Admin overhead:</strong> Salesforce requires ongoing admin work typically a Certified Salesforce Admin or a consultancy at $75-$200/hour to maintain flows, page layouts, permission sets, and validation rules. GHL's simpler data model reduces admin work by an order of magnitude.</li>
-              <li><strong className="text-[#1A2236]">Third-party stack dependency:</strong> Salesforce typically pairs with Salesforce Marketing Cloud or a separate marketing automation tool, plus a support desk (Zendesk/Freshdesk), plus a scheduling tool. GHL consolidates all of these into one platform.</li>
-              <li><strong className="text-[#1A2236]">Feature bloat vs actual usage:</strong> HireGHLDeveloper (December 2025) reports many Salesforce customers pay for features they do not use. Cleaner unified alternative is often more valuable than deep customisation for mid-market service businesses.</li>
-              <li><strong className="text-[#1A2236]">Agency and reseller model:</strong> GHL's sub-account architecture, white-label options, and SaaS Mode let agencies resell a branded CRM to clients something Salesforce does not natively support without significant custom development (ClonePartner, April 2026).</li>
+              <li><strong className="text-[#1A2236]">Per-user pricing at scale:</strong> Salesforce per-user pricing ranges from roughly $25/user/month (Essentials) to $330/user/month (Unlimited), compounding with team size. GoHighLevel is flat-rate: $97–$497/month regardless of user count.</li>
+              <li><strong className="text-[#1A2236]">Admin overhead:</strong> Salesforce typically requires ongoing admin work a certified admin or consultancy to maintain flows, page layouts, permission sets, and validation rules. GHL's simpler data model reduces this substantially.</li>
+              <li><strong className="text-[#1A2236]">Third-party stack dependency:</strong> Salesforce commonly pairs with a separate marketing automation tool, a support desk, and a scheduling tool. GHL consolidates these into one platform.</li>
+              <li><strong className="text-[#1A2236]">Agency and reseller model:</strong> GHL's sub-account architecture, white-labeling, and SaaS Mode let agencies resell a branded CRM to clients something Salesforce doesn't natively support without significant custom development.</li>
             </ul>
 
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-4 my-4">
               <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">THE HONEST DISCLAIMER</span>
+                <AlertTriangle className="w-4 h-4 text-[#0E9BF0]" />
+                <span className="text-sm font-bold text-[#0E9BF0]">THE HONEST DISCLAIMER</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                GHL is NOT a drop-in Salesforce replacement for every business. Salesforce remains meaningfully better for: multi-team enterprise sales with complex approval hierarchies, businesses with deep third-party integration requirements (250+ marketplace apps), companies requiring advanced AI (Einstein/Agentforce), and regulated industries with specific Salesforce-native compliance products. Confirmed from HashStudioz (April 2026). Acknowledge this gap upfront before starting the migration if your team genuinely needs Salesforce-level customisation, do not migrate.
+                GHL is not a drop-in Salesforce replacement for every business. Salesforce remains meaningfully better for multi-team enterprise sales with complex approval hierarchies, businesses with deep third-party integration requirements, companies requiring advanced native AI (Einstein/Agentforce), and regulated industries with Salesforce-native compliance products. If your team genuinely needs Salesforce-level customization, this migration may not be the right move.
               </p>
-            </div>
-
-            {/* CTA Button 3: After Section 1 */}
-            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 mb-8 text-center">
-              <p className="text-white/80 text-sm mb-3">
-                <span className="font-bold text-white">Not sure if migrating from Salesforce is right for you?</span> Let our team help you decide.
-              </p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <BarChart3 className="w-4 h-4" />
-                Get Migration Advice
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
             </div>
 
             {/* Section 2: Object Model */}
@@ -487,7 +407,7 @@ export default function SalesforceToGoHighLevelMigrationClient() {
               2. How Does the Salesforce Object Model Translate to GoHighLevel?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> Salesforce uses a relational object model where Accounts contain Contacts, Contacts belong to Accounts, Opportunities are linked to both Accounts and Contacts, and Custom Objects can have master-detail or lookup relationships. GoHighLevel uses a contact-centric model where the Contact is the primary record and other entities (Companies, Opportunities, Custom Objects) attach to it.
+              Salesforce uses a relational object model: Accounts contain Contacts, Contacts belong to Accounts, Opportunities link to both, and Custom Objects can have master-detail or lookup relationships. GoHighLevel uses a contact-centric model where the Contact is the primary record and other entities attach to it. Understanding this difference is the foundation of the entire migration.
             </p>
 
             <div className="overflow-x-auto my-6">
@@ -495,7 +415,7 @@ export default function SalesforceToGoHighLevelMigrationClient() {
                 <thead>
                   <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
                     <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Salesforce Object</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">GoHighLevel Equivalent</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">GHL Equivalent</th>
                     <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Migration Strategy</th>
                   </tr>
                 </thead>
@@ -511,14 +431,33 @@ export default function SalesforceToGoHighLevelMigrationClient() {
               </table>
             </div>
 
-            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-4 my-4">
               <div className="flex items-center gap-2 mb-2">
                 <Lightbulb className="w-4 h-4 text-[#0E9BF0]" />
                 <span className="text-sm font-bold text-[#0E9BF0]">THE CORE ARCHITECTURAL DECISION</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                The biggest single decision is what to do with Salesforce Accounts. Option 1: Map to GHL Companies (built-in) simplest, works for most SMB use cases. Option 2: Map to a Custom Object 'Account' preserves parent-child hierarchy but uses one of your 10 Custom Object slots. Option 3: Map to a Custom Field 'company-name' on the Contact lightest touch, loses relational integrity but works if you never need to view Account rollups. The right choice depends on whether your business logic actually uses Account-level rollups (revenue by Account, all contacts at an Account). If yes, use Option 1 or 2. If no, Option 3 is faster and cleaner.
+                the biggest single choice is what to do with Salesforce Accounts. <strong>Option 1: map to GHL Companies</strong> simplest, works for most SMB use cases. <strong>Option 2: map to a Custom Object</strong> preserves parent-child hierarchy but uses one of your Custom Object slots. <strong>Option 3: map to a Custom Field on the Contact</strong> lightest touch, loses relational integrity, but works if you never need Account-level rollups. Choose based on whether your business logic actually uses Account rollups (revenue by Account, all contacts at an Account) if yes, use Option 1 or 2; if no, Option 3 is faster and cleaner.
               </p>
+            </div>
+
+            {/* IMAGE */}
+            <div className="my-8 md:my-10 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <div className="relative w-full h-auto bg-[#F8F9FB]">
+                <Image
+                  src="/blog/salesforce-to-ghl-migration-guide.png"
+                  alt="Salesforce to GoHighLevel migration: Object mapping, custom objects strategy, workflow rebuild, and import process overview"
+                  width={1200}
+                  height={500}
+                  className="w-full h-auto object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                />
+              </div>
+              <div className="bg-[#F8F9FB] px-4 py-2.5 text-xs text-[#5C6880] border-t border-[#DDE1E9] flex items-center gap-2">
+                <ImageIcon className="w-3.5 h-3.5" />
+                <span>Salesforce → GoHighLevel: Object mapping, custom objects strategy, workflow rebuild, and dependency-ordered import</span>
+              </div>
             </div>
 
             {/* Section 3: Export Data */}
@@ -526,21 +465,21 @@ export default function SalesforceToGoHighLevelMigrationClient() {
               3. How Do You Export Data from Salesforce Correctly?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> Salesforce offers three export methods, each suited to different data volumes and complexity levels.
+              Salesforce offers three export methods suited to different data volumes and complexity levels.
             </p>
             <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-decimal list-inside">
-              <li><strong className="text-[#1A2236]">Data Export tool (Setup → Data Export):</strong> Weekly or monthly full backup as ZIP of CSVs. Best for smaller instances (under 100,000 records). Slow to trigger on-demand but comprehensive. Runs asynchronously with email notification when ready.</li>
-              <li><strong className="text-[#1A2236]">Reports export:</strong> Create a report filtered to specific objects and fields, export as CSV. Best for selective exports (only closed-won Opportunities from last 3 years, or Contacts in specific segments). Limited to 2,000 rows in classic reports.</li>
-              <li><strong className="text-[#1A2236]">Data Loader (Salesforce.com download):</strong> Bulk API-based export, best for large volumes (100,000+ records). Runs from your desktop, requires Salesforce credentials with API access, exports directly to CSV. Handles relationships and lookups correctly.</li>
+              <li><strong className="text-[#1A2236]">Data Export tool (Setup → Data Export):</strong> a full backup as a ZIP of CSVs. Best for smaller instances (under 100,000 records). Runs asynchronously with an email notification when ready.</li>
+              <li><strong className="text-[#1A2236]">Reports export:</strong> create a report filtered to specific objects and fields, export as CSV. Best for selective exports. Limited to 2,000 rows in classic reports.</li>
+              <li><strong className="text-[#1A2236]">Data Loader:</strong> bulk API-based export, best for large volumes (100,000+ records). Runs from your desktop, requires API access, and handles relationships and lookups correctly.</li>
             </ul>
 
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-4 my-4">
               <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">THE EXPORT ORDER THAT PREVENTS RELATIONAL BREAKAGE</span>
+                <AlertTriangle className="w-4 h-4 text-[#0E9BF0]" />
+                <span className="text-sm font-bold text-[#0E9BF0]">EXPORT IN DEPENDENCY ORDER</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                Export in dependency order: parent objects FIRST, child objects SECOND. Salesforce Account IDs are 18-character strings that Contacts and Opportunities reference. If you export Contacts before Accounts, the Contact CSV has AccountIDs that you have not yet extracted the Account records for making downstream lookup impossible. Correct order: (1) Accounts, (2) Contacts, (3) Opportunities, (4) Activities, (5) Custom Objects. Cited from ClonePartner (April 2026): "CSV imports silently destroy relational data at scale must use dependency-ordered ETL pipeline."
+                parent objects first, child objects second. Salesforce Account IDs are 18-character strings that Contacts and Opportunities reference. Exporting Contacts before Accounts leaves the Contact CSV with Account IDs you haven't extracted records for yet, making the downstream lookup impossible. Correct order: (1) Accounts, (2) Contacts, (3) Opportunities, (4) Activities, (5) Custom Objects.
               </p>
             </div>
 
@@ -549,39 +488,25 @@ export default function SalesforceToGoHighLevelMigrationClient() {
               4. How Do You Handle Salesforce Custom Objects in GHL?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> GoHighLevel supports Custom Objects on all plans, with a 10-object cap and specific support gaps in Email Campaigns, Bulk Email/SMS, Conversations, Calendars, and Payments (ClonePartner, April 2026, citing help.gohighlevel.com). This is different from older ecosystem guidance that said GHL had no Custom Objects at all.
+              GoHighLevel supports Custom Objects on every plan Starter, Unlimited, and Pro as of an October 2025 platform update, with a cap of 10 Custom Objects per location. Earlier guidance suggesting this was limited to paid tiers is now outdated. Supported unique field types are Single Line Text, Multi Line Text, Number, and Phone, with up to 10 unique fields per object and up to 10 unique association labels between any two objects. Opportunities now also support associations to Custom Objects directly.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Detail:</strong> Each Salesforce Custom Object needs one of three treatments in GHL:
+              Each Salesforce Custom Object needs one of three treatments in GHL:
             </p>
             <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">Full Custom Object migration:</strong> If you have fewer than 10 total Custom Objects across your GHL instance and each object has multiple records that need queryability, create matching GHL Custom Objects. Field mapping is manual per object.</li>
-              <li><strong className="text-[#1A2236]">Custom Fields on Contact:</strong> If a Salesforce Custom Object is essentially additional data about a Contact (for example, a 'Vehicle' object for an auto business where each Contact has one Vehicle), collapse it into Custom Fields on the Contact record. Loses the ability to query 'all vehicles' independently but simplifies the model.</li>
-              <li><strong className="text-[#1A2236]">Historical archive:</strong> If a Custom Object is used for compliance or historical records that are rarely queried (audit logs, historical contract versions), export as CSV and store as an archive. Do not attempt to migrate into active GHL.</li>
+              <li><strong className="text-[#1A2236]">Full Custom Object migration:</strong> if you have fewer than 10 total Custom Objects and each needs independent queryability, create matching GHL Custom Objects. Field mapping is manual per object.</li>
+              <li><strong className="text-[#1A2236]">Custom Fields on Contact:</strong> if a Custom Object is essentially additional data about a Contact (a 'Vehicle' object where each Contact has one vehicle), collapse it into Custom Fields. You lose the ability to query 'all vehicles' independently, but the model simplifies.</li>
+              <li><strong className="text-[#1A2236]">Historical archive:</strong> for compliance or rarely-queried historical records (audit logs, old contract versions), export as CSV and store as an archive rather than migrating into active GHL.</li>
             </ul>
 
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-4 my-4">
               <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">THE 10-OBJECT CAP DECISION</span>
+                <AlertTriangle className="w-4 h-4 text-[#0E9BF0]" />
+                <span className="text-sm font-bold text-[#0E9BF0]">THE 10-OBJECT CAP DECISION</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                GHL's 10 Custom Object cap forces prioritisation. Businesses with 15-20 Salesforce Custom Objects must consolidate. Common approach: rank Custom Objects by (a) frequency of active use, (b) how many records they contain, and (c) whether they need independent querying. Migrate the top 8-9 as GHL Custom Objects (leaving 1-2 slots for future needs). Collapse the rest into Custom Fields on Contact or archive. Confirmed cap from ClonePartner (April 2026, citing help.gohighlevel.com). Verify current Custom Object plan support in GHL's Trust Center before finalising the plan.
+                businesses with 15–20 Salesforce Custom Objects must consolidate. Rank objects by frequency of active use, record count, and whether independent querying matters. Migrate the top 8–9 as GHL Custom Objects, leaving 1–2 slots for future needs, and collapse or archive the rest.
               </p>
-            </div>
-
-            {/* CTA Button 4: After Custom Objects */}
-            <div className="bg-gradient-to-r from-[#0E9BF0] to-[#0C8AD8] rounded-xl p-6 text-center text-white mb-8">
-              <p className="text-sm font-medium mb-2">📦 Overwhelmed by Salesforce Custom Objects and the 10-object cap?</p>
-              <p className="text-sm text-white/80 mb-4">We'll help you prioritise and map your Custom Objects correctly.</p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-white text-[#0E9BF0] font-bold px-6 py-2.5 rounded-lg hover:bg-[#F8F9FB] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <HeartHandshake className="w-4 h-4" />
-                Get Custom Object Help
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
             </div>
 
             {/* Section 5: Rebuild Workflows */}
@@ -589,7 +514,7 @@ export default function SalesforceToGoHighLevelMigrationClient() {
               5. How Do You Rebuild Salesforce Workflows in GHL?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> Salesforce automations (Process Builder, Flows, Approval Processes, Workflow Rules) do not export to GoHighLevel. They must be documented before migration then manually rebuilt in GHL's Workflow Builder using GHL's own trigger and action system.
+              Salesforce automations Process Builder, Flows, Approval Processes, Workflow Rules do not export to GoHighLevel. They must be documented, then manually rebuilt in GHL's Workflow Builder using GHL's own trigger-and-action system.
             </p>
 
             <div className="overflow-x-auto my-6">
@@ -613,94 +538,73 @@ export default function SalesforceToGoHighLevelMigrationClient() {
               </table>
             </div>
 
-            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-4 my-4">
               <div className="flex items-center gap-2 mb-2">
                 <Lightbulb className="w-4 h-4 text-[#0E9BF0]" />
-                <span className="text-sm font-bold text-[#0E9BF0]">Documentation approach for each Salesforce automation</span>
+                <span className="text-sm font-bold text-[#0E9BF0]">DOCUMENT EACH AUTOMATION</span>
               </div>
               <ul className="space-y-1 text-sm text-[#1A2236] list-disc list-inside">
-                <li><strong className="text-[#0E9BF0]">Business intent:</strong> What is this Flow supposed to achieve? "Send a welcome email to new Leads assigned to sales team, then wait 3 days and follow up if no response."</li>
-                <li><strong className="text-[#0E9BF0]">Trigger condition:</strong> What starts it? "Lead created with Lead Source = Web-to-Lead form."</li>
-                <li><strong className="text-[#0E9BF0]">Actions in order:</strong> What does it do? "Send Welcome Email → Wait 3 days → Check for reply (Yes/No branch) → If No, assign follow-up task to sales rep."</li>
-                <li><strong className="text-[#0E9BF0]">Exit conditions:</strong> When does it stop? "When Lead status changes to Qualified or Disqualified."</li>
+                <li><strong className="text-[#0E9BF0]">Business intent:</strong> what is this supposed to achieve?</li>
+                <li><strong className="text-[#0E9BF0]">Trigger condition:</strong> what starts it?</li>
+                <li><strong className="text-[#0E9BF0]">Actions in order:</strong> what does it do, step by step?</li>
+                <li><strong className="text-[#0E9BF0]">Exit conditions:</strong> when does it stop?</li>
               </ul>
             </div>
 
             <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              Then rebuild in GHL's Workflow Builder using GHL's Contact Created trigger, Send Email action, Wait step, If/Else branch, and Assign Task action. For the full GHL workflow walkthrough: <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-[#0E9BF0] hover:underline">GoHighLevel Workflow Automation Guide →</Link>
+              For each automation, document: the business intent (what is this supposed to achieve), the trigger condition (what starts it), the actions in order (what it does, step by step), and the exit conditions (when does it stop). Then rebuild in GHL's Workflow Builder using the equivalent trigger, action, wait, and branching logic. For the full GHL workflow walkthrough, see{' '}
+              <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-[#0E9BF0] hover:underline">GoHighLevel's workflow automation guide</Link>.
             </p>
 
-            {/* CTA Button 5: After Workflow Rebuild */}
-            <div className="bg-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
-              <p className="text-sm font-medium mb-2">⚡ Don't want to rebuild Salesforce Flows and Process Builder manually?</p>
-              <p className="text-sm text-white/80 mb-4">We'll document and rebuild every automation in GHL Workflow Builder.</p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <Workflow className="w-4 h-4" />
-                Get Automation Rebuild
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-
-            {/* Section 6: Import Process */}
-            <h2 id="import-process" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              6. What Is the Dependency-Ordered Import Process?
+            {/* Section 6: Documents, Contracts, and E-Signature */}
+            <h2 id="documents-contracts" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              6. Documents, Contracts, and E-Signature
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> Dependency-ordered import means loading data into GoHighLevel in the correct sequence so that parent records exist before child records reference them. This prevents broken relationships in the migrated data.
+              This is a genuinely underserved part of most Salesforce migration guidance, including earlier guidance from GHL Scale Up itself. If your Salesforce use includes document or contract templates, quotes, or proposals with e-signature, these need a deliberate migration step: export existing templates, rebuild them in GHL's Documents feature, and reconfigure e-signature and document-tracking settings so you retain visibility into when documents are opened, viewed, and signed.
+            </p>
+
+            {/* Section 7: Import Process */}
+            <h2 id="import-process" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              7. What Is the Dependency-Ordered Import Process?
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Dependency-ordered import means loading data into GoHighLevel in the sequence that ensures parent records exist before child records reference them, preventing broken relationships in the migrated data.
             </p>
             <ol className="space-y-1 mb-4 text-sm text-[#5C6880] list-decimal list-inside">
-              <li><strong className="text-[#1A2236]">Prepare GHL environment:</strong> Recreate all Custom Fields, Custom Objects, Pipelines, and Tags in GHL BEFORE any data import. Confirmed across all ecosystem sources.</li>
-              <li><strong className="text-[#1A2236]">Import Accounts as Companies:</strong> If using GHL Companies module, import Accounts first. Each Company gets a GHL Company ID.</li>
-              <li><strong className="text-[#1A2236]">Import Contacts linked to Companies:</strong> For each Contact CSV row, the Company Name field must match a Company created in Step 2. GHL will link the Contact to the correct Company.</li>
-              <li><strong className="text-[#1A2236]">Import Opportunities linked to Contacts:</strong> Each Opportunity CSV row must reference the Contact by email or phone. GHL Opportunity import associates the Opportunity to the correct Contact.</li>
-              <li><strong className="text-[#1A2236]">Import Activities as Notes or Custom Records:</strong> Historical activities become Notes on the Contact record. Recent open Tasks can be created manually or via bulk workflow.</li>
-              <li><strong className="text-[#1A2236]">Test batch validation:</strong> Import 50-200 records first. Confirmed by Revset Labs (February 2026). Verify every field maps correctly, dates display correctly, phone numbers are E.164, tags are attached, and Company links are intact.</li>
-              <li><strong className="text-[#1A2236]">Full staged import:</strong> Only after test batch verification passes, run the full import in batches of 10,000-25,000 records at a time to avoid rate limits.</li>
+              <li><strong className="text-[#1A2236]">Prepare your GHL environment.</strong> Recreate all Custom Fields, Custom Objects, pipelines, and tags before any data import.</li>
+              <li><strong className="text-[#1A2236]">Import Accounts as Companies</strong> (if using that mapping option). Each Company gets a GHL Company ID.</li>
+              <li><strong className="text-[#1A2236]">Import Contacts linked to Companies.</strong> The Company Name field in each Contact row must match a Company created in the prior step.</li>
+              <li><strong className="text-[#1A2236]">Import Opportunities linked to Contacts.</strong> Each row must reference the Contact by email or phone so GHL associates it correctly.</li>
+              <li><strong className="text-[#1A2236]">Import Activities as Notes or Custom Object records.</strong> Historical activities become Notes; recent open tasks can be created manually or via a bulk workflow.</li>
+              <li><strong className="text-[#1A2236]">Test-import 50–200 records first.</strong> Verify every field maps correctly, dates display correctly, phone numbers are formatted consistently, tags are attached, and Company links are intact.</li>
+              <li><strong className="text-[#1A2236]">Run the full staged import</strong> only after test-batch verification passes, in batches to avoid rate limits.</li>
             </ol>
 
             <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              Related reading on migration errors to avoid: <Link href="/blog/ghl-migration-mistakes" className="text-[#0E9BF0] hover:underline">GHL Migration Mistakes →</Link>
+              For general migration pitfalls beyond what's specific to Salesforce, see{' '}
+              <Link href="/blog/ghl-migration-mistakes" className="text-[#0E9BF0] hover:underline">8 common GHL migration mistakes</Link>.
             </p>
 
-            {/* Section 7: Sandbox Testing */}
+            {/* Section 8: Sandbox Testing */}
             <h2 id="sandbox-testing" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              7. How Do You Handle Salesforce Sandbox Testing Before Cutover?
+              8. How Do You Handle Salesforce Sandbox Testing Before Cutover?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> Salesforce Sandbox is a copy of your production Salesforce instance used for testing. It gives you a safe environment to test the export process without touching production data.
+              A Salesforce Sandbox is a copy of your production instance used for safe testing without touching live data.
             </p>
             <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">Refresh Sandbox from Production:</strong> Salesforce Setup → Sandboxes. Refresh a Full Sandbox (available on Enterprise+/Unlimited editions) or a Partial Copy Sandbox to get a current snapshot of production data.</li>
-              <li><strong className="text-[#1A2236]">Run export testing in Sandbox first:</strong> Test all three export methods (Data Export, Reports, Data Loader) in Sandbox with representative data. Measure how long each export takes and whether the CSV output structure matches expectations.</li>
-              <li><strong className="text-[#1A2236]">Practice the import in a GHL test sub-account:</strong> Create a fresh GHL sub-account. Import the Sandbox exports. Verify the object mapping, custom field data, and relationships. This is your dress rehearsal.</li>
-              <li><strong className="text-[#1A2236]">Document any surprises:</strong> Note field mapping issues, format conversions needed, and unexpected data types. These are the fixes to apply during the real production migration.</li>
-              <li><strong className="text-[#1A2236]">Only then run production:</strong> With Sandbox testing complete and documented, execute the production Salesforce export and GHL import with confidence.</li>
+              <li><strong className="text-[#1A2236]">Refresh a Sandbox from Production</strong> (Full Sandbox on Enterprise+ editions, Partial Copy Sandbox on lower tiers) to get a current data snapshot.</li>
+              <li><strong className="text-[#1A2236]">Test all three export methods in Sandbox</strong> with representative data, and note how long each takes and whether the output matches expectations.</li>
+              <li><strong className="text-[#1A2236]">Practice the import in a fresh GHL test sub-account.</strong> Verify object mapping, custom field data, and relationships.</li>
+              <li><strong className="text-[#1A2236]">Document any surprises</strong> field mapping issues, format conversions, unexpected data types as fixes to apply during the real migration.</li>
+              <li><strong className="text-[#1A2236]">Only then run the production export and import</strong>, with the dress rehearsal already complete.</li>
             </ul>
 
-            {/* CTA Button 6: Before Comparison */}
-            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
-              <p className="text-sm font-medium mb-2">🔍 Need help with Salesforce Sandbox testing?</p>
-              <p className="text-sm text-white/80 mb-4">Let us run the dress rehearsal in your Sandbox and identify issues before production.</p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <Search className="w-4 h-4" />
-                Get Sandbox Testing Help
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-
-            {/* Section 8: Migration Comparison */}
+            {/* Section 9: Migration Comparison */}
             <h2 id="migration-comparison" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              8. How Does Salesforce Migration Compare to Zoho or HubSpot?
+              9. How Does Salesforce Migration Compare to Zoho or HubSpot?
             </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> Salesforce migrations are the highest-complexity CRM transition type, more complex than HubSpot and considerably more complex than Zoho.
-            </p>
 
             <div className="overflow-x-auto my-6">
               <table className="w-full border-collapse text-sm">
@@ -726,48 +630,18 @@ export default function SalesforceToGoHighLevelMigrationClient() {
             </div>
 
             <p className="text-sm text-[#5C6880] leading-relaxed mb-2">
-              For the Zoho equivalent: <Link href="/blog/zoho-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">Zoho to GoHighLevel Migration Guide →</Link>
+              For the Zoho equivalent, see{' '}
+              <Link href="/blog/zoho-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">Zoho to GoHighLevel migration</Link>.
             </p>
             <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              For HubSpot: <Link href="/blog/hubspot-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">HubSpot to GoHighLevel Migration Guide →</Link>
+              For HubSpot, see{' '}
+              <Link href="/blog/hubspot-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">How to Migrate from HubSpot to GoHighLevel</Link>. For how Salesforce compares to every platform GHL Scale Up covers, see{' '}
+              <Link href="/blog/best-crm-to-migrate-to-gohighlevel" className="text-[#0E9BF0] hover:underline">which platform is easiest to migrate to GoHighLevel</Link>.
             </p>
 
-            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-5 my-6 text-white">
-              <div className="flex items-center gap-2 mb-3">
-                <Star className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">NEED A SALESFORCE MIGRATION HANDLED</span>
-              </div>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                GHL Scale Up handles end-to-end Salesforce to GoHighLevel migrations: instance audit, object mapping design, dependency-ordered ETL pipeline, workflow rebuild, Sandbox testing, phased cutover, and 30-day post-migration support.
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                For A2P registration integration: <Link href="/blog/a2p-registration-for-agencies" className="text-[#0E9BF0] hover:underline">A2P Registration for Agencies →</Link>
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                See real GoHighLevel results and case studies: <Link href="/case-studies" className="text-[#0E9BF0] hover:underline">real GoHighLevel results and case studies →</Link>
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed">
-                For a specific migration plan for your Salesforce instance, <Link href="/contact" className="text-[#0E9BF0] hover:underline">book a free strategy call at ghlscaleup.com/contact →</Link>
-              </p>
-            </div>
-
-            {/* CTA Button 7: Before FAQ */}
-            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
-              <p className="text-sm font-medium mb-2">⚠️ Don't risk relational data breakage in your Salesforce migration.</p>
-              <p className="text-sm text-white/80 mb-4">Get a free, no-obligation migration assessment from experts who've done 200+ migrations.</p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <Shield className="w-4 h-4" />
-                Get a Free Assessment
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-
-            {/* Section 9: FAQ */}
+            {/* Section 10: FAQ */}
             <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
-              9. Frequently Asked Questions
+              10. Frequently Asked Questions
             </h2>
 
             <div className="space-y-3">
@@ -782,44 +656,25 @@ export default function SalesforceToGoHighLevelMigrationClient() {
               ))}
             </div>
 
-            {/* CTA Button 8: After FAQ */}
-            <div className="mt-8 p-6 bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl text-center">
-              <p className="text-white font-bold text-lg mb-2">Still Have Questions About Migrating from Salesforce?</p>
-              <p className="text-white/60 text-sm mb-4">Talk to our migration specialists directly. We've done 200+ migrations.</p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  Ask an Expert
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-white/20 transition-all border border-white/20 text-sm"
-                >
-                  <Phone className="w-4 h-4" />
-                  Call Us
-                </Link>
-              </div>
+            {/* Contextual CTA inside FAQ */}
+            <div className="mt-4 text-sm text-[#5C6880] leading-relaxed">
+              Want the migration handled end-to-end object mapping, Custom Object strategy, dependency-ordered import, and Sandbox testing included?{' '}
+              <Link href="/contact" className="text-[#0E9BF0] hover:underline font-medium">Book a free strategy call</Link>.
             </div>
 
-            {/* Related Articles */}
+            {/* Internal Links */}
             <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
               <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles in This Series</h3>
               <div className="flex flex-wrap gap-3">
-                <Link href="/services/migration" className="text-sm text-[#0E9BF0] hover:underline">GHL Migration Services →</Link>
-                <Link href="/blog/zoho-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">Zoho to GoHighLevel Migration →</Link>
-                <Link href="/blog/hubspot-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">HubSpot to GoHighLevel Migration →</Link>
-                <Link href="/blog/ghl-migration-mistakes" className="text-sm text-[#0E9BF0] hover:underline">8 Common GHL Migration Mistakes →</Link>
                 <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Workflow Automation for Beginners →</Link>
-                <Link href="/blog/a2p-registration-for-agencies" className="text-sm text-[#0E9BF0] hover:underline">A2P Registration for GoHighLevel Agencies →</Link>
-                <Link href="/case-studies" className="text-sm text-[#0E9BF0] hover:underline">Real GoHighLevel Results and Case Studies →</Link>
+                <Link href="/blog/ghl-migration-mistakes" className="text-sm text-[#0E9BF0] hover:underline">8 Common GHL Migration Mistakes →</Link>
+                <Link href="/blog/best-crm-to-migrate-to-gohighlevel" className="text-sm text-[#0E9BF0] hover:underline">Which Platform Is Easiest to Migrate to GoHighLevel? →</Link>
+                <Link href="/blog/zoho-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">Zoho to GoHighLevel Migration →</Link>
+                <Link href="/blog/hubspot-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">How to Migrate from HubSpot to GoHighLevel →</Link>
               </div>
             </div>
 
-            {/* Final CTA Section */}
+            {/* Final CTA Section - Single closing CTA */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Ready to migrate from Salesforce to GoHighLevel?</h3>
@@ -832,30 +687,12 @@ export default function SalesforceToGoHighLevelMigrationClient() {
                 </Link>
               </div>
             </div>
-
-            {/* Author Section */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 my-6">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
-                  <img
-                    src="/web-app-manifest-192x192.png"
-                    alt="GHL Scale Up"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-[#1A2236]">GHL Scale Up Team</div>
-                  <div className="text-xs text-[#5C6880]">GoHighLevel migration and setup specialists · 5+ years GHL experience · 200+ systems built and migrated globally</div>
-                </div>
-              </div>
-              <p className="text-xs text-[#5C6880] leading-relaxed">
-                Because GoHighLevel does not publish an official Salesforce migration guide (unlike its Zoho equivalent article 155000003316), all technical guidance in this blog is aggregated from ecosystem partners (ClonePartner, Revset Labs, HireGHLDeveloper, Growthable, HashStudioz, Julian Mills) plus GoHighLevel's general Custom Objects and Import documentation. Every technical claim is source-cited. GoHighLevel Custom Object capabilities, plan support, and API limits change over time verify current details in GHL's Trust Center before executing your migration.
-              </p>
-              <Link href="/" className="text-[#0E9BF0] text-xs hover:underline mt-2 inline-block">ghlscaleup.com</Link>
-            </div>
           </main>
         </div>
       </div>
+      {/* Booking Modal - Rendered at root level */}
+      <BookingModal open={openBooking} setOpen={setOpenBooking} />
+
 
       {/* Progress Bar Script */}
       <script dangerouslySetInnerHTML={{

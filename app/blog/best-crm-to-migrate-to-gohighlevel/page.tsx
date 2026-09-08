@@ -3,16 +3,16 @@ import Script from 'next/script';
 import BestCRMToMigrateToGHLClient from './client';
 
 export const metadata: Metadata = {
-  title: 'Best CRM to Migrate Into GoHighLevel: 5 Platforms Ranked (2026) | GHL Scale Up',
-  description: 'HubSpot, ActiveCampaign, ClickFunnels, Kajabi and Zoho ranked by migration difficulty into GoHighLevel. What transfers, what breaks, and realistic timelines for each.',
-  keywords: 'best CRM to migrate to GoHighLevel, easiest CRM to migrate into GoHighLevel, GoHighLevel migration difficulty comparison, which platform is hardest to migrate to GHL, GoHighLevel migration complexity by platform, HubSpot vs ActiveCampaign vs ClickFunnels migration, Kajabi GoHighLevel migration difficulty',
+  title: 'GoHighLevel Migration Difficulty: 8 Platforms Ranked (2026)',
+  description: 'HubSpot, ActiveCampaign, ClickFunnels, Kajabi, Zoho, Salesforce, Keap, and Mailchimp ranked by migration difficulty using a transparent, weighted methodology — not a CRM quality ranking.',
+  keywords: 'easiest platform to migrate to gohighlevel, gohighlevel migration difficulty comparison, which platform is hardest to migrate to ghl, gohighlevel migration complexity by platform, hubspot vs activecampaign vs clickfunnels migration, kajabi gohighlevel migration difficulty, salesforce to gohighlevel migration difficulty, mailchimp to gohighlevel migration',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {
-    title: 'Best CRM to Migrate Into GoHighLevel: 5 Platforms Ranked (2026)',
-    description: 'HubSpot, ActiveCampaign, ClickFunnels, Kajabi and Zoho ranked by migration difficulty. What transfers, what breaks, and realistic timelines.',
+    title: 'GoHighLevel Migration Difficulty: 8 Platforms Ranked (2026)',
+    description: 'HubSpot, ActiveCampaign, ClickFunnels, Kajabi, Zoho, Salesforce, Keap, and Mailchimp ranked by migration difficulty using a transparent, weighted methodology — not a CRM quality ranking.',
     type: 'article',
-    publishedTime: '2026-06-11T00:00:00Z',
-    modifiedTime: '2026-06-11T00:00:00Z',
+    publishedTime: '2026-05-14T00:00:00Z',
+    modifiedTime: '2026-05-14T00:00:00Z',
     authors: ['GHL Scale Up Team'],
     tags: ['GoHighLevel', 'CRM Migration', 'GHL Migration', 'Migration Difficulty', '2026'],
     images: [{ url: 'https://www.ghlscaleup.com/images/blog/best-crm-to-migrate-og.jpg', width: 1200, height: 630 }],
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@ghlscaleup',
-    title: 'Best CRM to Migrate Into GoHighLevel: 5 Platforms Ranked',
-    description: 'HubSpot, ActiveCampaign, ClickFunnels, Kajabi and Zoho ranked by migration difficulty.',
+    title: 'GoHighLevel Migration Difficulty: 8 Platforms Ranked (2026)',
+    description: 'HubSpot, ActiveCampaign, ClickFunnels, Kajabi, Zoho, Salesforce, Keap, and Mailchimp ranked by migration difficulty using a transparent, weighted methodology.',
     images: ['https://www.ghlscaleup.com/images/blog/best-crm-to-migrate-og.jpg'],
   },
   alternates: {
@@ -40,11 +40,11 @@ export default function BestCRMToMigrateToGHLPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "Best CRM to Migrate Into GoHighLevel: Comparing 5 Platforms (2026)",
-            "description": "HubSpot, ActiveCampaign, ClickFunnels, Kajabi and Zoho ranked by migration difficulty into GoHighLevel. What transfers, what breaks, and realistic timelines for each.",
+            "headline": "Which Platform Is Easiest to Migrate to GoHighLevel? 8 Platforms Ranked by Difficulty",
+            "description": "This is a migration-difficulty comparison, not a 'best CRM' ranking — several platforms compared here (ClickFunnels, Kajabi, Mailchimp) aren't CRMs at all. What they have in common is that GHL Scale Up has a dedicated migration guide for each, and this page exists to help you figure out which one to read first based on how hard your specific move will actually be.",
             "image": "https://www.ghlscaleup.com/images/blog/best-crm-to-migrate-og.jpg",
-            "datePublished": "2026-06-11",
-            "dateModified": "2026-06-11",
+            "datePublished": "2026-05-14",
+            "dateModified": "2026-05-14",
             "author": {
               "@type": "Organization",
               "name": "GHL Scale Up Team",

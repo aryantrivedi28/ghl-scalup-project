@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import {
   ArrowRight,
-  CheckCircle2,
   ChevronDown,
   Copy,
   Linkedin,
@@ -12,125 +11,64 @@ import {
   BookOpen,
   Zap,
   Shield,
-  DollarSign,
-  Users,
-  Building2,
-  Calendar,
-  MessageCircle,
-  Phone,
+  Database,
   Layout,
   GitBranch,
-  Sparkles,
-  Award,
-  TrendingUp,
+  Workflow,
+  Clock,
   Star,
   AlertTriangle,
-  Server,
-  Globe,
-  CreditCard,
-  Smartphone,
-  Briefcase,
   Rocket,
-  Cloud,
-  Database,
-  Clock,
-  Mail,
-  GraduationCap,
-  Heart,
   Target,
-  FileText,
-  Compass,
-  GitCompare,
-  BarChart3,
-  Mailbox,
-  Stethoscope,
-  Activity,
-  CalendarDays,
-  XCircle,
-  Layers,
-  Workflow,
-  Headphones,
-  FileQuestion,
-  HelpCircle,
-  Boxes,
-  Combine,
-  Settings,
-  Link2,
-  Webhook,
-  RefreshCw,
-  ListChecks,
-  ClipboardList,
-  Download,
-  Printer,
-  Video,
-  Ticket,
-  Trophy,
-  TrendingDown,
-  HeartHandshake,
   Search,
-  Facebook,
-  AlertCircle,
+  MessageCircle,
+  Phone,
+  BarChart3,
   Info,
-  Lightbulb,
-  UserCheck,
-  UserX,
-  FileCheck,
-  CheckCircle,
-  PanelTop,
-  LayoutDashboard,
-  LifeBuoy,
-  Timer,
-  Trash2,
-  PieChart,
-  Tag,
-  GitMerge,
-  MailOpen
+  Image as ImageIcon,
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import BookingModal from '@/components/BookingModal';
+import { Button } from '../../../components/ui/button';
+import Image from 'next/image';
 
 export default function BestCRMToMigrateToGHLClient() {
   const [activeId, setActiveId] = useState<string>('');
-  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
+  const [openBooking, setOpenBooking] = useState(false);
 
+  const handleOpenBooking = () => {
+    setOpenBooking(true);
+  };
+
+  // Handle scroll detection for active section
   useEffect(() => {
-    const sections = [
-      'how-measured',
-      'platform-ranking',
-      'platform-breakdown',
-      'timeline-impact',
-      'next-steps',
-      'faq'
-    ];
-
     const handleScroll = () => {
-      let currentSection = sections[0];
+      const sections = [
+        'how-measured',
+        'platform-ranking',
+        'platform-breakdown',
+        'migration-method-matters',
+        'timeline-impact',
+        'next-steps',
+        'faq'
+      ];
 
       for (const id of sections) {
         const element = document.getElementById(id);
-        if (!element) continue;
-        const rect = element.getBoundingClientRect();
-        if (rect.top <= 180) {
-          currentSection = id;
-        } else {
-          break;
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 150) {
+            setActiveId(id);
+          }
         }
-      }
-
-      setActiveId(currentSection);
-
-      // Show floating Project Help card after scrolling past hero section
-      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
-      if (heroSection) {
-        const heroBottom = heroSection.getBoundingClientRect().bottom;
-        setShowFloatingProjectHelp(heroBottom < 0);
       }
     };
 
-    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Handle TOC click with smooth scroll
   const scrollToHeading = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -144,104 +82,136 @@ export default function BestCRMToMigrateToGHLClient() {
   const faqs = [
     {
       q: "What is the easiest platform to migrate to GoHighLevel from?",
-      a: "ClickFunnels is the easiest platform to migrate to GoHighLevel from. GHL has a URL import tool that clones your live funnel pages by entering the page URL, capturing the visual design directly. Automations, Stripe connections, and domain settings still need to be rebuilt manually, but the visual page-building work that normally takes the longest is largely eliminated."
+      a: "Mailchimp, due to its simple, primarily email-centric data model. Among platforms with more CRM/automation depth, ClickFunnels and ActiveCampaign are tied for easiest."
     },
     {
       q: "What is the hardest platform to migrate to GoHighLevel from?",
-      a: "Kajabi is the hardest platform to migrate to GoHighLevel from among the commonly migrated platforms. Course content has no automated transfer path. Every video lesson, PDF, quiz, and drip schedule must be manually re-uploaded and reconfigured inside GHL's membership module. Contacts and student records transfer easily via CSV, but the content rebuild typically adds 2 to 6 hours per course module."
+      a: "Salesforce, because its multi-object data model (leads, contacts, accounts, opportunities, custom objects) doesn't map directly onto GoHighLevel's contact-centric structure this is true of Salesforce migrations generally, not specific to GoHighLevel."
     },
     {
-      q: "Is ActiveCampaign or HubSpot easier to migrate to GoHighLevel?",
-      a: "ActiveCampaign is generally easier to migrate than HubSpot, primarily due to scale rather than fundamental structure. ActiveCampaign's workflow-based automation architecture is conceptually similar to GHL's, making the rebuild more intuitive, though pipelines and lead scoring still require careful handling. HubSpot's difficulty comes from the volume of custom properties, company associations, and workflows that accumulate in accounts active for 2 or more years, plus the 25-day data deletion window after cancellation that adds time pressure."
+      q: "Does GoHighLevel have a Kajabi course importer?",
+      a: "Yes. It automatically imports video, image, and text content for published Kajabi lessons. Quizzes, assignments, and assessments are not included and require manual recreation."
     },
     {
-      q: "Does migration difficulty mean GoHighLevel is not a good fit for that platform's users?",
-      a: "No. Migration difficulty measures how much manual rebuild work is required, not whether GoHighLevel is the right platform for your business. Kajabi ranks as the hardest migration because course content has no automated transfer path on any platform migration. This is true regardless of which platform you migrate to, not specific to GoHighLevel. Many Kajabi users still find GoHighLevel the right platform once they have an agency or service business need beyond just course delivery."
+      q: "Does migration difficulty mean GoHighLevel isn't a good fit for that platform's users?",
+      a: "No. Difficulty measures manual rebuild effort, not whether GoHighLevel suits your business. Salesforce ranks hardest because of its data model, not because GoHighLevel is a worse fit for Salesforce users many still find GHL the right platform once they need the operational breadth Salesforce doesn't provide."
     },
     {
       q: "How long does each platform's migration typically take?",
-      a: "Simple migrations (under 5 automations, clean data) range from 1 to 4 weeks across all 5 platforms. ClickFunnels and ActiveCampaign are typically fastest at 1 to 3 weeks for standard complexity. HubSpot and Kajabi typically take longer at standard complexity (3 to 6 weeks) due to data volume (HubSpot) or content rebuild (Kajabi). Complex migrations with 20 or more automations or large content libraries range from 4 to 9 weeks depending on platform. Automation count is the primary driver of timeline within any single platform."
-    },
-    {
-      q: "Can GHL Scale Up migrate from any of these 5 platforms?",
-      a: "Yes. GHL Scale Up has completed 200+ migrations across HubSpot, ClickFunnels, ActiveCampaign, Kajabi, and Zoho CRM. Each migration follows the same structured process: audit, GHL infrastructure setup, data export and cleaning, automation rebuild, testing and parallel running, and go-live. Book a free migration assessment to get a realistic timeline and fixed-fee quote for your specific platform and complexity."
+      a: "Simple migrations range from 1–4 weeks across all 8 platforms. Salesforce and HubSpot typically run longest at standard-to-complex scale (up to 8–12 weeks for Salesforce) due to data model complexity and account age respectively. Automation count is the biggest driver of timeline within any single platform."
     },
   ];
 
   useFaqSchema(faqs);
 
   const tocItems = [
-    { id: 'how-measured', title: '1. How Is Migration Difficulty Actually Measured?' },
-    { id: 'platform-ranking', title: '2. The 5 Platforms Ranked by Migration Difficulty' },
-    { id: 'platform-breakdown', title: '3. Platform-by-Platform Breakdown' },
-    { id: 'timeline-impact', title: '4. How Does Difficulty Affect Your Migration Timeline?' },
-    { id: 'next-steps', title: '5. What Should You Do Next?' },
-    { id: 'faq', title: '6. Frequently Asked Questions' },
+    { id: 'how-measured', title: 'How Migration Difficulty Is Actually Measured' },
+    { id: 'platform-ranking', title: 'The 8 Platforms Ranked by Migration Difficulty' },
+    { id: 'platform-breakdown', title: 'Platform-by-Platform Breakdown' },
+    { id: 'migration-method-matters', title: 'Migration Method Matters as Much as Difficulty' },
+    { id: 'timeline-impact', title: 'How Difficulty Affects Your Migration Timeline' },
+    { id: 'next-steps', title: 'What Should You Do Next?' },
+    { id: 'faq', title: 'Frequently Asked Questions' },
   ];
 
   const rankingData = [
-    { rank: 1, platform: 'ClickFunnels', difficulty: 'Low to Moderate', why: 'URL import tool clones funnel page design directly. Only automations, Stripe, and domains need rebuilding.' },
-    { rank: 2, platform: 'ActiveCampaign', difficulty: 'Moderate', why: 'Similar workflow-based automation architecture to GHL, but pipelines, lead scoring, and segmentation need careful rebuild.' },
-    { rank: 3, platform: 'HubSpot', difficulty: 'Moderate', why: 'Clean contact and deal export, but custom properties, associations, and workflows are numerous at scale.' },
-    { rank: 4, platform: 'Zoho CRM', difficulty: 'Moderate to High', why: 'Blueprint workflows and territory management are structurally different from GHL\'s trigger model.' },
-    { rank: 5, platform: 'Kajabi', difficulty: 'High', why: 'Course content has no import path. Every video, quiz, and lesson must be manually rebuilt in GHL\'s membership module.' },
+    { rank: 1, platform: 'Mailchimp', score: '1.55', method: 'CSV export/import', why: 'Simplest data model on this list primarily email-centric, minimal structural complexity' },
+    { rank: 2, platform: 'ClickFunnels', score: '2.25', method: 'Native URL importer (page design)', why: 'Page design clones automatically; automations, Stripe, and domains still need rebuilding' },
+    { rank: 2, platform: 'ActiveCampaign', score: '2.25', method: 'CSV export/import, no native importer', why: 'Similar trigger-based automation model to GHL, but no native importer exists' },
+    { rank: 4, platform: 'Keap', score: '2.75', method: 'CSV export/import, no native importer', why: 'Campaign Builder logic is navigable, but long-tenured accounts often depend on third-party add-ons needing replacement' },
+    { rank: 4, platform: 'HubSpot', score: '2.75', method: 'CSV/API export, no native importer', why: 'Clean data export, but custom properties and associations accumulate heavily at scale' },
+    { rank: 6, platform: 'Kajabi', score: '2.80', method: 'Native Course Importer + CSV', why: 'Course structure and media now import automatically for published lessons; quizzes, automations, offers, and community still need full manual rebuild' },
+    { rank: 7, platform: 'Zoho CRM', score: '3.00', method: 'CSV/API export, no native importer', why: 'Blueprint workflows and territory management are structurally different from GHL\'s trigger model' },
+    { rank: 8, platform: 'Salesforce', score: '3.45', method: 'CSV/API export, no native importer', why: 'Multi-object data model (leads, contacts, accounts, opportunities, custom objects) doesn\'t map directly to GHL\'s contact-centric structure' },
   ];
 
-  const platformBreakdowns = [
+  const methodData = [
+    { method: 'Native importer available', platforms: 'ClickFunnels (pages), Kajabi (course content)', meaning: 'Structure/content imports automatically; logic and configuration still need manual work' },
+    { method: 'CSV/API export, no native importer', platforms: 'ActiveCampaign, HubSpot, Zoho, Salesforce, Keap, Mailchimp', meaning: 'Data transfers with careful field mapping; everything beyond raw data is a manual rebuild' },
+  ];
+
+  const timelineData = [
+    { platform: 'Mailchimp', simple: '1–2 weeks', standard: '2–3 weeks', complex: '3–4 weeks' },
+    { platform: 'ClickFunnels', simple: '1–2 weeks', standard: '2–3 weeks', complex: '3–5 weeks' },
+    { platform: 'ActiveCampaign', simple: '2–3 weeks', standard: '3–5 weeks', complex: '5–7 weeks' },
+    { platform: 'Keap', simple: '2–3 weeks', standard: '3–5 weeks', complex: '5–7 weeks' },
+    { platform: 'HubSpot', simple: '3–4 weeks', standard: '4–6 weeks', complex: '6–8 weeks' },
+    { platform: 'Kajabi', simple: '1–2 weeks', standard: '3–5 weeks', complex: '5–8 weeks' },
+    { platform: 'Zoho CRM', simple: '2–3 weeks', standard: '3–4 weeks', complex: '4–6 weeks' },
+    { platform: 'Salesforce', simple: '3–4 weeks', standard: '5–7 weeks', complex: '8–12 weeks' },
+  ];
+
+  const breakdownData = [
+    {
+      platform: 'Mailchimp',
+      difficulty: 'Easiest',
+      desc: 'Mailchimp\'s data model is the simplest on this list: audiences, tags, and campaigns export cleanly via CSV, and most Mailchimp accounts don\'t carry the deep automation or custom-object complexity that drives difficulty elsewhere. The main work is rebuilding email automations as GHL workflows and reconnecting any e-commerce integrations. See Mailchimp to GoHighLevel migration for the full process.',
+      link: '/blog/mailchimp-to-gohighlevel-migration',
+      linkText: 'Mailchimp to GoHighLevel migration →'
+    },
     {
       platform: 'ClickFunnels',
-      difficulty: 'Easiest migration',
-      desc: 'ClickFunnels is the easiest migration on this list because GoHighLevel has a URL import tool that clones your live funnel pages by entering the page URL. It captures the visual design (copy, images, layout, buttons) directly. What does not transfer: automation logic, email sequences, Stripe connections, and domain settings. These all need to be rebuilt manually, but the visual page-building work that normally takes the longest is largely eliminated.',
+      difficulty: 'Moderate-Easy',
+      desc: 'GoHighLevel\'s URL import tool clones ClickFunnels page designs automatically, working for both ClickFunnels 1.0 and 2.0. What doesn\'t transfer: automations, Stripe connections, and domain settings. See ClickFunnels to GoHighLevel migration for what specifically breaks and how to fix it.',
       link: '/blog/clickfunnels-to-gohighlevel-migration',
-      linkText: 'ClickFunnels to GoHighLevel Migration →'
+      linkText: 'ClickFunnels to GoHighLevel migration →'
     },
     {
       platform: 'ActiveCampaign',
-      difficulty: 'Straightforward but detail-heavy',
-      desc: 'ActiveCampaign migrations are technically straightforward given the similar workflow-based automation architecture to GHL, but they require careful handling of deal pipelines, contact scoring, and list segmentation. The conceptual model translates well (both platforms think in triggers and actions) but AC users tend to have deep, detailed segmentation that takes time to map correctly into GHL\'s tag and smart list system.',
+      difficulty: 'Moderate-Easy',
+      desc: 'ActiveCampaign\'s trigger-and-action automation model is conceptually similar to GHL\'s, which makes the rebuild intuitive even though nothing imports automatically. The real complexity is in mapping ActiveCampaign\'s dual list-and-tag segmentation system correctly. See ActiveCampaign to GoHighLevel migration for the list-vs-tag mapping risk in detail.',
       link: '/blog/activecampaign-to-gohighlevel-migration',
-      linkText: 'ActiveCampaign to GoHighLevel Migration →'
+      linkText: 'ActiveCampaign to GoHighLevel migration →'
     },
     {
-      platform: 'HubSpot',
-      difficulty: 'Clean data, heavy structure',
-      desc: 'HubSpot exports contacts, deals, and custom properties cleanly via CSV. The difficulty comes from scale and structure: HubSpot accounts that have been active for 2+ years typically have dozens of custom properties, company associations, and workflows that all need to be audited and selectively rebuilt. The 25-day data deletion window after cancellation also adds time pressure that other platforms do not have.',
-      link: '/blog/hubspot-to-gohighlevel-migration',
-      linkText: 'How to Migrate from HubSpot to GoHighLevel →'
-    },
-    {
-      platform: 'Zoho CRM',
-      difficulty: 'Structurally different automation model',
-      desc: 'Zoho\'s Blueprint workflows, territory management, and module customisations are built on a different structural model than GHL\'s trigger-and-action workflow builder. Contacts, deals, and custom fields export cleanly, but automation logic built on Zoho\'s Blueprint system requires more conceptual translation work than a platform like ActiveCampaign, where the underlying logic model is closer to GHL\'s.',
+      platform: 'Keap',
+      difficulty: 'Moderate',
+      desc: 'Keap\'s visual Campaign Builder maps reasonably well to GHL\'s workflow logic conceptually, but accounts that have been active for years (many still under their original Infusionsoft branding) often depend on third-party add-ons for functionality Keap doesn\'t natively provide those need direct GHL replacements, not just a rebuild.',
       link: null,
       linkText: null
     },
     {
-      platform: 'Kajabi',
-      difficulty: 'Hardest migration due to course content',
-      desc: 'Kajabi migrations are the hardest on this list for one specific reason: course content has no automated transfer path. Every video lesson, PDF, quiz, and drip schedule must be manually re-uploaded and reconfigured inside GHL\'s membership module. Contacts and student records transfer via CSV without much difficulty. It is purely the content rebuild that adds time. Budget 2 to 6 hours per course module for the manual rebuild.',
-      link: '/blog/kajabi-to-gohighlevel-migration',
-      linkText: 'Kajabi to GoHighLevel Migration →'
+      platform: 'HubSpot',
+      difficulty: 'Moderate',
+      desc: 'HubSpot exports contacts and deals cleanly, but the difficulty scales with account age: 2+ year old accounts typically carry dozens of custom properties and company associations that need auditing before rebuilding. The 25-day data deletion window after cancellation adds real time pressure. See How to Migrate from HubSpot to GoHighLevel for the complete breakdown.',
+      link: '/blog/hubspot-to-gohighlevel-migration',
+      linkText: 'How to Migrate from HubSpot to GoHighLevel →'
     },
-  ];
-
-  const timelineData = [
-    { platform: 'ClickFunnels', simple: '1 to 2 weeks', standard: '2 to 3 weeks', complex: '3 to 5 weeks' },
-    { platform: 'ActiveCampaign', simple: '2 to 3 weeks', standard: '3 to 5 weeks', complex: '5 to 7 weeks' },
-    { platform: 'HubSpot', simple: '2 to 3 weeks', standard: '3 to 5 weeks', complex: '6 to 8 weeks' },
-    { platform: 'Zoho CRM', simple: '2 to 3 weeks', standard: '3 to 4 weeks', complex: '4 to 6 weeks' },
-    { platform: 'Kajabi', simple: '2 to 4 weeks', standard: '4 to 6 weeks', complex: '6 to 9 weeks' },
+    {
+      platform: 'Kajabi',
+      difficulty: 'Moderate-Hard',
+      desc: 'GoHighLevel\'s native Kajabi Course Importer automatically transfers video, image, and text content for published lessons a real time-saver this ranking previously didn\'t credit. What still needs manual work: quizzes and assignments (imported as empty shells), drip scheduling, offers, community, affiliate data, and all automation logic. See Kajabi to GoHighLevel migration for exactly what the importer does and doesn\'t handle.',
+      link: '/blog/kajabi-to-gohighlevel-migration',
+      linkText: 'Kajabi to GoHighLevel migration →'
+    },
+    {
+      platform: 'Zoho CRM',
+      difficulty: 'Hard',
+      desc: 'Zoho\'s Blueprint workflows and module customizations are built on a structurally different model than GHL\'s trigger-and-action builder, requiring more conceptual translation than a platform like ActiveCampaign. Contacts and deals export cleanly; the automation layer is where the real effort concentrates.',
+      link: null,
+      linkText: null
+    },
+    {
+      platform: 'Salesforce',
+      difficulty: 'Hardest',
+      desc: 'Salesforce\'s data model leads, contacts, accounts, opportunities, and custom objects, all relationally connected doesn\'t map directly onto GHL\'s flatter, contact-centric structure. This isn\'t specific to GoHighLevel; Salesforce migrations are widely regarded as the highest-complexity CRM transition type generally, because the relational architecture itself has to be deliberately redesigned, not just re-exported.',
+      link: null,
+      linkText: null
+    },
   ];
 
   // Reusable Project Help Card Component
   const ProjectHelpCard = () => (
     <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
       <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
-      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
-      <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your migration.</p>
+      <Button
+        onClick={handleOpenBooking}
+        // href="/contact" 
+        className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
         Book a 30 min Free Call
         <ArrowRight className="w-3 h-3" />
-      </Link>
+      </Button>
     </div>
   );
 
@@ -257,11 +227,11 @@ export default function BestCRMToMigrateToGHLClient() {
           <ArrowRight className="w-3 h-3 text-[#96A0B5]" />
           <Link href="/blog" className="hover:text-[#0E9BF0] transition-colors">Blog</Link>
           <ArrowRight className="w-3 h-3 text-[#96A0B5]" />
-          <span className="text-[#1A2236] font-medium">Best CRM to Migrate to GoHighLevel 2026</span>
+          <span className="text-[#1A2236] font-medium">Easiest Platform to Migrate to GoHighLevel 2026</span>
         </div>
       </nav>
 
-      {/* Hero Section - WIDE (KEPT AS IS) */}
+      {/* Hero Section */}
       <section className="bg-[#0B1628] py-12 md:py-[72px] px-4 md:px-6 relative overflow-hidden">
         <div className="absolute -top-[120px] -right-[120px] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(14,155,240,0.12)_0%,transparent_70%)] pointer-events-none" />
         <div className="absolute -bottom-[80px] -left-[80px] w-[360px] h-[360px] bg-[radial-gradient(circle,rgba(37,201,125,0.08)_0%,transparent_70%)] pointer-events-none" />
@@ -277,8 +247,8 @@ export default function BestCRMToMigrateToGHLClient() {
 
           {/* H1 Headline */}
           <h1 className="text-[clamp(28px,6vw,46px)] font-extrabold leading-[1.2] md:leading-[1.15] text-white mb-4 md:mb-5 tracking-[-0.02em]">
-            Best CRM to Migrate Into GoHighLevel:<br />
-            <span className="text-[#F8D000]">Comparing 5 Platforms (2026)</span>
+            Which Platform Is Easiest to Migrate to GoHighLevel?<br />
+            <span className="text-[#F8D000]">8 Platforms Ranked by Difficulty</span>
           </h1>
 
           {/* Author Byline */}
@@ -292,33 +262,59 @@ export default function BestCRMToMigrateToGHLClient() {
             </div>
             <div>
               <div className="text-sm font-medium text-white">GHL Scale Up Team</div>
-              <div className="text-xs text-white/50">GoHighLevel Migration Specialists · 200+ Migrations Delivered · Updated June 2026</div>
+              <div className="text-xs text-white/50">GoHighLevel Migration Specialists · 200+ migrations delivered · Verified against official HighLevel documentation and this project's platform-specific research, September 2026</div>
             </div>
           </div>
 
-          {/* Introductory Paragraph - NO max-w constraint */}
-          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6">
-            Not every migration to GoHighLevel is equally hard. Some platforms hand over your funnels and pages with one click. 
-            Others require manually rebuilding every piece of course content from scratch. 
-            <strong className="text-white"> GHL Scale Up</strong> has completed 200+ migrations across HubSpot, ClickFunnels, 
-            ActiveCampaign, Kajabi, and Zoho. This guide ranks all five by realistic migration difficulty, so you know what you 
-            are actually walking into before you start.
+          {/* Introductory Paragraph */}
+          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-6xl">
+            This is a migration-difficulty comparison, not a "best CRM" ranking several platforms compared here (ClickFunnels, Kajabi, Mailchimp) aren't CRMs at all. What they have in common is that GHL Scale Up has a dedicated migration guide for each, and this page exists to help you figure out which one to read first based on how hard your specific move will actually be.
           </p>
+
+          {/* Quick Answer Box */}
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 md:p-6 mb-6">
+            <div className="flex items-center gap-2 mb-3">
+              <Zap className="w-5 h-5 text-[#F8D000]" />
+              <span className="text-xs font-bold uppercase tracking-wider text-white/60">Quick answer, easiest to hardest</span>
+            </div>
+            <p className="text-sm text-white/70 leading-relaxed">
+              Mailchimp (simplest data model), ClickFunnels and ActiveCampaign (tied, both moderate-easy for different reasons), Keap and HubSpot (tied, moderate), Kajabi (moderate-hard a native course importer now handles content, but automations, offers, and community still need full manual rebuilding), Zoho CRM (hard Blueprint workflows don't map directly to GHL), and Salesforce (hardest its multi-object data model is the most complex on this list). This ranking measures manual rebuild effort, not platform quality a hard migration doesn't mean GoHighLevel is the wrong fit, and an easy one doesn't mean it's automatically right for you.
+            </p>
+          </div>
+
+          {/* CTA Button 1: Hero Section */}
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105"
+            >
+              <Rocket className="w-4 h-4" />
+              Get Migration Help
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              href="#platform-ranking"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20"
+            >
+              See the Rankings
+              <ChevronDown className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* MAIN LAYOUT - Sidebar on LEFT, Content on RIGHT */}
-      <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-16">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-10">
         <div className="grid lg:grid-cols-[280px_1fr] gap-8 md:gap-12 items-start">
-          
+
           {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
           <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
-            {/* Project Help Card - At top of sidebar */}
-            <div className="mb-6">
+            {/* Project Help Card */}
+            <div className="hidden lg:block mb-6">
               <ProjectHelpCard />
             </div>
 
-            {/* Table of Contents */}
+            {/* Table of Contents - Sticky */}
             <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
                 <BookOpen className="w-3 h-3" />
@@ -335,7 +331,9 @@ export default function BestCRMToMigrateToGHLClient() {
                         }`}
                     >
                       <span className="flex items-start gap-2">
-                        {activeId === item.id && <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />}
+                        {activeId === item.id && (
+                          <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />
+                        )}
                         <span className="flex-1">{item.title}</span>
                       </span>
                     </button>
@@ -347,7 +345,7 @@ export default function BestCRMToMigrateToGHLClient() {
             {/* About the Author */}
             <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
+                <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
                   <img
                     src="/web-app-manifest-192x192.png"
                     alt="GHL Scale Up"
@@ -360,58 +358,46 @@ export default function BestCRMToMigrateToGHLClient() {
                 </div>
               </div>
               <p className="text-xs text-white/60 leading-relaxed mb-3">
-                5+ years GHL experience · 200+ migrations completed globally across HubSpot, ClickFunnels, ActiveCampaign, 
-                Kajabi, and Zoho. Difficulty rankings based on real migration projects completed by our team as of June 2026.
+                5+ years GHL experience · 200+ migrations completed globally across HubSpot, ClickFunnels, ActiveCampaign, Kajabi, and Zoho. Difficulty rankings based on real migration projects completed by our team as of June 2026.
               </p>
               <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
             </div>
 
             {/* Share Buttons */}
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
-              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
+              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Share this guide</div>
               <div className="flex gap-2 flex-wrap">
-                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Linkedin className="w-3 h-3" /> LinkedIn</a>
-                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Twitter className="w-3 h-3" /> X</a>
-                <button onClick={() => navigator.clipboard.writeText(window.location.href)} className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"><Copy className="w-3 h-3" /> Copy link</button>
+                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Linkedin className="w-3 h-3" />
+                  LinkedIn
+                </a>
+                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Twitter className="w-3 h-3" />
+                  X
+                </a>
+                <button
+                  onClick={() => navigator.clipboard.writeText(window.location.href)}
+                  className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"
+                >
+                  <Copy className="w-3 h-3" />
+                  Copy link
+                </button>
               </div>
+            </div>
+
+            {/* CTA Card */}
+            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
+              <div className="text-sm font-bold text-white mb-2">Not Sure Which Platform You're Migrating From?</div>
+              <p className="text-xs text-white/60 leading-relaxed mb-4">We help you evaluate your current setup and recommend the best migration path.</p>
+              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+                Get Advice
+                <ArrowRight className="w-3 h-3" />
+              </Link>
             </div>
           </aside>
 
           {/* ==================== RIGHT COLUMN: BLOG CONTENT ==================== */}
           <main className="min-w-0 order-2">
-
-            {/* BLUF Box */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
-              <div className="flex items-center gap-2 mb-3">
-                <Zap className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Quick Answer</span>
-              </div>
-              <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
-                From easiest to hardest migration into GoHighLevel:
-              </p>
-              <div className="space-y-1 text-sm text-[#5C6880] leading-relaxed">
-                <p><strong className="text-[#25C97D]">1. ClickFunnels</strong> (easiest — URL import tool clones page design)</p>
-                <p><strong className="text-[#0E9BF0]">2. ActiveCampaign</strong> (straightforward automation architecture but requires careful pipeline and scoring rebuild)</p>
-                <p><strong className="text-[#0E9BF0]">3. HubSpot</strong> (moderate — clean data export but heavy on custom properties and associations)</p>
-                <p><strong className="text-[#F8D000]">4. Zoho CRM</strong> (moderate to hard — blueprint workflows are structurally different from GHL)</p>
-                <p><strong className="text-[#DC3545]">5. Kajabi</strong> (hardest — all course content must be rebuilt manually, nothing imports automatically)</p>
-              </div>
-              <p className="text-sm text-[#5C6880] leading-relaxed mt-3">
-                The ranking is based on what transfers automatically versus what must be rebuilt by hand, not on which platform is 'better.'
-              </p>
-
-              {/* CTA Button inside BLUF */}
-              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
-                  <Target className="w-4 h-4" />
-                  Get Your Migration Assessment
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </div>
 
             {/* Table of Contents - Mobile Only */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8 lg:hidden">
@@ -437,59 +423,37 @@ export default function BestCRMToMigrateToGHLClient() {
               <ProjectHelpCard />
             </div>
 
-            {/* CTA 1 - After TOC */}
-            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
-              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
-                <strong className="text-white">Not sure which platform you're migrating from or how hard it will be?</strong>
-              </p>
-              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
-                Get a free migration assessment. We review your current platform and give you a realistic timeline and fixed-fee quote.
-              </p>
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                Book a Free Strategy Call
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* Section 1: How Measured */}
+            {/* Section 1: How Migration Difficulty Is Actually Measured */}
             <h2 id="how-measured" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-8 mb-4">
-              1. How Is Migration Difficulty Actually Measured?
+              How Migration Difficulty Is Actually Measured
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Migration difficulty is not about how good or bad the platform is. It is about how much of your existing setup 
-              transfers automatically versus how much must be rebuilt by hand inside GoHighLevel. Four factors determine this for any platform.
+              Difficulty isn't a feeling it's how much of your existing setup transfers automatically versus how much you rebuild by hand. We score each platform 1 (easiest) to 5 (hardest) across six weighted factors:
             </p>
 
-            <div className="space-y-3 mb-6">
-              <div className="bg-white border border-[#DDE1E9] rounded-xl p-3">
-                <div className="flex items-start gap-3">
-                  <Database className="w-5 h-5 text-[#0E9BF0] flex-shrink-0 mt-0.5" />
-                  <p className="text-sm text-[#1A2236]"><strong className="text-[#1A2236]">Contact and data export quality:</strong> Every platform on this list exports contacts via CSV reasonably well. This factor rarely differentiates platforms much.</p>
-                </div>
-              </div>
-              <div className="bg-white border border-[#DDE1E9] rounded-xl p-3">
-                <div className="flex items-start gap-3">
-                  <Workflow className="w-5 h-5 text-[#0E9BF0] flex-shrink-0 mt-0.5" />
-                  <p className="text-sm text-[#1A2236]"><strong className="text-[#1A2236]">Automation architecture similarity:</strong> Platforms with a similar trigger-and-action workflow model to GHL require less conceptual rework, even though every automation still needs manual rebuilding.</p>
-                </div>
-              </div>
-              <div className="bg-white border border-[#DDE1E9] rounded-xl p-3">
-                <div className="flex items-start gap-3">
-                  <Layout className="w-5 h-5 text-[#0E9BF0] flex-shrink-0 mt-0.5" />
-                  <p className="text-sm text-[#1A2236]"><strong className="text-[#1A2236]">Visual content transferability:</strong> Some platforms (ClickFunnels) have tools that import visual page design directly. Others (Kajabi's course content) have no equivalent and require full manual recreation.</p>
-                </div>
-              </div>
-              <div className="bg-white border border-[#DDE1E9] rounded-xl p-3">
-                <div className="flex items-start gap-3">
-                  <GitBranch className="w-5 h-5 text-[#0E9BF0] flex-shrink-0 mt-0.5" />
-                  <p className="text-sm text-[#1A2236]"><strong className="text-[#1A2236]">Structural complexity:</strong> Platforms with deep custom objects, blueprint workflows, or enterprise-grade permission structures (HubSpot, Zoho, Salesforce) take longer to map and rebuild correctly.</p>
-                </div>
-              </div>
+            <div className="overflow-x-auto my-6">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Factor</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Weight</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">What It Measures</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-[#DDE1E9]"><td className="py-3 px-3 font-medium text-[#1A2236]">Automation/workflow rebuild complexity</td><td className="py-3 px-3 text-[#5C6880]">25%</td><td className="py-3 px-3 text-[#5C6880]">How different the platform's trigger-and-action logic is from GHL's</td></tr>
+                  <tr className="border-b border-[#DDE1E9]"><td className="py-3 px-3 font-medium text-[#1A2236]">Data model / structural complexity</td><td className="py-3 px-3 text-[#5C6880]">20%</td><td className="py-3 px-3 text-[#5C6880]">Custom objects, associations, blueprints, permission structures</td></tr>
+                  <tr className="border-b border-[#DDE1E9]"><td className="py-3 px-3 font-medium text-[#1A2236]">Content migration</td><td className="py-3 px-3 text-[#5C6880]">20%</td><td className="py-3 px-3 text-[#5C6880]">Pages, courses, or funnels, and whether a native import path exists</td></tr>
+                  <tr className="border-b border-[#DDE1E9]"><td className="py-3 px-3 font-medium text-[#1A2236]">Data portability</td><td className="py-3 px-3 text-[#5C6880]">15%</td><td className="py-3 px-3 text-[#5C6880]">How cleanly contacts and core records export</td></tr>
+                  <tr className="border-b border-[#DDE1E9]"><td className="py-3 px-3 font-medium text-[#1A2236]">Integrations and payments reconnection</td><td className="py-3 px-3 text-[#5C6880]">10%</td><td className="py-3 px-3 text-[#5C6880]">Volume of third-party tools needing reconnection</td></tr>
+                  <tr><td className="py-3 px-3 font-medium text-[#1A2236]">Native import tool availability</td><td className="py-3 px-3 text-[#5C6880]">10%</td><td className="py-3 px-3 text-[#5C6880]">Dedicated importer versus CSV/API/manual only</td></tr>
+                </tbody>
+              </table>
             </div>
 
-            {/* Section 2: Ranking */}
+            {/* Section 2: The 8 Platforms Ranked */}
             <h2 id="platform-ranking" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              2. The 5 Platforms Ranked by Migration Difficulty
+              The 8 Platforms Ranked by Migration Difficulty
             </h2>
 
             <div className="overflow-x-auto my-6">
@@ -498,16 +462,18 @@ export default function BestCRMToMigrateToGHLClient() {
                   <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
                     <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Rank</th>
                     <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Platform</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Difficulty</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Weighted Score</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Migration Method</th>
                     <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Why</th>
                   </tr>
                 </thead>
                 <tbody>
                   {rankingData.map((item, idx) => (
                     <tr key={idx} className="border-b border-[#DDE1E9]">
-                      <td className="py-3 px-3 font-medium text-[#1A2236]">#{item.rank}</td>
+                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.rank}</td>
                       <td className="py-3 px-3 font-medium text-[#1A2236]">{item.platform}</td>
-                      <td className={`py-3 px-3 font-semibold ${item.rank === 1 ? 'text-[#25C97D]' : item.rank === 5 ? 'text-[#DC3545]' : 'text-[#0E9BF0]'}`}>{item.difficulty}</td>
+                      <td className="py-3 px-3 text-[#0E9BF0] font-semibold">{item.score}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.method}</td>
                       <td className="py-3 px-3 text-[#5C6880]">{item.why}</td>
                     </tr>
                   ))}
@@ -515,32 +481,56 @@ export default function BestCRMToMigrateToGHLClient() {
               </table>
             </div>
 
-            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-4 my-4">
               <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#0E9BF0]" />
-                <span className="text-sm font-bold text-[#0E9BF0]">WHAT THIS RANKING DOES NOT MEAN</span>
+                <Info className="w-4 h-4 text-[#0E9BF0]" />
+                <span className="text-sm font-bold text-[#0E9BF0]">A NOTE ON KAJABI'S POSITION</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                Easier migration does not mean better platform, and harder migration does not mean GHL is a worse fit. 
-                Kajabi ranks hardest because course content genuinely has no automated transfer path on any platform migration, 
-                not because Kajabi is a worse tool. The ranking tells you what to expect in terms of manual rebuild effort, 
-                not which platform was the right choice for your business originally.
+                some guides (including an earlier version of this one) rank Kajabi as the single hardest migration, based on the claim that course content has no import path at all. That claim is outdated. GoHighLevel's native Kajabi Course Importer automatically brings over video, image, and text content for published lessons. What still requires manual work quizzes, assignments, drip scheduling, offers, community, and automations is broad enough that Kajabi remains a genuinely harder-than-average migration, just not for the reason often cited.
               </p>
             </div>
 
-            {/* Section 3: Platform Breakdown */}
+            {/* 
+              ============================================================
+              🖼️ IMAGE INSERTED HERE - Full width, responsive, interactive
+              ============================================================
+            */}
+            <div className="my-8 md:my-10 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <div className="relative w-full h-auto bg-[#F8F9FB]">
+                <Image
+                  src="/blog/ghl-migration-difficulty-ranking.png"
+                  alt="GoHighLevel migration difficulty ranking for 8 platforms: Mailchimp, ClickFunnels, ActiveCampaign, Keap, HubSpot, Kajabi, Zoho CRM, and Salesforce"
+                  width={1200}
+                  height={500}
+                  className="w-full h-auto object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                />
+              </div>
+              <div className="bg-[#F8F9FB] px-4 py-2.5 text-xs text-[#5C6880] border-t border-[#DDE1E9] flex items-center gap-2">
+                <ImageIcon className="w-3.5 h-3.5" />
+                <span>GoHighLevel migration difficulty ranking: 8 platforms compared by weighted score (1 = easiest, 5 = hardest)</span>
+              </div>
+            </div>
+
+            {/* Section 3: Platform-by-Platform Breakdown */}
             <h2 id="platform-breakdown" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              3. Platform-by-Platform Breakdown
+              Platform-by-Platform Breakdown
             </h2>
 
-            <div className="space-y-5 mb-8">
-              {platformBreakdowns.map((item, idx) => (
-                <div key={idx} className="bg-white border border-[#DDE1E9] rounded-xl p-5">
-                  <div className="flex items-center justify-between flex-wrap gap-2 mb-2">
-                    <h3 className="text-xl font-bold text-[#1A2236]">{item.platform}</h3>
-                    <span className={`text-sm font-semibold ${idx === 0 ? 'text-[#25C97D]' : idx === 4 ? 'text-[#DC3545]' : 'text-[#0E9BF0]'} bg-[rgba(14,155,240,0.1)] px-3 py-1 rounded-full`}>{item.difficulty}</span>
+            <div className="space-y-4 mb-6">
+              {breakdownData.map((item, idx) => (
+                <div key={idx} className="bg-white border border-[#DDE1E9] rounded-xl p-4">
+                  <div className="flex items-center justify-between flex-wrap gap-2 mb-1">
+                    <h3 className="text-lg font-bold text-[#1A2236]">{item.platform}</h3>
+                    <span className={`text-sm font-semibold ${item.difficulty === 'Easiest' ? 'text-[#25C97D]' :
+                        item.difficulty === 'Hardest' ? 'text-[#DC3545]' :
+                          item.difficulty === 'Hard' ? 'text-[#F8D000]' :
+                            'text-[#0E9BF0]'
+                      } bg-[rgba(14,155,240,0.1)] px-3 py-1 rounded-full`}>{item.difficulty}</span>
                   </div>
-                  <p className="text-sm text-[#5C6880] leading-relaxed mb-3">{item.desc}</p>
+                  <p className="text-sm text-[#5C6880] leading-relaxed mb-2">{item.desc}</p>
                   {item.link && (
                     <Link href={item.link} className="text-sm text-[#0E9BF0] hover:underline inline-flex items-center gap-1">
                       → {item.linkText} <ArrowRight className="w-3 h-3" />
@@ -550,9 +540,38 @@ export default function BestCRMToMigrateToGHLClient() {
               ))}
             </div>
 
-            {/* Section 4: Timeline Impact */}
+            {/* Section 4: Migration Method Matters */}
+            <h2 id="migration-method-matters" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Migration Method Matters as Much as Difficulty
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              A single difficulty label hides an important distinction: what kind of migration are you actually doing?
+            </p>
+
+            <div className="overflow-x-auto my-6">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Migration Method</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Platforms</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">What It Means</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {methodData.map((item, idx) => (
+                    <tr key={idx} className="border-b border-[#DDE1E9]">
+                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.method}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.platforms}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.meaning}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Section 5: How Difficulty Affects Timeline */}
             <h2 id="timeline-impact" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              4. How Does Difficulty Affect Your Migration Timeline?
+              How Difficulty Affects Your Migration Timeline
             </h2>
 
             <div className="overflow-x-auto my-6">
@@ -560,9 +579,9 @@ export default function BestCRMToMigrateToGHLClient() {
                 <thead>
                   <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
                     <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Platform</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Simple migration</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Standard migration</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Complex migration</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Simple</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Standard</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Complex</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -578,83 +597,23 @@ export default function BestCRMToMigrateToGHLClient() {
               </table>
             </div>
 
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              These ranges align with the platform-agnostic benchmarks in our full timeline guide. The key driver of timeline 
-              within any platform is still automation count, not platform choice: 
-              <Link href="/blog/ghl-migration-timeline" className="text-[#0E9BF0] hover:underline ml-1">GHL Migration Timeline: How Long Does It Take? →</Link>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Automation count is still the primary driver of timeline within any single platform, more than platform choice itself. For the general framework these ranges build on, see the{' '}
+              <Link href="/blog/ghl-migration-timeline" className="text-[#0E9BF0] hover:underline">GHL migration timeline guide</Link>.
             </p>
 
-            {/* CTA 2 - After Timeline Impact */}
-            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 text-center my-6 text-white">
-              <p className="text-sm font-medium mb-2">📊 Want to know exactly how long your migration will take?</p>
-              <p className="text-sm text-white/80 mb-4">Get a personalized migration timeline based on your specific platform, automations, and data volume.</p>
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                <Clock className="w-4 h-4" />
-                Get Your Timeline
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* Section 5: Next Steps */}
+            {/* Section 6: What Should You Do Next? */}
             <h2 id="next-steps" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              5. What Should You Do Next?
+              What Should You Do Next?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Regardless of which platform you are migrating from, the next step is the same.
+              Read your platform-specific guide from the links above for the exact process, what transfers, and what breaks. Then work through the{' '}
+              <Link href="/gohighlevel-migration-checklist" className="text-[#0E9BF0] hover:underline">GoHighLevel migration checklist</Link> to make sure nothing gets missed regardless of platform.
             </p>
 
-            <div className="space-y-3 mb-6">
-              <div className="bg-white border border-[#DDE1E9] rounded-xl p-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-6 h-6 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold">1</div>
-                  <p className="text-sm text-[#1A2236]">Read your platform-specific guide from the links above to understand exactly what transfers and what does not for your situation.</p>
-                </div>
-              </div>
-              <div className="bg-white border border-[#DDE1E9] rounded-xl p-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-6 h-6 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold">2</div>
-                  <p className="text-sm text-[#1A2236]">Work through the full migration checklist covering all 6 phases from audit to go-live: <Link href="/gohighlevel-migration-checklist" className="text-[#0E9BF0] hover:underline">GoHighLevel Migration Checklist →</Link></p>
-                </div>
-              </div>
-              <div className="bg-white border border-[#DDE1E9] rounded-xl p-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-6 h-6 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold">3</div>
-                  <p className="text-sm text-[#1A2236]">Get a realistic timeline and quote based on your specific contact volume, automation count, and platform.</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-[#1C2E4A] rounded-xl p-5 my-6 text-white">
-              <div className="flex items-center gap-2 mb-3">
-                <Star className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">WE HAVE DONE ALL FIVE OF THESE MIGRATIONS REPEATEDLY</span>
-              </div>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                GHL Scale Up has completed 200+ migrations across HubSpot, ClickFunnels, ActiveCampaign, Kajabi, and Zoho.
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                See real migration results: <Link href="/case-studies" className="text-[#0E9BF0] hover:underline">real GoHighLevel results and case studies →</Link>
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed">
-                To get a realistic timeline and fixed-fee quote for your specific platform, 
-                <Link href="/contact" className="text-[#0E9BF0] hover:underline ml-1">book a free migration assessment at ghlscaleup.com/contact →</Link>
-              </p>
-            </div>
-
-            {/* CTA 3 - Before FAQ */}
-            <div className="bg-[#0B1628] rounded-xl p-6 text-center my-6 text-white">
-              <p className="text-sm font-medium mb-2">🔍 Not sure which platform you should migrate from?</p>
-              <p className="text-sm text-white/80 mb-4">Our team can help you evaluate your current setup and recommend the best migration path.</p>
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                <Search className="w-4 h-4" />
-                Get a Free Consultation
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* Section 6: FAQ */}
+            {/* Section 7: FAQ */}
             <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
-              6. Frequently Asked Questions
+              Frequently Asked Questions
             </h2>
 
             <div className="space-y-3">
@@ -669,30 +628,15 @@ export default function BestCRMToMigrateToGHLClient() {
               ))}
             </div>
 
-            {/* CTA 4 - After FAQ */}
-            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
-              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
-                <strong className="text-white">Still have questions about your migration?</strong>
-              </p>
-              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
-                Talk to our migration specialists directly. We've migrated from all 5 of these platforms and fixed every issue in this guide.
-              </p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                  <MessageCircle className="w-4 h-4" />
-                  Ask an Expert
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20">
-                  <Phone className="w-4 h-4" />
-                  Call Us
-                </Link>
-              </div>
+            {/* Contextual CTA inside FAQ */}
+            <div className="mt-4 text-sm text-[#5C6880] leading-relaxed">
+              Not sure which platform you're migrating from, or how hard it will be?{' '}
+              <Link href="/contact" className="text-[#0E9BF0] hover:underline font-medium">Book a free migration assessment</Link> for a realistic timeline and fixed-fee quote.
             </div>
 
             {/* Internal Links */}
             <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
-              <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles</h3>
+              <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles in This Series</h3>
               <div className="flex flex-wrap gap-3">
                 <Link href="/blog/hubspot-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">How to Migrate from HubSpot to GoHighLevel →</Link>
                 <Link href="/blog/clickfunnels-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">ClickFunnels to GoHighLevel Migration →</Link>
@@ -703,15 +647,14 @@ export default function BestCRMToMigrateToGHLClient() {
               </div>
             </div>
 
-            {/* Final CTA Section */}
+            {/* Final CTA Section - Single closing CTA */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Ready to find out exactly what your migration involves?</h3>
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
-                  GHL Scale Up has migrated from all 5 of these platforms. Free 30-minute migration assessment. 
-                  We review your current platform and give you a realistic timeline and fixed-fee quote.
+                  GHL Scale Up has migrated from all 8 of these platforms. Free 30-minute migration assessment. We review your current platform and give you a realistic timeline and fixed-fee quote.
                 </p>
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105">
                   Book Your Free Assessment
                   <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -720,6 +663,10 @@ export default function BestCRMToMigrateToGHLClient() {
           </main>
         </div>
       </div>
+
+      {/* Booking Modal - Rendered at root level */}
+      <BookingModal open={openBooking} setOpen={setOpenBooking} />
+
 
       {/* Progress Bar Script */}
       <script dangerouslySetInnerHTML={{
