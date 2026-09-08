@@ -21,18 +21,20 @@ import {
   Award,
   BarChart3,
   Shield,
+  Image as ImageIcon,
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
-import BookingModal from '@/components/BookingModal'
+import BookingModal from '@/components/BookingModal';
 import { Button } from '../../../components/ui/button';
+import Image from 'next/image';
 
 export default function GoHighLevelVsClickFunnelsClient() {
   const [activeId, setActiveId] = useState<string>('');
-      const [openBooking, setOpenBooking] = useState(false);
-    
-      const handleOpenBooking = () => {
-        setOpenBooking(true);
-      };
+  const [openBooking, setOpenBooking] = useState(false);
+
+  const handleOpenBooking = () => {
+    setOpenBooking(true);
+  };
 
   // Handle scroll detection for active section
   useEffect(() => {
@@ -412,6 +414,29 @@ export default function GoHighLevelVsClickFunnelsClient() {
               <Link href="/blog/gohighlevel-pricing" className="text-[#0E9BF0] hover:underline">GoHighLevel pricing guide</Link>.
             </p>
 
+            {/* 
+              ============================================================
+              🖼️ IMAGE INSERTED HERE - Full width, responsive, interactive
+              ============================================================
+            */}
+            <div className="my-8 md:my-10 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <div className="relative w-full h-auto bg-[#F8F9FB]">
+                <Image
+                  src="/blog/ghl-vs-clickfunnels-comparison.png"
+                  alt="GoHighLevel vs ClickFunnels: Feature comparison, pricing, and use case decision framework"
+                  width={1200}
+                  height={500}
+                  className="w-full h-auto object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                />
+              </div>
+              <div className="bg-[#F8F9FB] px-4 py-2.5 text-xs text-[#5C6880] border-t border-[#DDE1E9] flex items-center gap-2">
+                <ImageIcon className="w-3.5 h-3.5" />
+                <span>GoHighLevel vs ClickFunnels: Feature comparison, pricing breakdown, and use case decision framework</span>
+              </div>
+            </div>
+
             {/* Section 3: Feature Comparison */}
             <h2 id="feature-comparison" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               Feature Comparison: Where Each Platform Actually Wins
@@ -556,9 +581,9 @@ export default function GoHighLevelVsClickFunnelsClient() {
           </main>
         </div>
       </div>
-                  {/* Booking Modal - Rendered at root level */}
-                  <BookingModal open={openBooking} setOpen={setOpenBooking} />
-      
+      {/* Booking Modal - Rendered at root level */}
+      <BookingModal open={openBooking} setOpen={setOpenBooking} />
+
 
       {/* Progress Bar Script */}
       <script dangerouslySetInnerHTML={{
