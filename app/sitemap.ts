@@ -288,6 +288,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
     {
+      url: `${baseUrl}/blog/kajabi-vs-gohighlevel`,
+      lastModified: new Date('2026-09-09'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/blog/what-a-gohighlevel-migration-service-migrates`,
       lastModified: new Date('2026-09-08'),
       changeFrequency: 'monthly',
