@@ -21,10 +21,12 @@ import {
   MessageCircle,
   Phone,
   Info,
+  Image as ImageIcon,
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
-import BookingModal from '@/components/BookingModal'
+import BookingModal from '@/components/BookingModal';
 import { Button } from '../../../components/ui/button';
+import Image from 'next/image';
 
 export default function ActiveCampaignToGHLMigrationClient() {
   const [activeId, setActiveId] = useState<string>('');
@@ -177,7 +179,7 @@ export default function ActiveCampaignToGHLMigrationClient() {
 
           {/* Author Byline */}
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
+            <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center rounded-full">
               <img
                 src="/web-app-manifest-192x192.png"
                 alt="GHL Scale Up"
@@ -271,7 +273,7 @@ export default function ActiveCampaignToGHLMigrationClient() {
             {/* About the Author */}
             <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
+                <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center rounded-full">
                   <img
                     src="/web-app-manifest-192x192.png"
                     alt="GHL Scale Up"
@@ -374,7 +376,6 @@ export default function ActiveCampaignToGHLMigrationClient() {
                     <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">ActiveCampaign Asset</th>
                     <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">GHL Equivalent</th>
                     <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Migration Method</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Notes</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -383,11 +384,33 @@ export default function ActiveCampaignToGHLMigrationClient() {
                       <td className="py-3 px-3 font-medium text-[#1A2236]">{item.asset}</td>
                       <td className="py-3 px-3 text-[#5C6880]">{item.action}</td>
                       <td className="py-3 px-3 text-[#5C6880]">{item.required}</td>
-                      {/* <td className="py-3 px-3 text-[#0E9BF0]">{item.notes || '}</td> */}
                     </tr>
                   ))}
                 </tbody>
               </table>
+            </div>
+
+            {/* 
+              ============================================================
+              🖼️ IMAGE INSERTED HERE - Full width, responsive, interactive
+              ============================================================
+            */}
+            <div className="my-8 md:my-10 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <div className="relative w-full h-auto bg-[#F8F9FB]">
+                <Image
+                  src="/blog/activecampaign-to-ghl-migration-guide.png"
+                  alt="ActiveCampaign to GoHighLevel migration: Data transfer, automation rebuild, email deliverability, and workflow overview"
+                  width={1200}
+                  height={500}
+                  className="w-full h-auto object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                />
+              </div>
+              <div className="bg-[#F8F9FB] px-4 py-2.5 text-xs text-[#5C6880] border-t border-[#DDE1E9] flex items-center gap-2">
+                <ImageIcon className="w-3.5 h-3.5" />
+                <span>ActiveCampaign → GoHighLevel: Data transfer, automation rebuild, and email deliverability strategy</span>
+              </div>
             </div>
 
             {/* The list-vs-tag mapping risk box */}

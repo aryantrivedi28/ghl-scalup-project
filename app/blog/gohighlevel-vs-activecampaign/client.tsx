@@ -23,10 +23,12 @@ import {
       AlertTriangle,
       Rocket,
       Target,
+      Image as ImageIcon,
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
-import BookingModal from '@/components/BookingModal'
+import BookingModal from '@/components/BookingModal';
 import { Button } from '../../../components/ui/button';
+import Image from 'next/image';
 
 export default function GoHighLevelVsActiveCampaignClient() {
       const [activeId, setActiveId] = useState<string>('');
@@ -417,6 +419,29 @@ export default function GoHighLevelVsActiveCampaignClient() {
                                                 For an agency managing 10 client accounts, this structural difference compounds: GoHighLevel Unlimited covers all 10 in separate sub-accounts for $297/month total. ActiveCampaign has no sub-account model, so 10 clients would require 10 separate accounts — at even the modest Plus tier, that's well over $2,000/month before any client's list grows. For the full GoHighLevel pricing breakdown, see the{' '}
                                                 <Link href="/blog/gohighlevel-pricing" className="text-[#0E9BF0] hover:underline">GoHighLevel pricing guide</Link>.
                                           </p>
+                                    </div>
+
+                                    {/* 
+                                          ============================================================
+                                          🖼️ IMAGE INSERTED HERE - Full width, responsive, interactive
+                                          ============================================================
+                                    */}
+                                    <div className="my-8 md:my-10 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
+                                          <div className="relative w-full h-auto bg-[#F8F9FB]">
+                                                <Image
+                                                      src="/blog/ghl-vs-activecampaign-comparison.png"
+                                                      alt="GoHighLevel vs ActiveCampaign: Feature comparison, pricing models, and use case overview"
+                                                      width={1200}
+                                                      height={500}
+                                                      className="w-full h-auto object-cover"
+                                                      priority
+                                                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                                                />
+                                          </div>
+                                          <div className="bg-[#F8F9FB] px-4 py-2.5 text-xs text-[#5C6880] border-t border-[#DDE1E9] flex items-center gap-2">
+                                                <ImageIcon className="w-3.5 h-3.5" />
+                                                <span>GoHighLevel vs ActiveCampaign: Feature comparison, pricing models, and use case decision framework</span>
+                                          </div>
                                     </div>
 
                                     {/* Section 3: Email Depth vs. Multi-Channel Breadth */}
