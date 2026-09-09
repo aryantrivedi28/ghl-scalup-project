@@ -19,69 +19,17 @@ import {
   MessageCircle,
   Phone,
   Search,
-  Trophy,
-  Facebook,
   Shield,
-  DollarSign,
-  Users,
-  Building2,
-  Calendar,
-  Layout,
-  GitBranch,
-  Sparkles,
-  Award,
-  TrendingUp,
-  Server,
-  Globe,
-  CreditCard,
-  Smartphone,
-  Briefcase,
-  Cloud,
-  Database,
-  Clock,
-  Mail,
-  GraduationCap,
-  Compass,
-  BarChart3,
-  Mailbox,
-  Layers,
   Workflow,
-  Settings,
-  Link2,
-  Webhook,
-  RefreshCw,
-  ListChecks,
-  ClipboardList,
-  Printer,
-  Video,
-  Ticket,
-  TrendingDown,
+  BarChart3,
   Info,
-  UserCheck,
-  UserX,
-  PanelTop,
-  LayoutDashboard,
-  LifeBuoy,
-  Timer,
-  Trash2,
-  Download,
-  PieChart,
-  GitMerge,
-  FileCheck,
-  Headphones,
-  FileText,
-  XCircle,
-  HelpCircle,
-  Boxes,
-  Combine,
-  RefreshCw as RefreshCwIcon,
-  CalendarDays
+  Image as ImageIcon,
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import Image from 'next/image';
 
 export default function KeapToGoHighLevelMigrationClient() {
   const [activeId, setActiveId] = useState<string>('');
-  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -91,6 +39,7 @@ export default function KeapToGoHighLevelMigrationClient() {
         'export-data',
         'tags-fields',
         'rebuild-campaigns',
+        'appointments-calendars',
         'plusthis-replacement',
         'cutover-process',
         'migration-comparison',
@@ -103,16 +52,8 @@ export default function KeapToGoHighLevelMigrationClient() {
           const rect = element.getBoundingClientRect();
           if (rect.top <= 150) {
             setActiveId(id);
-            break;
           }
         }
-      }
-
-      // Show floating Project Help card after scrolling past hero section
-      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
-      if (heroSection) {
-        const heroBottom = heroSection.getBoundingClientRect().bottom;
-        setShowFloatingProjectHelp(heroBottom < 0);
       }
     };
 
@@ -133,72 +74,70 @@ export default function KeapToGoHighLevelMigrationClient() {
   const faqs = [
     {
       q: "Can I migrate Keap Campaign Builder to GoHighLevel?",
-      a: "Not automatically. Keap Campaign Builder sequences do not export confirmed across multiple ecosystem sources including Automize (June 2026), ClonePartner (April 2026), and Julian Mills. They must be documented (business intent, entry goal, sequence steps in order, decision nodes, exit conditions) and then manually rebuilt in GoHighLevel's Workflow Builder using GHL's own trigger and action system. This is the most time-consuming phase of a Keap migration typically 40-60% of total project time depending on active campaign count. Most Keap migrations also find 30-50% of Campaign Builder sequences are outdated and do not need rebuilding, reducing the actual work required."
+      a: "Not automatically. Campaign Builder sequences have no export path, confirmed in GoHighLevel's own official Keap migration guide. Each active campaign must be documented business intent, entry goal, sequence steps, decision nodes, exit conditions then manually rebuilt in GHL's Workflow Builder. This is typically the most time-consuming phase of a Keap migration."
     },
     {
       q: "What data transfers from Keap to GoHighLevel?",
-      a: "Contacts, custom fields (after manual recreation in GHL), and tags (from Keap Ultimate/Max Classic/Infusionsoft) transfer via CSV export. Confirmed from GoHighLevel's official Keap migration guide (article 155000003384, modified October 1, 2024). Custom fields must be recreated manually in GHL before contact import. What does NOT transfer: Campaign Builder sequences, Order records, Notes, Opportunities (in a standard export), PlusThis add-ons, Zapier zaps, and landing pages all require manual re-creation or replacement. Keep your Keap subscription active as a read-only archive for 60-90 days minimum after migration."
+      a: "Contacts and tags transfer via CSV export. Custom fields must be recreated manually in GHL before import. Campaign Builder sequences, order records, notes, and pipeline deals do not transfer automatically the official guide confirms deals specifically require manual re-entry, not automated import."
     },
     {
       q: "How do Keap tags map to GoHighLevel?",
-      a: "Not all Keap tags should migrate. Classify every Keap tag into four categories: segmentation tags (migrate as GHL tags), campaign state tags (do not migrate as tags rebuild as workflow state within the corresponding GHL workflow), utility tags (convert to GHL Custom Fields for cleaner data structure), and legacy tags (archive to a spreadsheet, do not migrate). A typical Keap instance with 1,000-2,000 tags often reduces to 80-200 active tags in GHL after classification. This tag cleanup is one of the biggest wins of the migration."
+      a: "Classify every tag into four categories: segmentation tags (migrate as GHL tags), campaign state tags (rebuild as workflow state, not tags), utility tags (convert to GHL custom fields), and legacy tags (archive, don't migrate). This classification is one of the most valuable side effects of a Keap migration most long-running accounts carry substantial tag debt worth cleaning up."
+    },
+    {
+      q: "What happens to appointments and calendars when migrating from Keap?",
+      a: "They don't transfer automatically. Recreate each appointment type in GHL's Calendars → Appointment Types, matching duration, location, and availability settings, then reconnect Google or Outlook calendar sync."
     },
     {
       q: "What happens to PlusThis when I migrate from Keap to GHL?",
-      a: "PlusThis does not migrate. It is a Keap-specific add-on and must be replaced with GHL-native equivalents or third-party services. Common replacements: appointment reminders (replaced by GHL native SMS workflow), dynamic content by tag (replaced by GHL custom values in email templates), Zoom webinar registration (rebuilt as GHL workflow with Zoom webhook), SMS gateway integration (replaced by GHL native SMS via Twilio or LeadConnector Phone), and card decline recovery (replaced by GHL payment failure workflow). Countdown timers do not have a GHL-native equivalent and typically require a third-party image service like Sendtric or MotionMail."
+      a: "PlusThis doesn't migrate it's a Keap-specific add-on. Each feature needs a GHL-native replacement (appointment reminders, dynamic content, SMS) or a third-party alternative (countdown timers have no native GHL equivalent)."
     },
     {
       q: "How long does a Keap to GoHighLevel migration take?",
-      a: "Small migrations (under 5,000 contacts, minimal Campaign Builder activity, no PlusThis dependency) can complete in 1-2 weeks. Standard migrations (10,000-50,000 contacts, 10-20 active campaigns, moderate PlusThis usage) typically take 3-5 weeks. Complex migrations (100,000+ contacts, 20+ active campaigns, deep PlusThis and Zapier integration) can take 6-8 weeks. The single longest phase is Campaign Builder documentation and workflow rebuild confirmed across ClonePartner (April 2026) and Automize (June 2026)."
-    },
-    {
-      q: "What is the cost difference between Keap and GoHighLevel?",
-      a: "Keap pricing scales with contact count and starts at approximately $299/month for Keap Ultimate (previously Keap Max Classic / Infusionsoft). Adding PlusThis is typically $29-$99/month depending on features. Zapier for integrations adds $20-$99/month. Landing page tool (ClickFunnels/Leadpages) adds another $99-$297/month. Total typical Keap stack: $450-$800/month for a mid-sized business. GoHighLevel is flat-rate at $97-$497/month plus usage fees for SMS and email. For a typical Keap Ultimate + PlusThis + Zapier + ClickFunnels stack at $536/month, migrating to GoHighLevel Unlimited at $297/month plus $80/month usage typically saves $150-$200/month while consolidating tools."
+      a: "Small migrations (under 5,000 contacts, minimal Campaign Builder activity) can complete in 1–2 weeks. Standard migrations (10,000–50,000 contacts, 10–20 active campaigns) typically take 3–5 weeks. Complex migrations (100,000+ contacts, 20+ active campaigns, deep PlusThis/Zapier use) can take 6–8 weeks."
     },
     {
       q: "Is Keap Ultimate different from Keap Pro for migration purposes?",
-      a: "Yes, in one key way: tag export. Keap Ultimate (formerly Keap Max Classic, still called Infusionsoft by many users) can export tags along with the contact record, making tag migration straightforward. Keap Pro (the newer streamlined product) has more limited tag export capabilities tags may need to be exported separately or documented before migration. Other differences: Keap Ultimate has the full Campaign Builder (with the largest campaign investment for most legacy users), while Keap Pro uses a simpler automation model. Migration complexity is usually higher for Keap Ultimate users due to campaign volume, but tag migration is easier. Verify your specific Keap edition's current export capabilities before finalizing your migration plan."
+      a: "The two editions do differ in feature depth Keap Ultimate carries the full Campaign Builder, which is where most long-tenured users have their largest automation investment. A specific difference sometimes claimed that Ultimate exports tags more completely than Pro isn't something we've been able to independently verify against official documentation, so treat it as unconfirmed and check your specific edition's current export options directly before finalizing your migration plan."
     }
   ];
 
   useFaqSchema(faqs);
 
   const tocItems = [
-    { id: 'why-migrate', title: '1. Why do businesses migrate from Keap to GoHighLevel?' },
-    { id: 'what-transfers', title: '2. What data transfers and what does not?' },
-    { id: 'export-data', title: '3. How do you export contacts and data from Keap?' },
-    { id: 'tags-fields', title: '4. How do you handle Keap tags and custom fields?' },
-    { id: 'rebuild-campaigns', title: '5. How do you rebuild Keap Campaign Builder sequences in GHL?' },
-    { id: 'plusthis-replacement', title: '6. How do you replace PlusThis and other Keap integrations?' },
-    { id: 'cutover-process', title: '7. What is the phased cutover process?' },
-    { id: 'migration-comparison', title: '8. How does Keap migration compare to Zoho, HubSpot, or Salesforce?' },
-    { id: 'faq', title: '9. Frequently asked questions' }
+    { id: 'why-migrate', title: '1. Why Do Businesses Migrate from Keap to GoHighLevel?' },
+    { id: 'what-transfers', title: '2. What Data Transfers and What Does Not?' },
+    { id: 'export-data', title: '3. How Do You Export Contacts and Data from Keap?' },
+    { id: 'tags-fields', title: '4. How Do You Handle Keap Tags and Custom Fields?' },
+    { id: 'rebuild-campaigns', title: '5. How Do You Rebuild Keap Campaign Builder Sequences in GHL?' },
+    { id: 'appointments-calendars', title: '6. Appointments and Calendars' },
+    { id: 'plusthis-replacement', title: '7. How Do You Replace PlusThis and Other Keap Integrations?' },
+    { id: 'cutover-process', title: '8. What Is the Phased Cutover Process?' },
+    { id: 'migration-comparison', title: '9. How Does Keap Migration Compare to Zoho, HubSpot, or Salesforce?' },
+    { id: 'faq', title: '10. Frequently Asked Questions' }
   ];
 
-  const transfers = [
-    { asset: 'Contacts', transfers: 'Yes', how: 'CSV export from Keap > CSV import to GHL' },
-    { asset: 'Custom fields', transfers: 'Manual recreation', how: 'Must be recreated in GHL BEFORE contact import' },
-    { asset: 'Tags', transfers: 'Yes (Keap Ultimate)', how: 'Export with contact record; recreate as GHL tags' },
-    { asset: 'Companies', transfers: 'Manual mapping', how: 'Import as GHL Companies or as Custom Field on Contact' },
-    { asset: 'Pipelines / Opportunities', transfers: 'Manual rebuild', how: 'Pipeline stages must be recreated in GHL first' },
-    { asset: 'Campaign Builder sequences', transfers: 'NO', how: 'Must be documented and rebuilt in GHL Workflow Builder' },
-    { asset: 'Order records', transfers: 'NO', how: 'Do not export stay in Keap archive' },
-    { asset: 'Notes', transfers: 'NO', how: 'Do not export stay in Keap archive' },
-    { asset: 'Landing pages', transfers: 'Manual rebuild', how: 'Rebuild in GHL Funnel/Website Builder' },
-    { asset: 'Email templates', transfers: 'Manual copy', how: 'Copy HTML source of each active template into GHL' },
-    { asset: 'PlusThis add-ons', transfers: 'NO', how: 'Replace with GHL-native equivalents' },
-    { asset: 'Zapier integrations', transfers: 'Manual reconnect', how: 'Rebuild with GHL native integrations or GHL webhooks' }
+  const transferData = [
+    { asset: 'Contacts', transfers: 'Yes', how: 'CSV export from Keap, CSV import to GHL' },
+    { asset: 'Custom fields', transfers: 'Manual recreation', how: 'Must be recreated in GHL before contact import' },
+    { asset: 'Tags', transfers: 'Yes', how: 'Export with contact record; recreate as GHL tags' },
+    { asset: 'Pipelines / deals', transfers: 'Manual rebuild', how: 'Stages recreated in GHL first, then deals manually re-entered the official guide confirms this is a manual transfer, not automatic' },
+    { asset: 'Campaign Builder sequences', transfers: 'No', how: 'Documented and rebuilt in GHL Workflow Builder' },
+    { asset: 'Appointment types and calendars', transfers: 'Manual rebuild', how: 'Recreated in GHL Calendars → Appointment Types, including duration, location, and availability settings' },
+    { asset: 'Landing pages and forms', transfers: 'Manual rebuild', how: 'Rebuilt in GHL\'s Funnel/Website Builder and Forms' },
+    { asset: 'Order records', transfers: 'No', how: 'Stay in Keap archive' },
+    { asset: 'Notes', transfers: 'No', how: 'Stay in Keap archive' },
+    { asset: 'PlusThis add-ons', transfers: 'No', how: 'Replace with GHL-native equivalents' },
+    { asset: 'Zapier integrations', transfers: 'Manual reconnect', how: 'Rebuild with GHL native integrations or webhooks' }
   ];
 
   const plusThisReplacements = [
-    { feature: 'Appointment reminders (SMS/email)', ghlReplacement: 'GHL Workflow with Send SMS + Send Email actions', notes: 'GHL native, no add-on needed' },
-    { feature: 'Countdown timers in emails', ghlReplacement: 'Third-party service (Sendtric, MotionMail)', notes: 'Not native in GHL either use image service' },
+    { feature: 'Appointment reminders', ghlReplacement: 'Native GHL workflow with Send SMS + Send Email actions', notes: 'GHL native, no add-on needed' },
+    { feature: 'Countdown timers in emails', ghlReplacement: 'Third-party image service (not native in GHL either)', notes: 'Use Sendtric, MotionMail, or similar' },
     { feature: 'Dynamic content by tag', ghlReplacement: 'GHL Custom Values in email templates', notes: 'Native replacement, cleaner implementation' },
-    { feature: 'Webinar registration sequences', ghlReplacement: 'GHL Workflows + Zoom/GoToWebinar webhook', notes: 'Rebuild trigger and follow-up as GHL workflow' },
-    { feature: 'Referral tracking', ghlReplacement: 'GHL Custom Fields + Attribution workflow', notes: 'Custom implementation, no native referral engine' },
-    { feature: 'Video engagement tracking', ghlReplacement: 'Wistia/Vimeo webhooks to GHL', notes: 'Rebuild using video platform webhooks + GHL triggers' },
-    { feature: 'SMS gateway integration', ghlReplacement: 'GHL native SMS via Twilio or LC Phone', notes: 'Native replacement often better than PlusThis' },
-    { feature: 'Card decline recovery', ghlReplacement: 'GHL Payment failure workflow', notes: 'Native replacement for Stripe/other payment gateways' }
+    { feature: 'Webinar registration sequences', ghlReplacement: 'GHL Workflows plus a Zoom/webinar platform webhook', notes: 'Rebuild trigger and follow-up as GHL workflow' },
+    { feature: 'SMS gateway integration', ghlReplacement: 'GHL native SMS', notes: 'Native replacement often better than PlusThis' },
+    { feature: 'Card decline recovery', ghlReplacement: 'GHL payment failure workflow', notes: 'Native replacement for Stripe/other payment gateways' }
   ];
 
   const comparison = [
@@ -269,14 +208,25 @@ export default function KeapToGoHighLevelMigrationClient() {
             </div>
             <div>
               <div className="text-sm font-medium text-white">GHL Scale Up Team</div>
-              <div className="text-xs text-white/50">GoHighLevel Migration Specialists · 200+ Builds Delivered · Updated July 2026</div>
+              <div className="text-xs text-white/50">GoHighLevel Migration Specialists · 200+ builds delivered · Verified against GoHighLevel's official Keap migration guide, September 2026</div>
             </div>
           </div>
 
           {/* Introductory Paragraph */}
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-6xl">
-            Migrating from Keap (formerly Infusionsoft) to GoHighLevel is different from any other CRM migration in one specific way: Keap's Campaign Builder does not export. Your carefully built automation sequences, decision trees, and fulfillment flows have to be documented before migration and manually rebuilt in GoHighLevel's Workflow Builder. Contacts, tags, and custom fields can be exported cleanly, but the automation logic that runs your business is the real work. <Link href="/" className="text-[#0E9BF0] hover:underline font-medium">GHL Scale Up</Link> has managed Keap migrations for agencies and businesses with long-standing Infusionsoft campaign investments. This guide gives you the exact process from GoHighLevel's own official Keap migration documentation (article 155000003384), plus the campaign builder translation strategy that avoids losing years of automation work. For the fully-managed path: <Link href="/services/migration" className="text-[#0E9BF0] hover:underline">GHL Migration Services →</Link>
+            Migrating from Keap (formerly Infusionsoft) to GoHighLevel is different from most CRM migrations in one specific way: Keap's Campaign Builder does not export. Your automation sequences, decision trees, and fulfillment flows have to be documented before migration and manually rebuilt in GoHighLevel's Workflow Builder. Contacts, tags, and custom fields export cleanly the automation logic that runs your business is the real work.
           </p>
+
+          {/* Direct Answer Box */}
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 md:p-6 mb-6">
+            <div className="flex items-center gap-2 mb-3">
+              <Zap className="w-5 h-5 text-[#F8D000]" />
+              <span className="text-xs font-bold uppercase tracking-wider text-white/60">Direct answer</span>
+            </div>
+            <p className="text-sm text-white/70 leading-relaxed">
+              To migrate from Keap to GoHighLevel: (1) audit your Keap instance, (2) export contacts via Contacts → People → Export (over 1,000 contacts triggers email delivery of the file), (3) normalize multiple emails per contact to one primary email before export, (4) recreate custom fields, pipelines, and tag categories in GHL first, (5) assign placeholder unique emails to any Keap contacts missing one, since GHL requires an email for import, (6) test-import 100–200 contacts, (7) document every active Campaign Builder sequence and rebuild it in GHL's Workflow Builder, (8) recreate appointment types and calendar settings, (9) replace PlusThis with GHL-native equivalents, (10) run both platforms in parallel for 2–3 weeks before cutover. Typical timeline: 2–3 weeks for small migrations, 4–8 weeks for complex accounts with 20+ active Campaign Builder sequences. The single biggest risk is assuming Campaign Builder will transfer it will not.
+            </p>
+          </div>
 
           {/* CTA Button 1: Hero Section */}
           <div className="flex flex-wrap gap-3">
@@ -395,32 +345,6 @@ export default function KeapToGoHighLevelMigrationClient() {
           {/* ==================== RIGHT COLUMN: BLOG CONTENT ==================== */}
           <main className="min-w-0 order-2">
 
-            {/* BLUF Box */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
-              <div className="flex items-center gap-2 mb-3">
-                <Zap className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Direct Answer Read This First</span>
-              </div>
-              <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
-                To migrate from Keap to GoHighLevel: (1) Audit your Keap instance, (2) export contacts via Keap → Contacts → People → Export (over 1,000 contacts = email delivery), (3) normalise multiple emails per contact to a single primary email BEFORE export, (4) recreate custom fields, pipelines, and tag categories in GHL, (5) fill in fake unique emails for Keap contacts without emails (GHL requires email for import), (6) test-import 100-200 contacts, (7) document every active Campaign Builder sequence then rebuild in GHL Workflow Builder, (8) replace PlusThis with GHL-native equivalents, (9) run parallel for 2-3 weeks before cutover.
-              </p>
-              <p className="text-sm text-[#5C6880] leading-relaxed">
-                Timeline: 2-3 weeks for small migrations (under 5,000 contacts, minimal campaigns), 4-8 weeks for complex Infusionsoft migrations with 20+ active Campaign Builder sequences. The single biggest risk is assuming the Campaign Builder will transfer. It will not. Rebuild everything actively used, archive everything you no longer need.
-              </p>
-
-              {/* CTA Button 2: Inside TL;DR Box */}
-              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
-                  <Target className="w-4 h-4" />
-                  Get Migration Help
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </div>
-
             {/* Table of Contents - Mobile Only */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8 lg:hidden">
               <div className="flex items-center gap-2 mb-4">
@@ -450,39 +374,23 @@ export default function KeapToGoHighLevelMigrationClient() {
               1. Why Do Businesses Migrate from Keap to GoHighLevel?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> Businesses migrate from Keap (Infusionsoft, Keap Max Classic, Keap Pro, Keap Ultimate) to GoHighLevel primarily to consolidate a fragmented Keap+PlusThis+Zapier+landing-page-tool stack into one platform, reduce per-contact pricing, and access native SMS, AI, and agency reseller features that Keap does not offer.
+              Businesses migrate from Keap to GoHighLevel primarily to consolidate a fragmented Keap + PlusThis + Zapier + landing-page-tool stack into one platform, reduce per-contact pricing pressure, and access native SMS, AI, and agency reseller features Keap doesn't offer.
             </p>
             <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">Per-contact pricing at scale:</strong> Keap pricing scales with contact count. Businesses growing their list find their monthly Keap bill increases even without adding users. GHL's flat-rate model ($97-$497/month) does not scale with contact count.</li>
-              <li><strong className="text-[#1A2236]">Stack consolidation:</strong> A typical Keap user pairs Keap with PlusThis (for enhanced campaign features), Zapier (for integrations), a landing page tool (Leadpages, ClickFunnels, Instapage), and a scheduling tool. GoHighLevel consolidates all of these into one platform.</li>
-              <li><strong className="text-[#1A2236]">Native SMS and WhatsApp:</strong> Keap requires third-party SMS integrations. GHL has native SMS, MMS, and WhatsApp Business API integration built into every plan, sharing the same Unified Inbox as email conversations.</li>
-              <li><strong className="text-[#1A2236]">AI Employee suite:</strong> GHL's AI Voice Agent, Conversation AI, and Workflow AI have no direct Keap equivalent as of July 2026.</li>
-              <li><strong className="text-[#1A2236]">Agency and SaaS Mode:</strong> Agencies serving multiple Keap clients pay per Keap instance. GHL's sub-account architecture manages multiple clients from one dashboard, and SaaS Mode lets agencies white-label and resell GHL.</li>
+              <li><strong className="text-[#1A2236]">Per-contact pricing at scale:</strong> Keap pricing scales with contact count. GHL's flat-rate model ($97–$497/month) does not.</li>
+              <li><strong className="text-[#1A2236]">Stack consolidation:</strong> a typical Keap user pairs it with PlusThis, Zapier, a landing page tool, and a scheduling tool. GHL consolidates these into one platform.</li>
+              <li><strong className="text-[#1A2236]">Native SMS and WhatsApp:</strong> Keap requires third-party SMS integrations. GHL has native SMS, MMS, and WhatsApp built into every plan.</li>
+              <li><strong className="text-[#1A2236]">Agency and SaaS Mode:</strong> agencies serving multiple Keap clients pay per instance. GHL's sub-account architecture and SaaS Mode manage multiple clients from one dashboard.</li>
             </ul>
 
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-4 my-4">
               <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">THE HONEST DISCLAIMER</span>
+                <AlertTriangle className="w-4 h-4 text-[#0E9BF0]" />
+                <span className="text-sm font-bold text-[#0E9BF0]">THE HONEST DISCLAIMER</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                GHL is NOT a drop-in Keap replacement for every business. Keap remains meaningfully better for: businesses that depend on Keap's e-commerce and order forms module for physical/digital product sales, users with hundreds of hours of PlusThis-specific campaign investment, and Infusionsoft merchants who use the built-in Keap Pay processor for card-present transactions. If your Keap use case is centered on Keap Pay or Keap's shopping cart, verify GHL can meet those specific needs before migrating.
+                GHL is not a drop-in Keap replacement for every business. Keap remains meaningfully better for businesses that depend on Keap's e-commerce and order forms module for product sales, users with deep PlusThis-specific campaign investment, and merchants who rely on Keap Pay for card-present transactions. If your Keap use centers on Keap Pay or its shopping cart, verify GHL meets those specific needs before migrating.
               </p>
-            </div>
-
-            {/* CTA Button 3: After Section 1 */}
-            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 mb-8 text-center">
-              <p className="text-white/80 text-sm mb-3">
-                <span className="font-bold text-white">Not sure if migrating from Keap is right for you?</span> Let our team help you decide.
-              </p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <BarChart3 className="w-4 h-4" />
-                Get Migration Advice
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
             </div>
 
             {/* Section 2: What Transfers */}
@@ -490,7 +398,7 @@ export default function KeapToGoHighLevelMigrationClient() {
               2. What Data Transfers and What Does Not?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> GoHighLevel's official Keap migration guide (article 155000003384) confirms which assets are covered by the standard migration process. Other assets require manual re-creation or must be left in Keap as an archive.
+              GoHighLevel's official Keap migration guide confirms which assets the standard migration process covers. Other assets require manual re-creation or stay in Keap as an archive.
             </p>
 
             <div className="overflow-x-auto my-6">
@@ -503,10 +411,10 @@ export default function KeapToGoHighLevelMigrationClient() {
                   </tr>
                 </thead>
                 <tbody>
-                  {transfers.map((item, idx) => (
+                  {transferData.map((item, idx) => (
                     <tr key={idx} className="border-b border-[#DDE1E9]">
                       <td className="py-3 px-3 font-medium text-[#1A2236]">{item.asset}</td>
-                      <td className={`py-3 px-3 font-semibold ${item.transfers === 'NO' ? 'text-[#DC3545]' : item.transfers === 'Yes' ? 'text-[#25C97D]' : 'text-[#F8D000]'}`}>{item.transfers}</td>
+                      <td className={`py-3 px-3 font-semibold ${item.transfers === 'No' ? 'text-[#DC3545]' : item.transfers === 'Yes' ? 'text-[#25C97D]' : 'text-[#F8D000]'}`}>{item.transfers}</td>
                       <td className="py-3 px-3 text-[#5C6880]">{item.how}</td>
                     </tr>
                   ))}
@@ -514,14 +422,37 @@ export default function KeapToGoHighLevelMigrationClient() {
               </table>
             </div>
 
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-4 my-4">
               <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">THE THREE THINGS THAT WILL SURPRISE YOU</span>
+                <AlertTriangle className="w-4 h-4 text-[#0E9BF0]" />
+                <span className="text-sm font-bold text-[#0E9BF0]">THE THREE THINGS THAT WILL SURPRISE YOU</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                Order records, Notes, and Opportunities do NOT come over in a standard Keap data export. Cited from Julian Mills. Practical implication: historical purchase data, note history, and open deal records stay in Keap as an archive. Do not cancel your Keap subscription immediately after migration keep it active as read-only archive access for 60-90 days minimum, longer if you need to reference historical order data. If you need Order records in GHL as active data, you need an API-based migration (not CSV) to preserve the relationships.
+                order records, notes, and pipeline deals do not come over automatically in a standard Keap data export confirmed directly in GoHighLevel's own official guide, which describes deal recreation as a manual step. Keep your Keap subscription active as a read-only archive for 60–90 days minimum after migration, longer if you need to reference historical order data.
               </p>
+            </div>
+
+            {/* 
+              ============================================================
+              🖼️ IMAGE INSERTED HERE - Full width, responsive, interactive
+              ============================================================
+            */}
+            <div className="my-8 md:my-10 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <div className="relative w-full h-auto bg-[#F8F9FB]">
+                <Image
+                  src="/blog/keap-to-ghl-migration-guide.png"
+                  alt="Keap to GoHighLevel migration: Data transfer, Campaign Builder rebuild, PlusThis replacement, and workflow overview"
+                  width={1200}
+                  height={500}
+                  className="w-full h-auto object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                />
+              </div>
+              <div className="bg-[#F8F9FB] px-4 py-2.5 text-xs text-[#5C6880] border-t border-[#DDE1E9] flex items-center gap-2">
+                <ImageIcon className="w-3.5 h-3.5" />
+                <span>Keap → GoHighLevel: Data transfer, Campaign Builder rebuild, PlusThis replacement, and phased cutover workflow</span>
+              </div>
             </div>
 
             {/* Section 3: Export Data */}
@@ -529,24 +460,31 @@ export default function KeapToGoHighLevelMigrationClient() {
               3. How Do You Export Contacts and Data from Keap?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> Keap exports contacts as CSV files through the Contacts → People module. GoHighLevel's official Keap migration guide walks through the exact steps.
+              <strong className="text-[#1A2236]">1.</strong> Navigate to Contacts → People in Keap.
             </p>
-            <ol className="space-y-1 mb-4 text-sm text-[#5C6880] list-decimal list-inside">
-              <li><strong className="text-[#1A2236]">Navigate to contacts:</strong> In Keap, go to Contacts → People.</li>
-              <li><strong className="text-[#1A2236]">Select contacts to export:</strong> Choose specific contacts or use the Select All option.</li>
-              <li><strong className="text-[#1A2236]">Click Export:</strong> Choose to download the contact data as a CSV file.</li>
-              <li><strong className="text-[#1A2236]">For large exports (over 1,000 contacts):</strong> Enter your email address to receive a download link from Keap. Confirmed from GHL's official guide.</li>
-              <li><strong className="text-[#1A2236]">Document (do NOT export) custom fields:</strong> Note that custom fields need to be recreated manually in HighLevel. Take screenshots or export the field configuration list for reference.</li>
-              <li><strong className="text-[#1A2236]">Back up the exported data:</strong> GHL's official guide explicitly instructs: "Ensure all exported data is securely backed up before starting the migration process." Store CSVs in secure cloud storage before beginning transformation.</li>
-            </ol>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              <strong className="text-[#1A2236]">2.</strong> Select the contacts to export, or use Select All.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              <strong className="text-[#1A2236]">3.</strong> Click Export and choose CSV download.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              <strong className="text-[#1A2236]">4.</strong> For exports over 1,000 contacts, enter your email address Keap sends a download link rather than an instant file, per GoHighLevel's official guide.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              <strong className="text-[#1A2236]">5.</strong> Document (don't try to export) custom fields they need to be recreated manually in GHL. Screenshot the field list for reference.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              <strong className="text-[#1A2236]">6.</strong> Securely back up the exported CSVs before starting the transformation process.
+            </p>
 
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-4 my-4">
               <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">THE PRE-EXPORT DATA CLEANING TO DO FIRST</span>
+                <AlertTriangle className="w-4 h-4 text-[#0E9BF0]" />
+                <span className="text-sm font-bold text-[#0E9BF0]">TWO DATA-QUALITY ISSUES TO RESOLVE BEFORE IMPORT</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                Two data-quality issues that create migration failures if left unresolved: (1) Contacts without email addresses Keap allows this, GHL does NOT. Any contact imported to GHL without an email address is silently ignored. Workaround (from Julian Mills): create fake unique email addresses in a pre-import spreadsheet, using a pattern like noemail-KEAP-ID-12345@yourdomain.com. This lets you import the contact into GHL, and you can later prompt for the real email through a workflow. (2) Contacts with multiple email addresses (Email1, Email2, Email3 in Keap) can create duplicate contacts in HighLevel unless you normalize to a single primary email BEFORE import. Cited from ClonePartner (April 2026), referencing help.gohighlevel.com. Pick the most recently active or verified email as the primary; move secondary emails to a Custom Field "secondary-email" for reference.
+                First, contacts without an email address Keap allows this, GHL does not, and any contact imported without one is silently skipped. A common workaround is assigning a placeholder unique email (a pattern like noemail-[keap-id]@yourdomain.com) so the contact still imports, with a follow-up workflow to collect the real address later. Second, contacts with multiple email addresses (Email1, Email2, Email3 in Keap) can create duplicate GHL contacts unless normalized to one primary email before import pick the most recently active address as primary and move others to a custom field for reference.
               </p>
             </div>
 
@@ -555,115 +493,77 @@ export default function KeapToGoHighLevelMigrationClient() {
               4. How Do You Handle Keap Tags and Custom Fields?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> Keap uses tags to encode segmentation logic, campaign entry conditions, and lifecycle state. A single business might have 500-2,000 active Keap tags. Not all of these need to migrate most Keap instances have accumulated tag debt that should be cleaned up during migration.
+              Keap uses tags to encode segmentation, campaign entry conditions, and lifecycle state a single account might have hundreds or thousands of active tags. Not all of them should migrate as-is.
             </p>
 
-            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-4 my-4">
               <div className="flex items-center gap-2 mb-2">
                 <Lightbulb className="w-4 h-4 text-[#0E9BF0]" />
-                <span className="text-sm font-bold text-[#0E9BF0]">Tag classification approach</span>
+                <span className="text-sm font-bold text-[#0E9BF0]">TAG CLASSIFICATION APPROACH</span>
               </div>
               <ul className="space-y-1 text-sm text-[#1A2236] list-disc list-inside">
-                <li><strong className="text-[#0E9BF0]">Segmentation tags MIGRATE:</strong> Tags used to group contacts by demographic, interest, or behaviour (Customer, Prospect, Newsletter-Subscriber, Product-A-Buyer). These become GHL tags on the imported contact.</li>
-                <li><strong className="text-[#0E9BF0]">Campaign state tags REBUILD IN WORKFLOW:</strong> Tags used to track campaign progress (Welcome-Series-Day-3, Onboarding-Complete, Nurture-Sequence-Active). These do not migrate as tags they get rebuilt as GHL workflow state within the corresponding rebuilt workflow.</li>
-                <li><strong className="text-[#0E9BF0]">Legacy tags ARCHIVE:</strong> Tags applied years ago for campaigns no longer running. These do not need to migrate. Document them in a spreadsheet if needed for compliance, then drop them from the import.</li>
-                <li><strong className="text-[#0E9BF0]">Utility tags CONVERT TO CUSTOM FIELDS:</strong> Tags used as pseudo-fields (Preferred-Contact-Method-Email, VIP-Client, Payment-Method-Stripe). Convert these into proper GHL Custom Fields for cleaner data structure.</li>
+                <li><strong className="text-[#0E9BF0]">Segmentation tags migrate directly:</strong> tags grouping contacts by demographic, interest, or behavior (Customer, Prospect, Product-A-Buyer) become GHL tags on the imported contact.</li>
+                <li><strong className="text-[#0E9BF0]">Campaign state tags get rebuilt as workflow state:</strong> tags tracking campaign progress (Welcome-Series-Day-3, Onboarding-Complete) don't migrate as tags they get rebuilt as state within the corresponding GHL workflow.</li>
+                <li><strong className="text-[#0E9BF0]">Legacy tags get archived:</strong> tags from campaigns no longer running don't need to migrate. Document them separately if needed for compliance, then drop them from the import.</li>
+                <li><strong className="text-[#0E9BF0]">Utility tags convert to custom fields:</strong> tags used as pseudo-fields (Preferred-Contact-Method-Email, VIP-Client) convert into proper GHL custom fields for cleaner data structure.</li>
               </ul>
             </div>
 
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Detail (Custom field mapping):</strong>
+              For custom fields specifically: document every Keap custom field (name, data type, picklist values) from Admin → Settings → Custom Fields, recreate each one in GHL's Settings → Custom Fields with matching type, then map the CSV column headers to the GHL field names exactly any column without a matching field is silently dropped during import. Test with 100–200 contacts first to confirm every field appears correctly.
             </p>
-            <ol className="space-y-1 mb-4 text-sm text-[#5C6880] list-decimal list-inside">
-              <li><strong className="text-[#1A2236]">Document Keap custom fields:</strong> Open Keap → Admin → Settings → Custom Fields. List every field with name, data type (text, number, date, dropdown, list), and picklist values if applicable.</li>
-              <li><strong className="text-[#1A2236]">Recreate in GHL:</strong> In GoHighLevel, Settings → Custom Fields. Create each Keap custom field with matching name and data type. For dropdowns, recreate the exact picklist values.</li>
-              <li><strong className="text-[#1A2236]">Map field names in CSV:</strong> Update the export CSV column headers to match the GHL custom field internal names exactly. Any column with no matching GHL custom field is silently dropped during import confirmed by ghlcrms as "Mistake 1".</li>
-              <li><strong className="text-[#1A2236]">Test with sample:</strong> Import 100-200 contacts first to verify every custom field appears correctly on the imported records.</li>
-            </ol>
-
-            {/* CTA Button 4: After Tags and Fields */}
-            <div className="bg-gradient-to-r from-[#0E9BF0] to-[#0C8AD8] rounded-xl p-6 text-center text-white mb-8">
-              <p className="text-sm font-medium mb-2">🏷️ Overwhelmed by Keap tag cleanup and field mapping?</p>
-              <p className="text-sm text-white/80 mb-4">We'll handle your tag classification, cleanup, and custom field recreation.</p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-white text-[#0E9BF0] font-bold px-6 py-2.5 rounded-lg hover:bg-[#F8F9FB] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <HeartHandshake className="w-4 h-4" />
-                Get Tag Cleanup Help
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
 
             {/* Section 5: Rebuild Campaigns */}
             <h2 id="rebuild-campaigns" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               5. How Do You Rebuild Keap Campaign Builder Sequences in GHL?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> Keap Campaign Builder uses a visual canvas with goals, decision nodes, sequences, and merge fields to build multi-step automations. GoHighLevel Workflow Builder uses triggers, actions, wait steps, and if/else branches. The models are similar but not identical there is no export/import path between them. Every actively-used campaign must be documented and manually rebuilt.
+              Keap Campaign Builder uses a visual canvas with goals, decision nodes, sequences, and merge fields. GoHighLevel's Workflow Builder uses triggers, actions, wait steps, and if/else branches. The models are conceptually similar but there is no export/import path between them every actively-used campaign must be documented and rebuilt by hand.
             </p>
 
-            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-4 my-4">
               <div className="flex items-center gap-2 mb-2">
                 <Lightbulb className="w-4 h-4 text-[#0E9BF0]" />
-                <span className="text-sm font-bold text-[#0E9BF0]">Documentation approach for each Keap campaign</span>
+                <span className="text-sm font-bold text-[#0E9BF0]">DOCUMENT EACH CAMPAIGN</span>
               </div>
               <ul className="space-y-1 text-sm text-[#1A2236] list-disc list-inside">
-                <li><strong className="text-[#0E9BF0]">Business intent:</strong> What does this campaign achieve? "Welcome new leads from the free download form, deliver the lead magnet, then nurture toward a discovery call over 14 days."</li>
-                <li><strong className="text-[#0E9BF0]">Entry goal:</strong> What starts it? "Web form submitted with tag Lead-Magnet-Download applied."</li>
-                <li><strong className="text-[#0E9BF0]">Sequence steps in order:</strong> What does it do? "Send lead magnet email → Wait 2 days → Send case study email → Wait 3 days → If tag Discovery-Booked NOT applied, send discovery call invitation → Wait 4 days → If still not booked, send final email."</li>
-                <li><strong className="text-[#0E9BF0]">Decision nodes:</strong> Any conditional branches? "If contact clicks discovery call link, apply tag Discovery-Clicked and skip to conversion sequence."</li>
-                <li><strong className="text-[#0E9BF0]">Exit goals:</strong> When does the campaign complete or exit the contact? "When tag Discovery-Booked is applied or when contact is Unsubscribed."</li>
+                <li><strong className="text-[#0E9BF0]">Business intent:</strong> what it achieves</li>
+                <li><strong className="text-[#0E9BF0]">Entry goal:</strong> what starts it</li>
+                <li><strong className="text-[#0E9BF0]">Sequence steps in order:</strong> what it does, step by step</li>
+                <li><strong className="text-[#0E9BF0]">Decision nodes:</strong> conditional branches</li>
+                <li><strong className="text-[#0E9BF0]">Exit goals:</strong> when it completes</li>
               </ul>
             </div>
 
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Then rebuild in GHL:</strong>
-            </p>
-            <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">Trigger:</strong> GHL Workflow → Add Trigger → "Contact Tag Added: Lead-Magnet-Download" (matches Keap entry goal).</li>
-              <li><strong className="text-[#1A2236]">Actions in order:</strong> Send Email (lead magnet) → Wait 2 days → Send Email (case study) → Wait 3 days → If/Else (Tag Discovery-Booked) → Send Email (discovery invite) → Wait 4 days → If/Else → Send Email (final).</li>
-              <li><strong className="text-[#1A2236]">Merge fields:</strong> Keap uses ~ContactFirstName~ token syntax. GHL uses {"{{contact.first_name}}"} custom value syntax. Replace every merge field during rebuild.</li>
-              <li><strong className="text-[#1A2236]">Test end-to-end:</strong> Add yourself as a test contact with the trigger tag. Verify every email arrives, every wait step timing is correct, every branch fires as expected. Only enable for live traffic after test passes.</li>
-            </ul>
-
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-2">
-              For the full GHL Workflow Builder walkthrough: <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-[#0E9BF0] hover:underline">GoHighLevel Workflow Automation Guide →</Link>
-            </p>
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              For the pre-migration audit checklist: <Link href="/blog/ghl-migration-mistakes" className="text-[#0E9BF0] hover:underline">GHL Migration Mistakes →</Link>
+              Then rebuild in GHL: recreate the trigger matching the entry goal, rebuild each action and wait step in order, replace every Keap merge field token (~ContactFirstName~) with its GHL custom-value equivalent ({'{{contact.first_name}}'}), and test end-to-end with yourself as a test contact before enabling for live traffic.
             </p>
 
-            <div className="bg-[#E8FAF2] border border-[rgba(37,201,125,0.2)] rounded-xl p-4 my-4">
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-4 my-4">
               <div className="flex items-center gap-2 mb-2">
-                <Lightbulb className="w-4 h-4 text-[#25C97D]" />
-                <span className="text-sm font-bold text-[#25C97D]">THE OPPORTUNITY IN REBUILDING</span>
+                <Lightbulb className="w-4 h-4 text-[#0E9BF0]" />
+                <span className="text-sm font-bold text-[#0E9BF0]">THE OPPORTUNITY IN REBUILDING</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                A campaign rebuild is the chance to fix broken and outdated Keap automations. Most Keap migrations reveal that 30-50% of Campaign Builder sequences have not fired in over a year, target campaigns that ended, or run on assumptions no longer relevant. Migrating only the actively used sequences reduces rebuild time and produces a cleaner GHL environment. Use GHL's native SMS, AI Voice, and Conversation AI actions where they add value that Keap did not offer.
+                a campaign rebuild is a natural chance to retire automations that no longer fire, target campaigns that have ended, or run on assumptions that no longer hold in our experience, a meaningful share of long-running Keap accounts carry exactly this kind of dead weight. Migrating only what's actively used reduces rebuild time and produces a cleaner GHL environment. For the full Workflow Builder mechanics, see{' '}
+                <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-[#0E9BF0] hover:underline">GoHighLevel's workflow automation guide</Link>.
               </p>
             </div>
 
-            {/* CTA Button 5: After Campaign Rebuild */}
-            <div className="bg-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
-              <p className="text-sm font-medium mb-2">⚡ Don't want to spend weeks rebuilding Campaign Builder sequences?</p>
-              <p className="text-sm text-white/80 mb-4">We'll document and rebuild every active Keap campaign in GHL Workflow Builder.</p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <Workflow className="w-4 h-4" />
-                Get Campaign Rebuild
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-
-            {/* Section 6: PlusThis Replacement */}
-            <h2 id="plusthis-replacement" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              6. How Do You Replace PlusThis and Other Keap Integrations?
+            {/* Section 6: Appointments and Calendars */}
+            <h2 id="appointments-calendars" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              6. Appointments and Calendars
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> PlusThis is the most common Keap add-on it extends Campaign Builder with features like appointment reminders, countdown timers, dynamic content, SMS integrations, and advanced webinar sequences. Because PlusThis is Keap-specific, none of it migrates to GoHighLevel. Each PlusThis feature must be replaced with a GHL-native equivalent or an alternative.
+              This step is easy to overlook but is treated as its own phase in GoHighLevel's official Keap migration guide. List every active Keap appointment type along with its duration, availability rules, reminder settings, and any calendar integrations (Zoom, Google, Outlook). In GHL, recreate each one under Calendars → Appointment Types, matching duration and location settings, then reconnect Google or Outlook calendar sync so bookings don't create double-booking conflicts during the transition.
+            </p>
+
+            {/* Section 7: PlusThis Replacement */}
+            <h2 id="plusthis-replacement" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              7. How Do You Replace PlusThis and Other Keap Integrations?
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              PlusThis is the most common Keap add-on, extending Campaign Builder with appointment reminders, countdown timers, dynamic content, SMS integrations, and webinar sequences. None of it migrates each feature needs a GHL-native replacement or an alternative.
             </p>
 
             <div className="overflow-x-auto my-6">
@@ -671,8 +571,8 @@ export default function KeapToGoHighLevelMigrationClient() {
                 <thead>
                   <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
                     <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">PlusThis Feature</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">GHL-Native Replacement</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Notes</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">GHL Replacement</th>
+                    {/* <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Notes</th> */}
                   </tr>
                 </thead>
                 <tbody>
@@ -680,7 +580,7 @@ export default function KeapToGoHighLevelMigrationClient() {
                     <tr key={idx} className="border-b border-[#DDE1E9]">
                       <td className="py-3 px-3 font-medium text-[#1A2236]">{item.feature}</td>
                       <td className="py-3 px-3 text-[#5C6880]">{item.ghlReplacement}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.notes}</td>
+                      {/* <td className="py-3 px-3 text-[#5C6880]">{item.notes}</td> */}
                     </tr>
                   ))}
                 </tbody>
@@ -688,47 +588,30 @@ export default function KeapToGoHighLevelMigrationClient() {
             </div>
 
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Detail (Zapier integrations):</strong> Every Zapier zap connected to Keap needs to be reviewed. Some can be replaced with GHL's native integration (Slack, Google Sheets, Mailchimp native GHL). Others need to be rebuilt as GHL webhooks calling the target system, or reconnected via Zapier using GHL as the source instead of Keap.
+              Every Zapier zap connected to Keap needs review some can be replaced with GHL's native integrations, others need rebuilding as GHL webhooks, and some can simply be reconnected using GHL as the new source system instead of Keap.
             </p>
 
-            {/* Section 7: Cutover Process */}
+            {/* Section 8: Cutover Process */}
             <h2 id="cutover-process" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              7. What Is the Phased Cutover Process?
+              8. What Is the Phased Cutover Process?
             </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> Phased cutover means running Keap and GoHighLevel in parallel for 2-3 weeks before fully switching over. This gives you a safety net while GHL is being validated with real production data.
-            </p>
             <ol className="space-y-1 mb-4 text-sm text-[#5C6880] list-decimal list-inside">
-              <li><strong className="text-[#1A2236]">Week 1 Route new leads to GHL:</strong> Update website forms and lead capture endpoints to send new leads to GHL. Existing Keap contacts continue in their Keap campaigns.</li>
-              <li><strong className="text-[#1A2236]">Week 2 Migrate active contacts:</strong> Export contacts actively in Keap campaigns (open opportunities, active nurture sequences). Import to GHL. Rebuild the workflows they need in GHL.</li>
-              <li><strong className="text-[#1A2236]">Week 3 Validate deliverability and workflow accuracy:</strong> Confirm GHL is receiving new leads, workflows are firing correctly, emails are being delivered (open rates within 10% of Keap baseline), appointments are being booked. Warm up the new email sending domain.</li>
-              <li><strong className="text-[#1A2236]">Cutover:</strong> Once GHL is performing consistently for 5-7 business days, route all inbound traffic to GHL. Keep Keap subscription active as an archive for 60-90 days.</li>
-              <li><strong className="text-[#1A2236]">Final export:</strong> Take one final full data export from Keap (contacts + custom fields + tags) before the eventual subscription cancellation. Store securely as a permanent backup.</li>
+              <li><strong className="text-[#1A2236]">Week 1 route new leads to GHL.</strong> Update website forms and lead capture endpoints. Existing Keap contacts continue in their current Keap campaigns.</li>
+              <li><strong className="text-[#1A2236]">Week 2 migrate active contacts.</strong> Export contacts currently in active nurture sequences or open pipelines, import to GHL, and rebuild the workflows they need.</li>
+              <li><strong className="text-[#1A2236]">Week 3 validate deliverability and workflow accuracy.</strong> Confirm GHL is receiving leads, workflows fire correctly, email open rates are within range of the Keap baseline, and appointments book correctly. Warm up the new sending domain.</li>
+              <li><strong className="text-[#1A2236]">Cutover</strong> once GHL performs consistently for 5–7 business days, route all inbound traffic to GHL. Keep Keap active as an archive for 60–90 days.</li>
+              <li><strong className="text-[#1A2236]">Final export</strong> take one last full export from Keap (contacts, custom fields, tags) before eventual subscription cancellation, and store it securely.</li>
             </ol>
 
-            {/* CTA Button 6: Before Migration Comparison */}
-            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
-              <p className="text-sm font-medium mb-2">🔍 Not sure about your cutover timeline?</p>
-              <p className="text-sm text-white/80 mb-4">Let us review your Keap instance and give you a realistic timeline.</p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <Search className="w-4 h-4" />
-                Get a Timeline Assessment
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-
-            {/* Section 8: Migration Comparison */}
+            {/* Section 9: Migration Comparison */}
             <h2 id="migration-comparison" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              8. How Does Keap Migration Compare to Zoho, HubSpot, or Salesforce?
+              9. How Does Keap Migration Compare to Zoho, HubSpot, or Salesforce?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> Keap migrations are moderate complexity easier than Salesforce, similar to HubSpot Marketing Hub, harder than Zoho.
+              Keap migrations are moderate complexity: easier than Salesforce, broadly similar to HubSpot, harder than Zoho primarily because of Campaign Builder's rebuild scope rather than data volume or object complexity.
             </p>
 
-            <div className="overflow-x-auto my-6">
+            {/* <div className="overflow-x-auto my-6">
               <table className="w-full border-collapse text-sm">
                 <thead>
                   <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
@@ -751,51 +634,23 @@ export default function KeapToGoHighLevelMigrationClient() {
                   ))}
                 </tbody>
               </table>
-            </div>
+            </div> */}
 
             <p className="text-sm text-[#5C6880] leading-relaxed mb-2">
-              For the equivalents: <Link href="/blog/zoho-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">Zoho to GoHighLevel Migration →</Link>
+              See the equivalents:{' '}
+              <Link href="/blog/zoho-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">Zoho to GoHighLevel migration</Link>,
             </p>
             <p className="text-sm text-[#5C6880] leading-relaxed mb-2">
-              <Link href="/blog/hubspot-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">HubSpot to GoHighLevel Migration →</Link>
+              <Link href="/blog/hubspot-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">HubSpot to GoHighLevel migration</Link>,
             </p>
             <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              <Link href="/blog/salesforce-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">Salesforce to GoHighLevel Migration →</Link>
+              <Link href="/blog/salesforce-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">Salesforce to GoHighLevel migration</Link>. For how Keap compares across the full platform list, see{' '}
+              <Link href="/blog/best-crm-to-migrate-to-gohighlevel" className="text-[#0E9BF0] hover:underline">which platform is easiest to migrate to GoHighLevel</Link>.
             </p>
 
-            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-5 my-6 text-white">
-              <div className="flex items-center gap-2 mb-3">
-                <Star className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">NEED A KEAP MIGRATION WITHOUT LOSING YOUR CAMPAIGNS</span>
-              </div>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                GHL Scale Up handles end-to-end Keap to GoHighLevel migrations: Keap audit, tag classification and cleanup, contact data preparation (email normalization, multi-email consolidation), custom field mapping, Campaign Builder documentation and rebuild in GHL Workflow Builder, PlusThis replacement, phased cutover, and 30-day post-migration support.
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                See real GoHighLevel results and case studies: <Link href="/case-studies" className="text-[#0E9BF0] hover:underline">real GoHighLevel results and case studies →</Link>
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed">
-                For a specific plan for your Keap instance, <Link href="/contact" className="text-[#0E9BF0] hover:underline">book a free strategy call at ghlscaleup.com/contact →</Link>
-              </p>
-            </div>
-
-            {/* CTA Button 7: Before FAQ */}
-            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
-              <p className="text-sm font-medium mb-2">⚠️ Don't risk losing your Keap campaigns in migration.</p>
-              <p className="text-sm text-white/80 mb-4">Get a free, no-obligation migration assessment from experts who've done 200+ migrations.</p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <Shield className="w-4 h-4" />
-                Get a Free Assessment
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-
-            {/* Section 9: FAQ */}
+            {/* Section 10: FAQ */}
             <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
-              9. Frequently Asked Questions
+              10. Frequently Asked Questions
             </h2>
 
             <div className="space-y-3">
@@ -810,44 +665,26 @@ export default function KeapToGoHighLevelMigrationClient() {
               ))}
             </div>
 
-            {/* CTA Button 8: After FAQ */}
-            <div className="mt-8 p-6 bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl text-center">
-              <p className="text-white font-bold text-lg mb-2">Still Have Questions About Migrating from Keap?</p>
-              <p className="text-white/60 text-sm mb-4">Talk to our migration specialists directly. We've done 200+ migrations.</p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  Ask an Expert
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-white/20 transition-all border border-white/20 text-sm"
-                >
-                  <Phone className="w-4 h-4" />
-                  Call Us
-                </Link>
-              </div>
+            {/* Contextual CTA inside FAQ */}
+            <div className="mt-4 text-sm text-[#5C6880] leading-relaxed">
+              Want the migration handled end-to-end tag cleanup, Campaign Builder rebuild, and PlusThis replacement included?{' '}
+              <Link href="/contact" className="text-[#0E9BF0] hover:underline font-medium">Book a free strategy call</Link>.
             </div>
 
-            {/* Related Articles */}
+            {/* Internal Links */}
             <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
               <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles in This Series</h3>
               <div className="flex flex-wrap gap-3">
-                <Link href="/services/migration" className="text-sm text-[#0E9BF0] hover:underline">GHL Migration Services →</Link>
-                <Link href="/blog/ghl-migration-mistakes" className="text-sm text-[#0E9BF0] hover:underline">8 Common GHL Migration Mistakes →</Link>
-                <Link href="/blog/zoho-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">Zoho to GoHighLevel Migration →</Link>
-                <Link href="/blog/hubspot-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">HubSpot to GoHighLevel Migration →</Link>
-                <Link href="/blog/salesforce-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">Salesforce to GoHighLevel Migration →</Link>
                 <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Workflow Automation for Beginners →</Link>
-                <Link href="/case-studies" className="text-sm text-[#0E9BF0] hover:underline">Real GoHighLevel Results and Case Studies →</Link>
+                <Link href="/blog/ghl-migration-mistakes" className="text-sm text-[#0E9BF0] hover:underline">8 Common GHL Migration Mistakes →</Link>
+                <Link href="/blog/best-crm-to-migrate-to-gohighlevel" className="text-sm text-[#0E9BF0] hover:underline">Which Platform Is Easiest to Migrate to GoHighLevel? →</Link>
+                <Link href="/blog/zoho-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">Zoho to GoHighLevel Migration →</Link>
+                <Link href="/blog/hubspot-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">How to Migrate from HubSpot to GoHighLevel →</Link>
+                <Link href="/blog/salesforce-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">Salesforce to GoHighLevel Migration →</Link>
               </div>
             </div>
 
-            {/* Final CTA Section */}
+            {/* Final CTA Section - Single closing CTA */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Ready to migrate from Keap without losing your campaigns?</h3>
@@ -859,27 +696,6 @@ export default function KeapToGoHighLevelMigrationClient() {
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
-            </div>
-
-            {/* Author Section */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 my-6">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
-                  <img
-                    src="/web-app-manifest-192x192.png"
-                    alt="GHL Scale Up"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-[#1A2236]">GHL Scale Up Team</div>
-                  <div className="text-xs text-[#5C6880]">GoHighLevel migration and setup specialists · 5+ years GHL experience · 200+ systems built and migrated globally</div>
-                </div>
-              </div>
-              <p className="text-xs text-[#5C6880] leading-relaxed">
-                All primary migration steps are verified against GoHighLevel's official Keap to HighLevel Migration Guide (article 155000003384, modified October 1, 2024) as of July 2026. Campaign Builder translation guidance is aggregated from multiple ecosystem partners (Automize, ClonePartner, Julian Mills, ghlcrms, Growthable, HireGHLDeveloper) with each specific claim sourced. Keap features, PlusThis integrations, and API limits change over time verify current details in your Keap account before executing your migration.
-              </p>
-              <Link href="/" className="text-[#0E9BF0] text-xs hover:underline mt-2 inline-block">ghlscaleup.com</Link>
             </div>
           </main>
         </div>

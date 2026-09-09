@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Layers',
+            tag: 'Integration',
+            title: 'Connect ClickUp to GoHighLevel: Setup & Automation (2026)',
+            excerpt: 'Connect ClickUp to GoHighLevel with native workflow triggers and actions. Setup steps, trigger/action tables, use cases, limits, and troubleshooting.',
+            slug: 'connect-clickup-to-gohighlevel',
+            date: 'September 10, 2026',
+            readTime: '16 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'GitCompare',
             tag: 'Comparison',
             title: 'Kajabi vs GoHighLevel (2026): Honest Comparison',

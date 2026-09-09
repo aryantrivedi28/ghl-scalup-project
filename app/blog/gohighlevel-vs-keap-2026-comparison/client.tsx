@@ -21,12 +21,14 @@ import {
   Shield,
   Sparkles,
   BarChart3,
+  Info,
+  Image as ImageIcon,
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import Image from 'next/image';
 
 export default function GoHighLevelVsKeapClient() {
   const [activeId, setActiveId] = useState<string>('');
-  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,6 +37,7 @@ export default function GoHighLevelVsKeapClient() {
         'all-in-one',
         'funnels',
         'automation',
+        'ai-capabilities',
         'cost',
         'reviews',
         'learning',
@@ -50,16 +53,8 @@ export default function GoHighLevelVsKeapClient() {
           const rect = element.getBoundingClientRect();
           if (rect.top <= 150) {
             setActiveId(id);
-            break;
           }
         }
-      }
-
-      // Show floating Project Help card after scrolling past hero section
-      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
-      if (heroSection) {
-        const heroBottom = heroSection.getBoundingClientRect().bottom;
-        setShowFloatingProjectHelp(heroBottom < 0);
       }
     };
 
@@ -80,31 +75,31 @@ export default function GoHighLevelVsKeapClient() {
   const faqs = [
     {
       q: "Is GoHighLevel cheaper than Keap?",
-      a: "At the entry tier, yes. GoHighLevel's Starter plan is $97/month with unlimited contacts. Keap's base plan is $249 to $299/month for only 2 users and 1,500 contacts, plus a mandatory implementation fee of approximately $500 and $39/month for each additional user. For a growing team or contact list, GoHighLevel's flat pricing is usually the cheaper option over time."
-    },
-    {
-      q: "Can Keap be used by a marketing agency to manage multiple clients?",
-      a: "Not in the way GoHighLevel is designed for this. Keap does not offer sub-accounts or white-labelling, so an agency would need a separate Keap subscription for every client rather than managing them from one dashboard. GoHighLevel's Unlimited and Agency SaaS Pro plans are built specifically for managing multiple client accounts from a single login."
+      a: "At the entry tier, yes. GoHighLevel's Starter plan is $97/month with unlimited contacts. Keap's base plan is $249–$299/month for only 2 users and 1,500 contacts, plus an implementation fee and $39/month per additional user. For a growing team or contact list, GoHighLevel's flat pricing is usually cheaper over time."
     },
     {
       q: "Does Keap have SMS marketing like GoHighLevel?",
-      a: "Keap does not include native SMS marketing or call-based automation triggers the way GoHighLevel does. Keap's automation strength is in email sequences and follow-up tasks. If SMS and missed-call automation are important to your business, GoHighLevel supports these natively."
+      a: "Yes. Keap includes native two-way SMS through its Business Line feature, built directly into its automation canvas, at the base plan tier. The real difference isn't presence vs. absence it's reach: Keap's SMS and phone features are largely US-only (Canada for 1:1 texting only), while GoHighLevel supports broader international coverage plus additional channels like WhatsApp and AI voice calling."
+    },
+    {
+      q: "Can Keap be used by a marketing agency to manage multiple clients?",
+      a: "Not in the way GoHighLevel is designed for this. Keap has no sub-accounts or white-labeling, so an agency would need a separate subscription per client. GoHighLevel's Unlimited and Agency SaaS Pro plans are built specifically for managing multiple client accounts from one login."
     },
     {
       q: "Why does Keap have such a low Trustpilot rating despite decent G2 and Capterra scores?",
-      a: "Independent reviews attribute this gap mainly to billing and cancellation experiences, including an early termination fee on annual contracts and support wait times when customers try to dispute charges or cancel. Reviewers evaluating features on G2 and Capterra tend to rate the automation and CRM capabilities more favourably than reviewers on Trustpilot who are often writing after a billing dispute."
+      a: "Independent reviews attribute this mainly to billing and cancellation experiences, including an early termination fee on annual contracts. Reviewers on G2 and Capterra tend to rate feature capability more favorably than Trustpilot reviewers, who are often writing after a billing dispute."
+    },
+    {
+      q: "Does Keap have AI features?",
+      a: "Yes. Keap added an Automation Assistant in 2025 that generates campaign sequences from a plain-English prompt, plus SmartSend AI for send-time optimization. GoHighLevel's AI Employee suite (AI Voice Agent, Conversation AI) covers different ground inbound call handling and lead qualification. Which matters more depends on whether your bottleneck is building campaigns or handling inbound calls."
     },
     {
       q: "Is Keap still called Infusionsoft?",
-      a: "No. Infusionsoft rebranded to Keap in 2019 to signal a simpler, more accessible product direction. The core automation engine carried over from Infusionsoft, but the interface and onboarding experience were streamlined under the Keap name."
+      a: "No. Infusionsoft rebranded to Keap in 2019, and Keap was acquired by Thryv Holdings in late 2024. The core automation engine carried over from Infusionsoft, with a streamlined interface under the Keap name."
     },
     {
-      q: "Which platform is easier to learn for a complete beginner?",
-      a: "Keap generally has a shorter learning curve because it covers fewer features CRM, email, and invoicing without the additional modules GoHighLevel includes. GoHighLevel takes longer to learn well but replaces more separate tools once configured. Working with an experienced setup partner shortens the learning curve significantly on either platform."
-    },
-    {
-      q: "Can I migrate from Keap to GoHighLevel if I already have contacts and automations built in Keap?",
-      a: "Yes, though it requires planning. Keap contact exports and campaign automations do not transfer automatically and typically need to be rebuilt as GoHighLevel workflows. A properly planned migration usually takes 3 to 6 weeks depending on how much automation and contact history you have in Keap."
+      q: "Can I migrate from Keap to GoHighLevel if I already have contacts and automations built?",
+      a: "Yes, though it requires planning Keap's Campaign Builder sequences don't export and need to be rebuilt as GoHighLevel workflows. For the full process, what transfers, and a realistic timeline, see our Keap to GoHighLevel migration guide."
     }
   ];
 
@@ -115,20 +110,21 @@ export default function GoHighLevelVsKeapClient() {
     { id: 'all-in-one', title: '2. Is GoHighLevel Really an All-in-One Replacement for Other Tools?' },
     { id: 'funnels', title: '3. How Do the Funnel and Website Builders Compare?' },
     { id: 'automation', title: '4. Which Platform Automates Better?' },
-    { id: 'cost', title: '5. What Does Each Platform Actually Cost in 2026?' },
-    { id: 'reviews', title: '6. How Do Real Users Rate GoHighLevel and Keap?' },
-    { id: 'learning', title: '7. Which Platform Is Easier to Learn and Better Supported?' },
-    { id: 'choose-keap', title: '8. Who Should Choose Keap?' },
-    { id: 'choose-ghl', title: '9. Who Should Choose GoHighLevel?' },
-    { id: 'mistakes', title: '10. What Are the Common Mistakes People Make When Choosing?' },
-    { id: 'faq', title: '11. Frequently Asked Questions' }
+    { id: 'ai-capabilities', title: '5. AI Capabilities: Not a One-Sided Comparison' },
+    { id: 'cost', title: '6. What Does Each Platform Actually Cost in 2026?' },
+    { id: 'reviews', title: '7. How Do Real Users Rate GoHighLevel and Keap?' },
+    { id: 'learning', title: '8. Which Platform Is Easier to Learn and Better Supported?' },
+    { id: 'choose-keap', title: '9. Who Should Choose Keap?' },
+    { id: 'choose-ghl', title: '10. Who Should Choose GoHighLevel?' },
+    { id: 'mistakes', title: '11. What Are the Common Mistakes People Make When Choosing?' },
+    { id: 'faq', title: '12. Frequently Asked Questions' }
   ];
 
   const businessFit = [
     { situation: 'Marketing agency serving multiple clients', betterFit: 'GoHighLevel', why: 'Sub-accounts and white-labelling are built in; Keap has neither' },
-    { situation: 'Freelancer who wants funnels, SMS, and CRM in one place', betterFit: 'GoHighLevel', why: 'Native funnel builder and SMS; Keap has neither natively' },
-    { situation: 'Solo service business (coach, consultant, clinic) wanting simple CRM + invoicing', betterFit: 'Keap', why: 'Simpler setup, strong built-in invoicing and quoting' },
-    { situation: 'Business that mainly needs email automation and appointment booking', betterFit: 'Either, evaluate cost per contact', why: 'Keap is purpose-built for this; GoHighLevel does it too, at flat pricing' },
+    { situation: 'Freelancer who wants funnels, SMS, and CRM in one place', betterFit: 'GoHighLevel', why: 'Native funnel builder plus SMS in one account' },
+    { situation: 'Solo service business wanting simple CRM + invoicing', betterFit: 'Keap', why: 'Simpler setup, strong built-in invoicing and quoting' },
+    { situation: 'Business needing email + SMS automation and booking', betterFit: 'Either evaluate cost per contact', why: 'Both support this natively; pricing model differs (flat vs. per-user/contact)' },
     { situation: 'Business planning to resell software to its own clients', betterFit: 'GoHighLevel', why: 'SaaS Mode allows reselling; not available on Keap' }
   ];
 
@@ -150,31 +146,31 @@ export default function GoHighLevelVsKeapClient() {
   const keapFeatures = [
     'CRM and contact management',
     'Email marketing and automated follow-up',
+    'Native SMS via a dedicated business phone number',
     'Basic landing pages',
     'Appointment scheduling',
     'Invoicing, quoting, and payment processing',
-    'Sales pipeline and lead scoring (on higher tiers)',
-    'A dedicated business phone number'
+    'Sales pipeline with lead scoring'
   ];
 
   const ghlPricing = [
     { plan: 'Starter', price: '$97/month', includes: 'Full marketing suite for a single business, unlimited contacts' },
     { plan: 'Unlimited', price: '$297/month', includes: 'Multiple client sub-accounts, white-label branding, unlimited contacts and users' },
-    { plan: 'Agency SaaS Pro', price: '$497/month', includes: 'Everything in Unlimited plus the ability to resell GoHighLevel as your own branded software' }
+    { plan: 'Agency SaaS Pro', price: '$497/month', includes: 'Everything in Unlimited plus reselling GoHighLevel as your own branded software' }
   ];
 
   const keapPricing = [
-    { item: 'Base plan (annual billing)', amount: '$249/month', notes: 'Includes 2 users and 1,500 contacts, all features' },
+    { item: 'Base plan (annual billing)', amount: '$249/month', notes: 'Includes 2 users and 1,500 contacts; Keap consolidated its former tier structure (Pro/Max/Ultimate) into this single plan in 2024–2025' },
     { item: 'Base plan (monthly billing)', amount: '$299/month', notes: 'Same 2 users and 1,500 contacts' },
     { item: 'Additional users', amount: '$39/month each', notes: 'Beyond the 2 included in the base plan' },
-    { item: 'Mandatory implementation fee', amount: 'Approximately $500 one-time', notes: 'Charged on top of the first month, historically required for new accounts' },
-    { item: 'Additional contacts', amount: 'Scales upward', notes: 'Cost increases as your contact count grows beyond 1,500' }
+    { item: 'Mandatory implementation fee', amount: 'Roughly $500–$1,500 one-time', notes: 'Charged on top of the first month for new accounts' },
+    { item: 'Additional contacts', amount: 'Scales upward', notes: 'Cost increases as contact count grows beyond 1,500' }
   ];
 
   const reviewScores = [
-    { platform: 'G2', ghl: 'Approximately 4.2 out of 5', keap: 'Approximately 3.8 out of 5' },
-    { platform: 'Capterra', ghl: 'Approximately 4.6 out of 5', keap: 'Approximately 3.8 to 4.1 out of 5' },
-    { platform: 'Trustpilot', ghl: 'Approximately 4.6 to 4.9 out of 5', keap: 'Approximately 1.2 to 1.7 out of 5' }
+    { platform: 'G2', ghl: '~4.2 / 5', keap: '~3.8 / 5' },
+    { platform: 'Capterra', ghl: '~4.6 / 5', keap: '~3.8–4.1 / 5' },
+    { platform: 'Trustpilot', ghl: '~4.6–4.9 / 5', keap: '~1.2–1.7 / 5' }
   ];
 
   const chooseKeap = [
@@ -182,7 +178,7 @@ export default function GoHighLevelVsKeapClient() {
     'Businesses with heavy invoicing and quoting needs, since Keap\'s payment and invoicing tools are mature and were built specifically for this.',
     'Teams under 3 people with fewer than 1,500 contacts, where Keap\'s base pricing is straightforward and does not yet trigger per-user or per-contact scaling costs.',
     'Businesses that will never serve external clients through the platform, since Keap\'s lack of sub-accounts and white-labelling is only a limitation if you plan to resell or manage other businesses\' accounts.',
-    'Existing Infusionsoft or Keap users with years of automation already built, where migration cost may outweigh the benefit of switching.'
+    'Existing Keap/Infusionsoft users with years of automation already built, where migration cost may outweigh the benefit of switching.'
   ];
 
   const chooseGHL = [
@@ -196,6 +192,7 @@ export default function GoHighLevelVsKeapClient() {
   const mistakes = [
     'Comparing only the headline monthly price without checking what is included at that price point.',
     'Choosing Keap for its lower-looking entry price, then being surprised by the implementation fee and per-user costs.',
+    'Assuming Keap has no SMS or automation depth it has both, natively; the real question is whether its US/Canada-only geographic coverage fits your business.',
     'Choosing GoHighLevel for its breadth without a plan to actually use the funnel, SMS, or website tools included.',
     'Ignoring the Trustpilot billing and cancellation pattern when evaluating Keap, since these issues surface mainly after signup, not during the sales process.',
     'Assuming an agency can operate on Keap, when sub-accounts and white-labelling are not available on the platform at all.',
@@ -207,7 +204,7 @@ export default function GoHighLevelVsKeapClient() {
     <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
       <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
       <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your platform decision.</p>
-      <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+      <Link href="/book-a-call" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
         Book a 30 min Free Call
         <ArrowRight className="w-3 h-3" />
       </Link>
@@ -261,14 +258,25 @@ export default function GoHighLevelVsKeapClient() {
             </div>
             <div>
               <div className="text-sm font-medium text-white">GHL Scale Up Team</div>
-              <div className="text-xs text-white/50">GoHighLevel Specialists · 200+ Builds Delivered · Updated July 2026</div>
+              <div className="text-xs text-white/50">GoHighLevel Specialists · 200+ builds delivered · Pricing and capability claims independently verified, September 2026</div>
             </div>
           </div>
 
           {/* Introductory Paragraph */}
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-6xl">
-            If you are comparing GoHighLevel and Keap, you have probably watched a few YouTube comparison videos already. Most of them are made by affiliates promoting one platform with bonus trials and referral links attached. At <Link href="/" className="text-[#0E9BF0] hover:underline font-medium">GHL Scale Up</Link>, we do not sell Keap and we are not paid by either company for this comparison. We have set up and migrated both platforms for real agencies and small businesses. This guide gives you the honest, verified 2026 numbers so you can decide based on your actual business, not someone else's affiliate commission.
+            If you are comparing GoHighLevel and Keap, you have probably watched a few affiliate comparison videos already. We don't sell Keap and aren't paid by either company for this comparison. This guide gives you the honest, verified 2026 picture so you can decide based on your actual business.
           </p>
+
+          {/* Direct Answer Box */}
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 md:p-6 mb-6">
+            <div className="flex items-center gap-2 mb-3">
+              <Zap className="w-5 h-5 text-[#F8D000]" />
+              <span className="text-xs font-bold uppercase tracking-wider text-white/60">Direct answer</span>
+            </div>
+            <p className="text-sm text-white/70 leading-relaxed">
+              Choose GoHighLevel if you're an agency, freelancer, or marketer who needs funnels, websites, and multi-client management under one flat-rate account starting at $97/month. Choose Keap if you're a single small service business that wants strong email-and-SMS automation, built-in invoicing, and appointment scheduling, and you don't need agency features like sub-accounts or white-labeling. Keap's price starts around $249–$299/month but only includes 2 users and 1,500 contacts, with a mandatory implementation fee on top verify your real monthly cost before comparing headline prices. Note: contrary to some comparisons, Keap does have native SMS built into its automation builder the real limitation is that it's US-only for most features (Canada for 1:1 texting only), not an absent feature.
+            </p>
+          </div>
 
           {/* CTA Button 1: Hero Section */}
           <div className="flex flex-wrap gap-3">
@@ -281,7 +289,7 @@ export default function GoHighLevelVsKeapClient() {
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
-              href="#verdict"
+              href="#choose-ghl"
               className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20"
             >
               See the Verdict
@@ -388,32 +396,6 @@ export default function GoHighLevelVsKeapClient() {
           {/* ==================== RIGHT COLUMN: BLOG CONTENT ==================== */}
           <main className="min-w-0 order-2">
 
-            {/* BLUF Box */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
-              <div className="flex items-center gap-2 mb-3">
-                <Zap className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Direct Answer</span>
-              </div>
-              <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
-                Choose GoHighLevel if you are an agency, freelancer, or marketer who needs funnels, SMS, websites, and automation for multiple clients under one flat-rate account starting at $97/month.
-              </p>
-              <p className="text-sm text-[#5C6880] leading-relaxed">
-                Choose Keap if you are a single small service business that wants strong email automation, built-in invoicing, and appointment scheduling, and you do not need agency features like sub-accounts or white-labelling. Keap's published price starts at $249 to $299/month but only includes 2 users and 1,500 contacts, with extra users and a mandatory setup fee added on top, so verify your real monthly cost before comparing headline prices.
-              </p>
-
-              {/* CTA Button 2: Inside TL;DR Box */}
-              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
-                  <Target className="w-4 h-4" />
-                  Get Platform Advice
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </div>
-
             {/* Table of Contents - Mobile Only */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8 lg:hidden">
               <div className="flex items-center gap-2 mb-4">
@@ -443,19 +425,13 @@ export default function GoHighLevelVsKeapClient() {
               1. Which Platform Fits Your Business Type?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              GoHighLevel and Keap are both described as CRMs, but they are built for different starting points. Before comparing individual features, it helps to understand who each platform was designed for.
+              GoHighLevel and Keap are both described as CRMs, but they're built for different starting points.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">GoHighLevel: built for agencies, marketers, and freelancers</strong>
+              GoHighLevel is built for people managing marketing on behalf of others, or businesses that want every marketing tool under one login funnels, automation, SMS, email, websites, and client management in one system. This fits digital marketing agencies, freelancers with multiple clients, and coaches running multi-channel outreach.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              GoHighLevel is an all-in-one platform built for people managing marketing on behalf of others, or businesses that want every marketing tool under one login. It covers funnels, automation, SMS marketing, email, websites, and client management in a single system. This makes it a natural fit for digital marketing agencies, freelancers taking on multiple clients, and coaches or consultants running their own multi-channel outreach.
-            </p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Keap: built for small businesses that want simplicity</strong>
-            </p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Keap, formerly known as Infusionsoft, has been in the small business CRM space for over two decades. It is built for a single business managing its own contacts, appointments, invoices, and email follow-up, not for an agency managing several client accounts. Keap emphasises simplicity and a more guided setup experience over the breadth of tools GoHighLevel offers.
+              Keap, formerly Infusionsoft, has been in the small-business CRM space since 2001 and was acquired by Thryv Holdings in late 2024. It's built for a single business managing its own contacts, appointments, invoices, and follow-up not for an agency managing several client accounts. Keap emphasizes a more guided setup experience over GoHighLevel's breadth of tools.
             </p>
 
             <div className="overflow-x-auto my-6">
@@ -479,30 +455,19 @@ export default function GoHighLevelVsKeapClient() {
               </table>
             </div>
 
-            {/* CTA Button 3: After Section 1 */}
-            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 mb-8 text-center">
-              <p className="text-white/80 text-sm mb-3">
-                <span className="font-bold text-white">Still unsure which platform fits your business model?</span> Let our team help you decide.
-              </p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <BarChart3 className="w-4 h-4" />
-                Get Platform Advice
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-
             {/* Section 2: All-in-One */}
             <h2 id="all-in-one" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               2. Is GoHighLevel Really an All-in-One Replacement for Other Tools?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              A common claim in GoHighLevel marketing is that it replaces a stack of separate tools a funnel builder, an email automation tool, and a scheduling app with one system. This claim holds up reasonably well when you look at what is actually included.
+              GoHighLevel's marketing claims it replaces a stack of separate tools with one system. This holds up reasonably well against what's actually included: CRM and pipelines, sales funnels and a website builder, forms, email, two-way SMS, booking, workflow automation, course/community hosting, call tracking and reputation management, and analytics.
             </p>
+
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">What GoHighLevel includes natively</strong>
+              Keap's native stack is narrower but genuine: CRM and contact management, email marketing and automated follow-up, native SMS via a dedicated business phone number, basic landing pages, appointment scheduling, invoicing and payment processing, and sales pipeline with lead scoring.
+            </p>
+            {/* <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              <strong className="text-[#1A2236]">What GoHighLevel includes natively:</strong>
             </p>
             <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
               {ghlFeatures.map((item, idx) => (
@@ -511,21 +476,21 @@ export default function GoHighLevelVsKeapClient() {
             </ul>
 
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">What Keap includes natively</strong>
+              <strong className="text-[#1A2236]">What Keap includes natively:</strong>
             </p>
             <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
               {keapFeatures.map((item, idx) => (
                 <li key={idx}>{item}</li>
               ))}
-            </ul>
+            </ul> */}
 
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-4 my-4">
               <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">THE HONEST TRADE-OFF</span>
+                <AlertTriangle className="w-4 h-4 text-[#0E9BF0]" />
+                <span className="text-sm font-bold text-[#0E9BF0]">THE HONEST TRADE-OFF</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                More tools in one place is not automatically better. If you only need email automation, appointment booking, and invoicing, Keap's narrower focus can feel less overwhelming than logging into a platform with 15 different modules. The all-in-one advantage matters most when you actually plan to use the funnel builder, SMS, or website tools, not just the CRM.
+                more tools in one place isn't automatically better. If you only need email/SMS automation, appointment booking, and invoicing, Keap's narrower focus can feel less overwhelming than a platform with far more modules. The all-in-one advantage matters most when you actually plan to use the funnel builder, website tools, or multi-client management not just the CRM.
               </p>
             </div>
 
@@ -534,82 +499,51 @@ export default function GoHighLevelVsKeapClient() {
               3. How Do the Funnel and Website Builders Compare?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              For agencies and marketers who build client-facing pages, this is one of the widest gaps between the two platforms.
+              This remains one of the widest real gaps between the platforms. GoHighLevel includes a drag-and-drop funnel and website builder plus membership site creation for selling courses for agencies building client-facing pages, this removes the need for a separate ClickFunnels or Leadpages subscription. Keap includes basic landing pages, but page-building is a supporting feature, not a core one advanced multi-step funnels, order bumps, and upsell sequences are more limited than on GoHighLevel.
             </p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">GoHighLevel's funnel and website tools</strong>
-            </p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              GoHighLevel includes a drag-and-drop funnel and website builder designed for building sales funnels, landing pages, and full websites without a separate tool. It also supports membership site creation, which lets you sell online courses or gated content directly from the same account. For agencies building funnels on behalf of clients, this removes the need for a separate ClickFunnels or Leadpages subscription.
-            </p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Keap's page-building tools</strong>
-            </p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Keap includes basic landing page functionality, but it is not built around funnel construction the way GoHighLevel is. Keap's product focus is CRM and automation first, with landing pages as a supporting feature rather than a core one. If your business needs advanced multi-step funnels, order bumps, or upsell sequences, Keap's page tools are more limited.
-            </p>
-
-            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
-                <span className="text-sm font-bold text-[#0E9BF0]">RELATED READ</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                For the complete breakdown of what a niche-specific funnel and website setup looks like on GoHighLevel: <Link href="/blog/ghl-white-label-saas-guide" className="text-[#0E9BF0] hover:underline">GoHighLevel White Label SaaS Guide →</Link>
-              </p>
-            </div>
 
             {/* Section 4: Automation */}
             <h2 id="automation" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               4. Which Platform Automates Better?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Both platforms are built around the idea of automating what happens after someone becomes a lead. The difference is in how many channels that automation reaches.
+              <strong className="text-[#1A2236]">Both platforms support SMS inside their automation builder this is a genuine correction from how this comparison has been framed elsewhere.</strong> Keap's Business Line provides a dedicated business phone number with native two-way texting built into its automation canvas, included at the base plan tier, alongside caller ID, voicemail, and auto-reply. The real limitation is geographic: Keap's SMS and phone features are largely US-only, with Canada supported for 1:1 texting only.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">GoHighLevel automation</strong>
-            </p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              GoHighLevel workflows can trigger across text messages, emails, phone calls, and other channels in a single automation. This makes it possible to build a sequence where a missed call automatically triggers a text, followed by an email, followed by a task for a team member, all inside one workflow builder. This multi-channel reach is well suited to businesses that rely on fast, varied follow-up, such as local service businesses and agencies managing several client accounts.
-            </p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Keap automation</strong>
-            </p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Keap's automation is mature and well documented, having been refined since its Infusionsoft days. It handles email sequences, basic follow-up tasks, and scheduling reminders reliably. It is not built for SMS or call-based triggers in the same way GoHighLevel is, so businesses whose customer journey depends heavily on text messaging may find Keap's automation narrower than they need.
+              GoHighLevel's automation reaches further across channels: workflows can trigger SMS, email, calls, and other actions in a single sequence, with broader international phone number support and additional channels like WhatsApp and AI voice calling that Keap doesn't offer. A missed call can automatically trigger a text, followed by an email, followed by a task for a team member all in one workflow.
             </p>
 
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-4 my-4">
               <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">THE AUTOMATION VERDICT</span>
+                <AlertTriangle className="w-4 h-4 text-[#0E9BF0]" />
+                <span className="text-sm font-bold text-[#0E9BF0]">THE AUTOMATION VERDICT</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                If your follow-up strategy is mostly email-based, Keap's automation is genuinely solid and well-tested. If your follow-up strategy depends on SMS, missed-call text-back, or multi-channel sequences, GoHighLevel is the stronger option because Keap does not natively support SMS or call-based automation triggers.
+                if your follow-up is mostly email-and-SMS within the US or Canada, Keap's automation is genuinely solid and well-tested it is not the SMS-free platform some comparisons describe. If you need broader international reach, WhatsApp, AI voice calling, or call-based automation triggers beyond simple texting, GoHighLevel's channel breadth is the stronger fit.
               </p>
             </div>
 
-            {/* CTA Button 4: After Automation */}
-            <div className="bg-gradient-to-r from-[#0E9BF0] to-[#0C8AD8] rounded-xl p-6 text-center text-white mb-8">
-              <p className="text-sm font-medium mb-2">🤖 Need multi-channel automation with SMS and calls?</p>
-              <p className="text-sm text-white/80 mb-4">GoHighLevel has capabilities Keap simply doesn't offer at any tier.</p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-white text-[#0E9BF0] font-bold px-6 py-2.5 rounded-lg hover:bg-[#F8F9FB] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <HeartHandshake className="w-4 h-4" />
-                Explore GHL Automation
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-
-            {/* Section 5: Cost */}
-            <h2 id="cost" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              5. What Does Each Platform Actually Cost in 2026?
+            {/* Section 5: AI Capabilities */}
+            <h2 id="ai-capabilities" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              5. AI Capabilities: Not a One-Sided Comparison
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Pricing is where headline numbers can be misleading if you do not read the fine print. Here are the verified 2026 numbers for both platforms.
+              Both platforms have added real AI capability recently, and neither should be credited as having no answer here.
             </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              GoHighLevel's AI Employee suite AI Voice Agent, Conversation AI, and Workflow AI handles inbound call answering, lead qualification, and workflow assistance natively.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Keap added its own AI features in 2025: an Automation Assistant that generates complete campaign sequences from a plain-English prompt, and SmartSend AI for send-time optimization. Reviewers have called the automation builder one of Keap's strongest features, and the AI additions build directly on that strength rather than bolting AI on as an afterthought.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Neither platform's AI is a reason to choose it on its own GoHighLevel's AI Voice Agent matters if inbound call handling is core to your business; Keap's Automation Assistant matters if campaign-building speed is your bottleneck. Evaluate based on which specific capability solves a problem you actually have.
+            </p>
+
+            {/* Section 6: Cost */}
+            <h2 id="cost" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              6. What Does Each Platform Actually Cost in 2026?
+            </h2>
 
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               <strong className="text-[#1A2236]">GoHighLevel pricing</strong>
@@ -659,35 +593,45 @@ export default function GoHighLevelVsKeapClient() {
               </table>
             </div>
 
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-4 my-4">
               <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">THE HIDDEN COST GAP</span>
+                <AlertTriangle className="w-4 h-4 text-[#0E9BF0]" />
+                <span className="text-sm font-bold text-[#0E9BF0]">THE HIDDEN COST GAP</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                Keap's advertised price rarely reflects what you actually pay in year one. A new Keap customer with the base plan typically pays $750 to $800 in month one once the implementation fee is included, then $249 to $299 per month afterward if they stay within 2 users and 1,500 contacts. Add a few more team members or grow past 1,500 contacts, and the monthly cost climbs quickly because Keap charges per user and per contact tier. GoHighLevel's $297 Unlimited plan includes unlimited users and unlimited contacts at a flat rate, so cost does not increase as your team or contact list grows.
+                a new Keap customer typically pays $750–$800+ in month one once the implementation fee is included, then $249–$299/month afterward within the base limits. Add team members or grow past 1,500 contacts and the monthly cost climbs, since Keap charges per user and per contact tier. GoHighLevel's $297 Unlimited plan includes unlimited users and contacts at a flat rate, so cost doesn't increase as your team or list grows.
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-5 my-6 text-center text-white">
-              <p className="text-sm text-white/80 leading-relaxed mb-3 max-w-md mx-auto">
-                <strong className="text-white">NOT SURE WHICH PLATFORM FITS YOUR BUDGET?</strong>
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed mb-4 max-w-md mx-auto">
-                GHL Scale Up runs a free cost comparison based on your actual team size, contact volume, and feature needs.
-              </p>
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                Book Your Free Cost Analysis
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+            {/* 
+              ============================================================
+              🖼️ IMAGE INSERTED HERE - Full width, responsive, interactive
+              ============================================================
+            */}
+            <div className="my-8 md:my-10 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <div className="relative w-full h-auto bg-[#F8F9FB]">
+                <Image
+                  src="/blog/ghl-vs-keap-comparison.png"
+                  alt="GoHighLevel vs Keap: Feature comparison, pricing breakdown, automation capabilities, and AI features overview"
+                  width={1200}
+                  height={500}
+                  className="w-full h-auto object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                />
+              </div>
+              <div className="bg-[#F8F9FB] px-4 py-2.5 text-xs text-[#5C6880] border-t border-[#DDE1E9] flex items-center gap-2">
+                <ImageIcon className="w-3.5 h-3.5" />
+                <span>GoHighLevel vs Keap: Feature comparison, pricing breakdown, automation capabilities, and AI features overview</span>
+              </div>
             </div>
 
-            {/* Section 6: Reviews */}
+            {/* Section 7: Reviews */}
             <h2 id="reviews" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              6. How Do Real Users Rate GoHighLevel and Keap?
+              7. How Do Real Users Rate GoHighLevel and Keap?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Review scores tell a consistent story across independent platforms. Here are the verified 2026 ratings from the three major software review sites.
+              Review scores tell a fairly consistent story across independent platforms, though exact figures shift over time and are worth reverifying directly before publishing or citing precisely.
             </p>
 
             <div className="overflow-x-auto my-6">
@@ -712,56 +656,23 @@ export default function GoHighLevelVsKeapClient() {
             </div>
 
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">The gap on Trustpilot is the most striking pattern.</strong> Keap's Trustpilot score is notably lower than its G2 and Capterra scores. Independent reviews attribute this to billing and cancellation friction, including an early termination fee on annual contracts and reports of long support wait times when customers try to dispute charges or cancel. GoHighLevel's scores are more consistent across all three platforms, with reviewers most commonly citing cost savings from tool consolidation and strong customer support response times.
+              <strong className="text-[#1A2236]">The gap on Trustpilot is the most striking pattern.</strong> Keap's Trustpilot score sits well below its G2 and Capterra scores. Independent reviews commonly attribute this to billing and cancellation friction, including an early termination fee on annual contracts and reported support wait times when customers dispute charges or try to cancel. GoHighLevel's scores are more consistent across all three sites.
             </p>
 
-            {/* Section 7: Learning */}
+            {/* Section 8: Learning */}
             <h2 id="learning" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              7. Which Platform Is Easier to Learn and Better Supported?
+              8. Which Platform Is Easier to Learn and Better Supported?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Ease of use and support quality often matter as much as the feature list, especially for a small team without a dedicated technical person.
+              GoHighLevel's breadth is also its biggest usability challenge new users often describe it as feature-rich but overwhelming in the first few weeks, simply because there's more to learn. Keap's narrower feature set generally means a shorter learning curve for someone who only needs CRM, email/SMS, and invoicing.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Learning curve</strong>
-            </p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              GoHighLevel's breadth is also its biggest usability challenge. New users commonly describe the platform as feature-rich but overwhelming in the first few weeks, simply because there are more modules to learn than a narrower tool would have. Keap's more focused feature set generally means a shorter learning curve for someone who only needs CRM, email, and invoicing.
-            </p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Customer support</strong>
-            </p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Both platforms are frequently praised for support responsiveness in reviews, though the context differs. GoHighLevel's support fields questions across a much wider surface area of features. Keap's support is often highlighted specifically for guiding small business owners through initial setup, which fits its positioning as a simpler, more guided platform.
+              Both platforms are frequently praised for support responsiveness, though the context differs: GoHighLevel's support covers a wider feature surface, while Keap's support is often highlighted specifically for guiding small business owners through initial setup.
             </p>
 
-            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Lightbulb className="w-4 h-4 text-[#0E9BF0]" />
-                <span className="text-sm font-bold text-[#0E9BF0]">THE HONEST LEARNING CURVE VERDICT</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                If you want the fastest path to a working system with minimal training, Keap's narrower feature set gets you there sooner. If you are willing to invest a few weeks learning a broader platform in exchange for replacing several other tools, GoHighLevel's learning curve pays off through consolidation. Working with an experienced setup partner meaningfully shortens this curve on either platform.
-              </p>
-            </div>
-
-            {/* CTA Button 5: After Learning */}
-            <div className="bg-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
-              <p className="text-sm font-medium mb-2">📚 Want to skip the learning curve entirely?</p>
-              <p className="text-sm text-white/80 mb-4">Let our experts set up your chosen platform correctly from day one.</p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <Sparkles className="w-4 h-4" />
-                Get Expert Setup
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-
-            {/* Section 8: Choose Keap */}
+            {/* Section 9: Choose Keap */}
             <h2 id="choose-keap" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              8. Who Should Choose Keap?
+              9. Who Should Choose Keap?
             </h2>
             <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
               {chooseKeap.map((item, idx) => (
@@ -769,9 +680,9 @@ export default function GoHighLevelVsKeapClient() {
               ))}
             </ul>
 
-            {/* Section 9: Choose GHL */}
+            {/* Section 10: Choose GHL */}
             <h2 id="choose-ghl" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              9. Who Should Choose GoHighLevel?
+              10. Who Should Choose GoHighLevel?
             </h2>
             <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
               {chooseGHL.map((item, idx) => (
@@ -779,33 +690,9 @@ export default function GoHighLevelVsKeapClient() {
               ))}
             </ul>
 
-            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
-                <span className="text-sm font-bold text-[#0E9BF0]">FEATURED READ</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                If reselling software as your own branded product is part of your plan, see our cornerstone guide: <Link href="/gohighlevel-saas-mode" className="text-[#0E9BF0] hover:underline">GoHighLevel SaaS Mode: The Complete 2026 Guide →</Link>
-              </p>
-            </div>
-
-            {/* CTA Button 6: Before Mistakes */}
-            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
-              <p className="text-sm font-medium mb-2">🔍 Still not sure which platform to choose?</p>
-              <p className="text-sm text-white/80 mb-4">Let us review your business model, team size, and revenue channels and tell you honestly which platform fits.</p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <Search className="w-4 h-4" />
-                Get a Free Platform Assessment
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-
-            {/* Section 10: Mistakes */}
+            {/* Section 11: Mistakes */}
             <h2 id="mistakes" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              10. What Are the Common Mistakes People Make When Choosing?
+              11. What Are the Common Mistakes People Make When Choosing?
             </h2>
             <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
               {mistakes.map((item, idx) => (
@@ -813,27 +700,9 @@ export default function GoHighLevelVsKeapClient() {
               ))}
             </ul>
 
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              Every comparison in this guide is grounded in verified 2026 pricing and independently sourced review data, not affiliate promotion. See <Link href="/case-studies" className="text-[#0E9BF0] hover:underline">real GoHighLevel results and case studies</Link> to review actual client outcomes on the platform.
-            </p>
-
-            {/* CTA Button 7: Before FAQ */}
-            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
-              <p className="text-sm font-medium mb-2">⚠️ Don't make a costly platform mistake.</p>
-              <p className="text-sm text-white/80 mb-4">Get a free, no-obligation platform assessment from experts who've built on both platforms.</p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <Shield className="w-4 h-4" />
-                Get a Free Assessment
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-
-            {/* Section 11: FAQ */}
+            {/* Section 12: FAQ */}
             <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
-              11. Frequently Asked Questions
+              12. Frequently Asked Questions
             </h2>
 
             <div className="space-y-3">
@@ -848,43 +717,24 @@ export default function GoHighLevelVsKeapClient() {
               ))}
             </div>
 
-            {/* CTA Button 8: After FAQ */}
-            <div className="mt-8 p-6 bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl text-center">
-              <p className="text-white font-bold text-lg mb-2">Still Have Questions About Which Platform to Choose?</p>
-              <p className="text-white/60 text-sm mb-4">Talk to our GHL experts directly. We've helped businesses on both platforms choose the right fit.</p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  Ask an Expert
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-white/20 transition-all border border-white/20 text-sm"
-                >
-                  <Phone className="w-4 h-4" />
-                  Call Us
-                </Link>
-              </div>
+            {/* Contextual CTA inside FAQ */}
+            <div className="mt-4 text-sm text-[#5C6880] leading-relaxed">
+              Still not sure which platform fits your business?{' '}
+              <Link href="/contact" className="text-[#0E9BF0] hover:underline font-medium">Book a free strategy call</Link>.
             </div>
 
-            {/* Related Articles */}
+            {/* Internal Links */}
             <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
               <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Resources</h3>
               <div className="flex flex-wrap gap-3">
-                <Link href="/gohighlevel-saas-mode" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel SaaS Mode: The Complete 2026 Guide →</Link>
                 <Link href="/blog/keap-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">Keap to GoHighLevel Migration Guide →</Link>
+                <Link href="/gohighlevel-saas-mode" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel SaaS Mode: The Complete 2026 Guide →</Link>
                 <Link href="/blog/ghl-white-label-saas-guide" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel White Label SaaS Guide →</Link>
-                <Link href="/services/migration" className="text-sm text-[#0E9BF0] hover:underline">GHL Migration Service →</Link>
-                <Link href="/blog/how-to-get-first-gohighlevel-saas-clients" className="text-sm text-[#0E9BF0] hover:underline">How to Get Your First 10 GoHighLevel SaaS Clients →</Link>
                 <Link href="/case-studies" className="text-sm text-[#0E9BF0] hover:underline">Real GoHighLevel Case Studies →</Link>
               </div>
             </div>
 
-            {/* Final CTA Section */}
+            {/* Final CTA Section - Single closing CTA */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Ready to choose the right platform and get it set up correctly?</h3>
@@ -896,27 +746,6 @@ export default function GoHighLevelVsKeapClient() {
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
-            </div>
-
-            {/* Author Section */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 my-6">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
-                  <img
-                    src="/web-app-manifest-192x192.png"
-                    alt="GHL Scale Up"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-[#1A2236]">GHL Scale Up Team</div>
-                  <div className="text-xs text-[#5C6880]">GoHighLevel expert agency founded by Aryan Trivedi · 5+ years GHL experience · 200+ builds delivered globally</div>
-                </div>
-              </div>
-              <p className="text-xs text-[#5C6880] leading-relaxed">
-                GHL Scale Up is a specialised GoHighLevel implementation and SaaS growth agency founded by Aryan Trivedi. Based in India, we serve agencies and SaaS founders across 6 countries with 200+ GoHighLevel builds delivered, including Keap-to-GoHighLevel migrations. This comparison reflects direct experience setting up both platforms plus independently verified 2026 pricing and review data. We do not receive commission from either GoHighLevel or Keap for this comparison.
-              </p>
-              <Link href="/" className="text-[#0E9BF0] text-xs hover:underline mt-2 inline-block">ghlscaleup.com</Link>
             </div>
           </main>
         </div>
