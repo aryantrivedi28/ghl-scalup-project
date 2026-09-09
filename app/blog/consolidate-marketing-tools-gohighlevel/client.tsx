@@ -189,8 +189,11 @@ export default function ConsolidateMarketingToolsClient() {
   const ProjectHelpCard = () => (
     <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
       <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
-      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
-      <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your migration.</p>
+      <Link
+        // onClick={handleOpenBooking}
+        href="/book-a-call"
+        className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
         Book a 30 min Free Call
         <ArrowRight className="w-3 h-3" />
       </Link>
@@ -269,12 +272,12 @@ export default function ConsolidateMarketingToolsClient() {
 
           {/* Introductory Paragraph - NO max-w constraint */}
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6">
-            Most agencies and service businesses did not choose their current tool stack deliberately. 
-            They added a CRM when they needed to track leads. Then an email tool. Then a funnel builder. 
-            Then a booking calendar. Then an SMS platform. Each tool solved a problem when it was added. 
-            Over time the stack grew to 5, 6, sometimes 8 subscriptions, each with its own login, its 
-            own billing date, and its own way of failing to talk to the others. 
-            <strong className="text-white"> GHL Scale Up</strong> has helped 200+ agencies and businesses 
+            Most agencies and service businesses did not choose their current tool stack deliberately.
+            They added a CRM when they needed to track leads. Then an email tool. Then a funnel builder.
+            Then a booking calendar. Then an SMS platform. Each tool solved a problem when it was added.
+            Over time the stack grew to 5, 6, sometimes 8 subscriptions, each with its own login, its
+            own billing date, and its own way of failing to talk to the others.
+            <strong className="text-white"> GHL Scale Up</strong> has helped 200+ agencies and businesses
             consolidate their entire marketing operation into GoHighLevel.
           </p>
         </div>
@@ -283,7 +286,7 @@ export default function ConsolidateMarketingToolsClient() {
       {/* MAIN LAYOUT - Sidebar on LEFT, Content on RIGHT */}
       <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-16">
         <div className="grid lg:grid-cols-[280px_1fr] gap-8 md:gap-12 items-start">
-          
+
           {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
           <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
             {/* Project Help Card - At top of sidebar */}
@@ -333,7 +336,7 @@ export default function ConsolidateMarketingToolsClient() {
                 </div>
               </div>
               <p className="text-xs text-white/60 leading-relaxed mb-3">
-                5+ years GHL experience · 200+ systems built and consolidated globally. Tool stack cost data sourced from 
+                5+ years GHL experience · 200+ systems built and consolidated globally. Tool stack cost data sourced from
                 GoHighLevel Tool Stack Savings Calculator and verified against official platform pricing as of June 2026.
               </p>
               <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
@@ -363,8 +366,8 @@ export default function ConsolidateMarketingToolsClient() {
                 GoHighLevel consolidates CRM, email marketing, SMS automation, funnel building, booking calendar, reputation management, course hosting, AI chatbot, AI Voice Agent, and reporting into one platform starting at $97 per month.
               </p>
               <p className="text-sm text-[#5C6880] leading-relaxed">
-                Most agencies running a standard 5 to 8 tool stack are spending <strong className="text-[#0E9BF0]">$300 to $800 per month</strong> 
-                on tools that require constant integration maintenance. After consolidating to GHL, the same capabilities cost 
+                Most agencies running a standard 5 to 8 tool stack are spending <strong className="text-[#0E9BF0]">$300 to $800 per month</strong>
+                on tools that require constant integration maintenance. After consolidating to GHL, the same capabilities cost
                 <strong className="text-[#0E9BF0]"> $97 to $297 per month</strong> with no third-party connectors between them because everything is native.
               </p>
 
@@ -460,14 +463,14 @@ export default function ConsolidateMarketingToolsClient() {
                 <span className="text-sm font-bold text-[#F8D000]">THE ACTUAL COST CALCULATION</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                A common 7-tool agency stack: HubSpot CRM ($50/mo) + Mailchimp ($30/mo) + SimpleTexting SMS ($25/mo) + ClickFunnels ($97/mo) + Calendly Teams ($16/mo) + Zapier Professional ($49/mo) + Birdeye reviews ($299/mo) = <strong className="text-[#DC3545]">$566 per month.</strong> 
-                Plus 4 hours of integration maintenance per month at $50/hour = $200 in team time. Real monthly cost: $766. GoHighLevel Unlimited: $297 per month. 
+                A common 7-tool agency stack: HubSpot CRM ($50/mo) + Mailchimp ($30/mo) + SimpleTexting SMS ($25/mo) + ClickFunnels ($97/mo) + Calendly Teams ($16/mo) + Zapier Professional ($49/mo) + Birdeye reviews ($299/mo) = <strong className="text-[#DC3545]">$566 per month.</strong>
+                Plus 4 hours of integration maintenance per month at $50/hour = $200 in team time. Real monthly cost: $766. GoHighLevel Unlimited: $297 per month.
                 Monthly saving: <strong className="text-[#25C97D]">$469.</strong> Annual saving: <strong className="text-[#25C97D]">$5,628</strong> before counting the missed revenue from broken automations.
               </p>
             </div>
 
             <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              For the full breakdown of what each GHL plan includes and the real usage costs: 
+              For the full breakdown of what each GHL plan includes and the real usage costs:
               <Link href="/blog/gohighlevel-pricing" className="text-[#0E9BF0] hover:underline ml-1">GoHighLevel Pricing 2026 →</Link>
             </p>
 
@@ -504,11 +507,11 @@ export default function ConsolidateMarketingToolsClient() {
 
             <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
               <p className="text-sm text-[#1A2236] leading-relaxed mb-2">
-                For the full workflow automation guide: 
+                For the full workflow automation guide:
                 <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-[#0E9BF0] hover:underline ml-1">GoHighLevel Workflow Automation for Beginners →</Link>
               </p>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                For the white-label setup guide: 
+                For the white-label setup guide:
                 <Link href="/blog/gohighlevel-white-label" className="text-[#0E9BF0] hover:underline ml-1">GoHighLevel White Label: How It Works →</Link>
               </p>
             </div>
@@ -575,8 +578,8 @@ export default function ConsolidateMarketingToolsClient() {
                 <span className="text-sm font-bold text-[#25C97D]">THE RIGHT MENTAL MODEL</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                GoHighLevel replaces your marketing and client communication stack. It does not replace your operational or financial infrastructure. 
-                The consolidation goal is one platform for everything that touches lead acquisition, lead nurture, client communication, and reputation. 
+                GoHighLevel replaces your marketing and client communication stack. It does not replace your operational or financial infrastructure.
+                The consolidation goal is one platform for everything that touches lead acquisition, lead nurture, client communication, and reputation.
                 Everything behind that (accounting, project management, specialist analytics) stays as it is.
               </p>
             </div>
@@ -634,9 +637,9 @@ export default function ConsolidateMarketingToolsClient() {
                 <span className="text-sm font-bold text-[#25C97D]">MOST AGENCIES SAVE $200 TO $500+ PER MONTH</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                Based on the tool stack calculator data and what we see across 200+ GHL builds, most agencies running a standard 5 to 8 tool stack save 
-                between $200 and $500 per month in direct subscription costs after switching to GoHighLevel Unlimited. Agencies replacing Birdeye, Podium, 
-                or Weave alongside their CRM and email tools save $500 to $1,000 per month. The integration maintenance saving adds another $150 to $300 
+                Based on the tool stack calculator data and what we see across 200+ GHL builds, most agencies running a standard 5 to 8 tool stack save
+                between $200 and $500 per month in direct subscription costs after switching to GoHighLevel Unlimited. Agencies replacing Birdeye, Podium,
+                or Weave alongside their CRM and email tools save $500 to $1,000 per month. The integration maintenance saving adds another $150 to $300
                 per month in recovered team time. The consolidation pays for itself in the first 30 days for most agencies.
               </p>
             </div>
@@ -678,15 +681,15 @@ export default function ConsolidateMarketingToolsClient() {
                 <span className="text-sm font-bold text-[#F8D000]">READY TO CONSOLIDATE?</span>
               </div>
               <p className="text-sm text-white/80 leading-relaxed mb-3">
-                For the complete guide on migrating from specific platforms: 
+                For the complete guide on migrating from specific platforms:
                 <Link href="/services/migration" className="text-[#0E9BF0] hover:underline ml-1">GoHighLevel migration service →</Link>
               </p>
               <p className="text-sm text-white/80 leading-relaxed mb-3">
-                For agencies that want their GHL account set up correctly from day one: 
+                For agencies that want their GHL account set up correctly from day one:
                 <Link href="/services/crm-setup" className="text-[#0E9BF0] hover:underline ml-1">GoHighLevel CRM setup service →</Link>
               </p>
               <p className="text-sm text-white/80 leading-relaxed">
-                See what other agencies have achieved through consolidation: 
+                See what other agencies have achieved through consolidation:
                 <Link href="/case-studies" className="text-[#0E9BF0] hover:underline ml-1">real GoHighLevel results and case studies →</Link>
               </p>
             </div>
@@ -758,7 +761,7 @@ export default function ConsolidateMarketingToolsClient() {
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Ready to stop managing 6 different tools that do not connect?</h3>
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
-                  GHL Scale Up consolidates your entire marketing stack into one system. Audit of your current stack, full GHL setup, 
+                  GHL Scale Up consolidates your entire marketing stack into one system. Audit of your current stack, full GHL setup,
                   data migration, automation rebuild, and phased cancellation support. Book a free 30-minute strategy call.
                 </p>
                 <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">

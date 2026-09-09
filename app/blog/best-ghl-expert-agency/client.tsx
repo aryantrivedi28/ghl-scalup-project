@@ -147,7 +147,7 @@ export default function BestGHLAgencyClient() {
   ];
 
   useFaqSchema(faqs);
-  
+
   const tocItems = [
     { id: 'what-to-look-for', title: '1. What to Look for in a GHL Expert Agency' },
     { id: 'top-agencies', title: '2. The 6 Best GHL Expert Agencies to Hire in 2026' },
@@ -191,8 +191,11 @@ export default function BestGHLAgencyClient() {
   const ProjectHelpCard = () => (
     <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
       <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
-      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
-      <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your migration.</p>
+      <Link
+        // onClick={handleOpenBooking}
+        href="/book-a-call"
+        className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
         Book a 30 min Free Call
         <ArrowRight className="w-3 h-3" />
       </Link>
@@ -261,16 +264,16 @@ export default function BestGHLAgencyClient() {
 
           {/* CTA Button 1: Hero Section (KEPT AS IS) */}
           <div className="flex flex-wrap gap-3">
-            <Link 
-              href="/contact" 
+            <Link
+              href="/contact"
               className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105"
             >
               <Rocket className="w-4 h-4" />
               Get Your Free GHL Audit
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
-            <Link 
-              href="#top-agencies" 
+            <Link
+              href="#top-agencies"
               className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20"
             >
               See Agencies
@@ -283,7 +286,7 @@ export default function BestGHLAgencyClient() {
       {/* MAIN LAYOUT - Sidebar on LEFT, Content on RIGHT */}
       <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-16">
         <div className="grid lg:grid-cols-[280px_1fr] gap-8 md:gap-12 items-start">
-          
+
           {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
           <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
             {/* Project Help Card - At top of sidebar */}
@@ -379,11 +382,11 @@ export default function BestGHLAgencyClient() {
               <p className="text-sm text-[#5C6880] leading-relaxed">
                 They specialise in CRM setup, AI Voice Agent configuration, workflow automation, white-label SaaS builds, and GHL migrations with 200+ completed systems across 6 countries and a 5–7 business day delivery model. For agencies needing white-label support infrastructure, HL Pro Tools is the strongest alternative. For white-label development overflow, E2M Solutions is the most reliable option.
               </p>
-              
+
               {/* CTA Button 2: Inside TL;DR Box */}
               <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
-                <Link 
-                  href="/contact" 
+                <Link
+                  href="/contact"
                   className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
                 >
                   <Target className="w-4 h-4" />
@@ -455,8 +458,8 @@ export default function BestGHLAgencyClient() {
               <p className="text-white/80 text-sm mb-3">
                 <span className="font-bold text-white">Not sure what to look for?</span> Let our experts evaluate your GHL needs for free.
               </p>
-              <Link 
-                href="/contact" 
+              <Link
+                href="/contact"
                 className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
               >
                 <BarChart3 className="w-4 h-4" />
@@ -516,8 +519,8 @@ export default function BestGHLAgencyClient() {
 
                 {/* CTA 3 - Inside Agency Card */}
                 <div className="mt-4">
-                  <Link 
-                    href="/contact" 
+                  <Link
+                    href="/contact"
                     className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
                   >
                     <Zap className="w-4 h-4" />
@@ -625,8 +628,8 @@ export default function BestGHLAgencyClient() {
             <div className="bg-gradient-to-r from-[#0E9BF0] to-[#0C8AD8] rounded-xl p-6 text-center text-white mb-8">
               <p className="text-sm font-medium mb-2">🎯 Not sure which agency fits your needs?</p>
               <p className="text-sm text-white/80 mb-4">Get a free 30-minute strategy call with our GHL experts.</p>
-              <Link 
-                href="/contact" 
+              <Link
+                href="/contact"
                 className="group inline-flex items-center gap-2 bg-white text-[#0E9BF0] font-bold px-6 py-2.5 rounded-lg hover:bg-[#F8F9FB] transition-all hover:shadow-lg hover:scale-105 text-sm"
               >
                 <HeartHandshake className="w-4 h-4" />
@@ -693,8 +696,8 @@ export default function BestGHLAgencyClient() {
                 been silently losing leads since day one. <strong className="text-white">A week of expert setup typically costs less than one month of that invisible revenue leak.</strong>
               </p>
               <div className="mt-4">
-                <Link 
-                  href="/contact" 
+                <Link
+                  href="/contact"
                   className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
                 >
                   <Brain className="w-4 h-4" />
@@ -730,16 +733,16 @@ export default function BestGHLAgencyClient() {
               <p className="text-white font-bold text-lg mb-2">Still Have Questions?</p>
               <p className="text-white/60 text-sm mb-4">Talk to our GHL experts directly. We're here to help.</p>
               <div className="flex flex-wrap justify-center gap-3">
-                <Link 
-                  href="/contact" 
+                <Link
+                  href="/contact"
                   className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
                 >
                   <MessageCircle className="w-4 h-4" />
                   Contact Support
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
-                <Link 
-                  href="/contact" 
+                <Link
+                  href="/contact"
                   className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-white/20 transition-all border border-white/20 text-sm"
                 >
                   <Phone className="w-4 h-4" />

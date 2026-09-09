@@ -168,8 +168,11 @@ export default function A2PErrorCodesExplainedClient() {
   const ProjectHelpCard = () => (
     <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
       <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
-      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your project.</p>
-      <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your migration.</p>
+      <Link
+        // onClick={handleOpenBooking}
+        href="/book-a-call"
+        className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
         Book a 30 min Free Call
         <ArrowRight className="w-3 h-3" />
       </Link>
@@ -237,7 +240,7 @@ export default function A2PErrorCodesExplainedClient() {
       {/* MAIN LAYOUT - Sidebar on LEFT, Content on RIGHT */}
       <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-16">
         <div className="grid lg:grid-cols-[280px_1fr] gap-8 md:gap-12 items-start">
-          
+
           {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
           <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
             {/* Project Help Card - At top of sidebar */}

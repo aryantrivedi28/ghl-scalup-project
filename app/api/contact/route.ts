@@ -7,8 +7,6 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { name, email, phone, message } = body;
 
-    console.log('Contact Form:', { name, email, phone, message });
-
     if (!name || !email || !message) {
       return NextResponse.json(
         { error: 'Name, email, and message are required' },

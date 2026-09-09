@@ -180,13 +180,14 @@ export default function ContactClient() {
 
               {/* Direct Booking Button */}
               <div className="mb-8">
-                <button
-                  onClick={handleOpenBooking}
+                <Link
+                  // onClick={handleOpenBooking}
+                  href="/book-a-call"
                   className="w-full bg-[#0E9BF0] text-white px-6 py-4 rounded-xl text-base font-bold hover:bg-[#0E9BF0]/90 hover:-translate-y-0.5 transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-3 group"
                 >
                   <Calendar className="w-5 h-5 group-hover:scale-110 transition-transform" />
                   Book Your Free Strategy Call Now →
-                </button>
+                </Link>
                 <p className="text-xs text-center text-[#8A9BB0] mt-3">
                   Instant calendar booking • 45-min session • Free consultation
                 </p>
