@@ -4,81 +4,21 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import {
   ArrowRight,
-  CheckCircle2,
   ChevronDown,
   Copy,
   Linkedin,
   Twitter,
   BookOpen,
-  Settings,
-  Zap,
   Shield,
-  DollarSign,
-  Users,
-  Building2,
-  Calendar,
   MessageCircle,
   Phone,
-  Layout,
-  GitBranch,
-  Sparkles,
-  Award,
-  TrendingUp,
   Star,
   AlertTriangle,
-  Server,
-  Globe,
-  CreditCard,
-  Smartphone,
-  Briefcase,
   Rocket,
-  Cloud,
-  Database,
-  FileDown,
-  Upload,
-  RefreshCw,
-  Clock,
-  Mail,
-  Tag,
-  GitMerge,
-  Video,
-  BookOpen as BookOpenIcon,
-  GraduationCap,
-  ArrowUpRight,
-  HelpCircle,
   Timer,
-  Trash2,
   Download,
   Target,
   HeartHandshake,
-  Search,
-  Trophy,
-  Facebook,
-  Lightbulb,
-  UserCheck,
-  UserX,
-  Compass,
-  Layers,
-  PanelTop,
-  LayoutDashboard,
-  LifeBuoy,
-  PieChart,
-  Workflow,
-  Link2,
-  Webhook,
-  RefreshCw as RefreshCwIcon,
-  ListChecks,
-  ClipboardList,
-  Printer,
-  Ticket,
-  TrendingDown,
-  Info,
-  Headphones,
-  FileText,
-  XCircle,
-  Boxes,
-  Combine,
-  CalendarDays,
   BarChart3
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
@@ -222,8 +162,11 @@ export default function WhatHappensGHLSubAccountAgencyClosesClient() {
   const ProjectHelpCard = () => (
     <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
       <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
-      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your sub-account situation.</p>
-      <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+      <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your migration.</p>
+      <Link
+        // onClick={handleOpenBooking}
+        href="/book-a-call"
+        className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
         Book a 30 min Free Call
         <ArrowRight className="w-3 h-3" />
       </Link>

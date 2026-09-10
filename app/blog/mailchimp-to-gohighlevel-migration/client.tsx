@@ -18,64 +18,9 @@ import {
   HeartHandshake,
   MessageCircle,
   Phone,
-  Search,
-  Trophy,
-  Facebook,
   Shield,
-  DollarSign,
-  Users,
-  Building2,
-  Calendar,
-  Layout,
-  GitBranch,
-  Sparkles,
-  Award,
-  TrendingUp,
-  Server,
-  Globe,
-  CreditCard,
-  Smartphone,
-  Briefcase,
-  Cloud,
-  Database,
-  Clock,
-  Mail,
-  GraduationCap,
-  Compass,
   BarChart3,
-  Mailbox,
-  Layers,
   Workflow,
-  Settings,
-  Link2,
-  Webhook,
-  RefreshCw,
-  ListChecks,
-  ClipboardList,
-  Printer,
-  Video,
-  Ticket,
-  TrendingDown,
-  Info,
-  UserCheck,
-  UserX,
-  PanelTop,
-  LayoutDashboard,
-  LifeBuoy,
-  Timer,
-  Trash2,
-  Download,
-  PieChart,
-  GitMerge,
-  FileCheck,
-  Headphones,
-  FileText,
-  XCircle,
-  HelpCircle,
-  Boxes,
-  Combine,
-  RefreshCw as RefreshCwIcon,
-  CalendarDays
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
 
@@ -215,7 +160,10 @@ export default function MailchimpToGoHighLevelMigrationClient() {
     <div className="bg-[#0B1628] rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#2A3F5F]">
       <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
       <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your migration.</p>
-      <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+      <Link
+        // onClick={handleOpenBooking}
+        href="/book-a-call"
+        className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
         Book a 30 min Free Call
         <ArrowRight className="w-3 h-3" />
       </Link>
