@@ -4,40 +4,32 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import {
   ArrowRight,
-  CheckCircle2,
   ChevronDown,
   Copy,
   Linkedin,
   Twitter,
   BookOpen,
-  Zap,
-  Star,
-  AlertTriangle,
-  Compass,
-  XCircle,
   Rocket,
-  Target,
-  HeartHandshake,
-  MessageCircle,
-  Phone,
-  Search,
-  BarChart3,
+  Image as ImageIcon,
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import Image from 'next/image';
 
 export default function WhatIsGHLMigrationClient() {
   const [activeId, setActiveId] = useState<string>('');
-  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const sections = [
-        'what-is-ghl',
-        'what-moves',
-        'which-platforms',
-        'migration-phases',
-        'do-you-need',
-        'timeline-cost',
+        'data-vs-system',
+        'why-migrate',
+        'what-can-be-migrated',
+        'why-not-1-to-1',
+        'types-of-migration',
+        'complexity',
+        'project-phases',
+        'should-you-migrate',
+        'where-to-go-next',
         'faq'
       ];
 
@@ -49,13 +41,6 @@ export default function WhatIsGHLMigrationClient() {
             setActiveId(id);
           }
         }
-      }
-
-      // Show floating Project Help card after scrolling past hero section
-      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
-      if (heroSection) {
-        const heroBottom = heroSection.getBoundingClientRect().bottom;
-        setShowFloatingProjectHelp(heroBottom < 0);
       }
     };
 
@@ -76,82 +61,57 @@ export default function WhatIsGHLMigrationClient() {
   const faqs = [
     {
       q: "What is GoHighLevel migration?",
-      a: "GoHighLevel migration is the process of moving your business's marketing and sales system from a platform you currently use (such as HubSpot, ClickFunnels, ActiveCampaign, or Kajabi) into GoHighLevel. It involves transferring your contacts, rebuilding your pipelines and automation workflows, reconnecting integrations, and configuring your new GHL account to handle everything your old platform was doing. The migration typically takes 1 to 8 weeks depending on how complex your current setup is."
+      a: "GoHighLevel migration is the process of moving a business's CRM data, marketing assets, automation logic, and related systems from another platform into GoHighLevel. Some assets (contacts, basic data) transfer relatively directly; others (workflows, pipelines, integrations) generally need to be rebuilt or reconfigured rather than copied."
     },
     {
-      q: "What gets transferred in a GoHighLevel migration?",
-      a: "Your contacts, tags, custom field values, and basic deal data can be transferred from most platforms via CSV export and import. What cannot be transferred automatically: automation workflows (every sequence must be rebuilt manually in GHL's workflow builder), email templates (the content is copied but rebuilt in GHL's editor), forms and landing pages (rebuilt in GHL's builder), and third-party integrations (disconnected and reconnected in GHL settings). The rule is: data transfers, logic does not."
+      q: "Is GHL migration just importing contacts?",
+      a: "No. Importing contacts is one relatively mechanical part of a migration. The larger and more time-consuming part is rebuilding the automations, pipelines, and business logic that acted on that data in your previous platform this is usually where the real migration effort goes."
     },
     {
-      q: "Can I migrate from HubSpot to GoHighLevel?",
-      a: "Yes. A HubSpot to GoHighLevel migration transfers contacts, custom properties, deal pipelines, and tags via CSV export and import. HubSpot automations, email templates, landing pages, and company associations cannot be automatically transferred. These are rebuilt inside GoHighLevel. HubSpot users should note that cancelling a HubSpot subscription starts a 25-day countdown before data is permanently deleted, so the migration should be fully completed before cancellation."
+      q: "Does everything transfer automatically when migrating to GoHighLevel?",
+      a: "No, and how much depends heavily on your source platform. As a general pattern, contact data and basic fields transfer via export/import; workflows and automation logic generally require manual rebuilding. Some platforms have partial native import tools for specific content types for example, GoHighLevel has a native Kajabi Course Importer that automatically brings over published-lesson video, image, and text content, though quizzes, assignments, and automation logic still require manual work. Always check the platform-specific guide for your exact situation rather than assuming a blanket answer."
     },
     {
-      q: "Do I need a GoHighLevel migration service or can I do it myself?",
-      a: "A simple migration (a small contact list with few or no automations) is manageable as a DIY project with careful planning. Most businesses with 500 or more contacts and active automations benefit from professional migration support, primarily because the automation rebuild phase is easy to get wrong in ways that are not immediately visible (a broken trigger that fails silently for two weeks before anyone notices). Professional migration also includes parallel running and end-to-end testing that most DIY migrations skip."
+      q: "What platforms can migrate to GoHighLevel?",
+      a: "GoHighLevel can receive migrations from most CRM, marketing automation, and funnel-building platforms. GHL Scale Up has dedicated guides for HubSpot, ActiveCampaign, ClickFunnels, Kajabi, Salesforce, Zoho, Keap, and Mailchimp specifically."
     },
     {
-      q: "How long does a GoHighLevel migration take for a beginner?",
-      a: "A simple migration with a small contact list and no active automations takes 2 to 5 days. A standard migration with 3 to 10 automations and basic integrations takes 2 to 4 weeks. A complex migration with 10 to 30 automations, course content, or multiple client accounts takes 4 to 8 weeks. The biggest variable is the number of automations that need to be rebuilt. The contact import itself takes hours, not weeks."
+      q: "Is migrating to GoHighLevel difficult?",
+      a: "It depends on your current setup's complexity the number of active automations, integrations, and how customized your data structure is far more than on the platform name alone. A simple setup with few automations is straightforward; a highly customized enterprise system with deep integrations is genuinely complex. See the migration timeline guide for a fuller breakdown of what drives that difference."
     },
     {
-      q: "What is the first step in a GoHighLevel migration?",
-      a: "The first step is always an audit of your current platform, not an export. Before exporting or touching any data, document every active automation, every pipeline stage, every custom field, and every integration your business currently uses. This audit becomes your migration checklist and prevents the most common and costly mistake: discovering mid-migration that a critical automation or integration was missed. Once the audit is complete, set up the GHL account infrastructure (custom fields, pipeline stages, email sending domain) before importing a single contact."
+      q: "What's the difference between data migration and CRM migration?",
+      a: "Data migration refers specifically to moving information contacts, fields, tags. CRM migration (or system migration) is the broader process that also includes rebuilding the workflows, pipelines, and automation logic that operate on that data. A complete GoHighLevel migration involves both, and the system side is typically the larger effort of the two."
     },
     {
-      q: "Can GHL Scale Up handle my migration to GoHighLevel?",
-      a: "Yes. GHL Scale Up manages complete GoHighLevel migrations from HubSpot, ClickFunnels, ActiveCampaign, Kajabi, Zoho, Mailchimp, Keap, and Salesforce. The service includes: migration audit and scoping, GHL account infrastructure build, data export and cleaning, contact import with field mapping, automation rebuild in GHL workflows, email domain configuration, parallel running management, and full handover documentation. Book a free migration assessment."
-    },
+      q: "Do I need a GoHighLevel migration service, or can I do it myself?",
+      a: "A simple migration with a small contact list and few or no automations is a reasonable DIY project. Once you have several hundred contacts and active automations, professional support becomes more valuable, primarily because a broken automation can fail silently for weeks before anyone notices something a structured, tested migration process is built to catch."
+    }
   ];
 
   useFaqSchema(faqs);
 
   const tocItems = [
-    { id: 'what-is-ghl', title: '1. What Is GoHighLevel and Why Do Businesses Migrate to It?' },
-    { id: 'what-moves', title: '2. What Exactly Moves During a GoHighLevel Migration?' },
-    { id: 'which-platforms', title: '3. Which Platforms Can You Migrate to GoHighLevel From?' },
-    { id: 'migration-phases', title: '4. What Are the Main Phases of a GoHighLevel Migration?' },
-    { id: 'do-you-need', title: '5. Do You Actually Need a GoHighLevel Migration?' },
-    { id: 'timeline-cost', title: '6. How Long Does a GHL Migration Take and What Does It Cost?' },
-    { id: 'faq', title: '7. Frequently Asked Questions' },
+    { id: 'data-vs-system', title: 'What Migration Actually Means: Data vs. System' },
+    { id: 'why-migrate', title: 'Why Do Businesses Migrate to GoHighLevel?' },
+    { id: 'what-can-be-migrated', title: 'What Can Be Migrated? (A High-Level View)' },
+    { id: 'why-not-1-to-1', title: 'Why Migration Isn\'t a 1:1 Copy Across Platforms' },
+    { id: 'types-of-migration', title: 'Types of GoHighLevel Migration' },
+    { id: 'complexity', title: 'What Determines Migration Complexity?' },
+    { id: 'project-phases', title: 'What Does a Migration Project Generally Involve?' },
+    { id: 'should-you-migrate', title: 'Should You Migrate to GoHighLevel?' },
+    { id: 'where-to-go-next', title: 'Where to Go Next' },
+    { id: 'faq', title: 'Frequently Asked Questions' },
   ];
 
-  const migrationComponents = [
-    { component: 'Contacts', meaning: 'Your list of leads, clients, and prospects with all their information', how: 'Exported as a CSV file from the old platform, cleaned, and imported into GHL with field mapping' },
-    { component: 'Tags and segments', meaning: 'Labels or groups you have put contacts into', how: 'Transferred via the CSV export, then created and mapped in GHL before import' },
-    { component: 'Pipelines', meaning: 'The visual stages your deals or leads move through', how: 'Rebuilt manually in GHL to match your existing stages' },
-    { component: 'Automations', meaning: 'The sequences that fire automatically (welcome emails, follow-up texts, reminders)', how: 'Cannot be transferred automatically. Every automation must be rebuilt in GHL\'s workflow builder' },
-    { component: 'Email templates', meaning: 'Pre-written emails used in your sequences', how: 'Copied across manually. The content is reused but the formatting is rebuilt in GHL\'s email editor' },
-    { component: 'Forms and landing pages', meaning: 'Inquiry forms on your website or funnels', how: 'Rebuilt in GHL\'s form builder and funnel builder' },
-    { component: 'Integrations', meaning: 'Connections to other tools like Stripe, Google, Facebook, or Zapier', how: 'Disconnected during migration and reconnected in GHL settings' },
-    { component: 'Custom fields', meaning: 'Any extra information fields specific to your business', how: 'Created in GHL first, then mapped during the contact import' },
-  ];
-
-  const platformData = [
-    { platform: 'HubSpot', transfers: 'Contacts, deals, custom properties, tags', rebuilds: 'Workflows, email templates, forms, landing pages, company associations', guide: '/blog/hubspot-to-gohighlevel-migration' },
-    { platform: 'ClickFunnels', transfers: 'Contacts (CSV), funnels (via GHL\'s URL import tool for visual design)', rebuilds: 'Automation sequences, Stripe connections, domain settings, Pixel tracking', guide: '/blog/clickfunnels-to-gohighlevel-migration' },
-    { platform: 'ActiveCampaign', transfers: 'Contacts, tags, custom fields (all via CSV)', rebuilds: 'All automations, email sequences, lead scoring models, forms', guide: '/blog/activecampaign-to-gohighlevel-migration' },
-    { platform: 'Kajabi', transfers: 'Contacts and students (CSV)', rebuilds: 'All course content (manual rebuild), email sequences, offers, community', guide: '/blog/kajabi-to-gohighlevel-migration' },
-    { platform: 'Zoho CRM', transfers: 'Contacts, deals, custom fields (CSV)', rebuilds: 'Automation blueprints, workflow rules, module customisations', guide: null },
-    { platform: 'Mailchimp', transfers: 'Contact list (CSV), segments, tags', rebuilds: 'All email automations, customer journeys, audience segments', guide: null },
-    { platform: 'Salesforce', transfers: 'Contacts, accounts, opportunities (CSV or API)', rebuilds: 'Process Builder flows, approval processes, complex object relationships', guide: null },
-    { platform: 'Keap (Infusionsoft)', transfers: 'Contacts, tags, custom fields (CSV)', rebuilds: 'Campaign builder sequences, lead scoring, payment configurations', guide: null },
-  ];
-
-  const timelineData = [
-    { type: 'Simple list transfer', what: 'Contacts only, no complex automations, new to any CRM', timeline: '2 to 5 days', diy: 'Manageable DIY with care' },
-    { type: 'Standard single-account', what: 'Contacts, pipelines, 3 to 10 automations, basic integrations', timeline: '2 to 4 weeks', diy: 'Expert recommended' },
-    { type: 'Complex single-account', what: 'Contacts, 10 to 30 automations, deep integrations, course content', timeline: '4 to 8 weeks', diy: 'Expert required' },
-    { type: 'Agency multi-account', what: 'Multiple client accounts, varying complexity per client', timeline: '4 to 12 weeks', diy: 'Expert required' },
-  ];
-
-  const migrationPhases = [
-    { phase: 'Audit and scoping', description: 'Map everything that exists in the old platform. Identify what transfers, what needs rebuilding, and what can be left behind. This phase prevents surprises later.' },
-    { phase: 'GHL infrastructure build', description: 'Set up the receiving environment in GHL before any data moves. Create custom fields, pipeline stages, configure email domain (DKIM/SPF), set up phone numbers, and team access.' },
-    { phase: 'Data export and import', description: 'Export contacts from the old platform, clean the CSV for duplicates, import into GHL with field mapping verified. Validate a sample of contacts after import.' },
-    { phase: 'Automation rebuild', description: 'The most time-consuming phase. Every active automation is rebuilt in GHL\'s workflow builder from scratch. Test each one with a real contact before activating.' },
-    { phase: 'Parallel running', description: 'Run both the old platform and GHL simultaneously for 1 to 2 weeks. New leads enter GHL. Existing contacts finish sequences in the old platform.' },
-    { phase: 'Cutover and handover', description: 'Redirect all lead sources to GHL, cancel the old platform at the right time, and complete a final data export as a backup.' },
+  const migrationAreas = [
+    { area: 'Contacts', meaning: 'Your customer and lead data' },
+    { area: 'CRM structure', meaning: 'Custom fields, tags, pipelines, and opportunities' },
+    { area: 'Automation', meaning: 'Workflows and the business logic behind them' },
+    { area: 'Communication', meaning: 'Email, SMS, and calling setup' },
+    { area: 'Funnels and forms', meaning: 'Lead capture and conversion assets' },
+    { area: 'Integrations', meaning: 'Connections to external tools (Stripe, Zapier, ad platforms)' },
+    { area: 'Reporting', meaning: 'Business and pipeline analytics' }
   ];
 
   // Reusable Project Help Card Component
@@ -160,7 +120,6 @@ export default function WhatIsGHLMigrationClient() {
       <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
       <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your migration.</p>
       <Link
-        // onClick={handleOpenBooking}
         href="/book-a-call"
         className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
         Book a 30 min Free Call
@@ -181,7 +140,7 @@ export default function WhatIsGHLMigrationClient() {
           <ArrowRight className="w-3 h-3 text-[#96A0B5]" />
           <Link href="/blog" className="hover:text-[#0E9BF0] transition-colors">Blog</Link>
           <ArrowRight className="w-3 h-3 text-[#96A0B5]" />
-          <span className="text-[#1A2236] font-medium">What Is GHL Migration? Beginner's Guide 2026</span>
+          <span className="text-[#1A2236] font-medium">What Is GoHighLevel Migration? 2026</span>
         </div>
       </nav>
 
@@ -201,8 +160,7 @@ export default function WhatIsGHLMigrationClient() {
 
           {/* H1 Headline */}
           <h1 className="text-[clamp(28px,6vw,46px)] font-extrabold leading-[1.2] md:leading-[1.15] text-white mb-4 md:mb-5 tracking-[-0.02em]">
-            What Is GoHighLevel Migration?<br />
-            <span className="text-[#F8D000]">A Complete Beginner's Guide (2026)</span>
+            What Is GoHighLevel Migration?
           </h1>
 
           {/* Author Byline */}
@@ -216,17 +174,13 @@ export default function WhatIsGHLMigrationClient() {
             </div>
             <div>
               <div className="text-sm font-medium text-white">GHL Scale Up Team</div>
-              <div className="text-xs text-white/50">GoHighLevel Migration Specialists · 200+ Migrations Delivered · Updated June 2026</div>
+              <div className="text-xs text-white/50">GoHighLevel Migration Specialists · 200+ migrations delivered · Updated September 2026</div>
             </div>
           </div>
 
-          {/* Introductory Paragraph */}
+          {/* Direct Definition Paragraph */}
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-6xl">
-            If you have been hearing the term 'GoHighLevel migration' and are not entirely sure what it means 
-            or whether it applies to your business, this guide is for you. 
-            <strong className="text-white"> GHL Scale Up</strong> has completed 200+ migrations from HubSpot, 
-            ClickFunnels, ActiveCampaign, Kajabi, Zoho, and Salesforce. This is the plain English explanation 
-            of what GHL migration actually is, what it involves, and how to know if you need one.
+            <strong className="text-white">GoHighLevel migration is the process of moving a business's CRM, marketing, and automation systems from another platform into GoHighLevel.</strong> It is not simply exporting a contact list and importing it somewhere else. Contacts and basic data transfer relatively easily; the workflows, pipelines, and business logic that actually run day-to-day operations generally have to be rebuilt, not copied. Understanding that distinction is the single most important thing to know before you start researching timelines, checklists, or platform-specific steps.
           </p>
 
           {/* CTA Button 1: Hero Section */}
@@ -240,10 +194,10 @@ export default function WhatIsGHLMigrationClient() {
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
-              href="#timeline-cost"
+              href="#data-vs-system"
               className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20"
             >
-              See Timeline & Cost
+              See Data vs. System
               <ChevronDown className="w-4 h-4" />
             </Link>
           </div>
@@ -305,8 +259,7 @@ export default function WhatIsGHLMigrationClient() {
                 </div>
               </div>
               <p className="text-xs text-white/60 leading-relaxed mb-3">
-                5+ years GHL experience · 200+ migrations completed globally from HubSpot, ClickFunnels, ActiveCampaign, 
-                Kajabi, Zoho, and Salesforce. All information verified against GoHighLevel's official documentation as of June 2026.
+                5+ years GHL experience · 200+ migrations completed globally from HubSpot, ClickFunnels, ActiveCampaign, Kajabi, Zoho, and Salesforce.
               </p>
               <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
             </div>
@@ -347,34 +300,6 @@ export default function WhatIsGHLMigrationClient() {
           {/* ==================== RIGHT COLUMN: BLOG CONTENT ==================== */}
           <main className="min-w-0 order-2">
 
-            {/* BLUF Box */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
-              <div className="flex items-center gap-2 mb-3">
-                <Zap className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Quick Answer</span>
-              </div>
-              <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
-                GoHighLevel migration means moving your business's marketing and sales system from a platform you are currently using into GoHighLevel.
-              </p>
-              <p className="text-sm text-[#5C6880] leading-relaxed">
-                It involves transferring your contacts, rebuilding your pipelines and automations, reconnecting your integrations, 
-                and setting up your new GHL account so it does everything your old platform was doing, plus the things it could not. 
-                The process typically takes <strong className="text-[#0E9BF0]">1 to 8 weeks</strong> depending on how complex your current setup is.
-              </p>
-
-              {/* CTA Button 2: Inside TL;DR Box */}
-              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
-                  <Target className="w-4 h-4" />
-                  Get Migration Help
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </div>
-
             {/* Table of Contents - Mobile Only */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8 lg:hidden">
               <div className="flex items-center gap-2 mb-4">
@@ -399,283 +324,212 @@ export default function WhatIsGHLMigrationClient() {
               <ProjectHelpCard />
             </div>
 
-            {/* Section 1: What Is GoHighLevel */}
-            <h2 id="what-is-ghl" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-8 mb-4">
-              1. What Is GoHighLevel and Why Do Businesses Migrate to It?
+            {/* Section 1: Data vs System */}
+            <h2 id="data-vs-system" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-8 mb-4">
+              What Migration Actually Means: Data vs. System
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              GoHighLevel (often shortened to GHL or HighLevel) is an all-in-one marketing and CRM platform built primarily for 
-              marketing agencies, consultants, and service-based businesses. It combines a CRM, email marketing, SMS automation, 
-              funnel builder, booking calendar, reputation management, AI tools, and course hosting into one dashboard, replacing 
-              a stack of separate tools that most businesses are currently paying for individually.
+              It helps to separate migration into two distinct pieces, because they behave completely differently.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The reason businesses migrate to GHL is almost always one of two things: cost or capability. On the cost side, an agency 
-              paying for HubSpot, ClickFunnels, Calendly, and ActiveCampaign separately is typically spending $500 to $2,000 per month 
-              on tools that do not connect properly. GoHighLevel Unlimited covers all of that for $297 per month flat. On the capability 
-              side, businesses that need native SMS, an AI Voice Agent, white-label branding, or a sub-account model for managing multiple 
-              clients find that no single platform other than GHL provides all of it at this price point.
+              <strong className="text-[#1A2236]">Data migration</strong> is moving information: contacts, custom field values, tags, notes, and relevant historical records. This part is largely mechanical export as CSV, clean it, import it into GHL with fields mapped correctly.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              <strong className="text-[#1A2236]">System migration</strong> is recreating the processes that act on that data: workflows, pipelines, forms, calendars, integrations, and the business logic behind all of them. This part is not mechanical it requires understanding what each automation was supposed to accomplish and rebuilding that logic inside GHL's own tools.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              The reason this distinction matters: a migration can succeed completely at the data level every contact imported, every field mapped correctly and still fail operationally if the system side wasn't rebuilt properly. A missing follow-up automation or a broken pipeline stage doesn't show up in a contact count. It shows up weeks later as leads that stopped getting followed up with.
             </p>
 
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              For a full overview of what the platform does: 
-              <Link href="/blog/what-is-gohighlevel" className="text-[#0E9BF0] hover:underline ml-1">What Is GoHighLevel? The Complete 2026 Guide →</Link>
-            </p>
-
-            {/* CTA Button 3: After Section 1 */}
-            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 mb-8 text-center">
-              <p className="text-white/80 text-sm mb-3">
-                <span className="font-bold text-white">Ready to migrate to GoHighLevel?</span> Let our team handle the transition.
-              </p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <BarChart3 className="w-4 h-4" />
-                Get Migration Help
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
+            {/* 
+              ============================================================
+              🖼️ IMAGE INSERTED HERE - Full width, responsive, interactive
+              ============================================================
+            */}
+            <div className="my-8 md:my-10 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <div className="relative w-full h-auto bg-[#F8F9FB]">
+                <Image
+                  src="/blog/what-is-ghl-migration-infographic.png"
+                  alt="What is GoHighLevel migration: Data migration vs system migration, migration areas, and project phases overview"
+                  width={1200}
+                  height={500}
+                  className="w-full h-auto object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                />
+              </div>
+              <div className="bg-[#F8F9FB] px-4 py-2.5 text-xs text-[#5C6880] border-t border-[#DDE1E9] flex items-center gap-2">
+                <ImageIcon className="w-3.5 h-3.5" />
+                <span>What is GoHighLevel migration: Data migration vs system migration, key migration areas, and project phases overview</span>
+              </div>
             </div>
 
-            {/* Section 2: What Moves */}
-            <h2 id="what-moves" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              2. What Exactly Moves During a GoHighLevel Migration?
+            {/* Section 2: Why Migrate */}
+            <h2 id="why-migrate" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Why Do Businesses Migrate to GoHighLevel?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              A GHL migration is not a simple export-and-import of a single file. It involves several distinct components, each handled differently.
+              The reason is almost always cost, capability, or both.
+            </p>
+            <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
+              <li><strong className="text-[#1A2236]">Cost consolidation:</strong> an agency paying separately for a CRM, a funnel tool, SMS, and a booking calendar is often spending well more per month than a single flat-rate GoHighLevel plan covering all of it.</li>
+              <li><strong className="text-[#1A2236]">Capability:</strong> businesses needing native SMS, an AI Voice Agent, white-label branding, or a sub-account model for managing multiple clients often find no other single platform provides all of this at a comparable price.</li>
+              <li><strong className="text-[#1A2236]">Operational simplification:</strong> consolidating several disconnected tools into one platform reduces the number of systems that can break or fall out of sync with each other.</li>
+            </ul>
+
+            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
+              For a full overview of the platform itself, see{' '}
+              <Link href="/blog/what-is-gohighlevel" className="text-[#0E9BF0] hover:underline">What Is GoHighLevel?</Link>.
+            </p>
+
+            {/* Section 3: What Can Be Migrated */}
+            <h2 id="what-can-be-migrated" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              What Can Be Migrated? (A High-Level View)
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              The exact scope depends heavily on your current platform and how it's set up, but most migrations involve some combination of the following areas.
             </p>
 
             <div className="overflow-x-auto my-6">
               <table className="w-full border-collapse text-sm">
                 <thead>
                   <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Component</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">What it means in plain English</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">How it moves</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Migration Area</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">What It Means</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {migrationComponents.map((item, idx) => (
+                  {migrationAreas.map((item, idx) => (
                     <tr key={idx} className="border-b border-[#DDE1E9]">
-                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.component}</td>
+                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.area}</td>
                       <td className="py-3 px-3 text-[#5C6880]">{item.meaning}</td>
-                      <td className="py-3 px-3 text-[#0E9BF0]">{item.how}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
 
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">THE ONE RULE THAT COVERS EVERYTHING</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                <strong className="text-[#1A2236]">Data transfers. Logic does not.</strong> Your contacts, tags, and custom field values 
-                can be moved via CSV export and import. Every automation, every conditional trigger, and every workflow that runs your business 
-                must be rebuilt from scratch inside GHL. This is the part that takes time and requires expertise.
-              </p>
-            </div>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Within each area, some pieces transfer more directly than others, and some don't transfer at all and have to be rebuilt or reconfigured. The exact breakdown depends on your specific source platform see the platform-specific guides linked below for the full technical detail on your situation.
+            </p>
 
-            {/* Section 3: Which Platforms */}
-            <h2 id="which-platforms" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              3. Which Platforms Can You Migrate to GoHighLevel From?
+            {/* Section 4: Why Not 1-to-1 */}
+            <h2 id="why-not-1-to-1" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Why Migration Isn't a 1:1 Copy Across Platforms
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              GoHighLevel can receive migrations from almost any CRM, marketing platform, or funnel builder. Here is what the migration 
-              involves for the most common platforms.
+              Different platforms organize data and logic in fundamentally different ways, which is the real reason migration is a translation-and-rebuild project rather than a straightforward transfer.
+            </p>
+            <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
+              <li><strong className="text-[#1A2236]">Fields map differently:</strong> a field that's a simple text box in one platform might be a structured picklist with dependencies in another.</li>
+              <li><strong className="text-[#1A2236]">Pipeline structures differ:</strong> some platforms allow deeply customized, branching pipeline logic that doesn't have an equivalent structure elsewhere.</li>
+              <li><strong className="text-[#1A2236]">Automation engines use different logic models:</strong> trigger-and-action systems, visual campaign builders, and rule-based workflow engines all express the same underlying idea differently, and converting between them is an interpretation exercise, not a file conversion.</li>
+              <li><strong className="text-[#1A2236]">Tags can serve different purposes:</strong> a tag that represents active segmentation in one platform might represent workflow state in another, which changes how it should be handled during migration.</li>
+              <li><strong className="text-[#1A2236]">Reporting models differ:</strong> a report built on one platform's specific data relationships often can't be recreated exactly and needs to be redesigned around the new platform's structure.</li>
+            </ul>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              This is why platform-specific migration guides exist the practical detail of what maps to what depends entirely on which platform you're coming from.
             </p>
 
-            <div className="overflow-x-auto my-6">
-              <table className="w-full border-collapse text-sm">
-                <thead>
-                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Platform</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">What typically transfers</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">What must be rebuilt</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Guide</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {platformData.map((item, idx) => (
-                    <tr key={idx} className="border-b border-[#DDE1E9]">
-                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.platform}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.transfers}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.rebuilds}</td>
-                      <td className="py-3 px-3">
-                        {item.guide ? (
-                          <Link href={item.guide} className="text-[#0E9BF0] hover:underline">Guide →</Link>
-                        ) : (
-                          <span className="text-[#8A9BB0]">Available in service</span>
-                        )}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            {/* Section 4: Migration Phases */}
-            <h2 id="migration-phases" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              4. What Are the Main Phases of a GoHighLevel Migration?
+            {/* Section 5: Types of Migration */}
+            <h2 id="types-of-migration" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Types of GoHighLevel Migration
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Regardless of which platform you are migrating from, every GHL migration follows the same core phases.
+              Not every migration looks the same. Most fall into one or more of these categories.
             </p>
+            <ul className="space-y-2 mb-6 text-sm text-[#5C6880]">
+              <li><strong className="text-[#1A2236]">Platform-to-GHL migration:</strong> moving from a single named platform (HubSpot, Salesforce, Keap, ActiveCampaign, Zoho, ClickFunnels, Kajabi, Mailchimp) into GHL. This is the most common scenario.</li>
+              <li><strong className="text-[#1A2236]">Agency or account migration:</strong> restructuring or moving multiple client environments, often using GHL's sub-account and Snapshot features to standardize setup across clients.</li>
+              <li><strong className="text-[#1A2236]">Tool consolidation:</strong> moving from several disconnected tools (a CRM plus a separate funnel builder plus a separate SMS tool) into one GHL account.</li>
+              <li><strong className="text-[#1A2236]">Partial migration:</strong> moving only specific functions for example, migrating CRM and automation while leaving an existing e-commerce or membership platform in place.</li>
+              <li><strong className="text-[#1A2236]">Rebuild/replacement migration:</strong> using the migration as an opportunity to redesign processes rather than replicate them exactly common when the old system's logic had accumulated years of unused complexity.</li>
+            </ul>
 
-            <div className="space-y-3 mb-6">
-              {migrationPhases.map((item, idx) => (
-                <div key={idx} className="bg-white border border-[#DDE1E9] rounded-xl p-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold flex-shrink-0">{idx + 1}</div>
-                    <div>
-                      <h3 className="text-sm font-bold text-[#1A2236] mb-1">{item.phase}</h3>
-                      <p className="text-sm text-[#5C6880] leading-relaxed">{item.description}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              For a detailed timeline breakdown by platform and complexity: 
-              <Link href="/blog/ghl-migration-timeline" className="text-[#0E9BF0] hover:underline ml-1">GHL Migration Timeline Guide →</Link>
-            </p>
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              For the most common mistakes to avoid: 
-              <Link href="/blog/ghl-migration-mistakes" className="text-[#0E9BF0] hover:underline ml-1">Common GHL Migration Mistakes Agencies Make →</Link>
-            </p>
-
-            {/* CTA Button 4: After Phases */}
-            <div className="bg-gradient-to-r from-[#0E9BF0] to-[#0C8AD8] rounded-xl p-6 text-center text-white mb-8">
-              <p className="text-sm font-medium mb-2">⚡ Overwhelmed by the migration phases?</p>
-              <p className="text-sm text-white/80 mb-4">We handle every phase for you. Audit, build, import, rebuild, test, and cutover.</p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-white text-[#0E9BF0] font-bold px-6 py-2.5 rounded-lg hover:bg-[#F8F9FB] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <HeartHandshake className="w-4 h-4" />
-                Get Migration Done
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-
-            {/* Section 5: Do You Need */}
-            <h2 id="do-you-need" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              5. Do You Actually Need a GoHighLevel Migration?
+            {/* Section 6: Complexity */}
+            <h2 id="complexity" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              What Determines Migration Complexity?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Not every business that considers GoHighLevel needs a migration service. Here is how to tell which situation you are in.
+              Complexity depends on several factors working together, not any single number like contact count.
+            </p>
+            <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
+              <li><strong className="text-[#1A2236]">Simple:</strong> limited data, few workflows, minimal integrations</li>
+              <li><strong className="text-[#1A2236]">Moderate:</strong> multiple pipelines, a meaningful number of workflows, several integrations</li>
+              <li><strong className="text-[#1A2236]">Complex:</strong> large datasets, deep automation logic, multiple integrated systems, or business-critical dependencies</li>
+              <li><strong className="text-[#1A2236]">Enterprise/multi-account:</strong> many stakeholders, multiple accounts, extensive integration and testing requirements</li>
+            </ul>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              How long each of these actually takes varies by platform and specific setup for a full breakdown of realistic timelines and what drives them, see the{' '}
+              <Link href="/blog/ghl-migration-timeline" className="text-[#0E9BF0] hover:underline">GHL migration timeline guide</Link>.
             </p>
 
-            <div className="grid md:grid-cols-2 gap-4 mb-6">
-              <div className="bg-[#E8FAF2] border border-[rgba(37,201,125,0.2)] rounded-xl p-4">
-                <h3 className="text-sm font-bold text-[#25C97D] mb-2 flex items-center gap-2"><CheckCircle2 className="w-4 h-4" /> You need a migration if:</h3>
-                <ul className="space-y-1 text-sm text-[#1A2236] list-disc list-inside">
-                  <li>You have an existing CRM with 500 or more contacts and active automations</li>
-                  <li>You have been on your current platform for 12+ months with built up pipelines and sequences</li>
-                  <li>You cannot afford any disruption to lead follow-up during the switch</li>
-                  <li>You need to move multiple client accounts into GHL's sub-account model</li>
-                </ul>
-              </div>
-              <div className="bg-[#FEF2F0] border border-[rgba(220,53,69,0.2)] rounded-xl p-4">
-                <h3 className="text-sm font-bold text-[#DC3545] mb-2 flex items-center gap-2"><XCircle className="w-4 h-4" /> You may not need a full migration if:</h3>
-                <ul className="space-y-1 text-sm text-[#1A2236] list-disc list-inside">
-                  <li>You are just starting and have fewer than 100 contacts with no automations</li>
-                  <li>Your current platform is simple enough to document and rebuild in a day</li>
-                  <li>You are switching from a very basic tool like Mailchimp's free plan</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Compass className="w-4 h-4 text-[#0E9BF0]" />
-                <span className="text-sm font-bold text-[#0E9BF0]">THE HONEST MIDDLE GROUND</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                Most businesses that have been operating for 12 or more months sit in the middle: too much to lose if they do it wrong, 
-                not complex enough to require a 3-month enterprise migration. A structured 2 to 4 week migration with proper parallel 
-                running and end-to-end testing handles most of these cases cleanly.
-              </p>
-            </div>
-
-            {/* Section 6: Timeline and Cost */}
-            <h2 id="timeline-cost" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              6. How Long Does a GHL Migration Take and What Does It Cost?
+            {/* Section 7: Project Phases */}
+            <h2 id="project-phases" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              What Does a Migration Project Generally Involve?
             </h2>
-
-            <div className="overflow-x-auto my-6">
-              <table className="w-full border-collapse text-sm">
-                <thead>
-                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Migration type</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">What it covers</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Timeline</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">DIY or expert?</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {timelineData.map((item, idx) => (
-                    <tr key={idx} className="border-b border-[#DDE1E9]">
-                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.type}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.what}</td>
-                      <td className="py-3 px-3 text-[#0E9BF0] font-semibold">{item.timeline}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.diy}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">What does a migration cost?</strong> A DIY migration costs only your team's time, 
-              which is significant but not a cash outlay. A professional migration at GHL Scale Up is quoted as a fixed-fee project 
-              after a free assessment. The fee depends on contact volume, automation complexity, and number of client accounts involved. 
-              Most businesses find that the first one to two months of savings from cancelling their old platform covers the migration cost entirely.
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              At a high level, most migrations move through the same broad phases, regardless of source platform: an audit of what currently exists, building the receiving environment in GHL, exporting and importing data, rebuilding automations and workflows, testing, running both systems in parallel briefly, and finally cutting over.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              For the detailed, step-by-step operational framework, see the{' '}
+              <Link href="/blog/gohighlevel-migration-checklist" className="text-[#0E9BF0] hover:underline">complete GoHighLevel migration checklist</Link>. For the risks specific to getting each phase wrong, see{' '}
+              <Link href="/blog/ghl-migration-mistakes" className="text-[#0E9BF0] hover:underline">common GHL migration mistakes</Link>.
             </p>
 
-            <div className="bg-[#1C2E4A] rounded-xl p-5 my-6 text-white">
-              <div className="flex items-center gap-2 mb-3">
-                <Star className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">START WITH A FREE ASSESSMENT</span>
-              </div>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                Not sure how complex your migration is or whether you need professional help? GHL Scale Up offers a free 30-minute migration assessment. 
-                We review your current setup, tell you exactly what the migration involves, and give you a realistic timeline and fixed-fee quote.
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                See real migration results: 
-                <Link href="/case-studies" className="text-[#0E9BF0] hover:underline ml-1">real GoHighLevel results and case studies →</Link>
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed">
-                Then <Link href="/contact" className="text-[#0E9BF0] hover:underline">book your free assessment at ghlscaleup.com/contact →</Link>
-              </p>
-            </div>
+            {/* Section 8: Should You Migrate */}
+            <h2 id="should-you-migrate" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Should You Migrate to GoHighLevel?
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              <strong className="text-[#1A2236]">Migration tends to make sense when:</strong>
+            </p>
+            <ul className="space-y-1 mb-6 text-sm text-[#5C6880] list-disc list-inside">
+              <li>You're consolidating multiple disconnected tools into one system</li>
+              <li>You need capabilities your current platform doesn't offer natively (SMS, AI voice, white-labeling, sub-accounts)</li>
+              <li>Your current tool stack costs meaningfully more than a consolidated GHL setup would</li>
+              <li>You're scaling and need more operational automation than your current platform supports</li>
+            </ul>
 
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              Our full <Link href="/services/migration" className="text-[#0E9BF0] hover:underline">GoHighLevel migration service →</Link> covers contacts, 
-              pipelines, automation rebuild, email domain setup, parallel running, and handover documentation.
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              <strong className="text-[#1A2236]">Migration may not be the right move when:</strong>
+            </p>
+            <ul className="space-y-1 mb-6 text-sm text-[#5C6880] list-disc list-inside">
+              <li>Your current system is deeply integrated with other business-critical tools that have no clear GHL-compatible path</li>
+              <li>A specific feature you depend on has no suitable equivalent in GHL</li>
+              <li>The cost and disruption of migrating exceeds the realistic benefit for your specific situation</li>
+              <li>Your current platform already meets your needs and you're only considering a switch because GoHighLevel is widely discussed, not because of an unmet need</li>
+              <li>Your team doesn't have the time or resources to properly test and validate a new system right now</li>
+            </ul>
+
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              A genuinely useful migration decision is based on your specific requirements and constraints, not on the assumption that GoHighLevel is automatically the better choice for every business.
             </p>
 
-            {/* CTA Button 5: Before FAQ */}
-            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
-              <p className="text-sm font-medium mb-2">🔍 Still not sure if you need a migration?</p>
-              <p className="text-sm text-white/80 mb-4">Let us review your current setup and tell you honestly if migrating makes sense.</p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <Search className="w-4 h-4" />
-                Get a Free Assessment
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
+            {/* Section 9: Where to Go Next */}
+            <h2 id="where-to-go-next" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Where to Go Next
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Once you understand the concept, the right next resource depends on where you are in the process:
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              If you want to estimate how long your specific migration will take, see the{' '}
+              <Link href="/blog/ghl-migration-timeline" className="text-[#0E9BF0] hover:underline">GHL migration timeline guide</Link>. If you're ready to plan the operational steps, use the{' '}
+              <Link href="/blog/gohighlevel-migration-checklist" className="text-[#0E9BF0] hover:underline">GoHighLevel migration checklist</Link>. If you want to avoid the most common failure points, read{' '}
+              <Link href="/blog/ghl-migration-mistakes" className="text-[#0E9BF0] hover:underline">common GHL migration mistakes</Link>. If you know which platform you're moving from, go straight to the dedicated guide:{' '}
+              <Link href="/blog/hubspot-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">HubSpot</Link>,{' '}
+              <Link href="/blog/activecampaign-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">ActiveCampaign</Link>,{' '}
+              <Link href="/blog/clickfunnels-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">ClickFunnels</Link>,{' '}
+              <Link href="/blog/kajabi-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">Kajabi</Link>,{' '}
+              <Link href="/blog/salesforce-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">Salesforce</Link>, or{' '}
+              <Link href="/blog/keap-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">Keap</Link>. If you're not sure which platform's migration is hardest or easiest to plan around, see{' '}
+              <Link href="/blog/best-crm-to-migrate-to-gohighlevel" className="text-[#0E9BF0] hover:underline">which platform is easiest to migrate to GoHighLevel</Link>.
+            </p>
 
-            {/* Section 7: FAQ */}
+            {/* Section 10: FAQ */}
             <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
-              7. Frequently Asked Questions
+              Frequently Asked Questions
             </h2>
 
             <div className="space-y-3">
@@ -690,49 +544,30 @@ export default function WhatIsGHLMigrationClient() {
               ))}
             </div>
 
-            {/* CTA Button 6: After FAQ */}
-            <div className="mt-8 p-6 bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl text-center">
-              <p className="text-white font-bold text-lg mb-2">Still Have Questions About Migrating to GHL?</p>
-              <p className="text-white/60 text-sm mb-4">Talk to our migration specialists directly. We've done 200+ migrations.</p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  Ask an Expert
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-white/20 transition-all border border-white/20 text-sm"
-                >
-                  <Phone className="w-4 h-4" />
-                  Call Us
-                </Link>
-              </div>
+            {/* Contextual CTA inside FAQ */}
+            <div className="mt-4 text-sm text-[#5C6880] leading-relaxed">
+              Not sure where your migration fits, or want a second opinion before you start?{' '}
+              <Link href="/contact" className="text-[#0E9BF0] hover:underline font-medium">Book a free migration assessment</Link>.
             </div>
 
             {/* Internal Links */}
             <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
               <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles in This Series</h3>
               <div className="flex flex-wrap gap-3">
-                <Link href="/blog/hubspot-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">How to Migrate from HubSpot to GoHighLevel →</Link>
-                <Link href="/blog/clickfunnels-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">How to Migrate from ClickFunnels to GoHighLevel →</Link>
-                <Link href="/blog/activecampaign-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">ActiveCampaign to GoHighLevel Migration →</Link>
-                <Link href="/blog/ghl-migration-timeline" className="text-sm text-[#0E9BF0] hover:underline">GHL Migration Timeline: How Long Does It Take? →</Link>
-                <Link href="/blog/ghl-migration-mistakes" className="text-sm text-[#0E9BF0] hover:underline">Common GHL Migration Mistakes Agencies Make →</Link>
-                <Link href="/services/migration" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Migration Service →</Link>
+                <Link href="/blog/what-is-gohighlevel" className="text-sm text-[#0E9BF0] hover:underline">What Is GoHighLevel? →</Link>
+                <Link href="/blog/ghl-migration-timeline" className="text-sm text-[#0E9BF0] hover:underline">GHL Migration Timeline Guide →</Link>
+                <Link href="/blog/gohighlevel-migration-checklist" className="text-sm text-[#0E9BF0] hover:underline">Complete GoHighLevel Migration Checklist →</Link>
+                <Link href="/blog/ghl-migration-mistakes" className="text-sm text-[#0E9BF0] hover:underline">Common GHL Migration Mistakes →</Link>
+                <Link href="/blog/best-crm-to-migrate-to-gohighlevel" className="text-sm text-[#0E9BF0] hover:underline">Which Platform Is Easiest to Migrate to GoHighLevel? →</Link>
               </div>
             </div>
 
-            {/* Final CTA Section */}
+            {/* Final CTA Section - Single closing CTA */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Thinking about migrating to GoHighLevel?</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Not sure where your migration fits?</h3>
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
-                  Start with a free 30-minute migration assessment. We review your current platform, tell you exactly what 
-                  the migration involves, and give you a realistic timeline and fixed-fee quote. No obligation.
+                  Book a free 30-minute migration assessment. We review your current setup, tell you exactly what the migration involves, and give you a realistic timeline and fixed-fee quote. No obligation.
                 </p>
                 <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105">
                   Book Your Free Assessment

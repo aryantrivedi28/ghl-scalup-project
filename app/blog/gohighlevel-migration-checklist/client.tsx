@@ -9,26 +9,17 @@ import {
   Linkedin,
   Twitter,
   BookOpen,
-  Zap,
-  Shield,
-  MessageCircle,
-  Phone,
-  Star,
-  AlertTriangle,
   Rocket,
-  Target,
-  BarChart3,
   Download,
   Printer,
-  Trophy,
-  Search,
-  HeartHandshake
+  Info,
+  Image as ImageIcon,
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import Image from 'next/image';
 
 export default function GHLMigrationChecklistClient() {
   const [activeId, setActiveId] = useState<string>('');
-  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,6 +30,9 @@ export default function GHLMigrationChecklistClient() {
         'phase4',
         'phase5',
         'phase6',
+        'readiness-gate',
+        'cutover-gate',
+        'source-platform-differences',
         'faq'
       ];
 
@@ -50,13 +44,6 @@ export default function GHLMigrationChecklistClient() {
             setActiveId(id);
           }
         }
-      }
-
-      // Show floating Project Help card after scrolling past hero section
-      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
-      if (heroSection) {
-        const heroBottom = heroSection.getBoundingClientRect().bottom;
-        setShowFloatingProjectHelp(heroBottom < 0);
       }
     };
 
@@ -77,45 +64,44 @@ export default function GHLMigrationChecklistClient() {
   const faqs = [
     {
       q: "What should be on a GoHighLevel migration checklist?",
-      a: "A complete GoHighLevel migration checklist covers 6 phases: pre-migration audit (documenting every automation, pipeline, contact, and integration in your current platform), GHL infrastructure setup (custom fields, pipelines, email authentication, phone setup), data export and cleaning (deduplication, formatting, validation), automation rebuild (recreating every active workflow in GHL's builder), testing and parallel running (end-to-end testing plus 2 weeks running both platforms simultaneously), and go-live with 30-day post-launch monitoring. Skipping any phase increases the risk of data loss, broken automations, or lead follow-up failures."
+      a: "A complete checklist covers six phases: pre-migration audit, GHL infrastructure setup, data export and cleaning, automation rebuild, testing and parallel running, and go-live with post-launch monitoring. Two additional gates a pre-migration readiness check and a ready-for-cutover check help confirm you're actually prepared before committing to each risky step."
     },
     {
       q: "What is the most commonly skipped step in a GHL migration?",
-      a: "The pre-migration audit. Agencies are eager to start importing data and rebuilding in GHL, so they skip documenting what currently exists. This is the phase that 43% of data issues trace back to. A migration audit takes a few hours and identifies dead-weight automations, missing custom fields, and integration dependencies before they become problems mid-migration. The second most commonly skipped step is end-to-end testing before go-live. Agencies build the system, do a basic check, and go live without testing the full lead-to-follow-up flow with a real form submission."
+      a: "The pre-migration audit. Teams are eager to start importing data and rebuilding in GHL, so they skip documenting what currently exists which makes it much harder to catch a missing automation or integration before it becomes a problem mid-migration. The second most commonly skipped step is end-to-end testing before go-live."
     },
     {
       q: "How long should I run both platforms in parallel during migration?",
-      a: "A minimum of 2 weeks. During this period, new leads route into GHL while contacts already in active sequences on your old platform finish naturally. This catches any gaps in your GHL setup while you still have a working fallback. Only proceed to full cutover once GHL has performed at least as well as your old platform for 5 to 7 consecutive business days. Cutting over too quickly is one of the most common causes of lead follow-up failures during migration."
+      a: "A minimum of 2 weeks is a reasonable baseline. During this period, new leads route into GHL while contacts already in active sequences on your old platform finish naturally. Only proceed to full cutover once GHL has performed reliably for several consecutive business days."
     },
     {
-      q: "What percentage of automations should I migrate?",
-      a: "Most businesses that have been on a platform for 2 or more years find that 30 to 40% of their existing automations are dead weight. They have not fired in 90+ days, serve a product or campaign that no longer exists, or duplicate another automation. The audit phase should identify these and exclude them from migration. Migrating only active automations significantly reduces rebuild time and keeps your new GHL account clean from the start."
+      q: "How do I decide which integrations to migrate?",
+      a: "Use a Keep/Replace/Rebuild/Retire framework for every integration: Keep if it just needs reconnecting to GHL, Replace if GHL has a native equivalent, Rebuild if the logic needs recreating with GHL's own tools, or Retire if it no longer serves a purpose."
     },
     {
       q: "Can I use this checklist for any platform migration to GoHighLevel?",
-      a: "Yes. This checklist applies to migrations from HubSpot, ClickFunnels, ActiveCampaign, Kajabi, Zoho, Salesforce, or any other CRM or marketing platform. The 6 phases (audit, infrastructure, data, automation, testing, go-live) are the same regardless of source platform. What differs by platform is the specific export format and which automations or features need platform-specific handling, covered in our platform-specific migration guides."
-    },
-    {
-      q: "Does GHL Scale Up use this checklist for client migrations?",
-      a: "Yes. This is the exact checklist GHL Scale Up uses internally on every migration: 200+ migrations from HubSpot, ClickFunnels, ActiveCampaign, Kajabi, Zoho, and Salesforce. If you would rather have our team run this checklist for your migration rather than doing it yourself, book a free migration assessment. We review your current setup, identify what applies to your specific situation, and provide a realistic timeline and fixed-fee quote."
-    },
+      a: "Yes. The six phases apply regardless of source platform. What differs by platform is the specific export format and which features need platform-specific handling covered in the dedicated platform-specific migration guides."
+    }
   ];
 
   useFaqSchema(faqs);
 
   const tocItems = [
-    { id: 'phase1', title: 'Phase 1: Pre-Migration Audit' },
-    { id: 'phase2', title: 'Phase 2: GHL Infrastructure Setup' },
+    { id: 'phase1', title: 'Phase 1: Pre-Migration Audit (Before You Touch Anything)' },
+    { id: 'phase2', title: 'Phase 2: GHL Infrastructure Setup (Before Any Data Moves)' },
     { id: 'phase3', title: 'Phase 3: Data Export, Cleaning, and Import' },
     { id: 'phase4', title: 'Phase 4: Automation Rebuild' },
     { id: 'phase5', title: 'Phase 5: Testing and Parallel Running' },
     { id: 'phase6', title: 'Phase 6: Go-Live and Post-Migration' },
+    { id: 'readiness-gate', title: 'Pre-Migration Readiness Gate' },
+    { id: 'cutover-gate', title: 'Ready-for-Cutover Gate' },
+    { id: 'source-platform-differences', title: 'Source Platform Differences' },
     { id: 'faq', title: 'Frequently Asked Questions' },
   ];
 
   const phase1Items = [
     { title: 'Document everything in your current platform', items: [
-      'List every active automation — name, trigger, purpose, last time it fired',
+      'List every active automation name, trigger, purpose, last time it fired',
       'List every pipeline and its stages',
       'Export a full contact list and note total contact count',
       'List every custom field currently in use',
@@ -128,7 +114,7 @@ export default function GHLMigrationChecklistClient() {
       'Flag any automation that has not fired in 90+ days',
       'Flag any pipeline stage that is no longer in active use',
       'Flag any contact segment for a product or campaign that no longer exists',
-      'Decide which of the above will NOT be migrated (most businesses find 30 to 40% qualifies)'
+      'Decide which of the above will NOT be migrated'
     ]},
     { title: 'Map your tool stack', items: [
       'List every tool currently paid for that touches marketing, CRM, or client communication',
@@ -137,10 +123,8 @@ export default function GHLMigrationChecklistClient() {
     ]},
     { title: 'Estimate your realistic timeline', items: [
       'Count total active automations to be rebuilt',
-      'Multiply by realistic per-automation rebuild time (30 min for simple, 4 to 8 hours for complex)',
       'Add data cleaning time based on contact list size and quality',
-      'Add 2 to 3 weeks for email domain warmup if sending volume is significant',
-      'Compare your estimate against realistic benchmarks'
+      'Add domain warmup time if sending volume is significant'
     ]},
   ];
 
@@ -159,7 +143,7 @@ export default function GHLMigrationChecklistClient() {
       'Configure your sending domain in GHL Settings → Email Services',
       'Set up DKIM, SPF, and DMARC records and verify they pass',
       'Confirm sending domain is different from any domain still active on your old platform',
-      'Plan your 2 to 3 week domain warmup schedule before any bulk sends'
+      'Plan your domain warmup schedule before any bulk sends'
     ]},
     { title: 'Phone and SMS setup', items: [
       'Purchase or port your business phone number into GHL',
@@ -177,14 +161,13 @@ export default function GHLMigrationChecklistClient() {
     { title: 'Clean the data before import', items: [
       'Remove all hard bounces and unsubscribes',
       'Deduplicate records with the same email or phone number',
-      'Standardise phone numbers to E.164 format (+1XXXXXXXXXX)',
-      'Fill in missing fields where possible',
-      'Remove contacts with no engagement in 12+ months from initial import'
+      'Standardize phone numbers to E.164 format (+1XXXXXXXXXX)',
+      'Fill in missing fields where possible'
     ]},
     { title: 'Import and validate', items: [
-      'Map every field correctly during import — double check custom field mapping',
+      'Map every field correctly during import double check custom field mapping',
       'Import in a test batch first (50 to 100 contacts) before full import',
-      'Validate the test batch — check tags, custom fields, and pipeline assignment',
+      'Validate the test batch',
       'Run the full import once the test batch is validated',
       'Spot-check 20 to 30 random contacts post-import for accuracy'
     ]},
@@ -198,29 +181,21 @@ export default function GHLMigrationChecklistClient() {
       'Test with one real contact before activating for all contacts',
       'Confirm the automation appears correctly in GHL\'s reporting'
     ]},
-    { title: 'Priority automations to rebuild first', items: [
-      'New lead instant follow-up (SMS within 60 seconds, email within 2 minutes)',
-      'Missed call text-back',
-      'Appointment reminder sequence (72hr, 24hr, 2hr before)',
-      'Post-service review request',
-      'Lapsed contact reactivation sequence'
-    ]},
   ];
 
   const phase5Items = [
     { title: 'End-to-end test before any real lead enters the system', items: [
       'Submit a real form on your live funnel or website',
       'Confirm the contact appears in GHL CRM with correct tags and pipeline stage',
-      'Confirm the follow-up sequence fires within 60 seconds',
+      'Confirm the follow-up sequence fires as expected',
       'Complete a real booking and confirm reminders send',
-      'Complete a $1 test purchase and confirm the post-purchase sequence fires',
+      'Complete a test purchase and confirm the post-purchase sequence fires',
       'Check the full flow on mobile, not just desktop'
     ]},
-    { title: 'Parallel running (minimum 2 weeks)', items: [
+    { title: 'Parallel running', items: [
       'Route new leads into GHL while old platform remains active',
       'Let contacts already in active sequences on the old platform finish naturally',
       'Monitor GHL open rates, automation fire rates, and booking rates daily',
-      'Compare GHL performance against old platform baseline',
       'Document any gaps discovered and fix before proceeding'
     ]},
   ];
@@ -228,7 +203,7 @@ export default function GHLMigrationChecklistClient() {
   const phase6Items = [
     { title: 'Cutover', items: [
       'Redirect all lead sources (ads, website forms, landing pages) to GHL',
-      'Confirm GHL has performed at least as well as old platform for 5 to 7 consecutive business days',
+      'Confirm GHL has performed at least as well as old platform for several consecutive business days',
       'Take a final full data export from the old platform as backup'
     ]},
     { title: 'Cancellation', items: [
@@ -236,12 +211,43 @@ export default function GHLMigrationChecklistClient() {
       'For HubSpot specifically: confirm cancellation before the 25-day data deletion window',
       'Cancel any redundant tools identified in Phase 1\'s tool stack mapping'
     ]},
-    { title: '30-day post-launch monitoring', items: [
+    { title: 'Post-launch monitoring', items: [
       'Monitor email deliverability and spam complaint rates weekly for the first month',
       'Review automation performance reports weekly',
       'Address any team questions or friction points as they arise',
       'Document the final system for future reference and team onboarding'
     ]},
+  ];
+
+  const readinessGateItems = [
+    'Data mapping is documented and approved',
+    'Critical workflows are fully documented (trigger, conditions, actions)',
+    'Required GHL custom fields exist and match your data structure',
+    'Pipeline stages are configured to match your sales process',
+    'Every integration has a Keep/Replace/Rebuild/Retire decision made',
+    'Sending domain is configured and authentication (DKIM/SPF/DMARC) passes',
+    'A test batch of data has been imported and validated',
+    'Stakeholders know and agree to the cutover plan and timeline'
+  ];
+
+  const cutoverGateItems = [
+    'Contacts and opportunities are imported and spot-checked',
+    'Pipelines are validated against your actual sales process',
+    'Critical workflows are tested end-to-end with a real contact',
+    'No automation is enrolling contacts unintentionally',
+    'Email, SMS, and phone have all been tested with real sends/calls',
+    'Forms and funnels are tested and routing correctly',
+    'Calendar bookings and reminder notifications are tested',
+    'Critical integrations are reconnected and tested',
+    'Analytics and conversion tracking are verified working',
+    'Someone is explicitly assigned to monitor the system post-cutover'
+  ];
+
+  const integrationDecisions = [
+    { decision: 'Keep', when: 'The tool stays and simply needs to be reconnected to point at GHL instead of the old platform' },
+    { decision: 'Replace', when: 'GHL has a native feature that does the same job retire the external tool entirely' },
+    { decision: 'Rebuild', when: 'The integration logic needs to be recreated using GHL\'s own automation/API tools rather than a direct reconnect' },
+    { decision: 'Retire', when: 'The tool served a purpose that no longer exists and doesn\'t need any equivalent in GHL' }
   ];
 
   // Reusable Project Help Card Component
@@ -285,7 +291,7 @@ export default function GHLMigrationChecklistClient() {
           <div className="flex flex-wrap gap-2 mb-4">
             <span className="bg-[rgba(14,155,240,0.15)] text-[#0E9BF0] text-[11px] font-semibold px-2.5 py-1 rounded-full">Checklist</span>
             <span className="bg-[rgba(37,201,125,0.15)] text-[#25C97D] text-[11px] font-semibold px-2.5 py-1 rounded-full">GHL Migration</span>
-            <span className="bg-[rgba(248,208,0,0.15)] text-[#F8D000] text-[11px] font-semibold px-2.5 py-1 rounded-full">Lead Magnet</span>
+            <span className="bg-[rgba(248,208,0,0.15)] text-[#F8D000] text-[11px] font-semibold px-2.5 py-1 rounded-full">Execution</span>
             <span className="bg-[rgba(14,155,240,0.15)] text-[#0E9BF0] text-[11px] font-semibold px-2.5 py-1 rounded-full">2026</span>
           </div>
 
@@ -306,16 +312,13 @@ export default function GHLMigrationChecklistClient() {
             </div>
             <div>
               <div className="text-sm font-medium text-white">GHL Scale Up Team</div>
-              <div className="text-xs text-white/50">GoHighLevel Migration Specialists · 200+ Migrations Delivered · Updated June 2026</div>
+              <div className="text-xs text-white/50">GoHighLevel Migration Specialists · 200+ migrations delivered · Updated September 2026</div>
             </div>
           </div>
 
           {/* Introductory Paragraph */}
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-6xl">
-            This is the checklist <strong className="text-white"> GHL Scale Up</strong> uses internally on every 
-            GoHighLevel migration we run. 200+ migrations from HubSpot, ClickFunnels, ActiveCampaign, Kajabi, 
-            Zoho, and Salesforce. Save this page, print it, or work through it phase by phase. Each item is 
-            something we have seen go wrong when skipped.
+            This is the checklist GHL Scale Up uses internally on GoHighLevel migrations. Work through it phase by phase, or use the two readiness gates to sanity-check whether you're actually ready to move to the next stage.
           </p>
 
           {/* CTA Button 1: Hero Section */}
@@ -394,7 +397,7 @@ export default function GHLMigrationChecklistClient() {
                 </div>
               </div>
               <p className="text-xs text-white/60 leading-relaxed mb-3">
-                5+ years GHL experience · 200+ migrations completed globally. This checklist reflects our internal migration process as of June 2026.
+                5+ years GHL experience · 200+ migrations completed globally. This checklist reflects our internal migration process as of September 2026.
               </p>
               <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
             </div>
@@ -442,32 +445,6 @@ export default function GHLMigrationChecklistClient() {
 
           {/* ==================== RIGHT COLUMN: BLOG CONTENT ==================== */}
           <main className="min-w-0 order-2">
-            {/* TL;DR / Quick Answer Box (BLUF) */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
-              <div className="flex items-center gap-2 mb-3">
-                <Zap className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Why This Checklist Matters</span>
-              </div>
-              <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
-                Businesses that approach GoHighLevel migration with a structured risk assessment achieve 85% fewer disruptions and 40% faster ROI realization.
-              </p>
-              <p className="text-sm text-[#5C6880] leading-relaxed">
-                On the other side: 67% of failed migrations used unrealistic 2 to 4 week timelines for complex environments, 
-                and 43% of data issues trace back to inadequate pre-migration data analysis. This checklist exists to put you in the first group.
-              </p>
-
-              {/* CTA Button 2: Inside TL;DR Box */}
-              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
-                  <Target className="w-4 h-4" />
-                  Get Migration Help
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </div>
 
             {/* Table of Contents - Mobile Only */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8 lg:hidden">
@@ -498,8 +475,7 @@ export default function GHLMigrationChecklistClient() {
               Phase 1: Pre-Migration Audit (Before You Touch Anything)
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              This is the phase most agencies skip or rush, and it is the phase that 43% of data issues trace back to. 
-              A migration audit takes a few hours and saves significant rework later.
+              This is the phase most agencies skip or rush. It takes a few hours and prevents the majority of avoidable rework later.
             </p>
 
             <div className="space-y-6 mb-8">
@@ -509,9 +485,7 @@ export default function GHLMigrationChecklistClient() {
                   <div className="space-y-2">
                     {section.items.map((item, itemIdx) => (
                       <div key={itemIdx} className="flex items-start gap-2">
-                        <div className="w-5 h-5 rounded border border-[#DDE1E9] flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <span className="text-xs text-[#96A0B5]">☐</span>
-                        </div>
+                        <span className="text-sm text-[#96A0B5] flex-shrink-0 mt-0.5">☐</span>
                         <span className="text-sm text-[#5C6880]">{item}</span>
                       </div>
                     ))}
@@ -521,39 +495,28 @@ export default function GHLMigrationChecklistClient() {
             </div>
 
             <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
-              <p className="text-sm text-[#1A2236] leading-relaxed mb-2">
-                → For a full overview of what migration involves: <Link href="/blog/what-is-ghl-migration" className="text-[#0E9BF0] hover:underline">What Is GoHighLevel Migration?</Link>
-              </p>
+              <div className="flex items-center gap-2 mb-2">
+                <Info className="w-4 h-4 text-[#0E9BF0]" />
+                <span className="text-sm font-bold text-[#0E9BF0]">A NOTE ON SCOPE REDUCTION</span>
+              </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                → For tool consolidation framework: <Link href="/blog/consolidate-marketing-tools-gohighlevel" className="text-[#0E9BF0] hover:underline">How to Consolidate Marketing Tools Using GoHighLevel →</Link>
-              </p>
-              <p className="text-sm text-[#1A2236] leading-relaxed mt-2">
-                → For timeline benchmarks: <Link href="/blog/ghl-migration-timeline" className="text-[#0E9BF0] hover:underline">GHL Migration Timeline Guide →</Link>
+                many businesses that have been on a platform for 2+ years find that a meaningful share of their existing automations no longer fire or serve a purpose. There's no fixed percentage this applies to universally it depends entirely on how long you've been on your current platform and how disciplined your team has been about retiring old automations. The point of this audit step is to find your own number, not assume a benchmark.
               </p>
             </div>
 
-            {/* CTA Button 3: After Phase 1 */}
-            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 mb-8 text-center">
-              <p className="text-white/80 text-sm mb-3">
-                <span className="font-bold text-white">Don't want to audit yourself?</span> Let our team handle the pre-migration analysis.
-              </p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <BarChart3 className="w-4 h-4" />
-                Get Audit Support
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
+            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
+              For a full overview of what migration involves, see{' '}
+              <Link href="/blog/what-is-ghl-migration" className="text-[#0E9BF0] hover:underline">What Is GoHighLevel Migration?</Link>. For realistic timeline benchmarks by platform and complexity, see the{' '}
+              <Link href="/blog/ghl-migration-timeline" className="text-[#0E9BF0] hover:underline">GHL migration timeline guide</Link>.
+            </p>
+
 
             {/* Phase 2 */}
             <h2 id="phase2" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               Phase 2: GHL Infrastructure Setup (Before Any Data Moves)
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Build the receiving environment before a single contact is imported. Importing into an unconfigured account 
-              creates a mess that is harder to fix after the fact than to prevent before.
+              Build the receiving environment before a single contact is imported.
             </p>
 
             <div className="space-y-6 mb-8">
@@ -563,9 +526,7 @@ export default function GHLMigrationChecklistClient() {
                   <div className="space-y-2">
                     {section.items.map((item, itemIdx) => (
                       <div key={itemIdx} className="flex items-start gap-2">
-                        <div className="w-5 h-5 rounded border border-[#DDE1E9] flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <span className="text-xs text-[#96A0B5]">☐</span>
-                        </div>
+                        <span className="text-sm text-[#96A0B5] flex-shrink-0 mt-0.5">☐</span>
                         <span className="text-sm text-[#5C6880]">{item}</span>
                       </div>
                     ))}
@@ -574,18 +535,53 @@ export default function GHLMigrationChecklistClient() {
               ))}
             </div>
 
-            {/* CTA Button 4: After Phase 2 */}
-            <div className="bg-gradient-to-r from-[#0E9BF0] to-[#0C8AD8] rounded-xl p-6 text-center text-white mb-8">
-              <p className="text-sm font-medium mb-2">Need help setting up your GHL infrastructure?</p>
-              <p className="text-sm text-white/80 mb-4">Get custom fields, pipelines, email authentication, and phone setup configured correctly.</p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-white text-[#0E9BF0] font-bold px-6 py-2.5 rounded-lg hover:bg-[#F8F9FB] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <HeartHandshake className="w-4 h-4" />
-                Setup Support
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
+            {/* Integrations: Keep, Replace, Rebuild, or Retire */}
+            <div className="bg-white border border-[#DDE1E9] rounded-xl p-5 mb-8">
+              <h3 className="text-base font-bold text-[#1A2236] mb-3">Integrations: Keep, Replace, Rebuild, or Retire</h3>
+              <p className="text-sm text-[#5C6880] leading-relaxed mb-4">
+                For every integration identified in Phase 1, make an explicit decision rather than assuming it all needs rebuilding as-is:
+              </p>
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse text-sm">
+                  <thead>
+                    <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
+                      <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Decision</th>
+                      <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">When It Applies</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {integrationDecisions.map((item, idx) => (
+                      <tr key={idx} className="border-b border-[#DDE1E9]">
+                        <td className="py-3 px-3 font-medium text-[#1A2236]">{item.decision}</td>
+                        <td className="py-3 px-3 text-[#5C6880]">{item.when}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* 
+              ============================================================
+              🖼️ IMAGE INSERTED HERE - Full width, responsive, interactive
+              ============================================================
+            */}
+            <div className="my-8 md:my-10 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <div className="relative w-full h-auto bg-[#F8F9FB]">
+                <Image
+                  src="/blog/ghl-migration-checklist-infographic.png"
+                  alt="GoHighLevel Migration Checklist: Six phases from pre-migration audit to go-live, with readiness gates and integration decisions"
+                  width={1200}
+                  height={500}
+                  className="w-full h-auto object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                />
+              </div>
+              <div className="bg-[#F8F9FB] px-4 py-2.5 text-xs text-[#5C6880] border-t border-[#DDE1E9] flex items-center gap-2">
+                <ImageIcon className="w-3.5 h-3.5" />
+                <span>GoHighLevel Migration Checklist: Six phases from pre-migration audit to go-live, with readiness gates and integration decisions</span>
+              </div>
             </div>
 
             {/* Phase 3 */}
@@ -600,9 +596,7 @@ export default function GHLMigrationChecklistClient() {
                   <div className="space-y-2">
                     {section.items.map((item, itemIdx) => (
                       <div key={itemIdx} className="flex items-start gap-2">
-                        <div className="w-5 h-5 rounded border border-[#DDE1E9] flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <span className="text-xs text-[#96A0B5]">☐</span>
-                        </div>
+                        <span className="text-sm text-[#96A0B5] flex-shrink-0 mt-0.5">☐</span>
                         <span className="text-sm text-[#5C6880]">{item}</span>
                       </div>
                     ))}
@@ -611,13 +605,18 @@ export default function GHLMigrationChecklistClient() {
               ))}
             </div>
 
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-4 my-4">
+              <p className="text-sm text-[#1A2236] leading-relaxed">
+                <strong>Done when:</strong> sample records match the source data exactly, custom fields contain the expected values (not blank or mismatched types), tags applied during import match what was mapped, no unexpected duplicate contacts appear, and at least 20-30 spot-checked records behave correctly when opened in GHL.
+              </p>
+            </div>
+
             {/* Phase 4 */}
             <h2 id="phase4" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
               Phase 4: Automation Rebuild
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              This is the phase that takes the longest and is the phase most often underestimated. 
-              Automations do not transfer. They must be rebuilt from scratch in GHL's workflow builder.
+              This phase takes the longest and is the one most often underestimated. Automations do not transfer they must be rebuilt from scratch in GHL's workflow builder.
             </p>
 
             <div className="space-y-6 mb-8">
@@ -627,9 +626,7 @@ export default function GHLMigrationChecklistClient() {
                   <div className="space-y-2">
                     {section.items.map((item, itemIdx) => (
                       <div key={itemIdx} className="flex items-start gap-2">
-                        <div className="w-5 h-5 rounded border border-[#DDE1E9] flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <span className="text-xs text-[#96A0B5]">☐</span>
-                        </div>
+                        <span className="text-sm text-[#96A0B5] flex-shrink-0 mt-0.5">☐</span>
                         <span className="text-sm text-[#5C6880]">{item}</span>
                       </div>
                     ))}
@@ -638,34 +635,19 @@ export default function GHLMigrationChecklistClient() {
               ))}
             </div>
 
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">DO NOT OPTIMISE DURING THIS PHASE</span>
-              </div>
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-4 my-4">
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                Rebuild exactly what existed before, not an improved version. If something performs differently after go-live, 
-                you need to know whether it is a migration error or a deliberate change. Optimise after the migration is stable, not during.
+                <strong>Done when:</strong> a real test contact moves through the entire workflow exactly as designed every wait step times correctly, every conditional branch routes to the right path, every message sends with correct merge fields, and the workflow's exit condition fires as expected. Don't consider a rebuilt automation complete until you've watched one real contact go through it start to finish.
               </p>
             </div>
 
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              For the full guide: <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-[#0E9BF0] hover:underline">GoHighLevel Workflow Automation for Beginners →</Link>
-            </p>
-
-            {/* CTA Button 5: After Phase 4 */}
-            <div className="bg-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
-              <p className="text-sm font-medium mb-2">⚡ Overwhelmed by automation rebuild?</p>
-              <p className="text-sm text-white/80 mb-4">Let our team rebuild your automations in GHL's workflow builder correctly the first time.</p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <Zap className="w-4 h-4" />
-                Automation Help
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-4 my-4">
+              <p className="text-sm text-[#1A2236] leading-relaxed">
+                <strong>Rebuild what existed, not an improved version.</strong> If something performs differently after go-live, you need to know whether it's a migration error or a deliberate change. Optimize after the migration is stable, not during it. Full guide:{' '}
+                <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-[#0E9BF0] hover:underline">GoHighLevel workflow automation for beginners</Link>.
+              </p>
             </div>
+
 
             {/* Phase 5 */}
             <h2 id="phase5" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
@@ -679,9 +661,7 @@ export default function GHLMigrationChecklistClient() {
                   <div className="space-y-2">
                     {section.items.map((item, itemIdx) => (
                       <div key={itemIdx} className="flex items-start gap-2">
-                        <div className="w-5 h-5 rounded border border-[#DDE1E9] flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <span className="text-xs text-[#96A0B5]">☐</span>
-                        </div>
+                        <span className="text-sm text-[#96A0B5] flex-shrink-0 mt-0.5">☐</span>
                         <span className="text-sm text-[#5C6880]">{item}</span>
                       </div>
                     ))}
@@ -691,22 +671,9 @@ export default function GHLMigrationChecklistClient() {
             </div>
 
             <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              For the most common errors found during this phase: <Link href="/blog/ghl-migration-mistakes" className="text-[#0E9BF0] hover:underline">Common GHL Migration Mistakes Agencies Make →</Link>
+              For the most common errors found during this phase, see{' '}
+              <Link href="/blog/ghl-migration-mistakes" className="text-[#0E9BF0] hover:underline">common GHL migration mistakes</Link>.
             </p>
-
-            {/* CTA Button 6: Before Phase 6 */}
-            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
-              <p className="text-sm font-medium mb-2">🔍 Not confident in your testing process?</p>
-              <p className="text-sm text-white/80 mb-4">Let us review your migration setup and identify gaps before you go live.</p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <Search className="w-4 h-4" />
-                Get a Migration Review
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
 
             {/* Phase 6 */}
             <h2 id="phase6" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
@@ -720,9 +687,7 @@ export default function GHLMigrationChecklistClient() {
                   <div className="space-y-2">
                     {section.items.map((item, itemIdx) => (
                       <div key={itemIdx} className="flex items-start gap-2">
-                        <div className="w-5 h-5 rounded border border-[#DDE1E9] flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <span className="text-xs text-[#96A0B5]">☐</span>
-                        </div>
+                        <span className="text-sm text-[#96A0B5] flex-shrink-0 mt-0.5">☐</span>
                         <span className="text-sm text-[#5C6880]">{item}</span>
                       </div>
                     ))}
@@ -731,50 +696,58 @@ export default function GHLMigrationChecklistClient() {
               ))}
             </div>
 
-            {/* How GHL Scale Up Uses This Checklist */}
-            <div className="bg-[#1C2E4A] rounded-xl p-5 my-6 text-white">
-              <div className="flex items-center gap-2 mb-3">
-                <Star className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">HOW GHL SCALE UP USES THIS CHECKLIST</span>
+            {/* Pre-Migration Readiness Gate */}
+            <h2 id="readiness-gate" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Pre-Migration Readiness Gate: Don't Start the Production Migration Until...
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Use this as a final go/no-go check before moving any real data.
+            </p>
+
+            <div className="bg-white border border-[#DDE1E9] rounded-xl p-5 mb-8">
+              <div className="space-y-2">
+                {readinessGateItems.map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-2">
+                    <span className="text-sm text-[#96A0B5] flex-shrink-0 mt-0.5">☐</span>
+                    <span className="text-sm text-[#5C6880]">{item}</span>
+                  </div>
+                ))}
               </div>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                Every migration we run follows this exact checklist. 200+ times across HubSpot, ClickFunnels, ActiveCampaign, 
-                Kajabi, Zoho, and Salesforce.
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                See real migration results: <Link href="/case-studies" className="text-[#0E9BF0] hover:underline">real GoHighLevel results and case studies →</Link>
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed">
-                If you would rather have us run this checklist for you, <Link href="/contact" className="text-[#0E9BF0] hover:underline">book a free migration assessment</Link> 
-                at ghlscaleup.com/contact. We review your current setup and give you a realistic timeline and fixed-fee quote.
-              </p>
-              <p className="text-sm text-white/60 leading-relaxed mt-3">
-                Our full <Link href="/services/migration" className="text-[#0E9BF0] hover:underline">GoHighLevel migration service →</Link> covers every phase in this checklist, managed end to end.
-              </p>
             </div>
 
-            {/* CTA Button 7: After How We Use This */}
-            <div className="mt-8 p-6 bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl text-center">
-              <p className="text-white font-bold text-lg mb-2">⚠️ Planning a migration soon?</p>
-              <p className="text-white/60 text-sm mb-4">Skip the risk. Let our team run this checklist for you. Free migration assessment with realistic timeline and fixed quote.</p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
-                  <Shield className="w-4 h-4" />
-                  Get a Free Assessment
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link
-                  href="/services/migration"
-                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-white/20 transition-all border border-white/20 text-sm"
-                >
-                  <Trophy className="w-4 h-4" />
-                  See Migration Services
-                </Link>
+            {/* Ready-for-Cutover Gate */}
+            <h2 id="cutover-gate" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Ready-for-Cutover Gate: Don't Redirect Live Traffic Until...
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Use this before pointing real leads and traffic at GHL.
+            </p>
+
+            <div className="bg-white border border-[#DDE1E9] rounded-xl p-5 mb-8">
+              <div className="space-y-2">
+                {cutoverGateItems.map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-2">
+                    <span className="text-sm text-[#96A0B5] flex-shrink-0 mt-0.5">☐</span>
+                    <span className="text-sm text-[#5C6880]">{item}</span>
+                  </div>
+                ))}
               </div>
             </div>
+
+            {/* Source Platform Differences */}
+            <h2 id="source-platform-differences" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Source Platform Differences
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              This checklist applies regardless of source platform, but the specific export format, what transfers automatically, and platform-specific gotchas differ. Use the dedicated guide for your platform alongside this checklist:{' '}
+              <Link href="/blog/hubspot-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">HubSpot</Link>,{' '}
+              <Link href="/blog/activecampaign-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">ActiveCampaign</Link>,{' '}
+              <Link href="/blog/clickfunnels-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">ClickFunnels</Link>,{' '}
+              <Link href="/blog/kajabi-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">Kajabi</Link>,{' '}
+              <Link href="/blog/salesforce-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">Salesforce</Link>, or{' '}
+              <Link href="/blog/keap-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">Keap</Link>.
+            </p>
+
 
             {/* FAQ */}
             <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
@@ -793,48 +766,30 @@ export default function GHLMigrationChecklistClient() {
               ))}
             </div>
 
-            {/* CTA Button 8: After FAQ */}
-            <div className="mt-8 p-6 bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl text-center">
-              <p className="text-white font-bold text-lg mb-2">Still Have Questions About Your Migration?</p>
-              <p className="text-white/60 text-sm mb-4">Talk to our migration specialists directly. We're here to help you plan your move to GoHighLevel.</p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  Ask an Expert
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-white/20 transition-all border border-white/20 text-sm"
-                >
-                  <Phone className="w-4 h-4" />
-                  Call Us
-                </Link>
-              </div>
+            {/* Contextual CTA inside FAQ */}
+            <div className="mt-4 text-sm text-[#5C6880] leading-relaxed">
+              Want this checklist run for you instead?{' '}
+              <Link href="/contact" className="text-[#0E9BF0] hover:underline font-medium">Book a free migration assessment</Link> for a realistic timeline and fixed-fee quote.
             </div>
 
             {/* Internal Links */}
             <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
               <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles in This Series</h3>
               <div className="flex flex-wrap gap-3">
-                <Link href="/blog/what-is-ghl-migration" className="text-sm text-[#0E9BF0] hover:underline">What Is GoHighLevel Migration? Beginner's Guide →</Link>
-                <Link href="/blog/ghl-migration-timeline" className="text-sm text-[#0E9BF0] hover:underline">GHL Migration Timeline: How Long Does It Take? →</Link>
-                <Link href="/blog/ghl-migration-mistakes" className="text-sm text-[#0E9BF0] hover:underline">Common GHL Migration Mistakes Agencies Make →</Link>
-                <Link href="/blog/consolidate-marketing-tools-gohighlevel" className="text-sm text-[#0E9BF0] hover:underline">How to Consolidate Marketing Tools Using GoHighLevel →</Link>
+                <Link href="/blog/what-is-ghl-migration" className="text-sm text-[#0E9BF0] hover:underline">What Is GoHighLevel Migration? →</Link>
+                <Link href="/blog/ghl-migration-timeline" className="text-sm text-[#0E9BF0] hover:underline">GHL Migration Timeline Guide →</Link>
+                <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Workflow Automation for Beginners →</Link>
+                <Link href="/blog/ghl-migration-mistakes" className="text-sm text-[#0E9BF0] hover:underline">Common GHL Migration Mistakes →</Link>
                 <Link href="/services/migration" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Migration Service →</Link>
               </div>
             </div>
 
-            {/* Final CTA Section */}
+            {/* Final CTA Section - Single closing CTA */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Want this checklist managed for you instead?</h3>
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
-                  GHL Scale Up runs this exact checklist on every migration. Free 30-minute migration assessment. 
-                  We review your current setup, tell you exactly what applies, and give you a realistic timeline and fixed-fee quote.
+                  GHL Scale Up runs this exact checklist on every migration. Free 30-minute migration assessment. We review your current setup, tell you exactly what applies, and give you a realistic timeline and fixed-fee quote.
                 </p>
                 <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105">
                   Book Your Free Assessment

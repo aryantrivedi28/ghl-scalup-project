@@ -4,119 +4,61 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import {
   ArrowRight,
-  CheckCircle2,
   ChevronDown,
   Copy,
   Linkedin,
   Twitter,
   BookOpen,
-  Settings,
   Zap,
-  Shield,
-  DollarSign,
-  Users,
-  Building2,
-  Calendar,
-  MessageCircle,
-  Phone,
-  Layout,
-  GitBranch,
-  Sparkles,
-  Award,
-  TrendingUp,
   Star,
   AlertTriangle,
-  Server,
-  Globe,
-  CreditCard,
-  Smartphone,
-  Briefcase,
   Rocket,
-  Cloud,
-  Database,
-  FileDown,
-  Upload,
-  RefreshCw,
-  Clock,
-  Mail,
-  Tag,
-  GitMerge,
-  Video,
-  BookOpen as BookOpenIcon,
-  GraduationCap,
-  ArrowUpRight,
-  HelpCircle,
-  Timer,
-  Trash2,
-  Download,
-  BarChart3,
-  PieChart,
-  Workflow,
   Target,
   HeartHandshake,
-  MessageCircle as MessageCircleIcon,
-  Phone as PhoneIcon,
+  MessageCircle,
+  Phone,
   Search,
-  Facebook,
-  AlertCircle,
-  Info,
-  Lightbulb,
-  FileText,
-  UserCheck,
-  UserX,
-  Compass,
-  FileCheck,
-  CheckCircle,
-  Layers,
-  PanelTop,
-  LayoutDashboard
+  Timer,
+  Clock,
+  BarChart3,
+  Image as ImageIcon,
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import Image from 'next/image';
 
 export default function GHLMigrationTimelineClient() {
   const [activeId, setActiveId] = useState<string>('');
-  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
-  // Handle scroll detection for active section
   useEffect(() => {
-    const sections = [
-      'timeline-by-platform',
-      'what-drives-timeline',
-      'migration-phases',
-      'diy-vs-expert',
-      'faq'
-    ];
-
     const handleScroll = () => {
-      let currentSection = sections[0];
+      const sections = [
+        'what-drives-timeline',
+        'calendar-vs-work-effort',
+        'sequential-vs-parallel',
+        'complexity-framework',
+        'timeline-by-platform',
+        'migration-phases',
+        'causes-delays',
+        'shorten-timeline',
+        'diy-vs-specialist',
+        'faq'
+      ];
 
       for (const id of sections) {
         const element = document.getElementById(id);
-        if (!element) continue;
-        const rect = element.getBoundingClientRect();
-        if (rect.top <= 180) {
-          currentSection = id;
-        } else {
-          break;
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 150) {
+            setActiveId(id);
+          }
         }
-      }
-
-      setActiveId(currentSection);
-
-      // Show floating Project Help card after scrolling past hero section
-      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
-      if (heroSection) {
-        const heroBottom = heroSection.getBoundingClientRect().bottom;
-        setShowFloatingProjectHelp(heroBottom < 0);
       }
     };
 
-    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Handle TOC click with smooth scroll
   const scrollToHeading = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -130,73 +72,85 @@ export default function GHLMigrationTimelineClient() {
   const faqs = [
     {
       q: "How long does a GoHighLevel migration take?",
-      a: "A simple GoHighLevel migration with a small contact list and fewer than 5 active automations takes 1 to 2 weeks. A standard migration with 5 to 20 automations takes 3 to 5 weeks. A complex migration with 20 or more automations, membership content, or multiple client accounts takes 6 to 10 weeks. The contact import itself takes minutes. The automation rebuild is what determines the total timeline. Each complex automation with multiple branches and conditional logic can take 4 to 8 hours to rebuild correctly in GHL."
+      a: "A simple migration with fewer than 5 active automations and a small, clean contact list takes 1–2 weeks. A standard migration with 5–20 automations takes 3–5 weeks. A complex migration with 20+ automations, large data volume, membership content, or multiple client accounts takes 6–10 weeks. Automation count, not contact volume, is the primary driver."
     },
     {
-      q: "What is the biggest factor in GoHighLevel migration timeline?",
-      a: "The number of active automations that need to be rebuilt, not the size of your contact database. Importing contacts is a CSV process that takes minutes regardless of volume. Rebuilding automations is a manual process that takes hours per workflow. A business with 50,000 contacts and 3 simple workflows migrates faster than a business with 5,000 contacts and 25 complex sequences. Before starting any migration, audit which automations are actively generating results and only rebuild those. This single step reduces migration timeline more than any other."
+      q: "Does contact volume affect migration time?",
+      a: "Less than most people assume. The CSV import itself takes minutes regardless of whether you have 5,000 or 500,000 contacts. Volume matters more indirectly through data-quality cleanup time and testing thoroughness than through the import process itself."
     },
     {
-      q: "Can you speed up a GoHighLevel migration?",
-      a: "Yes, in three ways. First, audit and cut your automations before migration only rebuild sequences that are actively driving results. Second, clean your contact data before import dirty data causes validation delays that slow everything down. Third, work with a GHL migration specialist who has an established process rather than learning the platform while migrating. GHL Scale Up typically completes standard migrations 3 to 4 times faster than DIY timelines because we have resolved all the common blockers (DKIM setup, A2P registration, Stripe reconnection, workflow troubleshooting) dozens of times before."
+      q: "How long does it take to rebuild workflows in GoHighLevel?",
+      a: "A simple 3–5 step sequence takes 30–60 minutes. A standard sequence with basic branching takes 2–4 hours. A complex automation with 15+ steps, multi-level branching, and lead-scoring logic takes 4–8 hours. Add 50–100% to these figures if you're learning GHL's workflow builder while migrating."
     },
     {
-      q: "How long does it take to rebuild automations in GoHighLevel?",
-      a: "A simple linear email sequence with 3 to 5 steps takes 30 to 60 minutes to rebuild in GHL's workflow builder. A standard sequence with 10 steps, basic if/else branching, and a couple of trigger types takes 2 to 4 hours. A complex automation with 15 or more steps, multi-level branching, lead scoring triggers, deal stage conditions, and webhook calls takes 4 to 8 hours. These estimates assume you are already comfortable with GHL's workflow builder. For someone learning GHL while migrating, add 50 to 100 percent to these times."
+      q: "How long does a Kajabi to GoHighLevel migration take?",
+      a: "1–2 weeks for a simple setup, 3–5 weeks standard, 5–8 weeks complex. This is shorter than older estimates because GoHighLevel's native Kajabi Course Importer now handles course structure and media for published lessons automatically the remaining time goes into quizzes, assignments, offers, and automation rebuild."
     },
     {
-      q: "Should I run both platforms in parallel during a GHL migration?",
-      a: "Yes always. Running both the old platform and GHL simultaneously for at least 1 to 2 weeks before cutting over is one of the most important steps in a safe migration. New leads enter GHL. Contacts already active in sequences in the old platform complete those sequences before moving. This parallel period reveals any gaps in your GHL setup while you still have a fallback. Cutting over too quickly cancelling the old platform before GHL is fully validated is the most common cause of data loss and automation failures in self-managed migrations."
+      q: "Should I run both platforms in parallel during migration?",
+      a: "Yes, for a minimum of 1–2 weeks before cutover. New leads enter GHL while contacts already active in old-platform sequences finish there. This reveals gaps in your GHL setup while you still have a working fallback."
     },
     {
-      q: "How long should I keep my old platform active during a GHL migration?",
-      a: "Keep your old platform active until: all contacts are imported and validated in GHL, all active automations are rebuilt and tested in GHL, you have run both platforms in parallel for a minimum of 1 to 2 weeks, and all lead capture points (website forms, ad integrations, landing pages) are redirected to GHL. For HubSpot users specifically: HubSpot provides a 25-day data export window after cancellation after that, data is permanently deleted. Do not cancel HubSpot until the migration is fully complete and validated."
-    },
-    {
-      q: "How much does a GoHighLevel migration cost?",
-      a: "Migration project fees at GHL Scale Up depend on the number of active automations, contact volume, and platform complexity. A simple migration is priced as a fixed-fee project. Complex migrations with 20 or more automations and multiple client accounts are quoted after a free assessment. Most clients find that the first 1 to 2 months of savings from cancelling their old platform covers the migration cost entirely, with ongoing savings of several hundred to several thousand dollars per month thereafter."
-    },
+      q: "Can migration timelines be shortened without increasing risk?",
+      a: "Yes by reducing avoidable work rather than reducing testing. Cutting automations that no longer drive results, cleaning data before import, and freezing scope all shorten the timeline without cutting corners on QA."
+    }
   ];
 
   useFaqSchema(faqs);
 
   const tocItems = [
-    { id: 'timeline-by-platform', title: '1. How Long Does GoHighLevel Migration Take by Platform?' },
-    { id: 'what-drives-timeline', title: '2. What Actually Drives the Migration Timeline?' },
-    { id: 'migration-phases', title: '3. What Happens in Each Phase of a GHL Migration?' },
-    { id: 'diy-vs-expert', title: '4. DIY vs Expert Migration How Does the Timeline Change?' },
-    { id: 'faq', title: '5. Frequently Asked Questions' },
-  ];
-
-  const platformTimelineData = [
-    { platform: 'HubSpot to GHL', simple: '2 to 3 weeks', standard: '3 to 5 weeks', complex: '6 to 8 weeks', drivers: 'Workflow count, custom objects, deal history depth, multi-client accounts' },
-    { platform: 'ClickFunnels to GHL', simple: '1 to 2 weeks', standard: '2 to 3 weeks', complex: '3 to 5 weeks', drivers: 'Number of funnels, email sequences, membership areas, payment integrations' },
-    { platform: 'ActiveCampaign to GHL', simple: '2 to 3 weeks', standard: '3 to 5 weeks', complex: '5 to 7 weeks', drivers: 'Automation complexity, lead scoring models, deep list segmentation, email warmup' },
-    { platform: 'Kajabi to GHL', simple: '2 to 4 weeks', standard: '4 to 6 weeks', complex: '6 to 9 weeks', drivers: 'Course content rebuild (manual), community migration, drip schedules, student re-enrolment' },
-    { platform: 'Zoho CRM to GHL', simple: '1 to 3 weeks', standard: '3 to 4 weeks', complex: '4 to 6 weeks', drivers: 'Custom modules, blueprint workflows, territory management, Zoho-specific field types' },
-    { platform: 'Salesforce to GHL', simple: '3 to 5 weeks', standard: '5 to 8 weeks', complex: '8 to 12 weeks', drivers: 'Object complexity, custom fields, approval processes, enterprise integrations' },
+    { id: 'what-drives-timeline', title: 'What Actually Drives the Migration Timeline?' },
+    { id: 'calendar-vs-work-effort', title: 'Calendar Time vs. Work Effort' },
+    { id: 'sequential-vs-parallel', title: 'Sequential vs. Parallel Work' },
+    { id: 'complexity-framework', title: 'Estimate Your Own Timeline: A Complexity Framework' },
+    { id: 'timeline-by-platform', title: 'Migration Timeline by Source Platform' },
+    { id: 'migration-phases', title: 'What Happens in Each Phase of a GHL Migration?' },
+    { id: 'causes-delays', title: 'What Causes Migration Delays?' },
+    { id: 'shorten-timeline', title: 'How to Shorten the Timeline Without Cutting Corners' },
+    { id: 'diy-vs-specialist', title: 'DIY vs. Specialist: How Does the Timeline Change?' },
+    { id: 'faq', title: 'Frequently Asked Questions' },
   ];
 
   const automationRebuildTimes = [
-    { automations: '1 to 5 simple sequences', time: '4 to 10 hours total' },
-    { automations: '5 to 15 mixed sequences', time: '15 to 40 hours total' },
-    { automations: '15 to 30 complex sequences', time: '40 to 80 hours total' },
-    { automations: '30+ sequences with deep conditional logic', time: '80 to 150+ hours total' },
+    { automations: '1–5 simple sequences', time: '4–10 hours total' },
+    { automations: '5–15 mixed sequences', time: '15–40 hours total' },
+    { automations: '15–30 complex sequences', time: '40–80 hours total' },
+    { automations: '30+ sequences with deep conditional logic', time: '80–150+ hours total' },
+  ];
+
+  const complexityFramework = [
+    { variable: 'Active automations', simple: 'Under 5', standard: '5–20', complex: '20+' },
+    { variable: 'Contacts', simple: 'Under 5,000', standard: '5,000–25,000', complex: '25,000+' },
+    { variable: 'Integrations', simple: 'Standard (Stripe, calendar)', standard: 'A few standard + 1 custom', complex: 'Multiple custom/API-level' },
+    { variable: 'Content (funnels/courses)', simple: 'Minimal', standard: 'Moderate', complex: 'Extensive' },
+    { variable: 'Client accounts', simple: '1', standard: '1', complex: 'Multiple (agency)' },
+    { variable: 'Data cleanliness', simple: 'Clean', standard: 'Some cleanup needed', complex: 'Significant cleanup needed' },
+  ];
+
+  const platformTimelineData = [
+    { platform: 'Mailchimp', simple: '1–2 weeks', standard: '2–3 weeks', complex: '3–4 weeks', driver: 'Generally the lowest-complexity source in this set simple, email-centric data model' },
+    { platform: 'ClickFunnels', simple: '1–2 weeks', standard: '2–3 weeks', complex: '3–6 weeks', driver: 'Automation, payment, and domain reconnection behind an auto-imported page design' },
+    { platform: 'ActiveCampaign', simple: '2–3 weeks', standard: '3–5 weeks', complex: '5–7 weeks', driver: 'List/tag dual-segmentation mapping and automation rebuild' },
+    { platform: 'Keap', simple: '1–2 weeks', standard: '3–5 weeks', complex: '6–8 weeks', driver: 'Campaign Builder has no export path and must be fully documented and rebuilt' },
+    { platform: 'HubSpot', simple: '3–4 weeks', standard: '4–6 weeks', complex: '8–12 weeks', driver: 'Custom property and company-association volume that accumulates with account age' },
+    { platform: 'Kajabi', simple: '1–2 weeks', standard: '3–5 weeks', complex: '5–8 weeks', driver: 'Course structure now imports automatically via GHL\'s native importer, but quizzes, assignments, offers, and automations still require full manual rebuild' },
+    { platform: 'Zoho CRM', simple: '2–3 weeks', standard: '3–4 weeks', complex: '4–6 weeks', driver: 'Blueprint workflows and custom modules translate conceptually, not directly, to GHL\'s automation model' },
+    { platform: 'Salesforce', simple: '3–4 weeks', standard: '5–7 weeks', complex: '8–12 weeks', driver: 'Relational, multi-object data model (leads/contacts/accounts/opportunities/custom objects) doesn\'t map directly to GHL\'s contact-centric structure' },
   ];
 
   const migrationPhases = [
-    { phase: 'Phase 1: Audit and scoping', duration: '3 to 5 days', description: 'Map all contacts, automations, pipelines, integrations, and content. Identify what transfers, what rebuilds, and what to leave behind. Produce migration scope document.' },
-    { phase: 'Phase 2: GHL infrastructure build', duration: '3 to 5 days', description: 'Set up GHL account structure: custom fields, pipeline stages, email domain DKIM/SPF, phone number, A2P 10DLC (US). Build the receiving environment before any data moves.' },
-    { phase: 'Phase 3: Data export and import', duration: '1 to 2 days', description: 'Export contacts from the old platform, clean the CSV, import into GHL with field mapping. Validate a sample of 50 to 100 contacts for accuracy before proceeding.' },
-    { phase: 'Phase 4: Automation rebuild', duration: '1 to 4 weeks', description: 'Rebuild every active automation in GHL\'s workflow builder. Test each one with a real contact before activating. This phase drives the majority of the total timeline.' },
-    { phase: 'Phase 5: Parallel running', duration: '1 to 2 weeks', description: 'Run both platforms simultaneously. New leads enter GHL. Existing active automations finish in the old platform. Validate GHL is working correctly before cutting over.' },
-    { phase: 'Phase 6: Cutover and handover', duration: '1 to 2 days', description: 'Redirect all lead sources to GHL. Cancel the old subscription at the right time. Deliver documentation and team walkthrough.' },
+    { phase: 'Audit and scoping', duration: '3–5 days', dependencies: 'Stakeholder availability, completeness of existing documentation' },
+    { phase: 'GHL infrastructure build', duration: '3–5 days', dependencies: 'Can run partly in parallel with audit; gated by decisions made during scoping' },
+    { phase: 'Data export and import', duration: '1–2 days', dependencies: 'Depends on field mapping being finalized first' },
+    { phase: 'Automation rebuild', duration: '1–4 weeks', dependencies: 'The majority of total project time; depends on the data structure already existing' },
+    { phase: 'Parallel running', duration: '1–2 weeks', dependencies: 'Depends on automation rebuild passing validation first' },
+    { phase: 'Cutover and handover', duration: '1–2 days', dependencies: 'Depends on parallel-running validation succeeding' },
   ];
 
-  const diyVsExpertData = [
-    { complexity: 'Simple migration (under 5 automations)', diy: '3 to 6 weeks', expert: '1 to 2 weeks' },
-    { complexity: 'Standard migration (5 to 20 automations)', diy: '8 to 16 weeks', expert: '3 to 5 weeks' },
-    { complexity: 'Complex migration (20+ automations)', diy: '16 to 30+ weeks', expert: '6 to 10 weeks' },
+  const diyVsSpecialistData = [
+    { complexity: 'Simple (under 5 automations)', diy: '3–6 weeks', specialist: '1–2 weeks' },
+    { complexity: 'Standard (5–20 automations)', diy: '8–16 weeks', specialist: '3–5 weeks' },
+    { complexity: 'Complex (20+ automations)', diy: '16–30+ weeks', specialist: '6–10 weeks' },
   ];
 
   // Reusable Project Help Card Component
@@ -205,7 +159,6 @@ export default function GHLMigrationTimelineClient() {
       <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
       <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your migration.</p>
       <Link
-        // onClick={handleOpenBooking}
         href="/book-a-call"
         className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
         Book a 30 min Free Call
@@ -230,7 +183,7 @@ export default function GHLMigrationTimelineClient() {
         </div>
       </nav>
 
-      {/* Hero Section - WIDE */}
+      {/* Hero Section */}
       <section className="bg-[#0B1628] py-12 md:py-[72px] px-4 md:px-6 relative overflow-hidden">
         <div className="absolute -top-[120px] -right-[120px] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(14,155,240,0.12)_0%,transparent_70%)] pointer-events-none" />
         <div className="absolute -bottom-[80px] -left-[80px] w-[360px] h-[360px] bg-[radial-gradient(circle,rgba(37,201,125,0.08)_0%,transparent_70%)] pointer-events-none" />
@@ -251,22 +204,47 @@ export default function GHLMigrationTimelineClient() {
           </h1>
 
           {/* Author Byline */}
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
+          <div className="flex flex-col sm:flex-row sm:items-start gap-3 mb-6">
+            <div className="w-7 h-7 min-w-7 overflow-hidden bg-white flex items-center justify-center">
               <img
                 src="/web-app-manifest-192x192.png"
                 alt="GHL Scale Up"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div>
-              <div className="text-sm font-medium text-white">GHL Scale Up Team</div>
-              <div className="text-xs text-white/50">GoHighLevel Migration Specialists · 200+ Builds Delivered · Updated May 2026</div>
+
+            <div className="min-w-0">
+              <div className="text-sm font-medium text-white">
+                GHL Scale Up Team
+              </div>
+
+              <div className="text-xs text-white/50 leading-relaxed break-words">
+                GoHighLevel Migration Specialists · 200+ builds delivered · Ranges
+                reflect GHL Scale Up's own project experience across HubSpot,
+                ClickFunnels, ActiveCampaign, Kajabi, Zoho, Salesforce, Keap, and
+                Mailchimp, September 2026
+              </div>
             </div>
           </div>
 
-          {/* Hero CTA Buttons */}
-          <div className="flex flex-wrap gap-3 mb-6">
+          {/* Introductory Paragraph */}
+          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-6xl">
+            One of the first questions anyone asks before a GoHighLevel migration is how long it will take. The honest answer depends on one factor far more than any other and it isn't the one most people assume.
+          </p>
+
+          {/* Quick Answer Box */}
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 md:p-6 mb-6">
+            <div className="flex items-center gap-2 mb-3">
+              <Timer className="w-5 h-5 text-[#F8D000]" />
+              <span className="text-xs font-bold uppercase tracking-wider text-white/60">Quick answer</span>
+            </div>
+            <p className="text-sm text-white/70 leading-relaxed">
+              A simple migration with a small contact list and basic automations takes 1–2 weeks. A standard migration takes 3–5 weeks. A complex migration with many active automations, multiple client accounts, or course/membership content takes 6–10 weeks. The single biggest driver is not how many contacts you have it's how many active automations need to be rebuilt. Contact import itself takes minutes regardless of volume; rebuilding a complex multi-branch automation takes 4–8 hours. These are planning ranges based on GHL Scale Up's own project experience, not a universal guarantee your specific project's variables determine where you actually land.
+            </p>
+          </div>
+
+          {/* CTA Button 1: Hero Section */}
+          <div className="flex flex-wrap gap-3">
             <Link
               href="/contact"
               className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105"
@@ -283,31 +261,21 @@ export default function GHLMigrationTimelineClient() {
               <ChevronDown className="w-4 h-4" />
             </Link>
           </div>
-
-          {/* Introductory Paragraph - NO max-w constraint */}
-          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6">
-            One of the first questions anyone asks before committing to a GoHighLevel migration is: 
-            how long is this going to take? The honest answer is that it depends on one specific factor 
-            far more than any other. <strong className="text-white"> GHL Scale Up</strong> has completed 
-            migrations from HubSpot, ClickFunnels, ActiveCampaign, Kajabi, Zoho, and Salesforce. The 
-            pattern is consistent enough to give you reliable estimates. This guide breaks it down by 
-            platform and by complexity so you can plan your migration with realistic expectations.
-          </p>
         </div>
       </section>
 
       {/* MAIN LAYOUT - Sidebar on LEFT, Content on RIGHT */}
-      <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-16">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-10">
         <div className="grid lg:grid-cols-[280px_1fr] gap-8 md:gap-12 items-start">
-          
+
           {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
           <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
-            {/* Project Help Card - At top of sidebar */}
-            <div className="mb-6">
+            {/* Project Help Card */}
+            <div className="hidden lg:block mb-6">
               <ProjectHelpCard />
             </div>
 
-            {/* Table of Contents */}
+            {/* Table of Contents - Sticky */}
             <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
                 <BookOpen className="w-3 h-3" />
@@ -351,15 +319,14 @@ export default function GHLMigrationTimelineClient() {
                 </div>
               </div>
               <p className="text-xs text-white/60 leading-relaxed mb-3">
-                5+ years GHL experience · 200+ systems built and migrated globally. Timeline estimates based on real migration projects 
-                completed across HubSpot, ClickFunnels, ActiveCampaign, Kajabi, Zoho, and Salesforce in 2025 and 2026.
+                5+ years GHL experience · 200+ systems built and migrated globally. Timeline estimates based on real migration projects completed across HubSpot, ClickFunnels, ActiveCampaign, Kajabi, Zoho, and Salesforce in 2025 and 2026.
               </p>
               <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
             </div>
 
             {/* Share Buttons */}
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
-              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
+              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Share this guide</div>
               <div className="flex gap-2 flex-wrap">
                 <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
                   <Linkedin className="w-3 h-3" />
@@ -378,40 +345,20 @@ export default function GHLMigrationTimelineClient() {
                 </button>
               </div>
             </div>
+
+            {/* CTA Card */}
+            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
+              <div className="text-sm font-bold text-white mb-2">Not Sure How Long Your Migration Will Take?</div>
+              <p className="text-xs text-white/60 leading-relaxed mb-4">Get a free assessment and realistic timeline.</p>
+              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+                Get Help
+                <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
           </aside>
 
           {/* ==================== RIGHT COLUMN: BLOG CONTENT ==================== */}
           <main className="min-w-0 order-2">
-
-            {/* TL;DR / Quick Answer Box (BLUF) */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
-              <div className="flex items-center gap-2 mb-3">
-                <Timer className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Quick Answer — The Short Version</span>
-              </div>
-              <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
-                A simple GoHighLevel migration with a small contact list and basic automations takes 1 to 2 weeks.
-              </p>
-              <p className="text-sm text-[#5C6880] leading-relaxed">
-                A standard agency migration takes <strong className="text-[#0E9BF0]">3 to 5 weeks</strong>. A complex migration 
-                with many active automations, multiple client accounts, or a course and membership platform takes 
-                <strong className="text-[#0E9BF0]"> 6 to 10 weeks</strong>. The single biggest driver of timeline is not how many 
-                contacts you have. It is how many active automations you need to rebuild. The contact import itself takes minutes. 
-                Rebuilding a complex multi-branch automation takes 4 to 8 hours. That is the number that determines your migration length.
-              </p>
-
-              {/* CTA Button inside BLUF */}
-              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
-                  <Target className="w-4 h-4" />
-                  Get Your Migration Timeline
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </div>
 
             {/* Table of Contents - Mobile Only */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8 lg:hidden">
@@ -437,100 +384,25 @@ export default function GHLMigrationTimelineClient() {
               <ProjectHelpCard />
             </div>
 
-            {/* CTA 1 - After TOC */}
-            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
-              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
-                <strong className="text-white">Not sure how long your migration will take?</strong>
-              </p>
-              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
-                Get a free migration assessment. We review your current setup and give you a realistic timeline and fixed-fee quote.
-              </p>
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                Book a Free Strategy Call
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* Section 1: Timeline by Platform */}
-            <h2 id="timeline-by-platform" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-8 mb-4">
-              1. How Long Does GoHighLevel Migration Take by Platform?
+            {/* Section 1: What Actually Drives the Timeline */}
+            <h2 id="what-drives-timeline" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-8 mb-4">
+              What Actually Drives the Migration Timeline?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Different platforms create different migration complexity. Here are realistic timelines based on real migrations 
-              completed in 2025 and 2026.
+              The most common misconception is that contact volume is the main factor. It usually isn't. Importing 50,000 contacts takes about the same time as importing 5,000 the CSV import process runs in minutes either way. What actually determines duration is everything around that import.
+            </p>
+
+            <h3 className="text-xl font-bold text-[#1C2E4A] mt-6 mb-3">Automation count (the biggest factor by far)</h3>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Every automation from your previous platform generally has to be rebuilt manually in GHL's workflow builder there is no universal automated conversion tool across platforms. A simple three-step email sequence takes roughly 30–60 minutes to rebuild. A complex sequence with 15+ steps, multiple branches, and lead-scoring logic can take 4–8 hours.
             </p>
 
             <div className="overflow-x-auto my-6">
               <table className="w-full border-collapse text-sm">
                 <thead>
                   <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Platform</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Simple</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Standard</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Complex</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">What drives complexity</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {platformTimelineData.map((item, idx) => (
-                    <tr key={idx} className="border-b border-[#DDE1E9]">
-                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.platform}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.simple}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.standard}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.complex}</td>
-                      <td className="py-3 px-3 text-[#0E9BF0]">{item.drivers}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                <strong className="text-[#0E9BF0]">How to read this table:</strong> 'Simple' means fewer than 5 active automations 
-                and under 5,000 contacts with clean data. 'Standard' means 5 to 20 automations and 5,000 to 25,000 contacts. 
-                'Complex' means 20 or more automations, large contact volumes, membership content, or multiple client accounts.
-              </p>
-            </div>
-
-            <div className="space-y-2 mb-6">
-              <p className="text-sm text-[#5C6880] leading-relaxed">
-                → <Link href="/blog/hubspot-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">HubSpot to GoHighLevel migration guide →</Link>
-              </p>
-              <p className="text-sm text-[#5C6880] leading-relaxed">
-                → <Link href="/blog/clickfunnels-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">ClickFunnels to GoHighLevel migration guide →</Link>
-              </p>
-              <p className="text-sm text-[#5C6880] leading-relaxed">
-                → <Link href="/blog/activecampaign-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">ActiveCampaign to GoHighLevel migration guide →</Link>
-              </p>
-              <p className="text-sm text-[#5C6880] leading-relaxed">
-                → <Link href="/blog/kajabi-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">Kajabi to GoHighLevel migration guide →</Link>
-              </p>
-            </div>
-
-            {/* Section 2: What Drives Timeline */}
-            <h2 id="what-drives-timeline" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              2. What Actually Drives the Migration Timeline?
-            </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The most common misconception: people assume contact volume is the main factor. It is not. Importing 50,000 contacts 
-              takes the same amount of time as importing 5,000. The CSV import process takes minutes in both cases. What determines 
-              how long the migration takes is everything else.
-            </p>
-
-            <h3 className="text-xl font-bold text-[#1C2E4A] mt-6 mb-3">Factor 1: Number of active automations (the biggest factor by far)</h3>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Every automation from your previous platform must be rebuilt manually in GHL's workflow builder. There is no automated 
-              import or conversion tool. A simple three-step email sequence takes about 30 minutes to rebuild. A complex sequence 
-              with 15 steps, multiple If/Else conditions, deal stage triggers, and lead scoring logic takes 4 to 8 hours per workflow.
-            </p>
-
-            <div className="overflow-x-auto my-6">
-              <table className="w-full border-collapse text-sm">
-                <thead>
-                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Active automations to rebuild</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Estimated rebuild time</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Active Automations to Rebuild</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Estimated Rebuild Time (Work Effort)</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -545,62 +417,183 @@ export default function GHLMigrationTimelineClient() {
             </div>
 
             <p className="text-sm text-[#5C6880] leading-relaxed mb-4">
-              For a guide on building automations in GHL correctly from the start: 
-              <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-[#0E9BF0] hover:underline ml-1">GoHighLevel Workflow Automation Guide →</Link>
+              For a guide to building automations in GHL correctly: <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-[#0E9BF0] hover:underline">GoHighLevel workflow automation guide</Link>.
             </p>
 
-            <h3 className="text-xl font-bold text-[#1C2E4A] mt-6 mb-3">Factor 2: Data quality</h3>
+            <h3 className="text-xl font-bold text-[#1C2E4A] mt-6 mb-3">Data quality</h3>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              If your contact database has duplicates, missing fields, inconsistent phone number formatting, or junk records built up 
-              over years, cleaning it before import adds 1 to 5 days to the timeline depending on volume. Importing dirty data into 
-              GHL means dirty data in GHL. Automations fire on bad contacts, deliverability suffers, and the cleanup happens later at higher cost.
+              Duplicates, missing fields, inconsistent phone formatting, and years of accumulated junk records add 1–5 days to cleanup, depending on volume. Importing dirty data means dirty data inside GHL automations fire on bad contacts, deliverability suffers, and the cleanup happens later at higher cost.
             </p>
 
-            <h3 className="text-xl font-bold text-[#1C2E4A] mt-6 mb-3">Factor 3: Platform-specific rebuilds</h3>
+            <h3 className="text-xl font-bold text-[#1C2E4A] mt-6 mb-3">Integration complexity</h3>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Some platforms require more than just a contact import and workflow rebuild. Kajabi migrations require manually uploading 
-              every video lesson, PDF, and quiz into GHL's membership module (budget 2 to 6 hours per course). ClickFunnels migrations 
-              require going through every funnel page post-URL-import to fix button links and reconnect integrations.
+              One integration requiring custom API work (a bespoke internal tool, a non-standard webhook contract) can take longer than dozens of basic contact imports combined. Stripe, calendars, and standard Zapier connections are typically fast; anything custom is the real variable.
             </p>
 
-            <h3 className="text-xl font-bold text-[#1C2E4A] mt-6 mb-3">Factor 4: Number of client accounts (for agencies)</h3>
+            <h3 className="text-xl font-bold text-[#1C2E4A] mt-6 mb-3">Communication infrastructure</h3>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              An agency migrating 10 client sub-accounts into GHL is not doing one migration. It is doing 10. Even with Snapshots to 
-              accelerate the per-client setup, each account needs its contact data validated, its client-specific workflows confirmed, 
-              and its integrations reconnected. Agencies migrating multiple clients should add 3 to 5 business days per client account 
-              on top of the core migration timeline.
+              Domain authentication (DKIM/SPF/DMARC) is a technical setup task, usually completed in hours but deliverability ramp-up (warming a new sending domain) is a separate, longer process that runs in parallel with other work rather than blocking it. In the US, A2P 10DLC registration for SMS has its own carrier-side processing time that's outside your control and should be started early, since it can otherwise become the schedule's bottleneck.
             </p>
 
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">THE ONE THING THAT MAKES THE BIGGEST DIFFERENCE</span>
+            <h3 className="text-xl font-bold text-[#1C2E4A] mt-6 mb-3">Agency multi-account migrations</h3>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Migrating 10 client sub-accounts isn't one migration it's effectively 10, even with Snapshots accelerating per-client setup. Each account still needs its own data validation, workflow confirmation, and integration reconnection. As a planning rule, add roughly 3–5 business days per additional client account on top of the core migration timeline, rather than multiplying the whole timeline by account count.
+            </p>
+
+            {/* 
+              ============================================================
+              🖼️ IMAGE INSERTED HERE - Full width, responsive, interactive
+              ============================================================
+            */}
+            <div className="my-8 md:my-10 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <div className="relative w-full h-auto bg-[#F8F9FB]">
+                <Image
+                  src="/blog/ghl-migration-timeline-infographic.png"
+                  alt="GHL Migration Timeline: What drives the timeline, complexity framework, phases, and platform-specific estimates"
+                  width={1200}
+                  height={500}
+                  className="w-full h-auto object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                />
               </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                An honest automation audit before migration starts. Most businesses that have been on a platform for 2 or more years 
-                have accumulated automations they no longer use. Migrating them all adds weeks and adds clutter. Before any migration 
-                starts, audit every active automation and only rebuild the ones that are genuinely driving results. GHL Scale Up's 
-                migration assessments always start here. It is the single step that reduces migration timeline the most.
-              </p>
+              <div className="bg-[#F8F9FB] px-4 py-2.5 text-xs text-[#5C6880] border-t border-[#DDE1E9] flex items-center gap-2">
+                <ImageIcon className="w-3.5 h-3.5" />
+                <span>GHL Migration Timeline: What drives the timeline, complexity framework, migration phases, and platform-specific estimates</span>
+              </div>
             </div>
 
-            {/* CTA 2 - After What Drives Timeline */}
+            {/* Section 2: Calendar Time vs. Work Effort */}
+            <h2 id="calendar-vs-work-effort" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Calendar Time vs. Work Effort
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              These are not the same thing, and conflating them is the most common source of unrealistic timelines. Work effort is the actual hours spent building rebuilding a workflow might take 4 hours of focused work. Calendar time is the total elapsed days until it's done, which is usually longer because of factors outside the builder's direct control:
+            </p>
+            <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
+              <li>Stakeholder approval on field mapping or workflow logic before proceeding</li>
+              <li>Testing that has to happen after a build is complete, not during it</li>
+              <li>External dependencies like domain DNS propagation or A2P carrier processing</li>
+              <li>Multiple people or teams needing to coordinate handoffs</li>
+            </ul>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              A project with 40 hours of total work effort can easily span 3 calendar weeks once these dependencies are accounted for that's not inefficiency, it's realistic project structure.
+            </p>
+
+            {/* Section 3: Sequential vs. Parallel Work */}
+            <h2 id="sequential-vs-parallel" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Sequential vs. Parallel Work
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Migration timelines are not simply additive. Some work happens simultaneously; some has to wait on earlier work finishing.
+            </p>
+            <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
+              <li><strong className="text-[#1A2236]">Can run in parallel:</strong> data cleaning, GHL infrastructure setup, workflow mapping documentation, and integration credential-gathering</li>
+              <li><strong className="text-[#1A2236]">Must run sequentially:</strong> contact import depends on field mapping being finished; workflow activation depends on the data structure already existing; cutover depends on testing passing; old-platform cancellation depends on validated cutover</li>
+            </ul>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              This is why 'six phases at one week each' isn't how migration timelines should be calculated several phases overlap, while a few genuinely gate everything after them.
+            </p>
+
+            {/* Section 4: Complexity Framework */}
+            <h2 id="complexity-framework" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Estimate Your Own Timeline: A Complexity Framework
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Score your own migration honestly against these variables to identify your complexity tier:
+            </p>
+
+            <div className="overflow-x-auto my-6">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Variable</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Simple</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Standard</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Complex</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {complexityFramework.map((item, idx) => (
+                    <tr key={idx} className="border-b border-[#DDE1E9]">
+                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.variable}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.simple}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.standard}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.complex}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              If most of your answers land in one column, that's your realistic complexity tier. If you're split across columns, plan for the more complex end in practice, the presence of even one 'complex' variable (a deeply custom integration, for example) tends to set the pace for the whole project.
+            </p>
+
+            {/* CTA Button 2: After Complexity Framework */}
             <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 text-center my-6 text-white">
-              <p className="text-sm font-medium mb-2">🔍 Not sure which automations to keep and which to cut?</p>
-              <p className="text-sm text-white/80 mb-4">Our migration assessment includes a full automation audit to identify what to migrate and what to leave behind.</p>
+              <p className="text-sm font-medium mb-2">Not sure which complexity tier you're in?</p>
+              <p className="text-sm text-white/80 mb-4">Our migration assessment scores your specific setup and gives you a realistic timeline.</p>
               <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
                 <Search className="w-4 h-4" />
-                Get an Automation Audit
+                Get Your Assessment
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
 
-            {/* Section 3: Migration Phases */}
-            <h2 id="migration-phases" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              3. What Happens in Each Phase of a GHL Migration?
+            {/* Section 5: Timeline by Source Platform */}
+            <h2 id="timeline-by-platform" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Migration Timeline by Source Platform
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Here is the standard phase breakdown for a typical 3 to 5 week standard migration.
+              Each platform has its own dominant complexity driver rather than a uniform profile. These ranges reflect GHL Scale Up's own project experience combined with each platform's documented migration mechanics treat them as planning ranges, not guarantees.
+            </p>
+
+            <div className="overflow-x-auto my-6">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Source Platform</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Simple</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Standard</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Complex</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Main Timeline Driver</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {platformTimelineData.map((item, idx) => (
+                    <tr key={idx} className="border-b border-[#DDE1E9]">
+                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.platform}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.simple}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.standard}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.complex}</td>
+                      <td className="py-3 px-3 text-[#0E9BF0]">{item.driver}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-4 my-4">
+              <div className="flex items-center gap-2 mb-2">
+                <AlertTriangle className="w-4 h-4 text-[#0E9BF0]" />
+                <span className="text-sm font-bold text-[#0E9BF0]">A NOTE ON THE KAJABI ROW</span>
+              </div>
+              <p className="text-sm text-[#1A2236] leading-relaxed">
+                earlier guidance (including a prior version of this article) assumed Kajabi course content required full manual rebuild with no import path. GoHighLevel's native Kajabi Course Importer now handles video, image, and text content for published lessons automatically, which is why this range runs shorter than some older comparisons what still takes time is quizzes, assignments, drip settings, offers, and automation logic, none of which the importer covers. See the full breakdown in the <Link href="/blog/kajabi-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">Kajabi to GoHighLevel migration guide</Link>.
+              </p>
+            </div>
+
+            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
+              For the complete process on each platform: <Link href="/blog/hubspot-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">HubSpot to GoHighLevel migration</Link>, <Link href="/blog/clickfunnels-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">ClickFunnels to GoHighLevel migration</Link>, <Link href="/blog/activecampaign-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">ActiveCampaign to GoHighLevel migration</Link>, <Link href="/blog/salesforce-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">Salesforce to GoHighLevel migration</Link>, or <Link href="/blog/keap-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">Keap to GoHighLevel migration</Link>.
+            </p>
+
+            {/* Section 6: Migration Phases */}
+            <h2 id="migration-phases" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              What Happens in Each Phase of a GHL Migration?
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              A standard 3–5 week migration typically breaks down as follows. These are duration ranges and their main dependencies, not step-by-step instructions.
             </p>
 
             <div className="overflow-x-auto my-6">
@@ -609,7 +602,7 @@ export default function GHLMigrationTimelineClient() {
                   <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
                     <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Phase</th>
                     <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Typical Duration</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">What happens</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Main Dependencies</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -617,76 +610,95 @@ export default function GHLMigrationTimelineClient() {
                     <tr key={idx} className="border-b border-[#DDE1E9]">
                       <td className="py-3 px-3 font-medium text-[#1A2236]">{item.phase}</td>
                       <td className="py-3 px-3 text-[#0E9BF0] font-semibold">{item.duration}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.description}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.dependencies}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
 
-            {/* Section 4: DIY vs Expert */}
-            <h2 id="diy-vs-expert" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              4. DIY vs Expert Migration: How Does the Timeline Change?
+            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
+              For preparation tasks specific to each phase, see the full 50-point breakdown in the <Link href="/blog/gohighlevel-migration-checklist" className="text-[#0E9BF0] hover:underline">GoHighLevel migration checklist</Link>.
+            </p>
+
+            {/* Section 7: What Causes Delays */}
+            <h2 id="causes-delays" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              What Causes Migration Delays?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The same migration takes significantly longer as a DIY project compared to working with an experienced GHL migration specialist. 
-              The difference is not just speed. It is the gap between getting it done and getting it done correctly.
+              <strong className="text-[#1A2236]">Undocumented legacy automations.</strong> Accounts active for 2+ years accumulate automations nobody remembers building. Discovering these mid-project extends the automation-rebuild phase unpredictably. Prevention: a full automation audit before migration starts, keeping only what's actively driving results.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              <strong className="text-[#1A2236]">Unclear field mapping.</strong> Starting data import without a finalized field-mapping document leads to rework. Prevention: finalize and sign off on field mapping before any data moves.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              <strong className="text-[#1A2236]">Missing credentials or unavailable stakeholders.</strong> API keys, admin access, or a needed approval that isn't available when the project reaches that step stalls the whole timeline. Prevention: gather all credentials and confirm stakeholder availability before starting.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              <strong className="text-[#1A2236]">Integration dependencies discovered late.</strong> A custom API integration surfacing only during testing, rather than during the initial audit, can add days of unplanned work. Prevention: inventory every external integration during the audit phase, not after.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              <strong className="text-[#1A2236]">Domain or SMS compliance delays.</strong> A2P 10DLC registration and domain authentication have external processing times outside your control. Prevention: start these the moment the project begins, in parallel with other setup work.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              <strong className="text-[#1A2236]">Scope changes mid-project.</strong> Deciding to add new automations or features partway through extends everything after that point. Prevention: freeze scope for the initial migration; treat improvements as a fast-follow phase after cutover.
+            </p>
+
+            {/* Section 8: How to Shorten the Timeline */}
+            <h2 id="shorten-timeline" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              How to Shorten the Timeline Without Cutting Corners
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              The goal is reducing avoidable work, not reducing QA.
+            </p>
+            <ul className="space-y-1 mb-6 text-sm text-[#5C6880] list-disc list-inside">
+              <li>Audit and cut automations before migration only rebuild what's actively driving results</li>
+              <li>Clean contact data before import, not after</li>
+              <li>Freeze scope for the initial migration</li>
+              <li>Gather all credentials and access before starting</li>
+              <li>Finalize field mapping before any data moves</li>
+              <li>Build the receiving GHL environment before importing anything into it</li>
+              <li>Test with a representative sample (50–200 records), not the full dataset, before the full import</li>
+              <li>Prioritize revenue-critical workflows first, then handle lower-priority automations</li>
+              <li>Start A2P/domain authentication immediately, since these have external processing time</li>
+            </ul>
+
+            {/* Section 9: DIY vs Specialist */}
+            <h2 id="diy-vs-specialist" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              DIY vs. Specialist: How Does the Timeline Change?
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              The following ranges reflect GHL Scale Up's own observed project experience, not an independently verified industry benchmark treat them as a comparison point, not a guarantee.
             </p>
 
             <div className="overflow-x-auto my-6">
               <table className="w-full border-collapse text-sm">
                 <thead>
                   <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Migration complexity</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">DIY migration</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#0E9BF0]">Expert migration (GHL Scale Up)</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Migration Complexity</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">DIY (Self-Managed)</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#0E9BF0]">Specialist (GHL Scale Up's Observed Range)</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {diyVsExpertData.map((item, idx) => (
+                  {diyVsSpecialistData.map((item, idx) => (
                     <tr key={idx} className="border-b border-[#DDE1E9]">
                       <td className="py-3 px-3 text-[#5C6880]">{item.complexity}</td>
                       <td className="py-3 px-3 text-[#5C6880]">{item.diy}</td>
-                      <td className="py-3 px-3 text-[#0E9BF0] font-semibold">{item.expert}</td>
+                      <td className="py-3 px-3 text-[#0E9BF0] font-semibold">{item.specialist}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
 
-            <div className="bg-[#1C2E4A] rounded-xl p-5 my-6 text-white">
-              <div className="flex items-center gap-2 mb-3">
-                <Star className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">FREE MIGRATION ASSESSMENT</span>
-              </div>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                Not sure how complex your migration is or how long it will take? GHL Scale Up offers a free 30-minute migration assessment. 
-                We review your current platform setup, tell you exactly what the migration involves, give you a realistic timeline, and 
-                provide a fixed-fee project quote.
-              </p>
-              <Link href="/contact" className="inline-flex items-center gap-2 text-[#F8D000] text-sm font-semibold hover:gap-3 transition-all">
-                Book your free assessment at ghlscaleup.com/contact
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-              <p className="text-sm text-white/60 leading-relaxed mt-3">
-                See our full <Link href="/services/migration" className="text-[#0E9BF0] hover:underline">GHL migration service at ghlscaleup.com/services/migration →</Link>
-              </p>
-            </div>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              The gap isn't only speed it's that an experienced team has already resolved the common blockers (DKIM setup, A2P registration quirks, Stripe reconnection edge cases) many times before, where a DIY project is often solving each one for the first time.
+            </p>
 
-            {/* CTA 3 - After DIY vs Expert */}
-            <div className="bg-[#0B1628] rounded-xl p-6 text-center my-6 text-white">
-              <p className="text-sm font-medium mb-2">📊 Want to know exactly how long your migration will take?</p>
-              <p className="text-sm text-white/80 mb-4">Get a personalized migration timeline based on your specific platform, automations, and data volume.</p>
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                <Clock className="w-4 h-4" />
-                Get Your Timeline
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* Section 5: FAQ */}
+            {/* Section 10: FAQ */}
             <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
-              5. Frequently Asked Questions
+              Frequently Asked Questions
             </h2>
 
             <div className="space-y-3">
@@ -701,50 +713,35 @@ export default function GHLMigrationTimelineClient() {
               ))}
             </div>
 
-            {/* CTA 4 - After FAQ */}
-            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
-              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
-                <strong className="text-white">Still have questions about your migration timeline?</strong>
-              </p>
-              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
-                Talk to our migration specialists directly. We've completed migrations from HubSpot, ClickFunnels, ActiveCampaign, Kajabi, Zoho, and Salesforce.
-              </p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                  <MessageCircleIcon className="w-4 h-4" />
-                  Ask an Expert
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20">
-                  <PhoneIcon className="w-4 h-4" />
-                  Call Us
-                </Link>
-              </div>
+            {/* Contextual CTA inside FAQ */}
+            <div className="mt-4 text-sm text-[#5C6880] leading-relaxed">
+              Not sure how complex your specific migration is?{' '}
+              <Link href="/contact" className="text-[#0E9BF0] hover:underline font-medium">Book a free migration assessment</Link> for a realistic timeline and fixed-fee quote.
             </div>
 
             {/* Internal Links */}
             <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
-              <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles</h3>
+              <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles in This Series</h3>
               <div className="flex flex-wrap gap-3">
-                <Link href="/blog/hubspot-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">How to Migrate from HubSpot to GoHighLevel →</Link>
-                <Link href="/blog/clickfunnels-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">How to Migrate from ClickFunnels to GoHighLevel →</Link>
+                <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Workflow Automation Guide →</Link>
+                <Link href="/blog/hubspot-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">HubSpot to GoHighLevel Migration →</Link>
+                <Link href="/blog/clickfunnels-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">ClickFunnels to GoHighLevel Migration →</Link>
                 <Link href="/blog/activecampaign-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">ActiveCampaign to GoHighLevel Migration →</Link>
-                <Link href="/blog/kajabi-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">Kajabi to GoHighLevel Migration →</Link>
-                <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Workflow Automation for Beginners →</Link>
-                <Link href="/services/migration" className="text-sm text-[#0E9BF0] hover:underline">GHL Migration Services →</Link>
-                <Link href="/services/crm-setup" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel CRM Setup Service →</Link>
+                <Link href="/blog/salesforce-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">Salesforce to GoHighLevel Migration →</Link>
+                <Link href="/blog/keap-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">Keap to GoHighLevel Migration →</Link>
+                <Link href="/blog/kajabi-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">Kajabi to GoHighLevel Migration Guide →</Link>
+                <Link href="/blog/gohighlevel-migration-checklist" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Migration Checklist →</Link>
               </div>
             </div>
 
-            {/* Final CTA Section */}
+            {/* Final CTA Section - Single closing CTA */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Ready to start planning your GHL migration?</h3>
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
-                  Book a free 30-minute migration assessment. We review your current platform, tell you exactly what the migration 
-                  involves, give you a realistic timeline, and provide a fixed-fee quote. No obligation.
+                  Book a free 30-minute migration assessment. We review your current platform, tell you exactly what the migration involves, give you a realistic timeline, and provide a fixed-fee quote. No obligation.
                 </p>
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105">
                   Book Your Free Assessment
                   <ArrowRight className="w-4 h-4" />
                 </Link>
