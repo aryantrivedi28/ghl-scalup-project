@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'GitCompare',
+            tag: 'Comparisonn',
+            title: 'Claude Code vs HighLevel AI Studio: Which to Use',
+            excerpt: 'Claude Code vs HighLevel AI Studio compared for websites and apps — code control, CRM connection, cost, maintenance, and whether AI Studio projects can actually be exported.',
+            slug: 'claude-code-vs-highlevel-ai-studio',
+            date: 'September 12, 2026',
+            readTime: '18 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'Layers',
             tag: 'Integration',
             title: 'Connect ClickUp to GoHighLevel: Setup & Automation (2026)',
