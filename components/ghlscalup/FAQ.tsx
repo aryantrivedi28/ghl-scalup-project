@@ -123,15 +123,15 @@ export default function FAQ() {
             {/* Two CTA Options */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch">
               {/* Booking Button - Primary */}
-              <Button
-                onClick={handleOpenBooking}
-                // href="/contact-us"
+              <Link
+                // onClick={handleOpenBooking}
+                href="/book-a-call"
                 className="inline-flex items-center justify-center gap-2 bg-[#0E9BF0] text-white font-semibold px-8 py-3 rounded-full hover:bg-[#0878C4] hover:-translate-y-0.5 transition-all group"
               >
                 <Calendar className="w-4 h-4 group-hover:scale-110 transition-transform" />
                 Book a Free Strategy Call
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              </Link>
 
               {/* Contact Link - Secondary */}
               <a

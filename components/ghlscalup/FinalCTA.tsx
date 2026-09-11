@@ -61,15 +61,15 @@ const FinalCTA = () => {
               </p>
 
               {/* Direct Booking Button - Instant Action */}
-              <Button
-                onClick={handleOpenBooking}
-                // href="/contact-us"
+              <Link
+                // onClick={handleOpenBooking}
+                href="/book-a-call"
                 className="w-full mb-6 bg-[#0E9BF0] text-white px-6 py-3 rounded-xl text-sm font-bold hover:bg-[#0E9BF0]/90 hover:-translate-y-0.5 transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group"
               >
                 <Calendar className="w-4 h-4 group-hover:scale-110 transition-transform" />
                 Book Your Free Strategy Call Instantly
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              </Link>
 
               <p className="text-xs text-center text-white/40 mb-8">
                 ⚡ Instant calendar booking • 30-min free consultation • No commitment
