@@ -2,12 +2,12 @@ import { Metadata } from 'next';
 import GoHighLevelAutomationClient from './client';
 
 export const metadata: Metadata = {
-  title: 'Best GoHighLevel Automations For Business And Agencies For Highest ROI',
-  description: 'Learn which GoHighLevel automations to build first, how to prioritize workflows by business impact and ROI, what agencies should automate, and when not to automate.',
-  keywords: 'GoHighLevel automation, GoHighLevel workflows, GoHighLevel workflow automation, GoHighLevel automation examples, best GoHighLevel workflows, GHL automation, GHL workflows, GoHighLevel automations for agencies, GoHighLevel automations for businesses',
+  title: 'GoHighLevel Automation: Workflows to Build First | GHL Scale Up',
+  description: 'Learn which GoHighLevel automations to build first, from speed to lead and missed call recovery to sales follow up, nurture, onboarding, ROI, and QA.',
+  keywords: 'GoHighLevel workflows; GHL automation; GoHighLevel workflow automation; speed to lead; missed call recovery; appointment reminders; lead nurture; reactivation; client onboarding; automation ROI; workflow QA',
   openGraph: {
-    title: 'GoHighLevel Automation: The Workflows Worth Building First',
-    description: 'Learn which GoHighLevel automations to build first, how to prioritize workflows by business impact and ROI, what agencies should automate, and when not to automate.',
+    title: 'GoHighLevel Automation: Workflows to Build First | GHL Scale Up',
+    description: 'Learn which GoHighLevel automations to build first, from speed to lead and missed call recovery to sales follow up, nurture, onboarding, ROI, and QA.',
     url: 'https://www.ghlscaleup.com/blog/gohighlevel-automation',
     siteName: 'GHL Scale Up',
     images: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'GoHighLevel Automation: Workflows Worth Building First',
-    description: 'Learn which GoHighLevel automations to build first, how to prioritize workflows by business impact and ROI, what agencies should automate, and when not to automate.',
+    description: 'Learn which GoHighLevel automations to build first, from speed to lead and missed call recovery to sales follow up, nurture, onboarding, ROI, and QA.',
     images: ['/blog-images/gohighlevel-automation-twitter.jpg'],
     site: '@GHLScaleUp',
     creator: '@GHLScaleUp',
@@ -54,9 +54,9 @@ export const metadata: Metadata = {
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: 'GoHighLevel Automation: The Workflows Worth Building First',
+  headline: 'GoHighLevel Automation: Workflows to Build First | GHL Scale Up',
   description:
-    'Learn which GoHighLevel automations to build first, how to prioritize workflows by business impact and ROI, what agencies should automate, and when not to automate.',
+    'Learn which GoHighLevel automations to build first, from speed to lead and missed call recovery to sales follow up, nurture, onboarding, ROI, and QA.',
   image: 'https://www.ghlscaleup.com/blog-images/gohighlevel-automation-og.jpg',
   datePublished: '2026-09-01T00:00:00.000Z',
   dateModified: '2026-09-01T00:00:00.000Z',
@@ -104,7 +104,7 @@ const breadcrumbSchema = {
     {
       '@type': 'ListItem',
       position: 3,
-      name: 'GoHighLevel Automation: The Workflows Worth Building First',
+      name: 'GoHighLevel Automation: Workflows to Build First | GHL Scale Up',
       item: 'https://www.ghlscaleup.com/blog/gohighlevel-automation',
     },
   ],

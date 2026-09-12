@@ -2,12 +2,12 @@ import { Metadata } from 'next';
 import ConnectClickUpToGoHighLevelClient from './client';
 
 export const metadata: Metadata = {
-  title: 'Connect ClickUp to GoHighLevel: Setup & Automation (2026)',
-  description: 'Connect ClickUp to GoHighLevel with native workflow triggers and actions. Setup steps, trigger/action tables, use cases, limits, and troubleshooting.',
-  keywords: 'connect ClickUp to GoHighLevel, GoHighLevel ClickUp integration, ClickUp GoHighLevel automation, ClickUp triggers GoHighLevel, GoHighLevel ClickUp workflow, create ClickUp task from GoHighLevel, ClickUp Zapier GoHighLevel',
+  title: 'How to Connect ClickUp to GoHighLevel: Setup & Automation | GHL Scale Up',
+  description: 'Learn how to connect ClickUp and GoHighLevel using native workflows, triggers, actions, data mapping, automation use cases, limitations, and troubleshooting.',
+  keywords: 'ClickUp GoHighLevel integration; ClickUp triggers; GoHighLevel ClickUp workflows; ClickUp automation; create ClickUp tasks from GoHighLevel; ClickUp to GHL; native integration; Zapier vs native integration',
   openGraph: {
-    title: 'Connect ClickUp to GoHighLevel: Setup & Automation (2026)',
-    description: 'Connect ClickUp to GoHighLevel with native workflow triggers and actions. Setup steps, trigger/action tables, use cases, limits, and troubleshooting.',
+    title: 'How to Connect ClickUp to GoHighLevel: Setup & Automation | GHL Scale Up',
+    description: 'Learn how to connect ClickUp and GoHighLevel using native workflows, triggers, actions, data mapping, automation use cases, limitations, and troubleshooting.',
     url: 'https://www.ghlscaleup.com/blog/connect-clickup-to-gohighlevel',
     siteName: 'GHL Scale Up',
     images: [

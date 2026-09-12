@@ -2,12 +2,12 @@ import { Metadata } from 'next';
 import WhatMigrationServiceMigratesClient from './client';
 
 export const metadata: Metadata = {
-  title: 'What a GoHighLevel Migration Actually Includes (2026)',
-  description: 'Contacts, HTML emails, and automation workflows don\'t migrate the same way. Here\'s exactly what transfers, what needs mapping, and what has to be rebuilt — and how to evaluate a provider\'s scope.',
-  keywords: 'what does a GoHighLevel migration service actually migrate, migrate contacts to GoHighLevel, migrate HTML email templates, migrate automation workflows, transfer vs rebuild CRM migration, GoHighLevel migration for agencies, evaluate a GoHighLevel migration provider',
+  title: 'What Does a GoHighLevel Migration Service Migrate?',
+  description: 'See what a GoHighLevel migration actually transfers, including contacts, data, email templates, forms, and workflows, and what must be rebuilt.',
+  keywords: 'GoHighLevel migration; GHL migration; CRM data migration; contacts migration; email template migration; workflow migration; forms migration; migration service; transfer vs rebuild',
   openGraph: {
-    title: 'What a GoHighLevel Migration Actually Includes (2026)',
-    description: 'Contacts, HTML emails, and automation workflows don\'t migrate the same way. Here\'s exactly what transfers, what needs mapping, and what has to be rebuilt — and how to evaluate a provider\'s scope.',
+    title: 'What Does a GoHighLevel Migration Service Migrate?',
+    description: 'See what a GoHighLevel migration actually transfers, including contacts, data, email templates, forms, and workflows, and what must be rebuilt.',
     url: 'https://www.ghlscaleup.com/blog/what-a-gohighlevel-migration-service-migrates',
     siteName: 'GHL Scale Up',
     images: [
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
         url: '/blog-images/what-a-gohighlevel-migration-service-migrates-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'What a GoHighLevel Migration Actually Includes (2026)',
+        alt: 'What Does a GoHighLevel Migration Service Migrate?',
       },
     ],
     locale: 'en_US',
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'What a GoHighLevel Migration Actually Includes (2026)',
-    description: 'Contacts, HTML emails, and automation workflows don\'t migrate the same way. Here\'s exactly what transfers, what needs mapping, and what has to be rebuilt — and how to evaluate a provider\'s scope.',
+    title: 'What Does a GoHighLevel Migration Service Migrate?',
+    description: 'See what a GoHighLevel migration actually transfers, including contacts, data, email templates, forms, and workflows, and what must be rebuilt.',
     images: ['/blog-images/what-a-gohighlevel-migration-service-migrates-twitter.jpg'],
     site: '@GHLScaleUp',
     creator: '@GHLScaleUp',
@@ -56,7 +56,7 @@ const articleSchema = {
   '@type': 'Article',
   headline: 'What Does a Migration Service Actually Migrate? Contacts, Emails, and Workflows Explained',
   description:
-    'Contacts, HTML emails, and automation workflows don\'t migrate the same way. Here\'s exactly what transfers, what needs mapping, and what has to be rebuilt — and how to evaluate a provider\'s scope.',
+    'See what a GoHighLevel migration actually transfers, including contacts, data, email templates, forms, and workflows, and what must be rebuilt.',
   image: 'https://www.ghlscaleup.com/blog-images/what-a-gohighlevel-migration-service-migrates-og.jpg',
   datePublished: '2026-09-08T00:00:00.000Z',
   dateModified: '2026-09-08T00:00:00.000Z',
@@ -104,7 +104,7 @@ const breadcrumbSchema = {
     {
       '@type': 'ListItem',
       position: 3,
-      name: 'What a GoHighLevel Migration Actually Includes (2026)',
+      name: 'What Does a GoHighLevel Migration Service Migrate?',
       item: 'https://www.ghlscaleup.com/blog/what-a-gohighlevel-migration-service-migrates',
     },
   ],

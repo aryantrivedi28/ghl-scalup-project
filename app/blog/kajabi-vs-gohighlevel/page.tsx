@@ -2,12 +2,12 @@ import { Metadata } from 'next';
 import KajabiVsGoHighLevelClient from './client';
 
 export const metadata: Metadata = {
-  title: 'Kajabi vs GoHighLevel (2026): Honest Comparison',
-  description: 'Kajabi vs GoHighLevel compared honestly courses, CRM, automation, pricing, and agency use. Find out which platform actually fits your business model.',
-  keywords: 'Kajabi vs GoHighLevel, GoHighLevel vs Kajabi, Kajabi or GoHighLevel, Kajabi alternative, GoHighLevel for course creators, Kajabi vs GoHighLevel pricing, Kajabi vs GoHighLevel for coaches, Kajabi vs GoHighLevel CRM, Kajabi vs GoHighLevel automation',
+  title: 'Kajabi vs GoHighLevel: Which Platform Is Better? | GHL Scale Up',
+  description: 'Compare Kajabi and GoHighLevel across courses, memberships, CRM, automation, funnels, pricing, coaching, and agency use to choose the right platform.',
+  keywords: 'Kajabi alternative; GoHighLevel vs Kajabi; course platform comparison; CRM; memberships; marketing automation; coaching platform; agency use; pricing; switching from Kajabi to GoHighLevel',
   openGraph: {
-    title: 'Kajabi vs GoHighLevel (2026): Honest Comparison',
-    description: 'Kajabi vs GoHighLevel compared honestly courses, CRM, automation, pricing, and agency use. Find out which platform actually fits your business model.',
+    title: 'Kajabi vs GoHighLevel: Which Platform Is Better? | GHL Scale Up',
+    description: 'Compare Kajabi and GoHighLevel across courses, memberships, CRM, automation, funnels, pricing, coaching, and agency use to choose the right platform.',
     url: 'https://www.ghlscaleup.com/blog/kajabi-vs-gohighlevel',
     siteName: 'GHL Scale Up',
     images: [
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
         url: '/blog-images/kajabi-vs-gohighlevel-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'Kajabi vs GoHighLevel (2026): Honest Comparison',
+        alt: 'Kajabi vs GoHighLevel: Which Platform Is Better? | GHL Scale Up',
       },
     ],
     locale: 'en_US',
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Kajabi vs GoHighLevel (2026): Honest Comparison',
-    description: 'Kajabi vs GoHighLevel compared honestly courses, CRM, automation, pricing, and agency use. Find out which platform actually fits your business model.',
+    title: 'Kajabi vs GoHighLevel: Which Platform Is Better? | GHL Scale Up',
+    description: 'Compare Kajabi and GoHighLevel across courses, memberships, CRM, automation, funnels, pricing, coaching, and agency use to choose the right platform.',
     images: ['/blog-images/kajabi-vs-gohighlevel-twitter.jpg'],
     site: '@GHLScaleUp',
     creator: '@GHLScaleUp',
@@ -56,7 +56,7 @@ const articleSchema = {
   '@type': 'Article',
   headline: 'Kajabi vs GoHighLevel: Which Platform Is Better for Your Business?',
   description:
-    'Kajabi vs GoHighLevel compared honestly courses, CRM, automation, pricing, and agency use. Find out which platform actually fits your business model.',
+    'Compare Kajabi and GoHighLevel across courses, memberships, CRM, automation, funnels, pricing, coaching, and agency use to choose the right platform.',
   image: 'https://www.ghlscaleup.com/blog-images/kajabi-vs-gohighlevel-og.jpg',
   datePublished: '2026-09-09T00:00:00.000Z',
   dateModified: '2026-09-09T00:00:00.000Z',
@@ -104,7 +104,7 @@ const breadcrumbSchema = {
     {
       '@type': 'ListItem',
       position: 3,
-      name: 'Kajabi vs GoHighLevel (2026): Honest Comparison',
+      name: 'Kajabi vs GoHighLevel: Which Platform Is Better? | GHL Scale Up',
       item: 'https://www.ghlscaleup.com/blog/kajabi-vs-gohighlevel',
     },
   ],

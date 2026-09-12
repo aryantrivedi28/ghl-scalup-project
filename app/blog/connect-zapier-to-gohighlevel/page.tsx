@@ -2,12 +2,12 @@ import { Metadata } from 'next';
 import ConnectZapierToGoHighLevelClient from './client';
 
 export const metadata: Metadata = {
-  title: 'Connect Zapier to GoHighLevel: Full Setup Guide (2026)',
-  description: 'Step-by-step guide to connecting Zapier and GoHighLevel through LeadConnector — setup, triggers, field mapping, troubleshooting, and when native automation is the better call.',
-  keywords: 'connect Zapier to GoHighLevel, GoHighLevel Zapier integration, LeadConnector Zapier, GoHighLevel Zapier triggers and actions, Zapier vs native GoHighLevel automation, GoHighLevel Zapier setup',
+  title: 'How to Connect Zapier to GoHighLevel: Setup Guide | GHL Scale Up',
+  description: 'Learn how to connect Zapier to GoHighLevel through LeadConnector, map fields, build a Zap, troubleshoot errors, and decide when to use native GHL workflows.',
+  keywords: 'Zapier GoHighLevel integration; LeadConnector Zapier; GoHighLevel Zapier setup; GHL Zapier automation; Zapier triggers and actions; field mapping; Zapier troubleshooting; Zapier vs GoHighLevel workflows',
   openGraph: {
-    title: 'Connect Zapier to GoHighLevel: Full Setup Guide (2026)',
-    description: 'Step-by-step guide to connecting Zapier and GoHighLevel through LeadConnector — setup, triggers, field mapping, troubleshooting, and when native automation is the better call.',
+    title: 'How to Connect Zapier to GoHighLevel: Setup Guide | GHL Scale Up',
+    description: 'Learn how to connect Zapier to GoHighLevel through LeadConnector, map fields, build a Zap, troubleshoot errors, and decide when to use native GHL workflows.',
     url: 'https://www.ghlscaleup.com/blog/connect-zapier-to-gohighlevel',
     siteName: 'GHL Scale Up',
     images: [
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
         url: '/blog-images/connect-zapier-to-gohighlevel-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'Connect Zapier to GoHighLevel: Full Setup Guide (2026)',
+        alt: 'How to Connect Zapier to GoHighLevel: Setup Guide | GHL Scale Up',
       },
     ],
     locale: 'en_US',
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Connect Zapier to GoHighLevel: Full Setup Guide (2026)',
-    description: 'Step-by-step guide to connecting Zapier and GoHighLevel through LeadConnector — setup, triggers, field mapping, troubleshooting, and when native automation is the better call.',
+    title: 'How to Connect Zapier to GoHighLevel: Setup Guide | GHL Scale Up',
+    description: 'Learn how to connect Zapier to GoHighLevel through LeadConnector, map fields, build a Zap, troubleshoot errors, and decide when to use native GHL workflows.',
     images: ['/blog-images/connect-zapier-to-gohighlevel-twitter.jpg'],
     site: '@GHLScaleUp',
     creator: '@GHLScaleUp',
@@ -56,7 +56,7 @@ const articleSchema = {
   '@type': 'Article',
   headline: 'How to Connect Zapier to GoHighLevel: Setup, Triggers, and When Not to Use It (2026)',
   description:
-    'Step-by-step guide to connecting Zapier and GoHighLevel through LeadConnector — setup, triggers, field mapping, troubleshooting, and when native automation is the better call.',
+    'Learn how to connect Zapier to GoHighLevel through LeadConnector, map fields, build a Zap, troubleshoot errors, and decide when to use native GHL workflows.',
   image: 'https://www.ghlscaleup.com/blog-images/connect-zapier-to-gohighlevel-og.jpg',
   datePublished: '2026-09-02T00:00:00.000Z',
   dateModified: '2026-09-02T00:00:00.000Z',
@@ -104,7 +104,7 @@ const breadcrumbSchema = {
     {
       '@type': 'ListItem',
       position: 3,
-      name: 'Connect Zapier to GoHighLevel: Full Setup Guide (2026)',
+      name: 'How to Connect Zapier to GoHighLevel: Setup Guide | GHL Scale Up',
       item: 'https://www.ghlscaleup.com/blog/connect-zapier-to-gohighlevel',
     },
   ],
