@@ -111,11 +111,11 @@ export default function GoHighLevelForSmallBusinessClient() {
   const faqs = [
     {
       q: "Is GoHighLevel worth it for small businesses?",
-      a: "It can be — when lead volume, follow-up complexity, or tool consolidation create enough value to exceed the subscription and setup cost. It isn't a universal yes or no."
+      a: "It can be when lead volume, follow-up complexity, or tool consolidation create enough value to exceed the subscription and setup cost. It isn't a universal yes or no."
     },
     {
       q: "Is GoHighLevel too expensive for a small business?",
-      a: "Not necessarily. The real question is whether it creates more value through recovered leads, saved time, or eliminated software costs than it costs to run — not whether $97/month sounds like a lot in isolation."
+      a: "Not necessarily. The real question is whether it creates more value through recovered leads, saved time, or eliminated software costs than it costs to run not whether $97/month sounds like a lot in isolation."
     },
     {
       q: "How much does GoHighLevel cost for a small business?",
@@ -127,7 +127,7 @@ export default function GoHighLevelForSmallBusinessClient() {
     },
     {
       q: "How many leads do you need for GoHighLevel to be worth it?",
-      a: "There's no fixed number — lead value and conversion rate matter more than raw volume. A smaller number of high-value leads can justify it as easily as a larger number of low-value ones."
+      a: "There's no fixed number lead value and conversion rate matter more than raw volume. A smaller number of high-value leads can justify it as easily as a larger number of low-value ones."
     },
     {
       q: "Can a small business use GoHighLevel without an agency?",
@@ -139,7 +139,7 @@ export default function GoHighLevelForSmallBusinessClient() {
     },
     {
       q: "What type of small business should use GoHighLevel?",
-      a: "Businesses with a repeatable lead-to-customer process — home services, appointment-based practices, coaches and consultants — benefit most."
+      a: "Businesses with a repeatable lead-to-customer process home services, appointment-based practices, coaches and consultants benefit most."
     },
     {
       q: "When is GoHighLevel overkill for a small business?",
@@ -151,11 +151,11 @@ export default function GoHighLevelForSmallBusinessClient() {
     },
     {
       q: "Is GoHighLevel better than a basic CRM for a small business?",
-      a: "More capable, not automatically better — a basic CRM plus a couple of point tools can outperform GHL for a business that will only ever use a fraction of what it offers."
+      a: "More capable, not automatically better a basic CRM plus a couple of point tools can outperform GHL for a business that will only ever use a fraction of what it offers."
     },
     {
       q: "What should a small business automate first in GoHighLevel?",
-      a: "New lead response, appointment reminders, no-response follow-up, and review requests — in that order, before adding anything more complex."
+      a: "New lead response, appointment reminders, no-response follow-up, and review requests in that order, before adding anything more complex."
     }
   ];
 
@@ -208,7 +208,7 @@ export default function GoHighLevelForSmallBusinessClient() {
 
   const planData = [
     { plan: 'Starter ($97/mo)', whoItsFor: 'Nearly every single-location small business. CRM, pipelines, website/funnels, calendars, and workflows are all included.' },
-    { plan: 'Unlimited ($297/mo)', whoItsFor: 'Only if you\'re running more than three sub-accounts — rare for a business operating under one brand at one location.' },
+    { plan: 'Unlimited ($297/mo)', whoItsFor: 'Only if you\'re running more than three sub-accounts rare for a business operating under one brand at one location.' },
     { plan: 'Agency Pro ($497/mo)', whoItsFor: 'Built for reselling GHL to other businesses. A normal small business has no reason to be on this plan.' },
   ];
 
@@ -275,11 +275,11 @@ export default function GoHighLevelForSmallBusinessClient() {
           </div>
 
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-6xl">
-            A three-person home service company getting 500 leads a month has a stronger case for GoHighLevel than a fifteen-person firm getting twenty. Business size isn't the variable that decides this. Complexity is — how many leads come in, how many touches it takes to turn one into a customer, and how much of that follow-up currently happens late or not at all.
+            A three-person home service company getting 500 leads a month has a stronger case for GoHighLevel than a fifteen-person firm getting twenty. Business size isn't the variable that decides this. Complexity is how many leads come in, how many touches it takes to turn one into a customer, and how much of that follow-up currently happens late or not at all.
           </p>
 
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-6xl">
-            This article is written for one reader: a small business owner deciding whether to pay for GoHighLevel, not an agency evaluating it for clients. If you want the platform explained from scratch, <Link href="/blog/what-is-gohighlevel" className="text-[#0E9BF0] hover:underline">what GoHighLevel actually is</Link> is covered elsewhere — this article assumes you already know roughly what it does and want to know if it's worth paying for <em>your</em> business specifically.
+            This article is written for one reader: a small business owner deciding whether to pay for GoHighLevel, not an agency evaluating it for clients. If you want the platform explained from scratch, <Link href="/blog/what-is-gohighlevel" className="text-[#0E9BF0] hover:underline">what GoHighLevel actually is</Link> is covered elsewhere this article assumes you already know roughly what it does and want to know if it's worth paying for <em>your</em> business specifically.
           </p>
 
           <div className="flex flex-wrap gap-3">
@@ -400,7 +400,7 @@ export default function GoHighLevelForSmallBusinessClient() {
                 <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Quick Verdict</span>
               </div>
               <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
-                It can be worth it — when the business has enough lead volume, follow-up complexity, or tool consolidation opportunity.
+                It can be worth it when the business has enough lead volume, follow-up complexity, or tool consolidation opportunity.
               </p>
               <p className="text-sm text-[#5C6880] leading-relaxed">
                 GoHighLevel isn't worth it by default just because a business is small, and it isn't automatically overkill just because a business is small either. The decision depends on your specific operational complexity.
@@ -449,11 +449,11 @@ export default function GoHighLevelForSmallBusinessClient() {
               Grouped by the problem each piece solves, not as a feature list:
             </p>
             <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">Lead capture</strong> — forms, funnels, and a website that feed directly into one system instead of scattering submissions across tools.</li>
-              <li><strong className="text-[#1A2236]">Lead management</strong> — contacts and pipelines that show where every prospect actually stands.</li>
-              <li><strong className="text-[#1A2236]">Follow-up</strong> — email, SMS, and workflow automation that responds before a lead goes cold.</li>
-              <li><strong className="text-[#1A2236]">Appointment management</strong> — booking, reminders, and no-show follow-up.</li>
-              <li><strong className="text-[#1A2236]">Customer retention</strong> — review requests and reactivation campaigns for past customers.</li>
+              <li><strong className="text-[#1A2236]">Lead capture</strong> forms, funnels, and a website that feed directly into one system instead of scattering submissions across tools.</li>
+              <li><strong className="text-[#1A2236]">Lead management</strong> contacts and pipelines that show where every prospect actually stands.</li>
+              <li><strong className="text-[#1A2236]">Follow-up</strong> email, SMS, and workflow automation that responds before a lead goes cold.</li>
+              <li><strong className="text-[#1A2236]">Appointment management</strong> booking, reminders, and no-show follow-up.</li>
+              <li><strong className="text-[#1A2236]">Customer retention</strong> review requests and reactivation campaigns for past customers.</li>
             </ul>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               The only question that matters for a purchase decision: which of these does your business actually need today? A business with no booking process doesn't benefit from the calendar. A business drowning in unanswered form fills benefits enormously from the follow-up piece.
@@ -485,13 +485,13 @@ export default function GoHighLevelForSmallBusinessClient() {
               How Much Does GoHighLevel Really Cost a Small Business?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The subscription is the smallest part of the real number. GoHighLevel's Starter plan is $97/month and covers what most small businesses need: CRM and pipelines, the website and funnel builder, booking calendars, workflow automation, and email/SMS marketing, with up to three sub-accounts (irrelevant for a single-location business). <Link href="/blog/gohighlevel-pricing" className="text-[#0E9BF0] hover:underline">GHL Scale Up's full pricing guide</Link> breaks down all three plans in detail if you want the complete comparison — most small businesses never need to look past Starter.
+              The subscription is the smallest part of the real number. GoHighLevel's Starter plan is $97/month and covers what most small businesses need: CRM and pipelines, the website and funnel builder, booking calendars, workflow automation, and email/SMS marketing, with up to three sub-accounts (irrelevant for a single-location business). <Link href="/blog/gohighlevel-pricing" className="text-[#0E9BF0] hover:underline">GHL Scale Up's full pricing guide</Link> breaks down all three plans in detail if you want the complete comparison most small businesses never need to look past Starter.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              What sits on top of that $97, based on GoHighLevel's current usage-based pricing: SMS runs roughly $0.008 per segment, email around $0.675 per 1,000 sends, outbound calls about $0.014 per minute, and AI features bill separately — either pay-per-use, a $50/month Growth tier, or a $97/month Unlimited tier per location, depending on how much AI usage you actually need. A typical small business running moderate SMS and email volume usually lands somewhere between $20 and $150 above the base subscription.
+              What sits on top of that $97, based on GoHighLevel's current usage-based pricing: SMS runs roughly $0.008 per segment, email around $0.675 per 1,000 sends, outbound calls about $0.014 per minute, and AI features bill separately either pay-per-use, a $50/month Growth tier, or a $97/month Unlimited tier per location, depending on how much AI usage you actually need. A typical small business running moderate SMS and email volume usually lands somewhere between $20 and $150 above the base subscription.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Then there's implementation: someone has to build the pipeline, the forms, and the first automations. That's either your own time — realistically a few hours to a couple of weeks depending on how much you build — or the cost of paying someone to set it up. <strong className="text-[#1A2236]">The subscription price and the real cost of running GoHighLevel are two different numbers, and only the second one determines whether it's worth it.</strong>
+              Then there's implementation: someone has to build the pipeline, the forms, and the first automations. That's either your own time realistically a few hours to a couple of weeks depending on how much you build or the cost of paying someone to set it up. <strong className="text-[#1A2236]">The subscription price and the real cost of running GoHighLevel are two different numbers, and only the second one determines whether it's worth it.</strong>
             </p>
 
             {/* Section: When Does It Become Worth It */}
@@ -499,7 +499,7 @@ export default function GoHighLevelForSmallBusinessClient() {
               When Does GoHighLevel Actually Become Worth the Money?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              There's no universal lead threshold — a business with 20 high-value leads a month can have a stronger case than one with 200 low-value inquiries, because the cost of losing a lead scales with what that lead is worth. What matters is a combination of:
+              There's no universal lead threshold a business with 20 high-value leads a month can have a stronger case than one with 200 low-value inquiries, because the cost of losing a lead scales with what that lead is worth. What matters is a combination of:
             </p>
             <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
               <li>Lead value and conversion rate</li>
@@ -509,7 +509,7 @@ export default function GoHighLevelForSmallBusinessClient() {
               <li>How much of this is currently manual and inconsistent</li>
             </ul>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The trigger isn't revenue size — it's <strong className="text-[#1A2236]">repetitive acquisition and follow-up complexity</strong>. A <Link href="/blog/gohighlevel-missed-call-text-back" className="text-[#0E9BF0] hover:underline">missed-call text-back workflow</Link> alone recovers leads that would otherwise call a competitor; that single automation can justify the subscription for a business that takes phone inquiries, independent of everything else GHL does.
+              The trigger isn't revenue size it's <strong className="text-[#1A2236]">repetitive acquisition and follow-up complexity</strong>. A <Link href="/blog/gohighlevel-missed-call-text-back" className="text-[#0E9BF0] hover:underline">missed-call text-back workflow</Link> alone recovers leads that would otherwise call a competitor; that single automation can justify the subscription for a business that takes phone inquiries, independent of everything else GHL does.
             </p>
 
             {/* Section: Which Small Businesses Benefit Most */}
@@ -566,10 +566,10 @@ export default function GoHighLevelForSmallBusinessClient() {
               Can a Small Business Set This Up Without an Agency?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Yes, for a basic setup — <Link href="/blog/how-to-use-gohighlevel" className="text-[#0E9BF0] hover:underline">GoHighLevel's own tutorial path</Link> gets most people functional on core CRM, one pipeline, and a simple automation within one to two weeks of part-time effort. That covers a straightforward lead-to-customer flow.
+              Yes, for a basic setup <Link href="/blog/how-to-use-gohighlevel" className="text-[#0E9BF0] hover:underline">GoHighLevel's own tutorial path</Link> gets most people functional on core CRM, one pipeline, and a simple automation within one to two weeks of part-time effort. That covers a straightforward lead-to-customer flow.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Where it gets harder without help: multi-stage pipelines with branching logic, integrations with existing tools, and workflows that need to handle edge cases correctly the first time. Simple setup is a DIY-realistic weekend project. Production-grade automation that reliably handles real leads is a bigger time investment — budget accordingly rather than assuming either extreme.
+              Where it gets harder without help: multi-stage pipelines with branching logic, integrations with existing tools, and workflows that need to handle edge cases correctly the first time. Simple setup is a DIY-realistic weekend project. Production-grade automation that reliably handles real leads is a bigger time investment budget accordingly rather than assuming either extreme.
             </p>
 
             {/* Section: Can It Replace Tools */}
@@ -602,7 +602,7 @@ export default function GoHighLevelForSmallBusinessClient() {
             </div>
 
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Consolidation saves money when you're actually paying for 3+ overlapping tools today. It doesn't help if you only use one specialized tool that already does its one job well — replacing a tool that works with a bigger platform that does the same thing isn't a win by itself.
+              Consolidation saves money when you're actually paying for 3+ overlapping tools today. It doesn't help if you only use one specialized tool that already does its one job well replacing a tool that works with a bigger platform that does the same thing isn't a win by itself.
             </p>
 
             {/* Section: What to Automate First */}
@@ -613,11 +613,11 @@ export default function GoHighLevelForSmallBusinessClient() {
               Don't try to automate everything in week one. In rough priority order:
             </p>
             <ol className="space-y-1 mb-4 text-sm text-[#5C6880] list-decimal list-inside">
-              <li><strong className="text-[#1A2236]">New lead response</strong> — an instant reply the moment a form or call comes in.</li>
-              <li><strong className="text-[#1A2236]">Appointment reminders</strong> — cuts no-shows without anyone remembering to send them.</li>
-              <li><strong className="text-[#1A2236]">No-response follow-up</strong> — a second and third touch for leads who went quiet.</li>
-              <li><strong className="text-[#1A2236]">Review requests</strong> — sent automatically after a completed job or visit.</li>
-              <li><strong className="text-[#1A2236]">Lead reactivation</strong> — a periodic check-in to old contacts who never converted.</li>
+              <li><strong className="text-[#1A2236]">New lead response</strong> an instant reply the moment a form or call comes in.</li>
+              <li><strong className="text-[#1A2236]">Appointment reminders</strong> cuts no-shows without anyone remembering to send them.</li>
+              <li><strong className="text-[#1A2236]">No-response follow-up</strong> a second and third touch for leads who went quiet.</li>
+              <li><strong className="text-[#1A2236]">Review requests</strong> sent automatically after a completed job or visit.</li>
+              <li><strong className="text-[#1A2236]">Lead reactivation</strong> a periodic check-in to old contacts who never converted.</li>
             </ol>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               Build these, let them run for a few weeks, then decide what else is worth adding. <Link href="/blog/gohighlevel-automation" className="text-[#0E9BF0] hover:underline">GHL Scale Up's automation guide</Link> goes deeper into build order and prioritization if you want to keep going past the basics.
@@ -628,14 +628,14 @@ export default function GoHighLevelForSmallBusinessClient() {
               What Are the Biggest Risks of Using GoHighLevel as a Small Business?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              None of these are reasons to avoid GHL — they're reasons to build deliberately:
+              None of these are reasons to avoid GHL they're reasons to build deliberately:
             </p>
             <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">Overbuilding</strong> — automating things that didn't need automation, adding complexity nobody asked for</li>
-              <li><strong className="text-[#1A2236]">Messaging costs creeping up</strong> — SMS and email usage adds up faster than expected without any oversight</li>
-              <li><strong className="text-[#1A2236]">A CRM structure nobody understands</strong> — built once, then impossible to safely change later</li>
-              <li><strong className="text-[#1A2236]">No one to maintain it</strong> — the system degrades if nobody owns it after initial setup</li>
-              <li><strong className="text-[#1A2236]">Subscription waste</strong> — paying for a plan tier or add-ons the business never actually uses</li>
+              <li><strong className="text-[#1A2236]">Overbuilding</strong> automating things that didn't need automation, adding complexity nobody asked for</li>
+              <li><strong className="text-[#1A2236]">Messaging costs creeping up</strong> SMS and email usage adds up faster than expected without any oversight</li>
+              <li><strong className="text-[#1A2236]">A CRM structure nobody understands</strong> built once, then impossible to safely change later</li>
+              <li><strong className="text-[#1A2236]">No one to maintain it</strong> the system degrades if nobody owns it after initial setup</li>
+              <li><strong className="text-[#1A2236]">Subscription waste</strong> paying for a plan tier or add-ons the business never actually uses</li>
             </ul>
 
             {/* Section: Should Your Business Use It */}
@@ -664,10 +664,10 @@ export default function GoHighLevelForSmallBusinessClient() {
             </div>
 
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              This isn't a scientifically validated test — it's a way to see your own situation clearly. Mostly yes: GHL is probably worth it. A mix of yes and no: worth testing with one workflow before committing further. Mostly no: you likely don't need it yet.
+              This isn't a scientifically validated test it's a way to see your own situation clearly. Mostly yes: GHL is probably worth it. A mix of yes and no: worth testing with one workflow before committing further. Mostly no: you likely don't need it yet.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">A hypothetical, clearly labeled as such:</strong> if a business earns $500 gross profit per customer and a lead-response automation recovers just one additional customer a month that would otherwise have gone cold, that's $500 a month against a $97–150 total GHL cost. That's not a guaranteed outcome — it's the shape of the math worth checking against your own numbers before assuming either that GHL "pays for itself" or that it doesn't.
+              <strong className="text-[#1A2236]">A hypothetical, clearly labeled as such:</strong> if a business earns $500 gross profit per customer and a lead-response automation recovers just one additional customer a month that would otherwise have gone cold, that's $500 a month against a $97–150 total GHL cost. That's not a guaranteed outcome it's the shape of the math worth checking against your own numbers before assuming either that GHL "pays for itself" or that it doesn't.
             </p>
 
             {/* Section: Manual Follow-Up Cost */}
@@ -675,10 +675,10 @@ export default function GoHighLevelForSmallBusinessClient() {
               GoHighLevel vs. Doing Nothing: What Does Manual Follow-Up Actually Cost?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              "Do nothing" isn't free — it's just an invisible cost. A lead arrives, then someone has to remember to respond, remember to send a reminder, remember to follow up again if there's no reply, remember the review request after the job. Each "remember" is a place the process silently breaks under real-world busyness.
+              "Do nothing" isn't free it's just an invisible cost. A lead arrives, then someone has to remember to respond, remember to send a reminder, remember to follow up again if there's no reply, remember the review request after the job. Each "remember" is a place the process silently breaks under real-world busyness.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The question isn't how many hours this manual chain takes — it's how many leads fall through it when it doesn't happen consistently, which is the actual cost worth weighing against a subscription that does it every time.
+              The question isn't how many hours this manual chain takes it's how many leads fall through it when it doesn't happen consistently, which is the actual cost worth weighing against a subscription that does it every time.
             </p>
 
             {/* Section: Which Plan */}
@@ -706,7 +706,7 @@ export default function GoHighLevelForSmallBusinessClient() {
             </div>
 
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              If you're a small business and someone recommends Unlimited or Agency Pro without a specific multi-location or resale reason, ask why — those tiers solve agency problems, not small business ones.
+              If you're a small business and someone recommends Unlimited or Agency Pro without a specific multi-location or resale reason, ask why those tiers solve agency problems, not small business ones.
             </p>
 
             {/* Section: Final Verdict */}
@@ -714,7 +714,7 @@ export default function GoHighLevelForSmallBusinessClient() {
               Final Verdict
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              GoHighLevel is not automatically worth it because a business is small, and it's not automatically overkill for the same reason. It's worth it when there's enough lead management, follow-up, and customer-journey complexity for automation and consolidation to produce value you can actually point to — recovered leads, fewer no-shows, hours back in your week, tools you stopped paying for separately.
+              GoHighLevel is not automatically worth it because a business is small, and it's not automatically overkill for the same reason. It's worth it when there's enough lead management, follow-up, and customer-journey complexity for automation and consolidation to produce value you can actually point to recovered leads, fewer no-shows, hours back in your week, tools you stopped paying for separately.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               Don't ask "can GHL do everything I need?" Ask <strong className="text-[#1A2236]">"will I use enough of what it does to justify what it costs and what it takes to set up?"</strong> That's the whole decision.
