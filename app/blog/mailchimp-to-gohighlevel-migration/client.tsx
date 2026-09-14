@@ -21,12 +21,13 @@ import {
   Shield,
   BarChart3,
   Workflow,
+  Image as ImageIcon,
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import Image from 'next/image';
 
 export default function MailchimpToGoHighLevelMigrationClient() {
   const [activeId, setActiveId] = useState<string>('');
-  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,8 +38,11 @@ export default function MailchimpToGoHighLevelMigrationClient() {
         'tags-fields',
         'rebuild-automations',
         'email-templates',
+        'forms-integrations',
         'deliverability',
-        'comparison',
+        'should-you-migrate',
+        'timeline',
+        'mistakes',
         'faq'
       ];
 
@@ -48,16 +52,8 @@ export default function MailchimpToGoHighLevelMigrationClient() {
           const rect = element.getBoundingClientRect();
           if (rect.top <= 150) {
             setActiveId(id);
-            break;
           }
         }
-      }
-
-      // Show floating Project Help card after scrolling past hero section
-      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
-      if (heroSection) {
-        const heroBottom = heroSection.getBoundingClientRect().bottom;
-        setShowFloatingProjectHelp(heroBottom < 0);
       }
     };
 
@@ -77,82 +73,83 @@ export default function MailchimpToGoHighLevelMigrationClient() {
 
   const faqs = [
     {
-      q: "Can I move my Mailchimp automations to GoHighLevel?",
-      a: "Not automatically. Mailchimp Customer Journeys and Classic Automations do not export confirmed across multiple ecosystem sources including Mailsoftly (May 2026) and GoHighLevel's official Mailchimp migration guide (article 155000003392). They must be documented (business intent, trigger condition, steps in order, branching logic, exit conditions) and then manually rebuilt in GHL's Workflow Builder. Most Mailchimp automations are simpler than Keap Campaign Builder or HubSpot sequences, so the rebuild phase is typically 1-3 days rather than weeks."
+      q: "Can Mailchimp be migrated to GoHighLevel?",
+      a: "Yes, though not as a single automatic transfer. Contacts, tags, merge fields, and subscription status export from Mailchimp and import into GHL. Customer Journeys, campaign statistics, forms, and landing pages do not transfer and need to be manually rebuilt."
     },
     {
-      q: "What is the difference between Mailchimp tags and GoHighLevel tags?",
-      a: "Functionally, they work the same both are labels applied per contact used for segmentation. Mailchimp tags export cleanly in the audience CSV and import directly as GHL tags. The main difference: GoHighLevel tags integrate more deeply with automation triggers and pipeline stages. A GHL tag can directly trigger a workflow entry, apply an opportunity to a pipeline, or update a contact score. Mailchimp tags primarily control audience segmentation for campaigns."
+      q: "How do I migrate Mailchimp contacts to GoHighLevel?",
+      a: "Export each audience separately from Mailchimp's Audience section, recreate your custom fields and tags in GHL first, then import the CSV, checking that subscription status is preserved and that unsubscribed contacts are not treated as active."
+    },
+    {
+      q: "Can Mailchimp automations be migrated to GoHighLevel?",
+      a: "No, not automatically. Document each Customer Journey's trigger, steps, and exit condition, then rebuild the same logic manually in GHL's workflow builder."
+    },
+    {
+      q: "What happens to unsubscribed Mailchimp contacts when I migrate?",
+      a: "Their status should carry through the export, but it needs to be actively preserved and configured in GHL rather than assumed. Mark unsubscribed and cleaned contacts as suppressed from marketing in GHL to avoid re-enrolling people who opted out."
     },
     {
       q: "Do Mailchimp email templates work in GoHighLevel?",
-      a: "Not directly Mailchimp templates cannot be imported as files. You must copy the HTML source of each active template from Mailchimp and paste it into GHL Marketing > Emails > Templates > New Template > HTML mode. Every Mailchimp merge field (*|FNAME|*, *|EMAIL|*, etc.) must be translated to GHL's syntax ({{contact.first_name}}, {{contact.email}}). Some Mailchimp-specific CSS may render slightly differently in GHL expect to fine-tune 1-2 CSS rules per template. Prioritize your top 5-10 templates for perfect design; leave rarely-used templates as good-enough."
+      a: "Not directly. Copy the HTML source of each active template into GHL's HTML template editor and translate every merge field to GHL's syntax. Some CSS may render slightly differently and need minor adjustment."
     },
     {
-      q: "How do Mailchimp audiences map to GoHighLevel?",
-      a: "Mailchimp separates contacts into multiple Audiences (formerly Lists). GoHighLevel does not have an equivalent Audience-level separation all contacts live in one sub-account's contact database. Mapping approach: import all Mailchimp audiences into one GHL sub-account, use tags to preserve the audience-level distinction (e.g., tag Newsletter-Audience, Customers-Audience, Prospects-Audience). For agencies serving multiple clients, use separate GHL sub-accounts per client do not use Audience-style separation within a single sub-account."
-    },
-    {
-      q: "Will I lose my email deliverability when moving from Mailchimp?",
-      a: "Only if you do not warm up your new sending domain properly. Deliverability depends on the reputation of your sending domain, and a cold sending domain has poor initial reputation. To preserve deliverability: (1) set up SPF, DKIM, and DMARC on the new GHL sending domain, (2) start by sending to your most engaged 10% of contacts, (3) send 100-500 emails per day for 3-5 days then double every 2-3 days, (4) reach full send volume by week 3, (5) monitor open rates they should stabilize within 15% of your Mailchimp baseline. Confirmed as the biggest migration risk by ECOSIRE (March 2026)."
-    },
-    {
-      q: "What is the cost difference between Mailchimp and GoHighLevel?",
-      a: "Mailchimp pricing scales with contact count. A 25,000-contact list on Mailchimp Standard is approximately $250-$300/month. GoHighLevel is flat-rate: $97-$497/month regardless of contact count. For most businesses with lists over 5,000 contacts, GHL is cheaper and includes CRM, SMS, WhatsApp, calendar booking, pipelines, and AI features that Mailchimp does not offer at any tier. Also, GHL usage fees for SMS and email sending are typically $30-$150/month on top of the plan, so calculate total cost including usage against your Mailchimp Standard + Pro tier bill."
+      q: "What happens to my Mailchimp campaign history?",
+      a: "Open rates, click data, and A/B test results stay in Mailchimp and do not transfer. Export or screenshot anything you want to reference later before cancelling, and consider keeping Mailchimp accessible as an archive for a period after migration."
     },
     {
       q: "How long does a Mailchimp to GoHighLevel migration take?",
-      a: "Timeline depends on complexity. Simple migrations (single audience under 10,000 contacts, few automations, minimal template count) can complete in 5-7 business days confirmed by ghlcrms (May 2026). Standard migrations (10,000-50,000 contacts, 5-10 automations, moderate template library) typically take 1-2 weeks. Complex migrations (multiple audiences, 10+ Customer Journeys, RSS-to-email campaigns, deep merge field customization) can take 3-4 weeks. Add a 2-3 week domain warmup phase on top of the migration timeline before you can safely send at full volume."
+      a: "Roughly a week for a simple single audience account, one to two weeks for a standard migration, and three to four weeks for a complex account with multiple audiences and many automations, with domain warmup continuing afterward."
+    },
+    {
+      q: "Should I keep Mailchimp after migrating to GoHighLevel?",
+      a: "Yes, for a period. Keep it accessible as a read-only archive for your historical campaign data and as a fallback during parallel running, and cancel only once GHL is fully validated."
     }
   ];
 
   useFaqSchema(faqs);
 
   const tocItems = [
-    { id: 'why-migrate', title: '1. Why do businesses migrate from Mailchimp to GoHighLevel?' },
-    { id: 'what-transfers', title: '2. What data transfers and what does not?' },
-    { id: 'export-audience', title: '3. How do you export your Mailchimp audience?' },
-    { id: 'tags-fields', title: '4. How do you handle Mailchimp tags, segments, and merge fields?' },
-    { id: 'rebuild-automations', title: '5. How do you rebuild Mailchimp automations in GHL?' },
-    { id: 'email-templates', title: '6. How do you migrate email templates and preserve design?' },
-    { id: 'deliverability', title: '7. How do you preserve deliverability during cutover?' },
-    { id: 'comparison', title: '8. How does Mailchimp migration compare to other platforms?' },
-    { id: 'faq', title: '9. Frequently asked questions' }
+    { id: 'why-migrate', title: 'Why Do Businesses Migrate From Mailchimp to GoHighLevel?' },
+    { id: 'what-transfers', title: 'What Actually Transfers, and What Needs Rebuilding' },
+    { id: 'subscription-status', title: 'Subscription Status Is Not Just a Data Field' },
+    { id: 'export-audience', title: 'How Do You Export Your Mailchimp Audience?' },
+    { id: 'tags-fields', title: 'How Do Mailchimp Tags, Segments, and Groups Map to GoHighLevel?' },
+    { id: 'rebuild-automations', title: 'How Do You Rebuild Mailchimp Automations in GoHighLevel?' },
+    { id: 'email-templates', title: 'How Do You Migrate Email Templates?' },
+    { id: 'forms-integrations', title: 'Forms, Website Signups, and Integrations' },
+    { id: 'deliverability', title: 'How Do You Protect Deliverability During Cutover?' },
+    { id: 'should-you-migrate', title: 'Should You Migrate From Mailchimp to GoHighLevel?' },
+    { id: 'timeline', title: 'How Long Does a Mailchimp to GoHighLevel Migration Take?' },
+    { id: 'mistakes', title: 'Common Mailchimp to GoHighLevel Migration Mistakes' },
+    { id: 'faq', title: 'Frequently Asked Questions' }
   ];
 
   const transfers = [
-    { asset: 'Contacts (audience data)', transfers: 'Yes', how: 'CSV export from Mailchimp > CSV import to GHL' },
-    { asset: 'Merge fields', transfers: 'Yes (as GHL Custom Fields)', how: 'Recreate matching Custom Fields in GHL BEFORE import' },
-    { asset: 'Tags', transfers: 'Yes', how: 'Included in the audience export CSV, imported as GHL tags' },
-    { asset: 'Subscription status', transfers: 'Yes', how: 'Subscribed/Unsubscribed/Cleaned status carries through' },
-    { asset: 'Email templates', transfers: 'Manual copy', how: 'Copy HTML source from Mailchimp campaigns into GHL Templates' },
-    { asset: 'Automations / Customer Journeys', transfers: 'NO', how: 'Must be documented then manually rebuilt in GHL Workflow Builder' },
-    { asset: 'Campaign statistics', transfers: 'NO', how: 'Open rates, click rates stay in Mailchimp' },
-    { asset: 'A/B test results', transfers: 'NO', how: 'Historical test data stays in Mailchimp' },
-    { asset: 'Forms', transfers: 'Manual rebuild', how: 'Rebuild using GHL\'s Sites & Funnels builder' },
-    { asset: 'Landing pages', transfers: 'Manual rebuild', how: 'Rebuild in GHL Funnel/Website Builder' },
-    { asset: 'RSS campaigns', transfers: 'Manual rebuild', how: 'GHL requires workflow with RSS feed webhook no native RSS-to-email' },
-    { asset: 'Sending domain reputation', transfers: 'NO new domain', how: 'Warm up new GHL sending domain BEFORE mass send' }
+    { asset: 'Contacts (audience data)', transfers: 'Yes', how: 'CSV export from Mailchimp, CSV import to GHL' },
+    { asset: 'Merge fields', transfers: 'Yes, as custom fields', how: 'Recreate matching custom fields in GHL before import' },
+    { asset: 'Tags', transfers: 'Yes', how: 'Included in the audience export, imported as GHL tags' },
+    { asset: 'Subscription status', transfers: 'Yes, but needs careful handling', how: 'Subscribed, unsubscribed, and cleaned status carries through the export; see below' },
+    { asset: 'Email templates', transfers: 'Manual copy', how: 'Copy the HTML source into GHL and translate merge field syntax' },
+    { asset: 'Customer Journeys and automations', transfers: 'No', how: 'Document the logic, then manually rebuild in GHL\'s workflow builder' },
+    { asset: 'Campaign statistics and A/B test history', transfers: 'No', how: 'Stays in Mailchimp; export or screenshot anything you need to reference later' },
+    { asset: 'Signup forms and landing pages', transfers: 'No', how: 'Rebuild in GHL\'s Forms and Funnel builder' },
+    { asset: 'Sending domain reputation', transfers: 'No', how: 'A new sending domain starts with no reputation and needs to build it' }
   ];
 
   const mergeFields = [
-    { mailchimp: '*|FNAME|*', ghl: '{{contact.first_name}}', notes: 'First name' },
-    { mailchimp: '*|LNAME|*', ghl: '{{contact.last_name}}', notes: 'Last name' },
-    { mailchimp: '*|EMAIL|*', ghl: '{{contact.email}}', notes: 'Email address' },
-    { mailchimp: '*|MC:SUBJECT|*', ghl: '(subject in GHL settings)', notes: 'Subject line handled separately' },
-    { mailchimp: '*|UNSUB|*', ghl: '{{ unsubscribe_url }}', notes: 'Unsubscribe link required for compliance' },
-    { mailchimp: '*|MC_PREVIEW_TEXT|*', ghl: '(preview in GHL settings)', notes: 'Email preview text' },
-    { mailchimp: '*|ARCHIVE|*', ghl: '(no direct equivalent)', notes: 'Web archive link typically omitted in GHL' },
-    { mailchimp: 'Custom merge fields (MMERGE1, etc.)', ghl: '{{custom_values.field_name}}', notes: 'Reference the GHL custom field you created' }
+    { mailchimp: '*|FNAME|*', ghl: '{{contact.first_name}}' },
+    { mailchimp: '*|LNAME|*', ghl: '{{contact.last_name}}' },
+    { mailchimp: '*|EMAIL|*', ghl: '{{contact.email}}' },
+    { mailchimp: '*|UNSUB|*', ghl: '{{unsubscribe_url}}' },
+    { mailchimp: 'Custom merge fields', ghl: '{{custom_values.field_name}}, referencing the custom field you created' }
   ];
 
-  const comparison = [
-    { factor: 'Data export ease', mailchimp: 'High (single ZIP with CSV)', keap: 'Moderate (1,000+ = email delivery)', zoho: 'Moderate (200K record limit)', hubspot: 'High (multiple export types)' },
-    { factor: 'Automation transferability', mailchimp: 'No Customer Journeys do NOT export', keap: 'No Campaign Builder does NOT export', zoho: 'No workflows do NOT export', hubspot: 'No Marketing sequences do NOT export' },
-    { factor: 'Object model complexity', mailchimp: 'Low (audience + tags + merge fields)', keap: 'Moderate (contacts + tags + campaigns)', zoho: 'Moderate (modules + custom fields)', hubspot: 'Moderate (contacts + companies + deals)' },
-    { factor: 'Add-on ecosystem', mailchimp: 'Small (few paid integrations)', keap: 'Large (PlusThis + Zapier heavy)', zoho: 'Zoho ecosystem apps', hubspot: 'HubSpot marketplace' },
-    { factor: 'Typical timeline', mailchimp: '5-14 days', keap: '2-8 weeks', zoho: '2-4 weeks', hubspot: '3-6 weeks' },
-    { factor: 'Biggest risk', mailchimp: 'Deliverability drop on new domain', keap: 'Campaign Builder rebuild scope', zoho: 'Workflow rebuild scope', hubspot: 'Data loss from complex exports' }
+  const migrationMistakes = [
+    'Importing every contact as active without preserving unsubscribed and cleaned status, risking re-enrollment of people who opted out',
+    'Assuming Customer Journeys will transfer the way contacts do',
+    'Forgetting website forms still pointed at Mailchimp after the migration is considered finished',
+    'Sending to a full list immediately on a new, unauthenticated sending domain',
+    'Treating segments and tags as the same thing when they need different migration treatment'
   ];
 
   // Reusable Project Help Card Component
@@ -161,7 +158,6 @@ export default function MailchimpToGoHighLevelMigrationClient() {
       <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
       <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your migration.</p>
       <Link
-        // onClick={handleOpenBooking}
         href="/book-a-call"
         className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
         Book a 30 min Free Call
@@ -217,14 +213,25 @@ export default function MailchimpToGoHighLevelMigrationClient() {
             </div>
             <div>
               <div className="text-sm font-medium text-white">GHL Scale Up Team</div>
-              <div className="text-xs text-white/50">GoHighLevel Migration Specialists · 200+ Builds Delivered · Updated July 2026</div>
+              <div className="text-xs text-white/50">GoHighLevel Migration Specialists · 200+ builds delivered · Verified against GoHighLevel's official Mailchimp migration documentation, September 2026</div>
             </div>
           </div>
 
           {/* Introductory Paragraph */}
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-6xl">
-            The Mailchimp to GoHighLevel migration is the simplest of the CRM migration cluster, but only if you handle three specific things correctly: individual audience exports (Mailchimp only lets you export one audience at a time), merge field syntax translation (*|FNAME|* to {'{{contact.first_name}}'}), and deliverability preservation on the new sending domain. Contacts, tags, and email templates transfer cleanly. Automations and campaign statistics do not. <Link href="/" className="text-[#0E9BF0] hover:underline font-medium">GHL Scale Up</Link> has migrated Mailchimp accounts for businesses ranging from newsletter operators to service agencies moving beyond email-only marketing. This guide gives you the exact process from GoHighLevel's official Mailchimp migration documentation (article 155000003392), plus the deliverability warmup approach that protects your open rates through cutover. For the fully-managed path: <Link href="/services/migration" className="text-[#0E9BF0] hover:underline">GHL Migration Services →</Link>
+            Mailchimp is built around a single channel, email, and a single audience structure. GoHighLevel is built around a CRM with pipelines, SMS, calendars, and workflows, where email is one of several channels rather than the whole platform. Moving from Mailchimp to GoHighLevel is usually less about transferring data and more about deciding how much of your marketing process you want to rebuild using capabilities Mailchimp never offered.
           </p>
+
+          {/* Quick Answer Box */}
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 md:p-6 mb-6">
+            <div className="flex items-center gap-2 mb-3">
+              <Zap className="w-5 h-5 text-[#F8D000]" />
+              <span className="text-xs font-bold uppercase tracking-wider text-white/60">Quick answer</span>
+            </div>
+            <p className="text-sm text-white/70 leading-relaxed">
+              to migrate from Mailchimp to GoHighLevel, export each Mailchimp audience separately (Audience, then Manage Audience, then Export Audience), recreate your custom fields and tags in GHL before importing, import contacts with subscription status preserved, translate your email templates by copying HTML into GHL and converting merge field syntax, and document then manually rebuild any Customer Journeys or automations, since none of that transfers. Set up and authenticate a new sending domain, build sending volume gradually rather than blasting your full list on day one, and run both platforms in parallel for a week or two before fully cutting over. Simple migrations, a single audience under 10,000 contacts with few automations, typically take about a week. Larger or more automation-heavy accounts take 2 to 4 weeks.
+            </p>
+          </div>
 
           {/* CTA Button 1: Hero Section */}
           <div className="flex flex-wrap gap-3">
@@ -332,7 +339,7 @@ export default function MailchimpToGoHighLevelMigrationClient() {
             {/* CTA Card */}
             <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
               <div className="text-sm font-bold text-white mb-2">Migrating from Mailchimp?</div>
-              <p className="text-xs text-white/60 leading-relaxed mb-4">We handle Mailchimp migrations end-to-end audience export, template HTML translation, automation rebuild, and deliverability warmup.</p>
+              <p className="text-xs text-white/60 leading-relaxed mb-4">We handle Mailchimp migrations end-to-end — audience export, template HTML translation, automation rebuild, and deliverability warmup.</p>
               <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
                 Get Help
                 <ArrowRight className="w-3 h-3" />
@@ -342,32 +349,6 @@ export default function MailchimpToGoHighLevelMigrationClient() {
 
           {/* ==================== RIGHT COLUMN: BLOG CONTENT ==================== */}
           <main className="min-w-0 order-2">
-
-            {/* BLUF Box */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
-              <div className="flex items-center gap-2 mb-3">
-                <Zap className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Direct Answer Read This First</span>
-              </div>
-              <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
-                To migrate from Mailchimp to GoHighLevel: (1) Audit your Mailchimp account, (2) export each audience separately via Mailchimp → Audience → Manage Audience → Export Audience (produces a ZIP with CSV containing contacts, merge fields, tags, subscription status), (3) recreate custom fields, tags, and pipelines in GHL BEFORE contact import, (4) import contacts to GHL via Contacts → Import Contacts, (5) copy HTML source of active email templates into GHL Marketing → Emails → Templates → HTML mode, translating merge field syntax, (6) document Mailchimp automations then rebuild in GHL Workflow Builder, (7) set up new sending domain with SPF/DKIM/DMARC and warm it for 2 weeks before mass sending, (8) run parallel for 1-2 weeks before cutover.
-              </p>
-              <p className="text-sm text-[#5C6880] leading-relaxed">
-                Timeline: 5-7 business days for simple migrations (single audience under 10,000 contacts, few automations), 2-3 weeks for complex migrations. The single biggest risk is deliverability drop from an unwarmed sending domain warm it BEFORE mass send.
-              </p>
-
-              {/* CTA Button 2: Inside TL;DR Box */}
-              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
-                  <Target className="w-4 h-4" />
-                  Get Migration Help
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </div>
 
             {/* Table of Contents - Mobile Only */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8 lg:hidden">
@@ -395,26 +376,29 @@ export default function MailchimpToGoHighLevelMigrationClient() {
 
             {/* Section 1: Why Migrate */}
             <h2 id="why-migrate" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-8 mb-4">
-              1. Why Do Businesses Migrate from Mailchimp to GoHighLevel?
+              Why Do Businesses Migrate From Mailchimp to GoHighLevel?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> Businesses migrate from Mailchimp to GoHighLevel primarily to escape email-only capability. Mailchimp is where most businesses start email marketing, but the ceiling becomes obvious once the business needs CRM depth, SMS, calendar booking, pipelines, or agency reseller functionality that Mailchimp does not provide.
+              Mailchimp is where a lot of businesses start with email marketing, and the reasons to move usually show up once the business has outgrown email as its only channel.
             </p>
             <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">Email-only ceiling:</strong> Mailchimp is email-first. GoHighLevel is business-automation-first. Once a business needs to track leads through a sales pipeline, book appointments, or send SMS follow-ups, Mailchimp becomes one tool in a growing stack rather than the single platform.</li>
-              <li><strong className="text-[#1A2236]">Shallow CRM:</strong> Mailchimp's CRM features are limited compared to a purpose-built CRM. There are no true opportunities, no pipeline stages, no deal values, no sales team assignment logic (ECOSIRE, March 2026).</li>
-              <li><strong className="text-[#1A2236]">Basic automation logic:</strong> Mailchimp Customer Journeys handle simple triggers but do not support the complex if/else logic, wait steps, and multi-branch workflows that GoHighLevel Workflow Builder handles natively.</li>
-              <li><strong className="text-[#1A2236]">Pricing scales with contact count:</strong> Mailchimp pricing scales steeply once past the free tier. A 25,000-contact list on Mailchimp Standard can exceed $250/month. GoHighLevel is flat-rate at $97-$497/month regardless of contact count.</li>
-              <li><strong className="text-[#1A2236]">No native SMS or WhatsApp:</strong> Mailchimp has SMS as a separate add-on with limited reach. GHL has native SMS, MMS, and WhatsApp Business API integration built into every plan.</li>
-              <li><strong className="text-[#1A2236]">Agency reseller model:</strong> Mailchimp does not support white-label reselling of the platform. GHL's SaaS Mode lets agencies resell GoHighLevel as a branded product to their own clients.</li>
+              <li><strong className="text-[#1A2236]">Email-only ceiling:</strong> once a business needs to track leads through a sales process, book appointments, or follow up by text message, Mailchimp becomes one tool in a growing stack rather than the whole system.</li>
+              <li><strong className="text-[#1A2236]">Limited CRM depth:</strong> Mailchimp's contact management does not include true sales pipelines, deal values, or team assignment logic the way a dedicated CRM does.</li>
+              <li><strong className="text-[#1A2236]">Simpler automation logic:</strong> Mailchimp's Customer Journeys handle straightforward triggers well, but GoHighLevel's workflow builder supports more complex branching, multi-channel actions, and conditional logic natively.</li>
+              <li><strong className="text-[#1A2236]">Pricing that scales with contact count:</strong> Mailchimp's cost climbs as your list grows. GoHighLevel charges a flat rate per plan regardless of contact volume.</li>
+              <li><strong className="text-[#1A2236]">No native SMS:</strong> Mailchimp offers texting as a limited add-on. GHL includes native SMS and WhatsApp on every plan.</li>
+              <li><strong className="text-[#1A2236]">No agency reseller model:</strong> GHL's SaaS Mode lets agencies resell the platform under their own brand, something Mailchimp does not support.</li>
             </ul>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              None of this means Mailchimp is a weak platform for what it does. If your entire operation genuinely runs on email newsletters, Mailchimp's simplicity can be a real advantage rather than a limitation.
+            </p>
 
             {/* Section 2: What Transfers */}
             <h2 id="what-transfers" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              2. What Data Transfers and What Does Not?
+              What Actually Transfers, and What Needs Rebuilding
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> GoHighLevel's official Mailchimp migration guide (article 155000003392) confirms which assets transfer via the standard migration process. Others require manual re-creation or replacement.
+              GoHighLevel's own Mailchimp migration documentation identifies which parts of a Mailchimp account move through the standard process and which do not.
             </p>
 
             <div className="overflow-x-auto my-6">
@@ -430,7 +414,7 @@ export default function MailchimpToGoHighLevelMigrationClient() {
                   {transfers.map((item, idx) => (
                     <tr key={idx} className="border-b border-[#DDE1E9]">
                       <td className="py-3 px-3 font-medium text-[#1A2236]">{item.asset}</td>
-                      <td className={`py-3 px-3 font-semibold ${item.transfers === 'NO' ? 'text-[#DC3545]' : item.transfers === 'Yes' ? 'text-[#25C97D]' : 'text-[#F8D000]'}`}>{item.transfers}</td>
+                      <td className={`py-3 px-3 font-semibold ${item.transfers === 'No' ? 'text-[#DC3545]' : item.transfers === 'Yes' ? 'text-[#25C97D]' : 'text-[#F8D000]'}`}>{item.transfers}</td>
                       <td className="py-3 px-3 text-[#5C6880]">{item.how}</td>
                     </tr>
                   ))}
@@ -438,17 +422,41 @@ export default function MailchimpToGoHighLevelMigrationClient() {
               </table>
             </div>
 
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">THE THING NEW MIGRANTS OFTEN MISS</span>
+            {/* 
+              ============================================================
+              🖼️ IMAGE INSERTED HERE - Full width, responsive, interactive
+              ============================================================
+            */}
+            <div className="my-8 md:my-10 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <div className="relative w-full h-auto bg-[#F8F9FB]">
+                <Image
+                  src="/blog/mailchimp-to-ghl-migration-guide.png"
+                  alt="Mailchimp to GoHighLevel migration: Data transfer, merge field mapping, automation rebuild, and deliverability overview"
+                  width={1200}
+                  height={500}
+                  className="w-full h-auto object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                />
               </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                Campaign statistics and A/B test results do NOT export. Cited from Mailsoftly (May 2026). If you rely on historical open rates, click-through rates, or A/B winners for planning future campaigns, screenshot or export those reports from Mailchimp before cancelling. Once you cancel the Mailchimp subscription, that historical performance data is lost. Keep Mailchimp active as a read-only archive for at least 60-90 days after migration.
-              </p>
+              <div className="bg-[#F8F9FB] px-4 py-2.5 text-xs text-[#5C6880] border-t border-[#DDE1E9] flex items-center gap-2">
+                <ImageIcon className="w-3.5 h-3.5" />
+                <span>Mailchimp → GoHighLevel: Data transfer, merge field mapping, automation rebuild, and deliverability warmup workflow</span>
+              </div>
             </div>
 
-            {/* CTA Button 3: After Section 2 */}
+            {/* Section: Subscription Status */}
+            <h2 id="subscription-status" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Subscription Status Is Not Just a Data Field
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              This is worth treating carefully rather than as a routine part of the import. Mailchimp separates contacts into subscribed, unsubscribed, non-subscribed (never opted in), and cleaned (hard bounced or otherwise invalid) states. These are not interchangeable, and importing every record into GHL as an active marketing contact without preserving that distinction can mean re-enrolling people who unsubscribed for a reason, which creates both a deliverability problem and, depending on your jurisdiction, a compliance one.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Preserve the subscription status field through export and import, and configure your GHL contacts accordingly, marking unsubscribed and cleaned contacts as suppressed from marketing rather than active. This is not legal advice, and requirements vary by region, so review applicable email marketing and privacy rules for your business rather than relying solely on this guide.
+            </p>
+
+            {/* CTA Button 2: After Subscription Status */}
             <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 mb-8 text-center">
               <p className="text-white/80 text-sm mb-3">
                 <span className="font-bold text-white">Not sure what will transfer from your Mailchimp account?</span> Let our team help you audit.
@@ -465,82 +473,91 @@ export default function MailchimpToGoHighLevelMigrationClient() {
 
             {/* Section 3: Export Audience */}
             <h2 id="export-audience" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              3. How Do You Export Your Mailchimp Audience?
+              How Do You Export Your Mailchimp Audience?
             </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> Mailchimp exports audience data through the Audience module, one audience at a time. The export produces a ZIP archive containing CSV files.
-            </p>
             <ol className="space-y-1 mb-4 text-sm text-[#5C6880] list-decimal list-inside">
-              <li><strong className="text-[#1A2236]">Navigate to Audience:</strong> In Mailchimp, click Audience in the main navigation.</li>
-              <li><strong className="text-[#1A2236]">Select the audience to export:</strong> If you have multiple audiences, pick the one you want to export. Confirmed from AeroLeads (March 2026): Mailchimp only lets you export one audience at a time repeat this process for each audience.</li>
-              <li><strong className="text-[#1A2236]">Open Manage Audience:</strong> Click the Manage Audience dropdown.</li>
-              <li><strong className="text-[#1A2236]">Select Export Audience:</strong> This opens the export configuration screen.</li>
-              <li><strong className="text-[#1A2236]">Configure export options:</strong> Accept defaults for most users, but check the option to include tags, merge fields, and subscription status. AeroLeads notes: "Most users accept the defaults, but this approach loses valuable subscriber metadata that is difficult to recreate later."</li>
-              <li><strong className="text-[#1A2236]">Wait for export processing:</strong> Mailchimp emails you a link to download the ZIP archive when ready. Small exports process in minutes; large exports (100,000+ contacts) can take longer.</li>
-              <li><strong className="text-[#1A2236]">Download and inspect the ZIP:</strong> The archive contains one or two CSVs with contacts, merge fields, tags, and subscription status. Open in Google Sheets or Excel to verify data quality before import.</li>
+              <li><strong className="text-[#1A2236]">In Mailchimp, go to Audience</strong> in the main navigation.</li>
+              <li><strong className="text-[#1A2236]">If you have more than one audience, select the one to export.</strong> Mailchimp exports one audience at a time, so repeat this process for each.</li>
+              <li><strong className="text-[#1A2236]">Open the Manage Audience dropdown and select Export Audience.</strong></li>
+              <li><strong className="text-[#1A2236]">Include tags, merge fields, and subscription status</strong> in the export options rather than accepting bare defaults, since these fields are harder to recreate later than to export correctly the first time.</li>
+              <li><strong className="text-[#1A2236]">Wait for Mailchimp to email you a download link.</strong> Small exports process in minutes; very large exports can take longer.</li>
+              <li><strong className="text-[#1A2236]">Download the ZIP archive and open the CSV</strong> to check data quality before doing anything else.</li>
             </ol>
-
-            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Lightbulb className="w-4 h-4 text-[#0E9BF0]" />
-                <span className="text-sm font-bold text-[#0E9BF0]">THE THREE PRE-IMPORT CHECKS</span>
-              </div>
-              <ul className="space-y-1 text-sm text-[#1A2236] list-disc list-inside">
-                <li><strong className="text-[#0E9BF0]">Contacts have valid email addresses:</strong> Mailchimp allows some junk data; GHL will reject or ignore invalid emails.</li>
-                <li><strong className="text-[#0E9BF0]">Merge field columns match names of GHL Custom Fields:</strong> Any column without a matching custom field is silently dropped during import (confirmed as "Mistake 1" by ghlcrms).</li>
-                <li><strong className="text-[#0E9BF0]">Tags column contains cleanly separated tag values:</strong> Avoid mixed delimiters.</li>
-              </ul>
-            </div>
-
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              For related pitfalls: <Link href="/blog/ghl-migration-mistakes" className="text-[#0E9BF0] hover:underline">GHL Migration Mistakes →</Link>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Before importing, check three things: every contact has a valid email address, since GHL will reject or ignore invalid ones; your merge field column headers match the custom field names you have already created in GHL, since any column without a matching field gets silently dropped during import; and your tags column uses a single, clean delimiter rather than mixed formatting.
             </p>
 
-            {/* Section 4: Tags and Fields */}
+            {/* Section 4: Tags, Segments, Groups */}
             <h2 id="tags-fields" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              4. How Do You Handle Mailchimp Tags, Segments, and Merge Fields?
+              How Do Mailchimp Tags, Segments, and Groups Map to GoHighLevel?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> Mailchimp uses three overlapping segmentation mechanisms: tags (applied per contact), segments (saved filters), and groups (interest categories). GoHighLevel primarily uses tags and Smart Lists (dynamic saved segments). The mapping is straightforward but the terminology differs.
+              Mailchimp uses three overlapping mechanisms for organizing contacts, and they map to GHL differently.
+            </p>
+            <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
+              <li><strong className="text-[#1A2236]">Tags apply directly.</strong> They export in the audience CSV and import as GHL tags with no real translation needed.</li>
+              <li><strong className="text-[#1A2236]">Segments are saved filters</strong> in Mailchimp, not stored data, so they do not export as a file. Recreate each one as a GHL Smart List using the same filter logic after your contacts are imported.</li>
+              <li><strong className="text-[#1A2236]">Groups (interest categories) are Mailchimp-specific.</strong> Depending on how you use them, migrate each group as a GHL tag, or as a custom field with matching picklist values if you need to preserve the structure more precisely.</li>
+            </ul>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              For merge fields specifically, every Mailchimp field name in the export needs a matching GHL custom field created before import. Standard fields like first name and email map directly; custom merge fields need custom fields created with matching names so the import recognizes them.
             </p>
 
-            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Lightbulb className="w-4 h-4 text-[#0E9BF0]" />
-                <span className="text-sm font-bold text-[#0E9BF0]">Tag mapping</span>
-              </div>
-              <ul className="space-y-1 text-sm text-[#1A2236] list-disc list-inside">
-                <li><strong className="text-[#0E9BF0]">Mailchimp tags → GHL tags:</strong> Direct one-to-one mapping. Tags export in the audience CSV and import cleanly to GHL. Confirmed from ghlcrms (May 2026): "Contacts and tags export cleanly."</li>
-                <li><strong className="text-[#0E9BF0]">Mailchimp segments → GHL Smart Lists:</strong> Saved segments (filters) do not export as data. Recreate each segment as a GHL Smart List (dynamic saved search) after import. Mailchimp segment logic translates to GHL Smart List filters.</li>
-                <li><strong className="text-[#0E9BF0]">Mailchimp groups → GHL tags OR Custom Fields:</strong> Groups (interest categories) are a Mailchimp-specific structure. Migrate as either GHL tags (one per group interest) or as a GHL Custom Field with picklist values matching the group options.</li>
-              </ul>
-            </div>
-
+            {/* Section 5: Rebuild Automations */}
+            <h2 id="rebuild-automations" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              How Do You Rebuild Mailchimp Automations in GoHighLevel?
+            </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Detail (Merge field syntax translation):</strong>
+              Mailchimp Customer Journeys and Classic Automations do not export. They need to be documented and manually rebuilt using GHL's own trigger and action system.
             </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              For each automation you plan to keep, write down what it is meant to achieve, what starts it, the steps in order including any wait times, any branching logic based on contact behavior, and what causes it to end. Then rebuild that same intent in GHL's workflow builder: choose the closest matching trigger, such as a tag being added or a form being submitted, add the actions in the same order using GHL's email and SMS actions, and use If/Else conditions to replicate any branching. Test with yourself as a contact before turning it on for real subscribers.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              For the full walkthrough of building workflows in GHL, see{' '}
+              <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-[#0E9BF0] hover:underline">GoHighLevel's workflow automation guide</Link>. Most Mailchimp automations are simpler than what you will find migrating from a heavier automation platform, so this rebuild phase is often measured in days rather than weeks.
+            </p>
+
+            {/* Section 6: Email Templates */}
+            <h2 id="email-templates" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              How Do You Migrate Email Templates?
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Templates do not transfer as files. For each template still in active use, open it in Mailchimp's editor and copy the HTML source, then paste it into a new template in GHL's email builder using HTML mode. Every Mailchimp merge tag needs to be translated into GHL's syntax.
+            </p>
+
             <div className="overflow-x-auto my-6">
               <table className="w-full border-collapse text-sm">
                 <thead>
                   <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
                     <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Mailchimp Merge Field</th>
                     <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">GHL Equivalent</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Notes</th>
                   </tr>
                 </thead>
                 <tbody>
                   {mergeFields.map((item, idx) => (
                     <tr key={idx} className="border-b border-[#DDE1E9]">
                       <td className="py-3 px-3 font-medium text-[#1A2236]">{item.mailchimp}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.ghl}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.notes}</td>
+                      <td className="py-3 px-3 text-[#0E9BF0]">{item.ghl}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
 
-            {/* CTA Button 4: After Tags and Fields */}
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Mailchimp's drag-and-drop editor sometimes produces CSS that does not render identically once copied elsewhere, so preview and test each template rather than assuming it will look the same. Prioritize your most used templates for careful review, and treat rarely used ones as good enough rather than spending equal time on every template you have ever created.
+            </p>
+
+            {/* Section 7: Forms and Integrations */}
+            <h2 id="forms-integrations" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Forms, Website Signups, and Integrations
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              If your website, landing pages, or embedded forms currently send new signups into Mailchimp, replacing Mailchimp without updating those connections means new leads keep arriving in a platform you have stopped checking. Audit every form and integration that currently feeds Mailchimp, rebuild the equivalent form or connection in GHL, and update the destination before you consider the migration complete. If Mailchimp is connected to Shopify, WooCommerce, or another store, note that migrating your email marketing does not migrate the store itself. The store stays the source of truth for orders and customers; what moves is how that customer data is used for marketing, so map out which store-triggered emails and segments need to be rebuilt in GHL rather than assuming e-commerce automation carries over on its own.
+            </p>
+
+            {/* CTA Button 3: After Forms */}
             <div className="bg-gradient-to-r from-[#0E9BF0] to-[#0C8AD8] rounded-xl p-6 text-center text-white mb-8">
               <p className="text-sm font-medium mb-2">🏷️ Overwhelmed by Mailchimp merge field translation?</p>
               <p className="text-sm text-white/80 mb-4">We'll handle your tag mapping, custom field recreation, and merge field translation.</p>
@@ -554,104 +571,32 @@ export default function MailchimpToGoHighLevelMigrationClient() {
               </Link>
             </div>
 
-            {/* Section 5: Rebuild Automations */}
-            <h2 id="rebuild-automations" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              5. How Do You Rebuild Mailchimp Automations in GHL?
+            {/* Section 8: Deliverability */}
+            <h2 id="deliverability" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              How Do You Protect Deliverability During Cutover?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> Mailchimp automations (Customer Journeys) do NOT export to GoHighLevel. They must be documented before migration and manually rebuilt in GHL's Workflow Builder using GHL's trigger and action system.
+              Switching to GoHighLevel means switching sending infrastructure, and a new sending domain starts with no reputation with mail providers regardless of how well established your old Mailchimp sending was.
             </p>
 
-            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-4 my-4">
               <div className="flex items-center gap-2 mb-2">
                 <Lightbulb className="w-4 h-4 text-[#0E9BF0]" />
-                <span className="text-sm font-bold text-[#0E9BF0]">Documentation approach for each Mailchimp automation</span>
-              </div>
-              <ul className="space-y-1 text-sm text-[#1A2236] list-disc list-inside">
-                <li><strong className="text-[#0E9BF0]">Business intent:</strong> What does this automation achieve? "Welcome new newsletter subscribers with a 3-email onboarding series over 7 days."</li>
-                <li><strong className="text-[#0E9BF0]">Trigger condition:</strong> What starts it? "Contact joins Newsletter audience via signup form."</li>
-                <li><strong className="text-[#0E9BF0]">Steps in order:</strong> What happens? "Send welcome email → Wait 2 days → Send content email → Wait 5 days → Send offer email."</li>
-                <li><strong className="text-[#0E9BF0]">Segmentation or branching:</strong> Any conditional logic? "If contact clicks offer link, tag as Engaged-Newsletter."</li>
-                <li><strong className="text-[#0E9BF0]">Exit conditions:</strong> When does it stop? "When contact unsubscribes or completes the sequence."</li>
-              </ul>
-            </div>
-
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Then rebuild in GHL:</strong>
-            </p>
-            <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">Trigger:</strong> GHL Workflow → Add Trigger → "Tag Added: Newsletter-Subscriber" (or Form Submitted, if using GHL Forms).</li>
-              <li><strong className="text-[#1A2236]">Actions in order:</strong> Send Email (welcome) → Wait 2 days → Send Email (content) → Wait 5 days → Send Email (offer). Each Send Email action references a template you have recreated in GHL Marketing → Emails → Templates.</li>
-              <li><strong className="text-[#1A2236]">Merge fields:</strong> Each rebuilt email uses translated merge fields ({"{{contact.first_name}}"} etc.) not the original Mailchimp syntax.</li>
-              <li><strong className="text-[#1A2236]">If/Else branching:</strong> Add a Wait step for link click, then an If/Else action checking for the Engaged-Newsletter tag. Branch True: continue with follow-up. Branch False: end.</li>
-              <li><strong className="text-[#1A2236]">Test end-to-end:</strong> Add yourself as a test contact with the trigger tag. Verify every email arrives, wait timings are correct, branches fire. Only enable for live audience after test.</li>
-            </ul>
-
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              For the full GHL Workflow Builder walkthrough: <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-[#0E9BF0] hover:underline">GoHighLevel Workflow Automation Guide →</Link>
-            </p>
-
-            {/* CTA Button 5: After Automation Rebuild */}
-            <div className="bg-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
-              <p className="text-sm font-medium mb-2">⚡ Don't want to rebuild Mailchimp automations manually?</p>
-              <p className="text-sm text-white/80 mb-4">We'll document and rebuild every automation in GHL Workflow Builder.</p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <Workflow className="w-4 h-4" />
-                Get Automation Rebuild
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-
-            {/* Section 6: Email Templates */}
-            <h2 id="email-templates" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              6. How Do You Migrate Email Templates and Preserve Design?
-            </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> Mailchimp email templates do not directly export to GoHighLevel. You copy the HTML source of each active template and paste it into GHL's HTML editor, then adjust for design differences.
-            </p>
-            <ol className="space-y-1 mb-4 text-sm text-[#5C6880] list-decimal list-inside">
-              <li><strong className="text-[#1A2236]">Identify active templates in Mailchimp:</strong> Go to Campaigns → All Campaigns. Filter to Templates. List every template still used in ongoing campaigns or automations.</li>
-              <li><strong className="text-[#1A2236]">Export HTML source:</strong> For each template, open in the Mailchimp editor. Use Preview → Export HTML or copy the HTML source from the code view.</li>
-              <li><strong className="text-[#1A2236]">Create matching template in GHL:</strong> In GoHighLevel, go to Marketing → Emails → Templates → New Template → HTML mode. Paste the HTML source.</li>
-              <li><strong className="text-[#1A2236]">Translate merge fields:</strong> Every *|FNAME|*, *|EMAIL|*, or custom Mailchimp merge tag must be replaced with GHL's equivalent syntax ({"{{contact.first_name}}"} etc.). Use Find & Replace to speed this up.</li>
-              <li><strong className="text-[#1A2236]">Preview and check rendering:</strong> Send a preview to yourself. Check formatting on desktop and mobile. Some Mailchimp-specific CSS may not render identically in GHL adjust as needed.</li>
-              <li><strong className="text-[#1A2236]">Test with real contact:</strong> Send a real send to a test contact. Verify merge fields populate correctly, images load, links work.</li>
-            </ol>
-
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">THE COMMON DESIGN GOTCHA</span>
+                <span className="text-sm font-bold text-[#0E9BF0]">WHAT GOHIGHLEVEL ACTUALLY PROVIDES</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                Mailchimp uses drag-and-drop content blocks that may compile to non-standard HTML/CSS. When copied to GHL, some Mailchimp-specific styling (block borders, color schemes, spacing) may render slightly differently. Do not treat this as a bug test each template thoroughly and expect to fine-tune 1-2 CSS rules per template. Cited from ghlcrms (May 2026): "Preview the email and check for rendering issues." Prioritize your top 5-10 most-used templates for perfect design; leave rarely-used templates as good-enough.
+                HighLevel documents a fixed-stage warmup model, but it applies specifically to eligible dedicated domains using GHL's own LC Email sending infrastructure, where sending caps increase automatically as you send real mail. If you connect external SMTP instead, that native warmup does not apply, and building volume gradually is your responsibility. Either way, authentication matters more than any specific daily number.
               </p>
             </div>
 
-            {/* Section 7: Deliverability */}
-            <h2 id="deliverability" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              7. How Do You Preserve Deliverability During Cutover?
-            </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> Email deliverability whether your emails land in the inbox vs the spam folder depends heavily on the reputation of your sending domain. When you switch from Mailchimp to GoHighLevel, you switch sending infrastructure. A cold sending domain has poor initial reputation and will hurt open rates unless properly warmed.
-            </p>
-            <ol className="space-y-1 mb-4 text-sm text-[#5C6880] list-decimal list-inside">
-              <li><strong className="text-[#1A2236]">Set up a new sending domain in GHL:</strong> In GoHighLevel Settings → Email Services, add your sending domain (or a subdomain like mail.yourdomain.com). Do NOT use the same subdomain you were using with Mailchimp keep them separate to avoid conflicting DNS records during transition.</li>
-              <li><strong className="text-[#1A2236]">Configure DNS records:</strong> Set up SPF, DKIM, and DMARC records for the new GHL sending domain via your DNS provider. GHL provides the exact records to add.</li>
-              <li><strong className="text-[#1A2236]">Verify domain authentication:</strong> Confirm SPF passes, DKIM signature validates, and DMARC alignment is correct. Any authentication failure will land emails in spam. Confirmed as critical by ECOSIRE (March 2026).</li>
-              <li><strong className="text-[#1A2236]">Warm up the domain gradually:</strong> Do NOT send to your full list on day one. Start with your most-engaged 10% of contacts (opened emails in last 90 days). Send 100-500 emails per day for the first 3-5 days, then double the send volume every 2-3 days. Full-list send in week 3.</li>
-              <li><strong className="text-[#1A2236]">Monitor deliverability metrics:</strong> Watch open rates, click rates, and bounce rates during warmup. Open rates should stabilize within 15% of your Mailchimp baseline. Bounce rate should stay under 2%. If open rates drop dramatically, pause and diagnose.</li>
-              <li><strong className="text-[#1A2236]">Cut over gradually:</strong> Route send volume from Mailchimp to GHL progressively 25% GHL week 1, 50% week 2, 75% week 3, 100% week 4. This lets you catch deliverability problems before they affect your entire list.</li>
-            </ol>
+            <ul className="space-y-1 mb-6 text-sm text-[#5C6880] list-disc list-inside">
+              <li>Configure SPF, DKIM, and DMARC for your new sending domain before sending anything, and use a different subdomain than the one Mailchimp used to avoid conflicting DNS records during the transition.</li>
+              <li>Start with your most engaged contacts, those who have opened or clicked recently, rather than your full list.</li>
+              <li>Increase volume gradually over a couple of weeks while watching bounce rates and spam complaints, adjusting pace based on what you actually observe rather than a fixed calendar.</li>
+              <li>Keep an eye on open rates during this period. A meaningful drop compared to your Mailchimp baseline is a signal to slow down, not push through.</li>
+            </ul>
 
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              If you also need SMS during migration: <Link href="/blog/a2p-registration-for-agencies" className="text-[#0E9BF0] hover:underline">A2P Registration for GoHighLevel Agencies →</Link>
-            </p>
-
-            {/* CTA Button 6: After Deliverability */}
+            {/* CTA Button 4: After Deliverability */}
             <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
               <p className="text-sm font-medium mb-2">📧 Worried about losing email deliverability?</p>
               <p className="text-sm text-white/80 mb-4">We'll set up your sending domain, configure SPF/DKIM/DMARC, and manage the warmup process.</p>
@@ -665,79 +610,46 @@ export default function MailchimpToGoHighLevelMigrationClient() {
               </Link>
             </div>
 
-            {/* Section 8: Comparison */}
-            <h2 id="comparison" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              8. How Does Mailchimp Migration Compare to Other Platforms?
+            {/* Section 9: Should You Migrate */}
+            <h2 id="should-you-migrate" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Should You Migrate From Mailchimp to GoHighLevel?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> Mailchimp migrations are the simplest of the CRM migration cluster because Mailchimp is email-first, not full-CRM. Data model is shallower, integrations fewer, automation logic simpler.
+              Migration tends to make sense when you need CRM depth, SMS, appointment booking, or workflow automation beyond what Mailchimp offers, when your operation has grown into managing leads and sales rather than just sending newsletters, or when consolidating several tools into one platform would genuinely simplify your stack.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Staying with Mailchimp can still make sense if your operation is primarily newsletter-focused with straightforward email needs, if you rely on Mailchimp-specific functionality that would be disruptive to rebuild elsewhere, or if the migration effort simply is not justified by what you would gain. This is a decision based on what your business actually needs day to day, not a case of one platform being objectively better than the other.
             </p>
 
-            <div className="overflow-x-auto my-6">
-              <table className="w-full border-collapse text-sm">
-                <thead>
-                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Factor</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Mailchimp</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Keap</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Zoho</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">HubSpot</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {comparison.map((item, idx) => (
-                    <tr key={idx} className="border-b border-[#DDE1E9]">
-                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.factor}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.mailchimp}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.keap}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.zoho}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.hubspot}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-2">
-              For the other migrations: <Link href="/blog/keap-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">Keap to GoHighLevel Migration →</Link>
+            {/* Section 10: Timeline */}
+            <h2 id="timeline" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              How Long Does a Mailchimp to GoHighLevel Migration Take?
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              A simple migration, a single audience under 10,000 contacts with only a handful of automations and templates, typically takes about a week. A standard migration with a larger list and a moderate number of automations runs one to two weeks. A complex migration with multiple audiences, ten or more automations, and heavy template customization can take three to four weeks, with sending domain warmup continuing in the background afterward before you reach full volume.
             </p>
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              <Link href="/blog/zoho-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">Zoho to GoHighLevel Migration →</Link>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              For the general framework these estimates build on, see the{' '}
+              <Link href="/blog/ghl-migration-timeline" className="text-[#0E9BF0] hover:underline">GHL migration timeline guide</Link>.
             </p>
 
-            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-5 my-6 text-white">
-              <div className="flex items-center gap-2 mb-3">
-                <Star className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">NEED A MAILCHIMP MIGRATION WITHOUT LOSING DELIVERABILITY</span>
-              </div>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                GHL Scale Up handles end-to-end Mailchimp to GoHighLevel migrations: audience audit, tag consolidation, merge field mapping, email template migration (HTML translation), automation rebuild in GHL Workflow Builder, new sending domain setup with SPF/DKIM/DMARC, and 3-week deliverability warmup phase management.
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                See real GoHighLevel results and case studies: <Link href="/case-studies" className="text-[#0E9BF0] hover:underline">real GoHighLevel results and case studies →</Link>
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed">
-                For a specific plan for your Mailchimp account, <Link href="/contact" className="text-[#0E9BF0] hover:underline">book a free strategy call at ghlscaleup.com/contact →</Link>
-              </p>
-            </div>
+            {/* Section 11: Common Mistakes */}
+            <h2 id="mistakes" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Common Mailchimp to GoHighLevel Migration Mistakes
+            </h2>
+            <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
+              {migrationMistakes.map((mistake, idx) => (
+                <li key={idx}>{mistake}</li>
+              ))}
+            </ul>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              For mistakes that apply across any GHL migration rather than specifically Mailchimp, see{' '}
+              <Link href="/blog/ghl-migration-mistakes" className="text-[#0E9BF0] hover:underline">common GHL migration mistakes</Link>.
+            </p>
 
-            {/* CTA Button 7: Before FAQ */}
-            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
-              <p className="text-sm font-medium mb-2">⚠️ Don't risk losing deliverability in your migration.</p>
-              <p className="text-sm text-white/80 mb-4">Get a free, no-obligation migration assessment from experts who've done 200+ migrations.</p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <Shield className="w-4 h-4" />
-                Get a Free Assessment
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-
-            {/* Section 9: FAQ */}
+            {/* Section 12: FAQ */}
             <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
-              9. Frequently Asked Questions
+              Frequently Asked Questions
             </h2>
 
             <div className="space-y-3">
@@ -752,44 +664,23 @@ export default function MailchimpToGoHighLevelMigrationClient() {
               ))}
             </div>
 
-            {/* CTA Button 8: After FAQ */}
-            <div className="mt-8 p-6 bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl text-center">
-              <p className="text-white font-bold text-lg mb-2">Still Have Questions About Migrating from Mailchimp?</p>
-              <p className="text-white/60 text-sm mb-4">Talk to our migration specialists directly. We've done 200+ migrations.</p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  Ask an Expert
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-white/20 transition-all border border-white/20 text-sm"
-                >
-                  <Phone className="w-4 h-4" />
-                  Call Us
-                </Link>
-              </div>
+            {/* Contextual CTA inside FAQ */}
+            <div className="mt-4 text-sm text-[#5C6880] leading-relaxed">
+              Want this handled end to end, including subscription status handling, template translation, and deliverability warmup?{' '}
+              <Link href="/contact" className="text-[#0E9BF0] hover:underline font-medium">Book a free migration assessment</Link>.
             </div>
 
-            {/* Related Articles */}
+            {/* Internal Links */}
             <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
               <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles in This Series</h3>
               <div className="flex flex-wrap gap-3">
-                <Link href="/services/migration" className="text-sm text-[#0E9BF0] hover:underline">GHL Migration Services →</Link>
-                <Link href="/blog/ghl-migration-mistakes" className="text-sm text-[#0E9BF0] hover:underline">8 Common GHL Migration Mistakes →</Link>
-                <Link href="/blog/keap-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">Keap to GoHighLevel Migration →</Link>
-                <Link href="/blog/zoho-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">Zoho to GoHighLevel Migration →</Link>
-                <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Workflow Automation for Beginners →</Link>
-                <Link href="/blog/a2p-registration-for-agencies" className="text-sm text-[#0E9BF0] hover:underline">A2P Registration for GoHighLevel Agencies →</Link>
-                <Link href="/case-studies" className="text-sm text-[#0E9BF0] hover:underline">Real GoHighLevel Results and Case Studies →</Link>
+                <Link href="/blog/ghl-migration-timeline" className="text-sm text-[#0E9BF0] hover:underline">GHL Migration Timeline Guide →</Link>
+                <Link href="/blog/ghl-migration-mistakes" className="text-sm text-[#0E9BF0] hover:underline">Common GHL Migration Mistakes →</Link>
+                <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Workflow Automation Guide →</Link>
               </div>
             </div>
 
-            {/* Final CTA Section */}
+            {/* Final CTA Section - Single closing CTA */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Ready to migrate from Mailchimp to GoHighLevel?</h3>
@@ -801,27 +692,6 @@ export default function MailchimpToGoHighLevelMigrationClient() {
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
-            </div>
-
-            {/* Author Section */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 my-6">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
-                  <img
-                    src="/web-app-manifest-192x192.png"
-                    alt="GHL Scale Up"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-[#1A2236]">GHL Scale Up Team</div>
-                  <div className="text-xs text-[#5C6880]">GoHighLevel migration and setup specialists · 5+ years GHL experience · 200+ systems built and migrated globally</div>
-                </div>
-              </div>
-              <p className="text-xs text-[#5C6880] leading-relaxed">
-                All primary migration steps are verified against GoHighLevel's official Mailchimp to HighLevel Migration Guide (article 155000003392, modified March 7, 2025) as of July 2026. Deliverability warmup guidance is aggregated from ecosystem sources (ECOSIRE, ghlcrms, Mailsoftly) with each specific claim sourced. Mailchimp export flows and GoHighLevel deliverability tools change over time verify current details in your Mailchimp account and GHL Email Services settings before executing your migration.
-              </p>
-              <Link href="/" className="text-[#0E9BF0] text-xs hover:underline mt-2 inline-block">ghlscaleup.com</Link>
             </div>
           </main>
         </div>

@@ -83,8 +83,8 @@ const Navigation = () => {
     { icon: GraduationCap, iconBg: 'green', title: 'Membership & Course Sites', desc: 'Online courses, gated content, drip', link: '/services/membership-sites' },
     { icon: Users, iconBg: 'yellow', title: 'GHL Training & Onboarding', desc: 'Team training, SOPs, documentation', link: '/services/training' },
     { icon: Briefcase, iconBg: 'blue', title: 'Virtual Assistant for GHL Management', desc: 'Dedicated GHL VA to manage your account, run campaigns, update pipelines, and handle day-to-day tasks.', link: '/services/virtual-assistant' },
-    { icon: Settings, iconBg: 'blue', title: 'White-Label SaaS Setup', desc: 'Branded domains, snapshots, billing', link: '/services/hire-gohighlevel-experts' },
-    { icon: BarChart, iconBg: 'yellow', title: 'Reporting & Dashboards', desc: 'Custom analytics, pipeline tracking', link: '/services/gohighlevel-for-real-estate' },
+    { icon: Settings, iconBg: 'blue', title: 'Hire GoHighLevel Experts', desc: 'Branded domains, snapshots, billing', link: '/services/hire-gohighlevel-experts' },
+    { icon: BarChart, iconBg: 'yellow', title: 'GoHighLevel for Real Estate', desc: 'Custom analytics, pipeline tracking', link: '/services/gohighlevel-for-real-estate' },
 
   ]
 
@@ -217,9 +217,69 @@ const Navigation = () => {
               </div>
             </li>
 
-            <li><Link href="/how-we-work" className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors">How We Work</Link></li>
-            <li><Link href="/case-studies" className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors">Case Studies</Link></li>
-            <li><Link href="/blog" className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors">Blogs</Link></li>
+            <li>
+              <Link
+                href="/how-we-work"
+                className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors"
+              >
+                How We Work
+              </Link>
+            </li>
+
+            {/* Resources Dropdown */}
+            <li className="relative group">
+              <button
+                type="button"
+                className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors flex items-center gap-1 bg-transparent border-none cursor-pointer"
+              >
+                Resources
+                <ChevronDown className="h-3 w-3 mt-0.5 group-hover:rotate-180 transition-transform" />
+              </button>
+
+              <div className="absolute top-full left-1/2 -translate-x-1/2 bg-white rounded-b-2xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] p-4 min-w-[220px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all pointer-events-none group-hover:pointer-events-auto border-t-3 border-t-[#F8D000]">
+
+                <div className="text-[0.62rem] font-bold tracking-[0.12em] uppercase text-[#0E9BF0] pb-2.5 mb-2 border-b border-[#E8EDF4]">
+                  Resources
+                </div>
+
+                <Link
+                  href="/blog"
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-[#F4F7FA] transition-colors group"
+                >
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 bg-[rgba(14,155,240,0.1)]">
+                    <FileText className="h-4 w-4 text-[#1C2E4A]" />
+                  </div>
+
+                  <div>
+                    <div className="text-[0.8rem] font-semibold text-[#1C2E4A] leading-tight group-hover:text-[#0E9BF0] transition-colors">
+                      Blogs
+                    </div>
+                    <div className="text-[0.68rem] font-light text-[#4A5568]">
+                      Guides, insights & updates
+                    </div>
+                  </div>
+                </Link>
+
+                <Link
+                  href="/case-studies"
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-[#F4F7FA] transition-colors group"
+                >
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 bg-[rgba(37,201,125,0.1)]">
+                    <Briefcase className="h-4 w-4 text-[#1C2E4A]" />
+                  </div>
+
+                  <div>
+                    <div className="text-[0.8rem] font-semibold text-[#1C2E4A] leading-tight group-hover:text-[#0E9BF0] transition-colors">
+                      Case Studies
+                    </div>
+                    <div className="text-[0.68rem] font-light text-[#4A5568]">
+                      Real projects & results
+                    </div>
+                  </div>
+                </Link>
+
+              </div>
+            </li>
           </ul>
 
           <div className="hidden md:flex items-center gap-5">
@@ -301,8 +361,32 @@ const Navigation = () => {
               </li>
 
               <li><Link href="/how-we-work" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>How We Work</Link></li>
-              <li><Link href="/case-studies" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>Case Studies</Link></li>
-              <li><Link href="/blog" className="text-white text-base block py-2" onClick={() => setIsMobileMenuOpen(false)}>Blogs</Link></li>
+              {/* Resources - Mobile */}
+              <li>
+                <details className="group">
+                  <summary className="text-white text-base block py-2 cursor-pointer list-none">
+                    Resources
+                  </summary>
+
+                  <div className="pl-4 mt-2 flex flex-col gap-2">
+                    <Link
+                      href="/blog"
+                      className="text-white/70 text-sm py-1.5 block"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Blogs
+                    </Link>
+
+                    <Link
+                      href="/case-studies"
+                      className="text-white/70 text-sm py-1.5 block"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Case Studies
+                    </Link>
+                  </div>
+                </details>
+              </li>
               <li><a
                 href="https://wa.me/919893270210?text=Hello"
                 target="_blank"
