@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+  icon: 'Building2',
+  tag: 'Small Business',
+  title: 'GoHighLevel for Small Business: Worth the Cost? (2026)',
+  excerpt: 'GoHighLevel for small businesses: real costs beyond the $97 plan, when it\'s worth it, when it\'s overkill, and which plan actually fits your business.',
+  slug: 'gohighlevel-for-small-business',
+  date: 'September 14, 2026',
+  readTime: '18 min read',
+  featured: true,
+  image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+},
+      {
             icon: 'GitCompare',
             tag: 'Comparisonn',
             title: 'Claude Code vs HighLevel AI Studio: Which to Use',
