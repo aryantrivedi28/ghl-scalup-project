@@ -180,49 +180,67 @@ export default async function ServicesPage() {
       <Breadcrumb items={[{ label: 'Services' }]} />
 
       {/* ============================================
-          HERO centered, no side image (clean copy)
+          HERO two-column: copy left, image right
           ============================================ */}
       <section className="bg-gradient-to-b from-[#1C2E4A] to-[#111E30] text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_70%_20%,rgba(14,155,240,0.12),transparent)] pointer-events-none" />
-        <div className={`${container} relative z-10 py-16 md:py-24`}>
-          <div className="text-start max-w-7xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-[rgba(248,208,0,0.12)] border border-[rgba(248,208,0,0.2)] text-[#F8D000] text-[0.65rem] font-bold tracking-[0.12em] uppercase px-4 py-1.5 rounded-full mb-5">
-              <Wrench className="h-3 w-3" />
-              Our Services
-            </div>
-            <h1 className="text-[clamp(1.85rem,4.5vw,3rem)] font-extrabold tracking-[-0.03em] leading-[1.1] mb-5">
-              GoHighLevel Services Built{' '}
-              <span className="text-[#F8D000]">Around Your Business</span>
-            </h1>
-            <div className="space-y-3.5 text-[1rem] sm:text-[1.125rem] font-light text-white/70 leading-relaxed">
-              <p>
-                GoHighLevel can be the CRM, automation platform, communication layer, booking system, funnel builder, and customer management system behind your business but getting value from it takes more than turning on features.
-              </p>
-              <p>
-                GHL Scale Up provides done-for-you GoHighLevel services that connect your CRM, pipelines, funnels, websites, workflows, communication, AI, integrations, reporting, and customer journeys into one working system.
-              </p>
-              <p>
-                Whether you're starting with GoHighLevel, moving from another platform, rebuilding an existing account, or looking for ongoing support, we help you design and implement the system around the way your business actually operates.
-              </p>
+        <div className={`${container} relative z-10 py-14 md:py-20`}>
+          <div className="grid lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-14 items-center">
+            {/* Left: copy */}
+            <div className="text-start">
+              <div className="inline-flex items-center gap-2 bg-[rgba(248,208,0,0.12)] border border-[rgba(248,208,0,0.2)] text-[#F8D000] text-[0.65rem] font-bold tracking-[0.12em] uppercase px-4 py-1.5 rounded-full mb-5">
+                <Wrench className="h-3 w-3" />
+                Our Services
+              </div>
+              <h1 className="text-[clamp(1.85rem,4.5vw,3rem)] font-extrabold tracking-[-0.03em] leading-[1.1] mb-5">
+                GoHighLevel Services Built{' '}
+                <span className="text-[#F8D000]">Around Your Business</span>
+              </h1>
+              <div className="space-y-3.5 text-[0.92rem] sm:text-[0.97rem] font-light text-white/70 leading-relaxed">
+                <p>
+                  GoHighLevel can be the CRM, automation platform, communication layer, booking system, funnel builder, and customer management system behind your business but getting value from it takes more than turning on features.
+                </p>
+                <p>
+                  GHL Scale Up provides done-for-you GoHighLevel services that connect your CRM, pipelines, funnels, websites, workflows, communication, AI, integrations, reporting, and customer journeys into one working system.
+                </p>
+                <p>
+                  Whether you're starting with GoHighLevel, moving from another platform, rebuilding an existing account, or looking for ongoing support, we help you design and implement the system around the way your business actually operates.
+                </p>
+              </div>
+
+              <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 sm:px-5 py-2.5 mt-6">
+                <Award className="h-4 w-4 text-[#F8D000] flex-shrink-0" />
+                <span className="text-[0.78rem] sm:text-sm text-white/70">
+                  <strong className="text-[#F8D000]">200+</strong> projects across{' '}
+                  <strong className="text-[#F8D000]">6 countries</strong> ·{' '}
+                  <strong className="text-[#F8D000]">50+</strong> active clients ·{' '}
+                  <strong className="text-[#F8D000]">5+ years</strong>
+                </span>
+              </div>
+
+              <div className="flex flex-wrap gap-3 mt-7">
+                <Link
+                  href="/contact"
+                  className="bg-[#F8D000] text-[#0B1421] px-6 sm:px-8 py-3 rounded-lg text-[0.85rem] sm:text-[0.9rem] font-bold hover:bg-[#FFE44D] hover:-translate-y-[1px] transition-all inline-flex items-center gap-2"
+                >
+                  Book a Free Strategy Call <ChevronRight className="h-4 w-4" />
+                </Link>
+              </div>
             </div>
 
-            <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 sm:px-5 py-2.5 mt-7">
-              <Award className="h-4 w-4 text-[#F8D000] flex-shrink-0" />
-              <span className="text-[0.78rem] sm:text-sm text-white/70">
-                <strong className="text-[#F8D000]">200+</strong> projects across{' '}
-                <strong className="text-[#F8D000]">6 countries</strong> ·{' '}
-                <strong className="text-[#F8D000]">50+</strong> active clients ·{' '}
-                <strong className="text-[#F8D000]">5+ years</strong>
-              </span>
-            </div>
-
-            <div className="flex flex-wrap gap-3 mt-7 justify-start sm:justify-start">
-              <Link
-                href="/contact"
-                className="bg-[#F8D000] text-[#0B1421] px-6 sm:px-8 py-3 rounded-lg text-[0.85rem] sm:text-[0.9rem] font-bold hover:bg-[#FFE44D] hover:-translate-y-[1px] transition-all inline-flex items-center gap-2"
-              >
-                Book a Free Strategy Call <ChevronRight className="h-4 w-4" />
-              </Link>
+            {/* Right: hero image */}
+            <div className="relative w-full">
+              <div className="relative w-full max-w-2xl mx-auto lg:max-w-none rounded-2xl overflow-hidden border border-white/10">
+                <Image
+                  src="/service/services-hero2.png"
+                  alt="GHL Scale Up GoHighLevel systems and dashboards"
+                  width={1600}
+                  height={1200}
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                  className="w-full h-auto object-contain"
+                />
+              </div>
             </div>
           </div>
 
@@ -323,33 +341,19 @@ export default async function ServicesPage() {
       </section>
 
       {/* ============================================
-          IMAGE BANNER 1 services-hero.png
-          Fixed height, wider ratio image fully visible
+          IMAGE 1 clean, no text overlay, contained max-w-7xl
           ============================================ */}
-      <section className="relative w-full">
-        <div className="relative h-[220px] sm:h-[280px] md:h-[340px] lg:h-[400px] w-full overflow-hidden bg-[#0B1421]">
-          <Image
-            src="/service/services-hero.png"
-            alt="GHL Scale Up GoHighLevel systems and dashboards"
-            fill
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0B1421]/90 via-[#0B1421]/50 to-transparent" />
-          <div className={`${container} relative h-full flex items-center`}>
-            <div className="max-w-xl text-white">
-              <div className="inline-flex items-center gap-2 bg-[rgba(248,208,0,0.15)] border border-[rgba(248,208,0,0.3)] text-[#F8D000] text-[0.6rem] font-bold tracking-[0.12em] uppercase px-3 py-1.5 rounded-full mb-3">
-                <Layers className="h-3 w-3" />
-                Implementation Depth
-              </div>
-              <h2 className="text-[1.2rem] sm:text-xl md:text-2xl lg:text-3xl font-extrabold leading-tight mb-2">
-                Not just features enabled.<br />
-                <span className="text-[#F8D000]">A system that actually works.</span>
-              </h2>
-              <p className="text-[0.78rem] sm:text-[0.85rem] md:text-[0.95rem] text-white/75 leading-relaxed">
-                We connect CRM, pipelines, funnels, workflows, communication, AI, integrations, and reporting into one working system built around your business.
-              </p>
-            </div>
+      <section className="w-full bg-[#F4F7FA] py-8 md:py-12">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative w-full overflow-hidden rounded-2xl">
+            <Image
+              src="/service/services-hero.png"
+              alt="GHL Scale Up GoHighLevel systems and dashboards"
+              width={1920}
+              height={1080}
+              sizes="(max-width: 1280px) 100vw, 1280px"
+              className="w-full h-auto object-contain object-center"
+            />
           </div>
         </div>
       </section>
@@ -475,7 +479,6 @@ export default async function ServicesPage() {
         </div>
       </section>
 
-
       {/* ============================================
           CASE STUDIES
           ============================================ */}
@@ -489,7 +492,6 @@ export default async function ServicesPage() {
       <section className="py-14 md:py-20 bg-[#F4F7FA]">
         <Testimonials testimonials={testimonials} />
       </section>
-
 
       {/* ============================================
           ADD AI full-width dark band
@@ -636,33 +638,19 @@ export default async function ServicesPage() {
       </section>
 
       {/* ============================================
-          IMAGE BANNER 2 services-showcase.png
-          Fixed height, wider ratio image fully visible
+          IMAGE 2 clean, no text overlay, contained max-w-7xl
           ============================================ */}
-      <section className="relative w-full">
-        <div className="relative h-[220px] sm:h-[280px] md:h-[340px] lg:h-[400px] w-full overflow-hidden bg-[#0B1421]">
-          <Image
-            src="/service/services-showcase.png"
-            alt="GHL Scale Up GoHighLevel automations and dashboards in action"
-            fill
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0B1421]/90 via-[#0B1421]/50 to-transparent" />
-          <div className={`${container} relative h-full flex items-center`}>
-            <div className="max-w-xl text-white">
-              <div className="inline-flex items-center gap-2 bg-[rgba(248,208,0,0.15)] border border-[rgba(248,208,0,0.3)] text-[#F8D000] text-[0.6rem] font-bold tracking-[0.12em] uppercase px-3 py-1.5 rounded-full mb-3">
-                <BarChart3 className="h-3 w-3" />
-                Advanced Systems
-              </div>
-              <h2 className="text-[1.2rem] sm:text-xl md:text-2xl lg:text-3xl font-extrabold leading-tight mb-2">
-                SaaS, reporting, membership,<br />
-                <span className="text-[#F8D000]">and reputation built right.</span>
-              </h2>
-              <p className="text-[0.78rem] sm:text-[0.85rem] md:text-[0.95rem] text-white/75 leading-relaxed">
-                From white-label SaaS to reporting dashboards, we build the advanced GoHighLevel systems that scale with your business.
-              </p>
-            </div>
+      <section className="w-full bg-[#F4F7FA] py-8 md:py-12">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative w-full overflow-hidden rounded-2xl">
+            <Image
+              src="/service/services-showcase.png"
+              alt="GHL Scale Up GoHighLevel automations and dashboards in action"
+              width={1920}
+              height={1080}
+              sizes="(max-width: 1280px) 100vw, 1280px"
+              className="w-full h-auto object-contain object-center"
+            />
           </div>
         </div>
       </section>
@@ -853,7 +841,6 @@ export default async function ServicesPage() {
         </div>
       </section>
 
-
       {/* ============================================
           WHEN TO HIRE
           ============================================ */}
@@ -911,33 +898,19 @@ export default async function ServicesPage() {
       </section>
 
       {/* ============================================
-          IMAGE BANNER 3 services-team.png
-          Fixed height, wider ratio image fully visible
+          IMAGE 3 clean, no text overlay, contained max-w-7xl
           ============================================ */}
-      <section className="relative w-full">
-        <div className="relative h-[220px] sm:h-[280px] md:h-[340px] lg:h-[400px] w-full overflow-hidden bg-[#0B1421]">
-          <Image
-            src="/service/services-team.png"
-            alt="GHL Scale Up team GoHighLevel experts"
-            fill
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0B1421]/90 via-[#0B1421]/50 to-transparent" />
-          <div className={`${container} relative h-full flex items-center`}>
-            <div className="max-w-xl text-white">
-              <div className="inline-flex items-center gap-2 bg-[rgba(248,208,0,0.15)] border border-[rgba(248,208,0,0.3)] text-[#F8D000] text-[0.6rem] font-bold tracking-[0.12em] uppercase px-3 py-1.5 rounded-full mb-3">
-                <Users className="h-3 w-3" />
-                The Team Behind It
-              </div>
-              <h2 className="text-[1.2rem] sm:text-xl md:text-2xl lg:text-3xl font-extrabold leading-tight mb-2">
-                Real people. Real systems.<br />
-                <span className="text-[#F8D000]">Real GoHighLevel expertise.</span>
-              </h2>
-              <p className="text-[0.78rem] sm:text-[0.85rem] md:text-[0.95rem] text-white/75 leading-relaxed">
-                A team that works inside GoHighLevel daily building, testing, and optimizing systems that actually perform.
-              </p>
-            </div>
+      <section className="w-full bg-white py-8 md:py-12">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative w-full overflow-hidden rounded-2xl">
+            <Image
+              src="/service/services-team.png"
+              alt="GHL Scale Up team GoHighLevel experts"
+              width={1920}
+              height={1080}
+              sizes="(max-width: 1280px) 100vw, 1280px"
+              className="w-full h-auto object-contain object-center"
+            />
           </div>
         </div>
       </section>
