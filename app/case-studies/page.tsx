@@ -6,7 +6,7 @@ import { ArrowRight } from 'lucide-react';
 
 export const metadata = {
   title: 'GHL Scale Up Case Studies Real GoHighLevel Results',
-  description: 'See real outcomes from GHL Scale Up builds — specific numbers, real businesses, real results. 200+ builds across real estate, healthcare, SaaS, and marketing agencies.',
+  description: 'See real outcomes from GHL Scale Up builds specific numbers, real businesses, real results. 200+ builds across real estate, healthcare, SaaS, and marketing agencies.',
   keywords: 'GoHighLevel case studies, GHL success stories, CRM implementation results, marketing automation case studies, lead generation results, sales pipeline management case studies',
   alternates: {
     canonical: '/case-studies'
@@ -52,14 +52,14 @@ const caseStudies = [
     title: 'Website Setup & Automation Fix for Service-Based Business',
     slug: { current: 'gohighlevel-website-setup-automation-fix' },
     category: 'Service Business',
-    excerpt: 'A service-based business had broken surveys, unreliable email automation, and inconsistent campaign delivery — with no dedicated GoHighLevel website to support lead capture.',
+    excerpt: 'A service-based business had broken surveys, unreliable email automation, and inconsistent campaign delivery with no dedicated GoHighLevel website to support lead capture.',
     image: {
       asset: {
         url: '/case-study/5.png'
       }
     },
     challenge: 'Surveys not functioning correctly, email automation workflows broken, campaign delivery inconsistent, no dedicated GoHighLevel-integrated website.',
-    solution: 'GHL Scale Up diagnosed the broken systems, built a custom GoHighLevel website, and rebuilt the automation from the ground up — establishing a reliable end-to-end communication system.',
+    solution: 'GHL Scale Up diagnosed the broken systems, built a custom GoHighLevel website, and rebuilt the automation from the ground up establishing a reliable end-to-end communication system.',
     featured: false,
     publishedAt: '2026-08-10'
   },
@@ -68,7 +68,7 @@ const caseStudies = [
     title: 'AI Automation: 70% Less Manual Work for Marketing Agency',
     slug: { current: 'gohighlevel-ai-automation-customer-management-marketing-agency' },
     category: 'Marketing Agency',
-    excerpt: 'A performance marketing agency was relying on disconnected tools and manual workflows — until GHL Scale Up built a complete GoHighLevel agency system with AI-powered workflows.',
+    excerpt: 'A performance marketing agency was relying on disconnected tools and manual workflows until GHL Scale Up built a complete GoHighLevel agency system with AI-powered workflows.',
     image: {
       asset: {
         url: '/case-study/4.png'
@@ -84,7 +84,7 @@ const caseStudies = [
     title: 'Multi-Location Real Estate: Sub-Account System With Property Websites',
     slug: { current: 'gohighlevel-multi-location-automation-property-website-real-estate' },
     category: 'Real Estate',
-    excerpt: 'A growing real estate brand needed a structured, location-aware system — not a patchwork of spreadsheets and inboxes per office.',
+    excerpt: 'A growing real estate brand needed a structured, location-aware system not a patchwork of spreadsheets and inboxes per office.',
     image: {
       asset: {
         url: '/case-study/12.png'
@@ -100,7 +100,7 @@ const caseStudies = [
     title: 'Affiliate Management System: Automated Tracking & Lead Nurturing',
     slug: { current: 'gohighlevel-affiliate-management-automation-media-company' },
     category: 'Media',
-    excerpt: 'A media and performance-driven business was running multiple affiliate campaigns manually — creating bottlenecks in lead nurturing, affiliate tracking, and reporting.',
+    excerpt: 'A media and performance-driven business was running multiple affiliate campaigns manually creating bottlenecks in lead nurturing, affiliate tracking, and reporting.',
     image: {
       asset: {
         url: '/case-study/6.png'
