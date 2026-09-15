@@ -16,56 +16,34 @@ import {
   Rocket,
   Target,
   HeartHandshake,
-  Search,
-  Trophy,
-  BarChart3,
-  XCircle,
   MessageCircle,
   Phone,
   Shield,
-  DollarSign,
-  Users,
-  Calendar,
-  Layout,
-  GitBranch,
-  Sparkles,
-  Award,
-  TrendingUp,
-  CheckCircle2,
-  Globe,
-  Server,
-  Database,
-  Clock,
-  Mail,
-  GraduationCap,
-  Compass,
-  GitCompare,
-  Layers,
+  BarChart3,
   Workflow,
-  Headphones,
-  Timer,
-  GitMerge,
-  FileText,
-  Smartphone,
-  Briefcase
+  Image as ImageIcon,
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import Image from 'next/image';
 
 export default function ZohoToGoHighLevelMigrationClient() {
   const [activeId, setActiveId] = useState<string>('');
-  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const sections = [
         'why-migrate',
+        'data-structure',
         'nine-components',
         'export-data',
         'field-mapping',
         'rebuild-workflows',
         'campaigns-forms-phones',
+        'historical-data',
         'parallel-cutover',
-        'migration-comparison',
+        'mistakes',
+        'timeline',
+        'should-you-migrate',
         'faq'
       ];
 
@@ -75,16 +53,8 @@ export default function ZohoToGoHighLevelMigrationClient() {
           const rect = element.getBoundingClientRect();
           if (rect.top <= 150) {
             setActiveId(id);
-            break;
           }
         }
-      }
-
-      // Show floating Project Help card after scrolling past hero section
-      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
-      if (heroSection) {
-        const heroBottom = heroSection.getBoundingClientRect().bottom;
-        setShowFloatingProjectHelp(heroBottom < 0);
       }
     };
 
@@ -104,68 +74,76 @@ export default function ZohoToGoHighLevelMigrationClient() {
 
   const faqs = [
     {
-      q: "Can I automatically transfer data from Zoho to GoHighLevel?",
-      a: "Partially. Contact records, deal records, and account records can be exported from Zoho as CSV files and imported into GoHighLevel via GHL's built-in CSV import tool. Workflows, users, forms, sites, contracts, and analytics cannot be automatically transferred and must be manually recreated in GoHighLevel. Confirmed from GoHighLevel's official Zoho to HighLevel Migration Guide (article 155000003316). This is because Zoho and GHL use different database schemas and automation structures a direct one-to-one transfer is not possible."
+      q: "Can Zoho CRM be migrated to GoHighLevel?",
+      a: "Yes, though not as a single automatic transfer. Contact, Lead, Account, and Deal records export as CSV and import into GHL. Users, custom modules, forms, sites, contracts, and automation logic do not transfer automatically and need to be manually recreated."
+    },
+    {
+      q: "How do I migrate contacts from Zoho CRM to GoHighLevel?",
+      a: "Export from Setup, then Data Administration, then Export, selecting the Contacts module. Recreate your custom fields in GHL first, then import a test batch of 100 to 200 records before running the full import, checking field mapping, date formats, and phone number formatting along the way."
+    },
+    {
+      q: "Can Zoho workflows and Blueprints be moved to GoHighLevel?",
+      a: "No. Neither Workflows nor Blueprints export or import automatically. Document each one's trigger, actions, and exit condition, then rebuild the same intent manually using GHL's own workflow builder."
+    },
+    {
+      q: "What happens to Zoho custom modules during migration?",
+      a: "There is no automatic equivalent. Each custom module needs individual assessment: data that must remain queryable on its own is usually represented through carefully designed GHL custom fields, while data tied to a discontinued process may not need migrating at all."
+    },
+    {
+      q: "What is the Zoho export limit I need to plan around?",
+      a: "Each export is capped at 200,000 records and always contains the oldest 200,000 in that module. Larger databases need staged exports. The download link for a completed export expires after 7 days, so download and store it promptly."
+    },
+    {
+      q: "Can I keep my Zoho phone numbers after migrating?",
+      a: "If they are Twilio numbers, generally yes, either by porting them into GHL or keeping them on Twilio and connecting through GHL's integration. Numbers on Zoho's PhoneBridge or another gateway may need to be replaced with new GHL numbers. US numbers used for SMS need A2P 10DLC registration regardless of origin."
     },
     {
       q: "How long does a Zoho to GoHighLevel migration take?",
-      a: "Typical timeline is 2 to 4 weeks depending on data volume, custom field count, workflow complexity, and phone number porting requirements. A simple migration under 5,000 contacts, minimal custom fields, under 10 workflows can complete in one week. A complex migration over 100,000 contacts, 40+ custom fields, 20+ workflows, phone number porting can take 4-6 weeks. The single longest phase is workflow rebuild, since every Zoho automation must be documented and manually rebuilt in GHL's workflow builder."
+      a: "Typically 2 to 4 weeks. Simple accounts with few custom modules and workflows can complete in about a week; complex accounts with heavy customization and phone porting can take 4 to 6 weeks."
     },
     {
-      q: "What is the Zoho export limit and what happens if I have more than 200,000 contacts?",
-      a: "Zoho limits each export to a maximum of 200,000 records as a zipped CSV, and the export always includes the 200,000 oldest records. If your Zoho contact database exceeds this, you need multiple staged exports archive the oldest 200,000, then either delete them from Zoho or use date-range filtered exports to access the next batch. The download link for each export is only available for 7 days download and archive immediately after the export completes. Confirmed from GoHighLevel's official Zoho migration documentation."
-    },
-    {
-      q: "Do Zoho workflows transfer to GoHighLevel?",
-      a: "No. Zoho workflows cannot be exported and cannot be automatically imported into GoHighLevel. They must be documented (business intent, trigger conditions, actions, exit conditions) and then manually rebuilt in GHL's workflow builder using GHL's own trigger and action system. This is because Zoho's workflow model uses Zoho-specific triggers and actions that have different structures from GHL's model. Most agencies find that 20-40% of their Zoho workflows are outdated and do not need rebuilding, reducing the rebuild scope."
-    },
-    {
-      q: "Can I keep my Zoho phone numbers when migrating to GoHighLevel?",
-      a: "It depends on the phone provider. If your Zoho phone numbers are Twilio numbers, you can port them to GHL LC Phone via the port-in process, or continue with Twilio through GHL's Twilio integration. If you use Zoho's PhoneBridge or a third-party gateway, you may need to purchase new numbers in GHL. Number porting takes 5-15 business days schedule it during your parallel running phase, not at cutover. US 10-digit numbers used for SMS require A2P 10DLC registration in GHL's Trust Center regardless of where the number originated."
-    },
-    {
-      q: "What is the biggest mistake when migrating from Zoho to GoHighLevel?",
-      a: "Assuming that Zoho workflows and automations will transfer automatically with the contact data. They will not. Businesses that skip the workflow documentation and rebuild phase experience broken automations after cutover appointment reminders stop firing, follow-up sequences do not run, lead assignment fails. The second most common mistake is exporting contacts before recreating custom fields in GHL the import then either fails or drops the custom field data. Always recreate custom fields FIRST, then test-import 100-200 contacts, then run the full import."
-    },
-    {
-      q: "How much does a Zoho to GoHighLevel migration cost if handled by an agency?",
-      a: "Migration service pricing varies by scope. Simple migrations (under 5,000 contacts, under 10 workflows, no phone porting) typically range from $1,500 to $3,500 USD. Standard migrations (10,000-50,000 contacts, 15-25 workflows, standard phone porting) typically range from $3,500 to $8,000 USD. Complex migrations (100,000+ contacts, 40+ workflows, custom integrations, multiple phone numbers) can range from $8,000 to $25,000+ USD. GHL Scale Up provides fixed-scope quotes after a free 30-minute discovery call."
+      q: "Should I keep Zoho active after migrating to GoHighLevel?",
+      a: "Yes, for a period. Keep it active through parallel running and for a stretch afterward as a backup and historical archive before cancelling, and take one final full export first."
     }
   ];
 
   useFaqSchema(faqs);
 
   const tocItems = [
-    { id: 'why-migrate', title: '1. Why do businesses migrate from Zoho to GoHighLevel?' },
-    { id: 'nine-components', title: '2. What are the nine components that must be migrated?' },
-    { id: 'export-data', title: '3. How do you export data from Zoho correctly?' },
-    { id: 'field-mapping', title: '4. How do you prepare and map fields for GoHighLevel?' },
-    { id: 'rebuild-workflows', title: '5. How do you rebuild workflows and automations in GHL?' },
-    { id: 'campaigns-forms-phones', title: '6. How do you handle Zoho Campaigns, Forms, and phone numbers?' },
-    { id: 'parallel-cutover', title: '7. What is the parallel running and cutover process?' },
-    { id: 'migration-comparison', title: '8. How does Zoho migration compare to migrating from HubSpot or ClickFunnels?' },
-    { id: 'faq', title: '9. Frequently asked questions' }
+    { id: 'why-migrate', title: 'Why Do Businesses Migrate From Zoho to GoHighLevel?' },
+    { id: 'data-structure', title: 'Understanding Zoho\'s Data Structure Before You Migrate' },
+    { id: 'nine-components', title: 'What Actually Gets Migrated? The Official Component List' },
+    { id: 'export-data', title: 'How Do You Export Data From Zoho Correctly?' },
+    { id: 'field-mapping', title: 'How Do You Prepare and Map Fields for GoHighLevel?' },
+    { id: 'rebuild-workflows', title: 'How Do You Rebuild Zoho Automation in GoHighLevel?' },
+    { id: 'campaigns-forms-phones', title: 'What Happens to Zoho Campaigns, Forms, and Phone Numbers?' },
+    { id: 'historical-data', title: 'Historical Data: What Should Actually Move' },
+    { id: 'parallel-cutover', title: 'What Is the Parallel Running and Cutover Process?' },
+    { id: 'mistakes', title: 'Common Zoho to GoHighLevel Migration Mistakes' },
+    { id: 'timeline', title: 'How Long Does a Zoho to GoHighLevel Migration Take?' },
+    { id: 'should-you-migrate', title: 'Should You Migrate From Zoho to GoHighLevel?' },
+    { id: 'faq', title: 'Frequently Asked Questions' }
   ];
 
-  const components = [
-    { num: '1', component: 'Contacts', contains: 'Contact records, custom fields, tags', method: 'CSV export from Zoho > CSV import to GHL' },
-    { num: '2', component: 'Users', contains: 'Team member accounts, roles, permissions', method: 'Manual creation in GHL users cannot be automatically imported' },
-    { num: '3', component: 'Calendars', contains: 'Booking pages, availability, appointment types', method: 'Manual recreation in GHL Calendar & Booking' },
-    { num: '4', component: 'Opportunities', contains: 'Deal records, pipeline stages, deal values', method: 'CSV export from Zoho Deals module > mapped import to GHL Opportunities' },
-    { num: '5', component: 'Forms', contains: 'Lead capture forms, custom fields', method: 'Manual recreation in GHL Forms Builder' },
-    { num: '6', component: 'Contracts', contains: 'Signed agreements, e-signature records', method: 'Manual re-upload historical contracts stay in Zoho archive' },
-    { num: '7', component: 'Sites', contains: 'Landing pages, websites', method: 'Manual rebuild in GHL Funnel/Website builder' },
-    { num: '8', component: 'Automations', contains: 'Workflows, triggers, actions', method: 'Manual rebuild in GHL Workflow Builder NOT importable' },
-    { num: '9', component: 'Analytics', contains: 'Reports, dashboards, KPIs', method: 'Manual reconfiguration in GHL Reporting' }
+  const componentList = [
+    { component: 'Contacts, Leads, Accounts', contains: 'Contact records, custom fields, tags', method: 'CSV export from Zoho, then CSV import to GHL with fields mapped' },
+    { component: 'Deals', contains: 'Pipeline records, stages, deal values', method: 'CSV export from the Deals module, mapped to GHL Opportunities and pipeline stages built in advance' },
+    { component: 'Custom Modules', contains: 'Business-specific record types', method: 'No direct equivalent; assess case by case, often represented as Contact custom fields' },
+    { component: 'Users', contains: 'Team accounts, roles, permissions', method: 'Manually recreated in GHL; not importable' },
+    { component: 'Calendars', contains: 'Booking pages, availability, appointment types', method: 'Manually recreated in GHL Calendar and Booking' },
+    { component: 'Forms', contains: 'Lead capture forms and fields', method: 'Manually recreated in GHL\'s Forms Builder' },
+    { component: 'Contracts', contains: 'Signed agreements, e-signature records', method: 'Manually re-uploaded where still needed; historical contracts generally stay in Zoho\'s archive' },
+    { component: 'Sites', contains: 'Landing pages, websites', method: 'Manually rebuilt in GHL\'s funnel or website builder' },
+    { component: 'Automations (Workflows, Blueprints, Assignment Rules)', contains: 'Triggers, actions, business logic', method: 'Not importable; documented and manually rebuilt in GHL\'s Workflow Builder' },
+    { component: 'Analytics', contains: 'Reports and dashboards', method: 'Manually reconfigured in GHL\'s reporting' }
   ];
 
-  const comparison = [
-    { factor: 'Data export ease', zoho: 'Moderate (200K record limit, 7-day window)', hubspot: 'Complex (multiple export types)', clickfunnels: 'Easy (single account export)' },
-    { factor: 'Workflow rebuild complexity', zoho: 'High (Zoho-specific trigger model)', hubspot: 'Very high (Marketing Hub sequences differ)', clickfunnels: 'Moderate (fewer automations)' },
-    { factor: 'Contact volume typical', zoho: '10K-500K', hubspot: '10K-500K+', clickfunnels: '1K-50K' },
-    { factor: 'Integration count typical', zoho: 'Many (Zoho ecosystem apps)', hubspot: 'Many (HubSpot marketplace apps)', clickfunnels: 'Fewer (funnel-specific tools)' },
-    { factor: 'Typical migration timeline', zoho: '2-4 weeks', hubspot: '3-6 weeks', clickfunnels: '1-3 weeks' },
-    { factor: 'Biggest risk', zoho: 'Workflow rebuild scope', hubspot: 'Data loss from complex exports', clickfunnels: 'Custom domain SSL handoff' }
+  const migrationMistakes = [
+    'Treating Leads, Contacts, and Accounts as if they were all the same object, instead of deciding deliberately how each maps into GHL\'s single Contact model',
+    'Ignoring custom modules entirely, or importing their data without deciding whether it still needs to exist',
+    'Assuming Blueprints and Assignment Rules will transfer the way Contacts do',
+    'Exporting contacts before custom fields exist in GHL, which causes the import to drop or misplace that data',
+    'Testing only the contact import and skipping a full journey test (a real lead capture, a real booking, a real deal moving through the pipeline)'
   ];
 
   // Reusable Project Help Card Component
@@ -174,7 +152,6 @@ export default function ZohoToGoHighLevelMigrationClient() {
       <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
       <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your migration.</p>
       <Link
-        // onClick={handleOpenBooking}
         href="/book-a-call"
         className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
         Book a 30 min Free Call
@@ -216,7 +193,7 @@ export default function ZohoToGoHighLevelMigrationClient() {
           {/* H1 */}
           <h1 className="text-[clamp(28px,6vw,46px)] font-extrabold leading-[1.2] md:leading-[1.15] text-white mb-4 md:mb-5 tracking-[-0.02em]">
             Zoho to GoHighLevel Migration:<br />
-            <span className="text-[#F8D000]">Complete 2026 Step-by-Step Guide</span>
+            <span className="text-[#F8D000]">Complete 2026 Guide</span>
           </h1>
 
           {/* Author */}
@@ -230,16 +207,27 @@ export default function ZohoToGoHighLevelMigrationClient() {
             </div>
             <div>
               <div className="text-sm font-medium text-white">GHL Scale Up Team</div>
-              <div className="text-xs text-white/50">GoHighLevel Migration Specialists · 200+ Builds Delivered · Updated July 2026</div>
+              <div className="text-xs text-white/50">GoHighLevel Migration Specialists · 200+ builds delivered · Verified against GoHighLevel's official Zoho migration documentation, September 2026</div>
             </div>
           </div>
 
           {/* Intro Paragraph */}
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-6xl">
-            Migrating from Zoho CRM to GoHighLevel means moving nine distinct components Contacts, Users, Calendars, Opportunities, Forms, Contracts, Sites, Automations, and Analytics across two platforms with fundamentally different database schemas. A direct one-to-one transfer is not possible. What you actually run is a structured process: export from Zoho's modules as CSV, prepare the data (date formats, phone number formats, tag mapping), recreate custom fields in GHL, import in test batches, then rebuild workflows and integrations natively. <Link href="/" className="text-[#0E9BF0] hover:underline font-medium">GHL Scale Up</Link> has handled Zoho migrations for agencies and their clients across multiple industries. This guide gives you the exact process, the specific export limits and format requirements confirmed from GoHighLevel's official Zoho migration documentation, and the phased plan that avoids data loss. For the fully-managed path: <Link href="/services/migration" className="text-[#0E9BF0] hover:underline">GHL Migration Services →</Link>
+            Zoho CRM and GoHighLevel organize data in genuinely different ways. Zoho separates Leads from Contacts from Accounts from Deals, often with custom modules layered on top for a business's specific processes. GoHighLevel is built around a single Contact record that everything else attaches to. Migrating well means understanding that difference before you export a single file, not discovering it partway through.
           </p>
 
-          {/* CTA Button 1: Hero Section */}
+          {/* Quick Answer Box */}
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 md:p-6 mb-6">
+            <div className="flex items-center gap-2 mb-3">
+              <Zap className="w-5 h-5 text-[#F8D000]" />
+              <span className="text-xs font-bold uppercase tracking-wider text-white/60">Quick answer</span>
+            </div>
+            <p className="text-sm text-white/70 leading-relaxed">
+              to migrate from Zoho to GoHighLevel, audit your Zoho account first, including Leads, Contacts, Accounts, Deals, and any custom modules. Export each module separately as CSV through Zoho's Data Administration tools, keeping in mind a 200,000 record limit per export and a 7 day download window. Recreate your custom fields, pipelines, and tags in GHL before importing anything. Test import 100 to 200 records to confirm mapping, then run the full import. Rebuild workflows, Blueprints, and assignment logic manually in GHL's workflow builder, since none of this transfers automatically. Run Zoho and GHL in parallel for a few weeks before fully cutting over. Typical timeline is 2 to 4 weeks depending on data volume, custom modules, and automation complexity.
+            </p>
+          </div>
+
+          {/* CTA Button 1 */}
           <div className="flex flex-wrap gap-3">
             <Link
               href="/contact"
@@ -260,18 +248,16 @@ export default function ZohoToGoHighLevelMigrationClient() {
         </div>
       </section>
 
-      {/* MAIN LAYOUT - Sidebar on LEFT, Content on RIGHT */}
+      {/* MAIN LAYOUT */}
       <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-10">
         <div className="grid lg:grid-cols-[280px_1fr] gap-8 md:gap-12 items-start">
 
-          {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
+          {/* SIDEBAR */}
           <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
-            {/* Project Help Card - At top of sidebar */}
-            <div className="mb-6">
+            <div className="hidden lg:block mb-6">
               <ProjectHelpCard />
             </div>
 
-            {/* Table of Contents */}
             <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
                 <BookOpen className="w-3 h-3" />
@@ -288,7 +274,9 @@ export default function ZohoToGoHighLevelMigrationClient() {
                         }`}
                     >
                       <span className="flex items-start gap-2">
-                        {activeId === item.id && <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />}
+                        {activeId === item.id && (
+                          <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />
+                        )}
                         <span className="flex-1">{item.title}</span>
                       </span>
                     </button>
@@ -297,10 +285,9 @@ export default function ZohoToGoHighLevelMigrationClient() {
               </ul>
             </nav>
 
-            {/* About the Author */}
             <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
+                <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
                   <img
                     src="/web-app-manifest-192x192.png"
                     alt="GHL Scale Up"
@@ -315,48 +302,42 @@ export default function ZohoToGoHighLevelMigrationClient() {
               <p className="text-xs text-white/60 leading-relaxed mb-3">
                 5+ years GHL experience · 200+ systems built and migrated globally. All technical details verified as of July 2026.
               </p>
-              <Link href="/" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
+              <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
             </div>
 
-            {/* Share Buttons */}
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
-              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
+              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Share this guide</div>
               <div className="flex gap-2 flex-wrap">
-                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Linkedin className="w-3 h-3" /> LinkedIn</a>
-                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Twitter className="w-3 h-3" /> X</a>
-                <button onClick={() => navigator.clipboard.writeText(window.location.href)} className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"><Copy className="w-3 h-3" /> Copy link</button>
+                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Linkedin className="w-3 h-3" />
+                  LinkedIn
+                </a>
+                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Twitter className="w-3 h-3" />
+                  X
+                </a>
+                <button
+                  onClick={() => navigator.clipboard.writeText(window.location.href)}
+                  className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"
+                >
+                  <Copy className="w-3 h-3" />
+                  Copy link
+                </button>
               </div>
+            </div>
+
+            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
+              <div className="text-sm font-bold text-white mb-2">Migrating from Zoho?</div>
+              <p className="text-xs text-white/60 leading-relaxed mb-4">We handle Zoho migrations end-to-end — audit, staged export, field mapping, workflow rebuild, and phone porting.</p>
+              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+                Get Help
+                <ArrowRight className="w-3 h-3" />
+              </Link>
             </div>
           </aside>
 
-          {/* ==================== RIGHT COLUMN: BLOG CONTENT ==================== */}
+          {/* MAIN CONTENT */}
           <main className="min-w-0 order-2">
-
-            {/* BLUF Box */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
-              <div className="flex items-center gap-2 mb-3">
-                <Zap className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Direct Answer Read This First</span>
-              </div>
-              <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
-                To migrate from Zoho to GoHighLevel: (1) Audit and clean Zoho data first, (2) export each module (Contacts, Deals, etc.) as CSV via Setup → Data Administration → Export note the 200,000-record-per-export limit and 7-day download window, (3) reformat dates to YYYY-MM-DD and phone numbers to E.164, (4) recreate custom fields, pipelines, and tags in GHL BEFORE importing, (5) test-import 100-200 contacts to verify mapping, (6) full import, (7) rebuild workflows manually in GHL's workflow builder (they do not transfer), (8) run Zoho and GHL in parallel for 2-3 weeks before cutting over.
-              </p>
-              <p className="text-sm text-[#5C6880] leading-relaxed">
-                Total timeline: typically 2-4 weeks depending on data volume, custom field count, and workflow complexity. The biggest risk is not the export itself it is assuming automations will "just transfer." They will not. Rebuild them natively in GHL.
-              </p>
-
-              {/* CTA Button 2: Inside BLUF Box */}
-              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
-                  <Target className="w-4 h-4" />
-                  Get a Migration Plan
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </div>
 
             {/* Table of Contents - Mobile Only */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8 lg:hidden">
@@ -377,33 +358,49 @@ export default function ZohoToGoHighLevelMigrationClient() {
               </div>
             </div>
 
-            {/* Mobile Project Help Card - visible on mobile only */}
+            {/* Mobile Project Help Card */}
             <div className="lg:hidden mb-8">
               <ProjectHelpCard />
             </div>
 
             {/* Section 1: Why Migrate */}
             <h2 id="why-migrate" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-8 mb-4">
-              1. Why Do Businesses Migrate from Zoho to GoHighLevel?
+              Why Do Businesses Migrate From Zoho to GoHighLevel?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> Businesses typically migrate from Zoho CRM to GoHighLevel to consolidate a fragmented Zoho ecosystem (CRM + Campaigns + Books + Desk + Bookings + Forms) into a single all-in-one platform with better agency support, native SMS and AI features, and lower total cost.
-            </p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Detail:</strong> Zoho is a solid CRM with strong feature depth, but Zoho's model is a suite of separate applications that need to integrate with each other. Businesses running Zoho CRM, Zoho Campaigns for email, Zoho Bookings for calendar, and Zoho Forms often pay for each module separately and manage each separately. GoHighLevel consolidates these into a single subscription with unified inbox, unified reporting, and a single contact record that ties email, SMS, calls, bookings, and pipeline stages together.
+              Zoho CRM is a genuinely capable platform, and the decision to leave it is usually about consolidation rather than Zoho being deficient. Zoho's ecosystem is a suite of separate applications, CRM, Campaigns, Bookings, Forms, Desk, that need to be purchased and managed individually. GoHighLevel consolidates equivalent functionality into one subscription with a single contact record tying email, SMS, calls, bookings, and pipeline stages together.
             </p>
             <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">Agency-first architecture:</strong> GHL's sub-account model manages multiple clients from one dashboard. Zoho requires separate CRM instances per client.</li>
-              <li><strong className="text-[#1A2236]">Native SMS and WhatsApp:</strong> GHL has native SMS and WhatsApp integration built into every plan. Zoho requires third-party SMS gateways.</li>
-              <li><strong className="text-[#1A2236]">AI Employee suite:</strong> GHL's AI Voice Agent, Conversation AI, and Workflow AI have no direct Zoho equivalent as of July 2026.</li>
-              <li><strong className="text-[#1A2236]">White-label and SaaS Mode:</strong> Indian and international agencies can resell GHL as branded SaaS. Zoho does not offer white-label reselling of the CRM platform.</li>
-              <li><strong className="text-[#1A2236]">Flat pricing with unlimited contacts:</strong> GHL charges flat rate regardless of contact volume. Zoho scales pricing with users and contacts.</li>
+              <li><strong className="text-[#1A2236]">Agency architecture:</strong> GHL's sub account model manages multiple clients from one dashboard. Zoho generally requires a separate CRM instance per client.</li>
+              <li><strong className="text-[#1A2236]">Native SMS and WhatsApp:</strong> built into every GHL plan. Zoho typically requires a third party SMS gateway.</li>
+              <li><strong className="text-[#1A2236]">Flat pricing regardless of contact volume:</strong> Zoho's pricing scales with users and, for some products, contact volume. GHL charges a flat rate per plan.</li>
+              <li><strong className="text-[#1A2236]">White label and SaaS reselling:</strong> available on GHL's higher tiers. Zoho does not offer white label reselling of its CRM.</li>
             </ul>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              As an illustration, imagine an agency currently paying separately for Zoho CRM, Zoho Campaigns, and Zoho Bookings across a small team. Consolidating those into a single GoHighLevel plan can meaningfully reduce total software cost while adding native SMS and AI features Zoho does not include. The actual savings depend entirely on your specific Zoho plan mix and team size, so treat this as a framework for your own comparison rather than an expected number.
+            </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
-              <strong className="text-[#1A2236]">Example:</strong> A UK marketing agency running Zoho CRM ($20/user/mo), Zoho Campaigns ($240/mo for their volume), Zoho Bookings ($8/user/mo), and Zoho Desk ($20/user/mo) for a 6-user team was paying approximately $528/month across Zoho modules. Moving to GoHighLevel Unlimited at $297/mo consolidated all four functions plus added native SMS, WhatsApp, and AI features. Zoho was strong in its individual modules; GHL was better in its unified model for their agency use case.
+              None of this means Zoho is the wrong platform for every business. Zoho's individual modules, particularly its CRM customization depth, are genuinely strong. The decision usually comes down to whether unifying several tools into one platform is worth more to your business than the depth Zoho's separate modules provide.
             </p>
 
-            {/* CTA Button 3: After Section 1 */}
+            {/* Section 2: Data Structure */}
+            <h2 id="data-structure" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Understanding Zoho's Data Structure Before You Migrate
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Zoho CRM's core objects are Leads, Contacts, Accounts, and Deals, and they relate to each other in a specific way that GoHighLevel does not mirror directly.
+            </p>
+            <ul className="space-y-2 mb-4 text-sm text-[#5C6880] list-disc list-inside">
+              <li><strong className="text-[#1A2236]">Leads are unqualified prospects.</strong> In Zoho, a Lead is typically converted into a Contact (and often an Account and a Deal at the same time) once it is qualified. In GHL, there is no separate Lead object, everything is a Contact from the start, so the practical effect of Zoho's Lead to Contact conversion has to be represented some other way, usually with a tag or a pipeline stage indicating qualification status.</li>
+              <li><strong className="text-[#1A2236]">Contacts in Zoho</strong> typically represent individual people, often linked to an Account. GHL Contacts map to this most directly of any Zoho object.</li>
+              <li><strong className="text-[#1A2236]">Accounts in Zoho</strong> represent a company or organization that one or more Contacts belong to. GoHighLevel does not have a dedicated Account object in the same relational sense, so Account level information is usually represented as a custom field or tag on the Contact, or, for businesses that genuinely need company level grouping, structured as a naming convention across related contacts.</li>
+              <li><strong className="text-[#1A2236]">Deals are Zoho's sales records,</strong> tied to a pipeline and a stage. These map to GHL Opportunities, provided your GHL pipeline stages are built to match before you import.</li>
+            </ul>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Custom modules are the least straightforward part of a Zoho migration. If your Zoho account has custom modules built for a specific business process, there is no automatic equivalent in GoHighLevel. Before migrating, assess each custom module honestly: does this need to remain independently queryable as its own record type, in which case a GHL custom field structure on the Contact may need to be designed carefully to represent it, or was it created for a process that has since changed or ended, in which case it may not need migrating at all. Importing custom module data without this assessment tends to produce a GHL account with data attached to contacts in ways nobody can make sense of six months later.
+            </p>
+
+            {/* CTA Button 2 */}
             <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 mb-8 text-center">
               <p className="text-white/80 text-sm mb-3">
                 <span className="font-bold text-white">Ready to consolidate your Zoho stack?</span> Let us help you migrate without data loss.
@@ -418,28 +415,49 @@ export default function ZohoToGoHighLevelMigrationClient() {
               </Link>
             </div>
 
-            {/* Section 2: Nine Components */}
+            {/* 
+              ============================================================
+              🖼️ IMAGE INSERTED HERE - Full width, responsive, interactive
+              ============================================================
+            */}
+            <div className="my-8 md:my-10 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <div className="relative w-full h-auto bg-[#F8F9FB]">
+                <Image
+                  src="/blog/zoho-to-ghl-migration-guide.png"
+                  alt="Zoho to GoHighLevel migration: Data structure mapping, component list, field mapping, and workflow rebuild overview"
+                  width={1200}
+                  height={500}
+                  className="w-full h-auto object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                />
+              </div>
+              <div className="bg-[#F8F9FB] px-4 py-2.5 text-xs text-[#5C6880] border-t border-[#DDE1E9] flex items-center gap-2">
+                <ImageIcon className="w-3.5 h-3.5" />
+                <span>Zoho → GoHighLevel: Data structure mapping, component list, field mapping, and workflow rebuild workflow</span>
+              </div>
+            </div>
+
+            {/* Section 3: Official Component List */}
             <h2 id="nine-components" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              2. What Are the Nine Components That Must Be Migrated?
+              What Actually Gets Migrated? The Official Component List
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> GoHighLevel's official Zoho migration guide (article 155000003316) specifies nine distinct components that must be migrated. Missing any one of them means data loss or broken business processes after cutover.
+              GoHighLevel's own Zoho migration documentation identifies nine distinct components involved in a complete migration. Treating all nine as equally automatic is the most common planning mistake.
             </p>
 
             <div className="overflow-x-auto my-6">
               <table className="w-full border-collapse text-sm">
                 <thead>
                   <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">#</th>
                     <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Component</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">What it contains</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Transfer method</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">What It Contains</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Transfer Method</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {components.map((item, idx) => (
+                  {componentList.map((item, idx) => (
                     <tr key={idx} className="border-b border-[#DDE1E9]">
-                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.num}</td>
                       <td className="py-3 px-3 font-medium text-[#1A2236]">{item.component}</td>
                       <td className="py-3 px-3 text-[#5C6880]">{item.contains}</td>
                       <td className="py-3 px-3 text-[#5C6880]">{item.method}</td>
@@ -449,220 +467,152 @@ export default function ZohoToGoHighLevelMigrationClient() {
               </table>
             </div>
 
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">THE MOST COSTLY MISCONCEPTION</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                Users, workflows, and reports do NOT migrate automatically. They must be rebuilt from scratch in GoHighLevel. The single most common Zoho-to-GHL migration failure is assuming these components will transfer with the contacts. They will not. Zoho and GHL use fundamentally different data models Zoho's workflows use its own trigger and condition system, GHL uses a different structure. Documenting each Zoho workflow BEFORE export, then rebuilding in GHL, is the only reliable path. Related reading: <Link href="/blog/ghl-migration-mistakes" className="text-[#0E9BF0] hover:underline">8 Common GHL Migration Mistakes →</Link>
-              </p>
-            </div>
-
-            {/* Section 3: Export Data */}
+            {/* Section 4: Export Data */}
             <h2 id="export-data" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              3. How Do You Export Data from Zoho Correctly?
+              How Do You Export Data From Zoho Correctly?
             </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> Zoho exports data through Setup → Data Administration → Export. Contacts, Leads, Deals, and Accounts each export as separate CSV files, delivered as a zipped archive to the account owner.
-            </p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Detail:</strong> Confirmed from GHL's official Zoho migration guide.
-            </p>
-            <ol className="space-y-1 mb-4 text-sm text-[#5C6880] list-decimal list-inside">
-              <li><strong className="text-[#1A2236]">Prep contact data for export:</strong> First, recreate Zoho mailing lists and segments as "migration specific tags" within Zoho itself. Confirmed from GHL docs: this preserves segmentation logic so tags carry over into HighLevel as importable data.</li>
-              <li><strong className="text-[#1A2236]">Navigate to export:</strong> Setup icon (top-right corner) → Data Administration section → Export → Start an Export.</li>
-              <li><strong className="text-[#1A2236]">Select module and fields:</strong> Choose Module = Contacts (or Deals, Leads, Accounts). Select "All fields" or "Choose fields to be exported." Confirmed critical field requirement: fields MUST include either an email address or phone number for HighLevel to accept the import.</li>
-              <li><strong className="text-[#1A2236]">Trigger the export:</strong> Click Export. The export appears in the Export History table with status "In progress." When status changes to "Completed," hover over the entry and click the Download link.</li>
-              <li><strong className="text-[#1A2236]">Repeat per module:</strong> Run separate exports for Contacts, Leads, Deals, and Accounts modules. Do not try to combine them each module has different field structures.</li>
+            <ol className="space-y-2 mb-4 text-sm text-[#5C6880] list-decimal list-inside">
+              <li><strong className="text-[#1A2236]">Document your Zoho custom fields.</strong> Go to Setup, then Customization, then Modules, and list every custom field per module with its data type and any picklist values.</li>
+              <li><strong className="text-[#1A2236]">Navigate to Setup, then Data Administration, then Export, then Start an Export.</strong></li>
+              <li><strong className="text-[#1A2236]">Select the module</strong> (Contacts, Leads, Deals, or Accounts) and choose which fields to export. Every exported contact record needs either an email address or a phone number for GoHighLevel to accept it during import.</li>
+              <li><strong className="text-[#1A2236]">Run the export, wait for the status to change to Completed</strong> in the Export History table, then download the file promptly. The download link is only available for 7 days.</li>
+              <li><strong className="text-[#1A2236]">Repeat separately for each module.</strong> Do not combine modules into a single export, since each has a different field structure.</li>
             </ol>
 
             <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
               <div className="flex items-center gap-2 mb-2">
                 <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">THE TWO CRITICAL LIMITS TO PLAN AROUND</span>
+                <span className="text-sm font-bold text-[#F8D000]">THE TWO LIMITS WORTH PLANNING AROUND</span>
               </div>
               <p className="text-sm text-[#1A2236] leading-relaxed">
-                Zoho export limit: 200,000 contact records per export (as a zipped CSV), and these are always the 200,000 OLDEST records. If your Zoho contact database exceeds 200,000 records, you need multiple staged exports delete the exported oldest records from Zoho after safely archiving them (or use filtered exports by date range) to reveal the next 200,000. <strong>The download link is available for only 7 DAYS.</strong> If you generate an export and forget about it, the link expires and you must re-run the export. Download and archive to a secure location within 7 days. Confirmed from GHL's official Zoho migration guide.
+                Zoho caps each export at 200,000 records, and an export always contains the oldest 200,000 records in the module. If your database exceeds this, you will need staged exports, archiving the oldest batch safely and then either removing it from Zoho or using a date filtered export to reach the next batch. Because the download link expires in 7 days, download and securely store every export immediately rather than letting it sit.
               </p>
             </div>
 
-            {/* Section 4: Field Mapping */}
+            {/* Section 5: Field Mapping */}
             <h2 id="field-mapping" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              4. How Do You Prepare and Map Fields for GoHighLevel?
+              How Do You Prepare and Map Fields for GoHighLevel?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> Field mapping is the process of matching each Zoho field (source) to a corresponding GoHighLevel field (target). This must be done BEFORE the import runs, and custom fields must be recreated in GHL first.
+              Field mapping has to happen before import, not during it. Two formatting requirements matter in particular: dates need to be in YYYY-MM-DD format regardless of Zoho's regional default, and phone numbers should be standardized to E.164 format (a plus sign, country code, then the number with no spaces or punctuation) so that GHL's SMS features work correctly against imported contacts.
             </p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Detail:</strong> Two formatting requirements are confirmed from GHL's official documentation.
-            </p>
-            <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">Date format:</strong> All date fields in the CSV MUST be in YYYY-MM-DD format. Zoho defaults to MM/DD/YYYY or DD/MM/YYYY depending on region. Use spreadsheet functions (=TEXT(A1,"YYYY-MM-DD") in Excel/Google Sheets) to convert every date column before import.</li>
-              <li><strong className="text-[#1A2236]">Phone format:</strong> Standardise phone numbers to E.164 international format: +[country code][number] with no spaces, dashes, or brackets. Example: +14155550182 for a US number. Zoho does not enforce this. Third-party migration guides cite this as essential for GHL's SMS features to work correctly post-import.</li>
+            <ul className="space-y-1 mb-6 text-sm text-[#5C6880] list-disc list-inside">
+              <li>Recreate every Zoho custom field in GHL's Settings, Custom Fields area first, matching data type and any dropdown values exactly.</li>
+              <li>Build your GHL pipeline stages to match your Zoho Deal stages before importing Deals, so historical position is preserved accurately.</li>
+              <li>Map Zoho tags, list memberships, and segment memberships to a Tags column in your export so they carry over as GHL tags.</li>
+              <li>Import a test batch of 100 to 200 contacts first. Confirm every field lands correctly, dates display properly, phone numbers are formatted right, and tags attach as expected before running the full import.</li>
             </ul>
 
-            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Lightbulb className="w-4 h-4 text-[#0E9BF0]" />
-                <span className="text-sm font-bold text-[#0E9BF0]">Field mapping workflow</span>
-              </div>
-              <ol className="space-y-1 text-sm text-[#1A2236] list-decimal list-inside">
-                <li><strong className="text-[#0E9BF0]">Document Zoho custom fields:</strong> Open Zoho Settings → Customization → Modules → Contacts → Fields. List every custom field with its name, data type (text, number, date, dropdown, etc.), and picklist values if applicable.</li>
-                <li><strong className="text-[#0E9BF0]">Recreate custom fields in GHL:</strong> In GoHighLevel, go to Settings → Custom Fields. Create each Zoho custom field with matching name and data type. For dropdowns, recreate the exact picklist values.</li>
-                <li><strong className="text-[#0E9BF0]">Recreate pipelines:</strong> Zoho Deal pipeline stages must be recreated as GHL Opportunity pipeline stages. Match stage names exactly to preserve historical deal position accuracy.</li>
-                <li><strong className="text-[#0E9BF0]">Recreate tags:</strong> Every Zoho tag, mailing list membership, and segment membership becomes a GHL tag. Import the tag values from the CSV into a Tags column.</li>
-                <li><strong className="text-[#0E9BF0]">Test import:</strong> Import a batch of 100-200 contacts first. Verify every field maps to the correct target, dates display correctly, phone numbers are E.164, and tags are attached. Cited from GHL Experts (4 weeks ago).</li>
-                <li><strong className="text-[#0E9BF0]">Full import:</strong> Only after test batch verification passes, run the full import.</li>
-              </ol>
-            </div>
-
-            {/* Section 5: Rebuild Workflows */}
+            {/* Section 6: Rebuild Automation */}
             <h2 id="rebuild-workflows" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              5. How Do You Rebuild Workflows and Automations in GHL?
+              How Do You Rebuild Zoho Automation in GoHighLevel?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> Zoho workflows do not export. They must be documented before migration, then manually rebuilt in GoHighLevel's workflow builder using GHL's trigger and action system.
+              Zoho's automation tools include Workflows, Blueprints (structured, guided sales processes with mandatory steps), Assignment Rules, Cadences, scoring rules, and Custom Functions for more advanced logic. None of these export, and none have a direct one to one equivalent inside GHL. GHL's own automation model is built around Workflows using its own trigger and action system.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Detail:</strong> Zoho's workflow model uses Zoho-specific triggers (Deal Stage Change, Field Update, Custom Function calls) and actions (Send Email via Zoho Campaigns, Update Field, Call Webhook). GHL's workflow model uses different triggers (Form Submitted, Tag Added, Opportunity Stage Changed) and different actions (Send Email, Send SMS, AI Actions, Webhook Post). A direct copy is not possible you rebuild what the workflow was DOING, not how it was structured.
-            </p>
-
-            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Lightbulb className="w-4 h-4 text-[#0E9BF0]" />
-                <span className="text-sm font-bold text-[#0E9BF0]">Documentation approach for each Zoho workflow</span>
-              </div>
-              <ul className="space-y-1 text-sm text-[#1A2236] list-disc list-inside">
-                <li><strong className="text-[#0E9BF0]">Business intent:</strong> What is this workflow supposed to achieve? "Send welcome email to new lead within 5 minutes of form submission."</li>
-                <li><strong className="text-[#0E9BF0]">Trigger condition:</strong> What starts it? "Contact created with Lead Source = Website Form."</li>
-                <li><strong className="text-[#0E9BF0]">Actions in order:</strong> What does it do? "Wait 5 minutes Send Welcome Email template Add tag Welcome-Sent Assign to Sales Rep by round-robin."</li>
-                <li><strong className="text-[#0E9BF0]">Exit conditions:</strong> When does it stop? "When Contact tag Booked-Meeting is applied."</li>
-              </ul>
-            </div>
-
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Then rebuild in GHL:</strong> Go to GHL Automation → Workflows → Create Workflow. Choose the closest GHL trigger (in the example: "Contact Created" with condition "Lead Source contains Website"). Add actions in order. Test with a real contact submission before enabling for all leads.
-            </p>
-
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-2">
-              For the full GHL workflow builder walkthrough: <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-[#0E9BF0] hover:underline">GoHighLevel Workflow Automation Guide →</Link>
-            </p>
-
-            <div className="bg-[#E8FAF2] border border-[rgba(37,201,125,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Lightbulb className="w-4 h-4 text-[#25C97D]" />
-                <span className="text-sm font-bold text-[#25C97D]">THE OPPORTUNITY IN REBUILDING</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                A workflow rebuild is the chance to fix workflows that were broken or outdated in Zoho. Most migrations reveal that 20-40% of Zoho workflows either no longer fired, targeted campaigns that ended, or ran on assumptions that no longer applied. Migrating only the actively useful workflows reduces rebuild time and produces a cleaner GHL environment. Use GHL's native SMS and AI actions where they add value that Zoho did not offer.
-              </p>
-            </div>
-
-            {/* Section 6: Campaigns, Forms, Phones */}
-            <h2 id="campaigns-forms-phones" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              6. How Do You Handle Zoho Campaigns, Forms, and Phone Numbers?
-            </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> Zoho Campaigns (email), Zoho Forms, and any phone number infrastructure connected to Zoho each need separate handling. They are not covered by the standard Contacts export.
+              The right approach is documenting what each piece of Zoho automation was actually supposed to achieve, then rebuilding that outcome using GHL's tools, rather than trying to replicate Zoho's specific structure. For each workflow or Blueprint, write down the business intent, the trigger condition that starts it, the actions in order, and the condition that ends it. Then recreate that logic in GHL Automation, using the closest matching trigger and building out the action sequence.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Detail (Zoho Campaigns):</strong> Export your email templates as HTML files (or copy-paste template content into GHL's email builder). Export your Zoho Campaigns segment lists these become GHL tags. Set up GHL email sending: connect your sending domain, configure DKIM, SPF, and DMARC records. Warm the new sending domain over 2-3 weeks before mass sending this is critical for deliverability.
+              For the full walkthrough of GHL's workflow builder, see{' '}
+              <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-[#0E9BF0] hover:underline">GoHighLevel's workflow automation guide</Link>.
             </p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Detail (Zoho Forms):</strong> Zoho Forms cannot export to GoHighLevel Forms directly. Manually recreate each form in GHL Forms Builder. Preserve field names to match your Contact custom fields. Update the form embed code on your website to point to the new GHL form URL.
-            </p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Detail (Phone numbers):</strong> If you use Twilio numbers connected to Zoho, you can port those Twilio numbers to GHL via LC Phone or continue with Twilio through GHL's Twilio integration. If you use Zoho's own PhoneBridge or a third-party gateway, you may need to purchase new numbers in GHL. For US 10-digit numbers used for SMS, you will need A2P 10DLC registration in GHL's Trust Center regardless of source. For agencies handling this at scale: <Link href="/blog/a2p-registration-for-agencies" className="text-[#0E9BF0] hover:underline">A2P Registration for Agencies →</Link>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              This rebuild is also a natural opportunity to retire automation that no longer serves a purpose. Many Zoho accounts that have been active for a few years carry Workflows or Blueprints tied to processes that have since changed, and migrating only what is genuinely active reduces rebuild time without losing anything that matters.
             </p>
 
-            {/* Section 7: Parallel Cutover */}
-            <h2 id="parallel-cutover" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              7. What Is the Parallel Running and Cutover Process?
-            </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> Parallel running is the phase where both Zoho and GoHighLevel operate simultaneously for 2-3 weeks. It gives you a working fallback while GHL is being validated with real production data.
-            </p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Detail:</strong> Standard phased cutover:
-            </p>
-            <ol className="space-y-1 mb-4 text-sm text-[#5C6880] list-decimal list-inside">
-              <li><strong className="text-[#1A2236]">Week 1 Route new leads to GHL:</strong> Update website forms and lead capture points to send to GHL. Existing Zoho contacts continue in their Zoho workflows.</li>
-              <li><strong className="text-[#1A2236]">Week 2 Migrate active contacts:</strong> Export contacts that are actively in Zoho workflows (open deals, active sequences). Import to GHL. Rebuild the workflows they need in GHL.</li>
-              <li><strong className="text-[#1A2236]">Week 3 Validate and monitor:</strong> Confirm GHL is receiving new leads, workflows are firing correctly, emails are being delivered, appointments are being booked. Monitor open rates and reply rates to confirm deliverability held up.</li>
-              <li><strong className="text-[#1A2236]">Cutover:</strong> Once GHL is performing as expected for 5-7 consecutive business days, route all inbound traffic to GHL. Keep Zoho subscription active for another 30 days as a data archive before final cancellation.</li>
-              <li><strong className="text-[#1A2236]">Final export:</strong> Take one final full data export from Zoho before cancelling. Store securely as a backup.</li>
-            </ol>
-
-            {/* Section 8: Migration Comparison */}
-            <h2 id="migration-comparison" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              8. How Does Zoho Migration Compare to Migrating from HubSpot or ClickFunnels?
-            </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Definition:</strong> Zoho, HubSpot, and ClickFunnels each pose different migration challenges. Zoho is generally EASIER than HubSpot but HARDER than ClickFunnels.
-            </p>
-
-            <div className="overflow-x-auto my-6">
-              <table className="w-full border-collapse text-sm">
-                <thead>
-                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Factor</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Zoho</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">HubSpot</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">ClickFunnels</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {comparison.map((item, idx) => (
-                    <tr key={idx} className="border-b border-[#DDE1E9]">
-                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.factor}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.zoho}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.hubspot}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.clickfunnels}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              For the HubSpot equivalent walkthrough: <Link href="/blog/hubspot-to-gohighlevel-migration" className="text-[#0E9BF0] hover:underline">HubSpot to GoHighLevel Migration Guide →</Link>
-            </p>
-
-            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-5 my-6 text-white">
-              <div className="flex items-center gap-2 mb-3">
-                <Star className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">NEED A ZERO-DATA-LOSS ZOHO MIGRATION</span>
-              </div>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                GHL Scale Up runs end-to-end Zoho to GoHighLevel migrations: data audit and cleaning, custom field recreation, phased CSV export planning around the 200,000-record limit, workflow rebuild in GHL, phone number porting with A2P, parallel running phase management, and 14-day post-migration support.
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                See real GoHighLevel results and case studies: <Link href="/case-studies" className="text-[#0E9BF0] hover:underline">real GoHighLevel results and case studies →</Link>
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed">
-                For a specific Zoho migration plan for your data volume, <Link href="/contact" className="text-[#0E9BF0] hover:underline">book a free strategy call →</Link>
-              </p>
-            </div>
-
-            {/* CTA Button 4: Before FAQ */}
+            {/* CTA Button 3 */}
             <div className="bg-gradient-to-r from-[#0E9BF0] to-[#0C8AD8] rounded-xl p-6 text-center text-white mb-8">
-              <p className="text-sm font-medium mb-2">⚠️ Don't risk losing your Zoho data during migration.
-              </p>
-              <p className="text-sm text-white/80 mb-4">Get a proven migration process that preserves every contact, workflow, and automation.</p>
+              <p className="text-sm font-medium mb-2">⚡ Don't want to rebuild Zoho Blueprints and workflows manually?</p>
+              <p className="text-sm text-white/80 mb-4">We'll document and rebuild every automation in GHL Workflow Builder.</p>
               <Link
                 href="/contact"
                 className="group inline-flex items-center gap-2 bg-white text-[#0E9BF0] font-bold px-6 py-2.5 rounded-lg hover:bg-[#F8F9FB] transition-all hover:shadow-lg hover:scale-105 text-sm"
               >
-                <HeartHandshake className="w-4 h-4" />
-                Protect Your Data
+                <Workflow className="w-4 h-4" />
+                Get Automation Rebuild
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
 
-            {/* Section 9: FAQ */}
+            {/* Section 7: Campaigns, Forms, Phone Numbers */}
+            <h2 id="campaigns-forms-phones" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              What Happens to Zoho Campaigns, Forms, and Phone Numbers?
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              These fall outside the standard Contacts export and each need separate handling.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              <strong className="text-[#1A2236]">Zoho Campaigns:</strong> export your email templates as HTML, or copy the template content directly into GHL's email builder. Segment lists from Campaigns become GHL tags. Before sending anything meaningful in GHL, configure your sending domain with DKIM, SPF, and DMARC, and warm the domain gradually rather than sending to your full list on day one.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              <strong className="text-[#1A2236]">Zoho Forms:</strong> these do not export into GHL Forms directly. Rebuild each form manually in GHL's Forms Builder, keeping field names aligned to your Contact custom fields, then update the embed code on your website to point at the new form.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              <strong className="text-[#1A2236]">Phone numbers:</strong> if you connected Twilio numbers to Zoho, those can generally be ported to GHL or kept on Twilio and connected through GHL's Twilio integration. If you used Zoho's own PhoneBridge or another third party gateway, you may need new numbers in GHL. Any US number used for SMS needs A2P 10DLC registration in GHL's Trust Center regardless of where it came from, and porting itself can take one to two weeks, so start this during parallel running rather than waiting until cutover.
+            </p>
+
+            {/* Section 8: Historical Data */}
+            <h2 id="historical-data" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Historical Data: What Should Actually Move
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Not every historical record needs to live inside your new GHL account. Separate what you operationally need going forward, active contacts, open deals, current custom field values, from what is purely historical, closed deal history, old activity logs, past call notes. Operational data should be cleaned and imported. Historical data that has no ongoing operational use is often better handled by keeping Zoho accessible as a read only archive for a period after cutover, rather than trying to force every past record into GHL's structure.
+            </p>
+
+            {/* Section 9: Parallel Cutover */}
+            <h2 id="parallel-cutover" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              What Is the Parallel Running and Cutover Process?
+            </h2>
+            <ol className="space-y-2 mb-6 text-sm text-[#5C6880] list-decimal list-inside">
+              <li><strong className="text-[#1A2236]">Route new leads to GHL</strong> while existing Zoho contacts continue in their current Zoho workflows.</li>
+              <li><strong className="text-[#1A2236]">Migrate contacts that are actively in open deals or active sequences,</strong> then rebuild the specific workflows they depend on in GHL.</li>
+              <li><strong className="text-[#1A2236]">Validate for at least a week or two:</strong> confirm new leads are arriving correctly, workflows are firing, emails are delivering, and appointments are booking.</li>
+              <li><strong className="text-[#1A2236]">Cut over fully once GHL has performed reliably for several consecutive business days,</strong> then keep Zoho active for a period afterward as a backup before final cancellation.</li>
+              <li><strong className="text-[#1A2236]">Take one last full export from Zoho before cancelling,</strong> and store it securely.</li>
+            </ol>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              For a fuller breakdown of how migration duration scales with complexity, see the{' '}
+              <Link href="/blog/ghl-migration-timeline" className="text-[#0E9BF0] hover:underline">GHL migration timeline guide</Link>. For the general preparation and validation framework this process builds on, see the{' '}
+              <Link href="/blog/gohighlevel-migration-checklist" className="text-[#0E9BF0] hover:underline">GoHighLevel migration checklist</Link>.
+            </p>
+
+            {/* Section 10: Common Mistakes */}
+            <h2 id="mistakes" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Common Zoho to GoHighLevel Migration Mistakes
+            </h2>
+            <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
+              {migrationMistakes.map((mistake, idx) => (
+                <li key={idx}>{mistake}</li>
+              ))}
+            </ul>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              For the broader set of mistakes that apply across any GHL migration, not specific to Zoho, see{' '}
+              <Link href="/blog/ghl-migration-mistakes" className="text-[#0E9BF0] hover:underline">common GHL migration mistakes</Link>.
+            </p>
+
+            {/* Section 11: Timeline */}
+            <h2 id="timeline" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              How Long Does a Zoho to GoHighLevel Migration Take?
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Typical range is 2 to 4 weeks, driven primarily by the number of custom modules, the volume of automation to rebuild, and whether phone number porting is involved, more than by contact count alone. A simple account, under 5,000 contacts, minimal custom modules, fewer than 10 workflows, can complete in about a week. A complex account with heavy customization, many active workflows, and phone porting can take 4 to 6 weeks.
+            </p>
+
+            {/* Section 12: Should You Migrate */}
+            <h2 id="should-you-migrate" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Should You Migrate From Zoho to GoHighLevel?
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Migration tends to make sense when your business is paying for several separate Zoho products that overlap with what GHL provides natively, when you need native SMS or agency style multi client management Zoho does not offer, or when your Zoho setup has grown simpler over time than the platform itself, making the depth no longer worth the separate subscriptions.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Staying with Zoho often makes more sense when your CRM relies heavily on custom modules and Blueprints that would require significant redesign, when your team depends on Zoho specific integrations with no clean GHL equivalent, or when the complexity and disruption of migrating outweighs the consolidation benefit for your specific situation. This is not a case of one platform being universally better, it depends on how deeply your operations are built around Zoho's specific structure.
+            </p>
+
+            {/* Section 13: FAQ */}
             <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
-              9. Frequently Asked Questions
+              Frequently Asked Questions
             </h2>
 
             <div className="space-y-3">
@@ -677,44 +627,24 @@ export default function ZohoToGoHighLevelMigrationClient() {
               ))}
             </div>
 
-            {/* CTA Button 5: After FAQ */}
-            <div className="mt-8 p-6 bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl text-center">
-              <p className="text-white font-bold text-lg mb-2">Still Have Questions About Migrating from Zoho?</p>
-              <p className="text-white/60 text-sm mb-4">Talk to our migration specialists directly. We're here to help you move without data loss.</p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  Ask a Migration Expert
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-white/20 transition-all border border-white/20 text-sm"
-                >
-                  <Phone className="w-4 h-4" />
-                  Call Us
-                </Link>
-              </div>
+            {/* Contextual CTA inside FAQ */}
+            <div className="mt-4 text-sm text-[#5C6880] leading-relaxed">
+              Want this handled end to end, including custom module assessment, Blueprint rebuild, and phone porting?{' '}
+              <Link href="/contact" className="text-[#0E9BF0] hover:underline font-medium">Book a free migration assessment</Link>.
             </div>
 
-            {/* Related Articles */}
+            {/* Internal Links */}
             <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
-              <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles</h3>
+              <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles in This Series</h3>
               <div className="flex flex-wrap gap-3">
-                <Link href="/services/migration" className="text-sm text-[#0E9BF0] hover:underline">GHL Migration Services →</Link>
-                <Link href="/blog/ghl-migration-mistakes" className="text-sm text-[#0E9BF0] hover:underline">8 Common GHL Migration Mistakes Agencies Make →</Link>
-                <Link href="/blog/hubspot-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">How to Migrate from HubSpot to GoHighLevel →</Link>
-                <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Workflow Automation for Beginners →</Link>
-                <Link href="/blog/a2p-registration-for-agencies" className="text-sm text-[#0E9BF0] hover:underline">A2P Registration for GoHighLevel Agencies →</Link>
-                <Link href="/blog/gohighlevel-india-agency" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel for Indian Agencies →</Link>
-                <Link href="/case-studies" className="text-sm text-[#0E9BF0] hover:underline">Real GoHighLevel Results and Case Studies →</Link>
+                <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Workflow Automation Guide →</Link>
+                <Link href="/blog/ghl-migration-timeline" className="text-sm text-[#0E9BF0] hover:underline">GHL Migration Timeline Guide →</Link>
+                <Link href="/blog/gohighlevel-migration-checklist" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Migration Checklist →</Link>
+                <Link href="/blog/ghl-migration-mistakes" className="text-sm text-[#0E9BF0] hover:underline">Common GHL Migration Mistakes →</Link>
               </div>
             </div>
 
-            {/* Final CTA */}
+            {/* Final CTA Section */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Ready to migrate from Zoho to GoHighLevel without losing data?</h3>
@@ -726,27 +656,6 @@ export default function ZohoToGoHighLevelMigrationClient() {
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
-            </div>
-
-            {/* Author Section */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 my-6">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
-                  <img
-                    src="/web-app-manifest-192x192.png"
-                    alt="GHL Scale Up"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-[#1A2236]">GHL Scale Up Team</div>
-                  <div className="text-xs text-[#5C6880]">GoHighLevel migration and setup specialists · 5+ years GHL experience · 200+ systems built and migrated globally</div>
-                </div>
-              </div>
-              <p className="text-xs text-[#5C6880] leading-relaxed">
-                All export limits, format requirements, and 9-component migration list are verified against GoHighLevel's official Zoho to HighLevel Migration Guide (article 155000003316, modified March 7, 2025) as of July 2026. Zoho features and export limits change over time verify current terms in your Zoho account before executing your migration.
-              </p>
-              <Link href="/" className="text-[#0E9BF0] text-xs hover:underline mt-2 inline-block">ghlscaleup.com</Link>
             </div>
           </main>
         </div>
