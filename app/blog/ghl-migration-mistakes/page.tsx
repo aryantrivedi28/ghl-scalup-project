@@ -3,13 +3,13 @@ import Script from 'next/script';
 import GHLMigrationMistakesClient from './client';
 
 export const metadata: Metadata = {
-  title: 'GoHighLevel Migration Mistakes: 9 Problems to Avoid (2026)',
-  description: 'The most common GoHighLevel migration mistakes: why they happen, what they can break, how to prevent them, and what to do if one already happened.',
+  title: 'GoHighLevel Migration Mistakes: 8 Risks to Avoid',
+  description: 'Learn the most common GoHighLevel migration mistakes, from data and workflow issues to premature cutover, and how to prevent them before go-live.',
   keywords: 'gohighlevel migration mistakes, ghl migration mistakes, gohighlevel migration mistakes to avoid, common gohighlevel migration errors, gohighlevel migration problems agencies, why ghl migrations fail, gohighlevel data migration errors, ghl automation rebuild mistakes, gohighlevel migration best practices',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {
-    title: 'GoHighLevel Migration Mistakes: 9 Problems to Avoid (2026)',
-    description: 'The most common GoHighLevel migration mistakes: why they happen, what they can break, how to prevent them, and what to do if one already happened.',
+    title: 'GoHighLevel Migration Mistakes: 8 Risks to Avoid',
+    description: 'Learn the most common GoHighLevel migration mistakes, from data and workflow issues to premature cutover, and how to prevent them before go-live.',
     type: 'article',
     publishedTime: '2026-05-14T00:00:00Z',
     modifiedTime: '2026-05-14T00:00:00Z',
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@ghlscaleup',
-    title: 'GoHighLevel Migration Mistakes: 9 Problems to Avoid (2026)',
+    title: 'GoHighLevel Migration Mistakes: 8 Risks to Avoid',
     description: 'The most common GoHighLevel migration mistakes and how to avoid each one.',
     images: ['https://www.ghlscaleup.com/images/blog/ghl-migration-mistakes-og.jpg'],
   },

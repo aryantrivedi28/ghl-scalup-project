@@ -3,13 +3,13 @@ import Script from 'next/script';
 import ClickFunnelsToGHLMigrationClient from './client';
 
 export const metadata: Metadata = {
-  title: 'ClickFunnels to GoHighLevel Migration: What Breaks & How to Fix It (2026)',
-  description: 'What GoHighLevel\'s URL import tool actually does, what breaks (automations, domains, tracking, memberships), and the exact steps to migrate without disrupting a live funnel.',
+  title: 'ClickFunnels to GoHighLevel Migration: URL Import & What Breaks',
+  description: 'Learn how to migrate ClickFunnels funnels to GoHighLevel using URL import, including what transfers, what must be rebuilt, and how to handle payments, domains, tracking, and automations.',
   keywords: 'clickfunnels to gohighlevel migration, migrate clickfunnels to gohighlevel, clickfunnels to ghl migration guide, how to migrate clickfunnels to gohighlevel, clickfunnels funnel import gohighlevel, clickfunnels contacts export gohighlevel, what breaks migrating clickfunnels to gohighlevel, clickfunnels 1.0 2.0 ghl import, gohighlevel url import tool, clickfunnels membership areas ghl',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {
-    title: 'ClickFunnels to GoHighLevel Migration: What Breaks & How to Fix It (2026)',
-    description: 'What GoHighLevel\'s URL import tool actually does, what breaks (automations, domains, tracking, memberships), and the exact steps to migrate without disrupting a live funnel.',
+    title: 'ClickFunnels to GoHighLevel Migration: URL Import & What Breaks',
+    description: 'Learn how to migrate ClickFunnels funnels to GoHighLevel using URL import, including what transfers, what must be rebuilt, and how to handle payments, domains, tracking, and automations.',
     type: 'article',
     publishedTime: '2026-05-14T00:00:00Z',
     modifiedTime: '2026-05-14T00:00:00Z',
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@ghlscaleup',
-    title: 'ClickFunnels to GoHighLevel Migration: What Breaks & How to Fix It (2026)',
-    description: 'What GoHighLevel\'s URL import tool actually does, what breaks, and the exact steps to migrate without disrupting a live funnel.',
+    title: 'ClickFunnels to GoHighLevel Migration: URL Import & What Breaks',
+    description: 'Learn how to migrate ClickFunnels funnels to GoHighLevel using URL import, including what transfers, what must be rebuilt, and how to handle payments, domains, tracking, and automations.',
     images: ['https://www.ghlscaleup.com/images/blog/clickfunnels-to-ghl-migration-og.jpg'],
   },
   alternates: {

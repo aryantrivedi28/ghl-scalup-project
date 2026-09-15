@@ -3,13 +3,13 @@ import Script from 'next/script';
 import SalesforceToGoHighLevelMigrationClient from './client';
 
 export const metadata: Metadata = {
-  title: 'Salesforce to GoHighLevel Migration Guide (2026): Object Mapping & Rebuild',
-  description: 'Salesforce\'s relational data model mapped to GoHighLevel: Accounts, Custom Objects, Flows, and dependency-ordered migration — corrected against official HighLevel documentation.',
+  title: 'Salesforce to GoHighLevel Migration: Object Mapping & Workflow Rebuild',
+  description: 'Learn how to migrate Salesforce to GoHighLevel, including object mapping, custom fields, dependency-ordered imports, workflow rebuilds, and Sandbox testing.',
   keywords: 'salesforce to gohighlevel migration, migrate salesforce to gohighlevel, salesforce data migration to gohighlevel, salesforce custom objects gohighlevel, salesforce workflows to ghl, salesforce to ghl migration, salesforce vs gohighlevel, salesforce alternative gohighlevel',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {
-    title: 'Salesforce to GoHighLevel Migration Guide (2026): Object Mapping & Rebuild',
-    description: 'Salesforce\'s relational data model mapped to GoHighLevel: Accounts, Custom Objects, Flows, and dependency-ordered migration — corrected against official HighLevel documentation.',
+    title: 'Salesforce to GoHighLevel Migration: Object Mapping & Workflow Rebuild',
+    description: 'Learn how to migrate Salesforce to GoHighLevel, including object mapping, custom fields, dependency-ordered imports, workflow rebuilds, and Sandbox testing.',
     type: 'article',
     publishedTime: '2026-05-14T00:00:00Z',
     modifiedTime: '2026-05-14T00:00:00Z',
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@ghlscaleup',
-    title: 'Salesforce to GoHighLevel Migration Guide (2026): Object Mapping & Rebuild',
+    title: 'Salesforce to GoHighLevel Migration: Object Mapping & Workflow Rebuild',
     description: 'Salesforce\'s relational data model mapped to GoHighLevel: Accounts, Custom Objects, Flows, and dependency-ordered migration.',
     images: ['https://www.ghlscaleup.com/images/blog/salesforce-to-gohighlevel-migration-og.jpg'],
   },

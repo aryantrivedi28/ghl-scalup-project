@@ -3,13 +3,13 @@ import Script from 'next/script';
 import GoHighLevelVsClickFunnelsClient from './client';
 
 export const metadata: Metadata = {
-  title: 'GoHighLevel vs ClickFunnels (2026): Pricing, Features & Honest Verdict',
-  description: 'Real, current 2026 pricing for both platforms, an honest look at where ClickFunnels\' funnel builder wins, and the corrected outcome of the ClickFunnels-HighLevel patent lawsuit.',
+  title: 'GoHighLevel vs ClickFunnels: Which Platform Is Better?',
+  description: 'Compare GoHighLevel and ClickFunnels on funnels, CRM, automation, SMS, pricing, and agency features to decide which platform fits your business.',
   keywords: 'gohighlevel vs clickfunnels, gohighlevel vs clickfunnels 2026, gohighlevel or clickfunnels for agencies, is gohighlevel better than clickfunnels, clickfunnels vs gohighlevel pricing, can gohighlevel replace clickfunnels, gohighlevel vs clickfunnels for agencies, gohighlevel vs clickfunnels 2026 comparison, which is better gohighlevel or clickfunnels, clickfunnels alternative for agencies',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {
-    title: 'GoHighLevel vs ClickFunnels (2026): Pricing, Features & Honest Verdict',
-    description: 'Real, current 2026 pricing for both platforms, an honest look at where ClickFunnels\' funnel builder wins, and the corrected outcome of the ClickFunnels-HighLevel patent lawsuit.',
+    title: 'GoHighLevel vs ClickFunnels: Which Platform Is Better?',
+    description: 'Compare GoHighLevel and ClickFunnels on funnels, CRM, automation, SMS, pricing, and agency features to decide which platform fits your business.',
     type: 'article',
     publishedTime: '2026-05-14T00:00:00Z',
     modifiedTime: '2026-05-14T00:00:00Z',
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@ghlscaleup',
-    title: 'GoHighLevel vs ClickFunnels (2026): Pricing, Features & Honest Verdict',
-    description: 'Real, current 2026 pricing for both platforms, an honest look at where ClickFunnels\' funnel builder wins, and the corrected outcome of the ClickFunnels-HighLevel patent lawsuit.',
+    title: 'GoHighLevel vs ClickFunnels: Which Platform Is Better?',
+    description: 'Compare GoHighLevel and ClickFunnels on funnels, CRM, automation, SMS, pricing, and agency features to decide which platform fits your business.',
     images: ['https://www.ghlscaleup.com/images/blog/ghl-vs-clickfunnels-og.jpg'],
   },
   alternates: {

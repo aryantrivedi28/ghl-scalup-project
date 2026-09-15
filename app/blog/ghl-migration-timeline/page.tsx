@@ -3,13 +3,13 @@ import Script from 'next/script';
 import GHLMigrationTimelineClient from './client';
 
 export const metadata: Metadata = {
-  title: 'GHL Migration Timeline: How Long Does It Actually Take? (2026)',
-  description: 'Simple migration: 1–2 weeks. Complex: 6–10 weeks. Timeline driven by automation count, not contact volume now covering all 8 GHL Scale Up migration platforms with a self-scoring framework.',
+  title: 'GoHighLevel Migration Timeline: How Long Does It Take?',
+  description: 'See realistic GoHighLevel migration timelines by platform and complexity, plus the phases and factors that determine how long a migration actually takes.',
   keywords: 'ghl migration timeline, how long does gohighlevel migration take, gohighlevel migration duration, ghl migration timeline by platform, how long to migrate from hubspot to gohighlevel, gohighlevel migration time estimate, ghl migration complexity factors, gohighlevel migration checklist timeline',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {
-    title: 'GHL Migration Timeline: How Long Does It Actually Take? (2026)',
-    description: 'Simple migration: 1–2 weeks. Complex: 6–10 weeks. Timeline driven by automation count, not contact volume now covering all 8 GHL Scale Up migration platforms with a self-scoring framework.',
+    title: 'GoHighLevel Migration Timeline: How Long Does It Take?',
+    description: 'See realistic GoHighLevel migration timelines by platform and complexity, plus the phases and factors that determine how long a migration actually takes.',
     type: 'article',
     publishedTime: '2026-05-14T00:00:00Z',
     modifiedTime: '2026-05-14T00:00:00Z',
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@ghlscaleup',
-    title: 'GHL Migration Timeline: How Long Does It Actually Take? (2026)',
+    title: 'GoHighLevel Migration Timeline: How Long Does It Take?',
     description: 'Simple: 1–2 weeks. Complex: 6–10 weeks. Driven by automation count, not contact volume.',
     images: ['https://www.ghlscaleup.com/images/blog/ghl-migration-timeline-og.jpg'],
   },
@@ -40,7 +40,7 @@ export default function GHLMigrationTimelinePage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "GHL Migration Timeline: How Long Does It Actually Take? (2026)",
+            "headline": "GoHighLevel Migration Timeline: How Long Does It Take?",
             "description": "One of the first questions anyone asks before a GoHighLevel migration is how long it will take. The honest answer depends on one factor far more than any other and it isn't the one most people assume.",
             "image": "https://www.ghlscaleup.com/images/blog/ghl-migration-timeline-og.jpg",
             "datePublished": "2026-05-14",

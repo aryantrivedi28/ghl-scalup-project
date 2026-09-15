@@ -3,13 +3,13 @@ import Script from 'next/script';
 import ZohoToGoHighLevelMigrationClient from './client';
 
 export const metadata: Metadata = {
-  title: 'Zoho to GoHighLevel Migration: Complete 2026 Step-by-Step Guide | GHL Scale Up',
-  description: 'Complete step-by-step guide to migrating from Zoho CRM to GoHighLevel in 2026. What transfers, what needs rebuilding, export limits, field mapping, and how to avoid data loss. Updated July 2026.',
+  title: 'Zoho to GoHighLevel Migration: Data Mapping & Workflow Rebuild',
+  description: 'Learn how to migrate Zoho CRM to GoHighLevel, including data exports, field mapping, workflows, Zoho Campaigns and Forms, phone numbers, testing, and cutover.',
   keywords: 'zoho to gohighlevel migration, migrate from zoho crm to gohighlevel, zoho ghl data export, zoho crm alternative gohighlevel, export zoho contacts to gohighlevel, zoho workflows ghl rebuild, zoho campaigns to gohighlevel, zoho to gohighlevel field mapping',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {
-    title: 'Zoho to GoHighLevel Migration: Complete 2026 Step-by-Step Guide',
-    description: 'Complete step-by-step guide to migrating from Zoho CRM to GoHighLevel in 2026. What transfers, what needs rebuilding, export limits, field mapping, and how to avoid data loss.',
+    title: 'Zoho to GoHighLevel Migration: Data Mapping & Workflow Rebuild',
+    description: 'Learn how to migrate Zoho CRM to GoHighLevel, including data exports, field mapping, workflows, Zoho Campaigns and Forms, phone numbers, testing, and cutover.',
     type: 'article',
     publishedTime: '2026-07-21T00:00:00Z',
     modifiedTime: '2026-07-21T00:00:00Z',
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@ghlscaleup',
-    title: 'Zoho to GoHighLevel Migration: Complete 2026 Step-by-Step Guide',
-    description: 'Complete step-by-step guide to migrating from Zoho CRM to GoHighLevel in 2026. What transfers, what needs rebuilding, export limits, field mapping, and how to avoid data loss.',
+    title: 'Zoho to GoHighLevel Migration: Data Mapping & Workflow Rebuild',
+    description: 'Learn how to migrate Zoho CRM to GoHighLevel, including data exports, field mapping, workflows, Zoho Campaigns and Forms, phone numbers, testing, and cutover.',
     images: ['https://www.ghlscaleup.com/images/blog/zoho-to-gohighlevel-migration-og.jpg'],
   },
   alternates: {
@@ -41,7 +41,7 @@ export default function ZohoToGoHighLevelMigrationPage() {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "How to Migrate from Zoho CRM to GoHighLevel in 2026 (Complete Guide)",
-            "description": "Complete step-by-step guide to migrating from Zoho CRM to GoHighLevel in 2026. What transfers, what needs rebuilding, export limits, field mapping, and how to avoid data loss.",
+            "description": "Learn how to migrate Zoho CRM to GoHighLevel, including data exports, field mapping, workflows, Zoho Campaigns and Forms, phone numbers, testing, and cutover.",
             "image": "https://www.ghlscaleup.com/images/blog/zoho-to-gohighlevel-migration-og.jpg",
             "datePublished": "2026-07-21",
             "dateModified": "2026-07-21",

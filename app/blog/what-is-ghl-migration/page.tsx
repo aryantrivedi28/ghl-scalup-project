@@ -3,13 +3,13 @@ import Script from 'next/script';
 import WhatIsGHLMigrationClient from './client';
 
 export const metadata: Metadata = {
-  title: 'What Is GoHighLevel Migration? A Beginner\'s Guide (2026)',
-  description: 'GoHighLevel migration explained in plain English: what actually moves, why it\'s not just a data import, and how to know if you need one.',
+  title: 'What Is GoHighLevel Migration? A Beginner\'s Guide',
+  description: 'Understand what GoHighLevel migration means, why businesses move to GHL, what transfers, what must be rebuilt, and when a full migration makes sense.',
   keywords: 'what is gohighlevel migration, what is ghl migration, gohighlevel migration explained, ghl migration meaning, why migrate to gohighlevel, is ghl migration just importing contacts, does everything transfer automatically gohighlevel, types of gohighlevel migration',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {
-    title: 'What Is GoHighLevel Migration? A Beginner\'s Guide (2026)',
-    description: 'GoHighLevel migration explained in plain English: what actually moves, why it\'s not just a data import, and how to know if you need one.',
+    title: 'What Is GoHighLevel Migration? A Beginner\'s Guide',
+    description: 'Understand what GoHighLevel migration means, why businesses move to GHL, what transfers, what must be rebuilt, and when a full migration makes sense.',
     type: 'article',
     publishedTime: '2026-05-14T00:00:00Z',
     modifiedTime: '2026-05-14T00:00:00Z',
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@ghlscaleup',
-    title: 'What Is GoHighLevel Migration? A Beginner\'s Guide (2026)',
-    description: 'GoHighLevel migration explained in plain English: what actually moves, why it\'s not just a data import, and how to know if you need one.',
+    title: 'What Is GoHighLevel Migration? A Beginner\'s Guide',
+    description: 'Understand what GoHighLevel migration means, why businesses move to GHL, what transfers, what must be rebuilt, and when a full migration makes sense.',
     images: ['https://www.ghlscaleup.com/images/blog/what-is-ghl-migration-og.jpg'],
   },
   alternates: {

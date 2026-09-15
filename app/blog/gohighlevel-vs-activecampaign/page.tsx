@@ -3,13 +3,13 @@ import Script from 'next/script';
 import GoHighLevelVsActiveCampaignClient from './client';
 
 export const metadata: Metadata = {
-  title: 'GoHighLevel vs ActiveCampaign (2026): Pricing, Features, Verdict',
-  description: 'Real 2026 pricing, an honest look at where ActiveCampaign\'s email automation wins, and where GoHighLevel\'s multi-channel breadth wins — with a clear verdict for your situation.',
+  title: 'GoHighLevel vs ActiveCampaign: Which Platform Fits Better?',
+  description: 'Compare GoHighLevel and ActiveCampaign on email automation, CRM, SMS, pricing, segmentation, deliverability, and agency features to choose the better fit.',
   keywords: 'gohighlevel vs activecampaign, gohighlevel vs activecampaign pricing, gohighlevel vs activecampaign for agencies, is gohighlevel better than activecampaign, gohighlevel activecampaign comparison, activecampaign vs gohighlevel, can gohighlevel replace activecampaign',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {
-    title: 'GoHighLevel vs ActiveCampaign (2026): Pricing, Features, Verdict',
-    description: 'Real 2026 pricing, an honest look at where ActiveCampaign\'s email automation wins, and where GoHighLevel\'s multi-channel breadth wins — with a clear verdict for your situation.',
+    title: 'GoHighLevel vs ActiveCampaign: Which Platform Fits Better?',
+    description: 'Compare GoHighLevel and ActiveCampaign on email automation, CRM, SMS, pricing, segmentation, deliverability, and agency features to choose the better fit.',
     type: 'article',
     publishedTime: '2026-05-14T00:00:00Z',
     modifiedTime: '2026-05-14T00:00:00Z',
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@ghlscaleup',
-    title: 'GoHighLevel vs ActiveCampaign (2026): Pricing, Features, Verdict',
+    title: 'GoHighLevel vs ActiveCampaign: Which Platform Fits Better?',
     description: 'Real 2026 pricing, an honest look at where ActiveCampaign\'s email automation wins, and where GoHighLevel\'s multi-channel breadth wins.',
     images: ['https://www.ghlscaleup.com/images/blog/ghl-vs-activecampaign-og.jpg'],
   },

@@ -3,13 +3,13 @@ import Script from 'next/script';
 import HubSpotToGHLMigrationClient from './client';
 
 export const metadata: Metadata = {
-  title: 'HubSpot to GoHighLevel Migration: Step-by-Step Guide (2026)',
-  description: 'What transfers automatically, what breaks, HubSpot\'s 25-day data deletion deadline, and the exact steps with realistic timelines by account size.',
+  title: 'How to Migrate from HubSpot to GoHighLevel: Step-by-Step Guide',
+  description: 'Learn how to migrate from HubSpot to GoHighLevel, including data export, pipelines, custom fields, workflow rebuilds, parallel running, timelines, and common mistakes.',
   keywords: 'HubSpot to GoHighLevel migration, migrate from HubSpot to GoHighLevel, HubSpot to GHL migration guide, how to migrate HubSpot to GoHighLevel, HubSpot data export to GoHighLevel, GoHighLevel migration service',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {
-    title: 'HubSpot to GoHighLevel Migration: Step-by-Step Guide (2026)',
-    description: 'What transfers automatically, what breaks, HubSpot\'s 25-day data deletion deadline, and the exact steps with realistic timelines by account size.',
+    title: 'How to Migrate from HubSpot to GoHighLevel: Step-by-Step Guide',
+    description: 'Learn how to migrate from HubSpot to GoHighLevel, including data export, pipelines, custom fields, workflow rebuilds, parallel running, timelines, and common mistakes.',
     type: 'article',
     publishedTime: '2026-05-22T00:00:00Z',
     modifiedTime: '2026-05-22T00:00:00Z',
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@ghlscaleup',
-    title: 'HubSpot to GoHighLevel Migration: Step-by-Step Guide (2026)',
-    description: 'What transfers automatically, what breaks, HubSpot\'s 25-day data deletion deadline, and the exact steps with realistic timelines by account size.',
+    title: 'How to Migrate from HubSpot to GoHighLevel: Step-by-Step Guide',
+    description: 'Learn how to migrate from HubSpot to GoHighLevel, including data export, pipelines, custom fields, workflow rebuilds, parallel running, timelines, and common mistakes.',
     images: ['https://www.ghlscaleup.com/images/blog/hubspot-to-ghl-migration-og.jpg'],
   },
   alternates: {
@@ -40,8 +40,8 @@ export default function HubSpotToGHLMigrationPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "HubSpot to GoHighLevel Migration: Step-by-Step Guide (2026)",
-            "description": "What transfers automatically, what breaks, HubSpot's 25-day data deletion deadline, and the exact steps with realistic timelines by account size.",
+            "headline": "How to Migrate from HubSpot to GoHighLevel: Step-by-Step Guide",
+            "description": "Learn how to migrate from HubSpot to GoHighLevel, including data export, pipelines, custom fields, workflow rebuilds, parallel running, timelines, and common mistakes.",
             "image": "https://www.ghlscaleup.com/images/blog/hubspot-to-ghl-migration-og.jpg",
             "datePublished": "2026-05-22",
             "dateModified": "2026-05-22",

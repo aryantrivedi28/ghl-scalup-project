@@ -3,11 +3,9 @@ import Script from 'next/script';
 import MailchimpToGoHighLevelMigrationClient from './client';
 
 export const metadata: Metadata = {
-  title:
-    'Mailchimp to GoHighLevel Migration Guide (2026): Data, Automations, Deliverability',
+  title:'Mailchimp to GoHighLevel Migration: Email & Deliverability',
 
-  description:
-    'How to migrate from Mailchimp to GoHighLevel: audience export, tags and merge fields, automation rebuild, subscription status, and how to protect deliverability during cutover.',
+  description:'Learn how to migrate Mailchimp to GoHighLevel, including audience exports, merge fields, email templates, automation rebuilds, and sending-domain deliverability.',
 
   keywords: [
     'mailchimp to gohighlevel migration',
@@ -32,10 +30,10 @@ export const metadata: Metadata = {
 
   openGraph: {
     title:
-      'Mailchimp to GoHighLevel Migration Guide (2026): Data, Automations, Deliverability',
+      'Mailchimp to GoHighLevel Migration: Email & Deliverability',
 
     description:
-      'How to migrate from Mailchimp to GoHighLevel: audience export, tags and merge fields, automation rebuild, subscription status, and how to protect deliverability during cutover.',
+      'Learn how to migrate Mailchimp to GoHighLevel, including audience exports, merge fields, email templates, automation rebuilds, and sending-domain deliverability.',
 
     type: 'article',
 
@@ -69,10 +67,10 @@ export const metadata: Metadata = {
     site: '@ghlscaleup',
 
     title:
-      'Mailchimp to GoHighLevel Migration Guide (2026): Data, Automations, Deliverability',
+      'Mailchimp to GoHighLevel Migration: Email & Deliverability',
 
     description:
-      'How to migrate from Mailchimp to GoHighLevel: audience export, tags and merge fields, automation rebuild, subscription status, and how to protect deliverability during cutover.',
+      'Learn how to migrate Mailchimp to GoHighLevel, including audience exports, merge fields, email templates, automation rebuilds, and sending-domain deliverability.',
 
     images: [
       'https://www.ghlscaleup.com/images/blog/mailchimp-to-gohighlevel-migration-og.jpg',
@@ -111,7 +109,7 @@ export default function MailchimpToGoHighLevelMigrationPage() {
               'Mailchimp to GoHighLevel Migration: Complete 2026 Guide',
 
             description:
-              'How to migrate from Mailchimp to GoHighLevel: audience export, tags and merge fields, automation rebuild, subscription status, and how to protect deliverability during cutover.',
+              'Learn how to migrate Mailchimp to GoHighLevel, including audience exports, merge fields, email templates, automation rebuilds, and sending-domain deliverability.',
 
             image: [articleImage],
 

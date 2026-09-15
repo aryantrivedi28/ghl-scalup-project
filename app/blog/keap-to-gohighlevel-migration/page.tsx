@@ -3,13 +3,13 @@ import Script from 'next/script';
 import KeapToGoHighLevelMigrationClient from './client';
 
 export const metadata: Metadata = {
-  title: 'Keap to GoHighLevel Migration: Complete 2026 Step-by-Step Guide',
-  description: 'Step-by-step Keap (Infusionsoft) to GoHighLevel migration: contact export, Campaign Builder rebuild, tag classification, PlusThis replacement, and appointment/calendar migration.',
+  title: 'Keap to GoHighLevel Migration: Campaign Builder & Automation',
+  description: 'See how to migrate Keap to GoHighLevel, including contacts, tags, Campaign Builder workflows, PlusThis and Zapier dependencies, automation rebuilds, and cutover.',
   keywords: 'keap to gohighlevel migration, infusionsoft to gohighlevel, migrate from keap to ghl, keap alternative gohighlevel, keap vs gohighlevel, keap campaigns to ghl workflows, keap tag migration ghl, keap data export csv, keap campaign builder to ghl, keap to ghl migration guide, infusionsoft migration to gohighlevel, keap plusthis replacement',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {
-    title: 'Keap to GoHighLevel Migration: Complete 2026 Step-by-Step Guide',
-    description: 'Step-by-step Keap (Infusionsoft) to GoHighLevel migration: contact export, Campaign Builder rebuild, tag classification, PlusThis replacement, and appointment/calendar migration.',
+    title: 'Keap to GoHighLevel Migration: Campaign Builder & Automation',
+    description: 'See how to migrate Keap to GoHighLevel, including contacts, tags, Campaign Builder workflows, PlusThis and Zapier dependencies, automation rebuilds, and cutover.',
     type: 'article',
     publishedTime: '2026-05-14T00:00:00Z',
     modifiedTime: '2026-05-14T00:00:00Z',
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@ghlscaleup',
-    title: 'Keap to GoHighLevel Migration: Complete 2026 Step-by-Step Guide',
-    description: 'Step-by-step Keap (Infusionsoft) to GoHighLevel migration: contact export, Campaign Builder rebuild, tag classification, PlusThis replacement, and appointment/calendar migration.',
+    title: 'Keap to GoHighLevel Migration: Campaign Builder & Automation',
+    description: 'See how to migrate Keap to GoHighLevel, including contacts, tags, Campaign Builder workflows, PlusThis and Zapier dependencies, automation rebuilds, and cutover.',
     images: ['https://www.ghlscaleup.com/images/blog/keap-to-gohighlevel-migration-og.jpg'],
   },
   alternates: {
@@ -40,7 +40,7 @@ export default function KeapToGoHighLevelMigrationPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "Keap to GoHighLevel Migration: Complete 2026 Step-by-Step Guide",
+            "headline": "Keap to GoHighLevel Migration: Campaign Builder & Automation",
             "description": "Migrating from Keap (formerly Infusionsoft) to GoHighLevel is different from most CRM migrations in one specific way: Keap's Campaign Builder does not export. Your automation sequences, decision trees, and fulfillment flows have to be documented before migration and manually rebuilt in GoHighLevel's Workflow Builder. Contacts, tags, and custom fields export cleanly — the automation logic that runs your business is the real work.",
             "image": "https://www.ghlscaleup.com/images/blog/keap-to-gohighlevel-migration-og.jpg",
             "datePublished": "2026-05-14",

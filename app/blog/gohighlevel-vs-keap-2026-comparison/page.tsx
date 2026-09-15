@@ -3,13 +3,13 @@ import Script from 'next/script';
 import GoHighLevelVsKeapClient from './client';
 
 export const metadata: Metadata = {
-  title: 'GoHighLevel vs Keap: Which CRM Should You Choose in 2026?',
-  description: 'GoHighLevel vs Keap compared honestly for 2026: real pricing, native SMS and AI capability corrected, review scores, and which platform fits your business.',
+  title: 'GoHighLevel vs Keap: Which CRM Should You Choose?',
+  description: 'Compare GoHighLevel and Keap on pricing, CRM, automation, funnels, SMS, invoicing, and business fit to see which platform makes more sense for your needs.',
   keywords: 'gohighlevel vs keap, gohighlevel vs keap 2026, keap alternative for agencies, gohighlevel vs infusionsoft, which crm is better gohighlevel or keap, switch from keap to gohighlevel, gohighlevel vs keap comparison, keap vs gohighlevel pricing, is gohighlevel better than keap',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {
-    title: 'GoHighLevel vs Keap: Which CRM Should You Choose in 2026?',
-    description: 'GoHighLevel vs Keap compared honestly for 2026: real pricing, native SMS and AI capability corrected, review scores, and which platform fits your business.',
+    title: 'GoHighLevel vs Keap: Which CRM Should You Choose?',
+    description: 'Compare GoHighLevel and Keap on pricing, CRM, automation, funnels, SMS, invoicing, and business fit to see which platform makes more sense for your needs.',
     type: 'article',
     publishedTime: '2026-05-14T00:00:00Z',
     modifiedTime: '2026-05-14T00:00:00Z',
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@ghlscaleup',
-    title: 'GoHighLevel vs Keap: Which CRM Should You Choose in 2026?',
-    description: 'GoHighLevel vs Keap compared honestly for 2026: real pricing, native SMS and AI capability corrected, review scores, and which platform fits your business.',
+    title: 'GoHighLevel vs Keap: Which CRM Should You Choose?',
+    description: 'Compare GoHighLevel and Keap on pricing, CRM, automation, funnels, SMS, invoicing, and business fit to see which platform makes more sense for your needs.',
     images: ['https://www.ghlscaleup.com/images/blog/gohighlevel-vs-keap-2026-comparison-og.jpg'],
   },
   alternates: {
@@ -40,7 +40,7 @@ export default function GoHighLevelVsKeapPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "GoHighLevel vs Keap: Which CRM Should You Choose in 2026?",
+            "headline": "GoHighLevel vs Keap: Which CRM Should You Choose?",
             "description": "If you are comparing GoHighLevel and Keap, you have probably watched a few affiliate comparison videos already. We don't sell Keap and aren't paid by either company for this comparison. This guide gives you the honest, verified 2026 picture so you can decide based on your actual business.",
             "image": "https://www.ghlscaleup.com/images/blog/gohighlevel-vs-keap-2026-comparison-og.jpg",
             "datePublished": "2026-05-14",

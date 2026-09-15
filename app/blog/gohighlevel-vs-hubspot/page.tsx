@@ -3,13 +3,13 @@ import GoHighLevelVsHubSpotClient from './client';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: 'GoHighLevel vs HubSpot (2026): Honest Comparison for Agencies',
-  description: 'Real 2026 pricing, a feature-by-feature breakdown, and an honest verdict on when GoHighLevel wins, when HubSpot wins, and when the answer depends on your business.',
+  title: 'GoHighLevel vs HubSpot: Which Platform Is Right for You?',
+  description: 'Compare GoHighLevel and HubSpot on pricing, CRM depth, automation, integrations, agency use, and enterprise needs to decide which platform fits your business.',
   keywords: 'gohighlevel vs hubspot, gohighlevel vs hubspot pricing, ghl vs hubspot, gohighlevel vs hubspot for agencies, gohighlevel vs hubspot crm, hubspot vs gohighlevel features, which is better gohighlevel or hubspot',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {
-    title: 'GoHighLevel vs HubSpot (2026): Honest Comparison for Agencies',
-    description: 'Real 2026 pricing, a feature-by-feature breakdown, and an honest verdict on when GoHighLevel wins, when HubSpot wins, and when the answer depends on your business.',
+    title: 'GoHighLevel vs HubSpot: Which Platform Is Right for You?',
+    description: 'Compare GoHighLevel and HubSpot on pricing, CRM depth, automation, integrations, agency use, and enterprise needs to decide which platform fits your business.',
     type: 'article',
     publishedTime: '2026-05-14T00:00:00Z',
     modifiedTime: '2026-05-14T00:00:00Z',
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@ghlscaleup',
-    title: 'GoHighLevel vs HubSpot (2026): Honest Comparison for Agencies',
-    description: 'Real 2026 pricing, a feature-by-feature breakdown, and an honest verdict on when GoHighLevel wins, when HubSpot wins, and when the answer depends on your business.',
+    title: 'GoHighLevel vs HubSpot: Which Platform Is Right for You?',
+    description: 'Compare GoHighLevel and HubSpot on pricing, CRM depth, automation, integrations, agency use, and enterprise needs to decide which platform fits your business.',
     images: ['https://www.ghlscaleup.com/images/blog/ghl-vs-hubspot-og.jpg'],
   },
   alternates: {

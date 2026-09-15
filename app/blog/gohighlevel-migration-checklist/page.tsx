@@ -3,13 +3,13 @@ import Script from 'next/script';
 import GHLMigrationChecklistClient from './client';
 
 export const metadata: Metadata = {
-  title: 'The Complete GoHighLevel Migration Checklist (2026)',
-  description: 'A practical, phase-by-phase GoHighLevel migration checklist: audit, infrastructure, data, automation rebuild, testing, and go-live — with explicit readiness and cutover gates.',
+  title: 'GoHighLevel Migration Checklist: 6 Phases to Follow',
+  description: 'Use this GoHighLevel migration checklist to plan the audit, GHL setup, data import, automation rebuild, testing, parallel run, and go-live.',
   keywords: 'gohighlevel migration checklist, ghl migration checklist 2026, gohighlevel migration steps, ghl migration qa checklist, gohighlevel go-live checklist, pre migration audit checklist ghl, data migration checklist crm, migration audit template gohighlevel',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {
-    title: 'The Complete GoHighLevel Migration Checklist (2026)',
-    description: 'A practical, phase-by-phase GoHighLevel migration checklist: audit, infrastructure, data, automation rebuild, testing, and go-live — with explicit readiness and cutover gates.',
+    title: 'GoHighLevel Migration Checklist: 6 Phases to Follow',
+    description: 'Use this GoHighLevel migration checklist to plan the audit, GHL setup, data import, automation rebuild, testing, parallel run, and go-live.',
     type: 'article',
     publishedTime: '2026-05-14T00:00:00Z',
     modifiedTime: '2026-05-14T00:00:00Z',
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@ghlscaleup',
-    title: 'The Complete GoHighLevel Migration Checklist (2026)',
-    description: 'A practical, phase-by-phase GoHighLevel migration checklist: audit, infrastructure, data, automation rebuild, testing, and go-live — with explicit readiness and cutover gates.',
+    title: 'GoHighLevel Migration Checklist: 6 Phases to Follow',
+    description: 'Use this GoHighLevel migration checklist to plan the audit, GHL setup, data import, automation rebuild, testing, parallel run, and go-live.',
     images: ['https://www.ghlscaleup.com/images/blog/ghl-migration-checklist-og.jpg'],
   },
   alternates: {
@@ -40,7 +40,7 @@ export default function GHLMigrationChecklistPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "The Complete GoHighLevel Migration Checklist (2026)",
+            "headline": "GoHighLevel Migration Checklist: 6 Phases to Follow",
             "description": "This is the checklist GHL Scale Up uses internally on GoHighLevel migrations. Work through it phase by phase, or use the two readiness gates to sanity-check whether you're actually ready to move to the next stage.",
             "image": "https://www.ghlscaleup.com/images/blog/ghl-migration-checklist-og.jpg",
             "datePublished": "2026-05-14",

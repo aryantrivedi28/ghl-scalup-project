@@ -3,13 +3,13 @@ import Script from 'next/script';
 import KajabiToGHLMigrationClient from './client';
 
 export const metadata: Metadata = {
-  title: 'Kajabi to GoHighLevel Migration Guide (2026): Course Importer Explained',
-  description: 'GoHighLevel\'s Kajabi Course Importer explained: what it actually imports, what still needs rebuilding, and a realistic migration timeline.',
+  title: 'Kajabi to GoHighLevel Migration: What Transfers & What Breaks',
+  description: 'Find out what transfers from Kajabi to GoHighLevel and what must be rebuilt, including contacts, courses, lessons, memberships, email sequences, and automations.',
   keywords: 'kajabi to gohighlevel migration, migrate kajabi to gohighlevel, kajabi course migration gohighlevel, kajabi to ghl migration guide, does gohighlevel have a kajabi importer, can kajabi courses be imported into gohighlevel, what happens to kajabi students when migrating',
   authors: [{ name: 'GHL Scale Up Team' }],
   openGraph: {
-    title: 'Kajabi to GoHighLevel Migration Guide (2026): Course Importer Explained',
-    description: 'GoHighLevel\'s Kajabi Course Importer explained: what it actually imports, what still needs rebuilding, and a realistic migration timeline.',
+    title: 'Kajabi to GoHighLevel Migration: What Transfers & What Breaks',
+    description: 'Find out what transfers from Kajabi to GoHighLevel and what must be rebuilt, including contacts, courses, lessons, memberships, email sequences, and automations.',
     type: 'article',
     publishedTime: '2026-05-14T00:00:00Z',
     modifiedTime: '2026-05-14T00:00:00Z',
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@ghlscaleup',
-    title: 'Kajabi to GoHighLevel Migration Guide (2026): Course Importer Explained',
-    description: 'GoHighLevel\'s Kajabi Course Importer explained: what it actually imports, what still needs rebuilding, and a realistic migration timeline.',
+    title: 'Kajabi to GoHighLevel Migration: What Transfers & What Breaks',
+    description: 'Find out what transfers from Kajabi to GoHighLevel and what must be rebuilt, including contacts, courses, lessons, memberships, email sequences, and automations.',
     images: ['https://www.ghlscaleup.com/images/blog/kajabi-to-ghl-migration-og.jpg'],
   },
   alternates: {
