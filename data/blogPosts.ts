@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'ListChecks',
+            tag: 'Troubleshooting',
+            title: 'GoHighLevel Enrollment History & Execution Logs Guide',
+            excerpt: 'Learn to use GoHighLevel Enrollment History and Execution Logs to find exactly where a workflow\'s execution diverged — enrolled, waiting, branched, or failed.',
+            slug: 'gohighlevel-enrollment-history-execution-logs',
+            date: 'September 17, 2026',
+            readTime: '16 min read',
+            featured: true,
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+      },
+      {
             icon: 'AlertTriangle',
             tag: 'Troubleshooting',
             title: 'GoHighLevel Workflow Not Triggering? Find the Fix',
