@@ -288,14 +288,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
     {
-      url: `${baseUrl}/blog/gohighlevel-enrollment-history-execution-logs`,
+      url: `${baseUrl}/blog/gohighlevel-imessage-mac-iphone`,
+      lastModified: new Date('2026-09-18'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/blog/gohighlevel-workflow-reentry`,
       lastModified: new Date('2026-09-17'),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/blog/gohighlevel-workflow-not-triggering`,
+      url: `${baseUrl}/blog/gohighlevel-enrollment-history-execution-logs`,
       lastModified: new Date('2026-09-16'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/blog/gohighlevel-workflow-not-triggering`,
+      lastModified: new Date('2026-09-15'),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
