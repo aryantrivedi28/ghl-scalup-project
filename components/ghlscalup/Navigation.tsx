@@ -116,6 +116,31 @@ const Navigation = () => {
     { icon: MessageCircle, iconBg: 'green', title: 'Mailchimp to GoHighLevel', desc: 'Email list and campaign migration', link: '/mailchimp-to-gohighlevel' },
   ]
 
+
+  const industryServices = [
+    {
+      icon: Users,
+      iconBg: 'blue',
+      title: 'GoHighLevel for Coaches',
+      desc: 'CRM, funnels, booking & automation for coaching businesses',
+      link: '/services/gohighlevel-for-coaches',
+    },
+    {
+      icon: Briefcase,
+      iconBg: 'green',
+      title: 'GoHighLevel for Real Estate',
+      desc: 'CRM, lead routing, showing booking & nurture for real estate',
+      link: '/services/gohighlevel-for-real-estate',
+    },
+    {
+      icon: Settings,
+      iconBg: 'yellow',
+      title: 'Hire GoHighLevel Experts',
+      desc: 'Expert GHL setup, automation and CRM implementation',
+      link: '/services/hire-gohighlevel-experts',
+    },
+  ]
+
   return (
     <header className="bg-[#0B1421] sticky top-0 z-[1000] shadow-[0_2px_20px_rgba(0,0,0,0.15)]">
       <div className="max-w-[1200px] mx-auto px-2 md:px-4">
@@ -210,6 +235,58 @@ const Navigation = () => {
                       <div>
                         <div className="text-[0.8rem] font-semibold text-[#1C2E4A] leading-tight group-hover:text-[#0E9BF0] transition-colors">{service.title}</div>
                         <div className="text-[0.68rem] font-light text-[#4A5568]">{service.desc}</div>
+                      </div>
+                    </Link>
+                  )
+                })}
+              </div>
+            </li>
+
+
+            {/* Industry Dropdown */}
+            <li className="relative group">
+              <button
+                type="button"
+                className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors flex items-center gap-1 bg-transparent border-none cursor-pointer"
+              >
+                Industry
+                <ChevronDown className="h-3 w-3 mt-0.5 group-hover:rotate-180 transition-transform" />
+              </button>
+
+              <div className="absolute top-full left-1/2 -translate-x-1/2 bg-white rounded-b-2xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] p-6 min-w-[560px] grid grid-cols-1 md:grid-cols-2 gap-2 gap-x-8 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all pointer-events-none group-hover:pointer-events-auto border-t-3 border-t-[#F8D000]">
+
+                <div className="text-[0.62rem] font-bold tracking-[0.12em] uppercase text-[#0E9BF0] pb-2.5 mb-1 border-b border-[#E8EDF4] col-span-full">
+                  Industries We Serve
+                </div>
+
+                {industryServices.map((service, idx) => {
+                  const Icon = service.icon
+
+                  return (
+                    <Link
+                      key={idx}
+                      href={service.link}
+                      className="flex items-center gap-2.5 p-2 rounded-lg hover:bg-[#F4F7FA] transition-colors group"
+                    >
+                      <div
+                        className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${service.iconBg === 'blue'
+                          ? 'bg-[rgba(14,155,240,0.1)]'
+                          : service.iconBg === 'green'
+                            ? 'bg-[rgba(37,201,125,0.1)]'
+                            : 'bg-[rgba(248,208,0,0.12)]'
+                          }`}
+                      >
+                        <Icon className="h-4 w-4 text-[#1C2E4A]" />
+                      </div>
+
+                      <div>
+                        <div className="text-[0.8rem] font-semibold text-[#1C2E4A] leading-tight group-hover:text-[#0E9BF0] transition-colors">
+                          {service.title}
+                        </div>
+
+                        <div className="text-[0.68rem] font-light text-[#4A5568]">
+                          {service.desc}
+                        </div>
                       </div>
                     </Link>
                   )
@@ -353,6 +430,28 @@ const Navigation = () => {
                   <div className="pl-4 mt-2 flex flex-col gap-2">
                     {marketingServices.map((service, idx) => (
                       <Link key={idx} href={service.link} className="text-white/70 text-sm py-1.5 block" onClick={() => setIsMobileMenuOpen(false)}>
+                        {service.title}
+                      </Link>
+                    ))}
+                  </div>
+                </details>
+              </li>
+
+              {/* Industry - Mobile */}
+              <li>
+                <details className="group">
+                  <summary className="text-white text-base block py-2 cursor-pointer list-none">
+                    Industry
+                  </summary>
+
+                  <div className="pl-4 mt-2 flex flex-col gap-2">
+                    {industryServices.map((service, idx) => (
+                      <Link
+                        key={idx}
+                        href={service.link}
+                        className="text-white/70 text-sm py-1.5 block"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
                         {service.title}
                       </Link>
                     ))}
