@@ -160,7 +160,7 @@ export default function GoHighLevelWorkflowTriggeredNotWorkingClient() {
     },
     {
       q: "How do I know which GoHighLevel workflow step failed?",
-      a: "Confirm enrollment, open the contact's execution path in Execution Logs, find the last step that shows success, then inspect the very next step — that boundary is almost always where the answer is."
+      a: "Confirm enrollment, open the contact's execution path in Execution Logs, find the last step that shows success, then inspect the very next step that boundary is almost always where the answer is."
     },
     {
       q: "What does it mean if a GoHighLevel workflow is still \"in progress\"?",
@@ -168,15 +168,15 @@ export default function GoHighLevelWorkflowTriggeredNotWorkingClient() {
     },
     {
       q: "Why is my GoHighLevel workflow stuck on a wait step?",
-      a: "It may not be stuck — waits run for their full configured duration in live conditions, unlike in test mode where GoHighLevel compresses timers to seconds. Confirm the actual wait length before troubleshooting further."
+      a: "It may not be stuck waits run for their full configured duration in live conditions, unlike in test mode where GoHighLevel compresses timers to seconds. Confirm the actual wait length before troubleshooting further."
     },
     {
       q: "Why did my GoHighLevel workflow take the wrong If/Else path?",
-      a: "The condition evaluated correctly against the contact's data at the exact moment execution reached it. Check the field, tag, or value the condition actually reads, and confirm it had the value you expected at that point in the sequence — not just at enrollment."
+      a: "The condition evaluated correctly against the contact's data at the exact moment execution reached it. Check the field, tag, or value the condition actually reads, and confirm it had the value you expected at that point in the sequence not just at enrollment."
     },
     {
       q: "What does a skipped GoHighLevel workflow step mean?",
-      a: "Either the step is disabled, or an attached condition evaluated to false. Neither is automatically an error — check whether the skip matches what you configured."
+      a: "Either the step is disabled, or an attached condition evaluated to false. Neither is automatically an error check whether the skip matches what you configured."
     },
     {
       q: "Can a webhook execute successfully in GoHighLevel while the external system still fails?",
@@ -184,11 +184,11 @@ export default function GoHighLevelWorkflowTriggeredNotWorkingClient() {
     },
     {
       q: "Why does a GoHighLevel workflow say \"completed\" when the expected result didn't happen?",
-      a: "Completed confirms the workflow reached its final step — it doesn't confirm every action produced its intended real-world result. Verify the actual outcome (delivery, pipeline state, notification) separately."
+      a: "Completed confirms the workflow reached its final step it doesn't confirm every action produced its intended real-world result. Verify the actual outcome (delivery, pipeline state, notification) separately."
     },
     {
       q: "How do I troubleshoot a failed GoHighLevel workflow action?",
-      a: "Identify the specific failure category — missing data, expired integration connection, invalid value, or a rejected webhook — since each needs a different fix, then check the relevant configuration for that category specifically rather than the workflow as a whole."
+      a: "Identify the specific failure category missing data, expired integration connection, invalid value, or a rejected webhook since each needs a different fix, then check the relevant configuration for that category specifically rather than the workflow as a whole."
     }
   ];
 
@@ -284,7 +284,7 @@ export default function GoHighLevelWorkflowTriggeredNotWorkingClient() {
           </div>
 
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-6xl">
-            This article is for one specific situation: the contact entered the workflow — you've confirmed that — but something downstream didn't happen the way you expected. If you're not sure the workflow enrolled the contact at all, start with <Link href="/blog/gohighlevel-workflow-not-triggering" className="text-[#0E9BF0] hover:underline">initial trigger and enrollment troubleshooting</Link> instead. If the workflow ran successfully before and the same contact just won't go through it again, that's a <Link href="/blog/gohighlevel-workflow-reentry" className="text-[#0E9BF0] hover:underline">re-entry problem</Link>, not this one.
+            This article is for one specific situation: the contact entered the workflow you've confirmed that but something downstream didn't happen the way you expected. If you're not sure the workflow enrolled the contact at all, start with <Link href="/blog/gohighlevel-workflow-not-triggering" className="text-[#0E9BF0] hover:underline">initial trigger and enrollment troubleshooting</Link> instead. If the workflow ran successfully before and the same contact just won't go through it again, that's a <Link href="/blog/gohighlevel-workflow-reentry" className="text-[#0E9BF0] hover:underline">re-entry problem</Link>, not this one.
           </p>
 
           <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 md:p-6 mb-6">
@@ -293,7 +293,7 @@ export default function GoHighLevelWorkflowTriggeredNotWorkingClient() {
               <span className="text-xs font-bold uppercase tracking-wider text-white/60">Quick answer</span>
             </div>
             <p className="text-sm text-white/70 leading-relaxed">
-              <strong className="text-white">Once enrollment is confirmed, stop asking "why isn't the workflow working" and start asking "what is the last step that definitely happened, and what is the first one that didn't happen as expected."</strong> Everything downstream of that point — waiting, branching, skipping, failing, or executing but producing the wrong external result — has a different diagnosis and a different fix. Treating all of them as the same problem is what turns a five-minute fix into an afternoon of rebuilding.
+              <strong className="text-white">Once enrollment is confirmed, stop asking "why isn't the workflow working" and start asking "what is the last step that definitely happened, and what is the first one that didn't happen as expected."</strong> Everything downstream of that point waiting, branching, skipping, failing, or executing but producing the wrong external result has a different diagnosis and a different fix. Treating all of them as the same problem is what turns a five-minute fix into an afternoon of rebuilding.
             </p>
           </div>
 
@@ -439,11 +439,11 @@ export default function GoHighLevelWorkflowTriggeredNotWorkingClient() {
               The phrase hides several genuinely different situations, and they don't share a fix:
             </p>
             <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
-              <li>The workflow enrolled the contact but is still waiting on an active Wait step — not broken, just not there yet.</li>
+              <li>The workflow enrolled the contact but is still waiting on an active Wait step not broken, just not there yet.</li>
               <li>The workflow reached an If/Else condition and took the branch you didn't expect.</li>
-              <li>A step was skipped — deliberately or because of an upstream condition.</li>
+              <li>A step was skipped deliberately or because of an upstream condition.</li>
               <li>An action failed outright and the log shows an error.</li>
-              <li>An action executed successfully inside GoHighLevel, but the external result never happened — an SMS that never arrived, a webhook the receiving system silently rejected.</li>
+              <li>An action executed successfully inside GoHighLevel, but the external result never happened an SMS that never arrived, a webhook the receiving system silently rejected.</li>
               <li>The workflow reached its final step and shows Completed, but the business outcome you actually wanted still didn't occur.</li>
               <li>The workflow appears stuck because it's genuinely waiting on an external system that hasn't responded yet.</li>
             </ul>
@@ -477,7 +477,7 @@ export default function GoHighLevelWorkflowTriggeredNotWorkingClient() {
               How to Confirm a GoHighLevel Workflow Actually Started Before Troubleshooting Further
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Before anything else: has this contact actually entered the workflow? If yes, the trigger did its job. Don't re-open the trigger, don't add or remove filters, and don't touch Allow Re-entry — none of that affects what happens after enrollment. If you're not certain enrollment happened, check that first using <Link href="/blog/gohighlevel-workflow-not-triggering" className="text-[#0E9BF0] hover:underline">initial trigger troubleshooting</Link>; everything below this point assumes it already has.
+              Before anything else: has this contact actually entered the workflow? If yes, the trigger did its job. Don't re-open the trigger, don't add or remove filters, and don't touch Allow Re-entry none of that affects what happens after enrollment. If you're not certain enrollment happened, check that first using <Link href="/blog/gohighlevel-workflow-not-triggering" className="text-[#0E9BF0] hover:underline">initial trigger troubleshooting</Link>; everything below this point assumes it already has.
             </p>
 
             {/* Section: How to Find Last Successful Step */}
@@ -488,10 +488,10 @@ export default function GoHighLevelWorkflowTriggeredNotWorkingClient() {
               This is the core method, and it's simpler than auditing the entire workflow from scratch.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Say a workflow runs: Trigger → Add Tag → Wait 10 Minutes → Send Email → If/Else → Create Opportunity → Internal Notification. The contact enrolled, got the tag, passed the wait — and the email never arrived. The investigation doesn't start at the trigger and doesn't touch the opportunity or notification steps. It starts at the boundary: the last confirmed success (the wait completing) and the first point of divergence (the email).
+              Say a workflow runs: Trigger → Add Tag → Wait 10 Minutes → Send Email → If/Else → Create Opportunity → Internal Notification. The contact enrolled, got the tag, passed the wait and the email never arrived. The investigation doesn't start at the trigger and doesn't touch the opportunity or notification steps. It starts at the boundary: the last confirmed success (the wait completing) and the first point of divergence (the email).
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              That boundary is the whole diagnosis. Rebuilding the entire workflow, or changing several settings at once "to be safe," destroys the one piece of information you actually have — where, specifically, things stopped matching expectation.
+              That boundary is the whole diagnosis. Rebuilding the entire workflow, or changing several settings at once "to be safe," destroys the one piece of information you actually have where, specifically, things stopped matching expectation.
             </p>
 
             {/* Section: How to Read Execution Path */}
@@ -499,10 +499,10 @@ export default function GoHighLevelWorkflowTriggeredNotWorkingClient() {
               How to Read a GoHighLevel Workflow's Execution Path for a Specific Contact
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              To find that boundary, you need the contact's actual execution path, not a guess based on how long it's been. Open the workflow's Execution Logs, select the affected contact, and read the step-by-step record of what actually happened — GoHighLevel's canvas view also highlights this directly on the workflow diagram, marking which nodes errored, which were skipped, and which are still in progress for that contact.
+              To find that boundary, you need the contact's actual execution path, not a guess based on how long it's been. Open the workflow's Execution Logs, select the affected contact, and read the step-by-step record of what actually happened GoHighLevel's canvas view also highlights this directly on the workflow diagram, marking which nodes errored, which were skipped, and which are still in progress for that contact.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The mechanics of reading that interface — where the tabs live, what each column means, how to filter by contact — are covered in full in <Link href="/blog/gohighlevel-enrollment-history-execution-logs" className="text-[#0E9BF0] hover:underline">Enrollment History and Execution Logs</Link>. This article picks up after that: once you can see the path, the next question is what each state on that path actually means and what to do about it.
+              The mechanics of reading that interface where the tabs live, what each column means, how to filter by contact are covered in full in <Link href="/blog/gohighlevel-enrollment-history-execution-logs" className="text-[#0E9BF0] hover:underline">Enrollment History and Execution Logs</Link>. This article picks up after that: once you can see the path, the next question is what each state on that path actually means and what to do about it.
             </p>
 
             {/* Section: Why Workflow May Be Waiting */}
@@ -510,7 +510,7 @@ export default function GoHighLevelWorkflowTriggeredNotWorkingClient() {
               Why a GoHighLevel Workflow May Be Waiting Instead of Failing
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              A Wait step is the single most common thing mistaken for a failure. If the log shows the contact sitting at a wait, that's not evidence anything is broken — it's evidence the workflow is doing exactly what it was built to do. Check the wait's configured duration against how much time has actually passed since enrollment, and don't assume the countdown is instant: real-time waits run in real time. Testing can create the opposite illusion — GoHighLevel compresses wait timers to seconds during a workflow test, so a wait that behaves one way in test mode and another way live isn't a bug, it's the difference between simulated and real timing. If the wait duration has genuinely elapsed and the contact still hasn't moved, that's when it becomes worth investigating — not before.
+              A Wait step is the single most common thing mistaken for a failure. If the log shows the contact sitting at a wait, that's not evidence anything is broken it's evidence the workflow is doing exactly what it was built to do. Check the wait's configured duration against how much time has actually passed since enrollment, and don't assume the countdown is instant: real-time waits run in real time. Testing can create the opposite illusion GoHighLevel compresses wait timers to seconds during a workflow test, so a wait that behaves one way in test mode and another way live isn't a bug, it's the difference between simulated and real timing. If the wait duration has genuinely elapsed and the contact still hasn't moved, that's when it becomes worth investigating not before.
             </p>
 
             {/* Section: How If/Else Conditions */}
@@ -518,10 +518,10 @@ export default function GoHighLevelWorkflowTriggeredNotWorkingClient() {
               How GoHighLevel Workflow If/Else Conditions Can Send a Contact Down the Wrong Path
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              An If/Else condition evaluates at the moment the contact reaches it — not at enrollment, and not based on what you expect the data to look like. The model is simple: condition → true → Path A, condition → false → Path B. When the log shows the contact went down the branch you didn't want, the workflow isn't malfunctioning; it evaluated the condition correctly against the data it actually had at that moment.
+              An If/Else condition evaluates at the moment the contact reaches it not at enrollment, and not based on what you expect the data to look like. The model is simple: condition → true → Path A, condition → false → Path B. When the log shows the contact went down the branch you didn't want, the workflow isn't malfunctioning; it evaluated the condition correctly against the data it actually had at that moment.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Inspect exactly what the condition is checking — a tag, a custom field, an opportunity value, a pipeline stage — and compare it against the contact's actual record state at the time execution reached that step, not the state you assumed. Timing matters here: if a tag gets applied two steps after the condition that checks for it, the condition will evaluate before the tag exists. This is a logic-ordering issue inside the workflow, not a trigger filter problem, and it's a different diagnosis from anything in the initial-trigger article.
+              Inspect exactly what the condition is checking a tag, a custom field, an opportunity value, a pipeline stage and compare it against the contact's actual record state at the time execution reached that step, not the state you assumed. Timing matters here: if a tag gets applied two steps after the condition that checks for it, the condition will evaluate before the tag exists. This is a logic-ordering issue inside the workflow, not a trigger filter problem, and it's a different diagnosis from anything in the initial-trigger article.
             </p>
 
             {/* Section: What Skipped Step Means */}
@@ -529,7 +529,7 @@ export default function GoHighLevelWorkflowTriggeredNotWorkingClient() {
               What a Skipped GoHighLevel Workflow Step Actually Means
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              A skipped step isn't automatically an error. GoHighLevel skips disabled nodes automatically, and downstream actions still fire normally past them — so if you or a teammate temporarily disabled a step while testing something else and forgot to re-enable it, "skipped" is expected, not broken. A step can also be skipped because a condition attached to it evaluated to false, which is really the same diagnosis as the branching case above, just expressed at the individual-action level rather than an explicit If/Else.
+              A skipped step isn't automatically an error. GoHighLevel skips disabled nodes automatically, and downstream actions still fire normally past them so if you or a teammate temporarily disabled a step while testing something else and forgot to re-enable it, "skipped" is expected, not broken. A step can also be skipped because a condition attached to it evaluated to false, which is really the same diagnosis as the branching case above, just expressed at the individual-action level rather than an explicit If/Else.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               The distinction that matters: was this step skipped on purpose (disabled, or correctly failing a condition), or is it skipped in a way that contradicts what you configured? Open the step and check whether it's marked disabled before assuming its logic is wrong.
@@ -540,7 +540,7 @@ export default function GoHighLevelWorkflowTriggeredNotWorkingClient() {
               How to Troubleshoot a Failed GoHighLevel Workflow Action
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              A failed action is different from a skipped one — the log will typically show an error rather than a clean bypass. Failures tend to fall into a small number of categories:
+              A failed action is different from a skipped one the log will typically show an error rather than a clean bypass. Failures tend to fall into a small number of categories:
             </p>
 
             <div className="overflow-x-auto my-6">
@@ -565,7 +565,7 @@ export default function GoHighLevelWorkflowTriggeredNotWorkingClient() {
             </div>
 
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Every one of these needs its own check — don't assume a single global cause. A permissions problem and a missing-field problem look identical from the outside ("the action failed") but require completely different fixes.
+              Every one of these needs its own check don't assume a single global cause. A permissions problem and a missing-field problem look identical from the outside ("the action failed") but require completely different fixes.
             </p>
 
             {/* Section: When Action Succeeds External Fails */}
@@ -576,7 +576,7 @@ export default function GoHighLevelWorkflowTriggeredNotWorkingClient() {
               This is the distinction that trips up the most people, and it's worth being explicit about: <strong className="text-[#1A2236]">a workflow step showing as executed inside GoHighLevel is not the same claim as the external system having successfully processed it.</strong> A webhook can fire, receive a 200 response, and still fail to produce the outcome you wanted on the other end if the receiving system silently discards the payload or errors after accepting it.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The same boundary applies to native integrations. If a workflow step hands off to Zapier or another connected platform, a failure on the receiving side looks identical, from inside GoHighLevel, to success — the GHL step completed its job the moment it sent the request. Our <Link href="/blog/connect-zapier-to-gohighlevel" className="text-[#0E9BF0] hover:underline">Zapier connection guide</Link> covers this exact handoff in more detail: a failure in the GoHighLevel step is a GoHighLevel problem, a failure in what happens after the handoff is a problem on the other platform, and treating them as the same diagnostic space is how people burn hours debugging the wrong system.
+              The same boundary applies to native integrations. If a workflow step hands off to Zapier or another connected platform, a failure on the receiving side looks identical, from inside GoHighLevel, to success the GHL step completed its job the moment it sent the request. Our <Link href="/blog/connect-zapier-to-gohighlevel" className="text-[#0E9BF0] hover:underline">Zapier connection guide</Link> covers this exact handoff in more detail: a failure in the GoHighLevel step is a GoHighLevel problem, a failure in what happens after the handoff is a problem on the other platform, and treating them as the same diagnostic space is how people burn hours debugging the wrong system.
             </p>
 
             {/* Section: Why Email SMS Execute Without Delivery */}
@@ -584,7 +584,7 @@ export default function GoHighLevelWorkflowTriggeredNotWorkingClient() {
               Why a GoHighLevel Workflow Email or SMS Action Can Execute Without Being Delivered
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The identical logic applies to messaging actions. A Send SMS step executing successfully inside the workflow confirms GoHighLevel attempted to send it — it does not confirm the recipient received it. Unregistered or non-compliant A2P 10DLC numbers are a documented case where this exact gap shows up: the automation fires correctly inside the workflow builder, but the carrier blocks the message before it reaches the recipient, with no error visible in the workflow itself. If SMS actions are executing without errors but messages aren't arriving, check the sending number's A2P registration status before assuming the workflow logic is at fault — our <Link href="/blog/what-is-a2p-10dlc" className="text-[#0E9BF0] hover:underline">A2P 10DLC guide</Link> covers what that failure looks like and how to confirm it. The same execution-versus-delivery gap applies to email sending domains, though that's outside this article's scope.
+              The identical logic applies to messaging actions. A Send SMS step executing successfully inside the workflow confirms GoHighLevel attempted to send it it does not confirm the recipient received it. Unregistered or non-compliant A2P 10DLC numbers are a documented case where this exact gap shows up: the automation fires correctly inside the workflow builder, but the carrier blocks the message before it reaches the recipient, with no error visible in the workflow itself. If SMS actions are executing without errors but messages aren't arriving, check the sending number's A2P registration status before assuming the workflow logic is at fault our <Link href="/blog/what-is-a2p-10dlc" className="text-[#0E9BF0] hover:underline">A2P 10DLC guide</Link> covers what that failure looks like and how to confirm it. The same execution-versus-delivery gap applies to email sending domains, though that's outside this article's scope.
             </p>
 
             {/* Section: How Opportunity Pipeline Actions */}
@@ -592,7 +592,7 @@ export default function GoHighLevelWorkflowTriggeredNotWorkingClient() {
               How GoHighLevel Workflow Opportunity and Pipeline Actions Can Execute but Miss the Expected Result
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              A workflow action that creates or updates an opportunity can execute cleanly while the pipeline still doesn't reflect what you expected — because the action targeted the wrong pipeline, the wrong stage, or because the contact already had an existing opportunity that the action updated instead of the new one you expected it to create. If the workflow has Allow Multiple Opportunity enabled, each opportunity tied to the contact runs its own separate execution, which changes what "the workflow" even means for that contact. This is a downstream-configuration question specific to opportunity actions, and it's out of scope for a full breakdown here — treat it as one more instance of the same principle: the action executing and the resulting business state matching your expectation are two different things to verify separately.
+              A workflow action that creates or updates an opportunity can execute cleanly while the pipeline still doesn't reflect what you expected because the action targeted the wrong pipeline, the wrong stage, or because the contact already had an existing opportunity that the action updated instead of the new one you expected it to create. If the workflow has Allow Multiple Opportunity enabled, each opportunity tied to the contact runs its own separate execution, which changes what "the workflow" even means for that contact. This is a downstream-configuration question specific to opportunity actions, and it's out of scope for a full breakdown here treat it as one more instance of the same principle: the action executing and the resulting business state matching your expectation are two different things to verify separately.
             </p>
 
             {/* Section: Why Completed May Not Produce Outcome */}
@@ -606,10 +606,10 @@ export default function GoHighLevelWorkflowTriggeredNotWorkingClient() {
               Ask these four questions separately, in order, rather than treating "completed" as a single pass/fail signal:
             </p>
             <ol className="space-y-1 mb-4 text-sm text-[#5C6880] list-decimal list-inside">
-              <li><strong className="text-[#1A2236]">Did the workflow execute</strong> — did every step run in sequence?</li>
-              <li><strong className="text-[#1A2236]">Did each action execute</strong> — did it complete without an internal error?</li>
-              <li><strong className="text-[#1A2236]">Did the external system accept and process it</strong> — for anything that hands off outside GoHighLevel?</li>
-              <li><strong className="text-[#1A2236]">Did the intended business outcome actually occur</strong> — did the lead get the email, did the opportunity land in the right pipeline, did the team member get notified?</li>
+              <li><strong className="text-[#1A2236]">Did the workflow execute</strong> did every step run in sequence?</li>
+              <li><strong className="text-[#1A2236]">Did each action execute</strong> did it complete without an internal error?</li>
+              <li><strong className="text-[#1A2236]">Did the external system accept and process it</strong> for anything that hands off outside GoHighLevel?</li>
+              <li><strong className="text-[#1A2236]">Did the intended business outcome actually occur</strong> did the lead get the email, did the opportunity land in the right pipeline, did the team member get notified?</li>
             </ol>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               A "completed" status only confirms the first one. The other three need to be checked against the actual outside-world result, not inferred from the workflow's own status label.
@@ -623,12 +623,12 @@ export default function GoHighLevelWorkflowTriggeredNotWorkingClient() {
               <li><strong className="text-[#1A2236]">Reproduce the issue</strong> with a specific, identifiable contact rather than a vague "it's not working."</li>
               <li><strong className="text-[#1A2236]">Confirm enrollment</strong> happened for that contact.</li>
               <li><strong className="text-[#1A2236]">Open the execution path</strong> in Execution Logs for that contact.</li>
-              <li><strong className="text-[#1A2236]">Find the last successful step</strong> — the anchor point for everything else.</li>
+              <li><strong className="text-[#1A2236]">Find the last successful step</strong> the anchor point for everything else.</li>
               <li><strong className="text-[#1A2236]">Identify the first unexpected step</strong> immediately after it.</li>
               <li><strong className="text-[#1A2236]">Classify what happened there:</strong> waiting, skipped, branched, failed, or executed-but-wrong-external-result.</li>
-              <li><strong className="text-[#1A2236]">Inspect only the relevant configuration</strong> for that classification — the condition, the field, the integration connection, the sending number.</li>
+              <li><strong className="text-[#1A2236]">Inspect only the relevant configuration</strong> for that classification the condition, the field, the integration connection, the sending number.</li>
               <li><strong className="text-[#1A2236]">Make the smallest change that addresses the actual cause.</strong> Don't adjust three settings at once; you'll lose the ability to tell which one fixed it.</li>
-              <li><strong className="text-[#1A2236]">Retest under controlled, reproducible conditions</strong> — same trigger event, same test contact profile, so the result is comparable.</li>
+              <li><strong className="text-[#1A2236]">Retest under controlled, reproducible conditions</strong> same trigger event, same test contact profile, so the result is comparable.</li>
               <li><strong className="text-[#1A2236]">Verify the actual business outcome,</strong> not just the workflow's status label.</li>
             </ol>
 
@@ -637,13 +637,13 @@ export default function GoHighLevelWorkflowTriggeredNotWorkingClient() {
               Common Mistakes When Debugging a GoHighLevel Workflow That Triggered but Didn't Finish
             </h2>
             <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">Reopening the trigger after confirming enrollment.</strong> If the contact is in, the trigger already worked — changing it now only risks breaking something that wasn't broken.</li>
+              <li><strong className="text-[#1A2236]">Reopening the trigger after confirming enrollment.</strong> If the contact is in, the trigger already worked changing it now only risks breaking something that wasn't broken.</li>
               <li><strong className="text-[#1A2236]">Rebuilding the whole workflow instead of isolating the divergence point.</strong> This destroys the diagnostic signal the last-successful-step method depends on.</li>
               <li><strong className="text-[#1A2236]">Assuming "in progress" means stuck.</strong> Check the actual elapsed time against configured wait durations before concluding anything's wrong.</li>
               <li><strong className="text-[#1A2236]">Treating "completed" as proof the business outcome happened.</strong> It only proves the workflow reached its last step.</li>
-              <li><strong className="text-[#1A2236]">Changing multiple settings in one pass.</strong> If two things change and the result improves, you don't know which one mattered — or whether it will hold up under different conditions.</li>
+              <li><strong className="text-[#1A2236]">Changing multiple settings in one pass.</strong> If two things change and the result improves, you don't know which one mattered or whether it will hold up under different conditions.</li>
               <li><strong className="text-[#1A2236]">Not reproducing the exact same conditions on retest.</strong> A different trigger event, a different contact state, or leftover test data can make a real fix look like it didn't work, or a non-fix look like it did.</li>
-              <li><strong className="text-[#1A2236]">Blaming GoHighLevel for an external system's failure,</strong> and the reverse — blaming the integration when the GoHighLevel action never actually ran. Both directions require checking evidence on both sides of the handoff, not assuming based on which platform is more familiar.</li>
+              <li><strong className="text-[#1A2236]">Blaming GoHighLevel for an external system's failure,</strong> and the reverse blaming the integration when the GoHighLevel action never actually ran. Both directions require checking evidence on both sides of the handoff, not assuming based on which platform is more familiar.</li>
             </ul>
 
             {/* Section: When Problem Not About Execution */}
@@ -654,7 +654,7 @@ export default function GoHighLevelWorkflowTriggeredNotWorkingClient() {
               <li><strong className="text-[#1A2236]">The workflow never enrolled the contact at all</strong> → <Link href="/blog/gohighlevel-workflow-not-triggering" className="text-[#0E9BF0] hover:underline">GoHighLevel Workflow Not Triggering? Find the Fix</Link></li>
               <li><strong className="text-[#1A2236]">The workflow worked before, but this same contact won't go through it again</strong> → <Link href="/blog/gohighlevel-workflow-reentry" className="text-[#0E9BF0] hover:underline">GoHighLevel Workflow Re-Entry Explained</Link></li>
               <li><strong className="text-[#1A2236]">You need the detailed mechanics of the Execution Logs and Enrollment History interface itself</strong> → <Link href="/blog/gohighlevel-enrollment-history-execution-logs" className="text-[#0E9BF0] hover:underline">Enrollment History and Execution Logs</Link></li>
-              <li><strong className="text-[#1A2236]">The problem is specific to a form trigger's own behavior, an appointment trigger's status handling, or opportunity/pipeline trigger logic</strong> — those deserve dedicated treatment beyond what this article can cover; use the general method above in the meantime.</li>
+              <li><strong className="text-[#1A2236]">The problem is specific to a form trigger's own behavior, an appointment trigger's status handling, or opportunity/pipeline trigger logic</strong> those deserve dedicated treatment beyond what this article can cover; use the general method above in the meantime.</li>
             </ul>
 
             {/* Section: Core Diagnostic Principle */}

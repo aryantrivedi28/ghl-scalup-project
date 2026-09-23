@@ -175,7 +175,7 @@ export default function GoHighLevelAppointmentWorkflowNotTriggeringClient() {
   const faqs = [
     {
       q: "Why isn't my GoHighLevel appointment workflow triggering?",
-      a: "Most often because the workflow's trigger isn't configured for the specific event that occurred — wrong trigger type, wrong calendar, wrong status, or a Modified By filter that excludes how the appointment was actually created or changed."
+      a: "Most often because the workflow's trigger isn't configured for the specific event that occurred wrong trigger type, wrong calendar, wrong status, or a Modified By filter that excludes how the appointment was actually created or changed."
     },
     {
       q: "Why doesn't a booked appointment trigger my GoHighLevel workflow?",
@@ -187,15 +187,15 @@ export default function GoHighLevelAppointmentWorkflowNotTriggeringClient() {
     },
     {
       q: "Why does my appointment workflow work on one calendar but not another?",
-      a: "The trigger's calendar (or calendar group) filter is scoped to specific calendars — a booking on an unlisted calendar won't qualify even if every other condition matches."
+      a: "The trigger's calendar (or calendar group) filter is scoped to specific calendars a booking on an unlisted calendar won't qualify even if every other condition matches."
     },
     {
       q: "Why doesn't my GoHighLevel workflow trigger after an appointment is rescheduled?",
-      a: "Rescheduling updates the appointment's status rather than creating a new booking event, so re-entry requires Allow Re-entry to be enabled and the rescheduled appointment to still match the trigger's filters — it isn't covered by the same always-allow exception new bookings get."
+      a: "Rescheduling updates the appointment's status rather than creating a new booking event, so re-entry requires Allow Re-entry to be enabled and the rescheduled appointment to still match the trigger's filters it isn't covered by the same always-allow exception new bookings get."
     },
     {
       q: "Why doesn't a cancelled appointment trigger my workflow?",
-      a: "The trigger has to be explicitly configured to catch the Cancelled status — a trigger built for New or Confirmed bookings won't also fire on cancellation."
+      a: "The trigger has to be explicitly configured to catch the Cancelled status a trigger built for New or Confirmed bookings won't also fire on cancellation."
     },
     {
       q: "Can the same contact trigger a GoHighLevel appointment workflow more than once?",
@@ -303,7 +303,7 @@ export default function GoHighLevelAppointmentWorkflowNotTriggeringClient() {
           </div>
 
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-6xl">
-            This article is for one specific situation: an appointment was booked, confirmed, rescheduled, cancelled, or marked no-show in GoHighLevel, and the workflow that should have responded to that event never enrolled the contact. If your workflow doesn't trigger for anything, appointments included, that's a broader problem than this article covers — see <Link href="/blog/gohighlevel-workflow-not-triggering" className="text-[#0E9BF0] hover:underline">initial trigger and enrollment troubleshooting</Link> instead.
+            This article is for one specific situation: an appointment was booked, confirmed, rescheduled, cancelled, or marked no-show in GoHighLevel, and the workflow that should have responded to that event never enrolled the contact. If your workflow doesn't trigger for anything, appointments included, that's a broader problem than this article covers see <Link href="/blog/gohighlevel-workflow-not-triggering" className="text-[#0E9BF0] hover:underline">initial trigger and enrollment troubleshooting</Link> instead.
           </p>
 
           <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 md:p-6 mb-6">
@@ -312,7 +312,7 @@ export default function GoHighLevelAppointmentWorkflowNotTriggeringClient() {
               <span className="text-xs font-bold uppercase tracking-wider text-white/60">Quick answer</span>
             </div>
             <p className="text-sm text-white/70 leading-relaxed">
-              <strong className="text-white">An appointment existing in GoHighLevel doesn't automatically mean every appointment-related workflow should fire.</strong> The workflow's trigger has to be listening for the specific event that actually happened — the right trigger, the right calendar, the right status — and the contact's current state has to permit enrollment. Confirming the appointment happened only rules out the first link in that chain.
+              <strong className="text-white">An appointment existing in GoHighLevel doesn't automatically mean every appointment-related workflow should fire.</strong> The workflow's trigger has to be listening for the specific event that actually happened the right trigger, the right calendar, the right status and the contact's current state has to permit enrollment. Confirming the appointment happened only rules out the first link in that chain.
             </p>
           </div>
 
@@ -458,11 +458,11 @@ export default function GoHighLevelAppointmentWorkflowNotTriggeringClient() {
               This phrase covers several distinct points of failure, and they don't share a fix. An appointment event that doesn't produce the expected workflow enrollment could mean:
             </p>
             <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
-              <li>The appointment wasn't actually created the way you think — wrong calendar, wrong contact, or it never completed.</li>
+              <li>The appointment wasn't actually created the way you think wrong calendar, wrong contact, or it never completed.</li>
               <li>The workflow is listening for a different appointment trigger than the one this event actually fires.</li>
               <li>The event happened, but its status doesn't match what the trigger is configured to catch.</li>
               <li>The calendar, tag, or other trigger filter excludes this specific appointment.</li>
-              <li>The contact's existing state — already enrolled, re-entry disabled — blocks a new enrollment.</li>
+              <li>The contact's existing state already enrolled, re-entry disabled blocks a new enrollment.</li>
               <li>The workflow actually enrolled the contact, and the real problem is what happened afterward.</li>
             </ul>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
@@ -495,7 +495,7 @@ export default function GoHighLevelAppointmentWorkflowNotTriggeringClient() {
               Why a GoHighLevel Appointment Event and Workflow Enrollment Are Two Different Things
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              An appointment being created, confirmed, rescheduled, or cancelled is one event. A contact enrolling in a workflow because of that event is a separate, dependent event — not a guaranteed consequence of it. The chain runs: appointment event occurs → the relevant calendar and contact context is established → a workflow's appointment-based trigger evaluates the event → the trigger's filters check whether this specific event qualifies → enrollment occurs → execution begins.
+              An appointment being created, confirmed, rescheduled, or cancelled is one event. A contact enrolling in a workflow because of that event is a separate, dependent event not a guaranteed consequence of it. The chain runs: appointment event occurs → the relevant calendar and contact context is established → a workflow's appointment-based trigger evaluates the event → the trigger's filters check whether this specific event qualifies → enrollment occurs → execution begins.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               The appointment can be created correctly, on the right calendar, for the right contact, and still produce no enrollment if the workflow's trigger isn't the one that actually listens for that kind of event, or if a filter excludes it. Appointment creation is necessary for enrollment. It isn't sufficient.
@@ -509,10 +509,10 @@ export default function GoHighLevelAppointmentWorkflowNotTriggeringClient() {
               This is the step most troubleshooting skips, and it's often the actual answer. GoHighLevel currently has more than one appointment-related trigger, and they don't all behave the same way.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Appointment Status</strong> is the current primary trigger for calendar appointments — it fires when an appointment is scheduled or its status changes, and it's the trigger HighLevel is actively directing workflow builders toward. <strong className="text-[#1A2236]">Customer Booked Appointment</strong> is an older, separate trigger that HighLevel has been deprecating; its function has been folded into Appointment Status's own <strong className="text-[#1A2236]">Modified By</strong> filter (Customer, User, or API), so a workflow still built on the legacy trigger may be running on a component that's being phased out. If you're troubleshooting a workflow built some time ago, check which of the two it's actually using before assuming a filter problem.
+              <strong className="text-[#1A2236]">Appointment Status</strong> is the current primary trigger for calendar appointments it fires when an appointment is scheduled or its status changes, and it's the trigger HighLevel is actively directing workflow builders toward. <strong className="text-[#1A2236]">Customer Booked Appointment</strong> is an older, separate trigger that HighLevel has been deprecating; its function has been folded into Appointment Status's own <strong className="text-[#1A2236]">Modified By</strong> filter (Customer, User, or API), so a workflow still built on the legacy trigger may be running on a component that's being phased out. If you're troubleshooting a workflow built some time ago, check which of the two it's actually using before assuming a filter problem.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              There's a third, easy-to-miss option: <strong className="text-[#1A2236]">Service Booking (Services v2)</strong>, which only appears if Services v2 is enabled on the sub-account. It works at the booking level rather than the individual-appointment level — if a customer books three services in one checkout, Service Booking fires once for the whole booking, while Appointment Status would evaluate each appointment separately. A workflow built against the wrong one of these two will either fire multiple times when you expected once, or never fire at all for bookings made through the other system.
+              There's a third, easy-to-miss option: <strong className="text-[#1A2236]">Service Booking (Services v2)</strong>, which only appears if Services v2 is enabled on the sub-account. It works at the booking level rather than the individual-appointment level if a customer books three services in one checkout, Service Booking fires once for the whole booking, while Appointment Status would evaluate each appointment separately. A workflow built against the wrong one of these two will either fire multiple times when you expected once, or never fire at all for bookings made through the other system.
             </p>
 
             {/* Section: How Calendar Affects */}
@@ -520,7 +520,7 @@ export default function GoHighLevelAppointmentWorkflowNotTriggeringClient() {
               How the Selected GoHighLevel Calendar Affects Appointment Workflow Enrollment
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Appointment triggers typically support a calendar-level filter — scoped to one specific calendar or a calendar group — so the workflow only responds to bookings made through the calendars you actually intend. If a business runs multiple calendars (per location, per service, per team member) and the trigger is scoped to one of them, an appointment booked on a different calendar won't qualify, even though it's a completely valid appointment in every other respect. This is a distinct failure from a status mismatch: the event type and status can be exactly right, and the appointment can still fail to qualify purely because of which calendar it came through.
+              Appointment triggers typically support a calendar-level filter scoped to one specific calendar or a calendar group so the workflow only responds to bookings made through the calendars you actually intend. If a business runs multiple calendars (per location, per service, per team member) and the trigger is scoped to one of them, an appointment booked on a different calendar won't qualify, even though it's a completely valid appointment in every other respect. This is a distinct failure from a status mismatch: the event type and status can be exactly right, and the appointment can still fail to qualify purely because of which calendar it came through.
             </p>
 
             {/* Section: How Appointment Status Affects */}
@@ -528,7 +528,7 @@ export default function GoHighLevelAppointmentWorkflowNotTriggeringClient() {
               How GoHighLevel Appointment Status Affects Workflow Triggering
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Appointment status is not a single on/off state — GoHighLevel tracks a set of distinct statuses (typically New/Unconfirmed, Confirmed, Showed, No Show, Cancelled, and Invalid), and a trigger configured to catch one status will not fire for a different one. A workflow built to respond to a <em>new booking</em> will not automatically also respond when that same appointment is later <em>confirmed</em>, <em>cancelled</em>, or <em>marked as a no-show</em> — those are different status values, and unless the trigger is explicitly configured to catch more than one of them, only the configured status qualifies.
+              Appointment status is not a single on/off state GoHighLevel tracks a set of distinct statuses (typically New/Unconfirmed, Confirmed, Showed, No Show, Cancelled, and Invalid), and a trigger configured to catch one status will not fire for a different one. A workflow built to respond to a <em>new booking</em> will not automatically also respond when that same appointment is later <em>confirmed</em>, <em>cancelled</em>, or <em>marked as a no-show</em> those are different status values, and unless the trigger is explicitly configured to catch more than one of them, only the configured status qualifies.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               This is where "the appointment happened" stops being enough information. The specific status the workflow is listening for has to match the specific status the event actually produced, and it's worth checking that match explicitly rather than assuming any appointment-related activity should be enough.
@@ -539,10 +539,10 @@ export default function GoHighLevelAppointmentWorkflowNotTriggeringClient() {
               How GoHighLevel Appointment Trigger Filters Can Block a Qualifying Appointment
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Beyond calendar and status, the Appointment Status trigger carries additional filters that narrow qualification further. <strong className="text-[#1A2236]">Event Type</strong> distinguishes Normal appointments from Recurring ones — a workflow filtered to Normal won't fire for bookings made through a calendar with recurring appointments enabled, and recurring appointments don't qualify through the legacy Customer Booked Appointment trigger at all. <strong className="text-[#1A2236]">Modified By</strong> distinguishes who made the change — Customer (self-booked through a widget), User (booked or changed by staff), or API — so a workflow filtered to Customer won't fire when a team member manually creates or updates the appointment, even though an appointment clearly exists.
+              Beyond calendar and status, the Appointment Status trigger carries additional filters that narrow qualification further. <strong className="text-[#1A2236]">Event Type</strong> distinguishes Normal appointments from Recurring ones a workflow filtered to Normal won't fire for bookings made through a calendar with recurring appointments enabled, and recurring appointments don't qualify through the legacy Customer Booked Appointment trigger at all. <strong className="text-[#1A2236]">Modified By</strong> distinguishes who made the change Customer (self-booked through a widget), User (booked or changed by staff), or API so a workflow filtered to Customer won't fire when a team member manually creates or updates the appointment, even though an appointment clearly exists.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Any additional filters — a required tag, a specific assigned user — stack on top of these, and the event has to satisfy every configured filter simultaneously, not just the obvious ones like calendar and status.
+              Any additional filters a required tag, a specific assigned user stack on top of these, and the event has to satisfy every configured filter simultaneously, not just the obvious ones like calendar and status.
             </p>
 
             {/* Section: How Rescheduling Affects */}
@@ -550,7 +550,7 @@ export default function GoHighLevelAppointmentWorkflowNotTriggeringClient() {
               How GoHighLevel Appointment Rescheduling Affects Workflow Triggers
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Rescheduling updates the appointment's status rather than creating an entirely separate event, which has a direct consequence for triggering: a workflow with a trigger set to fire on a Rescheduled status will only re-enter an existing contact if <strong className="text-[#1A2236]">Allow Re-entry is enabled</strong> and the rescheduled appointment still matches every other configured filter — calendar, event type, and any others. Rescheduling is not automatically treated the same as a brand-new booking. If the workflow behaves correctly for first-time bookings but silently does nothing when an existing contact reschedules, check Allow Re-entry and the trigger's status filter before assuming anything about the trigger itself is broken.
+              Rescheduling updates the appointment's status rather than creating an entirely separate event, which has a direct consequence for triggering: a workflow with a trigger set to fire on a Rescheduled status will only re-enter an existing contact if <strong className="text-[#1A2236]">Allow Re-entry is enabled</strong> and the rescheduled appointment still matches every other configured filter calendar, event type, and any others. Rescheduling is not automatically treated the same as a brand-new booking. If the workflow behaves correctly for first-time bookings but silently does nothing when an existing contact reschedules, check Allow Re-entry and the trigger's status filter before assuming anything about the trigger itself is broken.
             </p>
 
             {/* Section: How Cancellations Affect */}
@@ -558,7 +558,7 @@ export default function GoHighLevelAppointmentWorkflowNotTriggeringClient() {
               How GoHighLevel Appointment Cancellations Affect Workflow Triggers
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              A cancellation is its own status value, and a workflow needs a trigger explicitly configured to catch it — a trigger built around New or Confirmed status will not also fire when an appointment is cancelled. Cancelling an appointment also has a separate effect worth knowing about: if the contact is currently mid-run in a <em>different</em> workflow tied to that same appointment (a reminder sequence, for example), cancelling pulls that contact out of the active run entirely. That's a distinct behavior from triggering a new workflow — one is an exit from an existing run, the other is qualification for a new one — and conflating them is a common source of confusion when a cancellation workflow doesn't seem to fire.
+              A cancellation is its own status value, and a workflow needs a trigger explicitly configured to catch it a trigger built around New or Confirmed status will not also fire when an appointment is cancelled. Cancelling an appointment also has a separate effect worth knowing about: if the contact is currently mid-run in a <em>different</em> workflow tied to that same appointment (a reminder sequence, for example), cancelling pulls that contact out of the active run entirely. That's a distinct behavior from triggering a new workflow one is an exit from an existing run, the other is qualification for a new one and conflating them is a common source of confusion when a cancellation workflow doesn't seem to fire.
             </p>
 
             {/* Section: How No-Show Affects */}
@@ -566,7 +566,7 @@ export default function GoHighLevelAppointmentWorkflowNotTriggeringClient() {
               How No-Show Status Affects GoHighLevel Workflow Triggers
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              No-show is tracked as its own appointment status, separate from Cancelled, and typically has to be set explicitly — either manually by a team member or through an automated no-show detection step — before a workflow trigger watching for that status can fire. If the appointment's actual status never transitions to No Show (it simply sits at Confirmed with no automatic change), a workflow built to catch the No Show status has nothing to respond to yet, regardless of whether the customer genuinely missed the appointment. Confirm the status itself changed before troubleshooting the trigger.
+              No-show is tracked as its own appointment status, separate from Cancelled, and typically has to be set explicitly either manually by a team member or through an automated no-show detection step before a workflow trigger watching for that status can fire. If the appointment's actual status never transitions to No Show (it simply sits at Confirmed with no automatic change), a workflow built to catch the No Show status has nothing to respond to yet, regardless of whether the customer genuinely missed the appointment. Confirm the status itself changed before troubleshooting the trigger.
             </p>
 
             {/* Section: How Existing Contacts and Re-Entry */}
@@ -574,7 +574,7 @@ export default function GoHighLevelAppointmentWorkflowNotTriggeringClient() {
               How Existing Contacts and Workflow Re-Entry Affect Repeated GoHighLevel Appointment Events
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              New appointment bookings carry a documented exception: a fresh booking re-enters the contact <strong className="text-[#1A2236]">regardless of the Allow Re-entry setting</strong>, and a contact can have more than one active run at once from separate appointments. That exception does not extend to status-change events like reschedules or cancellations on an existing appointment — those still require Allow Re-entry to be enabled to produce a second enrollment. This means "the same contact booked again and nothing happened" and "the same contact's existing appointment changed status and nothing happened" are genuinely different diagnoses, even though both involve a returning contact. When repeat bookings specifically are involved, the deeper mechanics of re-entry — and when it should or shouldn't be enabled — are covered in <Link href="/blog/gohighlevel-workflow-reentry" className="text-[#0E9BF0] hover:underline">GoHighLevel Workflow Re-Entry Explained</Link>.
+              New appointment bookings carry a documented exception: a fresh booking re-enters the contact <strong className="text-[#1A2236]">regardless of the Allow Re-entry setting</strong>, and a contact can have more than one active run at once from separate appointments. That exception does not extend to status-change events like reschedules or cancellations on an existing appointment those still require Allow Re-entry to be enabled to produce a second enrollment. This means "the same contact booked again and nothing happened" and "the same contact's existing appointment changed status and nothing happened" are genuinely different diagnoses, even though both involve a returning contact. When repeat bookings specifically are involved, the deeper mechanics of re-entry and when it should or shouldn't be enabled are covered in <Link href="/blog/gohighlevel-workflow-reentry" className="text-[#0E9BF0] hover:underline">GoHighLevel Workflow Re-Entry Explained</Link>.
             </p>
 
             {/* Section: How to Test With Real Booking */}
@@ -583,18 +583,18 @@ export default function GoHighLevelAppointmentWorkflowNotTriggeringClient() {
             </h2>
             <ol className="space-y-1 mb-4 text-sm text-[#5C6880] list-decimal list-inside">
               <li><strong className="text-[#1A2236]">Confirm the workflow is Published.</strong></li>
-              <li><strong className="text-[#1A2236]">Confirm which appointment trigger it uses</strong> — Appointment Status, the legacy Customer Booked Appointment, or Service Booking (Services v2).</li>
+              <li><strong className="text-[#1A2236]">Confirm which appointment trigger it uses</strong> Appointment Status, the legacy Customer Booked Appointment, or Service Booking (Services v2).</li>
               <li><strong className="text-[#1A2236]">Confirm the calendar (or calendar group) filter</strong> matches where the test booking will actually be made.</li>
-              <li><strong className="text-[#1A2236]">Confirm the status, Event Type, and Modified By filters</strong> match the exact scenario you're testing — don't test a Customer-booked scenario if the filter is set to User.</li>
+              <li><strong className="text-[#1A2236]">Confirm the status, Event Type, and Modified By filters</strong> match the exact scenario you're testing don't test a Customer-booked scenario if the filter is set to User.</li>
               <li><strong className="text-[#1A2236]">Use a contact you can control</strong>, ideally one without prior history in this workflow.</li>
-              <li><strong className="text-[#1A2236]">Create the appointment through the actual booking path</strong> you're troubleshooting — the live widget, not just an internal manual entry, if that's what real customers use.</li>
+              <li><strong className="text-[#1A2236]">Create the appointment through the actual booking path</strong> you're troubleshooting the live widget, not just an internal manual entry, if that's what real customers use.</li>
               <li><strong className="text-[#1A2236]">Verify the appointment event and its resulting status</strong> on the contact record.</li>
               <li><strong className="text-[#1A2236]">Check whether the contact enrolled</strong> in the workflow.</li>
-              <li><strong className="text-[#1A2236]">If enrolled</strong>, stop diagnosing the trigger — confirm what happened during execution instead.</li>
+              <li><strong className="text-[#1A2236]">If enrolled</strong>, stop diagnosing the trigger confirm what happened during execution instead.</li>
               <li><strong className="text-[#1A2236]">If not enrolled</strong>, work back through calendar, status, and filter matches before assuming anything is broken.</li>
             </ol>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              A successful booking proves the booking process worked — nothing about which trigger caught it or whether its filters matched. Test each status and event type independently when troubleshooting a workflow meant to respond to more than one of them; confirming "new booking" works says nothing about whether "rescheduled" or "cancelled" will.
+              A successful booking proves the booking process worked nothing about which trigger caught it or whether its filters matched. Test each status and event type independently when troubleshooting a workflow meant to respond to more than one of them; confirming "new booking" works says nothing about whether "rescheduled" or "cancelled" will.
             </p>
 
             {/* Section: How to Confirm Enrollment */}
@@ -602,7 +602,7 @@ export default function GoHighLevelAppointmentWorkflowNotTriggeringClient() {
               How to Confirm Whether a GoHighLevel Appointment Actually Enrolled the Contact
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              This is the boundary the whole article works toward. Open Enrollment History for the contact whose appointment event you're troubleshooting. No enrollment record means the problem is still upstream — trigger selection, calendar, status, or filters. An enrollment record means the appointment trigger did its job, and continuing to adjust calendar or status filters won't change anything, because they already worked. The detailed method for reading that evidence is in <Link href="/blog/gohighlevel-enrollment-history-execution-logs" className="text-[#0E9BF0] hover:underline">Enrollment History and Execution Logs</Link>; if enrollment is confirmed and a later email, SMS, task, or webhook still didn't fire, that's a separate diagnosis covered in <Link href="/blog/gohighlevel-workflow-triggered-not-working" className="text-[#0E9BF0] hover:underline">GoHighLevel Workflow Triggered but Not Working</Link>.
+              This is the boundary the whole article works toward. Open Enrollment History for the contact whose appointment event you're troubleshooting. No enrollment record means the problem is still upstream trigger selection, calendar, status, or filters. An enrollment record means the appointment trigger did its job, and continuing to adjust calendar or status filters won't change anything, because they already worked. The detailed method for reading that evidence is in <Link href="/blog/gohighlevel-enrollment-history-execution-logs" className="text-[#0E9BF0] hover:underline">Enrollment History and Execution Logs</Link>; if enrollment is confirmed and a later email, SMS, task, or webhook still didn't fire, that's a separate diagnosis covered in <Link href="/blog/gohighlevel-workflow-triggered-not-working" className="text-[#0E9BF0] hover:underline">GoHighLevel Workflow Triggered but Not Working</Link>.
             </p>
 
             {/* Section: Common Reasons */}
@@ -642,7 +642,7 @@ export default function GoHighLevelAppointmentWorkflowNotTriggeringClient() {
               <li><strong className="text-[#1A2236]">Overlooking the Modified By filter</strong> and testing customer-facing behavior with a staff-created appointment, or the reverse.</li>
               <li><strong className="text-[#1A2236]">Treating every repeat appointment as a re-entry problem,</strong> when new bookings re-enter regardless of the setting and only status-change events actually depend on it.</li>
               <li><strong className="text-[#1A2236]">Changing multiple filters simultaneously while troubleshooting,</strong> which erases the ability to tell which condition was actually blocking enrollment.</li>
-              <li><strong className="text-[#1A2236]">Concluding the workflow enrolled when it only confirms the appointment was created</strong> — those are different pieces of evidence, and only Enrollment History confirms the second one.</li>
+              <li><strong className="text-[#1A2236]">Concluding the workflow enrolled when it only confirms the appointment was created</strong> those are different pieces of evidence, and only Enrollment History confirms the second one.</li>
             </ul>
 
             {/* Section: When Problem Not About Appointment Trigger */}
@@ -662,7 +662,7 @@ export default function GoHighLevelAppointmentWorkflowNotTriggeringClient() {
               The Core Diagnostic Principle for a GoHighLevel Appointment Workflow That Isn't Enrolling Contacts
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              An appointment event and a workflow enrollment are related but separate outcomes, connected by which trigger the workflow actually uses, which calendar and status it's scoped to, and the contact's current state. Confirm the event happened, confirm the workflow is listening for that exact trigger, calendar, and status, and check Enrollment History as the evidence for whether it actually worked. Once enrollment is confirmed, the appointment trigger has done everything it's responsible for — anything left to diagnose belongs to execution, not the trigger.
+              An appointment event and a workflow enrollment are related but separate outcomes, connected by which trigger the workflow actually uses, which calendar and status it's scoped to, and the contact's current state. Confirm the event happened, confirm the workflow is listening for that exact trigger, calendar, and status, and check Enrollment History as the evidence for whether it actually worked. Once enrollment is confirmed, the appointment trigger has done everything it's responsible for anything left to diagnose belongs to execution, not the trigger.
             </p>
 
             {/* Section: FAQ */}

@@ -163,11 +163,11 @@ export default function GoHighLevelFormSubmittedWorkflowNotTriggeringClient() {
     },
     {
       q: "How do I trigger a GoHighLevel workflow when someone submits a form?",
-      a: "Add a Form Submitted trigger, set its Form filter to the exact form you want to listen for, add any additional qualifying filters, and publish the workflow — a form with no Form filter selected will trigger the workflow from any form submission in the sub-account."
+      a: "Add a Form Submitted trigger, set its Form filter to the exact form you want to listen for, add any additional qualifying filters, and publish the workflow a form with no Form filter selected will trigger the workflow from any form submission in the sub-account."
     },
     {
       q: "Why does my GoHighLevel form submit successfully but the workflow doesn't start?",
-      a: "A successful submission confirms the form itself worked. It doesn't confirm the trigger is listening for that exact form, that its filters are satisfied, or that the contact's current state allows enrollment — those are separate, later steps in the chain."
+      a: "A successful submission confirms the form itself worked. It doesn't confirm the trigger is listening for that exact form, that its filters are satisfied, or that the contact's current state allows enrollment those are separate, later steps in the chain."
     },
     {
       q: "Why is my Form Submitted trigger not working in GoHighLevel?",
@@ -175,11 +175,11 @@ export default function GoHighLevelFormSubmittedWorkflowNotTriggeringClient() {
     },
     {
       q: "Can an existing GoHighLevel contact trigger a workflow after submitting a form again?",
-      a: "Only if the workflow's Allow Re-entry setting permits it and the contact isn't currently active in that same workflow — this is governed by re-entry behavior, not the Form Submitted trigger itself."
+      a: "Only if the workflow's Allow Re-entry setting permits it and the contact isn't currently active in that same workflow this is governed by re-entry behavior, not the Form Submitted trigger itself."
     },
     {
       q: "How do I test a GoHighLevel Form Submitted workflow?",
-      a: "Confirm the workflow is Published and the correct form is selected, submit the actual live form with a contact you control, then check Enrollment History to confirm whether the contact enrolled — a submission alone doesn't confirm enrollment."
+      a: "Confirm the workflow is Published and the correct form is selected, submit the actual live form with a contact you control, then check Enrollment History to confirm whether the contact enrolled a submission alone doesn't confirm enrollment."
     },
     {
       q: "How do I know whether my form submission enrolled the contact in a workflow?",
@@ -187,7 +187,7 @@ export default function GoHighLevelFormSubmittedWorkflowNotTriggeringClient() {
     },
     {
       q: "Why does the workflow work with one form but not another?",
-      a: "Almost always because the trigger's Form filter is set to one specific form, and the second form was never selected — each Form Submitted trigger listens for the form(s) explicitly configured in its filter, not \"forms\" as a category."
+      a: "Almost always because the trigger's Form filter is set to one specific form, and the second form was never selected each Form Submitted trigger listens for the form(s) explicitly configured in its filter, not \"forms\" as a category."
     }
   ];
 
@@ -284,7 +284,7 @@ export default function GoHighLevelFormSubmittedWorkflowNotTriggeringClient() {
           </div>
 
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-6xl">
-            This article is for one specific situation: someone submitted a GoHighLevel form, the submission clearly happened, but the workflow you built to respond to it never started. If your workflow doesn't trigger for anything — not just forms — the cause is broader than this article covers; see <Link href="/blog/gohighlevel-workflow-not-triggering" className="text-[#0E9BF0] hover:underline">initial trigger and enrollment troubleshooting</Link> instead.
+            This article is for one specific situation: someone submitted a GoHighLevel form, the submission clearly happened, but the workflow you built to respond to it never started. If your workflow doesn't trigger for anything not just forms the cause is broader than this article covers; see <Link href="/blog/gohighlevel-workflow-not-triggering" className="text-[#0E9BF0] hover:underline">initial trigger and enrollment troubleshooting</Link> instead.
           </p>
 
           <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 md:p-6 mb-6">
@@ -293,7 +293,7 @@ export default function GoHighLevelFormSubmittedWorkflowNotTriggeringClient() {
               <span className="text-xs font-bold uppercase tracking-wider text-white/60">Quick answer</span>
             </div>
             <p className="text-sm text-white/70 leading-relaxed">
-              <strong className="text-white">A form submitting successfully and a contact enrolling in a workflow are two separate events connected by several conditions that all have to hold</strong> — the workflow has to be listening for <em>that specific form</em>, the trigger's filters have to qualify the submission, and the contact's current state has to allow enrollment. A clean submission proves the form worked. It doesn't prove any of the rest.
+              <strong className="text-white">A form submitting successfully and a contact enrolling in a workflow are two separate events connected by several conditions that all have to hold</strong> the workflow has to be listening for <em>that specific form</em>, the trigger's filters have to qualify the submission, and the contact's current state has to allow enrollment. A clean submission proves the form worked. It doesn't prove any of the rest.
             </p>
           </div>
 
@@ -443,7 +443,7 @@ export default function GoHighLevelFormSubmittedWorkflowNotTriggeringClient() {
               <li>The workflow's Form Submitted trigger is pointed at a different form than the one that was submitted.</li>
               <li>The workflow exists and is correctly configured, but it's still in Draft rather than Published.</li>
               <li>The submission happened and matched the right form, but additional trigger filters excluded it.</li>
-              <li>The contact's existing state — already enrolled, already completed, re-entry disabled — prevented a new enrollment.</li>
+              <li>The contact's existing state already enrolled, already completed, re-entry disabled prevented a new enrollment.</li>
               <li>The workflow actually did enroll the contact, and the real problem is something that happened (or didn't) after that.</li>
             </ul>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
@@ -479,7 +479,7 @@ export default function GoHighLevelFormSubmittedWorkflowNotTriggeringClient() {
               A visitor submitting a form is one event. A contact enrolling in a workflow is a separate, later event that depends on the first one but isn't guaranteed by it. The chain runs: form displayed → form submitted → submission recorded → contact identified, created, or updated → the Form Submitted trigger evaluates → the trigger's filters check whether this specific submission qualifies → enrollment occurs → workflow execution begins.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The submission can succeed at every step up through "contact identified or updated" and still fail to produce an enrollment, because the trigger evaluation and filter-matching steps are where GoHighLevel decides whether <em>this workflow</em> cares about <em>this event</em>. A successful submission is necessary for enrollment — it's not sufficient. Keeping that distinction explicit is the single most useful mental model for this entire troubleshooting process.
+              The submission can succeed at every step up through "contact identified or updated" and still fail to produce an enrollment, because the trigger evaluation and filter-matching steps are where GoHighLevel decides whether <em>this workflow</em> cares about <em>this event</em>. A successful submission is necessary for enrollment it's not sufficient. Keeping that distinction explicit is the single most useful mental model for this entire troubleshooting process.
             </p>
 
             {/* Section: How Form Selected Affects Enrollment */}
@@ -487,13 +487,13 @@ export default function GoHighLevelFormSubmittedWorkflowNotTriggeringClient() {
               How the Form Selected in a GoHighLevel Workflow Trigger Affects Enrollment
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The Form Submitted trigger doesn't listen for "a form was submitted" in general — it listens for whichever specific form is set in its <strong className="text-[#1A2236]">Form</strong> filter, and if no form is selected at all, it fires for <em>every</em> form submission across the entire sub-account. Both extremes cause real problems: no form selected means unrelated submissions trigger the workflow, and the wrong form selected means the intended submission never does.
+              The Form Submitted trigger doesn't listen for "a form was submitted" in general it listens for whichever specific form is set in its <strong className="text-[#1A2236]">Form</strong> filter, and if no form is selected at all, it fires for <em>every</em> form submission across the entire sub-account. Both extremes cause real problems: no form selected means unrelated submissions trigger the workflow, and the wrong form selected means the intended submission never does.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The wrong-form case is more common than it sounds, especially on accounts that have existed for a while. It's easy to end up with two or three forms carrying nearly identical names — "Contact Form," "Website Contact Form," "Contact Form (2)" — after a page redesign or a rebuilt funnel, and the trigger's dropdown doesn't visually distinguish which one is actually embedded on the live page. If the trigger is pointed at the retired version, submissions on the live version will never match, no matter how correctly the rest of the workflow is built.
+              The wrong-form case is more common than it sounds, especially on accounts that have existed for a while. It's easy to end up with two or three forms carrying nearly identical names "Contact Form," "Website Contact Form," "Contact Form (2)" after a page redesign or a rebuilt funnel, and the trigger's dropdown doesn't visually distinguish which one is actually embedded on the live page. If the trigger is pointed at the retired version, submissions on the live version will never match, no matter how correctly the rest of the workflow is built.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              There's a second, less obvious version of this problem: <strong className="text-[#1A2236]">forms and surveys fire different triggers entirely.</strong> A form fires the Form Submitted trigger; a survey — a multi-step, page-branching submission experience — fires a separate Survey Submitted trigger, even though both look like "someone filled something out and hit submit" from the outside. A workflow built with a Form Submitted trigger will never fire for a survey, regardless of filters, because it's listening for the wrong event type from the start.
+              There's a second, less obvious version of this problem: <strong className="text-[#1A2236]">forms and surveys fire different triggers entirely.</strong> A form fires the Form Submitted trigger; a survey a multi-step, page-branching submission experience fires a separate Survey Submitted trigger, even though both look like "someone filled something out and hit submit" from the outside. A workflow built with a Form Submitted trigger will never fire for a survey, regardless of filters, because it's listening for the wrong event type from the start.
             </p>
 
             {/* Section: How Form Filters Block Valid Submission */}
@@ -501,10 +501,10 @@ export default function GoHighLevelFormSubmittedWorkflowNotTriggeringClient() {
               How GoHighLevel Form Submitted Trigger Filters Can Block a Valid Submission
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Beyond the Form filter itself, the trigger's <strong className="text-[#1A2236]">Form Type</strong> filter narrows which category of submission qualifies — typically Normal (standard embedded forms), Chat Widget Form, Survey, or All. If this filter is set to a category that doesn't match how the actual form was deployed, a submission that clearly happened on the correct form can still fail to qualify.
+              Beyond the Form filter itself, the trigger's <strong className="text-[#1A2236]">Form Type</strong> filter narrows which category of submission qualifies typically Normal (standard embedded forms), Chat Widget Form, Survey, or All. If this filter is set to a category that doesn't match how the actual form was deployed, a submission that clearly happened on the correct form can still fail to qualify.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Any additional filters layered on top of the trigger — a required tag, a pipeline condition, a specific field value — apply on top of the form match, not instead of it. A submission has to satisfy every configured filter, not just the form selection, to result in enrollment. This is where "form submitted ≠ automatically qualified" becomes concrete: the submission can be exactly the one the workflow is listening for and still fail to qualify if one additional condition doesn't hold for that particular contact.
+              Any additional filters layered on top of the trigger a required tag, a pipeline condition, a specific field value apply on top of the form match, not instead of it. A submission has to satisfy every configured filter, not just the form selection, to result in enrollment. This is where "form submitted ≠ automatically qualified" becomes concrete: the submission can be exactly the one the workflow is listening for and still fail to qualify if one additional condition doesn't hold for that particular contact.
             </p>
 
             {/* Section: How to Confirm Workflow Active */}
@@ -512,7 +512,7 @@ export default function GoHighLevelFormSubmittedWorkflowNotTriggeringClient() {
               How to Confirm a GoHighLevel Workflow Is Active for a Form Submitted Trigger
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Before investigating anything about the form itself, confirm the workflow is actually live. A workflow sitting in Draft doesn't evaluate incoming events at all, regardless of how correctly its trigger and filters are configured — this applies to Form Submitted the same as any other trigger type, and it's covered in full in <Link href="/blog/gohighlevel-workflow-not-triggering" className="text-[#0E9BF0] hover:underline">initial trigger troubleshooting</Link> if you need the broader status-check process. For this article's purposes, the check is simple: confirm Published status first, because every other check in this article assumes it, and skipping it is the single fastest way to misdiagnose a form-selection problem that doesn't actually exist.
+              Before investigating anything about the form itself, confirm the workflow is actually live. A workflow sitting in Draft doesn't evaluate incoming events at all, regardless of how correctly its trigger and filters are configured this applies to Form Submitted the same as any other trigger type, and it's covered in full in <Link href="/blog/gohighlevel-workflow-not-triggering" className="text-[#0E9BF0] hover:underline">initial trigger troubleshooting</Link> if you need the broader status-check process. For this article's purposes, the check is simple: confirm Published status first, because every other check in this article assumes it, and skipping it is the single fastest way to misdiagnose a form-selection problem that doesn't actually exist.
             </p>
 
             {/* Section: How to Verify Submission Occurred */}
@@ -520,7 +520,7 @@ export default function GoHighLevelFormSubmittedWorkflowNotTriggeringClient() {
               How to Verify a GoHighLevel Form Submission Actually Occurred
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Don't assume that because someone clicked Submit, GoHighLevel actually recorded the submission — a validation error, a network interruption, or a misconfigured required field can all stop a submission before it's recorded, while still showing the visitor something that looks like success on a slow connection. Check the form's own submission records for that contact, confirm the specific fields that came through, and confirm this is the actual live form rather than a preview or an older duplicate. If there's no record of the submission at all, the investigation belongs on the form and the page it's embedded on — not on the workflow trigger, which never had anything to evaluate.
+              Don't assume that because someone clicked Submit, GoHighLevel actually recorded the submission a validation error, a network interruption, or a misconfigured required field can all stop a submission before it's recorded, while still showing the visitor something that looks like success on a slow connection. Check the form's own submission records for that contact, confirm the specific fields that came through, and confirm this is the actual live form rather than a preview or an older duplicate. If there's no record of the submission at all, the investigation belongs on the form and the page it's embedded on not on the workflow trigger, which never had anything to evaluate.
             </p>
 
             {/* Section: How Existing Contacts Behave Differently */}
@@ -528,7 +528,7 @@ export default function GoHighLevelFormSubmittedWorkflowNotTriggeringClient() {
               How Existing GoHighLevel Contacts Can Behave Differently From New Contacts on Form Submitted Workflows
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              A brand-new contact submitting a form for the first time and an existing contact submitting the same form again are not guaranteed to produce the same result. If the contact already has a completed or active enrollment in that workflow, whether the new submission produces a second enrollment depends entirely on the workflow's re-entry configuration — this is a genuinely different diagnostic path than trigger or filter troubleshooting, and it's covered in full in <Link href="/blog/gohighlevel-workflow-reentry" className="text-[#0E9BF0] hover:underline">GoHighLevel Workflow Re-Entry Explained</Link>. If a workflow behaves correctly for new leads but silently does nothing for returning contacts who resubmit, that's the article to open next rather than continuing to inspect the Form Submitted trigger itself.
+              A brand-new contact submitting a form for the first time and an existing contact submitting the same form again are not guaranteed to produce the same result. If the contact already has a completed or active enrollment in that workflow, whether the new submission produces a second enrollment depends entirely on the workflow's re-entry configuration this is a genuinely different diagnostic path than trigger or filter troubleshooting, and it's covered in full in <Link href="/blog/gohighlevel-workflow-reentry" className="text-[#0E9BF0] hover:underline">GoHighLevel Workflow Re-Entry Explained</Link>. If a workflow behaves correctly for new leads but silently does nothing for returning contacts who resubmit, that's the article to open next rather than continuing to inspect the Form Submitted trigger itself.
             </p>
 
             {/* Section: How Form Fields Prevent Qualification */}
@@ -536,7 +536,7 @@ export default function GoHighLevelFormSubmittedWorkflowNotTriggeringClient() {
               How GoHighLevel Form Fields and Contact Data Can Prevent Workflow Qualification
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              When a workflow's trigger filters reference specific submitted data — a dropdown value, a required custom field, a particular answer — the submission has to actually carry that data in the expected format to qualify. A field left blank because it wasn't marked required, a value that doesn't exactly match what a filter is checking for, or data landing in a different custom field than the one the filter references, can all produce a technically successful submission that still doesn't satisfy the trigger. This is a genuinely separate cause from form selection: the correct form fired the correct trigger, and the specific data-based condition is what didn't hold.
+              When a workflow's trigger filters reference specific submitted data a dropdown value, a required custom field, a particular answer the submission has to actually carry that data in the expected format to qualify. A field left blank because it wasn't marked required, a value that doesn't exactly match what a filter is checking for, or data landing in a different custom field than the one the filter references, can all produce a technically successful submission that still doesn't satisfy the trigger. This is a genuinely separate cause from form selection: the correct form fired the correct trigger, and the specific data-based condition is what didn't hold.
             </p>
 
             {/* Section: How to Test With Real Submission */}
@@ -544,21 +544,21 @@ export default function GoHighLevelFormSubmittedWorkflowNotTriggeringClient() {
               How to Test a GoHighLevel Form Submitted Workflow With a Real Submission
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              A meaningful test isn't just resubmitting the form and watching to see if anything happens — it needs to isolate each condition in the chain so a negative result tells you something specific.
+              A meaningful test isn't just resubmitting the form and watching to see if anything happens it needs to isolate each condition in the chain so a negative result tells you something specific.
             </p>
             <ol className="space-y-1 mb-4 text-sm text-[#5C6880] list-decimal list-inside">
               <li><strong className="text-[#1A2236]">Confirm the workflow is Published</strong>, not Draft.</li>
               <li><strong className="text-[#1A2236]">Confirm the Form filter</strong> points at the exact form embedded on the live page, not a similarly named duplicate.</li>
               <li><strong className="text-[#1A2236]">Confirm the Form Type filter and any additional trigger filters</strong> match how the submission will actually be deployed and what data it will carry.</li>
-              <li><strong className="text-[#1A2236]">Use a contact you can control</strong> — ideally one with no prior history in this workflow, so re-entry state doesn't complicate the result.</li>
+              <li><strong className="text-[#1A2236]">Use a contact you can control</strong> ideally one with no prior history in this workflow, so re-entry state doesn't complicate the result.</li>
               <li><strong className="text-[#1A2236]">Submit the actual live form</strong>, not a builder preview.</li>
               <li><strong className="text-[#1A2236]">Verify the submission was recorded</strong>, with the fields you expected.</li>
               <li><strong className="text-[#1A2236]">Check whether the contact enrolled</strong> in the workflow.</li>
-              <li><strong className="text-[#1A2236]">If enrolled</strong>, stop investigating the trigger — move to <Link href="/blog/gohighlevel-enrollment-history-execution-logs" className="text-[#0E9BF0] hover:underline">confirming what happened during execution</Link>.</li>
-              <li><strong className="text-[#1A2236]">If not enrolled</strong>, the problem is somewhere upstream of enrollment — work back through form selection, trigger filters, and contact state.</li>
+              <li><strong className="text-[#1A2236]">If enrolled</strong>, stop investigating the trigger move to <Link href="/blog/gohighlevel-enrollment-history-execution-logs" className="text-[#0E9BF0] hover:underline">confirming what happened during execution</Link>.</li>
+              <li><strong className="text-[#1A2236]">If not enrolled</strong>, the problem is somewhere upstream of enrollment work back through form selection, trigger filters, and contact state.</li>
             </ol>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Be clear about what each result proves. A successful submission proves the submission process works — nothing more. A confirmed enrollment proves the trigger and its filters are correctly configured for that specific test — it doesn't prove every downstream action will behave as expected.
+              Be clear about what each result proves. A successful submission proves the submission process works nothing more. A confirmed enrollment proves the trigger and its filters are correctly configured for that specific test it doesn't prove every downstream action will behave as expected.
             </p>
 
             {/* Section: How to Confirm Enrollment */}
@@ -566,7 +566,7 @@ export default function GoHighLevelFormSubmittedWorkflowNotTriggeringClient() {
               How to Confirm Whether a GoHighLevel Form Submission Actually Enrolled the Contact
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              This is the boundary the entire article is built around. Open the workflow's Enrollment History for the contact who submitted the form. If there's no enrollment record, the problem is still upstream — the form selection, the trigger's filters, or the contact's current state. If there is an enrollment record, the Form Submitted trigger did its job, and continuing to adjust form selection or trigger filters won't fix anything, because they already worked. From that point, any remaining problem belongs to workflow execution, not the trigger — the full method for reading that evidence is in <Link href="/blog/gohighlevel-enrollment-history-execution-logs" className="text-[#0E9BF0] hover:underline">Enrollment History and Execution Logs</Link>, and diagnosing what happened after enrollment is covered in <Link href="/blog/gohighlevel-workflow-triggered-not-working" className="text-[#0E9BF0] hover:underline">GoHighLevel Workflow Triggered but Not Working</Link>.
+              This is the boundary the entire article is built around. Open the workflow's Enrollment History for the contact who submitted the form. If there's no enrollment record, the problem is still upstream the form selection, the trigger's filters, or the contact's current state. If there is an enrollment record, the Form Submitted trigger did its job, and continuing to adjust form selection or trigger filters won't fix anything, because they already worked. From that point, any remaining problem belongs to workflow execution, not the trigger the full method for reading that evidence is in <Link href="/blog/gohighlevel-enrollment-history-execution-logs" className="text-[#0E9BF0] hover:underline">Enrollment History and Execution Logs</Link>, and diagnosing what happened after enrollment is covered in <Link href="/blog/gohighlevel-workflow-triggered-not-working" className="text-[#0E9BF0] hover:underline">GoHighLevel Workflow Triggered but Not Working</Link>.
             </p>
 
             {/* Section: Common Reasons */}
@@ -601,10 +601,10 @@ export default function GoHighLevelFormSubmittedWorkflowNotTriggeringClient() {
             </h2>
             <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
               <li><strong className="text-[#1A2236]">Testing with the wrong form and assuming the workflow is broken.</strong> If a near-duplicate form exists, confirm which one is actually live before touching the workflow.</li>
-              <li><strong className="text-[#1A2236]">Assuming a successful submission proves qualification.</strong> It proves the form worked — nothing about the trigger's filters or the contact's eligibility.</li>
+              <li><strong className="text-[#1A2236]">Assuming a successful submission proves qualification.</strong> It proves the form worked nothing about the trigger's filters or the contact's eligibility.</li>
               <li><strong className="text-[#1A2236]">Only testing with an existing contact.</strong> Re-entry state can mask a perfectly functional trigger, making it look broken for a reason that has nothing to do with the trigger itself.</li>
               <li><strong className="text-[#1A2236]">Changing multiple trigger filters at once while troubleshooting.</strong> This destroys the ability to tell which specific condition was actually blocking enrollment.</li>
-              <li><strong className="text-[#1A2236]">Assuming the workflow is inactive when the real issue is qualification,</strong> or the reverse — chasing filter configuration when the workflow was simply never published.</li>
+              <li><strong className="text-[#1A2236]">Assuming the workflow is inactive when the real issue is qualification,</strong> or the reverse chasing filter configuration when the workflow was simply never published.</li>
               <li><strong className="text-[#1A2236]">Treating a confirmed enrollment as proof the whole automation worked.</strong> The trigger's job ends at enrollment; whether the intended email, tag, or notification actually happened is a separate question.</li>
               <li><strong className="text-[#1A2236]">Rebuilding the trigger from scratch instead of isolating which single condition failed.</strong> A rebuild that happens to work doesn't tell you what was actually wrong, which makes the same failure likely to resurface on the next form.</li>
             </ul>
@@ -617,7 +617,7 @@ export default function GoHighLevelFormSubmittedWorkflowNotTriggeringClient() {
               <li><strong className="text-[#1A2236]">The workflow doesn't trigger for anything, not just forms</strong> → <Link href="/blog/gohighlevel-workflow-not-triggering" className="text-[#0E9BF0] hover:underline">GoHighLevel Workflow Not Triggering? Find the Fix</Link></li>
               <li><strong className="text-[#1A2236]">The workflow worked before, but a returning contact who resubmits won't go through it again</strong> → <Link href="/blog/gohighlevel-workflow-reentry" className="text-[#0E9BF0] hover:underline">GoHighLevel Workflow Re-Entry Explained</Link></li>
               <li><strong className="text-[#1A2236]">Enrollment History confirms the contact entered, and you need to inspect exactly what happened during that run</strong> → <Link href="/blog/gohighlevel-enrollment-history-execution-logs" className="text-[#0E9BF0] hover:underline">Enrollment History and Execution Logs</Link></li>
-              <li><strong className="text-[#1A2236]">The contact enrolled, but a later step — an email, a webhook, an opportunity action — didn't behave as expected</strong> → <Link href="/blog/gohighlevel-workflow-triggered-not-working" className="text-[#0E9BF0] hover:underline">GoHighLevel Workflow Triggered but Not Working</Link></li>
+              <li><strong className="text-[#1A2236]">The contact enrolled, but a later step an email, a webhook, an opportunity action didn't behave as expected</strong> → <Link href="/blog/gohighlevel-workflow-triggered-not-working" className="text-[#0E9BF0] hover:underline">GoHighLevel Workflow Triggered but Not Working</Link></li>
             </ul>
 
             {/* Section: Core Diagnostic Principle */}
@@ -625,7 +625,7 @@ export default function GoHighLevelFormSubmittedWorkflowNotTriggeringClient() {
               The Core Diagnostic Principle for a GoHighLevel Form Submitted Workflow That Isn't Enrolling Contacts
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              A form submitting successfully and a workflow enrolling a contact are related but separate events, connected by the trigger's form selection, its filters, and the contact's current state. Confirm the submission happened, confirm the trigger is listening for that exact form and submission type, confirm the filters match the submitted data, and check Enrollment History as the evidence that tells you whether it actually worked. Once enrollment is confirmed, the Form Submitted trigger has done its job — anything left to diagnose belongs to execution, not the trigger.
+              A form submitting successfully and a workflow enrolling a contact are related but separate events, connected by the trigger's form selection, its filters, and the contact's current state. Confirm the submission happened, confirm the trigger is listening for that exact form and submission type, confirm the filters match the submitted data, and check Enrollment History as the evidence that tells you whether it actually worked. Once enrollment is confirmed, the Form Submitted trigger has done its job anything left to diagnose belongs to execution, not the trigger.
             </p>
 
             {/* Section: FAQ */}
