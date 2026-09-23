@@ -14,6 +14,39 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'CalendarClock',
+            tag: 'Troubleshooting',
+            title: 'GoHighLevel Appointment Workflow Not Triggering? Troubleshooting Guide',
+            excerpt: 'An appointment was booked, rescheduled, or cancelled in GoHighLevel, but the workflow didn\'t start. Learn exactly which trigger, status, and filter to check.',
+            slug: 'gohighlevel-appointment-workflow-not-triggering',
+            date: 'September 23, 2026',
+            readTime: '18 min read',
+            featured: true,
+            image: '/blog/gohighlevel-appointment-workflow-not-triggering.png',
+      },
+      {
+            icon: 'FileInput',
+            tag: 'Troubleshooting',
+            title: 'GoHighLevel Form Submitted Workflow Not Triggering? Causes and Fixes',
+            excerpt: 'A visitor submitted your GoHighLevel form but the workflow never started. Learn the real difference between form submission and workflow enrollment, and how to fix it.',
+            slug: 'gohighlevel-form-submitted-workflow-not-triggering',
+            date: 'September 22, 2026',
+            readTime: '18 min read',
+            featured: true,
+            image: '/blog/gohighlevel-form-submitted-workflow-not-triggering.png',
+      },
+      {
+            icon: 'AlertCircle',
+            tag: 'Troubleshooting',
+            title: 'GoHighLevel Workflow Triggered but Not Working: Find the Failed Step',
+            excerpt: 'The contact entered the workflow, but something downstream didn\'t happen. Learn to find the last successful step, read the divergence, and fix it — without rebuilding the workflow.',
+            slug: 'gohighlevel-workflow-triggered-not-working',
+            date: 'September 21, 2026',
+            readTime: '18 min read',
+            featured: true,
+            image: '/blog/gohighlevel-workflow-triggered-not-working.png',
+      },
+      {
             icon: 'Smartphone',
             tag: 'Integration',
             title: 'GoHighLevel iMessage: Do You Need a Mac? (2026)',
@@ -22,7 +55,7 @@ export const blogPosts: BlogPost[] = [
             date: 'September 18, 2026',
             readTime: '20 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: '/blog/gohighlevel-imessage-mac-iphone.png',
       },
       {
             icon: 'RotateCcw',
@@ -33,7 +66,7 @@ export const blogPosts: BlogPost[] = [
             date: 'September 17, 2026',
             readTime: '16 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: '/blog/gohighlevel-workflow-reentry.png',
       },
       {
             icon: 'ListChecks',
@@ -44,7 +77,7 @@ export const blogPosts: BlogPost[] = [
             date: 'September 16, 2026',
             readTime: '16 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: '/blog/gohighlevel-enrollment-history-execution-logs.png',
       },
       {
             icon: 'AlertTriangle',
@@ -55,7 +88,7 @@ export const blogPosts: BlogPost[] = [
             date: 'September 15, 2026',
             readTime: '16 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: '/blog/gohighlevel-workflow-not-triggering.png',
       },
       {
             icon: 'Building2',
@@ -66,7 +99,7 @@ export const blogPosts: BlogPost[] = [
             date: 'September 14, 2026',
             readTime: '18 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: '/blog/gohighlevel-for-small-business.png',
       },
       {
             icon: 'GitCompare',
@@ -77,7 +110,7 @@ export const blogPosts: BlogPost[] = [
             date: 'September 12, 2026',
             readTime: '18 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: '/blog/claude-code-vs-highlevel-ai-studio.png',
       },
       {
             icon: 'Layers',
@@ -88,7 +121,7 @@ export const blogPosts: BlogPost[] = [
             date: 'September 10, 2026',
             readTime: '16 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: '/blog/clickup-gohighlevel-integration.png',
       },
       {
             icon: 'GitCompare',
@@ -99,7 +132,7 @@ export const blogPosts: BlogPost[] = [
             date: 'September 9, 2026',
             readTime: '18 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: '/blog/kajabi-vs-gohighlevel-comparison.png',
       },
       {
             icon: 'Database',
@@ -110,7 +143,7 @@ export const blogPosts: BlogPost[] = [
             date: 'September 8, 2026',
             readTime: '16 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
+            image: '/blog/migration-transfer-vs-rebuild.png',
       },
       {
             icon: 'Link2',
@@ -264,7 +297,7 @@ export const blogPosts: BlogPost[] = [
             date: 'July 28, 2026',
             readTime: '20 min read',
             featured: true,
-            image: 'https://tse2.mm.bing.net/th/id/OIP.-NdJQID86M6JjLYlbkIBZQHaEI?r=0&rs=1&pid=ImgDetMain&o=7&rm=3',
+            image: '/blog/ghl-vs-keap-comparison.png',
       },
       {
             icon: 'MailOpen',
@@ -286,7 +319,7 @@ export const blogPosts: BlogPost[] = [
             date: 'July 21, 2026',
             readTime: '25 min read',
             featured: true,
-            image: 'https://tse3.mm.bing.net/th/id/OIP.xPquBwDfRl2mxM9W3rk-3wHaEL?r=0&rs=1&pid=ImgDetMain&o=7&rm=3',
+            image: '/blog/keap-to-ghl-migration-guide.png',
       },
       {
             icon: 'DatabaseIcon',
@@ -297,7 +330,7 @@ export const blogPosts: BlogPost[] = [
             date: 'July 20, 2026',
             readTime: '26 min read',
             featured: true,
-            image: 'https://tse1.mm.bing.net/th/id/OIP._jevgUNK1jelvc0qGzi82QHaEL?r=0&rs=1&pid=ImgDetMain&o=7&rm=3',
+            image: '/blog/salesforce-to-ghl-migration-guide.png',
       },
       {
             icon: 'FileSpreadsheet',
@@ -308,7 +341,7 @@ export const blogPosts: BlogPost[] = [
             date: 'July 18, 2026',
             readTime: '24 min read',
             featured: true,
-            image: 'https://th.bing.com/th/id/OIP.Bu0UMU61oMFLJdoMn6BfiQHaEL?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3',
+            image: '/blog/zoho-to-ghl-migration-guide.png',
       },
       {
             icon: 'IndianRupee',
@@ -462,7 +495,7 @@ export const blogPosts: BlogPost[] = [
             date: 'June 27, 2026',
             readTime: '18 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&h=500&fit=crop',
+            image: '/blog/what-is-a2p-10dlc-infographic.png',
       },
       {
             icon: 'Layout',
@@ -715,7 +748,7 @@ export const blogPosts: BlogPost[] = [
             date: 'May 26, 2026',
             readTime: '12 min read',
             featured: true,
-            image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=500&fit=crop',
+            image: '/blog/kajabi-to-ghl-migration-guide.png',
       },
       {
             icon: 'Home',
@@ -737,7 +770,7 @@ export const blogPosts: BlogPost[] = [
             date: 'May 24, 2026',
             readTime: '12 min read',
             featured: true,
-            image: 'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/305354184/original/7ca3f5b7b8ee023a80d5da59e322deb7f1e48e6d/build-your-active-campaign-and-mailchimp-automations-and-landing-pages.png',
+            image: '/blog/activecampaign-to-ghl-migration-guide.png',
       },
       {
             icon: 'Funnel',
@@ -748,7 +781,7 @@ export const blogPosts: BlogPost[] = [
             date: 'May 23, 2026',
             readTime: '12 min read',
             featured: true,
-            image: 'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/287345141/original/55e8a5e98e6d119bd14237c48c00612121fff862/clone-or-transfer-your-funnels-or-website-to-gohighlevel.png',
+            image: '/blog/clickfunnels-to-ghl-migration-guide.png',
       },
       {
             icon: 'Database',
@@ -759,7 +792,7 @@ export const blogPosts: BlogPost[] = [
             date: 'May 22, 2026',
             readTime: '11 min read',
             featured: true,
-            image: 'https://mpiresolutions.com/wp-content/uploads/2025/08/go-high-level-vs-hubspot.png',
+            image: '/blog/hubspot-to-ghl-migration-diagram.png',
       },
       {
             icon: 'Cloud',
@@ -814,7 +847,7 @@ export const blogPosts: BlogPost[] = [
             date: 'May 14, 2026',
             readTime: '19 min read',
             featured: true,
-            image: 'https://mpiresolutions.com/wp-content/uploads/2025/08/go-high-level-vs-hubspot.png',
+            image: '/blog/ghl-vs-hubspot-comparison.png',
       },
       {
             icon: 'CreditCard',
