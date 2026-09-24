@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Target',
+            tag: 'Troubleshooting',
+            title: 'GoHighLevel Opportunity Workflow Not Triggering? Pipeline, Stage & Opportunity Fixes',
+            excerpt: 'An opportunity was created or moved, but the GoHighLevel workflow didn\'t start. Learn which opportunity trigger you actually need and what\'s blocking enrollment.',
+            slug: 'gohighlevel-opportunity-workflow-not-triggering',
+            date: 'September 24, 2026',
+            readTime: '18 min read',
+            featured: true,
+            image: '/blog/gohighlevel-opportunity-workflow-not-triggering.png',
+      },
+      {
             icon: 'CalendarClock',
             tag: 'Troubleshooting',
             title: 'GoHighLevel Appointment Workflow Not Triggering? Troubleshooting Guide',

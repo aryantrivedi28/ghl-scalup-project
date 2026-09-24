@@ -10,118 +10,52 @@ import {
   Twitter,
   BookOpen,
   Zap,
-  Star,
-  AlertTriangle,
-  CheckCircle,
   Lightbulb,
-  FileText,
-  MessageCircle as MessageCircleIcon,
   Rocket,
-  Target,
   HeartHandshake,
-  Phone,
   Search,
-  Trophy,
-  Facebook,
-  AlertCircle,
-  Info,
-  UserCheck,
-  UserX,
-  Compass,
-  FileCheck,
-  CheckCircle as CheckCircleIcon,
-  Layers,
-  PanelTop,
-  LayoutDashboard,
-  Settings,
-  Briefcase,
-  LifeBuoy,
-  Award,
-  Timer,
-  Trash2,
-  Download,
-  BarChart3,
-  PieChart,
-  Workflow,
-  Globe,
-  Database,
-  Cloud,
-  GitBranch,
-  Sparkles,
-  GraduationCap,
-  Clock,
   Shield,
-  Users,
-  Calendar,
-  Mail,
-  Tag,
-  GitMerge,
-  DollarSign,
-  TrendingUp,
-  XCircle,
-  Server,
-  CreditCard,
-  Smartphone,
-  Layout,
-  Mailbox,
-  Headphones,
-  FileQuestion,
-  HelpCircle,
-  Boxes,
-  Combine,
-  Link2,
-  Webhook,
-  RefreshCw,
-  ListChecks,
-  ClipboardList,
-  Printer,
-  Video,
-  Ticket,
-  TrendingDown
+  Info,
+  Image as ImageIcon,
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import Image from 'next/image';
 
 export default function A2PCampaignRegistrationGuideClient() {
   const [activeId, setActiveId] = useState<string>('');
-  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
   useEffect(() => {
-    const sections = [
-      'what-is-campaign',
-      'brand-vs-campaign',
-      'registration-fields',
-      'sample-messages',
-      'opt-in-consent',
-      'after-review',
-      'common-mistakes',
-      'faq'
-    ];
-
     const handleScroll = () => {
-      let currentSection = sections[0];
+      const sections = [
+        'what-is-campaign',
+        'brand-vs-campaign',
+        'what-you-need',
+        'choose-use-case',
+        'how-to-register',
+        'chat-widget-setup',
+        'manual-setup',
+        'write-description',
+        'write-samples',
+        'opt-in-consent',
+        'policy-requirements',
+        'after-submit',
+        'number-linking',
+        'if-rejected',
+        'fees-agencies',
+        'faq'
+      ];
 
       for (const id of sections) {
         const element = document.getElementById(id);
-        if (!element) continue;
-        const rect = element.getBoundingClientRect();
-        if (rect.top <= 180) {
-          currentSection = id;
-        } else {
-          break;
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 150) {
+            setActiveId(id);
+          }
         }
-      }
-
-      setActiveId(currentSection);
-
-      // Show floating Project Help card after scrolling past hero section
-      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
-      if (heroSection) {
-        const heroBottom = heroSection.getBoundingClientRect().bottom;
-        setShowFloatingProjectHelp(heroBottom < 0);
       }
     };
 
-    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -138,87 +72,81 @@ export default function A2PCampaignRegistrationGuideClient() {
 
   const faqs = [
     {
-      q: "Do I manually submit my A2P campaign in GoHighLevel?",
-      a: "No. Once your brand registration is approved, GoHighLevel automatically submits the associated campaign for carrier review. You do not need to take any additional action to trigger the campaign submission. What you control is the campaign information you entered during the Trust Center registration process that data is what gets reviewed. This applies to both Standard Brand and Sole Proprietor registration flows. Campaign review typically takes 3 to 7 business days after brand approval."
+      q: "Do I need to register a Campaign after my Brand is approved?",
+      a: "Yes. HighLevel says Campaign registration is required after Brand approval before you send SMS from standard 10 digit local numbers to US recipients."
     },
     {
-      q: "What use case should I select for appointment reminders in GoHighLevel?",
-      a: "Select the Appointments and Reminders use case if your primary message type is confirming and reminding contacts about scheduled appointments. If your messages are purely appointment-related, this is the most accurate and specific use case. If you also send promotional messages to the same contacts, you would need to register a separate campaign for the marketing use case. You may want to verify the current use case options in GHL's Trust Center as carrier guidelines can be updated."
+      q: "Can I register a Campaign before my Brand is approved?",
+      a: "No. The Brand must be approved or eligible to continue first. In a first time registration, HighLevel takes you into Campaign Details once the Brand section is ready."
     },
     {
-      q: "What must be included in A2P sample messages?",
-      a: "Every sample message submitted for A2P campaign registration must include four elements, confirmed from GHL's official campaign registration guide: (1) the contact's name or a placeholder such as [First Name]; (2) a staff member's name or a business contact reference; (3) your business name; (4) opt-out language 'Reply STOP to unsubscribe' or equivalent. Sample messages must accurately reflect the content you will actually send. Do not write sample messages that promise content you do not plan to send."
+      q: "Do I submit the Campaign manually?",
+      a: "Yes. In HighLevel's current flow you run the compliance review and then submit the Campaign once the required checks pass."
     },
     {
-      q: "Can I require SMS consent to submit a web form for A2P registration?",
-      a: "No. Confirmed from GHL's official support portal: SMS consent must always be optional, even when a phone number field is required. You cannot make form submission conditional on the contact checking the SMS consent box. The checkbox must remain unchecked by default and the user must actively select it. Additionally, the SMS opt-in checkbox must be separate from the Privacy Policy and Terms of Service consent checkbox."
+      q: "How long does Campaign approval take?",
+      a: "It varies, and HighLevel does not publish a fixed timeline. Your Campaign stays Pending until vetting finishes, so avoid resubmitting or creating duplicates."
     },
     {
-      q: "What must my Privacy Policy include for A2P campaign registration?",
-      a: "Your Privacy Policy must explicitly state that no mobile information will be shared with third parties or affiliates for marketing or promotional purposes. This is confirmed from GHL's official A2P compliance guide. Information sharing with subcontractors in support services such as customer service is permitted. The Privacy Policy must be publicly accessible without login, must be linked clearly in the footer of every form used for opt-in, and must not be obscured by pop-ups or other design elements."
-    },
-    {
-      q: "Can I register more than one A2P campaign in GoHighLevel?",
-      a: "Yes. If your business sends different types of messages for example, appointment reminders and promotional marketing messages you should register separate campaigns for each use case. Each campaign requires its own description, sample messages, and opt-in documentation. You cannot use one campaign for multiple meaningfully different message types. You may want to verify the current guidance on multiple campaign registration in GHL's Trust Center, as policies can be updated."
-    },
-    {
-      q: "How long does A2P campaign registration take in GoHighLevel?",
-      a: "Campaign review typically takes 3 to 7 business days after your brand is approved. Once both brand and campaign are approved, it may take up to 3 additional business days for all US carriers to receive the approval information. During this period you may see some message failures with an error indicating no A2P approval is found this is normal and resolves as carrier records propagate. If it persists beyond 4 business days after approval, contact GHL support."
-    },
-    {
-      q: "What happens if my A2P campaign is rejected after I submit corrections?",
-      a: "If your campaign is rejected after resubmission, carriers may surface additional issues in the second review that were not flagged in the first. Treat each rejection cycle as a new review rather than a repetition of the same problem. Check the 'View required fixes' link in your GHL Trust Center for the specific new rejection reasons. If you believe the rejection is incorrect and your submission is fully compliant, you can contact GHL support to request a review. Editing and resubmitting does not incur an additional $15.75 vetting fee. Deleting and recreating the campaign does."
+      q: "Does approval guarantee my texts will be delivered?",
+      a: "No. Carriers and registration partners make the final decision, and the sending number must be linked to the approved Campaign."
     }
   ];
 
   useFaqSchema(faqs);
 
   const tocItems = [
-    { id: 'what-is-campaign', title: '1. What is campaign registration and why is it required?' },
-    { id: 'brand-vs-campaign', title: '2. What is the difference between a brand and a campaign?' },
-    { id: 'registration-fields', title: '3. How to complete the campaign registration fields' },
-    { id: 'sample-messages', title: '4. How to write compliant sample messages' },
-    { id: 'opt-in-consent', title: '5. Opt-in consent the rules that cause the most rejections' },
-    { id: 'after-review', title: '6. What happens after campaign review?' },
-    { id: 'common-mistakes', title: '7. The most common campaign registration mistakes' },
-    { id: 'faq', title: '8. Frequently asked questions' }
+    { id: 'what-is-campaign', title: 'What A2P Campaign Registration Is and How It Differs From Brand Registration' },
+    { id: 'what-you-need', title: 'What You Need Before Starting A2P Campaign Registration' },
+    { id: 'choose-use-case', title: 'How to Choose the Right Campaign Use Case' },
+    { id: 'how-to-register', title: 'How to Register an A2P Campaign in GoHighLevel' },
+    { id: 'chat-widget-setup', title: 'Chat Widget Setup' },
+    { id: 'manual-setup', title: 'Manual Setup' },
+    { id: 'write-description', title: 'How to Write a Campaign Description' },
+    { id: 'write-samples', title: 'How to Write Sample Messages' },
+    { id: 'opt-in-consent', title: 'Opt In and Consent Requirements for Campaign Registration' },
+    { id: 'policy-requirements', title: 'Privacy Policy and Terms and Conditions Requirements' },
+    { id: 'after-submit', title: 'What Happens After You Submit an A2P Campaign' },
+    { id: 'number-linking', title: 'How Campaigns Connect to Phone Numbers' },
+    { id: 'if-rejected', title: 'What to Do If Your Campaign Is Rejected' },
+    { id: 'fees-agencies', title: 'Fees, Agencies and Number Types Outside This Guide' },
+    { id: 'faq', title: 'A2P Campaign Registration FAQs' }
   ];
 
   const brandVsCampaign = [
-    { aspect: 'What it establishes', brand: 'Who is sending your business identity', campaign: 'What you are sending your messaging use case' },
-    { aspect: 'Information submitted', brand: 'Business name, EIN, address, website, industry', campaign: 'Campaign description, use case, sample messages, opt-in method, opt-in language' },
-    { aspect: 'Required before', brand: 'Campaign registration', campaign: 'Sending any A2P SMS' },
-    { aspect: 'Review timeline', brand: '3 to 7 business days', campaign: '3 to 7 business days after brand approval' },
-    { aspect: 'Submission method', brand: 'You enter data; GHL submits to TCR', campaign: 'You enter data during brand registration; GHL auto-submits campaign once brand is approved' },
-    { aspect: 'Can you have multiple?', brand: 'One per legal business entity (EIN can register up to 10 brands)', campaign: 'Yes one campaign per use case type. Separate use cases require separate campaigns.' }
+    { aspect: 'Question it answers', brand: 'Who is sending the messages?', campaign: 'What are you sending, why, and how did recipients consent?' },
+    { aspect: 'What you submit', brand: 'Legal business identity, registration number, address, contact details', campaign: 'Use case, description, sample messages, opt in method, policy pages, website' },
+    { aspect: 'Comes first?', brand: 'Yes. It must be approved or eligible to continue', campaign: 'Follows the Brand' },
+    { aspect: 'Where to learn it', brand: 'A2P Brand Registration in GoHighLevel', campaign: 'This guide' }
+  ];
+
+  const whatYouNeed = [
+    { item: 'An approved Brand', when: 'Always', check: 'The Brand should represent the business that will actually send the messages' },
+    { item: 'A live business website', when: 'Always', check: 'Publicly accessible, matches your Brand or declared DBA, and clearly shows the business name and contact details' },
+    { item: 'Campaign use case', when: 'Always', check: 'Matches the messages you really send' },
+    { item: 'Description and sample messages', when: 'Always', check: 'Consistent with the use case and with each other' },
+    { item: 'A documented opt in method', when: 'Always', check: 'A reviewer can verify what a contact sees before agreeing' },
+    { item: 'Privacy Policy and Terms and Conditions URLs', when: 'Requested in Manual Setup; the Chat Widget path runs website compliance checks', check: 'Publicly accessible pages that support SMS messaging' },
+    { item: 'Supporting opt in evidence', when: 'When opt in is not publicly viewable', check: 'Needed for paper forms, forms behind a login, unpublished forms, QR flows and similar' },
+    { item: 'Additional message details', when: 'Depends on your messages', check: 'Flags for links, phone numbers, age gated content or financial content can change what is required' }
   ];
 
   const useCases = [
-    { useCase: 'Customer Care', covers: 'Ongoing customer support, service follow-up, account notifications', bestFor: 'Service businesses managing existing clients', avoid: 'Do not use for lead generation or new prospect outreach' },
-    { useCase: 'Marketing', covers: 'Promotional messages, offers, new product announcements', bestFor: 'Businesses running offer-based SMS campaigns to opted-in lists', avoid: 'Do not use if your messages are purely transactional' },
-    { useCase: 'Mixed', covers: 'Combination of marketing and transactional in the same campaign', bestFor: 'Businesses whose SMS flow includes both reminders and promotional content', avoid: 'Use sparingly mixed campaigns face more scrutiny during review' },
-    { useCase: 'Appointments and Reminders', covers: 'Appointment confirmations, reminders, scheduling', bestFor: 'HVAC, dental, medical, coaching, any appointment-based business', avoid: 'Do not use for marketing offers alongside reminders register separately' },
-    { useCase: 'Two-Factor Authentication / OTP', covers: 'Security codes, login verification, one-time passwords', bestFor: 'SaaS, fintech, any platform verifying user identity via SMS', avoid: 'Do not mix OTP with marketing content in the same campaign' },
-    { useCase: 'Notifications', covers: 'Transactional alerts, order updates, account activity', bestFor: 'Ecommerce, software platforms, delivery services', avoid: 'Do not use for promotional content' },
+    { useCase: 'Marketing', fits: 'Promotions, offers, launches and other marketing sent to people who opted in', watch: 'Requires documented consent for marketing' },
+    { useCase: 'Customer Care', fits: 'Support conversations, service updates and issue resolution', watch: 'Not a home for promotions' },
+    { useCase: 'Account Notifications', fits: 'Non promotional updates about an account, status or activity', watch: 'Keep offers out of the messages' },
+    { useCase: 'Delivery Notifications', fits: 'Fulfilment and delivery status', watch: 'Only for actual delivery events' },
+    { useCase: '2FA', fits: 'Verification codes and login security', watch: 'Must not contain marketing language' },
+    { useCase: 'Mixed', fits: 'One messaging program that genuinely combines purposes, such as offers plus account updates', watch: 'Not a fallback when you are unsure' },
+    { useCase: 'Low Volume Mixed', fits: 'Lighter Mixed programs that do not need high throughput', watch: 'Limited to the lowest throughput tier regardless of Trust Score' }
   ];
 
-  const optInMethods = [
-    { method: 'Website Form', description: 'Contact submits a web form with a phone number field and an SMS consent checkbox', urlRequirement: 'Direct URL to the specific form page not just the homepage. Must be publicly accessible without login.' },
-    { method: 'Paper Form', description: 'Physical form signed in person', urlRequirement: 'Photograph or scan of the form hosted at a publicly accessible URL' },
-    { method: 'Facebook Lead Form', description: 'Lead ad with phone number collection and consent language', urlRequirement: 'URL to the Facebook Lead Ad or a screenshot hosted at a public URL' },
-    { method: 'QR Code', description: 'Printed QR code that leads to an opt-in form', urlRequirement: 'URL the QR code links to' },
-    { method: 'Kiosk', description: 'In-person digital device where contacts opt in', urlRequirement: 'URL to the kiosk form or a screenshot at a public URL' },
-    { method: 'Verbal', description: 'Verbal confirmation of consent at time of contact', urlRequirement: 'Written policy document hosted at a public URL describing the verbal consent process' }
-  ];
-
-  const mistakes = [
-    { mistake: 'Use case does not match business website', what: 'Carrier reviewers check the website. A dental practice registering under "notifications" with no relevant content on their site gets rejected.', avoid: 'Verify your website clearly reflects the business type and use case before submitting. The campaign description must be consistent with what a reviewer would see on your website.' },
-    { mistake: 'Vague campaign description', what: 'Descriptions that say "we send marketing messages to customers" without specifying who receives them or why are rejected for insufficient detail.', avoid: 'Answer all three questions explicitly: who is the sender, who are the recipients, and why are the messages being sent. Include your business name.' },
-    { mistake: 'Sample messages missing required elements', what: 'Missing opt-out language, missing business name, or missing contact name placeholder causes rejection.', avoid: 'Include all four required elements in every sample message: contact name or placeholder, staff name or business contact reference, business name, and "Reply STOP to unsubscribe."' },
-    { mistake: 'Pre-selected consent checkbox', what: 'A consent checkbox that is checked by default fails carrier review.', avoid: 'Never set a checkbox to checked by default. The user must take affirmative action to select it.' },
-    { mistake: 'Privacy Policy missing SMS data clause', what: 'If your Privacy Policy does not state that mobile data will not be shared with third parties for marketing, the campaign is likely to be rejected.', avoid: 'Add an explicit SMS data statement to your Privacy Policy before submitting. Verify it is live at the URL you provide.' },
-    { mistake: 'Opt-in URL requires login to access', what: 'Carriers cannot review a form behind a login or paywall.', avoid: 'Use a publicly accessible URL. If your form is behind a login, create a public landing page with the form visible for the review period.' },
-    { mistake: 'Campaign description matches the GHL example verbatim', what: 'GHL explicitly states that copying their example descriptions may cause rejection.', avoid: 'Write a description specific to your actual business, recipients, and message content.' }
+  const registrationSteps = [
+    { step: 'Select your messaging volume.', desc: 'With a Tax ID you choose between the Low Volume Standard Brand and High Volume Standard Brand options, which differ in daily throughput and cost. Without a Tax ID, the only option is Single-number registration, which links one number that you can change later.' },
+    { step: 'Choose your setup path.', desc: 'Campaign registration opens in Chat Widget Setup by default. If you collect consent another way, choose Switch to manual setup. You can return to the widget path later from the Campaign details panel.' },
+    { step: 'Complete the path you chose.', desc: 'The two paths are described below.' },
+    { step: 'Review the website compliance checklist.', desc: 'Confirm the checklist items, then select Review Application.' },
+    { step: 'Run the compliance review and submit.', desc: 'If a check fails, fix it and select Review Again. You cannot submit until all required checks pass, and passing them prepares your Campaign for carrier review without guaranteeing approval.' }
   ];
 
   // Reusable Project Help Card Component
@@ -227,7 +155,6 @@ export default function A2PCampaignRegistrationGuideClient() {
       <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
       <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your migration.</p>
       <Link
-        // onClick={handleOpenBooking}
         href="/book-a-call"
         className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
         Book a 30 min Free Call
@@ -252,7 +179,7 @@ export default function A2PCampaignRegistrationGuideClient() {
         </div>
       </nav>
 
-      {/* Hero Section - WIDE (KEPT AS IS) */}
+      {/* Hero Section */}
       <section className="bg-[#0B1628] py-12 md:py-[72px] px-4 md:px-6 relative overflow-hidden">
         <div className="absolute -top-[120px] -right-[120px] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(14,155,240,0.12)_0%,transparent_70%)] pointer-events-none" />
         <div className="absolute -bottom-[80px] -left-[80px] w-[360px] h-[360px] bg-[radial-gradient(circle,rgba(37,201,125,0.08)_0%,transparent_70%)] pointer-events-none" />
@@ -269,7 +196,7 @@ export default function A2PCampaignRegistrationGuideClient() {
           {/* H1 */}
           <h1 className="text-[clamp(28px,6vw,46px)] font-extrabold leading-[1.2] md:leading-[1.15] text-white mb-4 md:mb-5 tracking-[-0.02em]">
             A2P Campaign Registration in GoHighLevel:<br />
-            <span className="text-[#F8D000]">Step-by-Step Guide (2026)</span>
+            <span className="text-[#F8D000]">Step by Step Guide</span>
           </h1>
 
           {/* Author */}
@@ -283,29 +210,55 @@ export default function A2PCampaignRegistrationGuideClient() {
             </div>
             <div>
               <div className="text-sm font-medium text-white">GHL Scale Up Team</div>
-              <div className="text-xs text-white/50">GoHighLevel Specialists · 200+ Builds Delivered · Updated July 2026</div>
+              <div className="text-xs text-white/50">GoHighLevel Specialists · 200+ builds delivered · Verified against GoHighLevel, Twilio, and The Campaign Registry documentation, September 2026</div>
             </div>
           </div>
 
-          {/* Intro Paragraph - NO max-w constraint */}
-          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6">
-            Once your A2P brand is approved in GoHighLevel, campaign registration is the next required step before you can send any automated SMS to US recipients. Campaign registration tells carriers what type of messages you will send, who receives them, and how contacts opted in. Getting the details right on the first attempt saves the 3 to 7 business day review cycle. <Link href="/" className="text-[#0E9BF0] hover:underline font-medium">GHL Scale Up</Link> has handled A2P campaign registration across hundreds of client accounts. This guide covers every required field, the rules around sample messages and consent, and the most common mistakes that cause rejection.
-          </p>
+          {/* Quick Answer Box */}
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 md:p-6 mb-6">
+            <div className="flex items-center gap-2 mb-3">
+              <Zap className="w-5 h-5 text-[#F8D000]" />
+              <span className="text-xs font-bold uppercase tracking-wider text-white/60">Quick Answer</span>
+            </div>
+            <p className="text-sm text-white/70 leading-relaxed mb-3">
+              A2P Campaign Registration is the step where you tell carriers <strong className="text-white">what you will text, why, and how recipients agreed to receive it</strong>. In GoHighLevel you complete it in Trust Center after your Brand is approved: choose a messaging volume, pick Chat Widget Setup or Manual Setup, describe your use case, add sample messages, document your opt in process, provide your policy pages, then run the compliance review and submit.
+            </p>
+            <p className="text-sm text-white/70 leading-relaxed">
+              Carriers and their registration partners make the final decision, so the goal is a submission where your use case, description, sample messages, website and consent flow all tell the same story. Approval is not guaranteed, and your phone number must also be linked to the approved Campaign before the A2P route works.
+            </p>
+          </div>
+
+          {/* CTA Button 1 */}
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105"
+            >
+              <Rocket className="w-4 h-4" />
+              Get A2P Campaign Help
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              href="#how-to-register"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20"
+            >
+              See Registration Steps
+              <ChevronDown className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* MAIN LAYOUT - Sidebar on LEFT, Content on RIGHT */}
-      <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-16">
+      {/* MAIN LAYOUT */}
+      <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-10">
         <div className="grid lg:grid-cols-[280px_1fr] gap-8 md:gap-12 items-start">
-          
-          {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
+
+          {/* SIDEBAR */}
           <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
-            {/* Project Help Card - At top of sidebar */}
-            <div className="mb-6">
+            <div className="hidden lg:block mb-6">
               <ProjectHelpCard />
             </div>
 
-            {/* Table of Contents */}
             <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
                 <BookOpen className="w-3 h-3" />
@@ -322,7 +275,9 @@ export default function A2PCampaignRegistrationGuideClient() {
                         }`}
                     >
                       <span className="flex items-start gap-2">
-                        {activeId === item.id && <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />}
+                        {activeId === item.id && (
+                          <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />
+                        )}
                         <span className="flex-1">{item.title}</span>
                       </span>
                     </button>
@@ -331,7 +286,6 @@ export default function A2PCampaignRegistrationGuideClient() {
               </ul>
             </nav>
 
-            {/* About the Author */}
             <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
@@ -347,52 +301,46 @@ export default function A2PCampaignRegistrationGuideClient() {
                 </div>
               </div>
               <p className="text-xs text-white/60 leading-relaxed mb-3">
-                5+ years GHL experience · 200+ A2P registrations completed globally. All technical details verified as of July 2026.
+                5+ years GHL experience · 200+ A2P registrations completed globally. All technical details verified as of September 2026.
               </p>
-              <Link href="/" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
+              <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
             </div>
 
-            {/* Share Buttons */}
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
-              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
+              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Share this guide</div>
               <div className="flex gap-2 flex-wrap">
-                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Linkedin className="w-3 h-3" /> LinkedIn</a>
-                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Twitter className="w-3 h-3" /> X</a>
-                <button onClick={() => navigator.clipboard.writeText(window.location.href)} className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"><Copy className="w-3 h-3" /> Copy link</button>
+                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Linkedin className="w-3 h-3" />
+                  LinkedIn
+                </a>
+                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Twitter className="w-3 h-3" />
+                  X
+                </a>
+                <button
+                  onClick={() => navigator.clipboard.writeText(window.location.href)}
+                  className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"
+                >
+                  <Copy className="w-3 h-3" />
+                  Copy link
+                </button>
               </div>
+            </div>
+
+            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
+              <div className="text-sm font-bold text-white mb-2">A2P Campaign Help?</div>
+              <p className="text-xs text-white/60 leading-relaxed mb-4">We handle A2P campaign registration for agencies and their clients use case selection, sample messages, opt in documentation, and full Trust Center walkthrough.</p>
+              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+                Get Help
+                <ArrowRight className="w-3 h-3" />
+              </Link>
             </div>
           </aside>
 
-          {/* ==================== RIGHT COLUMN: BLOG CONTENT ==================== */}
+          {/* MAIN CONTENT */}
           <main className="min-w-0 order-2">
 
-            {/* BLUF Box */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
-              <div className="flex items-center gap-2 mb-3">
-                <Zap className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Important: Campaign Auto-Submission</span>
-              </div>
-              <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
-                You do not manually submit the campaign in GoHighLevel. Once your brand registration is approved, GHL automatically submits the associated campaign for review on your behalf.
-              </p>
-              <p className="text-sm text-[#5C6880] leading-relaxed">
-                This applies to both Standard Brand and Sole Proprietor registration flows. What you control is the campaign information you entered during the registration process that data is what gets submitted. Campaign review by carriers typically takes 3 to 7 business days after brand approval.
-              </p>
-
-              {/* CTA 1 - Inside BLUF Box */}
-              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
-                  <Target className="w-4 h-4" />
-                  Get A2P Registration Help
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Table of Contents - Mobile Only */}
+            {/* Mobile TOC */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8 lg:hidden">
               <div className="flex items-center gap-2 mb-4">
                 <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
@@ -411,47 +359,32 @@ export default function A2PCampaignRegistrationGuideClient() {
               </div>
             </div>
 
-            {/* Mobile Project Help Card - visible on mobile only */}
+            {/* Mobile Project Help Card */}
             <div className="lg:hidden mb-8">
               <ProjectHelpCard />
             </div>
 
-            {/* Section 1: What Is Campaign */}
+            {/* Section: What Is Campaign Registration */}
             <h2 id="what-is-campaign" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-8 mb-4">
-              1. What Is Campaign Registration and Why Is It Required?
+              What A2P Campaign Registration Is and How It Differs From Brand Registration
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              A campaign in A2P 10DLC terminology represents a specific messaging use case the type of messages your business sends and the context in which contacts receive them. While brand registration establishes who is sending (your business identity), campaign registration establishes what you are sending and why.
+              A Campaign is the registered description of one messaging program sent from a Brand. It sits on top of the wider A2P 10DLC framework, which we explain in <Link href="/blog/what-is-a2p-10dlc" className="text-[#0E9BF0] hover:underline">what A2P 10DLC is</Link>. This guide assumes you already know why registration exists and focuses on completing the Campaign.
             </p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              US carriers require this information to evaluate whether your messages are legitimate, whether your opt-in process is compliant, and whether your content matches the use case you claim. Campaigns that pass review receive an approved status and are granted a message throughput level based on your brand's trust score.
-            </p>
-
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-2">
-              For the foundational explanation of the full A2P system: <Link href="/blog/what-is-a2p-10dlc" className="text-[#0E9BF0] hover:underline">What Is A2P 10DLC? →</Link>
-            </p>
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              For brand registration, which must be completed and approved before campaign review begins: <Link href="/blog/a2p-brand-registration-guide" className="text-[#0E9BF0] hover:underline">A2P Brand Registration Guide →</Link>
-            </p>
-
-            {/* Section 2: Brand vs Campaign */}
-            <h2 id="brand-vs-campaign" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              2. What Is the Difference Between a Brand and a Campaign in A2P Registration?
-            </h2>
 
             <div className="overflow-x-auto my-6">
               <table className="w-full border-collapse text-sm">
                 <thead>
                   <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Aspect</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Brand Registration</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]"> </th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#0E9BF0]">Brand Registration</th>
                     <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Campaign Registration</th>
                   </tr>
                 </thead>
                 <tbody>
                   {brandVsCampaign.map((item, idx) => (
                     <tr key={idx} className="border-b border-[#DDE1E9]">
-                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.aspect}</td>
+                      <td className="py-3 px-3 font-semibold text-[#1A2236]">{item.aspect}</td>
                       <td className="py-3 px-3 text-[#5C6880]">{item.brand}</td>
                       <td className="py-3 px-3 text-[#5C6880]">{item.campaign}</td>
                     </tr>
@@ -460,27 +393,72 @@ export default function A2PCampaignRegistrationGuideClient() {
               </table>
             </div>
 
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">WHEN DO YOU NEED MULTIPLE CAMPAIGNS</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                If your business sends meaningfully different types of messages, you may need to register more than one campaign. Example: a business sending both appointment reminders (transactional) and promotional offers (marketing) should register separate campaigns for each use case. Each campaign requires its own description, sample messages, and opt-in documentation. You may want to verify the current guidance in GHL's Trust Center for your specific situation, as use case policies can be updated by carriers.
-              </p>
-            </div>
-
-            {/* Section 3: Registration Fields */}
-            <h2 id="registration-fields" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              3. How to Complete the Campaign Registration Fields
-            </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Campaign registration fields are completed during the same Trust Center session as brand registration. Once you submit brand details, you are taken to the campaign details page. Navigate to Settings Phone Numbers Trust Center in your GHL sub-account. Verify the current navigation path in your own account as the interface may update.
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              The sequence in HighLevel is: Brand registration, Brand approval, Campaign registration, Campaign review, then messaging through a number that is linked to the approved Campaign. If your Brand is not ready, Campaign registration cannot proceed. If it was rejected, start with the <Link href="/blog/a2p-brand-rejected-fix" className="text-[#0E9BF0] hover:underline">A2P brand rejection guide</Link> instead.
             </p>
 
-            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Field 1: Messaging Use Case</h3>
+            {/* 
+              ============================================================
+              🖼️ IMAGE INSERTED HERE - Full width, responsive, interactive
+              ============================================================
+            */}
+            <div className="my-8 md:my-10 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <div className="relative w-full h-auto bg-[#F8F9FB]">
+                <Image
+                  src="/blog/a2p-campaign-registration-infographic.png"
+                  alt="A2P Campaign Registration in GoHighLevel: Brand vs Campaign registration, use case selection, setup paths, and opt-in requirements"
+                  width={1200}
+                  height={500}
+                  className="w-full h-auto object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                />
+              </div>
+              <div className="bg-[#F8F9FB] px-4 py-2.5 text-xs text-[#5C6880] border-t border-[#DDE1E9] flex items-center gap-2">
+                <ImageIcon className="w-3.5 h-3.5" />
+                <span>A2P Campaign Registration in GoHighLevel: Brand vs Campaign registration, use case selection, setup paths, and opt-in requirements</span>
+              </div>
+            </div>
+
+            {/* Section: What You Need Before Starting */}
+            <h2 id="what-you-need" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              What You Need Before Starting A2P Campaign Registration
+            </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Select the use case that most accurately describes the primary purpose of your SMS campaign. This is one of the most critical fields in the entire registration process carriers approve or reject campaigns based on whether your messaging content, opt-in flow, and stated intent match the use case requirements.
+              Gather these items first. Reviewers compare them against each other, so it is easier to align them before you open the form than to correct them after a rejection.
+            </p>
+
+            <div className="overflow-x-auto my-6">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Item</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">When required</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">What to check</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {whatYouNeed.map((item, idx) => (
+                    <tr key={idx} className="border-b border-[#DDE1E9]">
+                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.item}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.when}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.check}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              A use case also does not make restricted content acceptable. HighLevel keeps a forbidden message categories list, covering areas such as debt collection, high risk financial services and third party lead generation, so check it if you are unsure.
+            </p>
+
+            {/* Section: How to Choose the Right Campaign Use Case */}
+            <h2 id="choose-use-case" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              How to Choose the Right Campaign Use Case
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Registration is about documenting what you actually send. Pick the use case that best describes your real messaging, not the one that looks easiest to approve. A mismatch between the declared use case and your live traffic can lead to rejection, lower throughput, extra carrier filtering or enforcement action.
             </p>
 
             <div className="overflow-x-auto my-6">
@@ -488,239 +466,209 @@ export default function A2PCampaignRegistrationGuideClient() {
                 <thead>
                   <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
                     <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Use case</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">What it covers</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Best for</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Common mismatch to avoid</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Fits</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Watch out for</th>
                   </tr>
                 </thead>
                 <tbody>
                   {useCases.map((item, idx) => (
                     <tr key={idx} className="border-b border-[#DDE1E9]">
                       <td className="py-3 px-3 font-medium text-[#1A2236]">{item.useCase}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.covers}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.bestFor}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.avoid}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.fits}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.watch}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
 
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">THE RULE THAT CAUSES MOST USE CASE REJECTIONS</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                The campaign description must match your business niche. Carriers review whether your website supports the stated use case. A pizza restaurant registering under an 'appointment reminder' use case when their website shows no booking or scheduling functionality will be rejected. Your website, your business type, and your campaign use case must be consistent with each other. Verified from GHL's official A2P approval guide.
-              </p>
-            </div>
-
-            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Field 2: Campaign Use Case Description</h3>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              This field is the most important piece of written content in your entire A2P registration. It must answer three specific questions:
-            </p>
-            <ul className="space-y-2 mb-4 text-sm text-[#5C6880] list-decimal list-inside">
-              <li><strong className="text-[#1A2236]">Who is the sender?</strong> Your full business name, including any DBA name if applicable. If you are operating under a DBA name, include the phrase 'We are doing business as [DBA Name]' in this field.</li>
-              <li><strong className="text-[#1A2236]">Who receives the messages?</strong> Describe who your recipients are and how they came into your contact database. Example: 'customers who booked an appointment through our website and opted in to receive SMS notifications.'</li>
-              <li><strong className="text-[#1A2236]">Why are messages being sent?</strong> Explain the specific purpose and content of the messages. Example: 'appointment confirmation messages and day-of reminders to reduce no-shows.'</li>
-            </ul>
-
-            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Lightbulb className="w-4 h-4 text-[#0E9BF0]" />
-                <span className="text-sm font-bold text-[#0E9BF0]">EXAMPLE USE CASE DESCRIPTION</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                'This campaign sends appointment confirmation and reminder messages to customers of [Business Name] who have booked a service appointment through our website at [website URL] and provided explicit consent to receive SMS notifications during the booking process. Messages include appointment details, confirmation links, and reminder alerts. Business name and opt-out instructions are included in every message. Message frequency varies based on upcoming appointments.'
-              </p>
-            </div>
-
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">IMPORTANT</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                GHL's own guidance states that examples are for reference only copying them verbatim may cause rejection. Write a description specific to your actual business and messaging scenario. You may want to verify this warning is still current in GHL's Trust Center before submitting.
-              </p>
-            </div>
-
-            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Field 3: Sample Messages</h3>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Sample messages show carriers the exact type of content you plan to send. They are reviewed against your use case description and your opt-in flow to verify consistency.
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              If you send appointment reminders, note that HighLevel's current list has no dedicated appointment category. Read the definitions in HighLevel's <a href="https://help.gohighlevel.com/support/solutions/articles/155000000235-a2p-10dlc-campaign-use-cases" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">Campaign Use Cases guide</a> and choose the closest fit for your real messages. If your programs are materially different, such as authentication codes and unrelated promotions, register separate Campaigns rather than forcing them into one. Use case and opt in details can be locked after submission, so a wrong choice may mean creating a new Campaign. For how volume options relate to speed, see <Link href="/blog/a2p-trust-score-mps" className="text-[#0E9BF0] hover:underline">how throughput and Trust Score work</Link>.
             </p>
 
-            <div className="bg-[#E8FAF2] border border-[rgba(37,201,125,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <CheckCircle className="w-4 h-4 text-[#25C97D]" />
-                <span className="text-sm font-bold text-[#25C97D]">CONFIRMED REQUIRED ELEMENTS</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                Every sample message must include all four of these elements confirmed from GHL's official campaign registration guide: (1) The contact's name or a placeholder for it (e.g., [First Name]). (2) A staff member's name or business contact reference. (3) Your business name. (4) Opt-out language: 'Reply STOP to unsubscribe' or equivalent.
-              </p>
-            </div>
-
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-2">
-              GHL's registration form includes two sample message fields:
-            </p>
-            <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">Sample Message 1:</strong> For promotional or marketing content.</li>
-              <li><strong className="text-[#1A2236]">Sample Message 2:</strong> For transactional or informational content.</li>
-            </ul>
-
-            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <FileText className="w-4 h-4 text-[#0E9BF0]" />
-                <span className="text-sm font-bold text-[#0E9BF0]">SAMPLE MESSAGE EXAMPLES</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed mb-2">
-                <strong>Transactional:</strong> 'Hi [First Name], this is Sarah from Peak HVAC. Your service appointment is confirmed for tomorrow at 2pm. Reply STOP to unsubscribe or HELP for help.'
-              </p>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                <strong>Marketing:</strong> 'Hi [First Name], Peak HVAC here. Our spring AC tune-up special ends Friday book online at [link] and save $30. Reply STOP to opt out.'
-              </p>
-            </div>
-
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">CRITICAL</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                Your sample messages must reflect the content you will actually send. Do not write sample messages that promise content you do not send. Carriers compare sample messages against your actual traffic after approval.
-              </p>
-            </div>
-
-            {/* Section 4: Sample Messages */}
-            <h2 id="sample-messages" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              4. Selecting Your Opt-In Method
+            {/* Section: How to Register */}
+            <h2 id="how-to-register" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              How to Register an A2P Campaign in GoHighLevel
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              You must document how contacts give consent to receive SMS from your business. GHL's Trust Center asks you to select one or more opt-in methods and provide a publicly accessible URL where the opt-in can be reviewed.
+              These steps follow HighLevel's current documentation. Fields change with your Brand type and setup path, so treat what appears on screen as the final authority.
             </p>
 
-            <div className="overflow-x-auto my-6">
-              <table className="w-full border-collapse text-sm">
-                <thead>
-                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Opt-in method</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Description</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">URL requirement</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {optInMethods.map((item, idx) => (
-                    <tr key={idx} className="border-b border-[#DDE1E9]">
-                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.method}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.description}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.urlRequirement}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            {/* Section 5: Opt-In Consent */}
-            <h2 id="opt-in-consent" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              5. Opt-in Consent The Rules That Cause the Most Rejections
-            </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              These rules are confirmed from GHL's official support portal and the A2P approval best practices guide. Apply all of them before submitting.
+            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Open Campaign registration</h3>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              If you are registering for the first time, HighLevel guides you into Campaign Details once the Brand section is ready. To add a Campaign to an existing approved Brand, go to Settings, then Phone System, then Trust Center. In the A2P Messaging (SMS) card, select <strong className="text-[#1A2236]">Brand &amp; Campaigns</strong>, open the <strong className="text-[#1A2236]">Campaigns</strong> tab and choose <strong className="text-[#1A2236]">Create Campaign</strong>, then select the Brand.
             </p>
 
-            <ul className="space-y-2 mb-6 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">Checkboxes cannot be pre-selected.</strong> The user must actively check the consent box. A box that is checked by default at page load is non-compliant and causes campaign rejection.</li>
-              <li><strong className="text-[#1A2236]">SMS consent must be optional, not required for form submission.</strong> If a contact can only submit your form by also consenting to SMS, that is forced consent and is not compliant. If phone number is a required field, the SMS consent checkbox must still be optional.</li>
-              <li><strong className="text-[#1A2236]">Marketing and non-marketing consent must be separated.</strong> If your campaign includes both promotional and transactional messages, use separate checkboxes for each type. A single combined checkbox is insufficient.</li>
-              <li><strong className="text-[#1A2236]">Opt-in consent and Privacy Policy/Terms of Service must be separate checkboxes.</strong> Do not combine SMS opt-in language with your general Privacy Policy acceptance into one checkbox.</li>
-              <li><strong className="text-[#1A2236]">Opt-in must be collected per campaign and is not transferable.</strong> Consent obtained for one type of messaging does not extend to another type. If a contact opted in for appointment reminders, you cannot use that consent to send promotional offers without separate explicit consent.</li>
-              <li><strong className="text-[#1A2236]">If using Chat Widget as your opt-in method:</strong> You must remove consent checkboxes from ALL other forms on your website. Having consent checkboxes on other forms while using Chat Widget as the designated opt-in method may result in campaign rejection confirmed from GHL's Pre-Built A2P Campaign guide.</li>
-            </ul>
-
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              For copy-paste compliant consent language that meets these requirements: <Link href="/blog/a2p-opt-in-language-templates" className="text-[#0E9BF0] hover:underline">A2P Opt-In Language Templates →</Link>
-            </p>
-
-            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Privacy Policy and Terms of Service Requirements</h3>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Your Privacy Policy must include a specific statement about SMS data. Confirmed from GHL's official support portal: your Privacy Policy must state that no mobile information will be shared with third parties or affiliates for marketing or promotional purposes. Information sharing with subcontractors in support services such as customer service is permitted.
-            </p>
-
-            <ul className="space-y-2 mb-6 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">Privacy Policy must be publicly accessible:</strong> The link must open without requiring a login. Use a direct link to the Privacy Policy page not the homepage.</li>
-              <li><strong className="text-[#1A2236]">Terms of Service must be separately linked:</strong> A combined Privacy Policy and Terms of Service page is acceptable as long as both are clearly present. Ensure the links are visible in the footer of every form used for opt-in.</li>
-              <li><strong className="text-[#1A2236]">No language about data sharing with affiliates:</strong> If your Privacy Policy mentions sharing user data with affiliates or third parties for any marketing purpose, this will likely cause rejection. Review and update your Privacy Policy before submitting.</li>
-              <li><strong className="text-[#1A2236]">Ensure links are not obscured:</strong> Pop-ups, overlays, or design elements that hide or cover the Privacy Policy and Terms of Service links will cause rejection.</li>
-            </ul>
-
-            {/* Section 6: After Review */}
-            <h2 id="after-review" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              6. What Happens After Campaign Review?
-            </h2>
-
-            <ul className="space-y-2 mb-6 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#25C97D]">Approved:</strong> Your campaign is assigned an approved status. Phone numbers associated with this brand are cleared for A2P messaging under the registered use case. It can take up to 3 business days for all US carriers to receive the updated approval information. During this period you may see some message failures with an error indicating no A2P approval is found. This is normal and resolves as carrier records propagate.</li>
-              <li><strong className="text-[#DC3545]">Rejected:</strong> Your campaign dashboard in GHL shows a 'View required fixes' link next to each rejection reason. This was updated in March 2026 and now provides four structured fields per rejection: the error code, the rejection category, what it means, and the specific correction needed. For the complete rejection fix guide: <Link href="/blog/a2p-campaign-rejected-fix" className="text-[#0E9BF0] hover:underline">A2P campaign rejected fix guide →</Link></li>
-              <li><strong className="text-[#1A2236]">Edit and resubmit:</strong> If rejected, edit the existing campaign with all required corrections and resubmit. No additional vetting fee applies when you edit and resubmit. A new $15.75 fee applies if you delete the campaign and create a new one. Do not delete.</li>
-            </ul>
-
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              For the full breakdown of registration fees, monthly campaign fees, and carrier per-message charges: <Link href="/blog/a2p-10dlc-fees-explained" className="text-[#0E9BF0] hover:underline">A2P 10DLC Fees Explained →</Link>
-            </p>
-
-            {/* CTA 2 - After Section 6 */}
-            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 text-center my-6 text-white">
-              <p className="text-sm font-medium mb-2">🚀 Need your A2P campaign registration handled correctly the first time?</p>
-              <p className="text-sm text-white/80 mb-4">GHL Scale Up handles A2P registration for agencies and their clients — campaign description, use case selection, sample messages, opt-in documentation, and full Trust Center walkthrough managed end to end.</p>
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                Book Your Free Strategy Call
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* Section 7: Common Mistakes */}
-            <h2 id="common-mistakes" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              7. The Most Common Campaign Registration Mistakes
-            </h2>
-
-            <div className="space-y-4 mb-6">
-              {mistakes.map((item, idx) => (
+            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Complete the registration steps</h3>
+            <div className="space-y-3 mb-6">
+              {registrationSteps.map((item, idx) => (
                 <div key={idx} className="bg-white border border-[#DDE1E9] rounded-xl p-4">
-                  <h3 className="text-base font-bold text-[#DC3545] mb-2">{item.mistake}</h3>
-                  <div className="bg-[#FEF2F0] border border-[rgba(220,53,69,0.2)] rounded-xl p-3 mb-3">
-                    <p className="text-sm text-[#5C6880]"><strong className="text-[#1A2236]">What happens:</strong> {item.what}</p>
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-7 h-7 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold flex-shrink-0">{idx + 1}</div>
+                    <h4 className="text-base font-bold text-[#1A2236]">{item.step}</h4>
                   </div>
-                  <div className="bg-[#E8FAF2] border border-[rgba(37,201,125,0.2)] rounded-xl p-3">
-                    <p className="text-sm text-[#5C6880]"><strong className="text-[#25C97D]">How to avoid it:</strong> {item.avoid}</p>
-                  </div>
+                  <p className="text-sm text-[#5C6880] leading-relaxed ml-10">{item.desc}</p>
                 </div>
               ))}
             </div>
 
-            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-5 my-6 text-white">
-              <div className="flex items-center gap-2 mb-3">
-                <Star className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">FROM OUR REGISTRATION EXPERIENCE</span>
+            {/* Section: Chat Widget Setup */}
+            <h2 id="chat-widget-setup" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Chat Widget Setup
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              This guided path uses a HighLevel generated opt in widget and pre fills much of the Campaign. You choose Marketing / Promotional, Informational / Non-Marketing or Mixed. Selecting Mixed sets the Campaign Use Case to Low Volume Mixed and generates two separate, unchecked consent boxes. You then enter your live website URL, tick the age gated option only if it applies, copy the widget code and install it on your site.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              The widget should be the only form on the submitted page that collects SMS consent. HighLevel then fills in the use case description, both sample messages, the opt in flow description and the opt in message. Read all of it and edit anything that does not match your real business.
+            </p>
+
+            {/* Section: Manual Setup */}
+            <h2 id="manual-setup" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Manual Setup
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Use this when consent comes from an existing website form, paper form, lead form, QR code, kiosk or verbal process. You provide the Campaign use case, website URL, description, sample messages and any additional message details, followed by the opt in method, the opt in form URL, a description of the opt in flow, the opt in message, and your Privacy Policy and Terms and Conditions URLs. If you operate under a DBA, state that in the description and keep the website, policies and consent wording consistent with it.
+            </p>
+
+
+            {/* Section: How to Write a Campaign Description */}
+            <h2 id="write-description" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              How to Write a Campaign Description
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              The description is your plain language summary of the program. Answer five questions in it, and answer them specifically:
+            </p>
+            <ul className="space-y-2 mb-4 text-sm text-[#5C6880] list-disc list-inside">
+              <li><strong className="text-[#1A2236]">Who sends the messages?</strong> Your business name, and your DBA if you use one.</li>
+              <li><strong className="text-[#1A2236]">Who receives them?</strong> The type of contact, such as existing customers or people who booked online.</li>
+              <li><strong className="text-[#1A2236]">What do the messages contain?</strong> The real message types.</li>
+              <li><strong className="text-[#1A2236]">Why are they sent?</strong> The purpose the recipient would recognise.</li>
+              <li><strong className="text-[#1A2236]">How did recipients agree?</strong> The actual opt in method and where it happens.</li>
+            </ul>
+
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-4 my-4">
+              <div className="flex items-center gap-2 mb-2">
+                <Info className="w-4 h-4 text-[#0E9BF0]" />
+                <span className="text-sm font-bold text-[#0E9BF0]">ILLUSTRATIVE EXAMPLE</span>
               </div>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                The campaign registrations that pass on the first attempt share one characteristic: every field is internally consistent. The business website, the campaign description, the use case selection, the sample messages, and the opt-in URL all describe the same business doing the same thing for the same audience.
+              <p className="text-sm text-[#1A2236] leading-relaxed italic mb-2">
+                Brightside Cleaning sends booking confirmations, arrival reminders and follow up service messages to customers who book through the form at brightsidecleaning.example/book and choose to receive text updates by ticking an unchecked consent box. Customers can reply STOP to opt out or HELP for support.
               </p>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                See how our clients use GHL SMS automations after A2P approval: <Link href="/case-studies" className="text-[#0E9BF0] hover:underline">real GoHighLevel results and case studies →</Link>
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed">
-                To have your A2P registration handled by our team: <Link href="/contact" className="text-[#0E9BF0] hover:underline">book a free strategy call at ghlscaleup.com/contact →</Link>
+              <p className="text-sm text-[#1A2236] leading-relaxed">
+                It is written for demonstration and is not approved wording.
               </p>
             </div>
 
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              Once your campaign is approved and messaging is live, the first automation to build: <Link href="/blog/gohighlevel-missed-call-text-back" className="text-[#0E9BF0] hover:underline">GoHighLevel Missed Call Text Back →</Link>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              A description such as "this campaign sends messages to customers" fails because a reviewer cannot tell who receives what, or how consent was given. Write your own rather than copying example text.
             </p>
 
-            {/* Section 8: FAQ */}
+            {/* Section: How to Write Sample Messages */}
+            <h2 id="write-samples" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              How to Write Sample Messages
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Sample messages show reviewers what recipients will really receive, so they should match your use case, your description and your consent language. Identify the sender, use realistic content, and include opt out language such as "Reply STOP to unsubscribe". For variable content use plain bracketed placeholders like [First Name] rather than pasting live merge fields, and avoid public URL shorteners in favour of full HTTPS links.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              If your program includes promotional and informational messages, include a sample of each. Promotional messages should read like offers and rely on marketing consent, while transactional ones confirm, remind or update. Generic or misleading samples are risky because reviewers compare them with your website and consent flow. Illustrative examples:
+            </p>
+
+            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
+              <div className="flex items-center gap-2 mb-2">
+                <Lightbulb className="w-4 h-4 text-[#0E9BF0]" />
+                <span className="text-sm font-bold text-[#0E9BF0]">SAMPLE MESSAGE EXAMPLES</span>
+              </div>
+              <p className="text-sm text-[#1A2236] leading-relaxed italic mb-2">
+                Brightside Cleaning: Hi [First Name], your cleaning is booked for [Date] at [Time]. Reply STOP to unsubscribe, HELP for help.
+              </p>
+              <p className="text-sm text-[#1A2236] leading-relaxed italic">
+                Brightside Cleaning: Hi [First Name], book a deep clean this month and get a free oven clean: https://brightsidecleaning.example/offer. Reply STOP to opt out.
+              </p>
+            </div>
+
+            {/* Section: Opt In and Consent Requirements */}
+            <h2 id="opt-in-consent" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Opt In and Consent Requirements for Campaign Registration
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Collecting a phone number does not by itself establish consent. Registration is trying to confirm that a contact knowingly agreed to receive the specific kind of messages you described, and that a reviewer can verify it. A vague claim such as "customers opted in" is not enough, because the reviewer needs to see the actual experience.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              For a web form, HighLevel's guidance is that the consent language should:
+            </p>
+            <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
+              <li>Identify the business sending the messages</li>
+              <li>Describe the types of messages the contact will receive, in terms that match your Campaign description</li>
+              <li>Include message frequency and a message and data rates disclosure</li>
+              <li>Include HELP and STOP instructions and link to your Privacy Policy and Terms and Conditions</li>
+            </ul>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              The consent box must not be preselected, and SMS consent must not be required to submit the form. Marketing and non marketing consent should be kept separate. If the opt in cannot be viewed publicly, provide accessible proof such as a hosted screenshot, never a link that needs a login. Your STOP response should acknowledge the request and confirm no more messages, and your HELP response should identify the business and give a working support contact.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              This is only the outline. For example wording and form setup, see <Link href="/blog/a2p-opt-in-language-templates" className="text-[#0E9BF0] hover:underline">A2P opt in language and requirements</Link>.
+            </p>
+
+            {/* Section: Privacy Policy and Terms */}
+            <h2 id="policy-requirements" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Privacy Policy and Terms and Conditions Requirements
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              In HighLevel's Manual Setup, you provide a public URL for each page. Reviewers use them to confirm the messaging program is documented, so both pages should open without a login and be linked from the footer of every opt in form, not hidden behind pop ups or design elements. HighLevel's <a href="https://help.gohighlevel.com/support/solutions/articles/155000001426-a2p-opt-in-form-privacy-policy-and-terms-and-conditions-guidelines" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">policy guidelines</a> set out the detail.
+            </p>
+            <ul className="space-y-2 mb-4 text-sm text-[#5C6880] list-disc list-inside">
+              <li><strong className="text-[#1A2236]">Privacy Policy:</strong> it should address SMS opt in data and state that mobile opt in information is not shared with third parties or affiliates for marketing or promotional purposes. Language about selling or sharing lead information can cause problems.</li>
+              <li><strong className="text-[#1A2236]">Terms and Conditions:</strong> they should name the program, describe the messages, explain opt out and help, mention message and data rates, and link to the Privacy Policy.</li>
+            </ul>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              A page is inadequate when it is missing, blocked, generic, or contradicts what you told reviewers. This is general guidance, not legal advice, and requirements can change, so have counsel review policies if your situation is complex.
+            </p>
+
+
+            {/* Section: What Happens After You Submit */}
+            <h2 id="after-submit" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              What Happens After You Submit an A2P Campaign
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              A newly submitted Campaign stays in <strong className="text-[#1A2236]">Pending</strong> until vetting finishes. HighLevel says to wait rather than creating another Campaign. HighLevel does not publish a fixed review time, and reviews can vary with volume, use case and how clean the submission is. For context, Twilio's documentation on the underlying <a href="https://www.twilio.com/docs/messaging/compliance/a2p-10dlc/direct-sole-proprietor-registration-overview" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">vetting process</a> notes that manual vetting can take several weeks during high volume. Do not plan around a specific number of days.
+            </p>
+            <ul className="space-y-2 mb-6 text-sm text-[#5C6880] list-disc list-inside">
+              <li><strong className="text-[#1A2236]">Pending:</strong> wait for the review to finish.</li>
+              <li><strong className="text-[#25C97D]">Approved:</strong> confirm each sending number is linked to the Campaign.</li>
+              <li><strong className="text-[#DC3545]">Rejected:</strong> open the required fixes and correct the submission.</li>
+            </ul>
+
+            {/* Section: How Campaigns Connect to Phone Numbers */}
+            <h2 id="number-linking" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              How Campaigns Connect to Phone Numbers
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              An approved Campaign only works for a number that is associated with it. Go to Settings, then Phone System, then Phone Numbers, and check that the number shows the green <strong className="text-[#1A2236]">A2P Verified</strong> label. If it does not, link it to the approved Campaign using HighLevel's guide to <a href="https://help.gohighlevel.com/support/solutions/articles/155000008316-error-30034-linking-a-phone-number-to-an-approved-a2p-campaign" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">error 30034 and linking numbers</a>. Repeat the check whenever you add a number, and allow several business days for carrier systems to fully receive updated registration data.
+            </p>
+
+            {/* Section: What to Do If Your Campaign Is Rejected */}
+            <h2 id="if-rejected" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              What to Do If Your Campaign Is Rejected
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              A Campaign rejection is different from a Brand rejection. It means reviewers found a problem with your use case, description, sample messages, opt in flow, website, policies or content. In Trust Center, open every rejection reason and select <strong className="text-[#1A2236]">View required fixes</strong>, which shows the error code, category and the correction needed. Then review the whole Campaign before resubmitting, because fixing one field can expose another. Some fields may be locked, which can mean creating a new Campaign. Our <Link href="/blog/a2p-campaign-rejected-fix" className="text-[#0E9BF0] hover:underline">A2P campaign rejection guide</Link> covers troubleshooting in depth.
+            </p>
+
+            {/* Section: Fees, Agencies and Number Types */}
+            <h2 id="fees-agencies" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Fees, Agencies and Number Types Outside This Guide
+            </h2>
+            <ul className="space-y-3 mb-6 text-sm text-[#5C6880] list-disc list-inside">
+              <li><strong className="text-[#1A2236]">Fees:</strong> HighLevel passes registration, vetting, monthly Campaign and carrier fees through without markup, and your volume choice affects cost. Check the price shown in Trust Center and see <Link href="/blog/a2p-10dlc-fees-explained" className="text-[#0E9BF0] hover:underline">current A2P 10DLC fees</Link>.</li>
+              <li><strong className="text-[#1A2236]">Agencies:</strong> a Campaign belongs to the business and messaging program being registered, not to the agency managing the account. For multiple clients and workflow at scale, see <Link href="/blog/a2p-registration-for-agencies" className="text-[#0E9BF0] hover:underline">A2P registration for GoHighLevel agencies</Link>.</li>
+              <li><strong className="text-[#1A2236]">Other number types:</strong> this guide covers US standard 10 digit local numbers. Toll Free numbers use a separate verification process, compared in <Link href="/blog/toll-free-vs-a2p-10dlc-gohighlevel" className="text-[#0E9BF0] hover:underline">Toll Free vs A2P 10DLC in GoHighLevel</Link>, and Canadian scenarios are in <Link href="/blog/a2p-10dlc-canadian-numbers" className="text-[#0E9BF0] hover:underline">A2P 10DLC for Canadian numbers</Link>.</li>
+            </ul>
+
+            {/* Section: FAQ */}
             <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
-              8. Frequently Asked Questions
+              A2P Campaign Registration FAQs
             </h2>
 
             <div className="space-y-3">
@@ -735,56 +683,45 @@ export default function A2PCampaignRegistrationGuideClient() {
               ))}
             </div>
 
-            {/* CTA 3 - After FAQ */}
-            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
-              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
-                <strong className="text-white">Still have questions about A2P campaign registration?</strong>
+            {/* Next Step Section */}
+            <div className="mt-8 bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5">
+              <h3 className="text-base font-bold text-[#1A2236] mb-2">What to Build After Your Campaign Is Approved</h3>
+              <p className="text-sm text-[#5C6880] leading-relaxed">
+                Once the Campaign is approved and your numbers show A2P Verified, the next task is building the messaging flows themselves. That is the work covered by our <Link href="/services/campaign-automation" className="text-[#0E9BF0] hover:underline">Email, SMS and WhatsApp automation service</Link>.
               </p>
-              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
-                Talk to our A2P specialists directly. We've completed 200+ A2P registrations and fixed every issue in this guide.
-              </p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                  <MessageCircleIcon className="w-4 h-4" />
-                  Ask an Expert
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20">
-                  <Phone className="w-4 h-4" />
-                  Call Us
-                </Link>
-              </div>
             </div>
 
             {/* Related Articles */}
             <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
-              <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles</h3>
+              <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles in This Series</h3>
               <div className="flex flex-wrap gap-3">
-                <Link href="/blog/what-is-a2p-10dlc" className="text-sm text-[#0E9BF0] hover:underline">What Is A2P 10DLC? Complete Guide for GoHighLevel Users →</Link>
-                <Link href="/blog/a2p-brand-registration-guide" className="text-sm text-[#0E9BF0] hover:underline">A2P Brand Registration Guide: Standard Brand vs Sole Proprietor →</Link>
-                <Link href="/blog/a2p-campaign-rejected-fix" className="text-sm text-[#0E9BF0] hover:underline">A2P Campaign Rejected: What It Means and How to Fix It →</Link>
-                <Link href="/blog/a2p-opt-in-language-templates" className="text-sm text-[#0E9BF0] hover:underline">A2P Opt-In Language Templates →</Link>
+                <Link href="/blog/what-is-a2p-10dlc" className="text-sm text-[#0E9BF0] hover:underline">What Is A2P 10DLC? →</Link>
+                <Link href="/blog/a2p-brand-registration-guide" className="text-sm text-[#0E9BF0] hover:underline">A2P Brand Registration in GoHighLevel →</Link>
+                <Link href="/blog/a2p-brand-rejected-fix" className="text-sm text-[#0E9BF0] hover:underline">A2P Brand Rejection Guide →</Link>
+                <Link href="/blog/a2p-campaign-rejected-fix" className="text-sm text-[#0E9BF0] hover:underline">A2P Campaign Rejection Guide →</Link>
+                <Link href="/blog/a2p-opt-in-language-templates" className="text-sm text-[#0E9BF0] hover:underline">A2P Opt In Language Templates →</Link>
                 <Link href="/blog/a2p-10dlc-fees-explained" className="text-sm text-[#0E9BF0] hover:underline">A2P 10DLC Fees Explained →</Link>
-                <Link href="/blog/gohighlevel-missed-call-text-back" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Missed Call Text Back: Setup Guide →</Link>
-                <Link href="/case-studies" className="text-sm text-[#0E9BF0] hover:underline">Real GoHighLevel Results and Case Studies →</Link>
+                <Link href="/blog/toll-free-vs-a2p-10dlc-gohighlevel" className="text-sm text-[#0E9BF0] hover:underline">Toll Free vs A2P 10DLC in GoHighLevel →</Link>
+                <Link href="/blog/a2p-registration-for-agencies" className="text-sm text-[#0E9BF0] hover:underline">A2P Registration for GoHighLevel Agencies →</Link>
+                <Link href="/blog/a2p-trust-score-mps" className="text-sm text-[#0E9BF0] hover:underline">How Trust Score and MPS Work →</Link>
               </div>
             </div>
 
-            {/* Final CTA */}
+            {/* Final CTA Section */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Need your A2P campaign registration handled correctly the first time?</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Need your A2P Campaign registration done right the first time?</h3>
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
-                  GHL Scale Up handles A2P registration for agencies and their clients. Campaign description, use case selection, sample messages, opt-in documentation, and full Trust Center walkthrough managed end to end.
+                  GHL Scale Up handles A2P registration for agencies and their clients. Use case selection, campaign description, sample messages, opt in documentation, policy guidance, and full Trust Center walkthrough managed end to end.
                 </p>
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105">
                   Book Your Free Strategy Call
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
 
-            {/* Author Section */}
+            {/* Author / Verification Section */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 my-6">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
@@ -800,7 +737,7 @@ export default function A2PCampaignRegistrationGuideClient() {
                 </div>
               </div>
               <p className="text-xs text-[#5C6880] leading-relaxed">
-                All steps and rules in this guide are verified against GoHighLevel's official support portal as of July 2026. Navigation paths, fees, and carrier policies may change always verify in GHL's Trust Center before submitting. This is not official GoHighLevel documentation.
+                This guide was checked against HighLevel's A2P Campaign Registration guide, Campaign Approval Best Practices, Campaign Use Cases and policy guidelines in September 2026. Fields, requirements and pricing change, so confirm what you see in Trust Center before submitting.
               </p>
               <Link href="/" className="text-[#0E9BF0] text-xs hover:underline mt-2 inline-block">ghlscaleup.com</Link>
             </div>

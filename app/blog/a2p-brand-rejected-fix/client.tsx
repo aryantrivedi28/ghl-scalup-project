@@ -9,118 +9,55 @@ import {
   Linkedin,
   Twitter,
   BookOpen,
-  Star,
+  Zap,
   AlertTriangle,
   AlertOctagon,
-  CheckCircle,
+  CheckCircle2,
   Rocket,
   Target,
   HeartHandshake,
   MessageCircle,
   Phone,
   Search,
-  Trophy,
-  Facebook,
-  AlertCircle,
   Info,
-  Lightbulb,
-  FileText,
-  UserCheck,
-  UserX,
-  Compass,
   FileCheck,
-  CheckCircle as CheckCircleIcon,
-  Layers,
-  PanelTop,
-  LayoutDashboard,
-  Settings,
-  Briefcase,
-  LifeBuoy,
-  Award,
-  Timer,
-  Trash2,
-  Download,
-  BarChart3,
-  PieChart,
-  Workflow,
-  Globe,
-  Database,
-  Cloud,
-  GitBranch,
-  Sparkles,
-  GraduationCap,
-  Clock,
-  Shield,
-  Users,
-  Calendar,
-  Mail,
-  Tag,
-  GitMerge,
-  DollarSign,
-  TrendingUp,
-  XCircle,
-  Server,
-  CreditCard,
-  Smartphone,
-  Layout,
-  Mailbox,
-  Headphones,
-  FileQuestion,
-  HelpCircle,
-  Boxes,
-  Combine,
-  Link2,
-  Webhook,
-  RefreshCw,
-  ListChecks,
-  ClipboardList,
-  Printer,
-  Video,
-  Ticket,
-  TrendingDown,
-  Zap
+  Image as ImageIcon,
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import Image from 'next/image';
 
 export default function A2PBrandRejectedFixClient() {
   const [activeId, setActiveId] = useState<string>('');
-  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
   useEffect(() => {
-    const sections = [
-      'what-is-brand',
-      'rejection-causes',
-      'fix-each-cause',
-      'exhausted-tries',
-      'after-approval',
-      'faq'
-    ];
-
     const handleScroll = () => {
-      let currentSection = sections[0];
+      const sections = [
+        'what-mean',
+        'rejected-vs-campaign',
+        'check-status',
+        'rejection-causes',
+        'fix-ein-mismatch',
+        'new-ein',
+        'fix-address-entity',
+        'sole-vs-standard',
+        'how-to-resubmit',
+        'limits-appeals',
+        'review-time',
+        'after-approval',
+        'faq'
+      ];
 
       for (const id of sections) {
         const element = document.getElementById(id);
-        if (!element) continue;
-        const rect = element.getBoundingClientRect();
-        if (rect.top <= 180) {
-          currentSection = id;
-        } else {
-          break;
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 150) {
+            setActiveId(id);
+          }
         }
-      }
-
-      setActiveId(currentSection);
-
-      // Show floating Project Help card after scrolling past hero section
-      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
-      if (heroSection) {
-        const heroBottom = heroSection.getBoundingClientRect().bottom;
-        setShowFloatingProjectHelp(heroBottom < 0);
       }
     };
 
-    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -137,54 +74,77 @@ export default function A2PBrandRejectedFixClient() {
 
   const faqs = [
     {
-      q: "What is the difference between A2P brand rejection and campaign rejection in GoHighLevel?",
-      a: "A2P brand rejection happens at Step 1 of the registration process The Campaign Registry (TCR) could not verify your business identity based on the information submitted. No campaign registration can be submitted until the brand is approved. Campaign rejection happens at Step 2 after your brand is approved, the carriers rejected your messaging use case, sample messages, or opt-in documentation. The fixes are completely different. This guide covers brand rejection. For campaign rejection, see: ghlscaleup.com/blog/a2p-campaign-rejected-fix"
+      q: "Why was my A2P brand rejected?",
+      a: "Usually because the submitted legal name, registration number or address could not be matched to official records. Other documented causes are a new EIN, an entity type that could not be verified, the wrong Brand type and contact verification problems."
     },
     {
-      q: "Why was my A2P brand rejected in GoHighLevel?",
-      a: "The most common confirmed causes of brand rejection are: EIN mismatch with the legal business name (the most frequent cause a missing 'LLC', transposed digit, or shortened name), a newly issued EIN that has not yet propagated across TCR's verification databases, a PO Box used as the business address instead of a physical street address, DUNS number entered instead of an EIN, or inability to verify a nonprofit or government entity type. Brand rejection is decided by TCR and its verification partners, not by GoHighLevel."
+      q: "How do I fix an EIN mismatch?",
+      a: "Take the exact legal name from your CP 575 or 147C, correct the Brand details, and resubmit."
     },
     {
-      q: "How do I fix an EIN mismatch in A2P brand registration?",
-      a: "Obtain your CP 575 EIN Confirmation Letter from the IRS this shows the exact legal business name on file. If you do not have it, request a 147c letter from the IRS. Update your brand registration with the name exactly as it appears on the CP 575, character for character, including any entity suffix (LLC, Inc, Corp). When resubmitting or contacting GHL support for manual verification, provide the complete PDF of the CP 575 not a screenshot and not just the first page. Partial documentation is rejected."
+      q: "Can I resubmit a rejected A2P brand?",
+      a: "Generally yes, but attempts are limited. After the limit, contact HighLevel Support with your complete CP 575."
     },
     {
-      q: "My EIN is new. Can I still register for A2P?",
-      a: "You can try, but newly issued EINs may be rejected by TCR because the EIN has not yet propagated across TCR's verification databases. According to GHL's official documentation, you have two options: wait at least 30 to 90 days from the EIN issue date and resubmit, or appeal your verification status for a $10 fee regardless of the outcome. If you choose the appeal, you must provide the complete PDF of your EIN Confirmation Letter (CP 575) not a screenshot. Verify the current appeal process and fee with GHL support, as these details can change."
+      q: "How long should I wait before resubmitting?",
+      a: "If the failure is a genuine mismatch, correct it and resubmit. If your EIN is new, HighLevel's sources differ, so confirm with Support. There is no guaranteed waiting period."
     },
     {
-      q: "What happens if I exhaust 3 A2P brand registration attempts?",
-      a: "If you see the error 'Maximum 3 tries exhausted', you cannot resubmit through the normal flow. You must contact GHL support and complete a specific form that GHL references in their documentation. You will need to provide your complete CP 575 EIN Confirmation Letter as a full PDF. Documentation must be from the federal level (IRS) state-level documents are not accepted for manual EIN verification. Contact GHL support directly to obtain the current form link and instructions, as these are managed through GHL's internal support system."
+      q: "What if my legal name differs from my DBA?",
+      a: "Register the Brand under the legal name on the record. If you message under a DBA, HighLevel advises declaring it in the Campaign description and keeping your website and consent wording consistent."
     },
     {
-      q: "Does A2P brand rejection cost an extra fee?",
-      a: "Resubmitting a rejected brand registration does not typically incur an additional fee verify this with GHL's current fee documentation, as fee policies can change. However, if you have exhausted 3 registration attempts and need to appeal, GHL's documentation states an appeal fee of $10 applies, regardless of the outcome. For the full breakdown of all A2P fees: ghlscaleup.com/blog/a2p-10dlc-fees-explained"
+      q: "When should I contact support or appeal?",
+      a: "When your details match the record and the Brand still fails, when self service attempts are used up, when the EIN is very new, or when the Brand is suspended."
     },
     {
-      q: "Can GHL Scale Up fix my A2P brand rejection?",
-      a: "Yes. GHL Scale Up handles A2P brand registration and rejection troubleshooting for agencies and their client sub-accounts. We verify EIN details against the CP 575 before submitting, select the correct brand type, and manage any resubmission or manual verification required. Book a free strategy call at ghlscaleup.com/contact."
+      q: "Can I register another brand instead?",
+      a: "It rarely helps. A new Brand with the same details will fail the same way, and HighLevel discourages many Brands on one EIN. Fix the existing one or ask Support first."
     }
   ];
 
   useFaqSchema(faqs);
 
   const tocItems = [
-    { id: 'what-is-brand', title: '1. What is A2P brand registration and who rejects it?' },
-    { id: 'rejection-causes', title: '2. What are the confirmed causes of brand rejection?' },
-    { id: 'fix-each-cause', title: '3. How to fix each brand rejection cause' },
-    { id: 'exhausted-tries', title: '4. What to do if you have exhausted 3 registration attempts' },
-    { id: 'after-approval', title: '5. What happens after brand approval?' },
-    { id: 'faq', title: '6. Frequently asked questions' }
+    { id: 'what-mean', title: 'What Does A2P Brand Rejected Mean?' },
+    { id: 'rejected-vs-campaign', title: 'Brand Rejected vs Campaign Rejected' },
+    { id: 'check-status', title: 'How to Check Your Brand Status and Rejection Reason' },
+    { id: 'rejection-causes', title: 'Why Was My A2P Brand Registration Rejected?' },
+    { id: 'fix-ein-mismatch', title: 'How to Fix an EIN and Legal Business Name Mismatch' },
+    { id: 'new-ein', title: 'What to Do If Your EIN Is New' },
+    { id: 'fix-address-entity', title: 'How to Fix Address and Entity Type Problems' },
+    { id: 'sole-vs-standard', title: 'How Sole Proprietor and Standard Brand Failures Differ' },
+    { id: 'how-to-resubmit', title: 'How to Resubmit a Failed A2P Brand' },
+    { id: 'limits-appeals', title: 'Resubmission Limits, Appeals and When to Contact Support' },
+    { id: 'review-time', title: 'How Long Does Brand Review Take?' },
+    { id: 'after-approval', title: 'What Happens After Your Brand Is Approved' },
+    { id: 'faq', title: 'Common A2P Brand Rejection Questions' }
   ];
 
-  const rejectionCauses = [
-    { cause: 'EIN mismatch with legal business name', what: 'The legal name entered does not exactly match what the IRS has on file for that EIN. A missing "LLC", a transposed letter, or a shortened trading name instead of the full legal name all cause this error.', source: 'GHL Brand Approval Best Practices (February 2026)' },
-    { cause: 'New EIN not yet propagated', what: 'The EIN was issued too recently to appear in TCR\'s verification databases.', source: 'GHL Brand Approval Best Practices (February 2026)' },
-    { cause: 'PO Box used as business address', what: 'The address entered is a PO Box, not a physical street address.', source: 'GHL Standard Brand Registration FAQ' },
-    { cause: 'DUNS number used instead of EIN', what: 'DUNS is not an acceptable format for EIN in A2P brand registration and results in an Unverified state.', source: 'GHL Standard Brand Registration guide' },
-    { cause: 'Nonprofit or government entity type cannot be verified', what: 'TCR could not verify the organisation as a US-registered nonprofit or government entity.', source: 'GHL Brand Approval Best Practices (February 2026)' },
-    { cause: 'Stock symbol or ticker mismatch (Public companies)', what: 'The stock ticker or exchange entered does not match available public sources.', source: 'GHL Brand Approval Best Practices (February 2026)' },
-    { cause: 'Branch or non-registered address used', what: 'The address of a local branch or a different address from the official registered company address was entered.', source: 'GHL Brand Approval Best Practices (February 2026)' }
+  const statusMapping = [
+    { what: 'Brand failed, unverified or rejected', means: 'Your business identity could not be verified', go: 'This guide' },
+    { what: 'Brand still pending or in review', means: 'The review has not finished. It may simply need time', go: 'Wait; do not resubmit' },
+    { what: 'Brand approved, Campaign rejected', means: 'The messaging use case, description, samples, consent, website or policies failed review', go: 'A2P campaign rejection guide' },
+    { what: 'Brand and Campaign approved, SMS still failing', means: 'The number may not be linked to the Campaign, or the failure has another cause', go: 'HighLevel\'s guide to linking a number to an approved Campaign' },
+    { what: 'Numeric error code on a rejection', means: 'Depends on the code and the stage', go: 'A2P error codes' }
+  ];
+
+  const rejectionTable = [
+    { problem: 'Legal name and EIN do not match', means: 'The name submitted differs from the name tied to that EIN in official records', verify: 'Your CP 575 or 147C letter', next: 'Correct the name, then resubmit' },
+    { problem: 'Wrong or invalid registration number', means: 'A typo, transposed digit or wrong ID type', verify: 'The number against your letter or national registry', next: 'Correct it. US businesses use an EIN, not a DUNS number' },
+    { problem: 'Newly issued EIN', means: 'The record may not have reached verification systems yet', verify: 'When the EIN was issued', next: 'See the EIN section below' },
+    { problem: 'Address does not match', means: 'The address differs from your registered record', verify: 'The registered address on your official documents', next: 'Use the registered street address' },
+    { problem: 'Entity type cannot be verified', means: 'Nonprofit, government or public company details could not be confirmed', verify: 'Registered status and, for public companies, ticker and exchange', next: 'Correct the entity type or provide documents through Support' },
+    { problem: 'Wrong Brand type', means: 'Sole Proprietor was used by a business with a Tax ID, or a corporate name was used as a Sole Proprietor', verify: 'Whether you have an EIN or Tax ID', next: 'Register as a Standard Brand' },
+    { problem: 'Contact or verification problem', means: 'The contact details could not be verified', verify: 'Email type, reachable phone, OTP completion', next: 'Correct the contact details and complete verification' },
+    { problem: 'Maximum 3 tries exhausted', means: 'Self service attempts have run out', verify: 'Your complete CP 575', next: 'Contact Support with your documents' }
+  ];
+
+  const soleVsStandard = [
+    { aspect: 'Typical failure', standard: 'Name, EIN or address does not match the record', sole: 'Wrong eligibility, a corporate suffix in the name, or a contact detail that fails validation' },
+    { aspect: 'Contact rules', standard: 'Business domain email recommended; Gmail accepted but may slow approval', sole: 'Public domain email required. Business domain emails are not eligible' },
+    { aspect: 'Verification', standard: 'Persona identity check or email OTP, depending on the account', sole: 'A US or Canada mobile number that can receive an OTP. VoIP and CPaaS numbers are not accepted' },
+    { aspect: 'First fix', standard: 'Compare details to the tax record', sole: 'Confirm you have no Tax ID and only one employee' }
   ];
 
   // Reusable Project Help Card Component
@@ -193,7 +153,6 @@ export default function A2PBrandRejectedFixClient() {
       <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
       <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your migration.</p>
       <Link
-        // onClick={handleOpenBooking}
         href="/book-a-call"
         className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
         Book a 30 min Free Call
@@ -218,7 +177,7 @@ export default function A2PBrandRejectedFixClient() {
         </div>
       </nav>
 
-      {/* Hero Section - WIDE (KEPT AS IS) */}
+      {/* Hero Section */}
       <section className="bg-[#0B1628] py-12 md:py-[72px] px-4 md:px-6 relative overflow-hidden">
         <div className="absolute -top-[120px] -right-[120px] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(14,155,240,0.12)_0%,transparent_70%)] pointer-events-none" />
         <div className="absolute -bottom-[80px] -left-[80px] w-[360px] h-[360px] bg-[radial-gradient(circle,rgba(37,201,125,0.08)_0%,transparent_70%)] pointer-events-none" />
@@ -235,7 +194,7 @@ export default function A2PBrandRejectedFixClient() {
           {/* H1 */}
           <h1 className="text-[clamp(28px,6vw,46px)] font-extrabold leading-[1.2] md:leading-[1.15] text-white mb-4 md:mb-5 tracking-[-0.02em]">
             A2P Brand Rejected in GoHighLevel:<br />
-            <span className="text-[#F8D000]">What It Means and How to Fix It (2026)</span>
+            <span className="text-[#F8D000]">Why It Happens and How to Fix It</span>
           </h1>
 
           {/* Author */}
@@ -249,29 +208,55 @@ export default function A2PBrandRejectedFixClient() {
             </div>
             <div>
               <div className="text-sm font-medium text-white">GHL Scale Up Team</div>
-              <div className="text-xs text-white/50">GoHighLevel Specialists · 200+ Builds Delivered · Updated July 2026</div>
+              <div className="text-xs text-white/50">GoHighLevel Specialists · 200+ builds delivered · Verified against GoHighLevel, Twilio, and The Campaign Registry documentation, September 2026</div>
             </div>
           </div>
 
-          {/* Intro Paragraph - NO max-w constraint */}
-          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6">
-            If your A2P brand registration in GoHighLevel has been rejected, you are blocked at Step 1 of the A2P process. No campaign can be submitted, no phone numbers can be registered, and no automated SMS will reach US recipients until the brand is approved. <Link href="/" className="text-[#0E9BF0] hover:underline font-medium">GHL Scale Up</Link> has handled A2P registrations across hundreds of client accounts. This guide covers every confirmed brand rejection cause, the exact fix for each, and what to do if you have exhausted your submission attempts.
-          </p>
+          {/* Quick Answer Box */}
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 md:p-6 mb-6">
+            <div className="flex items-center gap-2 mb-3">
+              <Zap className="w-5 h-5 text-[#F8D000]" />
+              <span className="text-xs font-bold uppercase tracking-wider text-white/60">Quick Answer</span>
+            </div>
+            <p className="text-sm text-white/70 leading-relaxed mb-3">
+              An A2P brand is rejected when The Campaign Registry (TCR) and its verification partners cannot verify the business identity you submitted. The most common cause is a mismatch between your legal business name, EIN or Tax ID, and address and what official records show. To fix it, read the exact failure reason, compare every field against your official business record, correct the details, and resubmit through the current process.
+            </p>
+            <p className="text-sm text-white/70 leading-relaxed">
+              Correcting the mismatch addresses the documented failure, but approval is still subject to verification, and no fix carries a guarantee. Before changing anything, confirm that the problem really is your Brand. Pending reviews, rejected Campaigns and phone number problems look similar and need different fixes.
+            </p>
+          </div>
+
+          {/* CTA Button 1 */}
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105"
+            >
+              <Rocket className="w-4 h-4" />
+              Get Brand Rejection Help
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              href="#rejection-causes"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20"
+            >
+              See Rejection Causes
+              <ChevronDown className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* MAIN LAYOUT - Sidebar on LEFT, Content on RIGHT */}
-      <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-16">
+      {/* MAIN LAYOUT */}
+      <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-10">
         <div className="grid lg:grid-cols-[280px_1fr] gap-8 md:gap-12 items-start">
-          
-          {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
+
+          {/* SIDEBAR */}
           <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
-            {/* Project Help Card - At top of sidebar */}
-            <div className="mb-6">
+            <div className="hidden lg:block mb-6">
               <ProjectHelpCard />
             </div>
 
-            {/* Table of Contents */}
             <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
                 <BookOpen className="w-3 h-3" />
@@ -288,7 +273,9 @@ export default function A2PBrandRejectedFixClient() {
                         }`}
                     >
                       <span className="flex items-start gap-2">
-                        {activeId === item.id && <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />}
+                        {activeId === item.id && (
+                          <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />
+                        )}
                         <span className="flex-1">{item.title}</span>
                       </span>
                     </button>
@@ -297,7 +284,6 @@ export default function A2PBrandRejectedFixClient() {
               </ul>
             </nav>
 
-            {/* About the Author */}
             <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
@@ -313,52 +299,46 @@ export default function A2PBrandRejectedFixClient() {
                 </div>
               </div>
               <p className="text-xs text-white/60 leading-relaxed mb-3">
-                5+ years GHL experience · 200+ A2P registrations handled globally. All technical details verified as of July 2026.
+                5+ years GHL experience · 200+ A2P registrations handled globally. All technical details verified as of September 2026.
               </p>
-              <Link href="/" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
+              <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
             </div>
 
-            {/* Share Buttons */}
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
-              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
+              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Share this guide</div>
               <div className="flex gap-2 flex-wrap">
-                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Linkedin className="w-3 h-3" /> LinkedIn</a>
-                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Twitter className="w-3 h-3" /> X</a>
-                <button onClick={() => navigator.clipboard.writeText(window.location.href)} className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"><Copy className="w-3 h-3" /> Copy link</button>
+                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Linkedin className="w-3 h-3" />
+                  LinkedIn
+                </a>
+                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Twitter className="w-3 h-3" />
+                  X
+                </a>
+                <button
+                  onClick={() => navigator.clipboard.writeText(window.location.href)}
+                  className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"
+                >
+                  <Copy className="w-3 h-3" />
+                  Copy link
+                </button>
               </div>
+            </div>
+
+            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
+              <div className="text-sm font-bold text-white mb-2">Brand Rejected Help?</div>
+              <p className="text-xs text-white/60 leading-relaxed mb-4">We handle A2P brand rejection fixes for agencies and their clients EIN verification, documentation, resubmission, and manual verification support.</p>
+              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+                Get Help
+                <ArrowRight className="w-3 h-3" />
+              </Link>
             </div>
           </aside>
 
-          {/* ==================== RIGHT COLUMN: BLOG CONTENT ==================== */}
+          {/* MAIN CONTENT */}
           <main className="min-w-0 order-2">
 
-            {/* BLUF Box */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
-              <div className="flex items-center gap-2 mb-3">
-                <AlertOctagon className="w-5 h-5 text-[#DC3545]" />
-                <span className="text-xs font-bold uppercase tracking-wider text-[#DC3545]">Brand Rejection vs Campaign Rejection Important Distinction</span>
-              </div>
-              <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
-                This blog covers brand rejection a failure at Step 1 of the A2P process. If your brand was approved but your campaign was rejected, that is a different issue covered in a separate guide.
-              </p>
-              <p className="text-sm text-[#5C6880] leading-relaxed">
-                Brand rejection means TCR (The Campaign Registry) could not verify your business identity. Campaign rejection means the carriers rejected your messaging use case. The fixes are different. For campaign rejection: <Link href="/blog/a2p-campaign-rejected-fix" className="text-[#0E9BF0] hover:underline">A2P Campaign Rejected Fix Guide →</Link>
-              </p>
-
-              {/* CTA 1 - Inside BLUF Box */}
-              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
-                  <Target className="w-4 h-4" />
-                  Get Brand Rejection Help
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Table of Contents - Mobile Only */}
+            {/* Mobile TOC */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8 lg:hidden">
               <div className="flex items-center gap-2 mb-4">
                 <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
@@ -377,208 +357,275 @@ export default function A2PBrandRejectedFixClient() {
               </div>
             </div>
 
-            {/* Mobile Project Help Card - visible on mobile only */}
+            {/* Mobile Project Help Card */}
             <div className="lg:hidden mb-8">
               <ProjectHelpCard />
             </div>
 
-            {/* Section 1: What Is Brand Registration */}
-            <h2 id="what-is-brand" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-8 mb-4">
-              1. What Is A2P Brand Registration and Who Rejects It?
+            {/* Section: What Does A2P Brand Rejected Mean */}
+            <h2 id="what-mean" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-8 mb-4">
+              What Does A2P Brand Rejected Mean?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              A2P brand registration is Step 1 of the A2P 10DLC process. It registers your business identity your legal name, EIN or Tax ID, business address, and entity type with The Campaign Registry (TCR), a third-party industry organisation that verifies businesses before their messages are allowed onto US carrier networks.
+              A2P Brand Registration answers one question: <strong className="text-[#1A2236]">who is sending the messages?</strong> A rejected or failed Brand means the business details in that submission could not be verified or did not meet the Brand requirements. HighLevel submits your details to TCR, and the verification decision comes from TCR and its partners, not from HighLevel itself. The background on why this system exists is in our explainer on <Link href="/blog/what-is-a2p-10dlc" className="text-[#0E9BF0] hover:underline">what A2P 10DLC is</Link>, and the original submission steps are in the <Link href="/blog/a2p-brand-registration-guide" className="text-[#0E9BF0] hover:underline">A2P Brand Registration guide</Link>.
             </p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              When GoHighLevel submits your brand registration, it goes to TCR for verification. TCR checks your business information against IRS records and other third-party databases. If TCR cannot verify your business information, your brand registration is rejected. GoHighLevel does not control this decision the rejection comes from TCR and its verification partners.
-            </p>
-
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-2">
-              For the full background on the A2P system and why registration is required: <Link href="/blog/what-is-a2p-10dlc" className="text-[#0E9BF0] hover:underline">What Is A2P 10DLC? →</Link>
-            </p>
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              For the complete walkthrough of what to enter during brand registration (Standard Brand and Sole Proprietor paths): <Link href="/blog/a2p-brand-registration-guide" className="text-[#0E9BF0] hover:underline">A2P Brand Registration Guide →</Link>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Status wording depends on where you look. HighLevel's documentation refers to messages such as a failed brand registration, an Unverified state for certain errors, and a "Maximum 3 tries exhausted" error. Twilio, which documents the underlying process, uses the statuses PENDING, IN_REVIEW, APPROVED, FAILED and SUSPENDED. Treat Twilio's list as background, not as a map of what HighLevel shows on screen, and go by the wording in your own Trust Center.
             </p>
 
-            {/* Section 2: Rejection Causes */}
-            <h2 id="rejection-causes" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              2. What Are the Confirmed Causes of Brand Rejection in GoHighLevel?
+            {/* Section: Brand Rejected vs Campaign Rejected */}
+            <h2 id="rejected-vs-campaign" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Brand Rejected vs Campaign Rejected
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The following rejection causes are confirmed from GHL's official Brand Approval Best Practices documentation (February 2026). According to that guide, a large share of A2P brand rejections come from small mismatches between what is entered and what is on file with the IRS a missing 'LLC', a transposed digit in the EIN, or an outdated address. Each cause below has a direct fix in Section 3.
+              These are different stages with different fixes. Work out which one you have before you edit anything.
             </p>
 
             <div className="overflow-x-auto my-6">
               <table className="w-full border-collapse text-sm">
                 <thead>
                   <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Rejection cause</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">What happened</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Confirmed source</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">What you see</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">What it usually means</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Where to go</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {rejectionCauses.map((item, idx) => (
+                  {statusMapping.map((item, idx) => (
                     <tr key={idx} className="border-b border-[#DDE1E9]">
-                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.cause}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.what}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.source}</td>
+                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.what}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.means}</td>
+                      <td className="py-3 px-3 text-[#0E9BF0]">
+                        {idx === 2 ? (
+                          <Link href="/blog/a2p-campaign-rejected-fix" className="hover:underline">{item.go}</Link>
+                        ) : idx === 3 ? (
+                          <a href="https://help.gohighlevel.com/support/solutions/articles/155000008316-error-30034-linking-a-phone-number-to-an-approved-a2p-campaign" target="_blank" rel="noopener noreferrer" className="hover:underline">{item.go}</a>
+                        ) : idx === 4 ? (
+                          <Link href="/blog/a2p-error-codes-explained" className="hover:underline">{item.go}</Link>
+                        ) : (
+                          item.go
+                        )}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
 
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">WHAT I AM NOT CERTAIN ABOUT</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                The complete numbered error code list for brand rejection. GHL's official brand documentation describes rejection causes but does not publish a comprehensive numbered error code list for brand rejection comparable to the campaign error code list. If you receive a specific error code on your brand rejection that is not covered here, contact GHL support directly for guidance specific to that code.
-              </p>
-            </div>
-
-            {/* Section 3: Fix Each Cause */}
-            <h2 id="fix-each-cause" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              3. How to Fix Each Brand Rejection Cause
-            </h2>
-
-            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Fix 1: EIN mismatch with legal business name</h3>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">The most common brand rejection cause.</strong> Your legal business name in the registration must match exactly what the IRS has on file for that EIN. Even small differences 'LLC' versus 'L.L.C.', a shortened name, or a trade name instead of the full legal name cause rejection.
-            </p>
-            <ul className="space-y-2 mb-4 text-sm text-[#5C6880] list-decimal list-inside">
-              <li><strong className="text-[#1A2236]">Obtain your CP 575 form.</strong> This is the EIN Confirmation Letter the IRS issued when your EIN was assigned. It shows the exact legal name the IRS has on file.</li>
-              <li><strong className="text-[#1A2236]">If you do not have the CP 575, request a 147c letter from the IRS.</strong> This is a verification letter that confirms your EIN and legal name. Contact the IRS Business and Specialty Tax Line to request it. You may want to verify the current IRS contact number and process at irs.gov, as these can change.</li>
-              <li><strong className="text-[#1A2236]">Update your brand registration with the exact name from the CP 575 or 147c.</strong> Copy the name character for character, including any punctuation, entity suffix (LLC, Inc, Corp), and spacing.</li>
-              <li><strong className="text-[#1A2236]">Resubmit your brand registration.</strong> Upload your CP 575 document when prompted or when contacting GHL support for manual verification.</li>
-            </ul>
-
-            <div className="bg-[#E8FAF2] border border-[rgba(37,201,125,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <CheckCircle className="w-4 h-4 text-[#25C97D]" />
-                <span className="text-sm font-bold text-[#25C97D]">UPLOAD THE COMPLETE PDF NOT A SCREENSHOT</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                Confirmed from GHL's official documentation: you must provide the complete PDF document of your EIN. If you provide screenshots or just the first page your appeal will be rejected. This applies both to the standard resubmission process and to the $10 appeal for new EINs.
-              </p>
-            </div>
-
-            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Fix 2: New EIN not yet propagated</h3>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Confirmed from GHL's official documentation: newly issued EINs or equivalent tax IDs won't propagate across the relevant databases' validation systems for a few weeks. GHL's documentation specifically states that A2P brand registrations using newly generated US EINs registered in the last 15 days may be rejected by TCR.
-            </p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">You have two options confirmed from GHL's official support:</strong>
-            </p>
-            <ul className="space-y-2 mb-4 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">Option A Wait and resubmit.</strong> GHL's documentation states to wait at least 30 to 90 days from the EIN issue date before retrying registration. Once that window has passed, resubmit with your complete CP 575 PDF.</li>
-              <li><strong className="text-[#1A2236]">Option B Pay the $10 appeal fee.</strong> You can appeal your verification status for $10 regardless of the outcome. This is not a guarantee of approval the outcome is not assured. You must provide the complete PDF document of your EIN. For more detail on A2P fees: <Link href="/blog/a2p-10dlc-fees-explained" className="text-[#0E9BF0] hover:underline">A2P 10DLC Fees Explained →</Link></li>
-            </ul>
-
-            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Fix 3: PO Box used as business address</h3>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Replace the PO Box with your physical street address as registered with the IRS and on your official business documents. Submitting the address of a local branch or any address different from the official registered company address may also produce a mismatch that negatively impacts your Trust Score, even if it does not cause outright rejection confirmed from GHL's official documentation.
-            </p>
-
-            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Fix 4: DUNS number used instead of EIN</h3>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              DUNS is not an acceptable format for the EIN field and puts the brand in an Unverified state, preventing you from proceeding with the next steps. Enter your 9-digit EIN in the format XX-XXXXXXX. If you do not have an EIN and your business qualifies, apply for one at irs.gov. You may want to verify the current IRS EIN application process directly, as procedures can change.
-            </p>
-
-            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Fix 5: Nonprofit or government entity type cannot be verified</h3>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Confirmed from GHL's official documentation: the error occurs when TCR cannot verify the organisation as a US-registered nonprofit or government entity. You have two options: update your entity type to one that matches how your organisation is actually legally registered, or provide documents for manual verification of your entity type through GHL support. GHL's documentation references a specific 'Nonprofit and Government Guide to A2P 10DLC' you may want to search GHL's support portal for this article as it is not linked in the main brand documentation and may contain additional specific guidance for your organisation type.
-            </p>
-
-            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Fix 6: Stock symbol or ticker mismatch (Public companies only)</h3>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
-              If your company is publicly traded, the stock ticker symbol and the designated stock exchange entered must match available public sources. Update one or both fields to resolve the mismatch. This cause applies only to public company brand registrations.
+              One caution: some business identity problems only surface during Campaign review. HighLevel's Campaign rejection documentation includes codes for a Sole Proprietor Brand using a corporate name or a brand that does not meet Sole Proprietor criteria. Both are Brand type problems even though they appear on a Campaign. Detailed Campaign troubleshooting stays in the guide linked above, and registering the Campaign itself is covered in <Link href="/blog/a2p-campaign-registration-guide" className="text-[#0E9BF0] hover:underline">A2P Campaign Registration in GoHighLevel</Link>.
             </p>
 
-            {/* CTA 2 - After Fix Each Cause */}
-            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 text-center my-6 text-white">
-              <p className="text-sm font-medium mb-2">🔍 Not sure which fix applies to your brand rejection?</p>
-              <p className="text-sm text-white/80 mb-4">Let our team review your rejection and give you a clear path to resolution.</p>
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                <Search className="w-4 h-4" />
-                Get Your Brand Reviewed
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+            {/* 
+              ============================================================
+              🖼️ IMAGE INSERTED HERE - Full width, responsive, interactive
+              ============================================================
+            */}
+            <div className="my-8 md:my-10 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <div className="relative w-full h-auto bg-[#F8F9FB]">
+                <Image
+                  src="/blog/a2p-brand-rejected-infographic.png"
+                  alt="A2P Brand Rejected in GoHighLevel: Common rejection causes, EIN mismatch fixes, resubmission process, and support escalation"
+                  width={1200}
+                  height={500}
+                  className="w-full h-auto object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                />
+              </div>
+              <div className="bg-[#F8F9FB] px-4 py-2.5 text-xs text-[#5C6880] border-t border-[#DDE1E9] flex items-center gap-2">
+                <ImageIcon className="w-3.5 h-3.5" />
+                <span>A2P Brand Rejected in GoHighLevel: Common rejection causes, EIN mismatch fixes, resubmission process, and support escalation</span>
+              </div>
             </div>
 
-            {/* Section 4: Exhausted Tries */}
-            <h2 id="exhausted-tries" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              4. What to Do If You Have Exhausted 3 Registration Attempts
+
+            {/* Section: How to Check Your Brand Status */}
+            <h2 id="check-status" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              How to Check Your Brand Status and Rejection Reason
             </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">If you see the error 'Maximum 3 tries exhausted,' you cannot simply resubmit through the normal flow.</strong> This is confirmed from GHL's official Standard Brand Registration guide.
+            <ol className="space-y-2 mb-4 text-sm text-[#5C6880] list-decimal list-inside">
+              <li>In your GoHighLevel sub-account, open Settings, then Phone System, then the Trust Center, and open your A2P Brand and Campaign information.</li>
+              <li>Find the Brand and read its status and any message shown with it. If the Brand is pending, stop here and wait.</li>
+              <li>Note the exact wording of the failure. If there is an error message, keep the text or a screenshot.</li>
+              <li>Decide whether the failure points to identity (name, registration number), address, entity type, contact and verification details, or Brand type.</li>
+              <li>Compare the submitted details with your official record before touching the form.</li>
+            </ol>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              HighLevel's documentation confirms this Trust Center path but does not describe a dedicated brand rejection screen, so this guide does not name any buttons. Go by what appears on your screen.
             </p>
 
-            <ul className="space-y-2 mb-4 text-sm text-[#5C6880] list-decimal list-inside">
-              <li><strong className="text-[#1A2236]">Stop making further attempts.</strong> Additional submission attempts at this point are blocked by the system.</li>
-              <li><strong className="text-[#1A2236]">Collect your CP 575 form the complete PDF, not a screenshot or a partial page.</strong> If you do not have it, request a 147c letter from the IRS.</li>
-              <li><strong className="text-[#1A2236]">Contact GHL support and submit the specific form referenced in GHL's documentation.</strong> GHL's guide states 'please fill out this form' but the form URL is internal to GHL's support flow. Navigate to GHL's support portal and search for 'Maximum 3 tries exhausted' or contact GHL support directly to obtain the correct form.</li>
-              <li><strong className="text-[#1A2236]">Include your complete EIN documentation at the federal level, not the state level.</strong> Documentation must come from the IRS or equivalent federal agency state-level business registration documents are not sufficient for this process.</li>
+            {/* Section: Why Was My A2P Brand Registration Rejected */}
+            <h2 id="rejection-causes" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Why Was My A2P Brand Registration Rejected?
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              The table lists only causes documented by HighLevel or the underlying provider documentation. Your own rejection may fall outside it, and the message in Trust Center always takes priority.
+            </p>
+
+            <div className="overflow-x-auto my-6">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Problem</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">What it usually means</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">What to verify</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Next step</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {rejectionTable.map((item, idx) => (
+                    <tr key={idx} className="border-b border-[#DDE1E9]">
+                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.problem}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.means}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.verify}</td>
+                      <td className="py-3 px-3 text-[#0E9BF0]">{item.next}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Section: How to Fix an EIN and Legal Business Name Mismatch */}
+            <h2 id="fix-ein-mismatch" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              How to Fix an EIN and Legal Business Name Mismatch
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              This is the most common failure documented for Standard Brands. The name in your submission must match the name officially recorded against your registration number, and small differences count.
+            </p>
+            <ul className="space-y-3 mb-6 text-sm text-[#5C6880] list-disc list-inside">
+              <li><strong className="text-[#1A2236]">Use the record, not memory.</strong> For a US business, HighLevel points to the CP 575 EIN Confirmation Letter. If you do not have it, a 147C letter from the IRS is the fallback. Do not take the name from a W-2 or W-9, because it may differ.</li>
+              <li><strong className="text-[#1A2236]">Legal name, not trading name.</strong> A DBA, trade name or your messaging provider's name is not the legal name. Entity suffixes such as LLC or Inc should appear as the record shows them.</li>
+              <li><strong className="text-[#1A2236]">Watch typos and digits.</strong> HighLevel lists a missing suffix, a shortened name and a transposed digit as typical mismatch sources.</li>
+              <li><strong className="text-[#1A2236]">Multi line names.</strong> HighLevel advises entering every line of the name that appears above the address on the letter. Its Brand Approval guidance also warns against appending a person's name that appears after the business name. If unsure, ask Support.</li>
+              <li><strong className="text-[#1A2236]">Lookup first.</strong> HighLevel suggests checking your EIN in the HIPAA Space lookup and using the listed business name.</li>
             </ul>
 
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">FEDERAL VS STATE DOCUMENTATION</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                Confirmed from GHL's official documentation: any documentation submitted for manual EIN verification must be from the federal level, not the state level. A state business registration certificate is not sufficient. You need the CP 575 Confirmation Letter from the IRS (federal), or a 147c letter requested from the IRS. State-level documents such as Articles of Incorporation or state certificates of formation will not be accepted for this purpose.
-              </p>
-            </div>
-
-            {/* CTA 3 - After Exhausted Tries */}
-            <div className="bg-[#0B1628] rounded-xl p-6 text-center my-6 text-white">
-              <p className="text-sm font-medium mb-2">📋 Maxed out your 3 registration attempts?</p>
-              <p className="text-sm text-white/80 mb-4">We can help you navigate the manual verification process and get your brand approved.</p>
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                <FileCheck className="w-4 h-4" />
-                Get Manual Verification Help
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* Section 5: After Approval */}
-            <h2 id="after-approval" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              5. What Happens After Brand Approval?
-            </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Once your brand is approved, GHL automatically submits the associated campaign for carrier review. You do not manually trigger the campaign submission.
+              Illustrative example, not an official rejection message: a submission of "Acme Plumbing" fails when the record reads "Acme Plumbing Services LLC". Correct the name to match the record exactly. Uploading a document does not guarantee approval, but HighLevel notes that uploading your CP 575 in the Business Details step can populate the name, EIN and registered address for you.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              For non US businesses, use the number HighLevel accepts for your region. Canada uses the first 9 digits of the Business Number (BN-9). The full list is in the <Link href="/blog/a2p-brand-registration-guide" className="text-[#0E9BF0] hover:underline">A2P Brand Registration guide</Link>.
             </p>
 
+            {/* Section: What to Do If Your EIN Is New */}
+            <h2 id="new-ein" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              What to Do If Your EIN Is New
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              HighLevel and Twilio both say newly issued tax IDs can fail because the record has not yet reached the databases used for verification. The sources give different numbers, so they should not be merged:
+            </p>
             <ul className="space-y-2 mb-4 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">Campaign review begins automatically:</strong> Campaign review typically takes 3 to 7 business days after brand approval. You may want to verify the current typical review timeline with GHL support, as this can vary with carrier volume.</li>
-              <li><strong className="text-[#1A2236]">If your campaign is subsequently rejected:</strong> This is a separate issue from brand rejection and has its own fix process. For the complete campaign rejection guide: <Link href="/blog/a2p-campaign-rejected-fix" className="text-[#0E9BF0] hover:underline">A2P Campaign Rejected Fix Guide →</Link></li>
-              <li><strong className="text-[#1A2236]">Once both brand and campaign are approved:</strong> For the full campaign registration walkthrough: <Link href="/blog/a2p-campaign-registration-guide" className="text-[#0E9BF0] hover:underline">A2P Campaign Registration Guide →</Link></li>
-              <li><strong className="text-[#1A2236]">First SMS workflow to build after A2P approval:</strong> For the missed call text back automation: <Link href="/blog/gohighlevel-missed-call-text-back" className="text-[#0E9BF0] hover:underline">GoHighLevel Missed Call Text Back →</Link></li>
+              <li>HighLevel's brand registration guide notes that an EIN issued within the last 15 days may be rejected.</li>
+              <li>HighLevel's Brand Approval Best Practices page says to wait at least 30 to 90 days from the EIN issue date before retrying, or to appeal the verification status for $10 regardless of the outcome, providing the complete PDF of your EIN letter rather than a screenshot or a single page.</li>
+              <li>Twilio describes the same situation as an appeal based manual review, also with a $10 fee, in which support requests documents proving your tax registration.</li>
             </ul>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              HighLevel's newer "Maximum 3 tries exhausted" guidance does not mention a fee, so confirm the current process and cost with HighLevel Support before paying anything. No source promises a specific waiting period will lead to approval, and the same propagation issue can affect nonprofits.
+            </p>
 
-            {/* CTA 4 - After Approval Section */}
-            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-5 my-6 text-white">
-              <div className="flex items-center gap-2 mb-3">
-                <Star className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">NEED BRAND REGISTRATION HANDLED FOR YOU</span>
-              </div>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                GHL Scale Up manages A2P brand registration for agencies and their client sub-accounts. We verify EIN details against the CP 575 before submitting, select the correct brand type, and handle any resubmission or manual verification required.
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                See results from our A2P setups: <Link href="/case-studies" className="text-[#0E9BF0] hover:underline">real GoHighLevel results and case studies →</Link>
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed">
-                To discuss your registration: <Link href="/contact" className="text-[#0E9BF0] hover:underline">book a free strategy call at ghlscaleup.com/contact →</Link>
-              </p>
+
+            {/* Section: How to Fix Address and Entity Type Problems */}
+            <h2 id="fix-address-entity" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              How to Fix Address and Entity Type Problems
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              <strong className="text-[#1A2236]">Address.</strong> HighLevel says a mismatch in street, city, state, postal code or country can produce a weaker Trust Score, and its brand registration guide tells you not to put a PO box in the street address field. Use the registered address on your official documents rather than a branch or mailing address.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              <strong className="text-[#1A2236]">Nonprofits and government entities.</strong> For nonprofits and political organizations, the EIN must match the legal name on the Tax Exempt Organizations or registered political organizations list. If the organization cannot be verified, correct the entity type or provide documents for manual verification through Support.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              <strong className="text-[#1A2236]">Public companies.</strong> The stock ticker and exchange must match public sources.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              <strong className="text-[#1A2236]">Business type and identifier.</strong> Keep the entity type consistent with how the business is legally registered. Do not enter a DUNS number or a Social Security number in place of an EIN. HighLevel says DUNS is not accepted for US A2P registration.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              <strong className="text-[#1A2236]">What not to change.</strong> Do not swap in a different name or ID hoping one will verify, and do not switch to Sole Proprietor to avoid an EIN problem. A business with a Tax ID is not eligible for that path.
+            </p>
+
+            {/* Section: How Sole Proprietor and Standard Brand Failures Differ */}
+            <h2 id="sole-vs-standard" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              How Sole Proprietor and Standard Brand Failures Differ
+            </h2>
+
+            <div className="overflow-x-auto my-6">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]"> </th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#0E9BF0]">Standard Brand</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Sole Proprietor Brand</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {soleVsStandard.map((item, idx) => (
+                    <tr key={idx} className="border-b border-[#DDE1E9]">
+                      <td className="py-3 px-3 font-semibold text-[#1A2236]">{item.aspect}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.standard}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.sole}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
 
-            {/* Section 6: FAQ */}
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Twilio's documentation treats the two paths separately, and its <a href="https://www.twilio.com/docs/messaging/compliance/a2p-10dlc/troubleshooting-a2p-brands/troubleshooting-sole-proprietor-brand-registration-failures" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">Sole Proprietor troubleshooting guide</a> notes that email and address details are validated, with addresses checked against USPS records. If you have a Tax ID, do not try to fix a Sole Proprietor failure. Register as a Standard Brand instead.
+            </p>
+
+            {/* Section: How to Resubmit a Failed A2P Brand */}
+            <h2 id="how-to-resubmit" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              How to Resubmit a Failed A2P Brand
+            </h2>
+            <ol className="space-y-2 mb-6 text-sm text-[#5C6880] list-decimal list-inside">
+              <li><strong className="text-[#1A2236]">Confirm the failure.</strong> Make sure it is a Brand failure and not a pending review or a Campaign rejection.</li>
+              <li><strong className="text-[#1A2236]">Verify the source information.</strong> Check your CP 575, 147C or national registry record.</li>
+              <li><strong className="text-[#1A2236]">Correct every mismatch.</strong> Fix all of the listed problems, not just the first.</li>
+              <li><strong className="text-[#1A2236]">Update the Brand details and resubmit</strong> in the A2P registration area of your sub-account, following the prompts HighLevel shows.</li>
+              <li><strong className="text-[#1A2236]">Monitor the new status</strong> and avoid duplicate submissions while a review is running.</li>
+              <li><strong className="text-[#1A2236]">Escalate if the documented fix does not work.</strong> See the next section.</li>
+            </ol>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Some steps depend on your provider. In Twilio's own console, for example, you correct the profile, delete the failed Brand and submit again. That describes Twilio, not the HighLevel interface. HighLevel's documentation does not spell out an equivalent, so follow the prompts you see.
+            </p>
+
+            {/* Section: Resubmission Limits, Appeals and When to Contact Support */}
+            <h2 id="limits-appeals" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Resubmission Limits, Appeals and When to Contact Support
+            </h2>
+            <ul className="space-y-3 mb-6 text-sm text-[#5C6880] list-disc list-inside">
+              <li><strong className="text-[#1A2236]">Attempt limits.</strong> HighLevel documents a "Maximum 3 tries exhausted" error. Twilio documents up to three free self service resubmissions, with further help through support. Attempts are limited, so verify your details first.</li>
+              <li><strong className="text-[#1A2236]">After 3 tries.</strong> HighLevel says to collect your CP 575 (or a 147C if you cannot get one) and use its support form. HighLevel then submits the documentation for Brand approval on your behalf. Details are in HighLevel's <a href="https://help.gohighlevel.com/support/solutions/articles/155000007572-a2p-campaign-rejections-required-fixes-vetting-errors" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">rejection guide</a>.</li>
+              <li><strong className="text-[#1A2236]">Documents.</strong> Provide the complete PDF, not a screenshot or first page. Documents used for manual verification must be federal, not state level, and articles of incorporation are not a substitute.</li>
+              <li><strong className="text-[#1A2236]">Approved brands.</strong> HighLevel's guidance says an approved Brand cannot be edited from your account, so changes go through Support.</li>
+              <li><strong className="text-[#1A2236]">Fees.</strong> Whether a resubmission or appeal costs anything can depend on the process, and HighLevel's pages are not fully consistent on this. See <Link href="/blog/a2p-10dlc-fees-explained" className="text-[#0E9BF0] hover:underline">current A2P 10DLC fees</Link> and confirm with Support.</li>
+            </ul>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              For a suspended Brand, which Twilio describes as a rules violation rather than a data mismatch, the fix is different and usually needs support involvement.
+            </p>
+
+            {/* Section: How Long Does Brand Review Take */}
+            <h2 id="review-time" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              How Long Does Brand Review Take?
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              No fixed time applies. Twilio's documentation says most Brand registrations complete within minutes, some take more than seven days, and a manual third party review can take seven business days or more. That describes Twilio's process, so treat it as context. HighLevel also documents a message about being unable to retrieve a Trust Score, which relates to secondary vetting delays of up to seven business days. See <Link href="/blog/a2p-trust-score-mps" className="text-[#0E9BF0] hover:underline">how Trust Score and MPS work</Link> for that topic.
+            </p>
+
+            {/* Section: What Happens After Your Brand Is Approved */}
+            <h2 id="after-approval" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              What Happens After Your Brand Is Approved
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Campaign registration cannot proceed until the Brand is approved, and Brand approval does not approve your messaging. The next stage is <Link href="/blog/a2p-campaign-registration-guide" className="text-[#0E9BF0] hover:underline">A2P Campaign Registration in GoHighLevel</Link>. Opt in problems belong to Campaign review rather than Brand identity verification, and the wording lives in <Link href="/blog/a2p-opt-in-language-templates" className="text-[#0E9BF0] hover:underline">A2P opt in language and requirements</Link>. If the Brand belongs to a client, it must reflect the client's own legal business; multi client workflows are in <Link href="/blog/a2p-registration-for-agencies" className="text-[#0E9BF0] hover:underline">A2P registration for GoHighLevel agencies</Link>.
+            </p>
+
+
+            {/* Section: FAQ */}
             <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
-              6. Frequently Asked Questions
+              Common A2P Brand Rejection Questions
             </h2>
 
             <div className="space-y-3">
@@ -593,56 +640,36 @@ export default function A2PBrandRejectedFixClient() {
               ))}
             </div>
 
-            {/* CTA 5 - After FAQ */}
-            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
-              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
-                <strong className="text-white">Still have questions about your A2P brand rejection?</strong>
-              </p>
-              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
-                Talk to our A2P specialists directly. We've resolved hundreds of brand rejections and fixed every issue in this guide.
-              </p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                  <MessageCircle className="w-4 h-4" />
-                  Ask an Expert
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20">
-                  <Phone className="w-4 h-4" />
-                  Call Us
-                </Link>
-              </div>
-            </div>
-
             {/* Related Articles */}
             <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
-              <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles</h3>
+              <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles in This Series</h3>
               <div className="flex flex-wrap gap-3">
-                <Link href="/blog/a2p-brand-registration-guide" className="text-sm text-[#0E9BF0] hover:underline">A2P Brand Registration Guide: Standard Brand vs Sole Proprietor →</Link>
-                <Link href="/blog/what-is-a2p-10dlc" className="text-sm text-[#0E9BF0] hover:underline">What Is A2P 10DLC? Complete Guide for GoHighLevel Users →</Link>
-                <Link href="/blog/a2p-campaign-rejected-fix" className="text-sm text-[#0E9BF0] hover:underline">A2P Campaign Rejected: What It Means and How to Fix It →</Link>
-                <Link href="/blog/a2p-campaign-registration-guide" className="text-sm text-[#0E9BF0] hover:underline">A2P Campaign Registration: Step-by-Step Guide →</Link>
+                <Link href="/blog/what-is-a2p-10dlc" className="text-sm text-[#0E9BF0] hover:underline">What Is A2P 10DLC? →</Link>
+                <Link href="/blog/a2p-brand-registration-guide" className="text-sm text-[#0E9BF0] hover:underline">A2P Brand Registration Guide →</Link>
+                <Link href="/blog/a2p-campaign-registration-guide" className="text-sm text-[#0E9BF0] hover:underline">A2P Campaign Registration Guide →</Link>
+                <Link href="/blog/a2p-campaign-rejected-fix" className="text-sm text-[#0E9BF0] hover:underline">A2P Campaign Rejection Fix →</Link>
+                <Link href="/blog/a2p-opt-in-language-templates" className="text-sm text-[#0E9BF0] hover:underline">A2P Opt In Language Templates →</Link>
                 <Link href="/blog/a2p-10dlc-fees-explained" className="text-sm text-[#0E9BF0] hover:underline">A2P 10DLC Fees Explained →</Link>
-                <Link href="/blog/gohighlevel-missed-call-text-back" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Missed Call Text Back: Setup Guide →</Link>
-                <Link href="/case-studies" className="text-sm text-[#0E9BF0] hover:underline">Real GoHighLevel Results and Case Studies →</Link>
+                <Link href="/blog/a2p-trust-score-mps" className="text-sm text-[#0E9BF0] hover:underline">How Trust Score and MPS Work →</Link>
+                <Link href="/blog/a2p-registration-for-agencies" className="text-sm text-[#0E9BF0] hover:underline">A2P Registration for GoHighLevel Agencies →</Link>
               </div>
             </div>
 
             {/* Final CTA Section */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-3">A2P brand rejected and you need it resolved fast?</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Need your A2P brand rejection resolved fast?</h3>
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
                   GHL Scale Up handles A2P brand registration and rejection fixes. EIN verification, correct brand type, CP 575 documentation, resubmission management, and manual verification support handled end to end.
                 </p>
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105">
                   Book Your Free Strategy Call
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
 
-            {/* Author Section */}
+            {/* Author / Verification Section */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 my-6">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
@@ -658,7 +685,7 @@ export default function A2PBrandRejectedFixClient() {
                 </div>
               </div>
               <p className="text-xs text-[#5C6880] leading-relaxed">
-                All information in this guide is verified against GoHighLevel's official support portal documentation as of July 2026. TCR policies, IRS procedures, and GHL's internal processes may change always verify current requirements in GHL's Trust Center and with GHL support before acting. This is not legal advice.
+                This guide was checked against HighLevel's Brand Approval Best Practices, Registering Your A2P Brand and Campaign rejection documentation, and Twilio's Standard and Low Volume Standard troubleshooting guide, in September 2026. Requirements, fees and processes change, so confirm against your Trust Center. This is not legal advice.
               </p>
               <Link href="/" className="text-[#0E9BF0] text-xs hover:underline mt-2 inline-block">ghlscaleup.com</Link>
             </div>
