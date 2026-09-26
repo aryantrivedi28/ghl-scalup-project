@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'ShoppingCart',
+            tag: 'Ecommerce',
+            title: 'GoHighLevel CRM for Ecommerce: What It Can and Can\'t Do',
+            excerpt: 'Can GoHighLevel work as an ecommerce CRM? Here\'s what it actually automates for Shopify and WooCommerce stores, what stays native to your ecommerce platform, and where it falls short.',
+            slug: 'gohighlevel-crm-for-ecommerce',
+            date: 'September 25, 2026',
+            readTime: '18 min read',
+            featured: true,
+            image: '/blog/gohighlevel-crm-for-ecommerce.png',
+      },
+      {
             icon: 'Target',
             tag: 'Troubleshooting',
             title: 'GoHighLevel Opportunity Workflow Not Triggering? Pipeline, Stage & Opportunity Fixes',

@@ -288,6 +288,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
     {
+      url: `${baseUrl}/blog/gohighlevel-crm-for-ecommerce`,
+      lastModified: new Date('2026-09-25'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/blog/gohighlevel-opportunity-workflow-not-triggering`,
+      lastModified: new Date('2026-09-24'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/blog/gohighlevel-appointment-workflow-not-triggering`,
       lastModified: new Date('2026-09-23'),
       changeFrequency: 'monthly',

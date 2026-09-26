@@ -4,141 +4,64 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import {
   ArrowRight,
-  CheckCircle2,
   ChevronDown,
   Copy,
   Linkedin,
   Twitter,
   BookOpen,
   Zap,
-  Shield,
-  DollarSign,
-  Users,
-  Building2,
-  Calendar,
+  AlertTriangle,
+  CheckCircle2,
+  Rocket,
+  Target,
+  HeartHandshake,
   MessageCircle,
   Phone,
-  Layout,
-  GitBranch,
-  Sparkles,
-  Award,
-  TrendingUp,
-  Star,
-  AlertTriangle,
-  Server,
-  Globe,
-  CreditCard,
-  Smartphone,
-  Briefcase,
-  Rocket,
-  Cloud,
-  Database,
-  Clock,
-  Mail,
-  GraduationCap,
-  Heart,
-  Target,
-  FileText,
-  Compass,
-  GitCompare,
-  BarChart3,
-  Mailbox,
-  Stethoscope,
-  Activity,
-  CalendarDays,
-  XCircle,
-  Layers,
-  Workflow,
-  Headphones,
-  FileQuestion,
-  HelpCircle,
-  Boxes,
-  Combine,
-  Settings,
-  Link2,
-  Webhook,
-  RefreshCw,
-  ListChecks,
-  ClipboardList,
-  Download,
-  Printer,
-  Video,
-  Ticket,
-  Trophy,
-  TrendingDown,
-  PieChart,
-  Package,
-  Wrench,
-  Droplets,
-  Home,
-  HardHat,
-  Bot,
-  Brain,
-  Mic,
-  MessageSquare,
-  PenTool,
-  AlertOctagon,
-  FileWarning,
-  RefreshCcw,
-  ShieldAlert,
-  HeartHandshake,
   Search,
-  Facebook,
-  AlertCircle,
   Info,
-  Lightbulb,
-  UserCheck,
-  UserX,
   FileCheck,
-  CheckCircle,
-  PanelTop,
-  LayoutDashboard,
-  LifeBuoy,
-  Timer,
-  Trash2
+  Shield,
+  Image as ImageIcon,
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import Image from 'next/image';
 
 export default function A2PCampaignRejectedFixClient() {
   const [activeId, setActiveId] = useState<string>('');
-  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
   useEffect(() => {
-    const sections = [
-      'why-rejected',
-      'common-rejections',
-      'ineligible-codes',
-      'resubmit-steps',
-      'appeal-process',
-      'avoid-rejection',
-      'faq'
-    ];
-
     const handleScroll = () => {
-      let currentSection = sections[0];
+      const sections = [
+        'what-mean',
+        'brand-vs-campaign',
+        'pending-vs-failed',
+        'find-reason',
+        'why-rejected',
+        'fix-description',
+        'fix-use-case',
+        'fix-samples',
+        'fix-opt-in',
+        'fix-website',
+        'prohibited',
+        'how-to-resubmit',
+        'edit-or-recreate',
+        'support-appeal',
+        'after-approval',
+        'checklist',
+        'faq'
+      ];
 
       for (const id of sections) {
         const element = document.getElementById(id);
-        if (!element) continue;
-        const rect = element.getBoundingClientRect();
-        if (rect.top <= 180) {
-          currentSection = id;
-        } else {
-          break;
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 150) {
+            setActiveId(id);
+          }
         }
-      }
-
-      setActiveId(currentSection);
-
-      // Show floating Project Help card after scrolling past hero section
-      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
-      if (heroSection) {
-        const heroBottom = heroSection.getBoundingClientRect().bottom;
-        setShowFloatingProjectHelp(heroBottom < 0);
       }
     };
 
-    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -155,111 +78,96 @@ export default function A2PCampaignRejectedFixClient() {
 
   const faqs = [
     {
-      q: "Why was my GoHighLevel A2P campaign rejected?",
-      a: "GoHighLevel A2P campaigns are rejected by the carriers (T-Mobile, AT&T, Verizon) or The Campaign Registry, not by GoHighLevel itself. The most common rejection reasons are: invalid or inaccessible website URL, missing or non-compliant opt-in consent flow, sample messages that do not match the use case, a vague or mismatched campaign description, Terms and Conditions that are missing or do not mention SMS, and a mismatch between the EIN and the legal business name."
+      q: "Why was my A2P Campaign rejected?",
+      a: "Usually a problem with the use case, description, sample messages, opt in flow, website, policies, or content that falls into a prohibited category. Open View required fixes in Trust Center for your exact reason."
     },
     {
-      q: "Can I resubmit my A2P campaign after it is rejected?",
-      a: "Yes, if your campaign was rejected with a fixable code. Edit the rejected campaign to address all listed rejection reasons, then resubmit. No additional $15 vetting fee applies when you edit and resubmit an existing campaign. If you delete the rejected campaign and create a new one, a new $15 fee is charged. Do not delete. Edit and resubmit. Campaigns rejected for forbidden content categories (SHAFT: Sex, Hate, Alcohol, Firearms, Tobacco; plus Cannabis and Gambling) are not eligible for resubmission under any circumstances."
+      q: "Can I edit and resubmit a rejected Campaign?",
+      a: "Yes, for eligible rejection codes. Correct every listed issue and resubmit. Some fields, such as the use case or opt in message, may be locked, which can require a new Campaign instead."
     },
     {
-      q: "How long does A2P campaign resubmission take?",
-      a: "The review cycle for a resubmitted campaign typically takes 3 to 7 business days. This is the same timeline as an initial submission. Do not make further edits to the campaign while it is under review. Additional changes during the review period can reset the vetting timeline. Check the status in GHL's A2P registration panel under Settings → Phone Numbers → A2P Registration."
+      q: "Should I delete and recreate my Campaign?",
+      a: "Only when the required fix involves a field that cannot be edited during resubmission, or support directs you to. Editing the existing Campaign is the standard path for a correctable rejection."
     },
     {
-      q: "What is the 'View required fixes' link in GoHighLevel A2P?",
-      a: "As of March 2026, GoHighLevel added a 'View required fixes' link next to every A2P campaign rejection reason. Clicking it opens a modal that shows four fields for each rejection: the error code returned by the carriers, the rejection category (a plain-language label like 'Invalid website URL'), what it means in plain English, and the specific correction needed before resubmitting. This replaced the previous system where rejection reasons appeared as short, vague descriptions."
+      q: "How long does Campaign review take?",
+      a: "HighLevel does not publish a fixed timeline, and resubmission may take additional carrier review time. Watch the status in Trust Center rather than assuming a specific number of days."
     },
     {
-      q: "What rejection codes make an A2P campaign ineligible for resubmission?",
-      a: "Campaigns rejected for forbidden messaging categories cannot be resubmitted. These include content related to: sex or adult content, hate speech, alcohol (without approved age-gating), firearms (without approved exemptions), tobacco and vaping, cannabis or marijuana (illegal federally in the US), and gambling. If your campaign is rejected under one of these categories, editing and resubmitting will not result in approval. The use case itself is not permitted on the 10DLC system."
+      q: "What is the difference between Brand rejected and Campaign rejected?",
+      a: "Brand rejection means your business identity could not be verified. Campaign rejection means your messaging program, as described, failed review. A valid Brand can still have a rejected Campaign."
     },
     {
-      q: "How do I appeal an A2P campaign rejection in GoHighLevel?",
-      a: "Contact GHL support with the subject line '10DLC Campaign Appeal for [your business name or phone number].' Include your business name, the campaign ID, the specific rejection reasons shown in your dashboard, your explanation of why you believe the rejection was incorrect, and any supporting documentation such as screenshots of your opt-in flow, Terms of Service page, or campaign description. Appeals are reviewed but are not guaranteed to succeed."
+      q: "My Campaign is Pending. Should I resubmit?",
+      a: "No. Pending means the review is still running. Resubmitting or creating another Campaign while one is pending is not recommended."
     },
     {
-      q: "Does it cost extra to resubmit a rejected A2P campaign?",
-      a: "No, if you edit the existing rejected campaign and resubmit it. There is no additional vetting fee for editing and resubmitting. The $15 vetting fee applies only once per campaign at initial submission. However, if you delete the rejected campaign and create a new campaign in its place, a new $15 vetting fee is charged. Always edit and resubmit the existing campaign rather than deleting and starting over."
-    },
+      q: "My Campaign was approved but SMS is not working. What now?",
+      a: "Check that your sending number is linked to the approved Campaign and shows A2P Verified. If it is verified and messages still fail, troubleshoot the SMS error separately; this is not a Campaign rejection."
+    }
   ];
 
   useFaqSchema(faqs);
 
   const tocItems = [
-    { id: 'why-rejected', title: '1. Why Do A2P Campaigns Get Rejected in GoHighLevel?' },
-    { id: 'common-rejections', title: '2. What Are the Most Common Rejection Reasons and How Do You Fix Each One?' },
-    { id: 'ineligible-codes', title: '3. Which Rejection Codes Are NOT Eligible for Resubmission?' },
-    { id: 'resubmit-steps', title: '4. How to Resubmit a Rejected A2P Campaign in GoHighLevel (5 Steps)' },
-    { id: 'appeal-process', title: '5. How to Appeal a Rejected A2P Campaign' },
-    { id: 'avoid-rejection', title: '6. How to Avoid A2P Campaign Rejection on the Next Submission' },
-    { id: 'faq', title: '7. Frequently Asked Questions' },
+    { id: 'what-mean', title: 'What Does A2P Campaign Rejected Mean?' },
+    { id: 'brand-vs-campaign', title: 'Brand Rejected vs Campaign Rejected' },
+    { id: 'pending-vs-failed', title: 'Campaign Pending vs Failed' },
+    { id: 'find-reason', title: 'How to Find Your Campaign Rejection Reason' },
+    { id: 'why-rejected', title: 'Why A2P Campaigns Get Rejected' },
+    { id: 'fix-description', title: 'How to Fix a Campaign Description Rejection' },
+    { id: 'fix-use-case', title: 'How to Fix a Campaign Use Case Mismatch' },
+    { id: 'fix-samples', title: 'How to Fix Sample Message Problems' },
+    { id: 'fix-opt-in', title: 'How to Fix Message Flow and Opt In Problems' },
+    { id: 'fix-website', title: 'How to Fix Website, Privacy Policy or Terms Issues' },
+    { id: 'prohibited', title: 'Prohibited or Restricted Content' },
+    { id: 'how-to-resubmit', title: 'How to Resubmit a Failed A2P Campaign' },
+    { id: 'edit-or-recreate', title: 'Should You Edit or Recreate the Campaign?' },
+    { id: 'support-appeal', title: 'When to Contact Support or Appeal' },
+    { id: 'after-approval', title: 'What Happens After Campaign Approval' },
+    { id: 'checklist', title: 'Pre-Resubmission Checklist' },
+    { id: 'faq', title: 'A2P Campaign Rejection FAQs' }
   ];
 
-  const commonRejections = [
-    {
-      title: 'Invalid or inaccessible website URL',
-      what: 'The website URL provided either does not load, returns a 404 error, requires a login to access, or does not have an SMS opt-in flow visible to the reviewer.',
-      fix: 'Verify your website loads in an incognito browser. Host a publicly accessible screenshot or image of the opt-in flow at a URL any reviewer can open without logging in. Include that direct image link in the Message Flow field.'
-    },
-    {
-      title: 'Missing or incorrect opt-in consent flow',
-      what: 'Reviewers could not verify how contacts consent to receive SMS. Either the opt-in flow was not described, the consent language was unclear, or the checkbox was pre-selected (not permitted under A2P consent rules).',
-      fix: 'Your opt-in must include: clear description of messages, business name, message frequency, rates disclosure, links to Terms and Privacy Policy, and an unselected checkbox. Update your form and host a screenshot at a publicly accessible URL.'
-    },
-    {
-      title: 'Sample messages do not match the use case',
-      what: 'Sample messages do not reflect what you will actually send, do not match the campaign use case, or are too vague to verify.',
-      fix: 'Each sample must look like a real message, include your business name, use bracketed template fields, and include opt-out language in at least one sample. Submit at least two samples. Never submit generic placeholder text.'
-    },
-    {
-      title: 'Vague or mismatched campaign description',
-      what: 'Campaign description does not clearly explain what messages will be sent, who receives them, and why. Or it describes a use case that conflicts with the use case type selected.',
-      fix: 'Write a plain-English explanation: who is sending, who receives the messages, what messages will be sent, and how often. Match the description precisely to the use case category selected.'
-    },
-    {
-      title: 'Terms and Conditions issues',
-      what: 'Your website does not have a publicly accessible Terms of Service or Privacy Policy, the Terms does not mention SMS messaging, or the links provided are broken.',
-      fix: 'Your Terms of Service must be publicly accessible and explicitly mention SMS communications. Add a clear SMS messaging clause. Verify the URL loads in incognito mode.'
-    },
-    {
-      title: 'Business name and EIN mismatch',
-      what: 'The EIN you provided does not match the legal business name, or your EIN was issued recently and has not yet appeared in IRS public records.',
-      fix: 'The legal business name in your A2P brand registration must match exactly what the IRS has on file. If your EIN was issued in the last 90 days, you may need to wait or submit the full EIN confirmation letter for manual verification.'
-    },
-    {
-      title: 'CTA (Call to Action) cannot be verified',
-      what: 'Reviewers could not verify the mechanism by which contacts give consent to receive messages. Often happens when opt-in occurs via paper form, verbal agreement, or a process not documented anywhere publicly accessible.',
-      fix: 'Document every method through which contacts can opt in. If via paper form, scan and host at a publicly accessible URL. If on a website, link directly to the specific page. If in person, describe the process explicitly in the Message Flow field.'
-    },
+  const brandVsCampaign = [
+    { aspect: 'Question it answers', brand: 'Who is sending the messages?', campaign: 'What are you sending, why, and how did recipients consent?' },
+    { aspect: 'Typical cause', brand: 'Legal name, EIN or address does not match official records', campaign: 'Use case, description, samples, opt in, website or content problem' },
+    { aspect: 'Comes first?', brand: 'Yes', campaign: 'Only after the Brand is approved' },
+    { aspect: 'Where to fix it', brand: 'A2P brand rejection guide', campaign: 'This guide' }
   ];
 
-  const ineligibleCodes = [
-    { category: 'Sex-related content (SHAFT)', resubmittable: 'No', meaning: 'Forbidden category — cannot be resubmitted under any circumstances' },
-    { category: 'Hate speech content', resubmittable: 'No', meaning: 'Forbidden category — cannot be resubmitted' },
-    { category: 'Alcohol-related content', resubmittable: 'No', meaning: 'Forbidden category — cannot be resubmitted without approved exemptions' },
-    { category: 'Firearms-related content', resubmittable: 'No', meaning: 'Forbidden category — cannot be resubmitted without approved exemptions' },
-    { category: 'Tobacco and vaping content', resubmittable: 'No', meaning: 'Forbidden category — cannot be resubmitted without approved exemptions' },
-    { category: 'Cannabis-related content', resubmittable: 'No', meaning: 'Federally illegal in US — not eligible on 10DLC' },
-    { category: 'Gambling content', resubmittable: 'No', meaning: 'Forbidden category — not eligible without explicit carrier approval' },
+  const rejectionCategories = [
+    { category: 'Opt in and consent', means: 'The consent flow, checkbox or disclosures do not meet requirements, or marketing and non marketing consent are not separated', check: 'Checkbox is unchecked by default, all required disclosures are present, STOP and HELP responses are correct' },
+    { category: 'Website', means: 'The site lacks business context, requires login, is not live, or does not match the Brand and Campaign', check: 'Company name, description, contact details, and consistency with your Campaign' },
+    { category: 'Business identity', means: 'A Sole Proprietor Campaign does not match the registered name, a DBA is undeclared, or the contact email or person is not appropriate', check: 'Names, DBA declaration, business domain email, authorized contact' },
+    { category: 'Campaign use case', means: 'The description or samples do not match the declared use case, content is duplicated across fields, or the messaging looks personal rather than business', check: 'Use case accuracy, unique content per field, business framing' },
+    { category: 'Registration and brand', means: 'Campaign limits, EIN reuse across brands, or other registration level issues', check: 'Brand and EIN registration limits' },
+    { category: 'Prohibited or high risk content', means: 'The submission includes SHAFT categories (sex, hate, alcohol, firearms, tobacco), disallowed industries, or high risk patterns such as URL shorteners or HTTP links', check: 'Not eligible for standard resubmission; see the section below' }
+  ];
+
+  const prohibitedGroups = [
+    { group: 'SHAFT categories', items: 'Sex or adult content, hate speech or violent content, alcohol promotion (or alcohol content without an age gate), firearms, fireworks or explosives, and tobacco or vape products.' },
+    { group: 'Disallowed and high risk categories', items: 'Cannabis and controlled substances, payday and high risk loans, debt collection, gambling, sweepstakes, stock or investment signals, cryptocurrency promotion, debt reduction and credit repair services, third party lead generation and MLM, fraudulent or phishing content, deceptive marketing, and links using URL shorteners or plain HTTP instead of HTTPS.' }
   ];
 
   const resubmitSteps = [
-    { step: 'Find the rejection details in GHL', desc: 'Go to Settings → Phone Numbers → A2P Registration. Locate the rejected campaign. Click "View required fixes" next to each rejection reason. Read all four fields: error code, rejection category, what it means, and the correction needed. Note every rejection reason — you must fix all of them.' },
-    { step: 'Fix every listed issue before touching the campaign form', desc: 'If the rejection says invalid website URL, fix the website or create the hosted screenshot URL first. If it says opt-in consent issues, update your web form first. Do not open the campaign edit form until the underlying issues are resolved.' },
-    { step: 'Edit the campaign — do not delete it', desc: 'Click Edit on the rejected campaign. Do not delete. Editing and resubmitting costs nothing extra. Deleting and recreating charges a new $15 vetting fee. Make all required corrections inside the edit form.' },
-    { step: 'Resubmit and wait', desc: 'After saving all corrections, resubmit the campaign for review. The vetting cycle typically takes 3 to 7 business days. Do not make further edits while it is under review — additional changes can reset the timeline. Check the status in GHL\'s A2P registration panel.' },
-    { step: 'If rejected again, read the new rejection reasons carefully', desc: 'Carriers may surface additional issues on subsequent reviews. A second rejection may list different reasons from the first. Treat each rejection cycle as a new round of review, not a repetition of the same problem.' },
+    { step: 'Open every rejection reason', desc: 'not only the first one shown, and read each View required fixes entry in full.' },
+    { step: 'Correct every listed issue.', desc: 'HighLevel says addressing only some of them will likely produce another rejection.' },
+    { step: 'Review the whole Campaign for consistency', desc: 'including fields the rejection did not name, since fixing one field can expose a mismatch elsewhere.' },
+    { step: 'Resubmit.', desc: 'Eligible rejections can be corrected and resubmitted once every issue is addressed.' },
+    { step: 'Watch for new issues.', desc: 'If it is rejected again, HighLevel says carriers may surface additional problems that were not visible in the first review, so treat each cycle as a fresh check rather than a repeat of the same fix.' }
   ];
 
-  const avoidRejectionList = [
-    'Website check first: Open your website URL in a fresh incognito browser window. Confirm it loads. Confirm the opt-in flow is visible without logging in or clicking through multiple pages.',
-    'Build the opt-in correctly: Use an unselected checkbox. Include your business name, what messages will be sent, frequency, rates disclosure, and links to Terms of Service and Privacy Policy — all on the same page as the form.',
-    'Write sample messages like real messages: Not placeholder text. Include your actual business name, bracket template fields, and opt-out language in at least one sample. Submit at least two samples.',
-    'Match description to use case: If you select "customer care" as the use case, your description should describe customer care messages. Do not describe marketing promotions under a customer care use case.',
-    'Have a Terms of Service page live before submitting: Not a placeholder. Not "coming soon." A publicly accessible page that specifically mentions SMS communications.',
-    'Brand registration first: Your brand must be approved before campaign registration. If the brand is pending or failed, campaigns submitted against it will be rejected. Complete brand registration first.',
-    'Campaign registration next: Once brand is approved, follow the campaign registration steps carefully.',
+  const checklistItems = [
+    'Brand: the Campaign is tied to the correct, approved Brand.',
+    'Use case: matches your real messaging, not the easiest option.',
+    'Description: names the sender, recipients, message purpose and opt in method.',
+    'Sample messages: distinct, realistic, include your business name and opt out language.',
+    'Message flow and opt in: checkbox unchecked by default, disclosures present, marketing and non marketing consent kept separate.',
+    'Website: live, public, names the business, and matches the Brand and Campaign.',
+    'Privacy Policy and Terms: reachable and linked from the message flow.',
+    'Content: not in a prohibited or high risk category.',
+    'Consistency: every field tells the same story about who is sending, to whom, and why.'
   ];
 
   // Reusable Project Help Card Component
@@ -268,7 +176,6 @@ export default function A2PCampaignRejectedFixClient() {
       <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
       <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your migration.</p>
       <Link
-        // onClick={handleOpenBooking}
         href="/book-a-call"
         className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
         Book a 30 min Free Call
@@ -289,31 +196,31 @@ export default function A2PCampaignRejectedFixClient() {
           <ArrowRight className="w-3 h-3 text-[#96A0B5]" />
           <Link href="/blog" className="hover:text-[#0E9BF0] transition-colors">Blog</Link>
           <ArrowRight className="w-3 h-3 text-[#96A0B5]" />
-          <span className="text-[#1A2236] font-medium">A2P Campaign Rejected Fix 2026</span>
+          <span className="text-[#1A2236] font-medium">A2P Campaign Rejected Fix</span>
         </div>
       </nav>
 
-      {/* Hero Section - WIDE (KEPT AS IS) */}
+      {/* Hero Section */}
       <section className="bg-[#0B1628] py-12 md:py-[72px] px-4 md:px-6 relative overflow-hidden">
         <div className="absolute -top-[120px] -right-[120px] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(14,155,240,0.12)_0%,transparent_70%)] pointer-events-none" />
         <div className="absolute -bottom-[80px] -left-[80px] w-[360px] h-[360px] bg-[radial-gradient(circle,rgba(37,201,125,0.08)_0%,transparent_70%)] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto relative z-10">
-          {/* Post Tags / Category Labels */}
+          {/* Post Tags */}
           <div className="flex flex-wrap gap-2 mb-4">
             <span className="bg-[rgba(248,208,0,0.15)] text-[#F8D000] text-[11px] font-semibold px-2.5 py-1 rounded-full">A2P 10DLC</span>
-            <span className="bg-[rgba(14,155,240,0.15)] text-[#0E9BF0] text-[11px] font-semibold px-2.5 py-1 rounded-full">Campaign Rejected</span>
-            <span className="bg-[rgba(37,201,125,0.15)] text-[#25C97D] text-[11px] font-semibold px-2.5 py-1 rounded-full">SMS Compliance</span>
+            <span className="bg-[rgba(220,53,69,0.15)] text-[#DC3545] text-[11px] font-semibold px-2.5 py-1 rounded-full">Campaign Rejected</span>
+            <span className="bg-[rgba(37,201,125,0.15)] text-[#25C97D] text-[11px] font-semibold px-2.5 py-1 rounded-full">Fix Guide</span>
             <span className="bg-[rgba(14,155,240,0.15)] text-[#0E9BF0] text-[11px] font-semibold px-2.5 py-1 rounded-full">2026</span>
           </div>
 
-          {/* H1 Headline */}
+          {/* H1 */}
           <h1 className="text-[clamp(28px,6vw,46px)] font-extrabold leading-[1.2] md:leading-[1.15] text-white mb-4 md:mb-5 tracking-[-0.02em]">
-            GoHighLevel A2P Campaign Rejected:<br />
-            <span className="text-[#F8D000]">What It Means and How to Fix It (2026)</span>
+            A2P Campaign Rejected in GoHighLevel:<br />
+            <span className="text-[#F8D000]">Why It Happens and How to Fix It</span>
           </h1>
 
-          {/* Author Byline */}
+          {/* Author */}
           <div className="flex items-center gap-3 mb-6">
             <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
               <img
@@ -324,33 +231,55 @@ export default function A2PCampaignRejectedFixClient() {
             </div>
             <div>
               <div className="text-sm font-medium text-white">GHL Scale Up Team</div>
-              <div className="text-xs text-white/50">GoHighLevel Specialists · 200+ Builds Delivered · Updated June 2026</div>
+              <div className="text-xs text-white/50">GoHighLevel Specialists · 200+ builds delivered · Verified against GoHighLevel, Twilio, and The Campaign Registry documentation, September 2026</div>
             </div>
           </div>
 
-          {/* Introductory Paragraph - NO max-w constraint */}
-          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6">
-            Getting an A2P campaign rejection in GoHighLevel is one of the most frustrating experiences in the platform.
-            You submitted the registration, waited several days, and now the status shows rejected, often with a reason
-            that makes no immediate sense. <strong className="text-white"> GHL Scale Up</strong> has worked through this
-            process across hundreds of client accounts. This guide explains exactly what caused the rejection, which ones
-            can be fixed and resubmitted, which ones cannot, and the precise steps to resolve each one.
-          </p>
+          {/* Quick Answer Box */}
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 md:p-6 mb-6">
+            <div className="flex items-center gap-2 mb-3">
+              <Zap className="w-5 h-5 text-[#F8D000]" />
+              <span className="text-xs font-bold uppercase tracking-wider text-white/60">Quick Answer</span>
+            </div>
+            <p className="text-sm text-white/70 leading-relaxed mb-3">
+              An A2P Campaign is rejected when carriers or The Campaign Registry (TCR) find a problem with your use case, description, sample messages, opt in flow, website, policies or content. In GoHighLevel, open Settings, then Phone System, then Trust Center, find the rejected Campaign and select <strong className="text-white">View required fixes</strong> for every listed reason. Correct everything shown, not only the field the rejection names, review the whole Campaign for consistency, then resubmit.
+            </p>
+            <p className="text-sm text-white/70 leading-relaxed">
+              Most rejections can be corrected and resubmitted from the existing Campaign. A smaller set of rejections, for prohibited or high risk content, cannot be resubmitted at all. Fixing the listed issues does not guarantee approval; carriers and registration partners make the final call.
+            </p>
+          </div>
+
+          {/* CTA Button 1 */}
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105"
+            >
+              <Rocket className="w-4 h-4" />
+              Get A2P Rejection Help
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              href="#find-reason"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20"
+            >
+              Find Your Rejection Reason
+              <ChevronDown className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* MAIN LAYOUT - Sidebar on LEFT, Content on RIGHT */}
-      <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-16">
+      {/* MAIN LAYOUT */}
+      <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-10">
         <div className="grid lg:grid-cols-[280px_1fr] gap-8 md:gap-12 items-start">
-          
-          {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
+
+          {/* SIDEBAR */}
           <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
-            {/* Project Help Card - At top of sidebar */}
-            <div className="mb-6">
+            <div className="hidden lg:block mb-6">
               <ProjectHelpCard />
             </div>
 
-            {/* Table of Contents */}
             <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
                 <BookOpen className="w-3 h-3" />
@@ -367,7 +296,9 @@ export default function A2PCampaignRejectedFixClient() {
                         }`}
                     >
                       <span className="flex items-start gap-2">
-                        {activeId === item.id && <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />}
+                        {activeId === item.id && (
+                          <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />
+                        )}
                         <span className="flex-1">{item.title}</span>
                       </span>
                     </button>
@@ -376,7 +307,6 @@ export default function A2PCampaignRejectedFixClient() {
               </ul>
             </nav>
 
-            {/* About the Author */}
             <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
@@ -392,55 +322,46 @@ export default function A2PCampaignRejectedFixClient() {
                 </div>
               </div>
               <p className="text-xs text-white/60 leading-relaxed mb-3">
-                5+ years GHL experience · 200+ systems built globally including A2P 10DLC registration and troubleshooting for
-                agencies across the US, UK, Australia, and India. All technical details verified as of June 2026.
+                5+ years GHL experience · 200+ A2P registrations handled globally. All technical details verified as of September 2026.
               </p>
               <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
             </div>
 
-            {/* Share Buttons */}
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
-              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
+              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Share this guide</div>
               <div className="flex gap-2 flex-wrap">
-                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Linkedin className="w-3 h-3" /> LinkedIn</a>
-                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Twitter className="w-3 h-3" /> X</a>
-                <button onClick={() => navigator.clipboard.writeText(window.location.href)} className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"><Copy className="w-3 h-3" /> Copy link</button>
+                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Linkedin className="w-3 h-3" />
+                  LinkedIn
+                </a>
+                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Twitter className="w-3 h-3" />
+                  X
+                </a>
+                <button
+                  onClick={() => navigator.clipboard.writeText(window.location.href)}
+                  className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"
+                >
+                  <Copy className="w-3 h-3" />
+                  Copy link
+                </button>
               </div>
+            </div>
+
+            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
+              <div className="text-sm font-bold text-white mb-2">Campaign Rejected Help?</div>
+              <p className="text-xs text-white/60 leading-relaxed mb-4">We handle A2P campaign rejection troubleshooting for agencies and their clients fix the issues, resubmit the campaign, and get you approved.</p>
+              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+                Get Help
+                <ArrowRight className="w-3 h-3" />
+              </Link>
             </div>
           </aside>
 
-          {/* ==================== RIGHT COLUMN: BLOG CONTENT ==================== */}
+          {/* MAIN CONTENT */}
           <main className="min-w-0 order-2">
 
-            {/* BLUF Box */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
-              <div className="flex items-center gap-2 mb-3">
-                <Zap className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Direct Answer</span>
-              </div>
-              <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
-                GoHighLevel did not reject your A2P campaign. The rejection came from the carriers (T-Mobile, AT&T, Verizon) or The Campaign Registry (TCR).
-              </p>
-              <p className="text-sm text-[#5C6880] leading-relaxed">
-                Most rejections fall into six fixable categories. Edit the campaign to fix the listed issues and resubmit.
-                No additional <strong className="text-[#0E9BF0]">$15 vetting fee</strong> applies for editing and resubmitting.
-                If you delete and recreate the campaign, a new $15 fee is charged. <strong className="text-[#DC3545]">Do not delete.</strong>
-              </p>
-
-              {/* CTA Button inside BLUF */}
-              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
-                  <Target className="w-4 h-4" />
-                  Get A2P Rejection Help
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Table of Contents - Mobile Only */}
+            {/* Mobile TOC */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8 lg:hidden">
               <div className="flex items-center gap-2 mb-4">
                 <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
@@ -459,148 +380,210 @@ export default function A2PCampaignRejectedFixClient() {
               </div>
             </div>
 
-            {/* Mobile Project Help Card - visible on mobile only */}
+            {/* Mobile Project Help Card */}
             <div className="lg:hidden mb-8">
               <ProjectHelpCard />
             </div>
 
-            {/* CTA 1 - After TOC */}
-            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
-              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
-                <strong className="text-white">🚀 Got an A2P campaign rejection and need it fixed fast?</strong>
-              </p>
-              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
-                GHL Scale Up handles A2P rejection troubleshooting for agencies and their clients. We'll diagnose the issue, fix it, and resubmit.
-              </p>
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                Book Your Free Strategy Call
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* Section 1: Why Rejected */}
-            <h2 id="why-rejected" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-8 mb-4">
-              1. Why Do A2P Campaigns Get Rejected in GoHighLevel?
+            {/* Section: What Does A2P Campaign Rejected Mean */}
+            <h2 id="what-mean" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-8 mb-4">
+              What Does A2P Campaign Rejected Mean?
             </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              A2P 10DLC is the US carrier system that requires every business sending automated SMS from a 10-digit long code
-              to register the brand and the campaign use case. When you submit an A2P campaign registration in GoHighLevel,
-              it goes to The Campaign Registry (TCR) and is then reviewed by the carriers themselves.
-            </p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Three entities are involved in the review:</strong>
-            </p>
-            <ul className="space-y-2 mb-6 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">The Campaign Registry (TCR):</strong> The central hub that coordinates A2P registration. Performs an initial review for completeness and basic compliance.</li>
-              <li><strong className="text-[#1A2236]">The messaging partner:</strong> GHL's registered messaging intermediary, which performs its own vetting before the campaign reaches the carriers.</li>
-              <li><strong className="text-[#1A2236]">The carriers:</strong> T-Mobile, AT&T, Verizon, and others. Each applies its own policies. A campaign can pass TCR review and still be rejected by a specific carrier.</li>
-            </ul>
-
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">WHAT THIS MEANS FOR YOU</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                You cannot contact the carriers directly. You cannot appeal to T-Mobile or AT&T from within the GHL platform.
-                The path forward is to fix the specific issues the rejection identifies, resubmit your campaign through GHL,
-                and let the review cycle run again.
-              </p>
-            </div>
-
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              For background on what A2P 10DLC is and why it is required:
-              <Link href="/blog/what-is-a2p-10dlc" className="text-[#0E9BF0] hover:underline ml-1">What Is A2P 10DLC? →</Link>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              A Campaign describes one messaging program: the use case, who receives the messages, what they say, and how recipients consented. Campaign rejection means that description failed review, not that your business identity failed. That is a separate stage. This guide assumes your Brand is approved and focuses on the Campaign; for how Brand identity is verified, see <Link href="/blog/what-is-a2p-10dlc" className="text-[#0E9BF0] hover:underline">what A2P 10DLC is</Link> and <Link href="/blog/a2p-brand-registration-guide" className="text-[#0E9BF0] hover:underline">A2P Brand Registration in GoHighLevel</Link>.
             </p>
 
-            {/* Section 2: Common Rejections */}
-            <h2 id="common-rejections" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              2. What Are the Most Common Rejection Reasons and How Do You Fix Each One?
+            {/* Section: Brand Rejected vs Campaign Rejected */}
+            <h2 id="brand-vs-campaign" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Brand Rejected vs Campaign Rejected
             </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              As of March 2026, GHL shows a 'View required fixes' link next to every rejection reason. Here are the most common
-              rejection categories and the fix for each.
-            </p>
-
-            <div className="space-y-4 mb-6">
-              {commonRejections.map((item, idx) => (
-                <div key={idx} className="bg-white border border-[#DDE1E9] rounded-xl p-5">
-                  <h3 className="text-base font-bold text-[#1A2236] mb-2">{item.title}</h3>
-                  <div className="bg-[#FEF2F0] border border-[rgba(220,53,69,0.2)] rounded-xl p-3 mb-3">
-                    <p className="text-sm text-[#5C6880]"><strong className="text-[#1A2236]">What it means:</strong> {item.what}</p>
-                  </div>
-                  <div className="bg-[#E8FAF2] border border-[rgba(37,201,125,0.2)] rounded-xl p-3">
-                    <p className="text-sm text-[#5C6880]"><strong className="text-[#25C97D]">How to fix it:</strong> {item.fix}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                → For copy-paste consent language that passes A2P review:
-                <Link href="/blog/a2p-opt-in-language-templates" className="text-[#0E9BF0] hover:underline ml-1">A2P Opt-In Language Templates →</Link>
-              </p>
-            </div>
-
-            {/* Section 3: Ineligible Codes */}
-            <h2 id="ineligible-codes" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              3. Which Rejection Codes Are Not Eligible for Resubmission?
-            </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              This is the most important distinction in the entire A2P rejection process. Some rejection codes can be fixed and resubmitted.
-              Others cannot. The campaign is permanently ineligible because the content or use case itself is forbidden by carriers.
-            </p>
 
             <div className="overflow-x-auto my-6">
               <table className="w-full border-collapse text-sm">
                 <thead>
                   <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Rejection category</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Resubmittable?</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">What it means</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]"> </th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#0E9BF0]">Brand Rejected</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Campaign Rejected</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {ineligibleCodes.map((item, idx) => (
+                  {brandVsCampaign.map((item, idx) => (
                     <tr key={idx} className="border-b border-[#DDE1E9]">
-                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.category}</td>
-                      <td className="py-3 px-3 text-[#DC3545] font-semibold">{item.resubmittable}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.meaning}</td>
+                      <td className="py-3 px-3 font-semibold text-[#1A2236]">{item.aspect}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.brand}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.campaign}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
 
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">DO NOT DELETE A REJECTED CAMPAIGN</span>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              If your Brand itself is pending, failed or suspended, Campaign registration is not the issue yet. Some Campaign rejection codes actually point back to the Brand, such as a Sole Proprietor Campaign using a corporate name, or a Brand that does not meet Sole Proprietor criteria. Treat those as Brand problems and use the <Link href="/blog/a2p-brand-rejected-fix" className="text-[#0E9BF0] hover:underline">A2P brand rejection guide</Link> instead.
+            </p>
+
+            {/* 
+              ============================================================
+              🖼️ IMAGE INSERTED HERE - Full width, responsive, interactive
+              ============================================================
+            */}
+            <div className="my-8 md:my-10 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <div className="relative w-full h-auto bg-[#F8F9FB]">
+                <Image
+                  src="/blog/a2p-campaign-rejected-infographic.png"
+                  alt="A2P Campaign Rejected in GoHighLevel: Common rejection causes, fix categories, resubmission process, and pre-resubmission checklist"
+                  width={1200}
+                  height={500}
+                  className="w-full h-auto object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                />
               </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                This is the most expensive mistake in A2P troubleshooting. If your campaign was rejected with a fixable code and you delete
-                the campaign to start fresh, a new $15 vetting fee is charged on the recreation. If you edit the existing rejected campaign
-                and resubmit, no additional vetting fee applies. Always edit and resubmit, never delete and recreate.
-              </p>
+              <div className="bg-[#F8F9FB] px-4 py-2.5 text-xs text-[#5C6880] border-t border-[#DDE1E9] flex items-center gap-2">
+                <ImageIcon className="w-3.5 h-3.5" />
+                <span>A2P Campaign Rejected in GoHighLevel: Common rejection causes, fix categories, resubmission process, and pre-resubmission checklist</span>
+              </div>
             </div>
 
-            {/* CTA 2 - After Ineligible Codes */}
-            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 text-center my-6 text-white">
-              <p className="text-sm font-medium mb-2">⚠️ Not sure if your rejection code is resubmittable?</p>
-              <p className="text-sm text-white/80 mb-4">Let our team review your rejection and tell you exactly what to do next — including whether an appeal is possible.</p>
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                <Search className="w-4 h-4" />
-                Get Your Rejection Reviewed
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
 
-            {/* Section 4: Resubmit Steps */}
-            <h2 id="resubmit-steps" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              4. How to Resubmit a Rejected A2P Campaign in GoHighLevel (5 Steps)
+            {/* Section: Campaign Pending vs Failed */}
+            <h2 id="pending-vs-failed" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Campaign Pending vs Failed
             </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              A Campaign stays in <strong className="text-[#1A2236]">Pending</strong> while it is under review. That is not a rejection, and HighLevel says not to create another Campaign or resubmit while one is pending. A Campaign only needs troubleshooting once it shows <strong className="text-[#1A2236]">Rejected</strong> with a specific reason, or <strong className="text-[#1A2236]">Approved but SMS still not working</strong>, which is a different, phone number linking problem covered later in this guide.
+            </p>
 
+            {/* Section: How to Find Your Campaign Rejection Reason */}
+            <h2 id="find-reason" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              How to Find Your Campaign Rejection Reason
+            </h2>
+            <ol className="space-y-2 mb-4 text-sm text-[#5C6880] list-decimal list-inside">
+              <li>Go to Settings, then Phone System, then Trust Center.</li>
+              <li>Open Brand &amp; Campaigns, then the Campaigns tab.</li>
+              <li>Locate the Campaign showing a Rejected status.</li>
+              <li>Select <strong className="text-[#1A2236]">View required fixes</strong> next to each rejection reason.</li>
+              <li>Read all four fields the modal shows: error code, rejection category, what it means, and the correction needed.</li>
+            </ol>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              A Campaign can carry more than one rejection reason at once. Open every one before you change anything.
+            </p>
+
+            {/* Section: Why A2P Campaigns Get Rejected */}
+            <h2 id="why-rejected" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Why A2P Campaigns Get Rejected
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              HighLevel groups current rejection codes into categories. The table below summarizes each category and where to focus; it is not the complete code list.
+            </p>
+
+            <div className="overflow-x-auto my-6">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Category</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">What it usually means</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">What to check</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {rejectionCategories.map((item, idx) => (
+                    <tr key={idx} className="border-b border-[#DDE1E9]">
+                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.category}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.means}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.check}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              This structure reflects HighLevel's granular error codes, introduced March 23, 2026, which replaced broader catch-all codes with specific ones. Older rejections may still show a legacy code. For the individual code meanings, see <Link href="/blog/a2p-error-codes-explained" className="text-[#0E9BF0] hover:underline">A2P error codes</Link>.
+            </p>
+
+            {/* Section: How to Fix a Campaign Description Rejection */}
+            <h2 id="fix-description" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              How to Fix a Campaign Description Rejection
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              HighLevel rejects descriptions that do not thoroughly explain the Campaign or do not match the declared use case. A strong description answers who sends the messages, who receives them, what they contain, why they are sent, and how recipients opted in.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Illustrative example, not official wording: "This campaign sends messages to customers" fails because a reviewer cannot verify anything from it. A description such as "Brightside Cleaning sends booking confirmations and reminders to customers who book through our website and opt in by ticking an unchecked box" gives reviewers something to check. Full guidance on writing this field is in <Link href="/blog/a2p-campaign-registration-guide" className="text-[#0E9BF0] hover:underline">A2P Campaign Registration in GoHighLevel</Link>.
+            </p>
+
+            {/* Section: How to Fix a Campaign Use Case Mismatch */}
+            <h2 id="fix-use-case" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              How to Fix a Campaign Use Case Mismatch
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              The use case must represent your real messaging, not the option that looks easiest to approve. HighLevel's rejection codes flag a use case that appears to be personal or peer to peer messaging rather than a real business application, and a mismatch between lead generation and lead nurture, which are treated as distinct. If your Campaign mixes genuinely different purposes, such as authentication codes and unrelated marketing, register them as separate Campaigns rather than one. Some use case and opt in message fields cannot be edited during resubmission. If the required fix touches one of those, you may need to create a new Campaign rather than edit the rejected one.
+            </p>
+
+            {/* Section: How to Fix Sample Message Problems */}
+            <h2 id="fix-samples" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              How to Fix Sample Message Problems
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Sample messages fail when they do not match the declared use case, repeat identical content across fields, or omit required elements. Fixes documented by HighLevel include:
+            </p>
+            <ul className="space-y-2 mb-4 text-sm text-[#5C6880] list-disc list-inside">
+              <li>Use Sample Message #1 for promotional or marketing content and Sample Message #2 for transactional or informational content.</li>
+              <li>For a mixed program, include at least one sample of each type.</li>
+              <li>Include your business name in at least one sample and opt out language in at least one sample.</li>
+              <li>Mark variable content with brackets, such as [First Name], rather than pasting real data.</li>
+              <li>Remove public URL shorteners and use full HTTPS links instead.</li>
+              <li>If an embedded phone number option is selected, make sure a sample message actually includes one, or update the selection.</li>
+            </ul>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Illustrative example, not official wording: "Brightside Cleaning: Hi [First Name], your cleaning is booked for [Date] at [Time]. Reply STOP to unsubscribe." A generic sample with no business name or opt out language is a common rejection cause.
+            </p>
+
+            {/* Section: How to Fix Message Flow and Opt In Problems */}
+            <h2 id="fix-opt-in" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              How to Fix Message Flow and Opt In Problems
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              HighLevel's codes point to specific, fixable opt in problems: a call to action that cannot be verified, marketing consent bundled with non marketing consent instead of collected separately, an opt in described only partially when multiple methods are used, consent folded into mandatory terms so it cannot be declined, missing disclosures (message type, frequency, rates, STOP instructions), a checkbox that is missing or preselected, a privacy policy that implies data is shared with third parties for marketing, and a HELP response with no brand name, phone number or email.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Correct the specific issue named in your rejection rather than rewriting the whole flow. For consent wording and setup, this guide only explains why rejections happen; the <Link href="/blog/a2p-opt-in-language-templates" className="text-[#0E9BF0] hover:underline">A2P opt in language and requirements</Link> guide covers implementation.
+            </p>
+
+            {/* Section: How to Fix Website, Privacy Policy or Terms Issues */}
+            <h2 id="fix-website" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              How to Fix Website, Privacy Policy or Terms Issues
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              HighLevel's website related codes cover a site with too little business information, a page that is only a bare form with no business context, a site that requires login so reviewers cannot see it, a site that is not live or uses a non standard URL, a URL that does not match the Campaign or Brand, and a privacy policy that reviewers cannot find or access from the message flow.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Practical checks: the URL loads without a login, the page names the business and describes what it does, the privacy policy is linked and reachable, and everything matches the Brand and Campaign you registered. If your product or content is age restricted, HighLevel also checks for an age gate on the site or opt in flow.
+            </p>
+
+            {/* Section: Prohibited or Restricted Content */}
+            <h2 id="prohibited" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Prohibited or Restricted Content
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Some rejections are not fixable by editing the submission. HighLevel's current codes separate two groups:
+            </p>
+            <ul className="space-y-3 mb-4 text-sm text-[#5C6880] list-disc list-inside">
+              {prohibitedGroups.map((item, idx) => (
+                <li key={idx}><strong className="text-[#1A2236]">{item.group}:</strong> {item.items}</li>
+              ))}
+            </ul>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              These are not eligible for standard resubmission. Review your actual message content and website against the category before contacting support, rather than resubmitting the same Campaign.
+            </p>
+
+
+            {/* Section: How to Resubmit a Failed A2P Campaign */}
+            <h2 id="how-to-resubmit" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              How to Resubmit a Failed A2P Campaign
+            </h2>
             <div className="space-y-3 mb-6">
               {resubmitSteps.map((item, idx) => (
                 <div key={idx} className="bg-white border border-[#DDE1E9] rounded-xl p-4">
@@ -612,77 +595,45 @@ export default function A2PCampaignRejectedFixClient() {
                 </div>
               ))}
             </div>
-
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              For the full breakdown of A2P fees including the $15 vetting charge and monthly costs:
-              <Link href="/blog/a2p-10dlc-fees-explained" className="text-[#0E9BF0] hover:underline ml-1">A2P 10DLC Fees Explained →</Link>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              For content in the prohibited or high risk categories above, do not resubmit the same Campaign; it is not eligible for standard correction.
             </p>
 
-            {/* CTA 3 - After Resubmit Steps */}
-            <div className="bg-[#0B1628] rounded-xl p-6 text-center my-6 text-white">
-              <p className="text-sm font-medium mb-2">📋 Need a step-by-step resubmission checklist?</p>
-              <p className="text-sm text-white/80 mb-4">We can provide you with a complete resubmission checklist and review your campaign before you resubmit.</p>
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                <FileCheck className="w-4 h-4" />
-                Get Your Resubmission Checklist
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* Section 5: Appeal Process */}
-            <h2 id="appeal-process" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              5. How to Appeal a Rejected A2P Campaign
+            {/* Section: Should You Edit or Recreate the Campaign */}
+            <h2 id="edit-or-recreate" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Should You Edit or Recreate the Campaign?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              If you believe your campaign was rejected incorrectly, you can request an appeal through GHL support.
+              Edit and resubmit the existing Campaign whenever the rejection is eligible for correction. Some fields may be locked once submitted, commonly the Campaign use case and the opt in message. If your required fix touches a locked field, you may need to create a new Campaign instead of editing the rejected one. This is a field level limitation HighLevel documents, not a general rule to always delete and start over.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Vetting fees can vary by registration type, Campaign type and current carrier requirements, and HighLevel does not publish one fixed resubmission fee. Before assuming a cost, check what your Trust Center shows and see <Link href="/blog/a2p-10dlc-fees-explained" className="text-[#0E9BF0] hover:underline">current A2P 10DLC fees</Link>.
             </p>
 
-            <div className="bg-[#1C2E4A] rounded-xl p-5 my-6 text-white">
-              <div className="flex items-center gap-2 mb-3">
-                <Shield className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">APPEAL PROCESS</span>
-              </div>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                Contact GHL support with the subject line: <strong className="text-white">'10DLC Campaign Appeal for [your business name or phone number]'</strong>
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed">
-                Include: your business name, the campaign ID, the rejection reason(s) shown in your dashboard, your explanation of why you believe
-                the rejection was incorrect, and any supporting documentation (screenshots of your opt-in flow, your Terms of Service page, your campaign description).
-              </p>
-            </div>
-
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              <strong className="text-[#1A2236]">Honest expectation:</strong> Appeals are not always successful. The carriers make the final decision
-              and their review process is not fully transparent. An appeal is appropriate when you are confident your submission is genuinely compliant
-              and the rejection appears to be a reviewer error.
-            </p>
-
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              For building GoHighLevel SMS workflows after your A2P campaign is approved:
-              <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-[#0E9BF0] hover:underline ml-1">GoHighLevel Workflow Automation Guide →</Link>
-            </p>
-
-            {/* CTA 4 - After Appeal Process */}
-            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 text-center my-6 text-white">
-              <p className="text-sm font-medium mb-2">🔍 Not sure if you should appeal or resubmit?</p>
-              <p className="text-sm text-white/80 mb-4">Our team can review your rejection and recommend the best path forward — appeal, resubmit, or start fresh.</p>
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                <Compass className="w-4 h-4" />
-                Get Expert Guidance
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* Section 6: Avoid Rejection */}
-            <h2 id="avoid-rejection" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              6. How to Avoid A2P Campaign Rejection on the Next Submission
+            {/* Section: When to Contact Support or Appeal */}
+            <h2 id="support-appeal" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              When to Contact Support or Appeal
             </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The majority of A2P rejections are preventable. The same issues cause most of them.
+            <ul className="space-y-3 mb-6 text-sm text-[#5C6880] list-disc list-inside">
+              <li>If you believe a compliant Campaign was rejected in error, HighLevel says to contact support with the subject line "10DLC Campaign Appeal for [your business name or number]" and the full details of your case.</li>
+              <li>If a rejection reason names a data mismatch that traces back to your business identity, such as a Sole Proprietor and corporate name conflict, that is a Brand level fix. See the <Link href="/blog/a2p-brand-rejected-fix" className="text-[#0E9BF0] hover:underline">A2P brand rejection guide</Link>.</li>
+              <li>If an error message references your CP 575 or a maximum number of registration attempts, that also points to Brand identity verification rather than the Campaign content covered here.</li>
+            </ul>
+
+            {/* Section: What Happens After Campaign Approval */}
+            <h2 id="after-approval" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              What Happens After Campaign Approval
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Campaign approval does not automatically mean your texts will send. Each sending number must also be linked to the approved Campaign. Go to Settings, then Phone System, then Phone Numbers, and confirm the number shows the green A2P Verified label; if it does not, link it to the approved Campaign. This is a separate, later stage from Campaign rejection, covered in HighLevel's error 30034 guidance and in the number linking section of <Link href="/blog/a2p-campaign-registration-guide" className="text-[#0E9BF0] hover:underline">A2P Campaign Registration in GoHighLevel</Link>.
             </p>
 
+            {/* Section: Pre-Resubmission Checklist */}
+            <h2 id="checklist" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Pre-Resubmission Checklist
+            </h2>
             <div className="space-y-2 mb-6">
-              {avoidRejectionList.map((item, idx) => (
+              {checklistItems.map((item, idx) => (
                 <div key={idx} className="bg-white border border-[#DDE1E9] rounded-xl p-3">
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" />
@@ -692,47 +643,10 @@ export default function A2PCampaignRejectedFixClient() {
               ))}
             </div>
 
-            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
-              <p className="text-sm text-[#1A2236] leading-relaxed mb-2">
-                → For the full brand registration process: <Link href="/blog/a2p-brand-registration-guide" className="text-[#0E9BF0] hover:underline">A2P brand registration guide →</Link>
-              </p>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                → For the full campaign registration walkthrough: <Link href="/blog/a2p-campaign-registration-guide" className="text-[#0E9BF0] hover:underline">A2P campaign registration guide →</Link>
-              </p>
-            </div>
 
-            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-5 my-6 text-white">
-              <div className="flex items-center gap-2 mb-3">
-                <Star className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">IF YOU ARE BLOCKED FROM SMS AND NEED HELP NOW</span>
-              </div>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                GHL Scale Up handles A2P 10DLC registration for agencies and their clients: brand registration, campaign registration,
-                rejection troubleshooting, and resubmission.
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                See the results from our client setups: <Link href="/case-studies" className="text-[#0E9BF0] hover:underline">real GoHighLevel results and case studies →</Link>
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed">
-                If you need your A2P registration resolved quickly,
-                <Link href="/contact" className="text-[#0E9BF0] hover:underline ml-1">book a free strategy call at ghlscaleup.com/contact →</Link>
-              </p>
-            </div>
-
-            {/* CTA 5 - Before FAQ */}
-            <div className="bg-[#0B1628] rounded-xl p-6 text-center my-6 text-white">
-              <p className="text-sm font-medium mb-2">✅ Want to avoid rejection on your next submission?</p>
-              <p className="text-sm text-white/80 mb-4">We'll review your campaign before you submit and fix any issues that would cause rejection.</p>
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                <Shield className="w-4 h-4" />
-                Get a Pre-Submission Review
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* Section 7: FAQ */}
+            {/* Section: FAQ */}
             <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
-              7. Frequently Asked Questions
+              A2P Campaign Rejection FAQs
             </h2>
 
             <div className="space-y-3">
@@ -747,37 +661,18 @@ export default function A2PCampaignRejectedFixClient() {
               ))}
             </div>
 
-            {/* CTA 6 - After FAQ */}
-            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
-              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
-                <strong className="text-white">Still have questions about your A2P campaign rejection?</strong>
-              </p>
-              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
-                Talk to our A2P specialists directly. We've resolved hundreds of A2P rejections and fixed every issue in this guide.
-              </p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                  <MessageCircle className="w-4 h-4" />
-                  Ask an Expert
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20">
-                  <Phone className="w-4 h-4" />
-                  Call Us
-                </Link>
-              </div>
-            </div>
-
-            {/* Internal Links */}
+            {/* Related Articles */}
             <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
-              <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles</h3>
+              <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles in This Series</h3>
               <div className="flex flex-wrap gap-3">
-                <Link href="/blog/what-is-a2p-10dlc" className="text-sm text-[#0E9BF0] hover:underline">What Is A2P 10DLC? Complete Beginner's Guide →</Link>
-                <Link href="/blog/a2p-brand-registration-guide" className="text-sm text-[#0E9BF0] hover:underline">A2P Brand Registration Guide →</Link>
-                <Link href="/blog/a2p-campaign-registration-guide" className="text-sm text-[#0E9BF0] hover:underline">A2P Campaign Registration: Step-by-Step Guide →</Link>
-                <Link href="/blog/a2p-opt-in-language-templates" className="text-sm text-[#0E9BF0] hover:underline">A2P Opt-In Language Templates →</Link>
+                <Link href="/blog/what-is-a2p-10dlc" className="text-sm text-[#0E9BF0] hover:underline">What Is A2P 10DLC? →</Link>
+                <Link href="/blog/a2p-brand-registration-guide" className="text-sm text-[#0E9BF0] hover:underline">A2P Brand Registration in GoHighLevel →</Link>
+                <Link href="/blog/a2p-campaign-registration-guide" className="text-sm text-[#0E9BF0] hover:underline">A2P Campaign Registration in GoHighLevel →</Link>
+                <Link href="/blog/a2p-brand-rejected-fix" className="text-sm text-[#0E9BF0] hover:underline">A2P Brand Rejected Fix Guide →</Link>
+                <Link href="/blog/a2p-opt-in-language-templates" className="text-sm text-[#0E9BF0] hover:underline">A2P Opt In Language Templates →</Link>
                 <Link href="/blog/a2p-10dlc-fees-explained" className="text-sm text-[#0E9BF0] hover:underline">A2P 10DLC Fees Explained →</Link>
-                <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Workflow Automation Guide →</Link>
+                <Link href="/blog/a2p-error-codes-explained" className="text-sm text-[#0E9BF0] hover:underline">A2P Error Codes Explained →</Link>
+                <Link href="/blog/a2p-trust-score-mps" className="text-sm text-[#0E9BF0] hover:underline">How Trust Score and MPS Work →</Link>
               </div>
             </div>
 
@@ -786,14 +681,34 @@ export default function A2PCampaignRejectedFixClient() {
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">A2P rejected and you need it resolved fast?</h3>
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
-                  GHL Scale Up handles A2P registration and rejection troubleshooting. Brand registration, campaign registration,
-                  rejection fixes, and resubmission — handled for agencies and their clients.
+                  GHL Scale Up handles A2P registration and rejection troubleshooting. Brand registration, campaign registration, rejection fixes, and resubmission — handled for agencies and their clients.
                 </p>
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105">
                   Book Your Free Strategy Call
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
+            </div>
+
+            {/* Author / Verification Section */}
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 my-6">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
+                  <img
+                    src="/web-app-manifest-192x192.png"
+                    alt="GHL Scale Up"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <div className="text-sm font-bold text-[#1A2236]">GHL Scale Up Team</div>
+                  <div className="text-xs text-[#5C6880]">GoHighLevel expert agency · 5+ years GHL experience · 200+ A2P registrations handled globally</div>
+                </div>
+              </div>
+              <p className="text-xs text-[#5C6880] leading-relaxed">
+                This guide was checked against HighLevel's A2P Campaign Rejections, Required Fixes and Vetting Errors, Campaign Approval Best Practices, and Campaign Registration guide documentation, current as of September 2026. Rejection codes, fees and requirements change, so confirm against your Trust Center before resubmitting.
+              </p>
+              <Link href="/" className="text-[#0E9BF0] text-xs hover:underline mt-2 inline-block">ghlscaleup.com</Link>
             </div>
           </main>
         </div>

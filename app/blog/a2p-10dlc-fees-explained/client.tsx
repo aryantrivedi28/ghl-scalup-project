@@ -10,117 +10,51 @@ import {
   Twitter,
   BookOpen,
   Zap,
-  Star,
   AlertTriangle,
   Info,
-  Lightbulb,
-  CheckCircle,
+  CheckCircle2,
   Rocket,
   Target,
   HeartHandshake,
   MessageCircle,
   Phone,
   Search,
-  Trophy,
-  Facebook,
-  AlertCircle,
-  UserCheck,
-  UserX,
-  Compass,
-  FileCheck,
-  CheckCircle as CheckCircleIcon,
-  Layers,
-  PanelTop,
-  LayoutDashboard,
-  Settings,
-  Briefcase,
-  LifeBuoy,
-  Award,
-  Timer,
-  Trash2,
-  Download,
-  BarChart3,
-  PieChart,
-  Workflow,
-  Globe,
-  Database,
-  Cloud,
-  GitBranch,
-  Sparkles,
-  GraduationCap,
-  Clock,
-  Shield,
-  Users,
-  Calendar,
-  Mail,
-  Tag,
-  GitMerge,
   DollarSign,
-  TrendingUp,
-  XCircle,
-  Server,
-  CreditCard,
-  Smartphone,
-  Layout,
-  Mailbox,
-  Headphones,
-  FileQuestion,
-  HelpCircle,
-  Boxes,
-  Combine,
-  Link2,
-  Webhook,
-  RefreshCw,
-  ListChecks,
-  ClipboardList,
-  Printer,
-  Video,
-  Ticket,
-  TrendingDown
+  Image as ImageIcon,
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import Image from 'next/image';
 
 export default function A2P10DLCFeesExplainedClient() {
   const [activeId, setActiveId] = useState<string>('');
-  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
   useEffect(() => {
-    const sections = [
-      'who-charges',
-      'registration-fee',
-      'monthly-fee',
-      'resubmission-fee',
-      'carrier-fees',
-      'agency-costs',
-      'avoid-fees',
-      'faq'
-    ];
-
     const handleScroll = () => {
-      let currentSection = sections[0];
+      const sections = [
+        'how-structured',
+        'who-charges',
+        'registration-fee',
+        'additional-campaigns',
+        'monthly-fee',
+        'messaging-costs',
+        'carrier-surcharges',
+        'rejected-fees',
+        'agency-costs',
+        'cost-example',
+        'faq'
+      ];
 
       for (const id of sections) {
         const element = document.getElementById(id);
-        if (!element) continue;
-        const rect = element.getBoundingClientRect();
-        if (rect.top <= 180) {
-          currentSection = id;
-        } else {
-          break;
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 150) {
+            setActiveId(id);
+          }
         }
-      }
-
-      setActiveId(currentSection);
-
-      // Show floating Project Help card after scrolling past hero section
-      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
-      if (heroSection) {
-        const heroBottom = heroSection.getBoundingClientRect().bottom;
-        setShowFloatingProjectHelp(heroBottom < 0);
       }
     };
 
-    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -137,59 +71,66 @@ export default function A2P10DLCFeesExplainedClient() {
 
   const faqs = [
     {
-      q: "Is A2P 10DLC registration free in GoHighLevel?",
-      a: "No. A2P 10DLC registration involves three types of fees: a one-time registration fee paid when you first submit your brand and campaign (approximately $24.50 for Low Volume Standard Brand and $71.91 for Standard Brand, as stated in GHL's documentation as of August 2025), a recurring monthly campaign fee of up to approximately $11.03 per month while the campaign is active, and carrier per-message surcharges on top of GHL's base SMS rate. All fees are passthrough charges from The Campaign Registry, Twilio, and US carriers GoHighLevel does not add markup. Always verify current amounts in the Trust Center before submitting."
+      q: "Is A2P 10DLC free?",
+      a: "No. Registering a Brand and Campaign carries a one-time fee, active Campaigns carry a monthly fee, and sending messages carries a per-segment cost plus carrier surcharges."
     },
     {
-      q: "Does GoHighLevel add a markup to A2P fees?",
-      a: "No. Confirmed from GHL's official fees documentation: all A2P 10DLC fees are passthrough charges from The Campaign Registry (TCR), Twilio, and US mobile carriers. GoHighLevel does not add markup to these charges. The amounts you pay are the same amounts that TCR, Twilio, and the carriers charge GHL."
+      q: "Does GoHighLevel charge a markup on A2P fees?",
+      a: "No. HighLevel states that registration, vetting and monthly Campaign fees are passthrough charges from TCR, Twilio and carriers, with no HighLevel markup."
     },
     {
-      q: "What is the A2P campaign vetting fee in GoHighLevel?",
-      a: "The campaign vetting fee is included in the one-time bundled registration fee charged when you first submit your brand and campaign. As of August 2025 (the date stated in GHL's documentation), the bundled one-time fee is approximately $24.50 for Low Volume Standard Brand and $71.91 for Standard Brand. This bundled fee covers both brand vetting and campaign vetting. For subsequent campaigns submitted under the same already-approved brand, only the campaign vetting fee applies without the full bundled amount. Always verify current amounts in the Trust Center before submitting."
+      q: "Is there a fee to resubmit a rejected Campaign?",
+      a: "No. HighLevel does not charge an additional Campaign Vetting Fee when you resubmit a rejected Campaign."
     },
     {
-      q: "Is there a fee to resubmit a rejected A2P campaign in GoHighLevel?",
-      a: "No, in most cases. Confirmed from GHL's campaign vetting FAQ: A2P campaign resubmissions are now free the $15 resubmission charge has been removed. You can resubmit a rejected campaign at no additional cost while addressing carrier feedback. The exception: the fee waiver may not apply if the original rejection was due to disallowed content or High Risk Campaigns. If you delete a rejected campaign and create a new campaign in its place, a new vetting fee applies. Always edit and resubmit the existing campaign rather than deleting and recreating."
+      q: "How much does A2P Brand registration cost?",
+      a: "$22.50 for a Sole Proprietor or Low Volume Standard Brand, or $64.00 for a High Volume Standard Brand, bundled with your first Campaign and Fast Track processing."
     },
     {
-      q: "What are the carrier per-message fees for A2P SMS in GoHighLevel?",
-      a: "US carriers (AT&T, T-Mobile, Verizon) charge per-message surcharges on top of GHL's base LC Phone rate of approximately $0.0079 per segment. These carrier surcharges are passthrough fees set by each carrier individually. AT&T increased its per-message fees on April 1, 2026, and Verizon increased its fees on May 1, 2026. The specific amounts are set by each carrier and can change. Verify current carrier surcharge rates in GHL's Trust Center or fees documentation before estimating message costs at scale."
+      q: "Do I pay a fee for every Campaign?",
+      a: "Your first Campaign is included in the Brand registration bundle. Each additional Campaign under the same Brand costs $15.00."
     },
     {
-      q: "Do A2P fees apply to all GoHighLevel sub-accounts?",
-      a: "Yes. Each sub-account that sends automated SMS to US recipients requires its own brand and campaign registration, and each registration carries its own one-time fee and monthly campaign fee. For agencies managing multiple client sub-accounts, the registration fees and monthly fees apply separately to each client account. These fees can be passed through to clients or included in your agency setup and management fees."
-    },
-    {
-      q: "Can I avoid A2P 10DLC fees entirely?",
-      a: "Two legitimate alternatives avoid A2P 10DLC registration fees: toll-free numbers (1-800, 1-888) use a separate verification process that is free and less complex than 10DLC registration, though toll-free numbers have a different appearance than local 10-digit numbers; and WhatsApp messaging in GoHighLevel is transmitted over the internet and not subject to A2P 10DLC carrier requirements or surcharges. WhatsApp has its own compliance requirements through Meta's WhatsApp Business platform. For most US businesses sending automated SMS at any volume, A2P 10DLC registration is still the standard path because unregistered 10-digit number traffic is blocked by US carriers entirely since February 2025."
+      q: "Are fees different for agencies?",
+      a: "The underlying TCR fees are the same per Brand and per Campaign regardless of who manages the account. What differs is scale: an agency pays this once per client sub-account, not once for the whole agency."
     }
   ];
 
   useFaqSchema(faqs);
 
   const tocItems = [
-    { id: 'who-charges', title: '1. Who charges A2P fees does GoHighLevel add a markup?' },
-    { id: 'registration-fee', title: '2. What is the one-time registration fee?' },
-    { id: 'monthly-fee', title: '3. What is the monthly campaign fee?' },
-    { id: 'resubmission-fee', title: '4. Is there a fee to resubmit a rejected campaign?' },
-    { id: 'carrier-fees', title: '5. What are carrier per-message surcharges?' },
-    { id: 'agency-costs', title: '6. How do these fees add up for agencies with multiple clients?' },
-    { id: 'avoid-fees', title: '7. Is there any way to avoid A2P fees?' },
-    { id: 'faq', title: '8. Frequently asked questions' }
+    { id: 'how-structured', title: 'How A2P 10DLC Costs Are Structured' },
+    { id: 'who-charges', title: 'Who Actually Charges These Fees' },
+    { id: 'registration-fee', title: 'Brand and Campaign Registration Fees' },
+    { id: 'additional-campaigns', title: 'Fees for Additional Campaigns and Resubmissions' },
+    { id: 'monthly-fee', title: 'Monthly Campaign Fees' },
+    { id: 'messaging-costs', title: 'SMS and MMS Messaging Costs' },
+    { id: 'carrier-surcharges', title: 'Carrier Surcharges' },
+    { id: 'rejected-fees', title: 'Fees for Rejected or Failed Registration' },
+    { id: 'agency-costs', title: 'A2P Costs for GoHighLevel Agencies' },
+    { id: 'cost-example', title: 'A Simple Cost Example' },
+    { id: 'faq', title: 'A2P 10DLC Fees FAQ' }
   ];
 
   const registrationFees = [
-    { type: 'Sole Proprietor', fee: 'Verify in Trust Center not confirmed in current official docs at precise amount', includes: 'Brand vetting, campaign vetting', limit: 'Lower limits verify in Trust Center' },
-    { type: 'Low Volume Standard Brand', fee: '$24.49875 (as of Aug 2025)', includes: 'Brand vetting + campaign vetting + $3 Fast Track fee', limit: 'Up to 6,000 segments/day' },
-    { type: 'Standard Brand', fee: '$71.90625 (as of Aug 2025)', includes: 'Brand vetting + campaign vetting + Secondary Vetting + $3 Fast Track fee', limit: 'Above 6,000 segments/day' }
+    { brandType: 'Sole Proprietor', fee: '$22.50', limits: '1 number, 3,000 segments per day' },
+    { brandType: 'Low Volume Standard', fee: '$22.50', limits: 'Multiple numbers, 6,000 segments per day' },
+    { brandType: 'High Volume Standard', fee: '$64.00', limits: 'Multiple numbers, 600,000 segments per day, includes Secondary Vetting if the first submission is rejected' }
   ];
 
-  const agencyCosts = [
-    { fee: 'One-time registration (Low Volume Standard)', frequency: 'Once at registration', perClient: '~$24.50 per client', tenClient: '~$245 total (all clients, year one only)' },
-    { fee: 'Monthly campaign fee', frequency: 'Per month per active campaign', perClient: 'Up to ~$11.03/month per client', tenClient: '~$110.25/month across 10 clients' },
-    { fee: 'Carrier per-message surcharges', frequency: 'Per SMS segment sent', perClient: 'Varies typically $0.003 to $0.005 per segment', tenClient: 'Varies by client sending volume' },
-    { fee: 'GHL base SMS rate (LC Phone)', frequency: 'Per SMS segment sent', perClient: '~$0.0079 per outbound segment', tenClient: 'Scales with total sending volume across all clients' }
+  const monthlyFees = [
+    { useCase: 'Sole Proprietor (Starter Campaign)', fee: '$2.00/month', notes: 'Tied to a Sole Proprietor Brand' },
+    { useCase: 'Standard Campaign use cases', fee: '$10.00/month', notes: 'Most Marketing, Customer Care and similar standard use cases' },
+    { useCase: 'Low Volume Mixed', fee: '$1.50/month', notes: 'Up to 2,000 SMS segments per day to T-Mobile, lower throughput regardless of Trust Score' },
+    { useCase: 'Charity / 501(c)(3)', fee: '$3.00/month', notes: 'Special use case for registered nonprofits' },
+    { useCase: 'Emergency Services', fee: '$5.00/month', notes: 'Special use case, additional documentation may apply' }
+  ];
+
+  const messagingCosts = [
+    { messageType: 'SMS (outbound and inbound)', rate: '≈ $0.0079 per segment', notes: 'A 10% discount off the $0.0083 list price; charged at the same rate in both directions' },
+    { messageType: 'MMS outbound', rate: '$0.0220 per segment', notes: 'US and Canada' },
+    { messageType: 'MMS inbound, local numbers', rate: '$0.0165 per segment', notes: '' },
+    { messageType: 'MMS inbound, toll-free numbers', rate: '$0.0200 per segment', notes: '' }
   ];
 
   // Reusable Project Help Card Component
@@ -198,7 +139,6 @@ export default function A2P10DLCFeesExplainedClient() {
       <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
       <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your migration.</p>
       <Link
-        // onClick={handleOpenBooking}
         href="/book-a-call"
         className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
         Book a 30 min Free Call
@@ -223,7 +163,7 @@ export default function A2P10DLCFeesExplainedClient() {
         </div>
       </nav>
 
-      {/* Hero Section - WIDE (KEPT AS IS) */}
+      {/* Hero Section */}
       <section className="bg-[#0B1628] py-12 md:py-[72px] px-4 md:px-6 relative overflow-hidden">
         <div className="absolute -top-[120px] -right-[120px] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(14,155,240,0.12)_0%,transparent_70%)] pointer-events-none" />
         <div className="absolute -bottom-[80px] -left-[80px] w-[360px] h-[360px] bg-[radial-gradient(circle,rgba(37,201,125,0.08)_0%,transparent_70%)] pointer-events-none" />
@@ -239,8 +179,8 @@ export default function A2P10DLCFeesExplainedClient() {
 
           {/* H1 */}
           <h1 className="text-[clamp(28px,6vw,46px)] font-extrabold leading-[1.2] md:leading-[1.15] text-white mb-4 md:mb-5 tracking-[-0.02em]">
-            A2P 10DLC Fees Explained:<br />
-            <span className="text-[#F8D000]">Registration, Monthly and Carrier Costs (2026)</span>
+            A2P 10DLC Fees in GoHighLevel:<br />
+            <span className="text-[#F8D000]">Registration, Monthly and Carrier Costs</span>
           </h1>
 
           {/* Author */}
@@ -254,29 +194,55 @@ export default function A2P10DLCFeesExplainedClient() {
             </div>
             <div>
               <div className="text-sm font-medium text-white">GHL Scale Up Team</div>
-              <div className="text-xs text-white/50">GoHighLevel Specialists · 200+ Builds Delivered · Updated July 2026</div>
+              <div className="text-xs text-white/50">GoHighLevel Specialists · 200+ builds delivered · Verified against GoHighLevel, Twilio, and The Campaign Registry documentation, September 2026</div>
             </div>
           </div>
 
-          {/* Intro Paragraph - NO max-w constraint */}
-          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6">
-            A2P 10DLC registration is not free. Most GHL users discover this mid-setup when they reach the Trust Center and see fee amounts they were not expecting. The fees are set by external providers The Campaign Registry, Twilio, and US carriers and are passed through by GoHighLevel with no markup. <Link href="/" className="text-[#0E9BF0] hover:underline font-medium">GHL Scale Up</Link> has handled A2P registration across hundreds of client accounts. This guide breaks down every fee type, where each one comes from, and what changed in 2026.
-          </p>
+          {/* Quick Answer Box */}
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 md:p-6 mb-6">
+            <div className="flex items-center gap-2 mb-3">
+              <Zap className="w-5 h-5 text-[#F8D000]" />
+              <span className="text-xs font-bold uppercase tracking-wider text-white/60">Quick Answer</span>
+            </div>
+            <p className="text-sm text-white/70 leading-relaxed mb-3">
+              A2P 10DLC is not free, but GoHighLevel does not add a markup to the registration or messaging fees. Three parties actually charge you: The Campaign Registry (TCR) for registration and vetting, TCR again for a recurring monthly fee per active Campaign, and mobile carriers for per-message surcharges on top of the SMS and MMS rate. Your first Brand and Campaign are billed together as one bundled fee, from $22.50 to $64.00 depending on the Brand type you register. Every Campaign after that costs $15.00 to submit. Resubmitting a rejected Campaign is free.
+            </p>
+            <p className="text-sm text-white/70 leading-relaxed">
+              These numbers come from HighLevel's own current fee reference, last updated September 24, 2026. Fees are set by TCR, Twilio and the carriers, not by GoHighLevel, and they can change without notice, so treat this as a guide and confirm the exact amount shown in your Trust Center before you register.
+            </p>
+          </div>
+
+          {/* CTA Button 1 */}
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105"
+            >
+              <Rocket className="w-4 h-4" />
+              Get A2P Fee Help
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              href="#registration-fee"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20"
+            >
+              See Registration Fees
+              <ChevronDown className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* MAIN LAYOUT - Sidebar on LEFT, Content on RIGHT */}
-      <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-16">
+      {/* MAIN LAYOUT */}
+      <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-10">
         <div className="grid lg:grid-cols-[280px_1fr] gap-8 md:gap-12 items-start">
 
-          {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
+          {/* SIDEBAR */}
           <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
-            {/* Project Help Card - At top of sidebar */}
-            <div className="mb-6">
+            <div className="hidden lg:block mb-6">
               <ProjectHelpCard />
             </div>
 
-            {/* Table of Contents */}
             <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
                 <BookOpen className="w-3 h-3" />
@@ -293,7 +259,9 @@ export default function A2P10DLCFeesExplainedClient() {
                         }`}
                     >
                       <span className="flex items-start gap-2">
-                        {activeId === item.id && <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />}
+                        {activeId === item.id && (
+                          <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />
+                        )}
                         <span className="flex-1">{item.title}</span>
                       </span>
                     </button>
@@ -302,7 +270,6 @@ export default function A2P10DLCFeesExplainedClient() {
               </ul>
             </nav>
 
-            {/* About the Author */}
             <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
@@ -318,52 +285,46 @@ export default function A2P10DLCFeesExplainedClient() {
                 </div>
               </div>
               <p className="text-xs text-white/60 leading-relaxed mb-3">
-                5+ years GHL experience · 200+ A2P registrations handled globally. All technical details verified as of July 2026.
+                5+ years GHL experience · 200+ A2P registrations handled globally. All technical details verified as of September 2026.
               </p>
-              <Link href="/" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
+              <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
             </div>
 
-            {/* Share Buttons */}
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
-              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
+              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Share this guide</div>
               <div className="flex gap-2 flex-wrap">
-                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Linkedin className="w-3 h-3" /> LinkedIn</a>
-                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Twitter className="w-3 h-3" /> X</a>
-                <button onClick={() => navigator.clipboard.writeText(window.location.href)} className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"><Copy className="w-3 h-3" /> Copy link</button>
+                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Linkedin className="w-3 h-3" />
+                  LinkedIn
+                </a>
+                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Twitter className="w-3 h-3" />
+                  X
+                </a>
+                <button
+                  onClick={() => navigator.clipboard.writeText(window.location.href)}
+                  className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"
+                >
+                  <Copy className="w-3 h-3" />
+                  Copy link
+                </button>
               </div>
+            </div>
+
+            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
+              <div className="text-sm font-bold text-white mb-2">A2P Fee Questions?</div>
+              <p className="text-xs text-white/60 leading-relaxed mb-4">We handle A2P registration for agencies and their clients and can give you a clear breakdown of all costs before you submit.</p>
+              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+                Get Help
+                <ArrowRight className="w-3 h-3" />
+              </Link>
             </div>
           </aside>
 
-          {/* ==================== RIGHT COLUMN: BLOG CONTENT ==================== */}
+          {/* MAIN CONTENT */}
           <main className="min-w-0 order-2">
 
-            {/* BLUF Box */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
-              <div className="flex items-center gap-2 mb-3">
-                <Zap className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Direct Answer</span>
-              </div>
-              <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
-                A2P 10DLC is not free. There are three types of fees: (1) a one-time registration fee, (2) a recurring monthly campaign fee, and (3) carrier per-message surcharges.
-              </p>
-              <p className="text-sm text-[#5C6880] leading-relaxed">
-                All three are passthrough charges GoHighLevel does not add any markup. Important: Fees are set by external providers and can change at any time. The specific amounts shown in this guide are sourced from GHL's official documentation as of August 2025. Always verify current fees in your GHL Trust Center before submitting. Do not rely on any third-party guide including this one for the final fee amount before paying.
-              </p>
-
-              {/* CTA 1 - Inside BLUF Box */}
-              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
-                  <Target className="w-4 h-4" />
-                  Get A2P Fee Help
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Table of Contents - Mobile Only */}
+            {/* Mobile TOC */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8 lg:hidden">
               <div className="flex items-center gap-2 mb-4">
                 <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
@@ -382,264 +343,221 @@ export default function A2P10DLCFeesExplainedClient() {
               </div>
             </div>
 
-            {/* Mobile Project Help Card - visible on mobile only */}
+            {/* Mobile Project Help Card */}
             <div className="lg:hidden mb-8">
               <ProjectHelpCard />
             </div>
 
-            {/* Section 1: Who Charges */}
-            <h2 id="who-charges" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-8 mb-4">
-              1. Who Charges A2P Fees Does GoHighLevel Add a Markup?
+            {/* Section: How A2P 10DLC Costs Are Structured */}
+            <h2 id="how-structured" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-8 mb-4">
+              How A2P 10DLC Costs Are Structured
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Confirmed from GHL's official fees documentation: all A2P 10DLC fees are passthrough charges from The Campaign Registry (TCR), Twilio, and US mobile carriers. GoHighLevel does not add markup to these charges.
+              Three separate categories make up the cost of using A2P 10DLC through GoHighLevel:
             </p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              There are three external parties that set A2P fees: The Campaign Registry (TCR) charges brand registration and campaign vetting fees. Twilio (the underlying messaging infrastructure GHL uses for LC Phone) passes carrier costs through. US carriers (AT&T, T-Mobile, Verizon) charge per-message surcharges on messages delivered to their networks.
-            </p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Prices are determined by these external providers and may be adjusted at any time.
-            </p>
-
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              For background on what A2P 10DLC is and why registration is required: <Link href="/blog/what-is-a2p-10dlc" className="text-[#0E9BF0] hover:underline">What Is A2P 10DLC? →</Link>
+            <ul className="space-y-2 mb-4 text-sm text-[#5C6880] list-disc list-inside">
+              <li><strong className="text-[#1A2236]">A one-time registration fee</strong>, charged once when you register your Brand and first Campaign together.</li>
+              <li><strong className="text-[#1A2236]">A recurring monthly Campaign fee</strong>, billed for as long as each Campaign stays active.</li>
+              <li><strong className="text-[#1A2236]">Usage-based messaging costs</strong>, made up of GoHighLevel's own SMS/MMS segment rate plus a separate carrier surcharge on top.</li>
+            </ul>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              These are genuinely different things. Paying the monthly Campaign fee does not include any messages; you still pay per segment when you actually send. And none of this is your GoHighLevel subscription price, which is billed separately from A2P and messaging costs entirely.
             </p>
 
-            {/* Section 2: Registration Fee */}
-            <h2 id="registration-fee" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              2. What Is the One-Time Registration Fee?
+            {/* Section: Who Actually Charges These Fees */}
+            <h2 id="who-charges" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Who Actually Charges These Fees
             </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              When you register a new brand and campaign through GHL's Trust Center, a one-time bundled fee is charged that covers both brand vetting and campaign vetting together. This fee is not charged again for subsequent campaigns under the same brand.
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              HighLevel states plainly that all A2P 10DLC fees are passthrough charges from The Campaign Registry, Twilio, and US mobile carriers, and that it adds no markup to any of them. That covers registration, vetting and monthly Campaign fees. Messaging usage works differently: GoHighLevel's SMS and MMS segment rate is billed through LC Phone, its own phone system built on Twilio's infrastructure, and HighLevel says this pricing matches Twilio's rate. Carrier surcharges are then added on top of that segment rate by the recipient's carrier.
             </p>
 
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">FEE AMOUNTS VERIFIED FROM GHL'S OFFICIAL STANDARD BRAND REGISTRATION GUIDE (STATED ACCURATE AS OF AUGUST 2, 2025)</span>
+            {/* 
+              ============================================================
+              🖼️ IMAGE INSERTED HERE - Full width, responsive, interactive
+              ============================================================
+            */}
+            <div className="my-8 md:my-10 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <div className="relative w-full h-auto bg-[#F8F9FB]">
+                <Image
+                  src="/blog/a2p-10dlc-fees-infographic.png"
+                  alt="A2P 10DLC Fees in GoHighLevel: Registration fees, monthly campaign fees, messaging costs, and carrier surcharges breakdown"
+                  width={1200}
+                  height={500}
+                  className="w-full h-auto object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                />
               </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                Always verify current amounts in GHL's Trust Center before submitting. These figures may have changed.
-              </p>
+              <div className="bg-[#F8F9FB] px-4 py-2.5 text-xs text-[#5C6880] border-t border-[#DDE1E9] flex items-center gap-2">
+                <ImageIcon className="w-3.5 h-3.5" />
+                <span>A2P 10DLC Fees in GoHighLevel: Registration fees, monthly campaign fees, messaging costs, and carrier surcharges breakdown</span>
+              </div>
             </div>
+
+
+            {/* Section: Brand and Campaign Registration Fees */}
+            <h2 id="registration-fee" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Brand and Campaign Registration Fees
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Your Brand and first Campaign are submitted together in Trust Center, and HighLevel bundles them into a single one-time fee. That bundle includes Brand registration, Campaign vetting, and Fast Track processing, which expedites approval to within 3 business days.
+            </p>
 
             <div className="overflow-x-auto my-6">
               <table className="w-full border-collapse text-sm">
                 <thead>
                   <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
                     <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Brand type</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">One-time bundled fee (as of Aug 2025)</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Includes</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Daily segment limit</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">One-time fee (bundle)</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Number and messaging limits</th>
                   </tr>
                 </thead>
                 <tbody>
                   {registrationFees.map((item, idx) => (
                     <tr key={idx} className="border-b border-[#DDE1E9]">
-                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.type}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.fee}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.includes}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.limit}</td>
+                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.brandType}</td>
+                      <td className="py-3 px-3 font-semibold text-[#0E9BF0]">{item.fee}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.limits}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
 
-            <ul className="space-y-2 mb-6 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">The bundled fee is charged once at initial registration only.</strong> If you register additional campaigns under the same brand after initial approval, only the campaign vetting fee applies for each additional campaign not the full bundled amount.</li>
-              <li><strong className="text-[#1A2236]">What is Secondary Vetting?</strong> Standard Brand registration includes Secondary Vetting, which is an additional review layer for higher-volume senders. GHL's High Volume Bundle description confirms this is included in the Standard Brand one-time fee.</li>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Which tier applies depends on whether you have an EIN or Tax ID and the messaging volume you select. For the eligibility rules, see <Link href="/blog/a2p-brand-registration-guide" className="text-[#0E9BF0] hover:underline">A2P Brand Registration in GoHighLevel</Link>.
+            </p>
+
+            {/* Section: Fees for Additional Campaigns and Resubmissions */}
+            <h2 id="additional-campaigns" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Fees for Additional Campaigns and Resubmissions
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              The bundled fee above only applies to your first Campaign under a new Brand. After that:
+            </p>
+            <ul className="space-y-2 mb-4 text-sm text-[#5C6880] list-disc list-inside">
+              <li><strong className="text-[#1A2236]">A new Campaign under the same Brand:</strong> $15.00 Campaign Vetting Fee, charged for that additional Campaign only.</li>
+              <li><strong className="text-[#1A2236]">Resubmitting a rejected Campaign:</strong> no additional Campaign Vetting Fee. HighLevel is explicit that a rejected and resubmitted Campaign does not incur another charge.</li>
             </ul>
-
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-2">
-              For the full brand registration process: <Link href="/blog/a2p-brand-registration-guide" className="text-[#0E9BF0] hover:underline">A2P Brand Registration Guide →</Link>
-            </p>
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              For the campaign registration process: <Link href="/blog/a2p-campaign-registration-guide" className="text-[#0E9BF0] hover:underline">A2P Campaign Registration Guide →</Link>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              This is worth flagging because it contradicts older guidance still circulating that a resubmission carries a separate fee. Correct as of HighLevel's current documentation, resubmission is free; only submitting a genuinely new, additional Campaign costs $15.00. For the resubmission process itself, see <Link href="/blog/a2p-campaign-rejected-fix" className="text-[#0E9BF0] hover:underline">A2P Campaign Rejected in GoHighLevel</Link>.
             </p>
 
-            {/* Section 3: Monthly Fee */}
+            {/* Section: Monthly Campaign Fees */}
             <h2 id="monthly-fee" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              3. What Is the Monthly Campaign Fee?
+              Monthly Campaign Fees
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Once your campaign is approved, a recurring monthly campaign fee is charged for as long as the campaign remains active. This fee continues even if you are not actively sending messages it is a fee for maintaining the registered campaign, not for message volume.
-            </p>
-
-            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Info className="w-4 h-4 text-[#0E9BF0]" />
-                <span className="text-sm font-bold text-[#0E9BF0]">MONTHLY FEE VERIFIED FROM GHL'S OFFICIAL STANDARD BRAND REGISTRATION GUIDE</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                Additional campaign fee: <strong>up to $11.025 per month</strong> for both Standard Brand and Low Volume Standard Brand campaigns. Stated in GHL's Standard Brand Registration guide as "in accordance with TCR rules for both failed and approved campaigns." Verify the current monthly fee in GHL's Trust Center before submitting, as TCR can adjust this at any time.
-              </p>
-            </div>
-
-            <ul className="space-y-2 mb-6 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">The monthly fee applies from the point of campaign approval, not from registration.</strong> During the review period (typically 3 to 7 business days), the monthly fee has not yet started. Once carriers approve the campaign, the monthly fee begins.</li>
-              <li><strong className="text-[#1A2236]">The fee applies even if the campaign is rarely used.</strong> If you register a campaign and then do not send messages for several months, the monthly fee continues. Deactivating or deleting the campaign stops the fee.</li>
-              <li><strong className="text-[#1A2236]">The fee varies by use case.</strong> GHL's official fees article states monthly campaign fees "vary based on campaign use case and volume." The $11.025 figure is the stated upper amount. Lower-volume or specific use cases may carry lower monthly fees verify the exact amount for your specific campaign type in the Trust Center before submitting.</li>
-            </ul>
-
-            {/* Section 4: Resubmission Fee */}
-            <h2 id="resubmission-fee" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              4. Is There a Fee to Resubmit a Rejected Campaign?
-            </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              This is one of the most commonly asked A2P fee questions, and the answer changed in 2026.
-            </p>
-
-            <div className="bg-[#E8FAF2] border border-[rgba(37,201,125,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <CheckCircle className="w-4 h-4 text-[#25C97D]" />
-                <span className="text-sm font-bold text-[#25C97D]">CONFIRMED: RESUBMISSION FEE HAS BEEN REMOVED</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                A2P campaign resubmissions are now free. The $15 A2P resubmission charge has been removed. Confirmed from GHL's A2P 10DLC Campaign Vetting FAQ. You can resubmit a rejected campaign at no additional cost while addressing carrier feedback. This applies as long as you edit the existing campaign and resubmit if you delete the campaign and create a new one, a new vetting fee applies.
-              </p>
-            </div>
-
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">EXCEPTION TO THE FREE RESUBMISSION RULE</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                The fee waiver may not apply if the original rejection was due to disallowed content or High Risk Campaigns. Confirmed from GHL's campaign vetting FAQ. If your campaign was rejected because it contained prohibited content (SHAFT categories, cannabis, certain financial content), resubmission charges may still apply. Verify with GHL support for your specific rejection scenario before resubmitting.
-              </p>
-            </div>
-
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              For the complete guide on what to do when a campaign is rejected: <Link href="/blog/a2p-campaign-rejected-fix" className="text-[#0E9BF0] hover:underline">A2P Campaign Rejected Fix Guide →</Link>
-            </p>
-
-            {/* CTA 2 - After Resubmission Fee */}
-            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 text-center my-6 text-white">
-              <p className="text-sm font-medium mb-2">💰 Not sure what fees apply to your A2P registration?</p>
-              <p className="text-sm text-white/80 mb-4">Let our team review your registration and give you a complete breakdown of all costs before you submit.</p>
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                <DollarSign className="w-4 h-4" />
-                Get Your Cost Estimate
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* Section 5: Carrier Fees */}
-            <h2 id="carrier-fees" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              5. What Are Carrier Per-Message Surcharges?
-            </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              On top of GHL's base SMS rate (approximately $0.0079 per segment for US/Canada through LC Phone), US carriers charge additional per-message surcharges for A2P registered traffic. These are passthrough fees set by the carriers.
-            </p>
-
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">2026 CARRIER FEE INCREASES</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                Two carrier fee increases took effect in 2026: AT&T increased per-message fees on April 1, 2026. Verizon increased per-message fees on May 1, 2026. These are carrier-side decisions, not GHL decisions. GHL passes them through at cost. The specific amounts increased are set by each carrier. Verify current carrier surcharge rates in GHL's Trust Center or fees documentation before estimating message costs.
-              </p>
-            </div>
-
-            <ul className="space-y-2 mb-6 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">What is a message segment?</strong> One segment equals 160 characters of plain text. A message longer than 160 characters is split into multiple segments and billed accordingly. Unicode characters (emoji, special characters) reduce the per-segment character limit to 70 characters. A single emoji in a message can therefore double the segment count and double the cost.</li>
-              <li><strong className="text-[#1A2236]">Registered vs unregistered traffic:</strong> Carrier surcharges are lower for registered A2P traffic than for unregistered traffic. This is one of the practical reasons to complete registration unregistered messages not only risk being blocked entirely but also carry higher carrier fees per segment when they do get through.</li>
-              <li><strong className="text-[#1A2236]">T-Mobile inbound charges:</strong> T-Mobile charges per-message fees on both outbound and inbound messages for A2P traffic inbound replies from contacts are also billed. AT&T and Verizon apply fees primarily to outbound messages. You may want to verify current inbound charging policies in GHL's Trust Center as carrier policies can change.</li>
-            </ul>
-
-            {/* Section 6: Agency Costs */}
-            <h2 id="agency-costs" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              6. How Do These Fees Add Up for Agencies With Multiple Clients?
-            </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              For agencies managing 10 or more client sub-accounts, A2P fees become a real line item that must be budgeted per client.
+              Once a Campaign is approved, it carries a recurring monthly fee for as long as it stays active. The rate depends on the Campaign's use case type, not the Brand type.
             </p>
 
             <div className="overflow-x-auto my-6">
               <table className="w-full border-collapse text-sm">
                 <thead>
                   <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Fee</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Frequency</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Per client example</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">10-client agency example</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Campaign use case type</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Monthly fee</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Notes</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {agencyCosts.map((item, idx) => (
+                  {monthlyFees.map((item, idx) => (
                     <tr key={idx} className="border-b border-[#DDE1E9]">
-                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.fee}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.frequency}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.perClient}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.tenClient}</td>
+                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.useCase}</td>
+                      <td className="py-3 px-3 font-semibold text-[#0E9BF0]">{item.fee}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.notes}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
 
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-2">
-              For the full guide on managing A2P registration costs and workflows across multiple client sub-accounts: <Link href="/blog/a2p-registration-for-agencies" className="text-[#0E9BF0] hover:underline">A2P Registration for Agencies →</Link>
-            </p>
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              For the full breakdown of GHL's subscription costs alongside usage costs: <Link href="/blog/gohighlevel-pricing" className="text-[#0E9BF0] hover:underline">GoHighLevel Pricing 2026 →</Link>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              For how to choose the right use case, see <Link href="/blog/a2p-campaign-registration-guide" className="text-[#0E9BF0] hover:underline">A2P Campaign Registration in GoHighLevel</Link>.
             </p>
 
-            {/* CTA 3 - After Agency Costs */}
-            <div className="bg-[#0B1628] rounded-xl p-6 text-center my-6 text-white">
-              <p className="text-sm font-medium mb-2">🏢 Managing A2P fees across multiple clients?</p>
-              <p className="text-sm text-white/80 mb-4">We can help you build a cost structure that passes through A2P fees efficiently and transparently to your clients.</p>
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                <Users className="w-4 h-4" />
-                Get Agency Cost Help
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
 
-            {/* Section 7: Avoid Fees */}
-            <h2 id="avoid-fees" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              7. Is There Any Way to Avoid A2P Fees?
+            {/* Section: SMS and MMS Messaging Costs */}
+            <h2 id="messaging-costs" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              SMS and MMS Messaging Costs
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              There are two legitimate alternatives that avoid A2P 10DLC registration fees entirely. Neither is free of all costs.
+              Registration and the monthly Campaign fee get your Brand and Campaign approved; they do not pay for the messages themselves. Every SMS and MMS you send or receive through LC Phone is billed separately, per segment.
             </p>
 
-            <ul className="space-y-2 mb-6 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">Option 1: Toll-Free numbers</strong> Toll-free numbers (1-800, 1-888, etc.) require a separate verification process but do not use the A2P 10DLC brand and campaign registration system. GHL's Standard Brand Registration guide confirms that toll-free messaging remains an attractive alternative to A2P 10DLC, as toll-free verification is free and less complex. The trade-off: toll-free numbers do not have the same local-looking presence as a 10-digit local number, which some businesses find affects reply rates. Verify current toll-free verification requirements in GHL's Trust Center, as these can change.</li>
-              <li><strong className="text-[#1A2236]">Option 2: WhatsApp messaging</strong> WhatsApp messages in GoHighLevel are transmitted over the internet, not through US carrier networks. A2P 10DLC carrier surcharges and registration requirements do not apply to WhatsApp messaging. WhatsApp has its own compliance requirements through Meta's WhatsApp Business platform. Cost structures differ from SMS.</li>
+            <div className="overflow-x-auto my-6">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Message type</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">US/Canada rate</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Notes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {messagingCosts.map((item, idx) => (
+                    <tr key={idx} className="border-b border-[#DDE1E9]">
+                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.messageType}</td>
+                      <td className="py-3 px-3 font-semibold text-[#0E9BF0]">{item.rate}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.notes}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              A standard SMS segment is 160 characters of plain text; a longer message splits into multiple segments and is billed accordingly. International rates differ by country and are listed separately in HighLevel's LC Phone Pricing &amp; Billing Guide. Phone number rental (local and toll-free) is a further separate monthly line item, billed regardless of A2P registration.
+            </p>
+
+            {/* Section: Carrier Surcharges */}
+            <h2 id="carrier-surcharges" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Carrier Surcharges
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              On top of the segment rate above, the recipient's carrier adds its own per-message surcharge. HighLevel documents that these amounts vary by carrier and message type and are charged on top of standard SMS/MMS rates. Because carrier surcharges change periodically and are not fixed by HighLevel, this guide does not publish a specific per-carrier dollar figure; the current amount is shown at the time of sending and in HighLevel's LC Phone Pricing &amp; Billing Guide. Unregistered traffic, meaning numbers not linked to an approved A2P Campaign, faces additional filtering or blocking rather than simply a higher fee.
+            </p>
+
+            {/* Section: Fees for Rejected or Failed Registration */}
+            <h2 id="rejected-fees" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Fees for Rejected or Failed Registration
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Rejection does not automatically cost extra. Resubmitting a rejected Campaign is free, as covered above. Brand rejection is different: if a Standard Brand fails repeated verification, HighLevel's own documentation on new EIN issues describes a $10 appeal, separate from this fee reference, where you provide your complete CP 575 for manual review. That is a Brand-level appeal cost, not a Campaign fee. See <Link href="/blog/a2p-brand-rejected-fix" className="text-[#0E9BF0] hover:underline">A2P Brand Rejected in GoHighLevel</Link> for when that applies.
+            </p>
+
+            {/* Section: A2P Costs for GoHighLevel Agencies */}
+            <h2 id="agency-costs" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              A2P Costs for GoHighLevel Agencies
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Each client sub-account needs its own Brand and Campaign, and each one pays the registration bundle and monthly Campaign fee independently. There is no agency-wide discount documented by HighLevel; fees are per Brand and per Campaign, not per agency. An agency's own setup or management fee for handling this on a client's behalf is a separate, agency-set charge, not a TCR or carrier fee, and it should never be presented to a client as if it were one.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              For the operational side of managing registration across multiple client sub-accounts, see <Link href="/blog/a2p-registration-for-agencies" className="text-[#0E9BF0] hover:underline">A2P registration for GoHighLevel agencies</Link>.
+            </p>
+
+            {/* Section: A Simple Cost Example */}
+            <h2 id="cost-example" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              A Simple Cost Example
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Assumptions only, not an average: a Low Volume Standard Brand registering one Standard Campaign, sending roughly 1,000 outbound SMS segments in a month.
+            </p>
+            <ul className="space-y-2 mb-4 text-sm text-[#5C6880] list-disc list-inside">
+              <li>One-time bundle (first month only): $22.50</li>
+              <li>Monthly Campaign fee: $10.00</li>
+              <li>Messaging usage: roughly 1,000 segments × ≈$0.0079 ≈ $7.90, before carrier surcharges</li>
             </ul>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Carrier surcharges are not included in that estimate because they are not fixed by HighLevel and vary by carrier. Change the Brand type, Campaign type, or volume and the numbers change with it; this is meant to show how the pieces combine, not to predict your bill.
+            </p>
 
-            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Lightbulb className="w-4 h-4 text-[#0E9BF0]" />
-                <span className="text-sm font-bold text-[#0E9BF0]">THE HONEST POSITION</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                For most US service businesses sending SMS at any meaningful volume, A2P 10DLC registration is the right path not because the fees are small, but because unregistered traffic is blocked by carriers entirely since February 2025. The registration cost is a one-time fixed amount and the monthly fee is a predictable recurring cost that can be built into client pricing. The carrier per-message surcharges are the most variable element. Build them into your per-client fee structure from day one.
-              </p>
-            </div>
 
-            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-5 my-6 text-white">
-              <div className="flex items-center gap-2 mb-3">
-                <Star className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">WE HANDLE THE REGISTRATION AND MANAGE THE COSTS</span>
-              </div>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                GHL Scale Up manages A2P registration for agencies and their clients brand submission, campaign registration, rejection troubleshooting, and resubmission.
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                See results from our A2P setups: <Link href="/case-studies" className="text-[#0E9BF0] hover:underline">real GoHighLevel results and case studies →</Link>
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed">
-                To discuss registration for your client accounts: <Link href="/contact" className="text-[#0E9BF0] hover:underline">book a free strategy call at ghlscaleup.com/contact →</Link>
-              </p>
-            </div>
-
-            {/* Section 8: FAQ */}
+            {/* Section: FAQ */}
             <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
-              8. Frequently Asked Questions
+              A2P 10DLC Fees FAQ
             </h2>
 
             <div className="space-y-3">
@@ -654,56 +572,35 @@ export default function A2P10DLCFeesExplainedClient() {
               ))}
             </div>
 
-            {/* CTA 4 - After FAQ */}
-            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
-              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
-                <strong className="text-white">Still have questions about A2P fees?</strong>
-              </p>
-              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
-                Talk to our A2P specialists directly. We've handled 200+ A2P registrations and can help you understand every cost.
-              </p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                  <MessageCircle className="w-4 h-4" />
-                  Ask an Expert
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20">
-                  <Phone className="w-4 h-4" />
-                  Call Us
-                </Link>
-              </div>
-            </div>
-
             {/* Related Articles */}
             <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
-              <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles</h3>
+              <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles in This Series</h3>
               <div className="flex flex-wrap gap-3">
-                <Link href="/blog/what-is-a2p-10dlc" className="text-sm text-[#0E9BF0] hover:underline">What Is A2P 10DLC? Complete Guide for GoHighLevel Users →</Link>
-                <Link href="/blog/a2p-brand-registration-guide" className="text-sm text-[#0E9BF0] hover:underline">A2P Brand Registration Guide: Standard Brand vs Sole Proprietor →</Link>
-                <Link href="/blog/a2p-campaign-registration-guide" className="text-sm text-[#0E9BF0] hover:underline">A2P Campaign Registration: Step-by-Step Guide →</Link>
-                <Link href="/blog/a2p-campaign-rejected-fix" className="text-sm text-[#0E9BF0] hover:underline">A2P Campaign Rejected: What It Means and How to Fix It →</Link>
+                <Link href="/blog/what-is-a2p-10dlc" className="text-sm text-[#0E9BF0] hover:underline">What Is A2P 10DLC? →</Link>
+                <Link href="/blog/a2p-brand-registration-guide" className="text-sm text-[#0E9BF0] hover:underline">A2P Brand Registration in GoHighLevel →</Link>
+                <Link href="/blog/a2p-campaign-registration-guide" className="text-sm text-[#0E9BF0] hover:underline">A2P Campaign Registration in GoHighLevel →</Link>
+                <Link href="/blog/a2p-campaign-rejected-fix" className="text-sm text-[#0E9BF0] hover:underline">A2P Campaign Rejected Fix Guide →</Link>
+                <Link href="/blog/a2p-brand-rejected-fix" className="text-sm text-[#0E9BF0] hover:underline">A2P Brand Rejected Fix Guide →</Link>
                 <Link href="/blog/a2p-registration-for-agencies" className="text-sm text-[#0E9BF0] hover:underline">A2P Registration for GoHighLevel Agencies →</Link>
-                <Link href="/blog/gohighlevel-pricing" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Pricing: All Plans Explained (2026) →</Link>
-                <Link href="/case-studies" className="text-sm text-[#0E9BF0] hover:underline">Real GoHighLevel Results and Case Studies →</Link>
+                <Link href="/blog/a2p-opt-in-language-templates" className="text-sm text-[#0E9BF0] hover:underline">A2P Opt In Language Templates →</Link>
               </div>
             </div>
 
-            {/* Final CTA */}
+            {/* Final CTA Section */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Want A2P registration handled without surprises?</h3>
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
                   GHL Scale Up manages A2P registration for agencies and their clients. Brand registration, campaign submission, rejection troubleshooting, and resubmission end to end.
                 </p>
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105">
                   Book Your Free Strategy Call
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
 
-            {/* Author Section */}
+            {/* Author / Verification Section */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 my-6">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
@@ -719,7 +616,7 @@ export default function A2P10DLCFeesExplainedClient() {
                 </div>
               </div>
               <p className="text-xs text-[#5C6880] leading-relaxed">
-                Fee figures in this guide are sourced from GHL's official support portal as of August 2025 and July 2026. Fees are set by external providers and change without notice always verify current amounts in GHL's Trust Center before paying. This is not financial advice.
+                This guide was checked against HighLevel's A2P 10DLC Messaging Fees: Registration, Monthly and Carrier Costs reference, last updated September 24, 2026, and its LC Phone Pricing and Billing Guide. Fees are set by TCR, Twilio and mobile carriers and can change at any time; confirm the current amount in your Trust Center before registering.
               </p>
               <Link href="/" className="text-[#0E9BF0] text-xs hover:underline mt-2 inline-block">ghlscaleup.com</Link>
             </div>
