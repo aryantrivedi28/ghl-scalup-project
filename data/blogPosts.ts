@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Store',
+            tag: 'Ecommerce',
+            title: 'GoHighLevel Ecommerce Store: How It Works & Who It Fits',
+            excerpt: 'What the GoHighLevel Ecommerce Store includes, how products, cart, checkout, orders and workflows connect, its limits, and when Shopify fits better.',
+            slug: 'gohighlevel-ecommerce-store',
+            date: 'September 28, 2026',
+            readTime: '25 min read',
+            featured: true,
+            image: '/blog/gohighlevel-ecommerce-store.png',
+      },
+      {
             icon: 'ShoppingCart',
             tag: 'Ecommerce',
             title: 'GoHighLevel CRM for Ecommerce: What It Can and Can\'t Do',
