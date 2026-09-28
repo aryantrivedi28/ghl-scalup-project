@@ -9,116 +9,67 @@ import {
   Linkedin,
   Twitter,
   BookOpen,
-  Star,
+  Zap,
   AlertTriangle,
-  Info,
+  AlertOctagon,
   Lightbulb,
+  CheckCircle2,
+  ShieldCheck,
   Rocket,
   Target,
   HeartHandshake,
   MessageCircle,
   Phone,
   Search,
-  Trophy,
-  Facebook,
-  AlertCircle,
-  UserCheck,
-  UserX,
-  Compass,
+  Info,
   FileCheck,
-  CheckCircle,
-  Layers,
-  PanelTop,
-  LayoutDashboard,
-  Settings,
-  Briefcase,
-  LifeBuoy,
-  Award,
-  Timer,
-  Trash2,
-  Download,
-  BarChart3,
-  PieChart,
-  Workflow,
-  Globe,
-  Database,
-  Cloud,
-  GitBranch,
-  Sparkles,
-  GraduationCap,
-  Clock,
-  Shield,
-  Users,
-  Calendar,
-  Mail,
-  Tag,
-  GitMerge,
-  DollarSign,
-  TrendingUp,
-  XCircle,
-  FileText,
-  Server,
-  CreditCard,
-  Smartphone,
-  Layout,
-  Mailbox,
-  Headphones,
-  FileQuestion,
-  HelpCircle,
-  Boxes,
-  Combine,
-  Link2,
-  Webhook,
-  RefreshCw,
-  ListChecks,
-  ClipboardList,
-  Printer,
-  Video,
-  Ticket,
-  TrendingDown,
-  Zap
+  Image as ImageIcon,
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import Image from 'next/image';
 
 export default function A2PTrustScoreMPSClient() {
   const [activeId, setActiveId] = useState<string>('');
-  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
+  const [copiedText, setCopiedText] = useState<string | null>(null);
 
   useEffect(() => {
     const sections = [
       'what-is-trust-score',
+      'who-gets-trust-score',
       'what-is-mps',
-      'tmobile-daily-limit',
-      'throughput-failures',
-      'improve-trust-score',
+      'how-mps-is-set',
+      'current-mps-tables',
+      'trust-score-vs-mps-vs-daily-limits',
+      'do-more-numbers-increase-mps',
+      'sms-vs-mms',
+      'send-faster-than-mps',
+      'higher-trust-score-deliverability',
+      'improve-appeal-trust-score',
+      'trust-score-missing',
+      'where-to-check-status',
+      'scope',
+      'worked-example',
+      'decision-framework',
+      'common-mistakes',
+      'checklist',
       'faq'
     ];
 
     const handleScroll = () => {
       let currentSection = sections[0];
-
       for (const id of sections) {
         const element = document.getElementById(id);
         if (!element) continue;
         const rect = element.getBoundingClientRect();
-        if (rect.top <= 180) {
+        if (rect.top <= 150) {
           currentSection = id;
         } else {
           break;
         }
       }
-
       setActiveId(currentSection);
-
-      // Show floating Project Help card after scrolling past hero section
-      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
-      if (heroSection) {
-        const heroBottom = heroSection.getBoundingClientRect().bottom;
-        setShowFloatingProjectHelp(heroBottom < 0);
-      }
     };
 
-    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -133,60 +84,163 @@ export default function A2PTrustScoreMPSClient() {
     }
   };
 
+  const copyToClipboard = (text: string, label: string) => {
+    navigator.clipboard.writeText(text);
+    setCopiedText(label);
+    setTimeout(() => setCopiedText(null), 2000);
+  };
+
   const faqs = [
     {
-      q: "What is an A2P Trust Score in GoHighLevel?",
-      a: "A Trust Score is a number between 0 and 100 assigned to your Standard Brand during the secondary vetting stage of A2P 10DLC registration. It is calculated by a third-party vetting vendor using a reputation algorithm that reviews your company information. The higher your Trust Score, the higher your message throughput (MPS) and your T-Mobile daily send limits. Trust Scores are static they do not automatically change over time after initial assignment. Sole Proprietor and Low Volume Standard Brands do not receive a Trust Score; their throughput is fixed based on brand type and campaign use case."
+      q: "What is a good A2P Trust Score?",
+      a: "In HighLevel's tables the top tier is 75 to 100, which carries the highest documented throughput. No source defines a score as good in a delivery sense."
     },
     {
-      q: "What is MPS in A2P 10DLC?",
-      a: "MPS stands for Messages Per Second, or more precisely, message segments per second. It is the maximum speed at which you can send A2P SMS through your registered campaign. One message segment equals up to 160 characters in standard GSM-7 encoding. Longer messages and messages containing emoji or special characters count as more than one segment. Your campaign MPS is shared across all phone numbers assigned to the campaign and across all carriers it is not a per-number limit. The MPS you receive depends on your Trust Score tier and your campaign use case type."
+      q: "Does every A2P Brand get a Trust Score?",
+      a: "No. Sole Proprietor and Low Volume Standard Brands do not go through secondary vetting."
     },
     {
-      q: "Do Sole Proprietor brands get a Trust Score in GoHighLevel?",
-      a: "No. Confirmed from GHL's official documentation: Sole Proprietor and Low Volume Standard Brands do not go through secondary vetting and are not assigned a Trust Score. Their MPS and T-Mobile daily limits are fixed based on their corresponding brand type and campaign use case. Only Standard Brand registrations receive a Trust Score, and only Standard Brands benefit from appealing for a higher score."
+      q: "Does Trust Score affect MPS?",
+      a: "For Standard Brands, yes. A higher score qualifies for higher throughput, subject to Campaign type and carrier rules."
     },
     {
-      q: "What is the T-Mobile daily message limit for A2P?",
-      a: "T-Mobile imposes a daily message limit on A2P 10DLC traffic at the brand level separate from MPS throughput. This limit caps the total number of messages your brand can deliver to T-Mobile subscribers in one day. The specific limit varies by Trust Score tier higher Trust Score equals a higher daily cap. The limit resets every day at midnight Pacific US Time. If you exceed the limit, messages to T-Mobile subscribers are undelivered with a 'Daily Message Cap Reached' error until the reset. AT&T and Verizon do not impose equivalent brand-level daily caps in the same way."
+      q: "What is the MPS for a Trust Score of 75?",
+      a: "Up to 225 MPS toward AT&T, T-Mobile and Verizon combined, 75 to each, as a maximum in HighLevel's tables. A score of 50 to 74 is up to 120, and 1 to 49 is 12."
     },
     {
-      q: "How can I increase my A2P Trust Score?",
-      a: "You can appeal your Trust Score through GHL support. For Standard Brands in the US, you will typically need to include an IRS EIN letter with your appeal. Before appealing, verify that your registration data is accurate: the physical business address matches your EIN record exactly, the legal business name matches your CP 575 character for character, and your business website is live and publicly accessible. An appeal does not guarantee an increase confirmed from GHL's official documentation. You may also improve effective throughput without changing your Trust Score by selecting a Declared (specific) use case for your campaign instead of Mixed or Marketing, as Declared campaigns receive higher MPS for the same Trust Score tier."
+      q: "Does Campaign type affect MPS?",
+      a: "Yes. A Low Volume Mixed Campaign is fixed at 3.75 MPS regardless of score."
     },
     {
-      q: "What happens if I exceed my T-Mobile A2P daily limit?",
-      a: "Messages sent after the T-Mobile daily limit is reached are undelivered. You will receive an error indicating the daily message cap has been reached. The daily limit resets at midnight Pacific US Time. Messages that failed because of the daily cap do not automatically retry they must be resent after the reset. To avoid hitting the daily cap, review your T-Mobile daily limit in GHL's official MPS article, monitor your daily T-Mobile send volume, and consider spreading large broadcast sends across multiple days."
+      q: "Is MPS per number or per Campaign?",
+      a: "Generally per Campaign, shared across its numbers and carriers, with 1 MPS per number toward small carriers."
     },
     {
-      q: "Is MPS per phone number or per campaign?",
-      a: "MPS is per campaign, not per phone number. Confirmed from GHL's official documentation: a maximum MPS is granted for each registered campaign use case, and this MPS is shared across all phone numbers assigned to that campaign and across all wireless carriers. Whether you send from one number or ten, the same MPS ceiling applies to the campaign as a whole. Adding more phone numbers to a campaign does not increase your MPS."
+      q: "What is the difference between MPS and daily message limits?",
+      a: "MPS is a speed limit. A daily limit caps volume toward a carrier over a day."
+    },
+    {
+      q: "Does a high Trust Score guarantee delivery?",
+      a: "No. Delivery depends on consent, content, filtering and recipient status."
+    },
+    {
+      q: "Can I appeal a Trust Score?",
+      a: "HighLevel says it does not change scores, and I found no formal appeal process in its documentation. Contact support for guidance on causes."
+    },
+    {
+      q: "Why is my Trust Score unavailable?",
+      a: "Secondary vetting may still be running, which HighLevel says can take up to 7 business days."
+    },
+    {
+      q: "Does Trust Score apply to Toll Free or Canadian messaging?",
+      a: "This guide covers US 10DLC only. Toll Free uses a separate model, and Canada has its own rules."
+    },
+    {
+      q: "Why are messages delayed when my MPS is high?",
+      a: "Check for an account level rate limit, segment counts higher than expected, and carrier or daily cap issues. Each is separate from your Campaign MPS."
     }
   ];
 
   useFaqSchema(faqs);
 
   const tocItems = [
-    { id: 'what-is-trust-score', title: '1. What is an A2P Trust Score and how is it calculated?' },
-    { id: 'what-is-mps', title: '2. What is MPS and how does Trust Score affect it?' },
-    { id: 'tmobile-daily-limit', title: '3. What is the T-Mobile daily message limit and why is it separate from MPS?' },
-    { id: 'throughput-failures', title: '4. What causes messages to fail because of throughput limits?' },
-    { id: 'improve-trust-score', title: '5. How do you improve your Trust Score or increase your MPS?' },
-    { id: 'faq', title: '6. Frequently asked questions' }
+    { id: 'what-is-trust-score', title: 'What Is an A2P Trust Score?' },
+    { id: 'who-gets-trust-score', title: 'Who Gets a Trust Score?' },
+    { id: 'what-is-mps', title: 'What Is MPS, and What Is a Message Segment?' },
+    { id: 'how-mps-is-set', title: 'How Trust Score, Brand Type and Campaign Type Set Your MPS' },
+    { id: 'current-mps-tables', title: 'Current A2P 10DLC MPS Tables in HighLevel' },
+    { id: 'trust-score-vs-mps-vs-daily-limits', title: 'Trust Score vs MPS vs Daily Carrier Limits' },
+    { id: 'do-more-numbers-increase-mps', title: 'Do More Phone Numbers Increase MPS?' },
+    { id: 'sms-vs-mms', title: 'SMS vs MMS Throughput' },
+    { id: 'send-faster-than-mps', title: 'What Happens If You Send Faster Than Your MPS?' },
+    { id: 'higher-trust-score-deliverability', title: 'Does a Higher Trust Score Mean Better Deliverability?' },
+    { id: 'improve-appeal-trust-score', title: 'Can You Improve or Appeal a Trust Score?' },
+    { id: 'trust-score-missing', title: 'What If Your Trust Score Is Missing or Unavailable?' },
+    { id: 'where-to-check-status', title: 'Where to Check Your A2P Status in HighLevel' },
+    { id: 'scope', title: 'Scope: Toll Free, Canada and Other Routes' },
+    { id: 'worked-example', title: 'Worked Example: A 50,000 Segment Send' },
+    { id: 'decision-framework', title: 'A Decision Framework for Diagnosing Throughput' },
+    { id: 'common-mistakes', title: 'Common Trust Score and MPS Mistakes' },
+    { id: 'checklist', title: 'Trust Score and MPS Checklist' },
+    { id: 'faq', title: 'A2P Trust Score and MPS FAQ' }
   ];
 
-  const mpsTerms = [
-    { term: 'MPS (Messages Per Second)', meaning: 'Maximum number of message segments you can send per second through your registered campaign', example: '3 MPS = can send 3 standard 160-char messages per second = 10,800 messages per hour maximum' },
-    { term: 'Segment', meaning: 'One unit of SMS, up to 160 characters in standard encoding. Longer messages and messages with emoji or special characters count as more than one segment.', example: 'A 200-character message with no emoji = 2 segments. A 160-character message with one emoji = 2 segments (emoji triggers Unicode encoding).' },
-    { term: 'Campaign MPS', meaning: 'MPS is allocated per registered campaign use case, shared across ALL phone numbers in the campaign and across ALL carriers.', example: 'If your campaign MPS is 4 and you have 3 numbers, the 4 MPS is the total for all 3 numbers combined not 4 MPS per number.' },
-    { term: 'Account-Based Rate Limit', meaning: 'An upper MPS limit set at account level across all campaigns combined. Even if individual campaigns sum to more than this limit, the account ceiling applies.', example: '3 campaigns approved at 10 MPS each = 30 MPS combined possible, but if account limit is 20 MPS, you cannot exceed 20 MPS total.' }
+  const brandTypeData = [
+    { brandType: 'Standard Brand', trustScore: 'Yes', description: 'Goes through secondary vetting. Score of 0 to 100. Throughput depends on Campaign type and score' },
+    { brandType: 'Low Volume Standard Brand', trustScore: 'No', description: 'Skips secondary vetting, so it is treated as score 0 in the throughput tables, with fixed lower throughput' },
+    { brandType: 'Sole Proprietor Brand', trustScore: 'No', description: 'No Trust Score. Fixed throughput limits for lower volume messaging' }
   ];
 
-  const failureTypes = [
-    { type: 'MPS queue delay (not a failure)', cause: 'Sending faster than your MPS allows. Segments above the MPS limit are queued, not dropped.', appears: 'Messages deliver late or bunched together rather than evenly spaced.', fix: 'Slow sending rate in GHL workflows to match your campaign MPS. Add delays between messages.' },
-    { type: 'T-Mobile daily cap exceeded', cause: 'Total T-Mobile traffic for your brand exceeds the daily limit.', appears: 'Error: Daily Message Cap Reached. Messages to T-Mobile subscribers fail.', fix: 'Wait for midnight Pacific reset. Reduce T-Mobile volume per day or appeal for higher Trust Score.' },
-    { type: 'Account-Based Rate Limit hit', cause: 'Combined MPS across all campaigns exceeds account ceiling.', appears: 'Messages queue, potential delays or failures during high-volume sends.', fix: 'Reduce concurrent send volume or contact GHL support about account limit review.' },
-    { type: 'Carrier filtering (not a throughput issue)', cause: 'Message content flagged by carrier filters. Unrelated to MPS.', appears: '30007 error: Message Filtered. Does not correlate with daily limit.', fix: 'Review message content for spam signals. Not a Trust Score or MPS problem.' }
+  const standardMpsData = [
+    { trustScore: '75 to 100', totalMps: '225', att: '75', tmobile: '75', verizon: '75' },
+    { trustScore: '50 to 74', totalMps: '120', att: '40', tmobile: '40', verizon: '40' },
+    { trustScore: '1 to 49', totalMps: '12', att: '4', tmobile: '4', verizon: '4' },
+    { trustScore: '0 / Low Volume Standard Brand', totalMps: '12', att: '4', tmobile: '4', verizon: '4' },
+    { trustScore: 'Low Volume Mixed Campaign, any score', totalMps: '3.75', att: '1.25', tmobile: '1.25', verizon: '1.25' }
+  ];
+
+  const tmobileDailyLimits = [
+    { brandOrScore: '75 to 100', dailyLimit: '200,000', notes: 'Higher cap needs T-Mobile Special Business Review' },
+    { brandOrScore: '50 to 74', dailyLimit: '40,000', notes: '' },
+    { brandOrScore: '25 to 49', dailyLimit: '10,000', notes: '' },
+    { brandOrScore: '1 to 24', dailyLimit: '2,000', notes: '' },
+    { brandOrScore: 'Low Volume Standard Brand', dailyLimit: '2,000', notes: '200,000 for Russell 3000 companies' },
+    { brandOrScore: 'Sole Proprietor', dailyLimit: '1,000', notes: '' }
+  ];
+
+  const failureModes = [
+    { problem: 'Queue delay', whatItIs: 'Segments waiting because you exceeded MPS or an account limit', whereToLook: 'Sending speed and pacing' },
+    { problem: 'Daily cap reached', whatItIs: 'T-Mobile Brand level limit hit', whereToLook: 'Daily T-Mobile volume across all Brands on the EIN' },
+    { problem: 'Carrier filtering or failure', whatItIs: 'The carrier blocked or filtered the message', whereToLook: 'Content, consent, opt outs. See A2P error codes' }
+  ];
+
+  const trustScoreStates = [
+    { state: 'Brand pending', meaning: 'Registration still under review', action: 'Wait' },
+    { state: 'Trust Score unavailable', meaning: 'Secondary vetting has not returned a score yet', action: 'Wait, then contact support' },
+    { state: 'Brand failed', meaning: 'Identity could not be verified', action: 'See Brand Rejected guide' },
+    { state: 'Campaign rejected', meaning: 'The messaging program failed review', action: 'See Campaign Rejected guide' },
+    { state: 'Approved but not sending', meaning: 'SMS Number may not be linked to the Campaign', action: 'Check A2P Verified on the number' }
+  ];
+
+  const workedExampleData = [
+    { carrier: 'T-Mobile', segments: '20,000', mps: '40', minTime: '500 sec, about 8.3 min', dailyCap: '40,000 (Twilio)' },
+    { carrier: 'AT&T', segments: '17,500', mps: '40', minTime: '438 sec, about 7.3 min', dailyCap: 'n/a here' },
+    { carrier: 'Verizon', segments: '12,500', mps: '40', minTime: '313 sec, about 5.2 min', dailyCap: 'n/a here' }
+  ];
+
+  const decisionFramework = [
+    'Identify the Brand type in Trust Center.',
+    'Check whether a Trust Score applies. Only Standard Brands have one.',
+    'Identify the Campaign type. A Low Volume Mixed Campaign overrides the score.',
+    'Find the matching row in the tables above.',
+    'Check the carrier split, then US Cellular and small carrier handling.',
+    'Check for an account level rate limit that caps your total.',
+    'Count segments, not messages.',
+    'Check the T-Mobile daily cap for the EIN, across every platform.',
+    'Watch real behavior: queue delay, daily cap errors, and filtering are different problems.'
+  ];
+
+  const commonMistakes = [
+    'Assuming every Brand has a Trust Score',
+    'Treating a higher score as a delivery guarantee',
+    'Reading MPS as a daily volume',
+    'Counting messages instead of segments',
+    'Adding numbers to raise MPS',
+    'Choosing a use case for throughput instead of accuracy',
+    'Forgetting the T-Mobile cap is shared across every platform on the EIN',
+    'Sending a large list through a Low Volume Mixed Campaign'
+  ];
+
+  const checklistItems = [
+    'Brand type confirmed',
+    'Trust Score status known, or confirmed as not applicable',
+    'Campaign type and matching throughput row identified',
+    'Carrier split estimated',
+    'Segments per message counted',
+    'Account level limits checked',
+    'T-Mobile daily cap checked',
+    'Sends paced below approved MPS',
+    'Consent and opt outs reviewed, because delivery is separate from throughput'
   ];
 
   // Reusable Project Help Card Component
@@ -195,7 +249,6 @@ export default function A2PTrustScoreMPSClient() {
       <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
       <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your migration.</p>
       <Link
-        // onClick={handleOpenBooking}
         href="/book-a-call"
         className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
         Book a 30 min Free Call
@@ -220,7 +273,7 @@ export default function A2PTrustScoreMPSClient() {
         </div>
       </nav>
 
-      {/* Hero Section - WIDE (KEPT AS IS) */}
+      {/* Hero Section */}
       <section className="bg-[#0B1628] py-12 md:py-[72px] px-4 md:px-6 relative overflow-hidden">
         <div className="absolute -top-[120px] -right-[120px] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(14,155,240,0.12)_0%,transparent_70%)] pointer-events-none" />
         <div className="absolute -bottom-[80px] -left-[80px] w-[360px] h-[360px] bg-[radial-gradient(circle,rgba(37,201,125,0.08)_0%,transparent_70%)] pointer-events-none" />
@@ -236,8 +289,8 @@ export default function A2PTrustScoreMPSClient() {
 
           {/* H1 */}
           <h1 className="text-[clamp(28px,6vw,46px)] font-extrabold leading-[1.2] md:leading-[1.15] text-white mb-4 md:mb-5 tracking-[-0.02em]">
-            A2P Trust Score and MPS:<br />
-            <span className="text-[#F8D000]">Explained for GoHighLevel Users (2026)</span>
+            A2P Trust Score and MPS Explained:<br />
+            <span className="text-[#F8D000]">GoHighLevel 10DLC Throughput Guide</span>
           </h1>
 
           {/* Author */}
@@ -251,29 +304,55 @@ export default function A2PTrustScoreMPSClient() {
             </div>
             <div>
               <div className="text-sm font-medium text-white">GHL Scale Up Team</div>
-              <div className="text-xs text-white/50">GoHighLevel Specialists · 200+ Builds Delivered · Updated July 2026</div>
+              <div className="text-xs text-white/50">GoHighLevel Specialists · 200+ builds delivered · Verified against GoHighLevel and Twilio documentation, September 2026</div>
             </div>
           </div>
 
-          {/* Intro Paragraph - NO max-w constraint */}
-          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6">
-            Once your A2P 10DLC brand and campaign are approved in GoHighLevel, two numbers start to matter: your Trust Score and your MPS. Trust Score is assigned during brand registration and determines how many messages you can send per second (MPS) and how many you can send per day to T-Mobile subscribers. Most GHL users never think about these limits until a campaign fails mid-send or messages stop delivering at a critical moment. <Link href="/" className="text-[#0E9BF0] hover:underline font-medium">GHL Scale Up</Link> has managed A2P registrations across hundreds of client accounts. This guide explains what both numbers mean, how they are calculated, and what to do if yours are too low.
-          </p>
+          {/* Quick Answer Box */}
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 md:p-6 mb-6">
+            <div className="flex items-center gap-2 mb-3">
+              <Zap className="w-5 h-5 text-[#F8D000]" />
+              <span className="text-xs font-bold uppercase tracking-wider text-white/60">Quick Answer</span>
+            </div>
+            <p className="text-sm text-white/70 leading-relaxed mb-3">
+              A <strong className="text-white">Trust Score</strong> is a 0 to 100 reputation score given to a Standard Brand during secondary vetting. <strong className="text-white">MPS</strong> is message segments per second, the speed at which you can send SMS through an approved Campaign. HighLevel says US 10DLC throughput depends on three things: your Brand type, your Campaign type and, for Standard Brands, your Trust Score. A Standard Brand with a Trust Score of 75 to 100 has an approved maximum of 225 MPS toward AT&T, T-Mobile and Verizon combined, 75 to each. Sole Proprietor and Low Volume Standard Brands get no Trust Score and fixed, lower throughput.
+            </p>
+            <p className="text-sm text-white/70 leading-relaxed">
+              Throughput is not deliverability, and MPS is not a daily limit. A higher score raises how fast you may send. It does not guarantee messages reach recipients, and T-Mobile applies a separate daily cap. The numbers below come from HighLevel's throughput guidance (updated July 30, 2026) and Twilio's documentation, and they can change, so confirm them before you plan around them.
+            </p>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105"
+            >
+              <Rocket className="w-4 h-4" />
+              Get A2P Registration Help
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              href="#current-mps-tables"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20"
+            >
+              See MPS Tables
+              <ChevronDown className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* MAIN LAYOUT - Sidebar on LEFT, Content on RIGHT */}
-      <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-16">
+      {/* MAIN LAYOUT */}
+      <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-10">
         <div className="grid lg:grid-cols-[280px_1fr] gap-8 md:gap-12 items-start">
 
-          {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
+          {/* SIDEBAR */}
           <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
-            {/* Project Help Card - At top of sidebar */}
-            <div className="mb-6">
+            <div className="hidden lg:block mb-6">
               <ProjectHelpCard />
             </div>
 
-            {/* Table of Contents */}
             <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
                 <BookOpen className="w-3 h-3" />
@@ -290,7 +369,9 @@ export default function A2PTrustScoreMPSClient() {
                         }`}
                     >
                       <span className="flex items-start gap-2">
-                        {activeId === item.id && <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />}
+                        {activeId === item.id && (
+                          <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />
+                        )}
                         <span className="flex-1">{item.title}</span>
                       </span>
                     </button>
@@ -299,7 +380,6 @@ export default function A2PTrustScoreMPSClient() {
               </ul>
             </nav>
 
-            {/* About the Author */}
             <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
@@ -315,52 +395,46 @@ export default function A2PTrustScoreMPSClient() {
                 </div>
               </div>
               <p className="text-xs text-white/60 leading-relaxed mb-3">
-                5+ years GHL experience · 200+ A2P registrations handled globally. All technical details verified as of July 2026.
+                5+ years GHL experience · 200+ A2P registrations handled globally. All technical details verified as of September 2026.
               </p>
-              <Link href="/" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
+              <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
             </div>
 
-            {/* Share Buttons */}
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
-              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
+              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Share this guide</div>
               <div className="flex gap-2 flex-wrap">
-                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Linkedin className="w-3 h-3" /> LinkedIn</a>
-                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Twitter className="w-3 h-3" /> X</a>
-                <button onClick={() => navigator.clipboard.writeText(window.location.href)} className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"><Copy className="w-3 h-3" /> Copy link</button>
+                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Linkedin className="w-3 h-3" />
+                  LinkedIn
+                </a>
+                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Twitter className="w-3 h-3" />
+                  X
+                </a>
+                <button
+                  onClick={() => navigator.clipboard.writeText(window.location.href)}
+                  className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"
+                >
+                  <Copy className="w-3 h-3" />
+                  Copy link
+                </button>
               </div>
+            </div>
+
+            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
+              <div className="text-sm font-bold text-white mb-2">A2P Trust Score Help?</div>
+              <p className="text-xs text-white/60 leading-relaxed mb-4">We handle A2P registration end to end brand, campaign, Trust Score appeals, and rejection troubleshooting.</p>
+              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+                Get Help
+                <ArrowRight className="w-3 h-3" />
+              </Link>
             </div>
           </aside>
 
-          {/* ==================== RIGHT COLUMN: BLOG CONTENT ==================== */}
+          {/* MAIN CONTENT */}
           <main className="min-w-0 order-2">
 
-            {/* BLUF Box */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
-              <div className="flex items-center gap-2 mb-3">
-                <Info className="w-5 h-5 text-[#0E9BF0]" />
-                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Who This Guide Is and Is Not For</span>
-              </div>
-              <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
-                Trust Scores only apply to Standard Brand registrations.
-              </p>
-              <p className="text-sm text-[#5C6880] leading-relaxed">
-                If your brand is registered as a Sole Proprietor or Low Volume Standard Brand, you do not receive a Trust Score. Your MPS and daily limits are fixed based on your brand type and campaign use case they are not variable. This guide is primarily relevant to Standard Brand registrations. For background on brand types: <Link href="/blog/a2p-brand-registration-guide" className="text-[#0E9BF0] hover:underline">A2P Brand Registration Guide →</Link>
-              </p>
-
-              {/* CTA Button inside BLUF */}
-              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
-                  <Target className="w-4 h-4" />
-                  Get A2P Registration Help
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Table of Contents - Mobile Only */}
+            {/* Mobile TOC */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8 lg:hidden">
               <div className="flex items-center gap-2 mb-4">
                 <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
@@ -379,247 +453,454 @@ export default function A2PTrustScoreMPSClient() {
               </div>
             </div>
 
-            {/* Mobile Project Help Card - visible on mobile only */}
+            {/* Mobile Project Help Card */}
             <div className="lg:hidden mb-8">
               <ProjectHelpCard />
             </div>
 
-            {/* CTA 1 - After TOC */}
-            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
-              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
-                <strong className="text-white">Not sure what your Trust Score means or how to improve it?</strong>
-              </p>
-              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
-                Get a free A2P registration audit. We review your brand, campaign, and Trust Score to give you a clear path forward.
-              </p>
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                Book a Free Strategy Call
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
             {/* Section 1: What Is Trust Score */}
             <h2 id="what-is-trust-score" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-8 mb-4">
-              1. What Is an A2P Trust Score and How Is It Calculated?
+              What Is an A2P Trust Score?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              A Trust Score is a number between 0 and 100 assigned to your Standard Brand during the secondary vetting stage of A2P 10DLC registration. The higher your Trust Score, the higher your message throughput (MPS) and the higher your T-Mobile daily send limits.
-            </p>
-
-            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">How secondary vetting works</h3>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              When you submit a Standard Brand registration through GHL's Trust Center, GHL (via LC Phone) sends your brand information to The Campaign Registry (TCR) for primary vetting. TCR then submits your brand for secondary vetting, which is performed by a third-party vetting vendor. In GHL's case, the vendor is Aegis. The secondary vetting process uses a reputation algorithm that reviews specific criteria relating to your company to determine the Trust Score.
+              The Trust Score comes from <strong className="text-[#1A2236]">secondary vetting</strong>, an extra review HighLevel submits for Standard Brands after The Campaign Registry (TCR) completes primary vetting. It uses a reputation algorithm on details about your company and returns a score from 0 to 100. A higher score gives access to higher default throughput and higher message limits toward US carriers.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">You do not trigger secondary vetting manually.</strong> GHL submits your brand for secondary vetting automatically as part of the Standard Brand registration process. You cannot opt out of it, choose a different vendor, or see the algorithm's inputs. The score is calculated externally and returned to GHL.
+              HighLevel lists the inputs that can influence it: legal business name accuracy, EIN or Tax ID match, business address consistency, website quality, Privacy Policy and Terms availability, brand footprint, and consistency between what you submit and public business information. HighLevel states that it does not assign or manually change Trust Scores. The algorithm itself belongs to TCR and its vetting vendors, so no source publishes a scoring formula.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              For how registration itself works, see <Link href="/blog/a2p-brand-registration-guide" className="text-[#0E9BF0] hover:underline">A2P Brand Registration in GoHighLevel</Link>. For the foundation behind all of this, see <Link href="/blog/what-is-a2p-10dlc" className="text-[#0E9BF0] hover:underline">what A2P 10DLC is</Link>.
             </p>
 
-            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Info className="w-4 h-4 text-[#0E9BF0]" />
-                <span className="text-sm font-bold text-[#0E9BF0]">THREE THINGS CONFIRMED FROM GHL'S OFFICIAL DOCUMENTATION</span>
+            {/* 
+              ============================================================
+              🖼️ IMAGE INSERTED HERE - Full width, responsive, interactive
+              ============================================================
+            */}
+            <div className="my-8 md:my-10 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <div className="relative w-full h-auto bg-[#F8F9FB]">
+                <Image
+                  src="/blog/a2p-trust-score-mps-infographic.png"
+                  alt="A2P Trust Score and MPS for GoHighLevel: Trust Score tiers, MPS throughput tables, T-Mobile daily limits, and carrier split breakdown"
+                  width={1200}
+                  height={500}
+                  className="w-full h-auto object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                />
               </div>
-              <ul className="space-y-1 text-sm text-[#1A2236] list-disc list-inside">
-                <li>Trust Scores are static they do not automatically change over time after initial assignment.</li>
-                <li>In general, smaller organisations and those with less business presence receive lower scores.</li>
-                <li>If you see the error "We are unable to retrieve your TCR Trust Score" during brand registration, your brand is undergoing review this can take up to 7 business days while the vetting vendor processes your submission.</li>
-              </ul>
-            </div>
-
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-2">
-              <strong className="text-[#1A2236]">What affects your Trust Score</strong>
-            </p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              GHL's official Brand Approval Best Practices article confirms the following as causes of lower Trust Scores. Note: the exact algorithm is proprietary to TCR and the vetting vendor this list reflects what GHL and Twilio have published, not a complete specification of the algorithm.
-            </p>
-            <ul className="space-y-1 mb-6 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">Data discrepancies in the registration:</strong> A different address than the one associated with your EIN, a name mismatch, or any inconsistency between what you submitted and what TCR's verification sources show.</li>
-              <li><strong className="text-[#1A2236]">Limited brand presence:</strong> Smaller organisations and those with less established business presence generally receive lower scores. A newly formed business with a new EIN and a new website will typically score lower than an established business with a long operational history.</li>
-              <li><strong className="text-[#1A2236]">Accuracy of the business information submitted:</strong> Using the physical registered address (not a PO Box), the exact legal name from your CP 575, and a valid business website all contribute to a more accurate brand profile, which reduces the risk of a low score.</li>
-            </ul>
-
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              For the foundational background on what A2P 10DLC is and why registration is required: <Link href="/blog/what-is-a2p-10dlc" className="text-[#0E9BF0] hover:underline">What Is A2P 10DLC? →</Link>
-            </p>
-
-            {/* Section 2: What Is MPS */}
-            <h2 id="what-is-mps" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              2. What Is MPS and How Does Trust Score Affect It?
-            </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              MPS stands for Messages Per Second specifically, message segments per second. It measures how fast you can send A2P SMS through your registered campaign. One message segment equals up to 160 characters in standard GSM-7 encoding. A message longer than 160 characters splits into multiple segments, and each segment counts against your MPS limit.
-            </p>
-
-            <div className="space-y-3 mb-6">
-              {mpsTerms.map((item, idx) => (
-                <div key={idx} className="bg-white border border-[#DDE1E9] rounded-xl p-4">
-                  <h3 className="text-sm font-bold text-[#1A2236] mb-1">{item.term}</h3>
-                  <p className="text-sm text-[#5C6880] leading-relaxed mb-1">{item.meaning}</p>
-                  <p className="text-sm text-[#5C6880] leading-relaxed bg-[#F8F9FB] p-2 rounded-lg border border-[#DDE1E9]">Example: {item.example}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">THE MPS TABLE IS IN GHL'S OFFICIAL ARTICLE</span>
+              <div className="bg-[#F8F9FB] px-4 py-2.5 text-xs text-[#5C6880] border-t border-[#DDE1E9] flex items-center gap-2">
+                <ImageIcon className="w-3.5 h-3.5" />
+                <span>A2P Trust Score and MPS for GoHighLevel: Trust Score tiers, MPS throughput tables, T-Mobile daily limits, and carrier split breakdown</span>
               </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                The specific MPS values per Trust Score tier (Low, Medium, High) vary by campaign use case and carrier. These values are published in GHL's official "Message throughput (MPS) and Trust Scores for A2P 10DLC in the US" article. Rather than reproducing figures that may have changed, we direct you there directly: help.gohighlevel.com/support/solutions/articles/155000004527. The structure is: Trust Scores are grouped into three tiers. Your tier, combined with your campaign use case (Declared vs Mixed vs Marketing), determines your MPS. Declared (specific) use cases receive higher MPS for the same Trust Score than Mixed or Marketing campaigns.
-              </p>
             </div>
 
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              For how campaign use case selection affects your throughput: <Link href="/blog/a2p-campaign-registration-guide" className="text-[#0E9BF0] hover:underline">A2P Campaign Registration Guide →</Link>
-            </p>
-
-            {/* Section 3: T-Mobile Daily Limit */}
-            <h2 id="tmobile-daily-limit" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              3. What Is the T-Mobile Daily Message Limit and Why Is It Separate From MPS?
+            {/* Section 2: Who Gets a Trust Score */}
+            <h2 id="who-gets-trust-score" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Who Gets a Trust Score?
             </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              T-Mobile imposes daily message limits on A2P 10DLC traffic separately from MPS throughput. This is specific to T-Mobile AT&T and Verizon do not impose the same type of brand-level daily cap.
-            </p>
-
-            <ul className="space-y-2 mb-6 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">MPS is a per-second sending rate.</strong> It limits how fast you can send. A campaign with 4 MPS can send a maximum of 4 segments per second continuously.</li>
-              <li><strong className="text-[#1A2236]">T-Mobile daily limit is a total volume ceiling per day.</strong> It limits how many messages your brand can deliver to T-Mobile subscribers in a 24-hour period, regardless of how fast you send them. If you hit the daily limit, additional messages to T-Mobile subscribers do not deliver until the following day.</li>
-              <li><strong className="text-[#1A2236]">The daily limit is brand-level, not account-level.</strong> It applies to the total T-Mobile traffic from your registered brand across all campaigns.</li>
-              <li><strong className="text-[#1A2236]">Daily limit resets at midnight Pacific US Time.</strong> Confirmed from GHL's official documentation.</li>
-              <li><strong className="text-[#1A2236]">The daily limit is also determined by your Trust Score tier.</strong> Higher Trust Score = higher T-Mobile daily limit. The specific values per tier are in GHL's official MPS article.</li>
-            </ul>
-
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">WHAT HAPPENS WHEN THE DAILY LIMIT IS EXCEEDED</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                Messages sent after the T-Mobile daily limit is reached are undelivered. You will receive an error indicating "Daily Message Cap Reached". For A2P error codes related to delivery failures: <Link href="/blog/a2p-error-codes-explained" className="text-[#0E9BF0] hover:underline">A2P Error Codes Explained →</Link>. The limit resets at midnight Pacific. Messages that failed due to the daily cap do not automatically retry they must be resent.
-              </p>
-            </div>
-
-            {/* Section 4: Throughput Failures */}
-            <h2 id="throughput-failures" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              4. What Causes Messages to Fail Because of Throughput Limits?
-            </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Understanding the difference between a throughput failure and a filtering failure matters because the fix is different.
-            </p>
-
             <div className="overflow-x-auto my-6">
               <table className="w-full border-collapse text-sm">
                 <thead>
                   <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Failure type</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">What causes it</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">How it appears</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Fix</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Brand type</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Trust Score?</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">What HighLevel and Twilio document</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {failureTypes.map((item, idx) => (
+                  {brandTypeData.map((item, idx) => (
                     <tr key={idx} className="border-b border-[#DDE1E9]">
-                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.type}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.cause}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.appears}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.fix}</td>
+                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.brandType}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.trustScore}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.description}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Not every registered Brand has a score. If you are unsure which type you have, check the Brand in your Trust Center, and see the <Link href="/blog/a2p-brand-registration-guide" className="text-[#0E9BF0] hover:underline">Brand Registration guide</Link> for how the types differ.
+            </p>
+
+            {/* Section 3: What Is MPS */}
+            <h2 id="what-is-mps" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              What Is MPS, and What Is a Message Segment?
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              MPS measures <strong className="text-[#1A2236]">message segments</strong> per second, not visible messages. A standard SMS segment holds up to 160 characters in GSM-7 encoding. A longer message, or one with emojis or special characters, can use more than one segment. HighLevel's guide says most short messages count as one segment while longer messages, emojis or special characters may use several.
+            </p>
+            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
+              <div className="flex items-center gap-2 mb-2">
+                <Info className="w-4 h-4 text-[#0E9BF0]" />
+                <span className="text-sm font-bold text-[#0E9BF0]">EXAMPLE</span>
+              </div>
+              <p className="text-sm text-[#1A2236] leading-relaxed">
+                A plain text message of 200 characters does not fit in one 160 character segment, so it uses at least two. Sending it to 1,000 contacts means at least 2,000 segments, and MPS counts every one of them.
+              </p>
+            </div>
+
+            {/* Section 4: How MPS is Set */}
+            <h2 id="how-mps-is-set" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              How Trust Score, Brand Type and Campaign Type Set Your MPS
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Think of it as a chain, and check each step in order:
+            </p>
+            <div className="space-y-3 mb-6">
+              {[
+                'Brand type decides which throughput rules apply.',
+                'Trust Score, for Standard Brands only, sets the tier.',
+                'Campaign type decides which table applies, and Low Volume Mixed overrides the score entirely.',
+                'Carrier rules split the total across AT&T, T-Mobile and Verizon, with separate handling for US Cellular and small carriers.',
+                'Account level rate limits can cap the total across all your Campaigns.',
+                'Actual sending speed is whatever is lowest across those steps, and it says nothing about delivery.'
+              ].map((item, idx) => (
+                <div key={idx} className="bg-white border border-[#DDE1E9] rounded-xl p-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-7 h-7 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold flex-shrink-0">{idx + 1}</div>
+                    <p className="text-sm text-[#5C6880] leading-relaxed" dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, '<strong class="text-[#1A2236]">$1</strong>') }} />
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Section 5: Current MPS Tables */}
+            <h2 id="current-mps-tables" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Current A2P 10DLC MPS Tables in HighLevel
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              These are the maximum approved SMS throughput values in HighLevel's <a href="https://help.gohighlevel.com/support/solutions/articles/155000004527-what-is-message-throughput-mps-" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">throughput guide</a>, updated July 30, 2026, and they match HighLevel's <a href="https://help.leadconnectorhq.com/support/solutions/articles/155000004617-message-throughput-mps-and-trust-scores-for-a2p-10dlc-in-the-us" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">help center version</a> updated August 31, 2026. Values are maximums, not guaranteed speeds.
+            </p>
+
+            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Standard, Mixed and Marketing Campaigns</h3>
+            <div className="overflow-x-auto my-6">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Trust Score or Campaign</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Total MPS, major networks</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">AT&amp;T</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">T-Mobile</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Verizon</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {standardMpsData.map((item, idx) => (
+                    <tr key={idx} className="border-b border-[#DDE1E9]">
+                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.trustScore}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.totalMps}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.att}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.tmobile}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.verizon}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Messages to US Cellular follow your major network throughput, up to 8 MPS. Messages to other minor US carriers are 1 MPS per phone number.
+            </p>
+
+            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Sole Proprietor Brands</h3>
+            <div className="overflow-x-auto my-6">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]"></th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Total MPS, major networks</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">AT&amp;T</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">T-Mobile</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Verizon</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-[#DDE1E9]">
+                    <td className="py-3 px-3 font-medium text-[#1A2236]">Sole Proprietor</td>
+                    <td className="py-3 px-3 text-[#5C6880]">2.25</td>
+                    <td className="py-3 px-3 text-[#5C6880]">0.25</td>
+                    <td className="py-3 px-3 text-[#5C6880]">1 per number</td>
+                    <td className="py-3 px-3 text-[#5C6880]">1 per number</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Sole Proprietor Brands have no Trust Score and use fixed limits. HighLevel's help center adds that they are limited to one Campaign and one phone number per Campaign.
+            </p>
+            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
+              <div className="flex items-center gap-2 mb-2">
+                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
+                <span className="text-sm font-bold text-[#F8D000]">ONE CONFLICT WORTH KNOWING ABOUT</span>
+              </div>
+              <p className="text-sm text-[#1A2236] leading-relaxed">
+                HighLevel's text says specific ("declared") use cases may get higher MPS for the same score than Mixed or Marketing. In the current tables, the Standard and Mixed and Marketing rows are identical, and the only documented difference is the Low Volume Mixed row. Do not pick a use case to chase throughput. HighLevel itself says to choose the accurate use case, not the highest throughput option. How to choose is in <Link href="/blog/a2p-campaign-registration-guide" className="text-[#0E9BF0] hover:underline">A2P Campaign Registration in GoHighLevel</Link>.
+              </p>
+            </div>
+
+            {/* Section 6: Trust Score vs MPS vs Daily Limits */}
+            <h2 id="trust-score-vs-mps-vs-daily-limits" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Trust Score vs MPS vs Daily Carrier Limits
+            </h2>
+            <div className="overflow-x-auto my-6">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]"></th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">What it controls</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Key point</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-[#DDE1E9]">
+                    <td className="py-3 px-3 font-medium text-[#1A2236]">Trust Score</td>
+                    <td className="py-3 px-3 text-[#5C6880]">A vetting score that sets your throughput tier and T-Mobile daily cap</td>
+                    <td className="py-3 px-3 text-[#5C6880]">Standard Brands only. Not a delivery rating</td>
+                  </tr>
+                  <tr className="border-b border-[#DDE1E9]">
+                    <td className="py-3 px-3 font-medium text-[#1A2236]">MPS</td>
+                    <td className="py-3 px-3 text-[#5C6880]">How fast segments may be sent</td>
+                    <td className="py-3 px-3 text-[#5C6880]">A rate, not a volume. 225 MPS does not mean 225 segments every second all day</td>
+                  </tr>
+                  <tr className="border-b border-[#DDE1E9]">
+                    <td className="py-3 px-3 font-medium text-[#1A2236]">Daily carrier limit</td>
+                    <td className="py-3 px-3 text-[#5C6880]">How many segments a Brand may send toward one carrier per day</td>
+                    <td className="py-3 px-3 text-[#5C6880]">T-Mobile applies a brand level daily cap based on Trust Score</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Twilio's documentation gives these T-Mobile daily limits by Trust Score, counted in outbound SMS segments plus MMS:
+            </p>
+            <div className="overflow-x-auto my-6">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Brand or Trust Score</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">T-Mobile daily limit</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Notes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {tmobileDailyLimits.map((item, idx) => (
+                    <tr key={idx} className="border-b border-[#DDE1E9]">
+                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.brandOrScore}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.dailyLimit}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.notes}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Per Twilio, the cap applies at the EIN level, is shared across every Brand and every platform registered under that EIN, and resets at midnight Pacific. Exceeding it leaves messages undelivered with Twilio error 30023. These figures come from Twilio, the underlying provider, so verify current values before relying on them. Separately, HighLevel's <a href="https://help.gohighlevel.com/support/solutions/articles/155000005200-a2p-10dlc-messaging-fees-registration-monthly-and-carrier-costs" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">fee reference</a> lists a daily segment allowance for each registration tier, 3,000 for Sole Proprietor, 6,000 for Low Volume Standard and 600,000 for High Volume Standard, and a Low Volume Mixed Campaign supports up to 2,000 segments a day to T-Mobile. Treat all of these as different limits that can each bind.
+            </p>
+
+            {/* Section 7: Do More Numbers Increase MPS */}
+            <h2 id="do-more-numbers-increase-mps" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Do More Phone Numbers Increase MPS?
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Not automatically. HighLevel says throughput is generally assigned at the Campaign level. Twilio's documentation adds that the Campaign's MPS is shared across all US and Canada long code numbers on the Campaign and across all carriers, so splitting traffic over more numbers does not raise the ceiling. The documented exceptions are small carriers, which get 1 MPS per phone number, and Sole Proprietor Campaigns, which get 1 MPS per number to T-Mobile and Verizon but are limited to one number. Number rental is a separate cost covered in the <Link href="/blog/a2p-10dlc-fees-explained" className="text-[#0E9BF0] hover:underline">fees guide</Link>.
+            </p>
+
+            {/* Section 8: SMS vs MMS Throughput */}
+            <h2 id="sms-vs-mms" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              SMS vs MMS Throughput
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              HighLevel says MMS may be handled differently because media size, carrier handling and formatting can affect processing. I found no published MMS MPS values in the current HighLevel documents, so this guide does not give any and you should not assume MMS matches SMS. MMS does count toward T-Mobile's daily cap alongside SMS segments.
+            </p>
+
+            {/* Section 9: What Happens If You Send Faster Than MPS */}
+            <h2 id="send-faster-than-mps" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              What Happens If You Send Faster Than Your MPS?
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              According to HighLevel, messages above your allowed rate may queue. HighLevel's guidance and Twilio's both describe the account level version: if an account limit is 100 MPS and three Campaigns are each approved for 75 MPS, the account still tops out at 100 MPS combined, and each segment over that rate waits in a queue. Keep three failure modes apart:
+            </p>
+            <div className="overflow-x-auto my-6">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Problem</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">What it is</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Where to look</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {failureModes.map((item, idx) => (
+                    <tr key={idx} className="border-b border-[#DDE1E9]">
+                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.problem}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.whatItIs}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">
+                        {item.problem === 'Carrier filtering or failure' ? (
+                          <>
+                            Content, consent, opt outs. See <Link href="/blog/a2p-error-codes-explained" className="text-[#0E9BF0] hover:underline">A2P error codes</Link>.
+                          </>
+                        ) : item.whereToLook}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
 
-            {/* CTA 2 - After Throughput Failures */}
-            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 text-center my-6 text-white">
-              <p className="text-sm font-medium mb-2">⚠️ Getting A2P delivery errors and not sure why?</p>
-              <p className="text-sm text-white/80 mb-4">We can diagnose your throughput issues, review your Trust Score, and recommend the right fix.</p>
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                <Search className="w-4 h-4" />
-                Get a Delivery Audit
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+            {/* Section 10: Does Higher Trust Score Mean Better Deliverability */}
+            <h2 id="higher-trust-score-deliverability" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Does a Higher Trust Score Mean Better Deliverability?
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              No. HighLevel is explicit that a higher score does not guarantee delivery, and that delivery also depends on consent, content, filtering, DND, opt outs and recipient status. The score can raise how fast you may send. Whether a message reaches a phone is a separate decision made by carriers using other signals. Consent evidence matters here, and <Link href="/blog/a2p-opt-in-language-templates" className="text-[#0E9BF0] hover:underline">A2P opt in language and requirements</Link> covers it.
+            </p>
+
+            {/* Section 11: Can You Improve or Appeal a Trust Score */}
+            <h2 id="improve-appeal-trust-score" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Can You Improve or Appeal a Trust Score?
+            </h2>
+            <ul className="space-y-3 mb-6 text-sm text-[#5C6880] list-disc list-inside">
+              <li><strong className="text-[#1A2236]">HighLevel does not change scores.</strong> Its guidance says it does not assign or manually change Trust Scores.</li>
+              <li><strong className="text-[#1A2236]">Low scores have documented causes.</strong> HighLevel's help center points to data discrepancies, such as an address that differs from your official business registration, and a small brand footprint.</li>
+              <li><strong className="text-[#1A2236]">Scores are described as static.</strong> HighLevel's earlier throughput guidance and Twilio's say scores do not change automatically over time.</li>
+              <li><strong className="text-[#1A2236]">Support can guide you.</strong> HighLevel says it will try to offer guidance on possible causes if you receive a low score.</li>
+              <li><strong className="text-[#1A2236]">I found no formal Trust Score appeal process in HighLevel's documentation.</strong> Some other messaging platforms publish their own appeal terms, including fees, but those are theirs, not HighLevel's.</li>
+            </ul>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              The practical lesson is to get the identity data right before you register. Correcting a failed Brand is covered in <Link href="/blog/a2p-brand-rejected-fix" className="text-[#0E9BF0] hover:underline">A2P Brand Rejected in GoHighLevel</Link>.
+            </p>
+
+            {/* Section 12: What If Trust Score Is Missing */}
+            <h2 id="trust-score-missing" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              What If Your Trust Score Is Missing or Unavailable?
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              HighLevel's Brand approval guidance covers the message "We are unable to retrieve your TCR Trust Score." It says the secondary vetting score is delayed while the vetting review completes, which can take up to 7 business days, and to contact support if the Brand is still not approved after that. Do not confuse it with other states:
+            </p>
+            <div className="overflow-x-auto my-6">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">State</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Meaning</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Go to</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {trustScoreStates.map((item, idx) => (
+                    <tr key={idx} className="border-b border-[#DDE1E9]">
+                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.state}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.meaning}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">
+                        {item.state === 'Brand failed' ? (
+                          <Link href="/blog/a2p-brand-rejected-fix" className="text-[#0E9BF0] hover:underline">Brand Rejected guide</Link>
+                        ) : item.state === 'Campaign rejected' ? (
+                          <Link href="/blog/a2p-campaign-rejected-fix" className="text-[#0E9BF0] hover:underline">Campaign Rejected guide</Link>
+                        ) : item.action}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
 
-            {/* Section 5: Improve Trust Score */}
-            <h2 id="improve-trust-score" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              5. How Do You Improve Your Trust Score or Increase Your MPS?
+            {/* Section 13: Where to Check A2P Status */}
+            <h2 id="where-to-check-status" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Where to Check Your A2P Status in HighLevel
             </h2>
-
-            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Option 1: Correct data discrepancies and appeal</h3>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              If your Trust Score is low and you believe the registration data was accurate, you can appeal. GHL's official documentation confirms the appeal process exists and is handled through GHL support. For Standard Brands, you will typically need to include an IRS EIN letter with your appeal request.
-            </p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              <strong className="text-[#1A2236]">Appeal timeline and fee:</strong> One third-party source indicates appeals submitted within 45 days of receiving the score are free, and appeals submitted after 45 days require a secondary vetting fee. You may want to verify the current appeal timeline and fee directly with GHL support, as these details can change. An appeal does not guarantee an increase confirmed from GHL's documentation.
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              HighLevel's guide says to go to Settings, then Phone System, then Trust Center, review your A2P registration details, and open Brands and Campaigns to check Brand status, Campaign status, use case and any required fixes. The guide does not describe a screen showing your numeric Trust Score, so if you cannot find yours there, ask HighLevel Support rather than guessing.
             </p>
 
-            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Option 2: Review and correct the registration data before appealing</h3>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Before appealing, verify that the following are accurate in your registration these are the confirmed causes of lower scores from GHL's official documentation:
+            {/* Section 14: Scope */}
+            <h2 id="scope" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Scope: Toll Free, Canada and Other Routes
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Everything here is about US A2P 10DLC long code messaging. Toll Free numbers use a separate verification and throughput model, which HighLevel's help center says gives a US Toll Free number a default of 3 MPS toward US and Canada carriers, with higher throughput available on request. See <Link href="/blog/toll-free-vs-a2p-10dlc-gohighlevel" className="text-[#0E9BF0] hover:underline">Toll Free vs A2P 10DLC</Link>. Canadian messaging follows its own rules, covered in <Link href="/blog/a2p-10dlc-canadian-numbers" className="text-[#0E9BF0] hover:underline">A2P 10DLC for Canadian numbers</Link>, and international routes differ again.
             </p>
-            <ul className="space-y-1 mb-6 text-sm text-[#5C6880] list-decimal list-inside">
-              <li><strong className="text-[#1A2236]">Physical registered address matches EIN record exactly.</strong> The address in your brand registration should be the same address associated with your EIN as filed with the IRS not a PO Box, not a branch location, not a mailing address.</li>
-              <li><strong className="text-[#1A2236]">Legal business name matches CP 575 exactly.</strong> Character for character, including entity suffix.</li>
-              <li><strong className="text-[#1A2236]">Business website is live, publicly accessible, and clearly represents the business.</strong> A newly launched website with minimal content may contribute to a lower score.</li>
-              <li><strong className="text-[#1A2236]">EIN has been active long enough to appear in TCR's verification databases.</strong> A recently issued EIN may not have sufficient presence yet.</li>
+
+            {/* Section 15: Worked Example */}
+            <h2 id="worked-example" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Worked Example: A 50,000 Segment Send
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              <strong className="text-[#1A2236]">Assumptions, not averages:</strong> a Standard Brand with a Trust Score of 60, one Standard Campaign, and 50,000 segments split 40% to T-Mobile, 35% to AT&amp;T and 25% to Verizon.
+            </p>
+            <div className="overflow-x-auto my-6">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Carrier</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Segments</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">MPS allowed</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Minimum time</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Daily cap</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {workedExampleData.map((item, idx) => (
+                    <tr key={idx} className="border-b border-[#DDE1E9]">
+                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.carrier}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.segments}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.mps}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.minTime}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.dailyCap}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              The theoretical minimum is set by the slowest carrier lane, about 8.3 minutes, which is segments divided by MPS. Real sending will be slower if an account limit applies, and it says nothing about delivery. T-Mobile's 40,000 daily cap is not exceeded at 20,000 segments, but the same send to a Low Volume Mixed Campaign would be limited to 1.25 MPS per carrier and up to 2,000 T-Mobile segments a day, which would spread the T-Mobile portion over about ten days. If each message is two segments, the same audience is 25,000 messages, not 50,000.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              If you build sends like this in workflows, pace them to your approved throughput. Our <Link href="/services/campaign-automation" className="text-[#0E9BF0] hover:underline">Email, SMS and WhatsApp automation service</Link> covers building sending flows around limits like these.
+            </p>
+
+            {/* Section 16: Decision Framework */}
+            <h2 id="decision-framework" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              A Decision Framework for Diagnosing Throughput
+            </h2>
+            <div className="space-y-2 mb-6">
+              {decisionFramework.map((item, idx) => (
+                <div key={idx} className="bg-white border border-[#DDE1E9] rounded-xl p-3">
+                  <div className="flex items-start gap-3">
+                    <div className="w-6 h-6 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold flex-shrink-0">{idx + 1}</div>
+                    <p className="text-sm text-[#5C6880] leading-relaxed">{item}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Section 17: Common Mistakes */}
+            <h2 id="common-mistakes" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Common Trust Score and MPS Mistakes
+            </h2>
+            <ul className="space-y-2 mb-6 text-sm text-[#5C6880] list-disc list-inside">
+              {commonMistakes.map((item, idx) => (
+                <li key={idx}>{item}</li>
+              ))}
             </ul>
 
-            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Option 3: Select a Declared (specific) use case for your campaign</h3>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Confirmed from GHL's official documentation: Declared use cases (specific non-marketing use cases such as Two-Factor Authentication, Account Notifications, Appointment Reminders) can receive higher MPS for the same Trust Score than Mixed or Marketing campaign types. If your current campaign is registered as Mixed or Marketing and your actual messages are primarily transactional, re-registering with a more specific Declared use case may increase your effective throughput without changing your Trust Score.
-            </p>
-
-            <h3 className="text-lg font-bold text-[#1C2E4A] mt-6 mb-3">Option 4: Manage opt-out rates carefully</h3>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              High opt-out rates can affect your account standing with carriers over time. Confirmed best practice from GHL's documentation: ensure that all contacts receiving automated messages explicitly opted in, and that opt-out requests (STOP replies) are honoured immediately. A high proportion of STOP replies relative to your send volume is a signal that carriers track. For compliant opt-in language to reduce opt-out rates: <Link href="/blog/a2p-opt-in-language-templates" className="text-[#0E9BF0] hover:underline">A2P Opt-In Language Templates →</Link>
-            </p>
-
-            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Lightbulb className="w-4 h-4 text-[#0E9BF0]" />
-                <span className="text-sm font-bold text-[#0E9BF0]">FOR MOST GHL SERVICE BUSINESSES, TRUST SCORE IS NOT THE LIMITING FACTOR</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                A missed call text-back, appointment reminder, or lead follow-up automation does not come close to the T-Mobile daily limits or MPS ceilings for most service businesses. Trust Score and MPS become relevant when you are sending bulk SMS at volume to large lists hundreds or thousands of messages per day per brand. If you are running appointment reminders for a dental practice with 50 bookings per week, your throughput limits are not a practical constraint. For high-volume senders marketing campaigns, large event invitations, or broadcast messages understanding and optimising your Trust Score is worth the time.
-              </p>
+            {/* Section 18: Checklist */}
+            <h2 id="checklist" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Trust Score and MPS Checklist
+            </h2>
+            <div className="space-y-2 mb-6">
+              {checklistItems.map((item, idx) => (
+                <div key={idx} className="bg-white border border-[#DDE1E9] rounded-xl p-3">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" />
+                    <p className="text-sm text-[#5C6880]">{item}</p>
+                  </div>
+                </div>
+              ))}
             </div>
 
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              For the first SMS automation to build after registration: <Link href="/blog/gohighlevel-missed-call-text-back" className="text-[#0E9BF0] hover:underline">GoHighLevel Missed Call Text Back →</Link>
-            </p>
-
-            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-5 my-6 text-white">
-              <div className="flex items-center gap-2 mb-3">
-                <Star className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">NEED HELP WITH A2P REGISTRATION OR TRUST SCORE APPEAL</span>
-              </div>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                GHL Scale Up handles A2P brand registration, campaign registration, Trust Score appeals, and rejection troubleshooting for agencies and their clients.
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                See results from our A2P setups: <Link href="/case-studies" className="text-[#0E9BF0] hover:underline">real GoHighLevel results and case studies →</Link>
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed">
-                To discuss your specific situation: <Link href="/contact" className="text-[#0E9BF0] hover:underline">book a free strategy call at ghlscaleup.com/contact →</Link>
-              </p>
-            </div>
-
-            {/* CTA 3 - After Improve Trust Score */}
-            <div className="bg-[#0B1628] rounded-xl p-6 text-center my-6 text-white">
-              <p className="text-sm font-medium mb-2">📊 Want to know your Trust Score and what it means for your business?</p>
-              <p className="text-sm text-white/80 mb-4">We can review your A2P registration and give you a clear plan to optimise your throughput.</p>
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                <Shield className="w-4 h-4" />
-                Get Your A2P Review
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* Section 6: FAQ */}
+            {/* Section 19: FAQ */}
             <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
-              6. Frequently Asked Questions
+              A2P Trust Score and MPS FAQ
             </h2>
 
             <div className="space-y-3">
@@ -657,33 +938,36 @@ export default function A2PTrustScoreMPSClient() {
 
             {/* Related Articles */}
             <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
-              <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles</h3>
+              <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles in This Series</h3>
               <div className="flex flex-wrap gap-3">
-                <Link href="/blog/a2p-brand-registration-guide" className="text-sm text-[#0E9BF0] hover:underline">A2P Brand Registration Guide: Standard Brand vs Sole Proprietor →</Link>
-                <Link href="/blog/a2p-campaign-registration-guide" className="text-sm text-[#0E9BF0] hover:underline">A2P Campaign Registration: Step-by-Step Guide →</Link>
-                <Link href="/blog/a2p-error-codes-explained" className="text-sm text-[#0E9BF0] hover:underline">A2P Error Codes Explained: 30882, 30883, 30886 and 30898 →</Link>
-                <Link href="/blog/a2p-opt-in-language-templates" className="text-sm text-[#0E9BF0] hover:underline">A2P Opt-In Language Templates for GoHighLevel →</Link>
-                <Link href="/blog/what-is-a2p-10dlc" className="text-sm text-[#0E9BF0] hover:underline">What Is A2P 10DLC? Complete Guide for GoHighLevel Users →</Link>
-                <Link href="/blog/gohighlevel-missed-call-text-back" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Missed Call Text Back: Setup Guide →</Link>
-                <Link href="/case-studies" className="text-sm text-[#0E9BF0] hover:underline">Real GoHighLevel Results and Case Studies →</Link>
+                <Link href="/blog/a2p-brand-registration-guide" className="text-sm text-[#0E9BF0] hover:underline">A2P Brand Registration in GoHighLevel →</Link>
+                <Link href="/blog/a2p-campaign-registration-guide" className="text-sm text-[#0E9BF0] hover:underline">A2P Campaign Registration in GoHighLevel →</Link>
+                <Link href="/blog/a2p-error-codes-explained" className="text-sm text-[#0E9BF0] hover:underline">A2P Error Codes Explained →</Link>
+                <Link href="/blog/a2p-opt-in-language-templates" className="text-sm text-[#0E9BF0] hover:underline">A2P Opt In Language Templates →</Link>
+                <Link href="/blog/what-is-a2p-10dlc" className="text-sm text-[#0E9BF0] hover:underline">What Is A2P 10DLC? →</Link>
+                <Link href="/blog/a2p-brand-rejected-fix" className="text-sm text-[#0E9BF0] hover:underline">A2P Brand Rejected in GoHighLevel →</Link>
+                <Link href="/blog/a2p-campaign-rejected-fix" className="text-sm text-[#0E9BF0] hover:underline">A2P Campaign Rejected in GoHighLevel →</Link>
+                <Link href="/blog/a2p-10dlc-fees-explained" className="text-sm text-[#0E9BF0] hover:underline">A2P 10DLC Fees Explained →</Link>
+                <Link href="/blog/toll-free-vs-a2p-10dlc-gohighlevel" className="text-sm text-[#0E9BF0] hover:underline">Toll Free vs A2P 10DLC →</Link>
+                <Link href="/blog/a2p-10dlc-canadian-numbers" className="text-sm text-[#0E9BF0] hover:underline">A2P 10DLC for Canadian Numbers →</Link>
               </div>
             </div>
 
-            {/* Final CTA */}
+            {/* Final CTA Section */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Need help with A2P registration or a Trust Score appeal?</h3>
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
                   GHL Scale Up manages A2P registration for agencies and their clients. Brand registration, Trust Score optimisation, campaign submission, rejection troubleshooting, and resubmission end to end.
                 </p>
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105">
                   Book Your Free Strategy Call
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
 
-            {/* Author Section */}
+            {/* Author / Verification Section */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 my-6">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
@@ -699,7 +983,7 @@ export default function A2PTrustScoreMPSClient() {
                 </div>
               </div>
               <p className="text-xs text-[#5C6880] leading-relaxed">
-                All information in this guide is verified against GHL's official support portal documentation as of July 2026. Trust Score algorithms, MPS tables, and appeal fees are set by external providers (TCR, Twilio, carriers) and can change always verify current details in GHL's Trust Center and official support articles before acting.
+                This guide was checked against HighLevel's <a href="https://help.gohighlevel.com/support/solutions/articles/155000004527-what-is-message-throughput-mps-" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">MPS and Trust Score guide</a>, its <a href="https://help.leadconnectorhq.com/support/solutions/articles/155000004617-message-throughput-mps-and-trust-scores-for-a2p-10dlc-in-the-us" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">help center throughput article</a>, <a href="https://help.gohighlevel.com/support/solutions/articles/155000000508-a2p-10dlc-brand-approval-best-practices" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">Brand Approval Best Practices</a>, the <a href="https://help.gohighlevel.com/support/solutions/articles/155000005200-a2p-10dlc-messaging-fees-registration-monthly-and-carrier-costs" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">fee reference</a>, and Twilio's <a href="https://help.twilio.com/articles/1260804800549-T-Mobile-daily-message-limits-for-long-code-messaging-with-A2P-10DLC" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">T-Mobile daily limits article</a>, current as of September 2026. Throughput values, daily caps and carrier rules change, so confirm against your Trust Center and provider documentation.
               </p>
               <Link href="/" className="text-[#0E9BF0] text-xs hover:underline mt-2 inline-block">ghlscaleup.com</Link>
             </div>

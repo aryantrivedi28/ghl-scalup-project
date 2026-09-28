@@ -4,124 +4,62 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import {
   ArrowRight,
-  CheckCircle2,
   ChevronDown,
   Copy,
   Linkedin,
   Twitter,
   BookOpen,
   Zap,
-  Star,
   AlertTriangle,
-  BadgeCheck as BadgeCheckIcon,
   Lightbulb,
+  CheckCircle2,
   Rocket,
   Target,
   HeartHandshake,
   MessageCircle,
   Phone,
   Search,
-  Trophy,
-  Facebook,
-  AlertCircle,
-  Info,
-  UserCheck,
-  UserX,
-  Compass,
-  FileCheck,
-  CheckCircle,
-  Layers,
-  PanelTop,
-  LayoutDashboard,
-  Settings,
-  Briefcase,
-  LifeBuoy,
-  Award,
-  Timer,
-  Trash2,
-  Download,
-  BarChart3,
-  PieChart,
-  Workflow,
-  Globe,
-  Database,
-  Cloud,
-  GitBranch,
-  Sparkles,
-  GraduationCap,
-  Clock,
   Shield,
-  Users,
-  Calendar,
-  Mail,
-  Tag,
-  GitMerge,
-  DollarSign,
-  TrendingUp,
-  XCircle,
-  FileText,
-  Server,
-  CreditCard,
-  Smartphone,
-  Layout,
-  Mailbox,
-  Headphones,
-  FileQuestion,
-  HelpCircle,
-  Boxes,
-  Combine,
-  Link2,
-  Webhook,
-  RefreshCw,
-  ListChecks,
-  ClipboardList,
-  Printer,
-  Video,
-  Ticket,
-  TrendingDown
+  FileCheck,
+  Info,
+  Image as ImageIcon,
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import Image from 'next/image';
 
 export default function A2PRegistrationForAgenciesClient() {
   const [activeId, setActiveId] = useState<string>('');
-  const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
   useEffect(() => {
-    const sections = [
-      'why-per-client',
-      'agency-limits',
-      'client-info',
-      'workflow',
-      'saas-mode',
-      'cost',
-      'faq'
-    ];
-
     const handleScroll = () => {
-      let currentSection = sections[0];
+      const sections = [
+        'what-means',
+        'separate-registration',
+        'client-vs-agency',
+        'collect-from-client',
+        'limits',
+        'workflow',
+        'scale',
+        'saas-mode',
+        'billing',
+        'mistakes',
+        'rejected',
+        'phone-moves',
+        'checklist',
+        'faq'
+      ];
 
       for (const id of sections) {
         const element = document.getElementById(id);
-        if (!element) continue;
-        const rect = element.getBoundingClientRect();
-        if (rect.top <= 180) {
-          currentSection = id;
-        } else {
-          break;
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 150) {
+            setActiveId(id);
+          }
         }
-      }
-
-      setActiveId(currentSection);
-
-      // Show floating Project Help card after scrolling past hero section
-      const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
-      if (heroSection) {
-        const heroBottom = heroSection.getBoundingClientRect().bottom;
-        setShowFloatingProjectHelp(heroBottom < 0);
       }
     };
 
-    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -138,73 +76,144 @@ export default function A2PRegistrationForAgenciesClient() {
 
   const faqs = [
     {
-      q: "Can I use one A2P registration for all my GoHighLevel clients?",
-      a: "No. Each client sub-account requires its own separate A2P brand registration tied to that client's legal business name and Tax ID. You cannot register your agency's brand and use it to cover multiple client sub-accounts with different business identities. TCR links every approved campaign to a specific brand identity registering one brand for multiple distinct businesses misrepresents the sender identity, which is exactly what A2P registration exists to prevent. Each client is a separate brand registration and a separate campaign registration."
+      q: "Can one A2P Brand cover multiple clients?",
+      a: "No. A Brand represents one legal business, so separate clients need separate Brands, each registered in its own sub-account."
     },
     {
-      q: "How many brand registrations can I do with one email address?",
-      a: "One email address can be used for a maximum of 5 brand registrations across all A2P submissions in the TCR ecosystem. For agencies managing 6 or more clients, you need additional email addresses. A common approach is to use agency sub-addresses or aliases (such as agency+client1@yourdomain.com) or to use client-specific email addresses for registrations beyond the 5-brand limit."
+      q: "Is A2P registration at the agency level or sub-account level?",
+      a: "Sub-account level. Registration and status appear in each sub-account's Trust Center, and A2P status does not travel with a phone number."
     },
     {
-      q: "How many brand registrations can I verify with one mobile phone number?",
-      a: "One mobile phone number can be used for OTP verification for a maximum of 3 brand registrations across all TCR registrations ecosystem-wide not just within GHL. For agencies with 4 or more clients, you need additional mobile phone numbers for OTP verification. The phone number used for OTP cannot be a LeadConnector, Twilio, or CPaaS number it must be a real personal mobile number."
+      q: "Can sub-accounts for the same business share a registration?",
+      a: "I found no HighLevel documentation describing that. Sharing has been requested as a feature, so confirm in your Trust Center before assuming it works."
     },
     {
-      q: "Is A2P registration part of GHL SaaS Mode onboarding?",
-      a: "No. A2P registration is not part of the automated sub-account provisioning that happens when a client signs up through your SaaS Mode pricing page. After a client's sub-account is created from your Snapshot, A2P registration must be completed separately for that sub-account. Most agencies handle this as part of their client onboarding service, completing the Trust Center registration for each new client and including it in the setup fee."
+      q: "Does A2P registration happen automatically in SaaS Mode?",
+      a: "No. Provisioning can connect the phone system, but the Brand and Campaign still have to be registered for each sub-account."
     },
     {
-      q: "How do I track A2P registration status across multiple client sub-accounts?",
-      a: "GHL does not provide an agency-level dashboard showing the A2P registration status of all sub-accounts in one view as of the date of this guide you may want to verify whether this has changed in GHL's current feature set. The recommended approach is to maintain an external tracking sheet with each client's sub-account name, brand registration date, brand approval status, campaign submission date, campaign approval status, and any rejection notes. Review the status of pending registrations every 2 to 3 business days during the review period."
+      q: "Can I mark up A2P fees for clients?",
+      a: "HighLevel's billing guide describes a fixed 5% markup on A2P pass through charges when re-billing is enabled, with your configured re-billing amount applied on top. Your own service fee is separate. Check your agency billing before quoting."
     },
     {
-      q: "Do I need to re-register when I add new phone numbers to an approved client sub-account?",
-      a: "No. Once a brand and campaign are approved for a sub-account, any additional phone numbers purchased for that sub-account are automatically registered under the same campaign. No new registration submission is needed. It may take several days for the new number's registration to complete verify the current timing in GHL's Trust Center documentation as it can change."
+      q: "Does an approved registration move with a phone number?",
+      a: "No. Within an agency, reattach the Brand and Campaign after moving a number. Between Twilio and LC Phone the registration has to be redone."
     },
     {
-      q: "Can GHL Scale Up handle A2P registration for all my agency's clients?",
-      a: "Yes. GHL Scale Up manages A2P brand and campaign registration for agencies and all their client sub-accounts. This includes building a client intake process, verifying EIN details before submitting, completing each sub-account's Trust Center registration, and handling any rejection troubleshooting and resubmission. Book a free strategy call at ghlscaleup.com/contact to discuss your client base."
+      q: "Do new numbers need a new registration?",
+      a: "New numbers need to be linked to the approved Campaign and show A2P Verified before sending. Check the label whenever numbers are added."
     }
   ];
 
   useFaqSchema(faqs);
 
   const tocItems = [
-    { id: 'why-per-client', title: '1. Why does every client sub-account need its own A2P registration?' },
-    { id: 'agency-limits', title: '2. What are the agency-specific limits that affect multiple registrations?' },
-    { id: 'client-info', title: '3. What does each client need to provide before you can register?' },
-    { id: 'workflow', title: '4. What is the most efficient workflow for registering multiple clients?' },
-    { id: 'saas-mode', title: '5. How does A2P registration work with GoHighLevel SaaS Mode?' },
-    { id: 'cost', title: '6. What does it cost to register multiple clients?' },
-    { id: 'faq', title: '7. Frequently asked questions' }
+    { id: 'what-means', title: 'What A2P Registration Means for an Agency' },
+    { id: 'separate-registration', title: 'Does Each Client Need a Separate A2P Registration?' },
+    { id: 'client-vs-agency', title: 'What Belongs to the Client and What Belongs to the Agency' },
+    { id: 'collect-from-client', title: 'What to Collect From Each Client Before You Register' },
+    { id: 'limits', title: 'Limits That Affect Agencies Registering Many Clients' },
+    { id: 'workflow', title: 'A Repeatable Workflow for Registering Multiple Clients' },
+    { id: 'scale', title: 'How to Manage A2P Registrations at Scale' },
+    { id: 'saas-mode', title: 'A2P Registration and GoHighLevel SaaS Mode' },
+    { id: 'billing', title: 'A2P Billing and Client Rebilling for Agencies' },
+    { id: 'mistakes', title: 'Agency Mistakes That Cause Registration Problems' },
+    { id: 'rejected', title: 'What to Do When a Client Registration Is Rejected' },
+    { id: 'phone-moves', title: 'What Happens When a Client Changes Phone Systems or Sub-Accounts' },
+    { id: 'checklist', title: 'Agency A2P Registration Checklist' },
+    { id: 'faq', title: 'A2P Registration for Agencies FAQ' }
   ];
 
-  const limits = [
-    { limit: 'Email: max 5 brands per address', meaning: 'One email address can only be used for up to 5 brand registrations across all TCR submissions ecosystem-wide.', workaround: 'For agencies with 6+ clients, use multiple email addresses. A common approach: use a Gmail alias system (agency+client1@gmail.com, agency+client2@gmail.com) or create dedicated email addresses per client group.' },
-    { limit: 'Phone: max 3 brands per number (OTP)', meaning: 'The mobile number used to verify identity during brand registration (via OTP) can be used for a maximum of 3 brand registrations ecosystem-wide not just within GHL.', workaround: 'For agencies with 4+ clients, use different mobile numbers for OTP verification. Team members\' personal mobile numbers can be used as long as they are not Twilio or LeadConnector numbers.' },
-    { limit: 'OTP phone must not be a CPaaS number', meaning: 'The mobile number used for OTP cannot be a number purchased through LeadConnector, Twilio, or any CPaaS provider.', workaround: 'Use a real personal mobile number, not a GHL or Twilio number, for OTP verification steps.' },
-    { limit: 'Sole Prop: 1 phone number per campaign', meaning: 'Sole Proprietor brand registrations are limited to one phone number per campaign. Multiple numbers need separate campaign linkage.', workaround: 'For clients who need multiple numbers, Standard Brand registration (requires EIN) supports multiple numbers per campaign without this limitation.' },
-    { limit: 'Registration is per sub-account, not per agency', meaning: 'A2P registration is done from inside each client\'s sub-account Trust Center. There is no agency-level bulk registration dashboard.', workaround: 'Build a systematic checklist and collect all client information before logging into each sub-account to register. See Section 4 for the recommended workflow.' }
+  const entityRoles = [
+    { entity: 'Agency', role: 'Manages the HighLevel environment, phone system settings and billing. Coordinates registrations but is not the sender of a client\'s messages' },
+    { entity: 'Client business', role: 'The legal business whose messages are being sent. Its identity is what the Brand represents' },
+    { entity: 'Sub-account', role: 'Where registration is completed and tracked, in Settings, Phone System, Trust Center' },
+    { entity: 'Brand', role: 'The verified business identity: legal name, registration number, address, contact' },
+    { entity: 'Campaign', role: 'The registered messaging use case, sample messages, website and consent process' },
+    { entity: 'Phone number', role: 'Must be linked to an approved Campaign before A2P messages are sent' }
   ];
 
-  const clientInfo = [
-    { info: 'Legal business name (exactly as filed with IRS)', why: 'Must match the EIN record exactly character for character, including LLC, Inc, or Corp suffix', flag: 'Clients often provide their trading name, not legal name. Ask for their CP 575 or 147c letter.' },
-    { info: 'EIN (for Standard Brand)', why: 'Required for Standard Brand registration. Must be 9-digit format XX-XXXXXXX, not DUNS.', flag: 'Clients sometimes provide state registration numbers or DUNS numbers. Clarify you need the federal EIN.' },
-    { info: 'Physical business address', why: 'Must be a physical street address. PO Boxes cause rejection for Standard Brand.', flag: 'Many clients use a PO Box as their mailing address. Get the physical registered address.' },
-    { info: 'Business website URL', why: 'Carriers verify the website matches the claimed use case and business type.', flag: 'Client website must be live and publicly accessible before submitting. No "coming soon" pages.' },
-    { info: 'Description of SMS use case', why: 'What messages will be sent, to whom, and why.', flag: 'Clients often describe this vaguely. Ask specifically: what types of messages, who receives them, how did those contacts opt in.' },
-    { info: 'Opt-in form URL or screenshot', why: 'Publicly accessible URL showing the consent form with correct checkbox language.', flag: 'Form is often behind a login or embedded in a funnel not yet live. Must be publicly accessible for carrier review.' },
-    { info: 'Privacy Policy URL and Terms of Service URL', why: 'Both required in campaign registration. Must include the required no-mobile-data-sharing clause.', flag: 'Clients often have outdated Privacy Policies without the required SMS data clause.' },
-    { info: 'Client email address (for OTP verification)', why: 'Must be a valid email the client can access for the OTP step during registration.', flag: 'Use your own agency email for up to 5 clients, then switch to client-specific emails for subsequent registrations.' },
-    { info: 'Mobile number for OTP (Sole Prop only)', why: 'Personal mobile number required for OTP cannot be a GHL or Twilio number.', flag: 'Sole Prop clients must provide their personal mobile, not a business VoIP number.' }
+  const clientVsAgency = [
+    { client: 'Exact legal business name and registration number', agency: 'Intake, validation against official records, and data entry' },
+    { client: 'Registered business address and authorized contact', agency: 'Trust Center submission for each sub-account' },
+    { client: 'A live website that identifies the business', agency: 'Checking that the site, Brand and Campaign tell the same story' },
+    { client: 'The real messaging purpose and how contacts opt in', agency: 'Drafting the description and sample messages from what the client actually sends' },
+    { client: 'Approval of what is submitted in their name', agency: 'Status tracking, number linking and post approval testing' },
+    { client: 'Payment responsibility, as agreed in your contract', agency: 'Billing setup and clear separation of registration fees from your service fee' }
   ];
 
-  const fees = [
-    { fee: 'Brand registration fee', timing: 'One-time, at registration', perClient: 'Per client sub-account each registration is billed separately', verify: 'GHL Trust Center current fee schedules' },
-    { fee: 'Campaign vetting fee ($15 per campaign)', timing: 'One-time, at campaign submission', perClient: 'Per campaign per sub-account', verify: 'GHL Trust Center' },
-    { fee: 'Monthly campaign fee (recurring)', timing: 'Monthly while campaign is active', perClient: 'Per campaign per sub-account', verify: 'GHL Trust Center' },
-    { fee: 'Carrier per-message charges', timing: 'Per SMS/MMS segment sent', perClient: 'Per sub-account based on their sending volume', verify: 'GHL sub-account billing' },
-    { fee: 'Resubmission (if rejected and edited)', timing: 'No additional fee to edit and resubmit', perClient: 'Per sub-account but only if editing existing registration, not deleting and recreating', verify: 'GHL official documentation' }
+  const collectFromClient = [
+    { title: 'Business identity:', desc: 'exact legal name, accepted registration number or Tax ID, business type and industry, registered address and region.' },
+    { title: 'Authorized contact:', desc: 'name, reachable phone, monitored email, job title and position. This should be someone who can answer questions about the business if carriers verify it.' },
+    { title: 'Website:', desc: 'live, public and matching the Brand, with a visible business name and contact details.' },
+    { title: 'Messaging purpose:', desc: 'the use case, a plain description of what is sent, and realistic sample messages.' },
+    { title: 'Consent:', desc: 'the actual opt in method, consent language, frequency disclosure, HELP and STOP information, Privacy Policy and Terms and Conditions.' }
+  ];
+
+  const agencyLimits = [
+    { limit: 'Contact email', says: 'Each business should have its own unique contact person. Avoid using the same email address for more than five Brands', scope: 'HighLevel guidance' },
+    { limit: 'Contact phone', says: 'Do not use the same number for more than five Brands, and it must be reachable', scope: 'HighLevel guidance' },
+    { limit: 'Sole Proprietor OTP number', says: 'One US or Canada mobile number can verify up to three Sole Proprietor Brands. VoIP, LeadConnector and other CPaaS numbers are not accepted', scope: 'Carrier limit, per HighLevel' },
+    { limit: 'Sole Proprietor numbers', says: 'One phone number per Campaign. Standard Brands support multiple numbers', scope: 'Brand type' },
+    { limit: 'Brands per EIN', says: 'Registering more Brands than allowed against one EIN returns error 30898. HighLevel does not publish the ceiling in the articles I reviewed', scope: 'TCR level, surfaced in HighLevel' },
+    { limit: 'Identity verification', says: 'Persona verification is generally completed once per sub-account. Email OTP allows three attempts and two resends', scope: 'HighLevel workflow' }
+  ];
+
+  const workflowSteps = [
+    { step: 'Confirm A2P applies.', desc: 'It applies to US bound messages from standard local numbers. Toll Free numbers use a separate verification, compared in Toll Free vs A2P 10DLC, and Canadian scenarios are in A2P 10DLC for Canadian numbers.' },
+    { step: 'Run your intake.', desc: 'Use one standard form for every client so no registration starts with gaps.' },
+    { step: 'Validate before submitting.', desc: 'Compare legal name, registration number and address against official records, confirm the website is live, and check that the use case, description and samples describe the real messaging.' },
+    { step: 'Prepare the sub-account.', desc: 'Confirm the phone system is connected and the client\'s numbers are in place. If your sub-accounts have re-billing off, note that HighLevel\'s default phone preferences let you control whether sub-account users can submit A2P registration in that case.' },
+    { step: 'Register the Brand', desc: 'in Settings, Phone System, Trust Center. The process is in the Brand Registration guide.' },
+    { step: 'Register the Campaign', desc: 'once the Brand is eligible. HighLevel has you run its compliance review and then submit, so do not assume approval of the Brand submits the Campaign for you. See A2P Campaign Registration in GoHighLevel.' },
+    { step: 'Monitor the review.', desc: 'A Campaign stays Pending while under review. Do not create another Campaign just because it is slow.' },
+    { step: 'Link and verify numbers.', desc: 'After approval, each number must be linked to the approved Campaign and show the green A2P Verified label. HighLevel\'s error 30034 guide covers the linking.' },
+    { step: 'Test.', desc: 'Send a test message, confirm opt out behavior works, and keep the client\'s consent evidence on file.' },
+    { step: 'Record everything', desc: 'in your tracker, described next.' }
+  ];
+
+  const trackerFields = [
+    { field: 'Client and sub-account', record: 'Business name and sub-account name or location ID' },
+    { field: 'Brand type and status', record: 'Standard or Sole Proprietor, plus current status' },
+    { field: 'Campaign, use case and status', record: 'Pending, Rejected or Approved, matching what Trust Center shows' },
+    { field: 'Numbers and link status', record: 'Which numbers exist and whether each shows A2P Verified' },
+    { field: 'Authorized contact', record: 'Who it is, so contact reuse stays within HighLevel\'s guidance' },
+    { field: 'Consent and website evidence', record: 'Opt in URL, policy page URLs and screenshots' },
+    { field: 'Submission and approval dates', record: 'For follow up and reporting' },
+    { field: 'Billing status', record: 'Who is paying, and whether re-billing is on' },
+    { field: 'Issues and owner', record: 'Rejection reason, error code, who is fixing it' }
+  ];
+
+  const agencyMistakes = [
+    'Registering the agency instead of the client. The Brand must be the business actually sending.',
+    'Choosing Sole Proprietor for a business with a Tax ID. That path is only for businesses without one.',
+    'Reusing contact details beyond HighLevel\'s guidance, or submitting an agency contact who cannot speak for the client\'s business.',
+    'Submitting before the website and consent flow are ready. Reviewers compare all of it.',
+    'Copying consent wording or policy pages between clients. Each must reflect that business\'s own flow.',
+    'Assuming Campaign approval means numbers work. Each number must still be linked to the approved Campaign.',
+    'Assuming A2P moves with a phone number or a snapshot. It does not, as the next sections show.',
+    'Skipping tracking, so rejected or pending registrations go unnoticed until a client complains.'
+  ];
+
+  const phoneMoves = [
+    { scenario: 'Moving numbers between sub-accounts in the same agency:', desc: 'HighLevel\'s Move Numbers guide says A2P status is at the sub-account level and does not move with the number, so reattach the correct Brand and Campaign afterward.' },
+    { scenario: 'Moving from your own Twilio account to LC Phone:', desc: 'an A2P registration made through your own Twilio account does not migrate. The sub-account must register again in HighLevel Trust Center, and applicable fees apply again, per HighLevel\'s LC Phone migration guide.' },
+    { scenario: 'Transferring a sub-account to another agency:', desc: 'HighLevel\'s sub-account transfer guide says eligible A2P registration stays with the numbers, while numbers on your own Twilio account do not transfer automatically. Our sub-account transfer article covers the wider process.' }
+  ];
+
+  const checklistItems = [
+    'Client confirmed as a separate legal business, with US bound local number messaging',
+    'Legal name, registration number and address verified against official records',
+    'Brand type chosen correctly (Standard or Sole Proprietor)',
+    'Authorized contact is the client\'s own, within HighLevel\'s reuse guidance',
+    'Website live, public and matching the Brand',
+    'Use case, description and samples describe the real messaging',
+    'Opt in flow, Privacy Policy and Terms are client specific and reachable',
+    'Client approved the submission and understands who pays what',
+    'Brand approved, then Campaign submitted and monitored',
+    'Every sending number linked and showing A2P Verified',
+    'Test message sent and opt out checked',
+    'Tracker row completed'
   ];
 
   // Reusable Project Help Card Component
@@ -213,7 +222,6 @@ export default function A2PRegistrationForAgenciesClient() {
       <div className="text-xl font-bold text-white mb-2 flex justify-center">Project Help</div>
       <p className="text-[15px] text-white/60 leading-relaxed mb-4">Get quick guidance for your migration.</p>
       <Link
-        // onClick={handleOpenBooking}
         href="/book-a-call"
         className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
         Book a 30 min Free Call
@@ -238,7 +246,7 @@ export default function A2PRegistrationForAgenciesClient() {
         </div>
       </nav>
 
-      {/* Hero Section - WIDE (KEPT AS IS) */}
+      {/* Hero Section */}
       <section className="bg-[#0B1628] py-12 md:py-[72px] px-4 md:px-6 relative overflow-hidden">
         <div className="absolute -top-[120px] -right-[120px] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(14,155,240,0.12)_0%,transparent_70%)] pointer-events-none" />
         <div className="absolute -bottom-[80px] -left-[80px] w-[360px] h-[360px] bg-[radial-gradient(circle,rgba(37,201,125,0.08)_0%,transparent_70%)] pointer-events-none" />
@@ -255,7 +263,7 @@ export default function A2PRegistrationForAgenciesClient() {
           {/* H1 */}
           <h1 className="text-[clamp(28px,6vw,46px)] font-extrabold leading-[1.2] md:leading-[1.15] text-white mb-4 md:mb-5 tracking-[-0.02em]">
             A2P Registration for GoHighLevel Agencies:<br />
-            <span className="text-[#F8D000]">Managing Multiple Client Accounts (2026)</span>
+            <span className="text-[#F8D000]">Managing Multiple Client Accounts</span>
           </h1>
 
           {/* Author */}
@@ -269,29 +277,55 @@ export default function A2PRegistrationForAgenciesClient() {
             </div>
             <div>
               <div className="text-sm font-medium text-white">GHL Scale Up Team</div>
-              <div className="text-xs text-white/50">GoHighLevel Specialists · 200+ Builds Delivered · Updated July 2026</div>
+              <div className="text-xs text-white/50">GoHighLevel Specialists · 200+ builds delivered · Verified against GoHighLevel, Twilio, and The Campaign Registry documentation, September 2026</div>
             </div>
           </div>
 
-          {/* Intro Paragraph - NO max-w constraint */}
-          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6">
-            For agencies managing multiple GoHighLevel sub-accounts, A2P 10DLC registration is not a one-time task. Every client account that sends automated SMS to US recipients needs its own brand registration, its own campaign registration, and its own opt-in documentation. There is no shortcut that registers all clients under a single submission. <Link href="/" className="text-[#0E9BF0] hover:underline font-medium">GHL Scale Up</Link> has handled A2P registration across hundreds of client accounts. This guide covers the agency-specific rules, the limits that catch agencies off guard, and the most efficient workflow for managing registrations at scale.
-          </p>
+          {/* Quick Answer Box */}
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 md:p-6 mb-6">
+            <div className="flex items-center gap-2 mb-3">
+              <Zap className="w-5 h-5 text-[#F8D000]" />
+              <span className="text-xs font-bold uppercase tracking-wider text-white/60">Quick Answer</span>
+            </div>
+            <p className="text-sm text-white/70 leading-relaxed mb-3">
+              Each client business needs its own A2P 10DLC Brand and Campaign, registered from inside that client's sub-account in Trust Center. A Brand is the verified identity of one business, so an agency Brand cannot stand in for a set of unrelated clients, and HighLevel's documentation describes no agency wide registration that covers them all. For an agency, the real work is operational: collecting accurate information from every client, keeping contact details and consent evidence separate per business, tracking every registration to completion, and being clear with clients about who pays for what.
+            </p>
+            <p className="text-sm text-white/70 leading-relaxed">
+              This guide covers that operating layer. The step by step screens live in our <Link href="/blog/a2p-brand-registration-guide" className="text-[#0E9BF0] hover:underline">Brand Registration</Link> and <Link href="/blog/a2p-campaign-registration-guide" className="text-[#0E9BF0] hover:underline">Campaign Registration</Link> guides, and this page links out wherever a topic has its own article.
+            </p>
+          </div>
+
+          {/* CTA Button 1 */}
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105"
+            >
+              <Rocket className="w-4 h-4" />
+              Get A2P Registration Help
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              href="#limits"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20"
+            >
+              See Agency Limits
+              <ChevronDown className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* MAIN LAYOUT - Sidebar on LEFT, Content on RIGHT */}
-      <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-16">
+      {/* MAIN LAYOUT */}
+      <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-10">
         <div className="grid lg:grid-cols-[280px_1fr] gap-8 md:gap-12 items-start">
 
-          {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
+          {/* SIDEBAR */}
           <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
-            {/* Project Help Card - At top of sidebar */}
-            <div className="mb-6">
+            <div className="hidden lg:block mb-6">
               <ProjectHelpCard />
             </div>
 
-            {/* Table of Contents */}
             <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
                 <BookOpen className="w-3 h-3" />
@@ -308,7 +342,9 @@ export default function A2PRegistrationForAgenciesClient() {
                         }`}
                     >
                       <span className="flex items-start gap-2">
-                        {activeId === item.id && <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />}
+                        {activeId === item.id && (
+                          <span className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0 mt-1.5" />
+                        )}
                         <span className="flex-1">{item.title}</span>
                       </span>
                     </button>
@@ -317,7 +353,6 @@ export default function A2PRegistrationForAgenciesClient() {
               </ul>
             </nav>
 
-            {/* About the Author */}
             <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
@@ -333,52 +368,46 @@ export default function A2PRegistrationForAgenciesClient() {
                 </div>
               </div>
               <p className="text-xs text-white/60 leading-relaxed mb-3">
-                5+ years GHL experience · 200+ A2P registrations handled globally. All technical details verified as of July 2026.
+                5+ years GHL experience · 200+ A2P registrations handled globally across agency client portfolios. All technical details verified as of September 2026.
               </p>
-              <Link href="/" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
+              <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
             </div>
 
-            {/* Share Buttons */}
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
-              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Follow Us</div>
+              <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Share this guide</div>
               <div className="flex gap-2 flex-wrap">
-                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Linkedin className="w-3 h-3" /> LinkedIn</a>
-                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all"><Twitter className="w-3 h-3" /> X</a>
-                <button onClick={() => navigator.clipboard.writeText(window.location.href)} className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"><Copy className="w-3 h-3" /> Copy link</button>
+                <a href="https://www.linkedin.com/company/ghl-scale-up" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-[#0A66C2] text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Linkedin className="w-3 h-3" />
+                  LinkedIn
+                </a>
+                <a href="https://x.com/GHLScaleUp" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-semibold bg-black text-white px-3 py-1.5 rounded-md hover:opacity-85 hover:shadow-md transition-all">
+                  <Twitter className="w-3 h-3" />
+                  X
+                </a>
+                <button
+                  onClick={() => navigator.clipboard.writeText(window.location.href)}
+                  className="flex items-center gap-1.5 text-xs font-semibold bg-[#F0F2F5] text-[#1A2236] px-3 py-1.5 rounded-md hover:bg-[#DDE1E9] transition-colors"
+                >
+                  <Copy className="w-3 h-3" />
+                  Copy link
+                </button>
               </div>
+            </div>
+
+            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
+              <div className="text-sm font-bold text-white mb-2">A2P Agency Help?</div>
+              <p className="text-xs text-white/60 leading-relaxed mb-4">We handle A2P registration for agencies and their clients — intake process, EIN verification, brand and campaign registration, and rejection troubleshooting.</p>
+              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
+                Get Help
+                <ArrowRight className="w-3 h-3" />
+              </Link>
             </div>
           </aside>
 
-          {/* ==================== RIGHT COLUMN: BLOG CONTENT ==================== */}
+          {/* MAIN CONTENT */}
           <main className="min-w-0 order-2">
 
-            {/* BLUF Box */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
-              <div className="flex items-center gap-2 mb-3">
-                <Zap className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Direct Answer</span>
-              </div>
-              <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
-                No you cannot register one A2P brand for multiple client sub-accounts in GoHighLevel. Each brand registration represents one business entity.
-              </p>
-              <p className="text-sm text-[#5C6880] leading-relaxed">
-                Each client sub-account requires its own brand registration tied to that client's legal business name and Tax ID. Campaign registration follows automatically per sub-account once the brand is approved. There are practical limits agencies need to plan for: one email address can be used for a maximum of 5 brand registrations, and one mobile phone number can be used for OTP verification across a maximum of 3 brand registrations ecosystem-wide. For agencies with more than 3 to 5 clients, you will need multiple email addresses and phone numbers before you start.
-              </p>
-
-              {/* CTA Button inside BLUF */}
-              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
-                  <Target className="w-4 h-4" />
-                  Get A2P Registration Help
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Table of Contents - Mobile Only */}
+            {/* Mobile TOC */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8 lg:hidden">
               <div className="flex items-center gap-2 mb-4">
                 <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
@@ -397,255 +426,287 @@ export default function A2PRegistrationForAgenciesClient() {
               </div>
             </div>
 
-            {/* Mobile Project Help Card - visible on mobile only */}
+            {/* Mobile Project Help Card */}
             <div className="lg:hidden mb-8">
               <ProjectHelpCard />
             </div>
 
-            {/* CTA 1 - After TOC */}
-            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
-              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
-                <strong className="text-white">Not sure how to handle A2P registration for multiple clients?</strong>
-              </p>
-              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
-                Get a free strategy call. We'll review your client base and build a registration workflow that scales.
-              </p>
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                Book a Free Strategy Call
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* Section 1: Why Per Client */}
-            <h2 id="why-per-client" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-8 mb-4">
-              1. Why Does Every Client Sub-Account Need Its Own A2P Registration?
+            {/* Section: What A2P Registration Means for an Agency */}
+            <h2 id="what-means" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-8 mb-4">
+              What A2P Registration Means for an Agency
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              GoHighLevel's sub-account architecture gives each client a fully isolated workspace their own CRM, automations, funnels, and phone numbers. That isolation extends to A2P registration. The Campaign Registry (TCR) links every registered campaign to a specific brand identity (business name, EIN, address). When your client's phone number sends an SMS, TCR's system verifies that the sending number is registered under an approved brand and campaign that belongs to that specific business.
+              A2P 10DLC is the carrier registration framework for business texts sent to US recipients from standard 10 digit local numbers. If the background is new, start with <Link href="/blog/what-is-a2p-10dlc" className="text-[#0E9BF0] hover:underline">what A2P 10DLC is</Link>. At agency scale the useful question is which entity owns what:
             </p>
+
+            <div className="overflow-x-auto my-6">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Entity</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Role in A2P registration</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {entityRoles.map((item, idx) => (
+                    <tr key={idx} className="border-b border-[#DDE1E9]">
+                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.entity}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.role}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Section: Does Each Client Need a Separate A2P Registration */}
+            <h2 id="separate-registration" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Does Each Client Need a Separate A2P Registration?
+            </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Registering your agency's own brand and using it to cover your clients' sub-accounts would mean all of your clients' messages appear to TCR as coming from your agency, not from the client business. This misrepresents the sender identity which is exactly what A2P registration exists to prevent. Each client is a legally distinct business with its own identity, and TCR requires that identity to match.
+              Yes, for separate businesses. HighLevel describes a Brand as the legal business entity sending the messages, and registration is submitted from the sub-account where that business operates. Registering your own agency and sending clients' messages under it would misstate who is sending them, which is what registration exists to prevent.
             </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-2">
+              <strong className="text-[#1A2236]">Two related points are less obvious.</strong>
+            </p>
+            <ul className="space-y-3 mb-6 text-sm text-[#5C6880] list-disc list-inside">
+              <li><strong className="text-[#1A2236]">One client, several Campaigns.</strong> A single sub-account can hold more than one Campaign under an approved Brand, each with its own use case, and different numbers can be linked to different Campaigns. HighLevel introduced this in its <a href="https://ideas.gohighlevel.com/changelog/multi-a2p-brand-and-campaign-support-with-additional-upgrades" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">multi Brand and Campaign update</a>. Extra Campaigns follow the pricing in the <Link href="/blog/a2p-10dlc-fees-explained" className="text-[#0E9BF0] hover:underline">fees guide</Link>.</li>
+              <li><strong className="text-[#1A2236]">One business, several sub-accounts.</strong> Agencies often ask whether sub-accounts belonging to the same company, such as one per sales rep, can share a registration. I found no HighLevel documentation describing a way to share one Brand and Campaign across sub-accounts, and users have posted <a href="https://ideas.gohighlevel.com/lcphonesystem/p/ability-to-share-a2p-registration-with-subaccounts" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">feature requests for it</a>. Until HighLevel documents otherwise, plan on registering in each sub-account, and check your Trust Center before promising a client anything different.</li>
+            </ul>
 
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-2">
-              For the foundational explanation of why A2P registration exists: <Link href="/blog/what-is-a2p-10dlc" className="text-[#0E9BF0] hover:underline">What Is A2P 10DLC? →</Link>
-            </p>
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              For the GoHighLevel sub-account model and how it structures client accounts: <Link href="/blog/gohighlevel-for-agencies" className="text-[#0E9BF0] hover:underline">GoHighLevel for Agencies: Complete 2026 Guide →</Link>
-            </p>
-
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">ONE EXCEPTION THAT AGENCIES ASK ABOUT</span>
+            {/* 
+              ============================================================
+              🖼️ IMAGE INSERTED HERE - Full width, responsive, interactive
+              ============================================================
+            */}
+            <div className="my-8 md:my-10 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <div className="relative w-full h-auto bg-[#F8F9FB]">
+                <Image
+                  src="/blog/a2p-registration-for-agencies-infographic.png"
+                  alt="A2P Registration for GoHighLevel Agencies: Entity roles, client vs agency responsibilities, registration limits, and multi-client workflow"
+                  width={1200}
+                  height={500}
+                  className="w-full h-auto object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                />
               </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                What if all my sub-accounts are for the same business under the same EIN for example, separate sub-accounts for each sales rep at one company? This is a confirmed pain point. There is an open feature request on GHL's Ideas board requesting the ability to select multiple sub-accounts under one brand and campaign registration. As of the date of this guide, this feature does not exist separate registrations are required per sub-account even when the underlying business entity is the same. Check GHL's feature release notes for any updates to this limitation, as it is an actively requested change.
-              </p>
+              <div className="bg-[#F8F9FB] px-4 py-2.5 text-xs text-[#5C6880] border-t border-[#DDE1E9] flex items-center gap-2">
+                <ImageIcon className="w-3.5 h-3.5" />
+                <span>A2P Registration for GoHighLevel Agencies: Entity roles, client vs agency responsibilities, registration limits, and multi-client workflow</span>
+              </div>
             </div>
 
-            {/* Section 2: Agency Limits */}
-            <h2 id="agency-limits" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              2. What Are the Agency-Specific Limits That Affect Multiple Registrations?
+            {/* Section: What Belongs to the Client and What Belongs to the Agency */}
+            <h2 id="client-vs-agency" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              What Belongs to the Client and What Belongs to the Agency
+            </h2>
+
+            <div className="overflow-x-auto my-6">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Client provides or confirms</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Agency handles</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {clientVsAgency.map((item, idx) => (
+                    <tr key={idx} className="border-b border-[#DDE1E9]">
+                      <td className="py-3 px-3 text-[#5C6880]">{item.client}</td>
+                      <td className="py-3 px-3 text-[#0E9BF0]">{item.agency}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              This split is a recommended operating model, not a HighLevel rule. What HighLevel does require is that the submitted details match the real business, so the client has to be the source of truth for identity and consent.
+            </p>
+
+
+            {/* Section: What to Collect From Each Client */}
+            <h2 id="collect-from-client" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              What to Collect From Each Client Before You Register
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              These limits are confirmed from GHL's official documentation. Plan for them before starting any multi-client registration workflow.
+              HighLevel's own preparation list groups what reviewers compare into five areas. Collect all of it before opening the sub-account, because a missing item mid registration usually means a repeat submission:
             </p>
+            <ul className="space-y-2 mb-4 text-sm text-[#5C6880] list-disc list-inside">
+              {collectFromClient.map((item, idx) => (
+                <li key={idx}><strong className="text-[#1A2236]">{item.title}</strong> {item.desc}</li>
+              ))}
+            </ul>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              For US Standard Brands, ask for the complete CP 575 or 147C letter rather than a typed name, because the legal name must match official records. Field level detail is in the <Link href="/blog/a2p-brand-registration-guide" className="text-[#0E9BF0] hover:underline">Brand Registration guide</Link>, and consent wording is covered in <Link href="/blog/a2p-opt-in-language-templates" className="text-[#0E9BF0] hover:underline">A2P opt in language and requirements</Link>. Do not submit guessed or incomplete information, and do not copy one client's consent wording or policy pages to another. Each business's website and consent flow must describe that business.
+            </p>
+
+            {/* Section: Limits That Affect Agencies */}
+            <h2 id="limits" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Limits That Affect Agencies Registering Many Clients
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              These come from HighLevel's current Brand registration documentation unless stated. The first two are guidance rather than hard blocks, but they matter once you register many businesses.
+            </p>
+
+            <div className="overflow-x-auto my-6">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Limit</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">What it says</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Scope</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {agencyLimits.map((item, idx) => (
+                    <tr key={idx} className="border-b border-[#DDE1E9]">
+                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.limit}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.says}</td>
+                      <td className="py-3 px-3 text-[#0E9BF0]">{item.scope}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Two practical consequences follow. Use the client's own authorized representative and contact details wherever you can, instead of rotating agency email addresses or aliases to stay under a limit, because the contact must be verifiable for that business. And if a limit really does block a legitimate registration, ask HighLevel Support rather than working around it.
+            </p>
+
+            {/* Section: A Repeatable Workflow */}
+            <h2 id="workflow" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              A Repeatable Workflow for Registering Multiple Clients
+            </h2>
 
             <div className="space-y-3 mb-6">
-              {limits.map((item, idx) => (
+              {workflowSteps.map((item, idx) => (
                 <div key={idx} className="bg-white border border-[#DDE1E9] rounded-xl p-4">
-                  <h3 className="text-base font-bold text-[#1A2236] mb-2">{item.limit}</h3>
-                  <div className="bg-[#FEF2F0] border border-[rgba(220,53,69,0.2)] rounded-xl p-3 mb-3">
-                    <p className="text-sm text-[#5C6880]"><strong className="text-[#1A2236]">What it means for agencies:</strong> {item.meaning}</p>
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-7 h-7 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold flex-shrink-0">{idx + 1}</div>
+                    <h3 className="text-base font-bold text-[#1A2236]">{item.step}</h3>
                   </div>
-                  <div className="bg-[#E8FAF2] border border-[rgba(37,201,125,0.2)] rounded-xl p-3">
-                    <p className="text-sm text-[#5C6880]"><strong className="text-[#25C97D]">How to work around it:</strong> {item.workaround}</p>
+                  <p className="text-sm text-[#5C6880] leading-relaxed ml-10">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Section: How to Manage A2P Registrations at Scale */}
+            <h2 id="scale" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              How to Manage A2P Registrations at Scale
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Registration status and rejection details are shown inside each sub-account's Trust Center. I found no documented agency wide view that lists every sub-account's registration, so keep your own tracker and update it whenever a status changes. A workable version has one row per client sub-account:
+            </p>
+
+            <div className="overflow-x-auto my-6">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Field</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">What to record</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {trackerFields.map((item, idx) => (
+                    <tr key={idx} className="border-b border-[#DDE1E9]">
+                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.field}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.record}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Review anything Pending or Rejected on a regular schedule so registrations do not sit forgotten. The cadence is your call, since HighLevel publishes no fixed review time. Throughput and Trust Score matter once clients scale sending, and are covered in <Link href="/blog/a2p-trust-score-mps" className="text-[#0E9BF0] hover:underline">how Trust Score and MPS work</Link>.
+            </p>
+
+
+
+            {/* Section: A2P Registration and GoHighLevel SaaS Mode */}
+            <h2 id="saas-mode" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              A2P Registration and GoHighLevel SaaS Mode
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              If clients sign up through SaaS Mode and get sub-accounts automatically, A2P registration is still completed per sub-account in Trust Center. Provisioning can connect the phone system to new sub-accounts automatically, and that is a setting you control, but connecting a phone system is not the same as registering a Brand and Campaign.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Snapshots copy configuration such as funnels, forms and workflows. HighLevel's documentation does not describe a snapshot as carrying an approved registration, so treat every new client as needing their own Brand, Campaign and consent evidence. Build registration into onboarding, decide whether you run it for clients or guide them through it, and make the client's legal business details a required onboarding step. For the SaaS configuration itself, see our <Link href="/blog/gohighlevel-saas-mode-setup" className="text-[#0E9BF0] hover:underline">SaaS Mode setup guide</Link> and <Link href="/services/gohighlevel-saas-mode" className="text-[#0E9BF0] hover:underline">GoHighLevel SaaS Mode service</Link>.
+            </p>
+
+            {/* Section: A2P Billing and Client Rebilling */}
+            <h2 id="billing" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              A2P Billing and Client Rebilling for Agencies
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              The exact amounts live in our <Link href="/blog/a2p-10dlc-fees-explained" className="text-[#0E9BF0] hover:underline">A2P 10DLC fees guide</Link>. What agencies need here is who charges what, and what stays yours.
+            </p>
+            <ul className="space-y-3 mb-6 text-sm text-[#5C6880] list-disc list-inside">
+              <li><strong className="text-[#1A2236]">Registration and messaging charges:</strong> HighLevel's fee reference describes A2P registration, vetting and monthly Campaign fees as pass through charges from TCR, Twilio and carriers, with no HighLevel markup.</li>
+              <li><strong className="text-[#1A2236]">The re-billing 5% markup:</strong> HighLevel's <a href="https://help.gohighlevel.com/support/solutions/articles/48001223556-phone-system-pricing-billing-guide" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">LC Phone billing guide</a> separately describes a fixed 5% markup on pass through categories, including A2P registration fees and SMS and MMS carrier fees, applied at the sub-account level when re-billing is enabled. Your own configured re-billing amount is then applied on top of that. Configure it under Agency View, Reselling, Core Services. The two pages describe billing differently, so check what your agency account actually shows before quoting clients.</li>
+              <li><strong className="text-[#1A2236]">Fees start on submission:</strong> the same guide says submitting a Campaign starts the one time and monthly fees regardless of the review outcome, and that deleting a Campaign stops future monthly charges. Resubmitting a rejected Campaign has been free since February 1, 2026.</li>
+              <li><strong className="text-[#1A2236]">Your own service fee:</strong> anything you charge for handling registration is an agency service charge. It is not a TCR, carrier or HighLevel fee and should never be presented as one.</li>
+            </ul>
+
+            {/* Section: Agency Mistakes That Cause Registration Problems */}
+            <h2 id="mistakes" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Agency Mistakes That Cause Registration Problems
+            </h2>
+            <ul className="space-y-2 mb-6 text-sm text-[#5C6880] list-disc list-inside">
+              {agencyMistakes.map((item, idx) => (
+                <li key={idx}>{item}</li>
+              ))}
+            </ul>
+
+            {/* Section: What to Do When a Client Registration Is Rejected */}
+            <h2 id="rejected" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              What to Do When a Client Registration Is Rejected
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              First establish what failed. A Brand problem is an identity problem, and a Campaign problem concerns the messaging program, so the two use different guides. Open every rejection reason under View required fixes and note the code before anyone edits anything.
+            </p>
+            <ul className="space-y-2 mb-4 text-sm text-[#5C6880] list-disc list-inside">
+              <li>Brand identity failures: <Link href="/blog/a2p-brand-rejected-fix" className="text-[#0E9BF0] hover:underline">A2P Brand Rejected in GoHighLevel</Link>.</li>
+              <li>Use case, description, sample message, consent or website failures: <Link href="/blog/a2p-campaign-rejected-fix" className="text-[#0E9BF0] hover:underline">A2P Campaign Rejected in GoHighLevel</Link>.</li>
+              <li>A specific numbered code: <Link href="/blog/a2p-error-codes-explained" className="text-[#0E9BF0] hover:underline">A2P error codes</Link>.</li>
+            </ul>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              If you need HighLevel Support, gather the Brand and Campaign names and statuses, the exact rejection reason and error code, screenshots of the required fixes, the website and opt in URL, the use case and samples, the affected number, and the sub-account details. Tell the client what happened and get their confirmation before resubmitting anything in their name.
+            </p>
+
+            {/* Section: What Happens When a Client Changes Phone Systems */}
+            <h2 id="phone-moves" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              What Happens When a Client Changes Phone Systems or Sub-Accounts
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              A2P registration is tied to the sub-account, not to the phone number, so moves need a plan.
+            </p>
+            <ul className="space-y-3 mb-6 text-sm text-[#5C6880] list-disc list-inside">
+              {phoneMoves.map((item, idx) => (
+                <li key={idx}><strong className="text-[#1A2236]">{item.scenario}</strong> {item.desc}</li>
+              ))}
+            </ul>
+
+            {/* Section: Agency A2P Registration Checklist */}
+            <h2 id="checklist" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Agency A2P Registration Checklist
+            </h2>
+            <div className="space-y-2 mb-6">
+              {checklistItems.map((item, idx) => (
+                <div key={idx} className="bg-white border border-[#DDE1E9] rounded-xl p-3">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" />
+                    <p className="text-sm text-[#5C6880]">{item}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            {/* CTA 2 - After Agency Limits */}
-            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 text-center my-6 text-white">
-              <p className="text-sm font-medium mb-2">⚠️ Running into A2P registration limits?</p>
-              <p className="text-sm text-white/80 mb-4">We can help you plan your registration strategy, manage email and phone limits, and handle registrations for your entire client base.</p>
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                <Search className="w-4 h-4" />
-                Get Registration Strategy Help
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
 
-            {/* Section 3: Client Info */}
-            <h2 id="client-info" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              3. What Does Each Client Need to Provide Before You Can Register?
-            </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Collect all of this from the client before logging into their sub-account. Incomplete information mid-registration slows the process and increases rejection risk.
-            </p>
-
-            <div className="overflow-x-auto my-6">
-              <table className="w-full border-collapse text-sm">
-                <thead>
-                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Information needed</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Why it is needed</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Common client mistake to flag</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {clientInfo.map((item, idx) => (
-                    <tr key={idx} className="border-b border-[#DDE1E9]">
-                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.info}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.why}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.flag}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-2">
-              For the compliant consent checkbox language to include on every client's opt-in form: <Link href="/blog/a2p-opt-in-language-templates" className="text-[#0E9BF0] hover:underline">A2P Opt-In Language Templates →</Link>
-            </p>
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-2">
-              For A2P brand registration steps once you have the above information: <Link href="/blog/a2p-brand-registration-guide" className="text-[#0E9BF0] hover:underline">A2P Brand Registration Guide →</Link>
-            </p>
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              For campaign registration after brand approval: <Link href="/blog/a2p-campaign-registration-guide" className="text-[#0E9BF0] hover:underline">A2P Campaign Registration Guide →</Link>
-            </p>
-
-            {/* Section 4: Workflow */}
-            <h2 id="workflow" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              4. What Is the Most Efficient Workflow for Registering Multiple Clients?
-            </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The agencies that complete multi-client A2P registration with the fewest rejections follow a standardised intake and submission process. Here is the sequence GHL Scale Up uses.
-            </p>
-
-            <ul className="space-y-3 mb-4 text-sm text-[#5C6880] list-decimal list-inside">
-              <li><strong className="text-[#1A2236]">Build a client intake form.</strong> Create a GHL form or a simple document that every new client completes before you begin registration. Include every field from the table in Section 3. Send it to the client and do not begin registration until you have all answers. Missing information discovered mid-registration wastes review cycles.</li>
-              <li><strong className="text-[#1A2236]">Verify the EIN before submitting.</strong> Ask the client to provide their CP 575 EIN Confirmation Letter as a complete PDF. Since GHL now allows direct CP 575 upload in the Trust Center (fields auto-fill from the document), this step simultaneously prevents EIN mismatch rejection and speeds up data entry. Verify the legal name on the CP 575 matches exactly what will be entered in the registration form.</li>
-              <li><strong className="text-[#1A2236]">Update the client's website Privacy Policy before opening the Trust Center.</strong> Check that the Privacy Policy includes the required no-mobile-data-sharing clause. Check that both Privacy Policy and Terms of Service links are live and accessible without login. Fix these first they cannot be added retroactively after submission without potentially requiring a new review cycle.</li>
-              <li><strong className="text-[#1A2236]">Log into the client's sub-account and open Settings Phone Numbers Trust Center.</strong> A2P registration is done from inside the client's sub-account, not from your agency-level dashboard. Navigate: Settings, then Phone System, then Trust Center. Click Start Registration under A2P Messaging.</li>
-              <li><strong className="text-[#1A2236]">Upload the CP 575 PDF first.</strong> If the Trust Center shows a CP 575 upload option, upload the complete PDF before entering any details manually. GHL will auto-fill the business name, EIN, and address from the document. This reduces manual data entry errors.</li>
-              <li><strong className="text-[#1A2236]">Complete brand registration and handle OTP.</strong> Use a unique email address (your own for the first 5 clients) and a mobile number that has not been used for more than 2 previous brand registrations. Verify via OTP immediately do not leave the OTP step pending, as it may expire.</li>
-              <li><strong className="text-[#1A2236]">Track registration status in a shared log.</strong> Create a simple tracking sheet with each client's sub-account name, brand registration date, brand status, campaign status, and any rejection notes. Review pending registrations every 2 to 3 business days during the review period.</li>
-              <li><strong className="text-[#1A2236]">Add new phone numbers to approved accounts without resubmission.</strong> Once brand and campaign are approved, any additional phone numbers purchased for that sub-account are automatically registered under the same campaign. No new registration submission is needed. It may take several days for registration to complete on newly added numbers confirm this timing in GHL's current documentation as it can change.</li>
-            </ul>
-
-            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Lightbulb className="w-4 h-4 text-[#0E9BF0]" />
-                <span className="text-sm font-bold text-[#0E9BF0]">THE SINGLE BIGGEST TIME SAVER</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                Standardise your intake form before you register your first client. Every agency that processes A2P registrations without a standard intake form eventually encounters the same delays: EIN not available, website not live, Privacy Policy not updated, opt-in form behind a login. A 10-minute intake process per client eliminates most of these. The review period (3 to 7 business days per registration) is the unavoidable wait everything else is controllable.
-              </p>
-            </div>
-
-            {/* CTA 3 - After Workflow */}
-            <div className="bg-[#0B1628] rounded-xl p-6 text-center my-6 text-white">
-              <p className="text-sm font-medium mb-2">📋 Need a ready-to-use client intake form and workflow template?</p>
-              <p className="text-sm text-white/80 mb-4">We can provide you with a complete intake form, tracking sheet, and step-by-step workflow for registering multiple clients.</p>
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                <FileCheck className="w-4 h-4" />
-                Get Your Workflow Template
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* Section 5: SaaS Mode */}
-            <h2 id="saas-mode" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              5. How Does A2P Registration Work With GoHighLevel SaaS Mode?
-            </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              If you operate under GHL SaaS Mode, your clients self-sign-up and their sub-accounts are provisioned automatically. A2P registration is not part of the automated provisioning flow it is a separate step that must be completed after the sub-account is created.
-            </p>
-
-            <ul className="space-y-2 mb-4 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">A2P is not included in SaaS Mode onboarding by default:</strong> When a client signs up through your SaaS Mode pricing page and their sub-account is created from your Snapshot, no A2P registration is submitted automatically. You or the client must complete registration separately for each sub-account.</li>
-              <li><strong className="text-[#1A2236]">Two approaches for SaaS agencies:</strong> (1) Agency-managed registration: you complete A2P registration for each new client sub-account as part of your onboarding service, charging a setup fee. (2) Client-managed registration: you provide clients with instructions or a guide and they complete their own Trust Center registration. Client-managed registration results in more errors agency-managed produces fewer rejections.</li>
-              <li><strong className="text-[#1A2236]">Rebilling A2P fees:</strong> A2P registration and monthly campaign fees are passthrough charges from TCR and carriers. GHL passes these through at cost with no markup. If you charge clients a setup fee for A2P registration management, this is separate from the passthrough fee. Be clear with clients about which fees are passthrough (they pay for the registration itself) and which are your agency's management fee. For the full fee breakdown: <Link href="/blog/a2p-10dlc-fees-explained" className="text-[#0E9BF0] hover:underline">A2P 10DLC Fees Explained →</Link></li>
-              <li><strong className="text-[#1A2236]">For the full SaaS Mode configuration guide:</strong> <Link href="/blog/gohighlevel-saas-mode-setup" className="text-[#0E9BF0] hover:underline">GoHighLevel SaaS Mode Setup Guide →</Link></li>
-            </ul>
-
-            {/* Section 6: Cost */}
-            <h2 id="cost" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              6. What Does It Cost to Register Multiple Clients?
-            </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              All A2P fees are passthrough charges GHL adds no markup. Fees are set by TCR and the carriers. Verify current fee amounts in GHL's Trust Center before quoting clients, as these can change.
-            </p>
-
-            <div className="overflow-x-auto my-6">
-              <table className="w-full border-collapse text-sm">
-                <thead>
-                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Fee</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Timing</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Per client? Or per agency?</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Verify in</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {fees.map((item, idx) => (
-                    <tr key={idx} className="border-b border-[#DDE1E9]">
-                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.fee}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.timing}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.perClient}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.verify}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">SCALE THE MATH BEFORE YOU QUOTE CLIENTS</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                For a 20-client agency, you are looking at 20 separate brand registrations, 20 campaign vetting fees, and 20 monthly campaign fees in addition to per-message usage charges for each client's sending volume. Build this cost into your client onboarding fee and monthly retainer. Most agencies either pass the fees through directly at cost or include them in a bundled setup fee. Never absorb these costs silently they are real, per-client, recurring charges.
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-5 my-6 text-white">
-              <div className="flex items-center gap-2 mb-3">
-                <Star className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">NEED YOUR AGENCY'S CLIENT REGISTRATIONS MANAGED</span>
-              </div>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                GHL Scale Up handles A2P registration for agencies and all their client sub-accounts. Intake process, EIN verification, brand registration, campaign submission, rejection troubleshooting, and resubmission managed for every client.
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                See results from our A2P setups: <Link href="/case-studies" className="text-[#0E9BF0] hover:underline">real GoHighLevel results and case studies →</Link>
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed">
-                To discuss managing registration across your client base: <Link href="/contact" className="text-[#0E9BF0] hover:underline">book a free strategy call at ghlscaleup.com/contact →</Link>
-              </p>
-            </div>
-
-            {/* CTA 4 - After Cost */}
-            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
-              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
-                <strong className="text-white">Want to outsource A2P registration for your entire client base?</strong>
-              </p>
-              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
-                We handle every registration, rejection, and resubmission so you can focus on growing your agency.
-              </p>
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                <Shield className="w-4 h-4" />
-                Outsource Your A2P Registration
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* Section 7: FAQ */}
+            {/* Section: FAQ */}
             <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
-              7. Frequently Asked Questions
+              A2P Registration for Agencies FAQ
             </h2>
 
             <div className="space-y-3">
@@ -660,56 +721,36 @@ export default function A2PRegistrationForAgenciesClient() {
               ))}
             </div>
 
-            {/* CTA 5 - After FAQ */}
-            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
-              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
-                <strong className="text-white">Still have questions about A2P registration for your agency?</strong>
-              </p>
-              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
-                Talk to our A2P specialists directly. We've handled 200+ A2P registrations across agency client portfolios.
-              </p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                  <MessageCircle className="w-4 h-4" />
-                  Ask an Expert
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20">
-                  <Phone className="w-4 h-4" />
-                  Call Us
-                </Link>
-              </div>
-            </div>
-
             {/* Related Articles */}
             <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
-              <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles</h3>
+              <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles in This Series</h3>
               <div className="flex flex-wrap gap-3">
-                <Link href="/blog/a2p-brand-registration-guide" className="text-sm text-[#0E9BF0] hover:underline">A2P Brand Registration Guide: Standard Brand vs Sole Proprietor →</Link>
-                <Link href="/blog/a2p-campaign-registration-guide" className="text-sm text-[#0E9BF0] hover:underline">A2P Campaign Registration: Step-by-Step Guide →</Link>
-                <Link href="/blog/a2p-opt-in-language-templates" className="text-sm text-[#0E9BF0] hover:underline">A2P Opt-In Language Templates for GoHighLevel →</Link>
-                <Link href="/blog/what-is-a2p-10dlc" className="text-sm text-[#0E9BF0] hover:underline">What Is A2P 10DLC? Complete Guide for GoHighLevel Users →</Link>
+                <Link href="/blog/a2p-brand-registration-guide" className="text-sm text-[#0E9BF0] hover:underline">A2P Brand Registration in GoHighLevel →</Link>
+                <Link href="/blog/a2p-campaign-registration-guide" className="text-sm text-[#0E9BF0] hover:underline">A2P Campaign Registration in GoHighLevel →</Link>
+                <Link href="/blog/a2p-brand-rejected-fix" className="text-sm text-[#0E9BF0] hover:underline">A2P Brand Rejected in GoHighLevel →</Link>
+                <Link href="/blog/a2p-campaign-rejected-fix" className="text-sm text-[#0E9BF0] hover:underline">A2P Campaign Rejected in GoHighLevel →</Link>
+                <Link href="/blog/a2p-error-codes-explained" className="text-sm text-[#0E9BF0] hover:underline">A2P Error Codes Explained →</Link>
                 <Link href="/blog/a2p-10dlc-fees-explained" className="text-sm text-[#0E9BF0] hover:underline">A2P 10DLC Fees Explained →</Link>
-                <Link href="/blog/gohighlevel-saas-mode-setup" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel SaaS Mode Setup Guide →</Link>
-                <Link href="/case-studies" className="text-sm text-[#0E9BF0] hover:underline">Real GoHighLevel Results and Case Studies →</Link>
+                <Link href="/blog/a2p-trust-score-mps" className="text-sm text-[#0E9BF0] hover:underline">How Trust Score and MPS Work →</Link>
+                <Link href="/blog/what-is-a2p-10dlc" className="text-sm text-[#0E9BF0] hover:underline">What Is A2P 10DLC? →</Link>
               </div>
             </div>
 
-            {/* Final CTA */}
+            {/* Final CTA Section */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Managing A2P registration across multiple clients?</h3>
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
                   GHL Scale Up handles A2P registration for your entire client base. Client intake process, EIN verification, brand registration, campaign submission, rejection troubleshooting managed per sub-account for every client.
                 </p>
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105">
                   Book Your Free Strategy Call
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
 
-            {/* Author Section */}
+            {/* Author / Verification Section */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 my-6">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
@@ -725,7 +766,7 @@ export default function A2PRegistrationForAgenciesClient() {
                 </div>
               </div>
               <p className="text-xs text-[#5C6880] leading-relaxed">
-                All information in this guide is verified against GoHighLevel's official support portal documentation as of July 2026. GHL feature availability and TCR policies may change always verify current requirements in GHL's Trust Center before acting.
+                This guide was checked against HighLevel's Registering Your A2P Brand, A2P registration overview, Phone System Pricing and Billing Guide, and its number move and sub-account transfer documentation, current as of September 2026. Requirements, fees and features change, so confirm what you see in your own Trust Center and agency billing before acting.
               </p>
               <Link href="/" className="text-[#0E9BF0] text-xs hover:underline mt-2 inline-block">ghlscaleup.com</Link>
             </div>
