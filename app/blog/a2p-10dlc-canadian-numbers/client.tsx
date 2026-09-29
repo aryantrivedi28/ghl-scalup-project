@@ -76,9 +76,11 @@ import {
   Printer,
   Video,
   Ticket,
-  TrendingDown
+  TrendingDown,
+  Image as ImageIcon,
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import Image from 'next/image';
 
 export default function A2P10DLCCanadianNumbersClient() {
   const [activeId, setActiveId] = useState<string>('');
@@ -86,11 +88,25 @@ export default function A2P10DLCCanadianNumbersClient() {
 
   useEffect(() => {
     const sections = [
-      'why-different',
-      'decision-matrix',
-      'register-canadian',
-      'persona-verification',
-      'sending-errors',
+      'quick-answer',
+      'four-things',
+      'does-apply',
+      'decision-table',
+      'ca-to-ca',
+      'ca-to-us',
+      'us-to-ca',
+      'what-changed',
+      'a2p-vs-persona',
+      'international',
+      'toll-free',
+      'consent',
+      'trust-score-mps',
+      'canadian-businesses',
+      'expand-to-us',
+      'agencies',
+      'common-mistakes',
+      'decision-framework',
+      'checklist',
       'faq'
     ];
 
@@ -110,7 +126,6 @@ export default function A2P10DLCCanadianNumbersClient() {
 
       setActiveId(currentSection);
 
-      // Show floating Project Help card after scrolling past hero section
       const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
       if (heroSection) {
         const heroBottom = heroSection.getBoundingClientRect().bottom;
@@ -135,57 +150,202 @@ export default function A2P10DLCCanadianNumbersClient() {
 
   const faqs = [
     {
-      q: "Do Canadian GoHighLevel numbers need A2P 10DLC registration?",
-      a: "It depends on two factors: where your messages are going and when the number was purchased. For CA to US messaging (sending from a Canadian number to US recipients): A2P registration is always required, regardless of when the number was purchased. For CA to CA messaging (sending to Canadian recipients only): numbers purchased before March 26, 2025 are exempt from A2P registration. Numbers purchased on or after March 26, 2025 require either A2P registration or Persona verification before sending. Toll-free numbers are not affected by these requirements."
+      q: "Do Canadian numbers need A2P 10DLC registration?",
+      a: "It depends on the route. Canada to US always needs A2P. Canada to Canada needs A2P only if the number was purchased on or after March 26, 2025, and even then Persona is a valid alternative. Toll-free numbers never use A2P."
     },
     {
-      q: "Do I need A2P registration if I only send to Canadian recipients?",
-      a: "It depends on when your number was purchased. If your Canadian 10DLC number was purchased before March 26, 2025 and you only send to Canadian recipients, A2P registration is not currently required. If your number was purchased on or after March 26, 2025, you need either A2P registration or Persona verification before sending to Canadian recipients. If you later expand to message US recipients, A2P registration becomes mandatory regardless of the original purchase date."
+      q: "Do I need A2P if I only send to Canadian recipients?",
+      a: "Only if your Canadian 10DLC number was purchased on or after March 26, 2025, and even then you can choose Persona instead. Numbers purchased before that date do not need A2P for Canada-only traffic."
     },
     {
-      q: "What Tax ID do I use for Canadian A2P brand registration in GoHighLevel?",
-      a: "For Canadian brands, GoHighLevel accepts only the Business Number (BN) in BN-9 format the first 9 numeric digits of your Canada Revenue Agency (CRA) Business Number. Corporation Registration Numbers, Incorporation Numbers, and Provincial Registry ID numbers are no longer accepted. The BN-9 is issued by the CRA. Your legal business name in the registration must match exactly what the CRA has on file for that BN-9."
+      q: "Can Persona replace A2P for messages to the US?",
+      a: "No. HighLevel is explicit that Persona does not replace A2P registration when a Canadian number sends to US recipients."
     },
     {
-      q: "Can I use Persona verification instead of A2P for sending to the US from a Canadian number?",
-      a: "No. Persona verification is not a substitute for A2P registration on CA to US messaging routes. Confirmed from GHL's official Canadian messaging policy article: A2P registration is required for all Canadian 10DLC numbers sending to US recipients. Persona verification is only a valid alternative for CA to CA messaging (numbers purchased on or after March 26, 2025) and for international messaging (outside the US)."
+      q: "Does a US number sending to Canada need A2P?",
+      a: "Yes. HighLevel treats US to Canada as domestic messaging requiring A2P registration, with no Canadian-recipient exception."
     },
     {
-      q: "What happens if I send to US recipients from an unregistered Canadian number?",
-      a: "Messages fail and return Error 30034 Number not A2P compliant. The message is not delivered to the US recipient. There is no grace period for CA to US messaging without registration. This applies to both new and existing Canadian numbers. Complete A2P brand and campaign registration before activating any automation or workflow that may send messages to US contacts."
+      q: "What Tax ID do Canadian businesses use for Standard Brand registration?",
+      a: "The BN-9 format, the first nine digits of the CRA Business Number, entered exactly as it appears in official records."
     },
     {
-      q: "Do toll-free numbers in Canada need A2P registration?",
-      a: "No. Confirmed from GHL's official Canadian messaging policy article: these A2P requirements apply exclusively to Canadian 10DLC long code numbers. Toll-free numbers (starting with 800, 888, 877, etc.) are not affected and continue to operate under existing toll-free verification guidelines."
+      q: "Do Canadian toll-free numbers need A2P registration?",
+      a: "No. They use Toll-Free Verification, a separate process from A2P 10DLC."
     },
     {
-      q: "What is the March 26, 2025 cutoff date for Canadian numbers?",
-      a: "March 26, 2025 is the date GHL introduced the requirement for Persona verification or A2P registration for new Canadian 10DLC numbers sending CA to CA messages. Numbers purchased before this date are grandfathered under older rules and do not currently require A2P or Persona for CA to CA messaging. Numbers purchased on or after this date require either A2P registration or Persona verification before sending to any recipient Canadian or US. The cutoff only affects CA to CA messaging. CA to US registration is required for all numbers regardless of purchase date."
+      q: "What happens if I send without the required registration?",
+      a: "A route requiring A2P without it returns error 30034. A route requiring A2P or Persona with neither completed returns error 1002."
+    },
+    {
+      q: "Does completing A2P or Persona satisfy CASL?",
+      a: "No. These are separate telecom registration and identity mechanisms. Recipient consent, sender identification and unsubscribe requirements under CASL are a distinct question; consult counsel for your specific program."
+    },
+    {
+      q: "Does Trust Score apply to Canadian numbers?",
+      a: "HighLevel's Trust Score and MPS documentation covers US Standard Brands specifically. I found nothing confirming the same model applies to Canadian numbers, so don't assume it does."
+    },
+    {
+      q: "What if I don't know when my Canadian number was purchased?",
+      a: "Contact HighLevel Support with the phone number and Location ID before choosing a compliance path."
     }
   ];
 
   useFaqSchema(faqs);
 
   const tocItems = [
-    { id: 'why-different', title: '1. Why do Canadian numbers have different A2P rules from US numbers?' },
-    { id: 'decision-matrix', title: '2. What is the complete decision matrix based on route and purchase date?' },
-    { id: 'register-canadian', title: '3. How do you register a Canadian brand in GoHighLevel?' },
-    { id: 'persona-verification', title: '4. What is Persona verification and when does it apply to Canadian numbers?' },
-    { id: 'sending-errors', title: '5. What happens if you send without completing the required registration?' },
-    { id: 'faq', title: '6. Frequently asked questions' }
+    { id: 'quick-answer', title: 'Quick Answer' },
+    { id: 'four-things', title: 'Four Things That Are Not the Same Thing' },
+    { id: 'does-apply', title: 'Does A2P 10DLC Apply to Canadian Numbers?' },
+    { id: 'decision-table', title: 'Canadian 10DLC Decision Table' },
+    { id: 'ca-to-ca', title: 'Canada to Canada Messaging' },
+    { id: 'ca-to-us', title: 'Canada to United States Messaging' },
+    { id: 'us-to-ca', title: 'United States to Canada Messaging' },
+    { id: 'what-changed', title: 'What Changed on March 26, 2025' },
+    { id: 'a2p-vs-persona', title: 'A2P Registration vs Persona Verification' },
+    { id: 'international', title: 'International Messaging From Canadian Numbers' },
+    { id: 'toll-free', title: 'Canadian Toll-Free Numbers' },
+    { id: 'consent', title: 'Consent Is Not the Same as Registration' },
+    { id: 'trust-score-mps', title: 'Trust Score, MPS and Canadian Numbers' },
+    { id: 'canadian-businesses', title: 'What Canadian Businesses Need Before Sending SMS' },
+    { id: 'expand-to-us', title: 'What Happens If You Expand From Canada to the US' },
+    { id: 'agencies', title: 'Canadian Clients for Agencies' },
+    { id: 'common-mistakes', title: 'Common Mistakes' },
+    { id: 'decision-framework', title: 'Canadian SMS Decision Framework' },
+    { id: 'checklist', title: 'Canadian Messaging Checklist' },
+    { id: 'faq', title: 'Frequently Asked Questions' }
   ];
 
-  const decisionMatrix = [
-    { route: 'CA to CA (Canadian number, Canadian recipients only)', beforeCutoff: 'A2P registration NOT required. No action needed unless you later send to US recipients.', afterCutoff: 'A2P registration OR Persona verification required before sending.' },
-    { route: 'CA to US (Canadian number, any US recipients)', beforeCutoff: 'A2P registration REQUIRED. Applies to all Canadian 10DLC numbers regardless of purchase date.', afterCutoff: 'A2P registration REQUIRED. Persona verification is not an alternative for CA to US messaging.' },
-    { route: 'CA to International (e.g. CA to Australia, UK, etc.)', beforeCutoff: 'Persona verification only A2P registration not required for international routes.', afterCutoff: 'Persona verification only A2P registration not required for international routes.' }
+  const fourThings = [
+    {
+      term: 'Canadian phone number',
+      meaning: 'A number issued in Canada that you send from: a Canadian 10DLC local number or a Canadian toll-free number'
+    },
+    {
+      term: 'Canadian recipient',
+      meaning: 'A person whose phone number receives the message, regardless of who sent it'
+    },
+    {
+      term: 'Canadian business',
+      meaning: 'The company registering the Brand, which may or may not match where the number was purchased'
+    },
+    {
+      term: 'Canadian 10DLC vs Canadian Toll-Free',
+      meaning: 'Two different number types with two different compliance processes; this guide is mainly about the 10DLC one'
+    }
   ];
 
-  const personaScenarios = [
-    { scenario: 'CA to CA messaging number purchased before March 26, 2025', canReplace: 'Not needed neither A2P nor Persona required' },
-    { scenario: 'CA to CA messaging number purchased on or after March 26, 2025', canReplace: 'Yes Persona verification is a valid alternative to A2P for this route' },
-    { scenario: 'CA to US messaging', canReplace: 'No A2P registration is required. Persona verification cannot replace A2P for CA to US messaging' },
-    { scenario: 'CA to International messaging (outside US)', canReplace: 'Yes Persona verification only is required for international routes. A2P not needed' }
+  const decisionTable = [
+    {
+      route: 'Canada → United States',
+      purchaseDate: 'Any date',
+      requirement: 'A2P registration required',
+      notes: 'Persona does not substitute here'
+    },
+    {
+      route: 'Canada → Canada',
+      purchaseDate: 'Before March 26, 2025',
+      requirement: 'A2P not required for this route',
+      notes: 'Consent, content and carrier rules still apply'
+    },
+    {
+      route: 'Canada → Canada',
+      purchaseDate: 'On or after March 26, 2025',
+      requirement: 'A2P or Persona',
+      notes: 'Either path is valid; Persona is not required if A2P is completed'
+    },
+    {
+      route: 'Canada → Puerto Rico',
+      purchaseDate: 'Any date',
+      requirement: 'A2P registration required',
+      notes: 'Treated as domestic, not the CA → CA exception'
+    },
+    {
+      route: 'Canada → International (outside US/Canada/PR)',
+      purchaseDate: 'Any date',
+      requirement: 'Persona verification only',
+      notes: 'A2P is not required for this route'
+    },
+    {
+      route: 'United States → Canada',
+      purchaseDate: 'Any date',
+      requirement: 'A2P registration required',
+      notes: 'Domestic messaging rule applies to the sending US number'
+    },
+    {
+      route: 'United States → United States',
+      purchaseDate: 'Any date',
+      requirement: 'A2P registration required',
+      notes: 'Standard US A2P 10DLC'
+    },
+    {
+      route: 'Canadian Toll-Free (either direction)',
+      purchaseDate: 'Not applicable',
+      requirement: 'Toll-Free Verification, not A2P',
+      notes: 'See Toll-Free vs A2P 10DLC'
+    }
+  ];
+
+  const a2pVsPersona = [
+    {
+      aspect: 'What it verifies',
+      a2p: "The sender's business identity and the specific messaging use case, reviewed against the A2P 10DLC ecosystem",
+      persona: 'The identity associated with the sub-account'
+    },
+    {
+      aspect: 'Where it applies here',
+      a2p: 'Required for Canada to US, Puerto Rico, and any US route. Also valid for Canada to Canada',
+      persona: 'Only as an alternative for Canada to Canada, on numbers purchased on or after March 26, 2025'
+    },
+    {
+      aspect: 'Frequency',
+      a2p: 'Per Brand and Campaign',
+      persona: 'Generally completed once per sub-account, per HighLevel'
+    }
+  ];
+
+  const canadianBusinessSteps = [
+    'Identify every route you actually use. Canada-only, Canada to US, US to Canada, and international are four different questions.',
+    'Know your Canadian number\'s purchase date, if the route is Canada to Canada. Contact HighLevel Support if you cannot confirm it.',
+    'Choose A2P or Persona for a qualifying Canada to Canada number, or go straight to A2P if any US recipients are in scope.',
+    'For Standard Brand registration, have your legal business name and BN-9 exactly as recorded, business address, website, use case, sample messages and consent evidence ready.',
+    'Confirm your consent process actually satisfies your recipients\' jurisdiction, not just the registration form.',
+    'Test on the real route with a genuinely opted-in recipient before relying on any automation.'
+  ];
+
+  const commonMistakes = [
+    'Assuming every Canadian number is exempt from A2P, rather than checking the route',
+    'Ignoring the destination country and looking only at the sending number',
+    'Treating the March 26, 2025 date as if it affects Canada to US messaging',
+    'Using Persona for Canada to US traffic',
+    'Assuming US to Canada messaging needs nothing because the recipient is "just Canadian"',
+    'Confusing Canadian 10DLC with Canadian Toll-Free',
+    'Treating A2P or Persona approval as proof of legal consent',
+    'Launching a workflow before confirming which recipients are actually in the contact list',
+    'Applying the US Trust Score and MPS tables to Canadian numbers without verification'
+  ];
+
+  const decisionFramework = [
+    'Where is the recipient: Canada, US/PR, or international?',
+    'What type is the sending number: Canadian 10DLC, Canadian Toll-Free, or US?',
+    'If Canadian 10DLC and the route is Canada to Canada, what is the purchase date?',
+    'If the route touches the US or Puerto Rico in either direction, go straight to A2P registration.',
+    'If the route is Canada to Canada and the number is post-March 26, 2025, choose A2P or Persona.',
+    'If the route is international, confirm Persona verification.',
+    'If the number is toll-free, use Toll-Free Verification instead of any of the above.',
+    'Verify your consent process separately, regardless of which registration path applies.',
+    'Test on the real route with a real opted-in recipient before launching.'
+  ];
+
+  const checklistItems = [
+    'Recipient countries for this number identified',
+    'Sending number type confirmed (Canadian 10DLC, Canadian Toll-Free, or US)',
+    'Purchase date confirmed, if Canada-only 10DLC',
+    'Correct path chosen: A2P, Persona, Toll-Free Verification, or none required',
+    'BN-9 and legal name match CRA records, if registering a Canadian Standard Brand',
+    'Consent process reviewed against CASL where recipients are in Canada',
+    'Contact list checked for any US numbers before activating a Canada-only automation',
+    'Test message sent on the real route'
   ];
 
   // Reusable Project Help Card Component
@@ -219,7 +379,7 @@ export default function A2P10DLCCanadianNumbersClient() {
         </div>
       </nav>
 
-      {/* Hero Section - WIDE (KEPT AS IS) */}
+      {/* Hero Section */}
       <section className="bg-[#0B1628] py-12 md:py-[72px] px-4 md:px-6 relative overflow-hidden">
         <div className="absolute -top-[120px] -right-[120px] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(14,155,240,0.12)_0%,transparent_70%)] pointer-events-none" />
         <div className="absolute -bottom-[80px] -left-[80px] w-[360px] h-[360px] bg-[radial-gradient(circle,rgba(37,201,125,0.08)_0%,transparent_70%)] pointer-events-none" />
@@ -236,7 +396,7 @@ export default function A2P10DLCCanadianNumbersClient() {
           {/* H1 */}
           <h1 className="text-[clamp(28px,6vw,46px)] font-extrabold leading-[1.2] md:leading-[1.15] text-white mb-4 md:mb-5 tracking-[-0.02em]">
             A2P 10DLC for Canadian Numbers in GoHighLevel:<br />
-            <span className="text-[#F8D000]">Complete 2026 Requirements Guide</span>
+            <span className="text-[#F8D000]">Requirements by Route</span>
           </h1>
 
           {/* Author */}
@@ -250,24 +410,51 @@ export default function A2P10DLCCanadianNumbersClient() {
             </div>
             <div>
               <div className="text-sm font-medium text-white">GHL Scale Up Team</div>
-              <div className="text-xs text-white/50">GoHighLevel Specialists · 200+ Builds Delivered · Updated July 2026</div>
+              <div className="text-xs text-white/50">GoHighLevel Specialists · 200+ builds delivered · Verified against GoHighLevel and CRTC documentation, September 2026</div>
             </div>
           </div>
 
-          {/* Intro Paragraph - NO max-w constraint */}
-          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6">
-            A2P 10DLC requirements for Canadian numbers in GoHighLevel are more nuanced than for US numbers. Whether you need to register depends on two specific factors: where your messages are going (Canada only, or to the US) and when your Canadian number was purchased. Getting this wrong in either direction causes problems messages blocked with Error 30034, or unnecessary registration time spent on a number that is exempt. <Link href="/" className="text-[#0E9BF0] hover:underline font-medium">GHL Scale Up</Link> has managed registrations across Canadian and international client accounts. This guide gives you the exact rules with no ambiguity.
-          </p>
+          {/* Quick Answer Box */}
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 md:p-6 mb-6">
+            <div className="flex items-center gap-2 mb-3">
+              <Zap className="w-5 h-5 text-[#F8D000]" />
+              <span className="text-xs font-bold uppercase tracking-wider text-white/60">Quick Answer</span>
+            </div>
+            <p className="text-sm text-white/70 leading-relaxed mb-3">
+              Whether a Canadian 10DLC number needs A2P registration depends on the route, and for Canada-only traffic, on when the number was purchased. <strong className="text-white">Canada to United States always requires A2P registration</strong>, no matter when the number was bought. <strong className="text-white">Canada to Canada is different</strong>: a number purchased before March 26, 2025 does not need A2P for Canada-only messaging, while a number purchased on or after that date needs either A2P registration or Persona verification. <strong className="text-white">Toll-free numbers follow neither rule</strong>; they use their own Toll-Free Verification process.
+            </p>
+            <p className="text-sm text-white/70 leading-relaxed">
+              This is HighLevel's current policy, updated September 4, 2026. It is not the general A2P 10DLC framework applied loosely to Canada; it is a specific, documented rule set. The rest of this guide walks through each route so you can identify which one applies to your setup.
+            </p>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105"
+            >
+              <Rocket className="w-4 h-4" />
+              Get Canadian A2P Help
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              href="#decision-table"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20"
+            >
+              See Decision Table
+              <ChevronDown className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* MAIN LAYOUT - Sidebar on LEFT, Content on RIGHT */}
-      <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-16">
+      {/* MAIN LAYOUT */}
+      <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-10">
         <div className="grid lg:grid-cols-[280px_1fr] gap-8 md:gap-12 items-start">
-          
+
           {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
           <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
-            {/* Project Help Card - At top of sidebar */}
             <div className="mb-6">
               <ProjectHelpCard />
             </div>
@@ -314,7 +501,7 @@ export default function A2P10DLCCanadianNumbersClient() {
                 </div>
               </div>
               <p className="text-xs text-white/60 leading-relaxed mb-3">
-                5+ years GHL experience · 200+ A2P registrations handled globally including Canadian client accounts. All technical details verified as of July 2026.
+                5+ years GHL experience · 200+ A2P registrations handled globally including Canadian client accounts. All technical details verified as of September 2026.
               </p>
               <Link href="/" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
             </div>
@@ -333,33 +520,7 @@ export default function A2P10DLCCanadianNumbersClient() {
           {/* ==================== RIGHT COLUMN: BLOG CONTENT ==================== */}
           <main className="min-w-0 order-2">
 
-            {/* BLUF Box */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
-              <div className="flex items-center gap-2 mb-3">
-                <Zap className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">The Decision in One Place</span>
-              </div>
-              <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
-                CA to US (sending to US recipients from a Canadian number): A2P registration is ALWAYS required regardless of when the number was purchased.
-              </p>
-              <p className="text-sm text-[#5C6880] leading-relaxed">
-                CA to CA (sending only to Canadian recipients): If the number was purchased BEFORE March 26, 2025, A2P is NOT required. If the number was purchased ON OR AFTER March 26, 2025, A2P registration OR Persona verification is required. These requirements apply to Canadian 10DLC long code numbers only. Toll-free numbers are not affected by these rules.
-              </p>
-
-              {/* CTA 1 - Inside BLUF Box */}
-              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
-                  <Target className="w-4 h-4" />
-                  Get Canadian A2P Help
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Table of Contents - Mobile Only */}
+            {/* Mobile TOC */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8 lg:hidden">
               <div className="flex items-center gap-2 mb-4">
                 <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
@@ -378,208 +539,289 @@ export default function A2P10DLCCanadianNumbersClient() {
               </div>
             </div>
 
-            {/* Mobile Project Help Card - visible on mobile only */}
+            {/* Mobile Project Help Card */}
             <div className="lg:hidden mb-8">
               <ProjectHelpCard />
             </div>
 
-            {/* Section 1: Why Different */}
-            <h2 id="why-different" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-8 mb-4">
-              1. Why Do Canadian Numbers Have Different A2P Rules From US Numbers?
+            {/* Section: Four Things */}
+            <h2 id="four-things" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Four Things That Are Not the Same Thing
             </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              A2P 10DLC was introduced as a US carrier requirement. The Campaign Registry (TCR) operates across North American carriers, which includes Canadian carriers. Canadian businesses sending messages to US recipients therefore send across the same carrier network that enforces A2P registration making registration mandatory regardless of where the sending business is located.
-            </p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              For purely Canadian traffic (CA to CA), A2P requirements were phased in more gradually. Numbers purchased before March 26, 2025 were grandfathered under the older rules that did not require registration for domestic Canadian messaging. Numbers purchased after that date are subject to the newer requirements. This phase-in approach is common when carrier registration systems are updated existing traffic gets a grace period while new traffic is subject to the new rules from day one.
-            </p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              These requirements apply only to Canadian 10DLC long code numbers. For toll-free numbers (1-800, 1-888, etc.): <Link href="/blog/toll-free-vs-a2p-10dlc-gohighlevel" className="text-[#0E9BF0] hover:underline">Toll-Free vs A2P 10DLC: Which Should You Choose? →</Link>
-            </p>
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              For background on what A2P 10DLC is: <Link href="/blog/what-is-a2p-10dlc" className="text-[#0E9BF0] hover:underline">What Is A2P 10DLC? →</Link>
-            </p>
-
-            {/* Section 2: Decision Matrix */}
-            <h2 id="decision-matrix" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              2. What Is the Complete Decision Matrix for Canadian Numbers?
-            </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Your requirement is determined by the intersection of two factors: where your messages are going and when your number was purchased. Use this table to find your situation.
-            </p>
-
             <div className="overflow-x-auto my-6">
               <table className="w-full border-collapse text-sm">
                 <thead>
                   <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Messaging route</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Number purchased BEFORE March 26, 2025</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Number purchased ON OR AFTER March 26, 2025</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Term</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">What it means here</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {decisionMatrix.map((item, idx) => (
+                  {fourThings.map((item, idx) => (
+                    <tr key={idx} className="border-b border-[#DDE1E9]">
+                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.term}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.meaning}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              The rule that actually governs your situation depends on the <strong className="text-[#1A2236]">route</strong>, meaning the combination of sending number and recipient country, not simply on whether "Canada" is involved somewhere. A Canadian business can trigger US rules by texting a US contact. A US business can trigger the same domestic requirement by texting a Canadian contact. Keep sender and recipient separate through the rest of this guide.
+            </p>
+
+            {/* Section: Does A2P Apply */}
+            <h2 id="does-apply" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Does A2P 10DLC Apply to Canadian Numbers?
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Sometimes, and the answer changes by route. HighLevel's current documentation frames domestic messaging within the US, Canada and Puerto Rico as requiring A2P registration, with one specific carve-out for older Canada-only numbers. So the honest short answer is not "no" and not "always yes"; it is "check the route below."
+            </p>
+
+            {/* Section: Decision Table */}
+            <h2 id="decision-table" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Canadian 10DLC Decision Table
+            </h2>
+            <div className="overflow-x-auto my-6">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Route</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Number purchase date</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Requirement</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Notes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {decisionTable.map((item, idx) => (
                     <tr key={idx} className="border-b border-[#DDE1E9]">
                       <td className="py-3 px-3 font-medium text-[#1A2236]">{item.route}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.beforeCutoff}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.afterCutoff}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.purchaseDate}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.requirement}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.notes}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
-
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">THE CRITICAL RULE ABOUT CHANGING YOUR ROUTE</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                If you currently send CA to CA only and your number was purchased before March 26, 2025 you are exempt from registration right now. But if you later decide to message US recipients, A2P registration becomes required immediately. Confirmed from GHL's official Canadian messaging policy article: "If you later message U.S. recipients, you must complete A2P Brand and Campaign registration before sending CA to US messages, even if you previously sent only within Canada." Do not begin CA to US messaging without first completing A2P registration messages will fail with Error 30034.
-              </p>
-            </div>
-
-            {/* CTA 2 - After Decision Matrix */}
-            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-6 text-center my-6 text-white">
-              <p className="text-sm font-medium mb-2">🍁 Not sure which rule applies to your Canadian number?</p>
-              <p className="text-sm text-white/80 mb-4">Let our team review your number's purchase date and messaging routes to give you a clear answer.</p>
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                <Search className="w-4 h-4" />
-                Get Your Number Assessed
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* Section 3: Register Canadian */}
-            <h2 id="register-canadian" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              3. How Do You Register a Canadian Brand in GoHighLevel?
-            </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The registration process for Canadian brands follows the same structure as US brand registration brand registration first, then campaign registration automatically submitted after brand approval but with important Canadian-specific differences in the Tax ID format.
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              This table reflects two HighLevel articles read together: its <a href="https://help.gohighlevel.com/support/solutions/articles/155000004915-updated-messaging-policies-for-canadian-10dlc-numbers-a2p-registration-requirements" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">Canadian 10DLC policy</a> (updated September 4, 2026) and its broader <a href="https://help.gohighlevel.com/support/solutions/articles/155000006960-updated-messaging-guidelines-for-the-u-s-canada" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">US and Canada messaging guidelines</a> (updated August 11, 2026). The second one is what confirms that US → CA is a domestic route requiring A2P, and that CA → PR is domestic too, not covered by the CA → CA exception.
             </p>
 
-            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Info className="w-4 h-4 text-[#0E9BF0]" />
-                <span className="text-sm font-bold text-[#0E9BF0]">The Canadian Tax ID requirement: BN-9 format only</span>
+            {/* 
+              ============================================================
+              🖼️ IMAGE INSERTED HERE - Full width, responsive, interactive
+              ============================================================
+            */}
+            <div className="my-8 md:my-10 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <div className="relative w-full h-auto bg-[#F8F9FB]">
+                <Image
+                  src="/blog/a2p-canadian-numbers-infographic.png"
+                  alt="A2P 10DLC for Canadian Numbers in GoHighLevel: Decision matrix by route and purchase date, A2P vs Persona comparison, and requirements checklist"
+                  width={1200}
+                  height={500}
+                  className="w-full h-auto object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                />
               </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                For Canadian businesses, GHL only accepts the Business Number (BN) in BN-9 format the first 9 numeric digits of the BN. Corporation Registration Numbers, Incorporation Numbers, and Provincial Registry ID numbers are no longer accepted for Canadian A2P brand registration. The BN-9 is the identifier issued by the Canada Revenue Agency (CRA). If you are not sure of your BN-9, verify it through the CRA's Business Registry. The legal business name in the registration must match exactly as registered with the CRA.
-              </p>
+              <div className="bg-[#F8F9FB] px-4 py-2.5 text-xs text-[#5C6880] border-t border-[#DDE1E9] flex items-center gap-2">
+                <ImageIcon className="w-3.5 h-3.5" />
+                <span>A2P 10DLC for Canadian Numbers in GoHighLevel: Decision matrix by route and purchase date, A2P vs Persona comparison, and requirements checklist</span>
+              </div>
             </div>
 
-            <ul className="space-y-2 mb-6 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">Navigate to Settings Phone Numbers Trust Center in your GHL sub-account.</strong> Select Canada as the country when prompted during registration setup.</li>
-              <li><strong className="text-[#1A2236]">Enter your BN-9 (9 numeric digits):</strong> Do not enter the full BN-15 with the program identifier suffix. Only the first 9 digits are required and accepted.</li>
-              <li><strong className="text-[#1A2236]">Legal business name must match CRA records:</strong> The name entered must match exactly what the CRA has on file for that BN-9. Even small differences can cause rejection.</li>
-              <li><strong className="text-[#1A2236]">Complete the rest of registration the same as a US Standard Brand:</strong> Business address, business type, website URL, campaign use case, sample messages, opt-in documentation, Privacy Policy with the required no-mobile-data-sharing clause.</li>
+            {/* Section: Canada to Canada */}
+            <h2 id="ca-to-ca" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Canada to Canada Messaging
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              This is the one route with a purchase-date exception, and it is worth restating precisely because it is easy to over-generalize.
+            </p>
+            <ul className="space-y-3 mb-6 text-sm text-[#5C6880] list-disc list-inside">
+              <li><strong className="text-[#1A2236]">Purchased before March 26, 2025:</strong> A2P registration is not required for Canada-only messaging on that number. This exemption is scoped to the A2P registration requirement specifically. HighLevel is explicit that consent, prohibited content, carrier filtering, opt-out and other messaging requirements still apply regardless.</li>
+              <li><strong className="text-[#1A2236]">Purchased on or after March 26, 2025:</strong> the number can send Canada-only messages once either A2P Brand and Campaign registration or Persona identity verification is complete. Neither is mandatory over the other for this specific route; you pick one.</li>
             </ul>
-
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">Registration Fees for Canadian Brands</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                The specific fee breakdown for Canadian brand registration is not explicitly separated from the US fee schedule in GHL's official fees article, which states fees are accurate as of August 2025 for US only. You may want to verify current Canadian-specific registration fees in GHL's Trust Center before submitting. For the US fee structure as a reference: <Link href="/blog/a2p-10dlc-fees-explained" className="text-[#0E9BF0] hover:underline">A2P 10DLC Fees Explained →</Link>
-              </p>
-            </div>
-
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-2">
-              For the full brand registration walkthrough: <Link href="/blog/a2p-brand-registration-guide" className="text-[#0E9BF0] hover:underline">A2P Brand Registration Guide →</Link>
-            </p>
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              For the campaign registration walkthrough after brand approval: <Link href="/blog/a2p-campaign-registration-guide" className="text-[#0E9BF0] hover:underline">A2P Campaign Registration Guide →</Link>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Do not read the pre-2025 exemption as "this number is exempt from everything." It is exempt from A2P for Canada-only traffic. The moment that number messages a US recipient, a completely different rule takes over, covered next.
             </p>
 
-            {/* Section 4: Persona Verification */}
-            <h2 id="persona-verification" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              4. What Is Persona Verification and When Does It Apply to Canadian Numbers?
+            {/* Section: Canada to US */}
+            <h2 id="ca-to-us" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Canada to United States Messaging
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Persona verification is a lighter identity confirmation process that is separate from A2P brand and campaign registration. It is an alternative compliance path available in specific scenarios it is not a substitute for A2P in all situations.
+              HighLevel's rule here has no exceptions: A2P registration is required when a Canadian 10DLC number sends SMS or MMS to US recipients, regardless of when the number was purchased. HighLevel states plainly that Persona verification does not replace A2P registration on this route, and that relying on Persona alone for CA to US messaging is not sufficient.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Practically, this means completing an approved Brand, an approved Campaign, and associating the sending number with that Campaign before any US-bound message goes out. The field-level process is the same as the standard walkthroughs in <Link href="/blog/a2p-brand-registration-guide" className="text-[#0E9BF0] hover:underline">A2P Brand Registration</Link> and <Link href="/blog/a2p-campaign-registration-guide" className="text-[#0E9BF0] hover:underline">A2P Campaign Registration</Link>; this guide will not repeat those steps. For a Canadian Standard Brand, use the BN-9 format, the first nine digits of the Business Number, entered exactly as it appears in official records, per HighLevel's Brand Approval guidance.
             </p>
 
+            {/* Section: US to Canada */}
+            <h2 id="us-to-ca" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              United States to Canada Messaging
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              This is the direction the older version of this guide did not clearly address, and it is not automatically the same as the Canada-to-US rule. HighLevel's US and Canada messaging guidelines treat this as ordinary domestic messaging: any message sent between US, Canada or Puerto Rico numbers, including US to CA, must originate from a registered A2P number. There is no Canadian-recipient exception on this side, and no purchase-date carve-out, because the exemption in HighLevel's Canadian policy applies specifically to Canadian numbers sending Canada-only traffic, not to US numbers sending to Canada.
+            </p>
+
+            {/* Section: What Changed */}
+            <h2 id="what-changed" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              What Changed on March 26, 2025
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Before that date, HighLevel did not require A2P or Persona for Canadian numbers sending Canada-only messages. From that date forward, newly purchased Canadian 10DLC numbers need one of the two paths for Canada-only sending. What the date does not do:
+            </p>
+            <ul className="space-y-2 mb-4 text-sm text-[#5C6880] list-disc list-inside">
+              <li>It does not touch Canada to US messaging, which has always required A2P regardless of purchase date.</li>
+              <li>It does not exempt pre-2025 numbers from consent, content or carrier rules.</li>
+              <li>It does not apply to toll-free numbers at all.</li>
+              <li>It does not retroactively require anything of numbers purchased earlier, as long as they stay on Canada-only traffic.</li>
+            </ul>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              If you are not sure when a number was purchased, HighLevel's guidance is to contact Support with the phone number and Location ID before choosing a compliance path, rather than guessing.
+            </p>
+
+            {/* Section: A2P vs Persona */}
+            <h2 id="a2p-vs-persona" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              A2P Registration vs Persona Verification
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              These solve different problems and are not interchangeable outside the one scenario where HighLevel allows either.
+            </p>
             <div className="overflow-x-auto my-6">
               <table className="w-full border-collapse text-sm">
                 <thead>
                   <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Scenario</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Can Persona verification replace A2P?</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]"></th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">A2P Brand and Campaign</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Persona</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {personaScenarios.map((item, idx) => (
+                  {a2pVsPersona.map((item, idx) => (
                     <tr key={idx} className="border-b border-[#DDE1E9]">
-                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.scenario}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.canReplace}</td>
+                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.aspect}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.a2p}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.persona}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
-
-            <ul className="space-y-2 mb-6 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">How to trigger Persona verification:</strong> Persona verification may be triggered automatically when you purchase a phone number in GHL. If it was not triggered at the time of purchase, you can trigger it manually from your phone number settings in GHL. Enable the Persona verification checkbox to initiate the process. Confirm the current Persona verification navigation in your GHL account, as the interface can change.</li>
-              <li><strong className="text-[#1A2236]">What Persona verification covers:</strong> Persona verifies the sender's identity that a real, identifiable business is behind the number. It is not a campaign use case registration. Messages sent through Persona-verified numbers for international routes are delivered because the sender identity is verified, but the messaging content and use case is not reviewed at the same level as a TCR-registered A2P campaign.</li>
-            </ul>
-
-            {/* Section 5: Sending Errors */}
-            <h2 id="sending-errors" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              5. What Happens If You Send Without the Required Registration?
-            </h2>
-
-            <ul className="space-y-2 mb-6 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">Error 30034 Number not A2P compliant:</strong> Confirmed from GHL's official messaging guidelines: messages sent without A2P registration on routes that require it return Error 30034. The message is not delivered.</li>
-              <li><strong className="text-[#1A2236]">Error 1002 Message blocked:</strong> For routes requiring Persona verification where verification is missing (for example, CA to CA new numbers without Persona), messages are blocked and return Error 1002.</li>
-              <li><strong className="text-[#1A2236]">Applies immediately to CA to US routes:</strong> There is no grace period for CA to US messaging. If your Canadian number is not A2P registered and you send to a US recipient, the message fails. This applies to both new and existing Canadian numbers.</li>
-              <li><strong className="text-[#1A2236]">Existing CA to CA numbers (pre-March 26, 2025) are not at risk currently:</strong> If your number was purchased before the cutoff and you send only to Canadian recipients, no error occurs. The risk appears if messaging routes change.</li>
-            </ul>
-
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">THE COMMON SCENARIO THAT CAUSES UNEXPECTED FAILURES</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                A Canadian GHL user builds a client database that includes both Canadian and US phone numbers. They set up a missed call text-back automation. The Canadian number was purchased before March 26, 2025 and is exempt from CA to CA requirements. But when the automation fires to a US contact in the database, the message fails with Error 30034. The fix: complete A2P brand and campaign registration for the Canadian number before any workflow that may reach US recipients is activated. If you are not certain whether your contact list includes US numbers, assume it does and complete A2P registration.
-              </p>
-            </div>
-
-            {/* CTA 3 - After Sending Errors */}
-            <div className="bg-[#0B1628] rounded-xl p-6 text-center my-6 text-white">
-              <p className="text-sm font-medium mb-2">🚫 Getting Error 30034 on your Canadian number?</p>
-              <p className="text-sm text-white/80 mb-4">We can help you complete A2P registration quickly so your messages start delivering to US recipients.</p>
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
-                <Shield className="w-4 h-4" />
-                Fix Your Error Now
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-5 my-6 text-white">
-              <div className="flex items-center gap-2 mb-3">
-                <Star className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">NEED CANADIAN A2P REGISTRATION HANDLED</span>
-              </div>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                GHL Scale Up handles A2P registration for Canadian businesses and for agencies with Canadian client sub-accounts. BN-9 verification, brand registration, campaign submission, and rejection troubleshooting end to end.
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                See results from our registration setups: <Link href="/case-studies" className="text-[#0E9BF0] hover:underline">real GoHighLevel results and case studies →</Link>
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed">
-                To discuss your Canadian number situation: <Link href="/contact" className="text-[#0E9BF0] hover:underline">book a free strategy call at ghlscaleup.com/contact →</Link>
-              </p>
-            </div>
-
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              Once registered, the first SMS automation to build: <Link href="/blog/gohighlevel-missed-call-text-back" className="text-[#0E9BF0] hover:underline">GoHighLevel Missed Call Text Back →</Link>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Persona is not a lighter version of A2P that happens to work everywhere Canada is involved. It is a specific alternative for one specific route. Using it for Canada to US traffic, expecting it to hold, is one of the most common mistakes covered below. Persona itself is described in HighLevel's <a href="https://help.gohighlevel.com/support/solutions/articles/155000005798-identity-verification-for-phone-number-purchases-us-ca-pr-il-" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">identity verification guide</a>.
             </p>
 
-            {/* Section 6: FAQ */}
+            {/* Section: International */}
+            <h2 id="international" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              International Messaging From Canadian Numbers
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              For messages sent from a Canadian (or US) number to a destination outside the US, Canada and Puerto Rico, HighLevel's guidance is that A2P registration is not required and Persona verification alone is what's needed. If neither A2P nor Persona is in place on a route that needs one of them, HighLevel returns error 1002, message blocked. This guide does not cover Toll-Free international behavior or the separate UK exception HighLevel documents; that is outside Canadian-number scope.
+            </p>
+
+            {/* Section: Toll-Free */}
+            <h2 id="toll-free" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Canadian Toll-Free Numbers
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Toll-free numbers, Canadian or US, do not use A2P 10DLC Brand and Campaign registration at all. They go through Toll-Free Verification instead, a separate process covered in HighLevel's <a href="https://help.gohighlevel.com/support/solutions/articles/48001222300-toll-free-number-verification-guide-for-lc-phone-us-canada-" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">Toll-Free Verification guide</a> and compared to A2P in <Link href="/blog/toll-free-vs-a2p-10dlc-gohighlevel" className="text-[#0E9BF0] hover:underline">Toll-Free vs A2P 10DLC</Link>. None of the purchase-date rules on this page apply to a toll-free number.
+            </p>
+
+            {/* Section: Consent */}
+            <h2 id="consent" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Consent Is Not the Same as Registration
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              A2P registration and Persona verification are telecom-ecosystem mechanisms. They tell carriers who is sending and, for A2P, what the messaging program is. Neither one is legal consent from the recipient, and completing either does not by itself satisfy Canadian legal requirements.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              If your recipients are in Canada, Canada's Anti-Spam Legislation (CASL) is the relevant framework to be aware of. Per the CRTC, sending a commercial electronic message, which explicitly includes SMS text messages, generally requires the recipient's prior consent, sender identification information in the message, and a working unsubscribe mechanism; CASL applies to messages received in Canada even when sent from outside the country. This guide is not legal advice, and CASL's exact application to your messaging program, including which consent category applies and how the identification and unsubscribe requirements should be implemented, is a question for your own counsel. For consent language and opt-in evidence generally, see <Link href="/blog/a2p-opt-in-language-templates" className="text-[#0E9BF0] hover:underline">A2P opt in language and requirements</Link>.
+            </p>
+
+            {/* Section: Trust Score MPS */}
+            <h2 id="trust-score-mps" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Trust Score, MPS and Canadian Numbers
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              HighLevel's Trust Score and MPS documentation describes throughput for US Standard Brands specifically, tied to secondary vetting performed as part of that registration. I found no HighLevel documentation stating that this same Trust Score and MPS model applies to Canadian 10DLC numbers, to Persona-verified numbers, or to Canadian toll-free numbers. Treat Canadian throughput as a separate, undocumented question rather than assuming the US tables in <Link href="/blog/a2p-trust-score-mps" className="text-[#0E9BF0] hover:underline">A2P Trust Score and MPS</Link> carry over, and confirm current behavior with HighLevel Support if throughput matters to your Canadian sending volume.
+            </p>
+
+            {/* Section: Canadian Businesses Steps */}
+            <h2 id="canadian-businesses" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              What Canadian Businesses Need Before Sending SMS
+            </h2>
+            <div className="space-y-3 mb-6">
+              {canadianBusinessSteps.map((item, idx) => (
+                <div key={idx} className="bg-white border border-[#DDE1E9] rounded-xl p-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-7 h-7 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold flex-shrink-0">{idx + 1}</div>
+                    <p className="text-sm text-[#5C6880] leading-relaxed">{item}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Section: Expand to US */}
+            <h2 id="expand-to-us" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              What Happens If You Expand From Canada to the US
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              A Persona-only setup stops being sufficient the moment US recipients enter the picture. HighLevel's guidance is explicit: if a Canada-only messaging program later begins messaging US recipients, the Persona-only path is no longer sufficient and A2P registration becomes required before that traffic goes out. In practice this means completing Brand and Campaign registration and confirming the number is associated with the approved Campaign, not just checking a box somewhere. A common way this actually happens is not a decision at all: a CRM database gets US contacts added to it, and an existing automation quietly starts targeting them. If you are not certain your contact list is Canada-only, assume it is not, and complete A2P registration before the workflow runs.
+            </p>
+
+            {/* Section: Agencies */}
+            <h2 id="agencies" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Canadian Clients for Agencies
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Everything above applies per number, per sub-account, the same as it does for a single business. An agency managing Canadian clients needs to track, for each client: which country the client's numbers were purchased in, which routes that client actually sends on, the purchase date for any Canada-only Canadian number, and whether A2P or Persona was completed. This is a subset of the broader multi-client tracking problem, covered in <Link href="/blog/a2p-registration-for-agencies" className="text-[#0E9BF0] hover:underline">A2P registration for GoHighLevel agencies</Link>; this page does not repeat that operational framework.
+            </p>
+
+            {/* Section: Common Mistakes */}
+            <h2 id="common-mistakes" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Common Mistakes
+            </h2>
+            <ul className="space-y-2 mb-6 text-sm text-[#5C6880] list-disc list-inside">
+              {commonMistakes.map((item, idx) => (
+                <li key={idx}>{item}</li>
+              ))}
+            </ul>
+
+            {/* Section: Decision Framework */}
+            <h2 id="decision-framework" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Canadian SMS Decision Framework
+            </h2>
+            <div className="space-y-2 mb-6">
+              {decisionFramework.map((item, idx) => (
+                <div key={idx} className="bg-white border border-[#DDE1E9] rounded-xl p-3">
+                  <div className="flex items-start gap-3">
+                    <div className="w-6 h-6 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold flex-shrink-0">{idx + 1}</div>
+                    <p className="text-sm text-[#5C6880] leading-relaxed">{item}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Section: Checklist */}
+            <h2 id="checklist" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Canadian Messaging Checklist
+            </h2>
+            <div className="space-y-2 mb-6">
+              {checklistItems.map((item, idx) => (
+                <div key={idx} className="bg-white border border-[#DDE1E9] rounded-xl p-3">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" />
+                    <p className="text-sm text-[#5C6880]">{item}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Section: FAQ */}
             <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
-              6. Frequently Asked Questions
+              Frequently Asked Questions
             </h2>
 
             <div className="space-y-3">
@@ -608,7 +850,7 @@ export default function A2P10DLCCanadianNumbersClient() {
                   Ask an Expert
                   <ArrowRight className="w-4 h-4" />
                 </Link>
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20">
+                <Link href="/book-a-call" className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20">
                   <Phone className="w-4 h-4" />
                   Call Us
                 </Link>
@@ -624,6 +866,9 @@ export default function A2P10DLCCanadianNumbersClient() {
                 <Link href="/blog/a2p-campaign-registration-guide" className="text-sm text-[#0E9BF0] hover:underline">A2P Campaign Registration: Step-by-Step Guide →</Link>
                 <Link href="/blog/toll-free-vs-a2p-10dlc-gohighlevel" className="text-sm text-[#0E9BF0] hover:underline">Toll-Free vs A2P 10DLC in GoHighLevel: Which Should You Choose? →</Link>
                 <Link href="/blog/a2p-10dlc-fees-explained" className="text-sm text-[#0E9BF0] hover:underline">A2P 10DLC Fees Explained →</Link>
+                <Link href="/blog/a2p-trust-score-mps" className="text-sm text-[#0E9BF0] hover:underline">A2P Trust Score and MPS Explained →</Link>
+                <Link href="/blog/a2p-opt-in-language-templates" className="text-sm text-[#0E9BF0] hover:underline">A2P Opt In Language Templates →</Link>
+                <Link href="/blog/a2p-registration-for-agencies" className="text-sm text-[#0E9BF0] hover:underline">A2P Registration for GoHighLevel Agencies →</Link>
                 <Link href="/blog/gohighlevel-missed-call-text-back" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Missed Call Text Back: Setup Guide →</Link>
                 <Link href="/case-studies" className="text-sm text-[#0E9BF0] hover:underline">Real GoHighLevel Results and Case Studies →</Link>
               </div>
@@ -643,7 +888,7 @@ export default function A2P10DLCCanadianNumbersClient() {
               </div>
             </div>
 
-            {/* Author Section */}
+            {/* Author / Verification Section */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 my-6">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
@@ -659,7 +904,7 @@ export default function A2P10DLCCanadianNumbersClient() {
                 </div>
               </div>
               <p className="text-xs text-[#5C6880] leading-relaxed">
-                All requirements in this guide are verified against GHL's official support portal documentation as of July 2026. Canadian A2P policies and cutoff dates are set by carriers and can change always verify current requirements in GHL's Trust Center before acting.
+                This guide was checked against HighLevel's <a href="https://help.gohighlevel.com/support/solutions/articles/155000004915-updated-messaging-policies-for-canadian-10dlc-numbers-a2p-registration-requirements" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">Canadian 10DLC A2P Registration Requirements</a> (updated September 4, 2026), its <a href="https://help.gohighlevel.com/support/solutions/articles/155000006960-updated-messaging-guidelines-for-the-u-s-canada" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">Updated Messaging Guidelines for the U.S. &amp; Canada</a> (updated August 11, 2026), its <a href="https://help.gohighlevel.com/support/solutions/articles/155000005798-identity-verification-for-phone-number-purchases-us-ca-pr-il-" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">Persona identity verification guide</a>, and the CRTC's <a href="https://crtc.gc.ca/eng/com500/faq500.htm" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">CASL FAQ</a>, current as of September 2026. Requirements change, so confirm current rules in your Trust Center. This is not legal advice.
               </p>
               <Link href="/" className="text-[#0E9BF0] text-xs hover:underline mt-2 inline-block">ghlscaleup.com</Link>
             </div>

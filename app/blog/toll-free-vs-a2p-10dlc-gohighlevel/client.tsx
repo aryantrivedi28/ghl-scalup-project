@@ -18,37 +18,55 @@ import {
   MessageCircle,
   Phone,
   Search,
+  Info,
+  CheckCircle,
+  Image as ImageIcon,
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import Image from 'next/image';
 
 export default function TollFreeVsA2P10DLCClient() {
   const [activeId, setActiveId] = useState<string>('');
   const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
   useEffect(() => {
+    const sections = [
+      'quick-answer',
+      'at-a-glance',
+      'what-is-a2p',
+      'what-is-toll-free',
+      'toll-free-vs-a2p-registration',
+      'review-time',
+      'throughput-mps',
+      'costs',
+      'deliverability',
+      'local-vs-national',
+      'marketing-transactional',
+      'scenarios',
+      'how-to-choose',
+      'both-together',
+      'switching',
+      'common-mistakes',
+      'checklist',
+      'faq'
+    ];
+
     const handleScroll = () => {
-      const sections = [
-        'difference',
-        'comparison',
-        'toll-free-registration',
-        'a2p-registration',
-        'both-at-once',
-        'which-to-choose',
-        'faq'
-      ];
+      let currentSection = sections[0];
 
       for (const id of sections) {
         const element = document.getElementById(id);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 150) {
-            setActiveId(id);
-            break;
-          }
+        if (!element) continue;
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= 180) {
+          currentSection = id;
+        } else {
+          break;
         }
       }
 
-      // Show floating Project Help card after scrolling past hero section
+      setActiveId(currentSection);
+
       const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
       if (heroSection) {
         const heroBottom = heroSection.getBoundingClientRect().bottom;
@@ -56,6 +74,7 @@ export default function TollFreeVsA2P10DLCClient() {
       }
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -72,67 +91,148 @@ export default function TollFreeVsA2P10DLCClient() {
 
   const faqs = [
     {
-      q: "Can I use a toll-free number instead of A2P 10DLC in GoHighLevel?",
-      a: "Yes. Toll-free numbers are a legitimate alternative to A2P 10DLC in GoHighLevel. Confirmed from GHL's own documentation: toll-free messaging remains an attractive alternative to A2P 10DLC and does not rely on brand and campaign registration with TCR. However, toll-free numbers still require a separate verification process through GHL's Trust Center before messages are reliably delivered. Unverified toll-free numbers have been subject to filtering since November 2023 and blocked since January 2024. Toll-free verification is free and simpler than A2P 10DLC, but it is not optional."
+      q: "Does toll-free need A2P registration?",
+      a: "No. Toll-free does not use A2P Brand and Campaign registration, but it needs its own Toll-Free Verification."
     },
     {
-      q: "What is the MPS for a toll-free number in GoHighLevel?",
-      a: "A US Toll-Free number has a default of 3 MPS (message segments per second) toward all US and Canada carriers. Confirmed from GHL's official 'Message throughput and Trust Scores for A2P 10DLC' article. Toll-free numbers are not subject to the Trust Score-based throughput system that applies to A2P 10DLC local numbers. Higher throughput for toll-free numbers is available contact GHL support to request it."
+      q: "Does toll-free need verification?",
+      a: "Yes. HighLevel says only a toll-free number with Verified (Approved) status can send SMS or MMS to US and Canada recipients."
     },
     {
-      q: "Does toll-free verification cost anything in GoHighLevel?",
-      a: "No. Toll-free verification is currently free there is no registration fee equivalent to the A2P 10DLC one-time bundled fee. You do still pay the monthly number cost: toll-free numbers cost $2.15 per month in GHL's LC Phone system, compared to $1.15 per month for a local 10-digit number. SMS per-segment rates are the same for both number types. Verify current pricing in GHL's Trust Center, as fees can change."
+      q: "Is toll-free better than A2P?",
+      a: "Neither is better in every case. The right route depends on recipients, identity, volume, cost and readiness."
     },
     {
-      q: "How long does toll-free verification take in GoHighLevel?",
-      a: "Toll-free verification can take as little as 2 business days, though this is not guaranteed. GHL's official documentation states this timeline as a general guideline. This is significantly faster than A2P 10DLC registration, which typically takes 1 to 2 weeks in total (3 to 7 business days for brand, then 3 to 7 more for campaign). The faster toll-free timeline is why GHL recommends submitting toll-free verification first and then running A2P 10DLC in parallel."
+      q: "Which has higher MPS?",
+      a: "Toll-free defaults to 3 MPS, with higher throughput available on request. A2P ranges from 2.25 to 225 MPS in HighLevel's tables depending on Brand type, Trust Score and Campaign type."
     },
     {
-      q: "Do toll-free numbers have T-Mobile daily limits?",
-      a: "Toll-free numbers are not subject to the same brand-level T-Mobile daily caps that apply to A2P 10DLC local numbers. Confirmed from GHL's official MPS article: 'Toll-Free SMS is not affected by the throughput changes described in this article.' This means toll-free senders do not face the same Trust Score-based daily limit structure as A2P 10DLC senders. However, carrier-level policies can change verify current toll-free carrier behaviour in GHL's documentation."
+      q: "Which is cheaper?",
+      a: "It depends. Toll-free numbers cost more per month, while A2P adds registration and monthly Campaign fees."
     },
     {
-      q: "Can I use both a toll-free and a local A2P number in GoHighLevel?",
-      a: "Yes. GHL explicitly recommends this as a strategy to start sending sooner. Their official US Phone Number Registrations article includes a tip: submit toll-free verification first (can be approved in as little as 2 days), then submit your A2P brand and campaign in parallel. This lets you send from the toll-free number while the A2P campaign is still under review. Once A2P is approved, you can switch to your local number or use both depending on the message type."
+      q: "Which is faster to approve?",
+      a: "Neither has a guaranteed timeline. HighLevel says toll-free review can take up to four to six weeks, and describes a Fast Track option for A2P Campaigns."
     },
     {
-      q: "Which is better for local service businesses toll-free or A2P 10DLC?",
-      a: "For local service businesses (dental, home services, real estate, coaching), A2P 10DLC with a local 10-digit number is generally the better long-term choice. A local number (for example, 415-555-0182) looks like a personal contact rather than a call centre, which typically results in better reply rates from local customers. A2P 10DLC also gives access to higher message throughput as the business grows. The trade-off is the 1 to 2 week registration timeline and the one-time registration fee. The timing gap can be bridged with toll-free during the registration period."
+      q: "Does toll-free have a Trust Score?",
+      a: "HighLevel's toll-free documentation describes none. Trust Score applies to A2P Standard Brands. See A2P Trust Score and MPS."
+    },
+    {
+      q: "Can I send while toll-free verification is pending?",
+      a: "No. HighLevel says Pending Verification numbers remain blocked for messaging."
+    },
+    {
+      q: "What happens if toll-free verification is rejected?",
+      a: "Correct the listed problem and resubmit if available, or contact HighLevel Support for an appeal."
+    },
+    {
+      q: "Can I use both?",
+      a: "Yes, each with its own registration or verification, and neither is a way around the other's limits."
+    },
+    {
+      q: "Is toll-free available for Canadian recipients?",
+      a: "HighLevel's verification applies to messages from US or Canada toll-free numbers to recipients in the United States and Canada. Canadian 10DLC rules differ and are covered in the Canadian numbers guide."
+    },
+    {
+      q: "Does an EIN matter?",
+      a: "Not for completing toll-free verification, per HighLevel, though it may request additional registration details for some business types. Standard A2P Brands use an EIN or equivalent."
     }
   ];
 
   useFaqSchema(faqs);
 
   const tocItems = [
-    { id: 'difference', title: '1. What is the difference between A2P 10DLC and toll-free registration?' },
-    { id: 'comparison', title: '2. Full side-by-side comparison: 9 criteria' },
-    { id: 'toll-free-registration', title: '3. What does toll-free registration look like in GoHighLevel?' },
-    { id: 'a2p-registration', title: '4. What does A2P 10DLC registration look like in GoHighLevel?' },
-    { id: 'both-at-once', title: '5. Can you use both at the same time?' },
-    { id: 'which-to-choose', title: '6. Which should you choose?' },
-    { id: 'faq', title: '7. Frequently asked questions' }
+    { id: 'at-a-glance', title: 'Toll-Free vs A2P 10DLC at a Glance' },
+    { id: 'what-is-a2p', title: 'What Is A2P 10DLC?' },
+    { id: 'what-is-toll-free', title: 'What Is Toll-Free SMS in GoHighLevel?' },
+    { id: 'toll-free-vs-a2p-registration', title: 'Toll-Free Verification vs A2P Registration' },
+    { id: 'review-time', title: 'Registration and Review Time' },
+    { id: 'throughput-mps', title: 'Throughput and MPS' },
+    { id: 'costs', title: 'Costs' },
+    { id: 'deliverability', title: 'Deliverability and Carrier Filtering' },
+    { id: 'local-vs-national', title: 'Local vs National Number Identity' },
+    { id: 'marketing-transactional', title: 'Marketing, Transactional and Two Way Messaging' },
+    { id: 'scenarios', title: 'Scenarios' },
+    { id: 'how-to-choose', title: 'How to Choose for a GoHighLevel Business' },
+    { id: 'both-together', title: 'Can You Use Toll-Free and A2P 10DLC Together?' },
+    { id: 'switching', title: 'Switching Between Routes' },
+    { id: 'common-mistakes', title: 'Common Mistakes When Choosing a Route' },
+    { id: 'checklist', title: 'Toll-Free vs A2P Decision Checklist' },
+    { id: 'faq', title: 'Toll-Free vs A2P 10DLC FAQ' }
   ];
 
-  const comparisonData = [
-    { criteria: 'Number appearance', a2p: 'Local 10-digit number (e.g. 415-555-0182) looks like a local contact', tollFree: '1-800, 1-888, etc. looks like a national business hotline' },
-    { criteria: 'Registration type', a2p: 'Brand + Campaign registration with TCR via GHL Trust Center', tollFree: 'Toll-Free verification via GHL Trust Center separate, simpler process' },
-    { criteria: 'Registration cost', a2p: 'One-time bundled fee ($24.50 LVS or $71.91 Standard, as of Aug 2025) plus monthly campaign fee (up to ~$11.03/mo) verify current amounts in Trust Center', tollFree: 'Free toll-free verification does not have a registration fee. Verify current details in GHL\'s Trust Center.' },
-    { criteria: 'Registration complexity', a2p: 'Multi-step: EIN required for Standard Brand, campaign use case, sample messages, opt-in documentation, Privacy Policy clause', tollFree: 'Simpler: business information, use case, opt-in documentation no EIN required, no TCR brand registration' },
-    { criteria: 'Approval timeline', a2p: '3 to 7 business days for brand, then 3 to 7 more for campaign typically 1 to 2 weeks total', tollFree: 'As little as 2 business days (not guaranteed) confirmed from GHL\'s official documentation' },
-    { criteria: 'Default message throughput (MPS)', a2p: 'Variable, based on brand type and Trust Score Standard Brand can achieve higher MPS', tollFree: 'Fixed 3 MPS to all US and Canada carriers by default higher throughput available by request' },
-    { criteria: 'T-Mobile daily limits', a2p: 'Brand-level daily caps apply, determined by Trust Score', tollFree: 'Not subject to the same T-Mobile brand-level daily limits as A2P 10DLC (confirmed from GHL\'s MPS article)' },
-    { criteria: 'Number cost (monthly)', a2p: '$1.15/month per local US number (confirmed from GHL LC Phone pricing guide)', tollFree: '$2.15/month per toll-free number (confirmed from GHL LC Phone pricing guide)' },
-    { criteria: 'Works without EIN', a2p: 'No Standard and Low Volume Standard Brand require EIN. Sole Proprietor path available without EIN.', tollFree: 'Yes toll-free verification does not require an EIN' }
+  const glanceData = [
+    { aspect: 'Number type', a2p: 'Standard 10 digit local numbers', tollFree: 'Toll-free numbers such as 800, 888, 877, 866, 855, 844 and 833' },
+    { aspect: 'What you register', a2p: 'A Brand, then a Campaign, then link each number to the approved Campaign', tollFree: 'Each toll-free number through Toll-Free Verification' },
+    { aspect: 'Where recipients are', a2p: 'US bound A2P messaging', tollFree: 'US and Canada recipients, per HighLevel' },
+    { aspect: 'Tax ID or EIN', a2p: 'Needed for Standard Brands. Sole Proprietor is the path without one', tollFree: 'Not required to complete verification, per HighLevel' },
+    { aspect: 'Review time', a2p: 'Not fixed. HighLevel describes a Fast Track option that expedites Campaign approval to within 3 business days', tollFree: 'HighLevel says review can take up to four to six weeks, though some finish sooner. Not guaranteed' },
+    { aspect: 'Throughput', a2p: 'Set by Brand type, Campaign type and, for Standard Brands, Trust Score', tollFree: '3 MPS by default toward US and Canada carriers, higher on request, per HighLevel' },
+    { aspect: 'Number rental', a2p: 'About $1.15 a month per HighLevel pricing', tollFree: '$2.15 a month per HighLevel pricing' },
+    { aspect: 'Registration fees', a2p: 'One time bundle plus a monthly Campaign fee', tollFree: "HighLevel's verification guide lists no verification fee. Confirm in your account" },
+    { aspect: 'Identity', a2p: 'Local area code', tollFree: 'National style number' }
   ];
 
-  const decisionMatrix = [
-    { situation: 'You need to start sending SMS within 2 to 3 days and cannot wait 1 to 2 weeks for A2P approval', recommended: 'Toll-free first, A2P in parallel', why: 'Toll-free approval is faster. Start sending on toll-free while A2P processes.' },
-    { situation: 'Your business does not have an EIN and does not qualify for Standard Brand', recommended: 'Toll-free OR Sole Proprietor A2P', why: 'Toll-free has no EIN requirement. Sole Proprietor A2P also has no EIN requirement but has lower throughput limits.' },
-    { situation: 'Your contacts are national customers used to 1-800 numbers', recommended: 'Toll-free', why: 'A 1-800 number matches the expectation of a national business.' },
-    { situation: 'Your contacts are local customers dental, home services, coaching, real estate', recommended: 'A2P 10DLC with local number', why: 'A local number (415-XXX-XXXX) looks more personal and is the standard for service business SMS.' },
-    { situation: 'You send high-volume marketing campaigns and need maximum throughput', recommended: 'A2P 10DLC Standard Brand', why: 'Standard Brand with a high Trust Score delivers higher MPS than toll-free\'s fixed 3 MPS default.' },
-    { situation: 'You want the simplest possible registration process', recommended: 'Toll-free', why: 'Free, no EIN required, simpler process, faster approval.' },
-    { situation: 'You are an agency registering 10+ clients quickly', recommended: 'Both in parallel for each client', why: 'Use toll-free to start each client sending faster while A2P campaigns process in the background.' }
+  const registrationComparison = [
+    { aspect: 'Model', a2p: 'Brand, then Campaign, then number linking', tollFree: 'One verification per toll-free number' },
+    { aspect: 'Who reviews', a2p: 'TCR and carrier vetting partners', tollFree: 'Participating carriers, via the provider' },
+    { aspect: 'Business identity', a2p: 'Legal name and registration details matched to official records for Standard Brands', tollFree: 'End business name, public website or public social profile, contact and physical location' },
+    { aspect: 'Messaging details', a2p: 'Use case, description, samples, opt in flow, policies', tollFree: 'Use case categories, description, sample messages, opt in type and public proof' },
+    { aspect: 'Trust Score', a2p: 'Applies to Standard Brands', tollFree: 'No Trust Score is described in HighLevel toll-free documentation' },
+    { aspect: 'Consent', a2p: 'Required and reviewed', tollFree: 'Required and reviewed' }
+  ];
+
+  const costData = [
+    { costItem: 'Number rental', a2p: 'About $1.15 a month', tollFree: '$2.15 a month' },
+    { costItem: 'Registration', a2p: 'One time bundle covering the Brand, first Campaign vetting and Fast Track. See the fees guide for amounts by Brand type', tollFree: "HighLevel's verification guide lists no fee. Twilio says it offers verification at no cost" },
+    { costItem: 'Recurring registration cost', a2p: 'Monthly Campaign fee that varies by Campaign type', tollFree: 'None listed' },
+    { costItem: 'SMS usage', a2p: '$0.00747 per segment, sent or received', tollFree: 'Same segment rate per HighLevel' },
+    { costItem: 'Carrier surcharges', a2p: "Per carrier surcharges listed in HighLevel's pricing guide", tollFree: "HighLevel's table is not labeled by number type. Confirm how it applies to toll-free in your billing" }
+  ];
+
+  const scenariosData = [
+    { scenario: 'Local service business', tollFree: 'Your customers span many regions or you want a national style line', a2p: 'Local identity matters and you have the business details for registration' },
+    { scenario: 'National service business', tollFree: 'A national sender identity fits and 3 MPS covers your volume', a2p: 'You want higher tier throughput and can complete Standard Brand registration' },
+    { scenario: 'High volume notifications', tollFree: 'Your peak per second need fits within the toll-free rate you can get approved', a2p: 'Your Brand and Campaign tier gives higher MPS than toll-free, and daily limits fit' },
+    { scenario: 'Marketing SMS', tollFree: 'Your consent process and content pass toll-free verification', a2p: 'Your consent and Campaign use case fit A2P and you accept its fees' },
+    { scenario: 'Appointment reminders', tollFree: 'You are messaging US or Canada recipients and prefer one national number', a2p: 'You want a local number tied to a defined Campaign' },
+    { scenario: 'Customer support', tollFree: 'Recipients call and text one national line', a2p: 'Support runs through a local team number' },
+    { scenario: 'Already using A2P', tollFree: 'You have a reason to add a second sender, not to escape registration', a2p: 'Your registration is approved and working. Switching is usually unnecessary' }
+  ];
+
+  const howToChooseSteps = [
+    'Recipients: where are they? Toll-free verification covers US and Canada. A2P 10DLC applies to US bound messaging from local numbers, and Canadian rules are in A2P 10DLC for Canadian numbers.',
+    'Identity: local or national?',
+    'Purpose: marketing, notifications, support, two way? Check that your consent process supports it.',
+    'Volume and throughput: compare your peak segments per second and daily volume to toll-free\'s default and your A2P tier.',
+    'Verification or registration readiness: can you supply the end business details, public website, use case and consent proof each route asks for?',
+    'Cost: number rental, registration fees and per message charges at your volume.',
+    'Timing: neither review time is guaranteed, so plan for weeks rather than days on either route.',
+    'Existing numbers: what you already own and any migration constraints.'
+  ];
+
+  const commonMistakes = [
+    'Assuming toll-free is unregulated',
+    'Assuming toll-free is unlimited',
+    'Planning around a two day toll-free approval',
+    'Treating verification or registration as consent',
+    'Using an agency or platform name as the toll-free legal entity instead of the end business',
+    'Testing production messaging while a toll-free number is Pending',
+    'Choosing an A2P use case for throughput instead of accuracy',
+    'Expecting registration to transfer with a moved number'
+  ];
+
+  const checklistItems = [
+    'Recipient geography confirmed',
+    'Sender identity decided',
+    'Messaging purpose and consent process defined',
+    'Peak throughput and daily volume estimated',
+    'Toll-free default and A2P tier compared',
+    'Costs calculated from HighLevel pricing',
+    'Business details, public website and consent proof ready',
+    'Review timing planned as a range',
+    'Migration constraints checked'
   ];
 
   // Reusable Project Help Card Component
@@ -172,7 +272,7 @@ export default function TollFreeVsA2P10DLCClient() {
         <div className="absolute -bottom-[80px] -left-[80px] w-[360px] h-[360px] bg-[radial-gradient(circle,rgba(37,201,125,0.08)_0%,transparent_70%)] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto relative z-10">
-          {/* Post Tags / Category Labels */}
+          {/* Post Tags */}
           <div className="flex flex-wrap gap-2 mb-4">
             <span className="bg-[rgba(248,208,0,0.15)] text-[#F8D000] text-[11px] font-semibold px-2.5 py-1 rounded-full">A2P 10DLC</span>
             <span className="bg-[rgba(14,155,240,0.15)] text-[#0E9BF0] text-[11px] font-semibold px-2.5 py-1 rounded-full">Toll-Free</span>
@@ -180,13 +280,13 @@ export default function TollFreeVsA2P10DLCClient() {
             <span className="bg-[rgba(14,155,240,0.15)] text-[#0E9BF0] text-[11px] font-semibold px-2.5 py-1 rounded-full">2026</span>
           </div>
 
-          {/* H1 Headline */}
+          {/* H1 */}
           <h1 className="text-[clamp(28px,6vw,46px)] font-extrabold leading-[1.2] md:leading-[1.15] text-white mb-4 md:mb-5 tracking-[-0.02em]">
             Toll-Free vs A2P 10DLC in GoHighLevel:<br />
-            <span className="text-[#F8D000]">Which Should You Choose? (2026)</span>
+            <span className="text-[#F8D000]">Differences, Costs and Throughput</span>
           </h1>
 
-          {/* Author Byline */}
+          {/* Author */}
           <div className="flex items-center gap-3 mb-6">
             <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
               <img
@@ -197,16 +297,25 @@ export default function TollFreeVsA2P10DLCClient() {
             </div>
             <div>
               <div className="text-sm font-medium text-white">GHL Scale Up Team</div>
-              <div className="text-xs text-white/50">GoHighLevel Specialists · 200+ Builds Delivered · Updated July 2026</div>
+              <div className="text-xs text-white/50">GoHighLevel Specialists · 200+ builds delivered · Verified against GoHighLevel and Twilio documentation, September 2026</div>
             </div>
           </div>
 
-          {/* Introductory Paragraph */}
-          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-6xl">
-            When you set up SMS in GoHighLevel, you have a choice of number types. Local 10-digit numbers require A2P 10DLC registration. Toll-free numbers (1-800, 1-888, and similar) require a separate verification process. Both registration types are mandatory before you can send SMS reliably neither lets you send without some form of compliance setup. The question is which setup is right for your situation. <Link href="/" className="text-[#0E9BF0] hover:underline font-medium">GHL Scale Up</Link> has set up both types across hundreds of client accounts. This guide gives you the honest comparison.
-          </p>
+          {/* Quick Answer Box */}
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 md:p-6 mb-6">
+            <div className="flex items-center gap-2 mb-3">
+              <Zap className="w-5 h-5 text-[#F8D000]" />
+              <span className="text-xs font-bold uppercase tracking-wider text-white/60">Quick Answer</span>
+            </div>
+            <p className="text-sm text-white/70 leading-relaxed mb-3">
+              <strong className="text-white">A2P 10DLC</strong> is the US carrier registration system for business texts sent from standard 10 digit local numbers. It works through a <strong className="text-white">Brand</strong> (who is sending) and a <strong className="text-white">Campaign</strong> (what you send), then links each number to an approved Campaign. <strong className="text-white">Toll-Free</strong> is a different sender type. It does not use Brand and Campaign registration. It has its own <strong className="text-white">Toll-Free Verification</strong>, which registers each toll-free number, the end business and the messaging use case with carriers.
+            </p>
+            <p className="text-sm text-white/70 leading-relaxed">
+              Toll-free does not skip compliance. In HighLevel, a toll-free number cannot send SMS or MMS to US or Canadian recipients until it shows Verified (Approved), and both routes require accurate sender identity and documented consent. Which route fits depends on your recipients, the sender identity you want, your volume, and how each route's review and limits work today. This guide compares them so you can decide.
+            </p>
+          </div>
 
-          {/* CTA Button 1: Hero Section */}
+          {/* CTA Buttons */}
           <div className="flex flex-wrap gap-3">
             <Link
               href="/contact"
@@ -217,28 +326,27 @@ export default function TollFreeVsA2P10DLCClient() {
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
-              href="#which-to-choose"
+              href="#how-to-choose"
               className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20"
             >
-              See Which to Choose
+              See How to Choose
               <ChevronDown className="w-4 h-4" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* MAIN LAYOUT - Sidebar on LEFT, Content on RIGHT */}
+      {/* MAIN LAYOUT */}
       <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-10">
         <div className="grid lg:grid-cols-[280px_1fr] gap-8 md:gap-12 items-start">
 
           {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
           <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
-            {/* Project Help Card */}
-            <div className="hidden lg:block mb-6">
+            <div className="mb-6">
               <ProjectHelpCard />
             </div>
 
-            {/* Table of Contents - Sticky */}
+            {/* Table of Contents */}
             <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
                 <BookOpen className="w-3 h-3" />
@@ -282,7 +390,7 @@ export default function TollFreeVsA2P10DLCClient() {
                 </div>
               </div>
               <p className="text-xs text-white/60 leading-relaxed mb-3">
-                5+ years GHL experience · 200+ A2P and toll-free registrations handled globally. All technical details verified as of July 2026.
+                5+ years GHL experience · 200+ A2P and toll-free registrations handled globally. All technical details verified as of September 2026.
               </p>
               <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
             </div>
@@ -308,48 +416,12 @@ export default function TollFreeVsA2P10DLCClient() {
                 </button>
               </div>
             </div>
-
-            {/* CTA Card */}
-            <div className="bg-[#1C2E4A] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 border border-[#2A3F5F] mt-4">
-              <div className="text-sm font-bold text-white mb-2">Not Sure Which to Choose?</div>
-              <p className="text-xs text-white/60 leading-relaxed mb-4">We handle both A2P 10DLC and toll-free registration and run them in parallel to minimise delays for your agency and clients.</p>
-              <Link href="/contact" className="flex items-center justify-center gap-2 w-full bg-[#F8D000] text-[#0B1421] font-bold py-2.5 rounded-lg text-sm hover:bg-[#FFE44D] hover:shadow-lg transition-all duration-200">
-                Get Help
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
           </aside>
 
           {/* ==================== RIGHT COLUMN: BLOG CONTENT ==================== */}
           <main className="min-w-0 order-2">
 
-            {/* BLUF Box */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
-              <div className="flex items-center gap-2 mb-3">
-                <Zap className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Direct Answer</span>
-              </div>
-              <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
-                Neither toll-free nor A2P 10DLC lets you send SMS without registration. Both require a compliance process before messages are reliably delivered.
-              </p>
-              <p className="text-sm text-[#5C6880] leading-relaxed">
-                The difference: A2P 10DLC (local 10-digit number) requires brand and campaign registration with TCR, takes longer to approve, costs more upfront, and gives you a local-looking number with variable throughput based on your Trust Score. Toll-free verification is free, simpler, and can be approved in as little as 2 days (not guaranteed), but gives a fixed 3 MPS by default and a number that looks like a business hotline rather than a local contact. For most GHL service businesses, A2P 10DLC with a local number is the better long-term choice. Toll-free is the right choice when you need to start sending faster, have no EIN, or your contacts are accustomed to 1-800 style numbers.
-              </p>
-
-              {/* CTA Button 2: Inside TL;DR Box */}
-              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
-                  <Target className="w-4 h-4" />
-                  Get SMS Setup Help
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Table of Contents - Mobile Only */}
+            {/* Mobile TOC */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8 lg:hidden">
               <div className="flex items-center gap-2 mb-4">
                 <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
@@ -368,44 +440,29 @@ export default function TollFreeVsA2P10DLCClient() {
               </div>
             </div>
 
-            {/* Mobile Project Help Card - visible on mobile only */}
+            {/* Mobile Project Help Card */}
             <div className="lg:hidden mb-8">
               <ProjectHelpCard />
             </div>
 
-            {/* Section 1: Difference */}
-            <h2 id="difference" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-8 mb-4">
-              1. What Is the Difference Between A2P 10DLC and Toll-Free Registration in GoHighLevel?
-            </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Both are registration systems that allow your GHL phone numbers to send SMS to US recipients. They apply to different number types and use different registration processes:
-            </p>
-            <ul className="space-y-2 mb-6 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">A2P 10DLC (Application-to-Person 10-Digit Long Code):</strong> Applies to standard 10-digit local US phone numbers (for example, 415-555-0182). Registration is done through GHL's Trust Center and involves brand registration with TCR followed by campaign registration. This is the main registration path covered throughout this blog series.</li>
-              <li><strong className="text-[#1A2236]">Toll-Free verification:</strong> Applies to toll-free numbers those starting with 800, 888, 877, 866, 855, 844, or 833 in the US. Toll-free numbers do not use the A2P 10DLC brand and campaign registration system. They have a separate, simpler verification process done through GHL's Trust Center.</li>
-            </ul>
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              Toll-free numbers are explicitly described as an alternative to A2P 10DLC in GHL's own documentation. For background on the full A2P 10DLC system: <Link href="/blog/what-is-a2p-10dlc" className="text-[#0E9BF0] hover:underline">What Is A2P 10DLC? →</Link>
-            </p>
 
-            {/* Section 2: Comparison */}
-            <h2 id="comparison" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              2. What Is the Full Side-by-Side Comparison?
+            {/* Section: At a Glance */}
+            <h2 id="at-a-glance" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Toll-Free vs A2P 10DLC at a Glance
             </h2>
-
             <div className="overflow-x-auto my-6">
               <table className="w-full border-collapse text-sm">
                 <thead>
                   <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Criteria</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">A2P 10DLC (local 10-digit number)</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Toll-Free number</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]"></th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">A2P 10DLC (local numbers)</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Toll-Free</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {comparisonData.map((item, idx) => (
+                  {glanceData.map((item, idx) => (
                     <tr key={idx} className="border-b border-[#DDE1E9]">
-                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.criteria}</td>
+                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.aspect}</td>
                       <td className="py-3 px-3 text-[#5C6880]">{item.a2p}</td>
                       <td className="py-3 px-3 text-[#5C6880]">{item.tollFree}</td>
                     </tr>
@@ -413,153 +470,258 @@ export default function TollFreeVsA2P10DLCClient() {
                 </tbody>
               </table>
             </div>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Figures come from HighLevel's <a href="https://help.gohighlevel.com/support/solutions/articles/48001222300-toll-free-number-verification-guide-for-lc-phone-us-canada-" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">Toll-Free Verification guide</a> (updated September 17, 2026), its <a href="https://help.gohighlevel.com/support/solutions/articles/48001223556-phone-system-pricing-billing-guide" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">LC Phone pricing guide</a> and its throughput guidance, and they can change. Confirm current values in your account.
+            </p>
 
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">Fee Verification Note</span>
+            {/* 
+              ============================================================
+              🖼️ IMAGE INSERTED HERE - Full width, responsive, interactive
+              ============================================================
+            */}
+            <div className="my-8 md:my-10 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <div className="relative w-full h-auto bg-[#F8F9FB]">
+                <Image
+                  src="/blog/toll-free-vs-a2p-10dlc-infographic.png"
+                  alt="Toll-Free vs A2P 10DLC in GoHighLevel: Registration comparison, costs, throughput, and decision checklist"
+                  width={1200}
+                  height={500}
+                  className="w-full h-auto object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                />
               </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                All A2P fees are passthrough charges set by TCR and carriers. Toll-free verification is currently free. Both may change verify current amounts in GHL's Trust Center before submitting. For A2P fee details: <Link href="/blog/a2p-10dlc-fees-explained" className="text-[#0E9BF0] hover:underline">A2P 10DLC Fees Explained →</Link>
-              </p>
+              <div className="bg-[#F8F9FB] px-4 py-2.5 text-xs text-[#5C6880] border-t border-[#DDE1E9] flex items-center gap-2">
+                <ImageIcon className="w-3.5 h-3.5" />
+                <span>Toll-Free vs A2P 10DLC in GoHighLevel: Registration comparison, costs, throughput, and decision checklist</span>
+              </div>
             </div>
 
-            {/* Section 3: Toll-Free Registration */}
-            <h2 id="toll-free-registration" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              3. What Does Toll-Free Registration Look Like in GoHighLevel?
+            {/* Section: What Is A2P 10DLC */}
+            <h2 id="what-is-a2p" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              What Is A2P 10DLC?
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              A2P 10DLC covers application to person messaging from standard US 10 digit numbers. Registration establishes the verified business behind the messages and the messaging program itself. You register the Brand, register the Campaign, and each sending number must be linked to the approved Campaign. Detail lives in <Link href="/blog/what-is-a2p-10dlc" className="text-[#0E9BF0] hover:underline">what A2P 10DLC is</Link>, <Link href="/blog/a2p-brand-registration-guide" className="text-[#0E9BF0] hover:underline">A2P Brand Registration</Link> and <Link href="/blog/a2p-campaign-registration-guide" className="text-[#0E9BF0] hover:underline">A2P Campaign Registration</Link>, so this guide only covers what you need to compare it with toll-free.
+            </p>
+
+            {/* Section: What Is Toll-Free SMS */}
+            <h2 id="what-is-toll-free" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              What Is Toll-Free SMS in GoHighLevel?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Toll-free verification is done through GHL's Trust Center or directly through phone number settings. The process does not involve TCR, does not require an EIN, and is free.
+              HighLevel says Toll-Free Verification registers a toll-free number, the end business using it and the messaging use case with participating carriers. It applies to SMS and MMS sent from US or Canada toll-free numbers to recipients in the United States and Canada, and each number needs its own approved verification record. It does not affect voice calling.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              In HighLevel, only numbers showing <strong className="text-[#1A2236]">Verified (Approved)</strong> can send. Restricted (Unverified), Pending Verification and Rejected numbers stay blocked for messaging. An unverified send can return error 30032, and error 30007 indicates carrier filtering. Twilio's toll-free documentation describes the same blocking of unverified and pending numbers since January 31, 2024.
             </p>
 
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-2">
-              <strong className="text-[#1A2236]">What toll-free verification requires</strong>
-            </p>
-            <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">A purchased toll-free number in GHL:</strong> Purchase a toll-free number (starting with 800, 888, 877, 866, 855, 844, or 833) through Settings Phone Numbers in your GHL sub-account. Toll-free numbers cost $2.15 per month in GHL as of the LC Phone pricing guide verify current pricing in your account.</li>
-              <li><strong className="text-[#1A2236]">Legal Entity Name:</strong> The actual business name the customer is engaging with. Not your agency name if you are registering for a client the end business.</li>
-              <li><strong className="text-[#1A2236]">Business address and use case:</strong> A description of what messages will be sent.</li>
-              <li><strong className="text-[#1A2236]">Opt-in documentation:</strong> The same opt-in requirements as A2P 10DLC apply to toll-free verification opt-in language, Privacy Policy, Terms of Service.</li>
-              <li><strong className="text-[#1A2236]">Compliance:</strong> Messages sent from unverified toll-free numbers have been blocked since January 31, 2024. Verification is mandatory, not optional.</li>
-            </ul>
-
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">VERIFICATION IS REQUIRED TOLL-FREE IS NOT UNREGULATED</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                A common misconception: toll-free numbers do not require any registration. This is incorrect. Since November 8, 2023, unverified toll-free numbers are subject to filtering. Since January 31, 2024, messages from toll-free numbers with pending verifications are blocked entirely. Toll-free verification is free and simpler than A2P 10DLC, but it is still a required compliance step before sending SMS. Confirmed from GHL's official Toll-Free Number Verification Guide.
-              </p>
-            </div>
-
-            {/* Section 4: A2P Registration */}
-            <h2 id="a2p-registration" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              4. What Does A2P 10DLC Registration Look Like in GoHighLevel?
+            {/* Section: Toll-Free Verification vs A2P Registration */}
+            <h2 id="toll-free-vs-a2p-registration" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Toll-Free Verification vs A2P Registration
             </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              A2P 10DLC registration is a two-step process through GHL's Trust Center: brand registration followed by campaign registration. Once brand is approved, GHL automatically submits the campaign you do not trigger this manually.
-            </p>
-            <ul className="space-y-2 mb-6 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">Step 1 Brand registration:</strong> Register your business identity (name, EIN, address, entity type). For Standard Brand, an EIN is required. For Sole Proprietor, no EIN is needed. Review takes 3 to 7 business days. For the full walkthrough: <Link href="/blog/a2p-brand-registration-guide" className="text-[#0E9BF0] hover:underline">A2P Brand Registration Guide →</Link></li>
-              <li><strong className="text-[#1A2236]">Step 2 Campaign registration:</strong> Register your messaging use case, sample messages, opt-in flow, and consent documentation. Auto-submitted by GHL after brand approval. Review takes a further 3 to 7 business days. For the full walkthrough: <Link href="/blog/a2p-campaign-registration-guide" className="text-[#0E9BF0] hover:underline">A2P Campaign Registration Guide →</Link></li>
-              <li><strong className="text-[#1A2236]">Throughput:</strong> Variable based on Trust Score and campaign use case. Standard Brand can achieve meaningfully higher MPS than the fixed 3 MPS toll-free default. For MPS details: <Link href="/blog/a2p-trust-score-mps" className="text-[#0E9BF0] hover:underline">A2P Trust Score and MPS Explained →</Link></li>
-            </ul>
-
-            {/* Section 5: Both at Once */}
-            <h2 id="both-at-once" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              5. Can You Use Both a Toll-Free and an A2P 10DLC Number at the Same Time?
-            </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Yes and GHL explicitly recommends it as a speed strategy. GHL's official US Phone Number Registrations article includes a Pro Tip: submit both a toll-free and a non-toll-free number registration together. Toll-free approval can take as little as two days (not guaranteed). Submitting toll-free registration first, then your A2P Sole Proprietor, Low Volume Standard, or Standard Campaign in parallel, often lets you start sending sooner. Once the A2P campaign is approved, you can switch to your local number.
-            </p>
-
-            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Lightbulb className="w-4 h-4 text-[#0E9BF0]" />
-                <span className="text-sm font-bold text-[#0E9BF0]">THE PARALLEL STRATEGY CONFIRMED FROM GHL'S OWN DOCUMENTATION</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                Submit toll-free verification first. It can be approved in as little as 2 days. Use the toll-free number to start sending while your A2P 10DLC campaign is still under review (typically 1 to 2 weeks). Once your A2P campaign is approved, you have both a toll-free and a local number registered. Use whichever fits the message type. This strategy is confirmed directly from GHL's "US Phone Number Registrations" support article.
-              </p>
-            </div>
-
-            {/* Section 6: Which to Choose */}
-            <h2 id="which-to-choose" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              6. Which Should You Choose?
-            </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The decision depends on four practical factors.
-            </p>
-
             <div className="overflow-x-auto my-6">
               <table className="w-full border-collapse text-sm">
                 <thead>
                   <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Your situation</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Recommended choice</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Why</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]"></th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">A2P 10DLC</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Toll-Free Verification</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {decisionMatrix.map((item, idx) => (
+                  {registrationComparison.map((item, idx) => (
                     <tr key={idx} className="border-b border-[#DDE1E9]">
-                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.situation}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.recommended}</td>
-                      <td className="py-3 px-3 text-[#5C6880]">{item.why}</td>
+                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.aspect}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.a2p}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.tollFree}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Toll-Free Verification is not A2P Brand and Campaign registration, and it is not consent. Neither one gives you permission to text anyone. For consent wording and evidence, see <Link href="/blog/a2p-opt-in-language-templates" className="text-[#0E9BF0] hover:underline">A2P opt in language and requirements</Link>.
+            </p>
+
+            {/* Section: Review Time */}
+            <h2 id="review-time" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Registration and Review Time
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              <strong className="text-[#1A2236]">Toll-free.</strong> HighLevel's current guide says review can take up to four to six weeks, although some submissions finish sooner, and that approval timing is not guaranteed. Twilio's own documentation for verification submitted directly to Twilio gives a shorter figure, roughly three to five business days. The two describe different submission paths, so for a GoHighLevel user the HighLevel figure is the one to plan around. Older guidance that toll-free approves in as little as two days no longer matches HighLevel's current wording.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              <strong className="text-[#1A2236]">A2P.</strong> HighLevel does not publish a fixed review time for Campaigns. Its fee reference describes a Fast Track option, included in the one time registration bundle, that expedites approval to within 3 business days, and a Campaign stays Pending until vetting finishes. Neither route has a guaranteed timeline, so treat both as ranges and check status in your account.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              If a toll-free submission is rejected, HighLevel says to correct the business information, website, use case, consent evidence or sample messages and resubmit when available, or contact support to request an appeal. If an A2P Campaign is rejected, see <Link href="/blog/a2p-campaign-rejected-fix" className="text-[#0E9BF0] hover:underline">A2P Campaign Rejected</Link> and <Link href="/blog/a2p-brand-rejected-fix" className="text-[#0E9BF0] hover:underline">A2P Brand Rejected</Link>.
+            </p>
+
+            {/* Section: Throughput and MPS */}
+            <h2 id="throughput-mps" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Throughput and MPS
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              <strong className="text-[#1A2236]">Toll-free:</strong> HighLevel's help center says a US toll-free number has 3 MPS toward all US and Canada carriers by default, and that higher throughput can be requested through HighLevel's Sales team. Twilio's toll-free documentation also gives 3 segments per second by default with increases possible. It is not unlimited, and I found no published toll-free daily cap in HighLevel's documents.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              <strong className="text-[#1A2236]">A2P:</strong> throughput is not one number. For Standard Brands it depends on Trust Score and Campaign type. For example, HighLevel's tables list up to 225 MPS across the major networks for a Trust Score of 75 to 100, 12 for a score of 1 to 49, 3.75 for a Low Volume Mixed Campaign, and 2.25 for a Sole Proprietor Brand. Sole Proprietor and Low Volume Standard Brands also carry lower daily allowances. The full model is in <Link href="/blog/a2p-trust-score-mps" className="text-[#0E9BF0] hover:underline">A2P Trust Score and MPS</Link>.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              So neither statement holds as a rule. A2P is not always slower, and toll-free is not unlimited. A low tier A2P Campaign can be capped below toll-free's default, while a high tier Standard Brand can be far above it. Compare your actual tier against the 3 MPS toll-free default and any increase HighLevel approves.
+            </p>
+
+            {/* Section: Costs */}
+            <h2 id="costs" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Costs
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Use HighLevel's pricing for a GoHighLevel account, not direct Twilio pricing. Amounts below come from HighLevel's LC Phone pricing guide and A2P fee reference, in USD.
+            </p>
+            <div className="overflow-x-auto my-6">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Cost item</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">A2P 10DLC</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Toll-Free</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {costData.map((item, idx) => (
+                    <tr key={idx} className="border-b border-[#DDE1E9]">
+                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.costItem}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.a2p}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.tollFree}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Neither route is simply cheaper. Toll-free adds a higher monthly number cost and no listed registration fee, while A2P adds registration and monthly Campaign fees but a cheaper number. Which costs less over a year depends on your number count, Campaign type and volume. Failed messages can still be billed once submitted for delivery. Detailed A2P pricing, including HighLevel's 5% pass through markup when agencies re-bill, is in <Link href="/blog/a2p-10dlc-fees-explained" className="text-[#0E9BF0] hover:underline">A2P 10DLC fees</Link>.
+            </p>
+
+            {/* Section: Deliverability */}
+            <h2 id="deliverability" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Deliverability and Carrier Filtering
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Neither route guarantees delivery. Registration or verification tells carriers who is sending and what you plan to send. Filtering still depends on consent, message content, traffic patterns, complaints, opt out rates and other carrier signals. HighLevel notes that even verified toll-free numbers can see error 30007 filtering when content, consent or sender identification does not meet carrier expectations, and Twilio's toll-free best practices stress opt in and a low opt out rate to avoid filtering. Do not choose a route on a promise of better deliverability.
+            </p>
+
+            {/* Section: Local vs National */}
+            <h2 id="local-vs-national" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Local vs National Number Identity
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              A local 10DLC number carries an area code, which can suit a business serving a specific area and conversations that feel local. A toll-free number reads as a national or business line, which can suit support lines or businesses serving many regions. These are perception considerations, not rules. No source shows customers universally trust one more, so consider your own audience.
+            </p>
+
+            {/* Section: Marketing, Transactional and Two Way */}
+            <h2 id="marketing-transactional" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Marketing, Transactional and Two Way Messaging
+            </h2>
+            <ul className="space-y-3 mb-6 text-sm text-[#5C6880] list-disc list-inside">
+              <li><strong className="text-[#1A2236]">Marketing:</strong> both routes require consent. HighLevel's toll-free form asks you to select Marketing as a category when promotional content will be sent, and A2P has Marketing and Mixed use cases. Neither removes consent requirements.</li>
+              <li><strong className="text-[#1A2236]">Appointment reminders and service messages:</strong> purpose matters independently of sender type. Choosing toll-free does not change whether consent is needed, and A2P's use case list has no dedicated appointment category, so you pick the closest fit.</li>
+              <li><strong className="text-[#1A2236]">Two way conversations:</strong> HighLevel bills inbound SMS at the same segment rate on both number types, and toll-free MMS inbound is priced separately from local MMS inbound. I found no HighLevel documentation restricting two way messaging on either route once it is approved.</li>
+            </ul>
+
+            {/* Section: Scenarios */}
+            <h2 id="scenarios" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Scenarios
+            </h2>
+            <div className="overflow-x-auto my-6">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Scenario</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Points toward toll-free when</th>
+                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Points toward A2P 10DLC when</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {scenariosData.map((item, idx) => (
+                    <tr key={idx} className="border-b border-[#DDE1E9]">
+                      <td className="py-3 px-3 font-medium text-[#1A2236]">{item.scenario}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.tollFree}</td>
+                      <td className="py-3 px-3 text-[#5C6880]">{item.a2p}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
 
-            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Lightbulb className="w-4 h-4 text-[#0E9BF0]" />
-                <span className="text-sm font-bold text-[#0E9BF0]">THE HONEST POSITION FOR MOST GHL SERVICE BUSINESSES</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                For the typical GHL service business dental, home services, real estate, coaching A2P 10DLC with a local 10-digit number is the right long-term choice. The local number appearance matters for reply rates. A2P 10DLC gives access to higher throughput as the business grows. The 1 to 2 week registration timeline is the main trade-off, and it can be bridged with toll-free if needed. Toll-free makes most sense when you are in a hurry, when no EIN exists, or when your contacts already expect a 1-800 number.
-              </p>
+            {/* Section: How to Choose */}
+            <h2 id="how-to-choose" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              How to Choose for a GoHighLevel Business
+            </h2>
+            <div className="space-y-3 mb-6">
+              {howToChooseSteps.map((item, idx) => (
+                <div key={idx} className="bg-white border border-[#DDE1E9] rounded-xl p-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-7 h-7 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold flex-shrink-0">{idx + 1}</div>
+                    <p className="text-sm text-[#5C6880] leading-relaxed">{item}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-
-            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-5 my-6 text-white">
-              <div className="flex items-center gap-2 mb-3">
-                <Star className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">NEED YOUR GHL NUMBERS REGISTERED CORRECTLY</span>
-              </div>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                GHL Scale Up handles A2P 10DLC registration and toll-free verification for agencies and their clients. We can run both simultaneously to minimise the time before your first SMS is delivered.
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                See results from our registration setups: <Link href="/case-studies" className="text-[#0E9BF0] hover:underline">real GoHighLevel results and case studies →</Link>
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed">
-                To discuss your specific situation: <Link href="/contact" className="text-[#0E9BF0] hover:underline">book a free strategy call at ghlscaleup.com/contact →</Link>
-              </p>
-            </div>
-
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              Once registered, the first SMS automation to build: <Link href="/blog/gohighlevel-missed-call-text-back" className="text-[#0E9BF0] hover:underline">GoHighLevel Missed Call Text Back →</Link>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              If the answers point in different directions, running both can be reasonable, as the next section explains.
             </p>
 
-            {/* CTA Button 3: Before FAQ */}
-            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
-              <p className="text-sm font-medium mb-2">🔍 Still not sure which number type is right for you?</p>
-              <p className="text-sm text-white/80 mb-4">Let us review your business and recommend the right registration path.</p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <Search className="w-4 h-4" />
-                Get a Free Assessment
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
+            {/* Section: Both Together */}
+            <h2 id="both-together" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Can You Use Toll-Free and A2P 10DLC Together?
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Yes. Nothing in HighLevel's documentation prevents an account from holding both a verified toll-free number and A2P registered local numbers, and businesses sometimes do so for different programs, local versus national identity, or separate audiences. Each route keeps its own limits, so do not use multiple senders to get around throughput limits or filtering. Some older guidance suggested submitting both together so toll-free can start sending sooner while A2P is reviewed. HighLevel's current documentation does not say that, and with toll-free review described as up to four to six weeks, it is not a reliable way to start faster.
+            </p>
+
+            {/* Section: Switching */}
+            <h2 id="switching" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Switching Between Routes
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              <strong className="text-[#1A2236]">A2P to toll-free:</strong> buy a toll-free number, complete Toll-Free Verification for it, and update your workflows and customer facing materials. Your A2P approval does not carry over, because verification is per toll-free number.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              <strong className="text-[#1A2236]">Toll-free to A2P:</strong> get a local number, register a Brand and Campaign, link the number to the approved Campaign, and align opt in and sample messages with the Campaign. Start with <Link href="/blog/a2p-brand-registration-guide" className="text-[#0E9BF0] hover:underline">A2P Brand Registration</Link> and <Link href="/blog/a2p-campaign-registration-guide" className="text-[#0E9BF0] hover:underline">A2P Campaign Registration</Link>.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              <strong className="text-[#1A2236]">Moving numbers:</strong> HighLevel's number move guide says A2P status is tied to the sub-account, not the number, so it does not move with the number, and after migrating to LC Phone it tells you to verify any required toll-free or country specific compliance status. Check status after any move rather than assuming it transferred. Move rules are in HighLevel's <a href="https://help.gohighlevel.com/support/solutions/articles/48001203968-moving-numbers-across-sub-accounts-same-agency-" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">Move Numbers guide</a> and <a href="https://help.gohighlevel.com/support/solutions/articles/48001204027" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">LC Phone migration guide</a>.
+            </p>
+
+            {/* Section: Common Mistakes */}
+            <h2 id="common-mistakes" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Common Mistakes When Choosing a Route
+            </h2>
+            <ul className="space-y-2 mb-6 text-sm text-[#5C6880] list-disc list-inside">
+              {commonMistakes.map((item, idx) => (
+                <li key={idx}>{item}</li>
+              ))}
+            </ul>
+
+            {/* Section: Checklist */}
+            <h2 id="checklist" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Toll-Free vs A2P Decision Checklist
+            </h2>
+            <div className="space-y-2 mb-6">
+              {checklistItems.map((item, idx) => (
+                <div key={idx} className="bg-white border border-[#DDE1E9] rounded-xl p-3">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="w-4 h-4 text-[#25C97D] flex-shrink-0 mt-0.5" />
+                    <p className="text-sm text-[#5C6880]">{item}</p>
+                  </div>
+                </div>
+              ))}
             </div>
 
-            {/* Section 7: FAQ */}
+            {/* Section: FAQ */}
             <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
-              7. Frequently Asked Questions
+              Toll-Free vs A2P 10DLC FAQ
             </h2>
 
             <div className="space-y-3">
@@ -574,23 +736,21 @@ export default function TollFreeVsA2P10DLCClient() {
               ))}
             </div>
 
-            {/* CTA Button 4: After FAQ */}
-            <div className="mt-8 p-6 bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl text-center">
-              <p className="text-white font-bold text-lg mb-2">Still Have Questions About Toll-Free vs A2P 10DLC?</p>
-              <p className="text-white/60 text-sm mb-4">Talk to our SMS specialists directly. We've handled 200+ registrations.</p>
+            {/* CTA 4 - After FAQ */}
+            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
+              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
+                <strong className="text-white">Still have questions about Toll-Free vs A2P 10DLC?</strong>
+              </p>
+              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
+                Talk to our SMS specialists directly. We've handled 200+ registrations.
+              </p>
               <div className="flex flex-wrap justify-center gap-3">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
                   <MessageCircle className="w-4 h-4" />
                   Ask an Expert
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-white/20 transition-all border border-white/20 text-sm"
-                >
+                <Link href="/book-a-call" className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20">
                   <Phone className="w-4 h-4" />
                   Call Us
                 </Link>
@@ -606,12 +766,16 @@ export default function TollFreeVsA2P10DLCClient() {
                 <Link href="/blog/a2p-campaign-registration-guide" className="text-sm text-[#0E9BF0] hover:underline">A2P Campaign Registration: Step-by-Step Guide →</Link>
                 <Link href="/blog/a2p-10dlc-fees-explained" className="text-sm text-[#0E9BF0] hover:underline">A2P 10DLC Fees Explained →</Link>
                 <Link href="/blog/a2p-trust-score-mps" className="text-sm text-[#0E9BF0] hover:underline">A2P Trust Score and MPS Explained →</Link>
+                <Link href="/blog/a2p-opt-in-language-templates" className="text-sm text-[#0E9BF0] hover:underline">A2P Opt In Language Templates →</Link>
+                <Link href="/blog/a2p-10dlc-canadian-numbers" className="text-sm text-[#0E9BF0] hover:underline">A2P 10DLC for Canadian Numbers →</Link>
+                <Link href="/blog/a2p-campaign-rejected-fix" className="text-sm text-[#0E9BF0] hover:underline">A2P Campaign Rejected in GoHighLevel →</Link>
+                <Link href="/blog/a2p-brand-rejected-fix" className="text-sm text-[#0E9BF0] hover:underline">A2P Brand Rejected in GoHighLevel →</Link>
                 <Link href="/blog/gohighlevel-missed-call-text-back" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Missed Call Text Back: Setup Guide →</Link>
                 <Link href="/case-studies" className="text-sm text-[#0E9BF0] hover:underline">Real GoHighLevel Results and Case Studies →</Link>
               </div>
             </div>
 
-            {/* Final CTA Section */}
+            {/* Final CTA */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Not sure which number type is right for your GHL setup?</h3>
@@ -625,10 +789,10 @@ export default function TollFreeVsA2P10DLCClient() {
               </div>
             </div>
 
-            {/* Author Section */}
+            {/* Author / Verification Section */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 my-6">
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-7 h-7 rounded-full overflow-hidden bg-white flex items-center justify-center">
+                <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
                   <img
                     src="/web-app-manifest-192x192.png"
                     alt="GHL Scale Up"
@@ -641,7 +805,7 @@ export default function TollFreeVsA2P10DLCClient() {
                 </div>
               </div>
               <p className="text-xs text-[#5C6880] leading-relaxed">
-                All information in this guide is verified against GoHighLevel's official support portal documentation as of July 2026. Registration fees, verification timelines, and carrier policies are set by external providers and can change always verify current details in GHL's Trust Center before acting.
+                This guide was checked against HighLevel's <a href="https://help.gohighlevel.com/support/solutions/articles/48001222300-toll-free-number-verification-guide-for-lc-phone-us-canada-" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">Toll-Free Verification guide</a>, <a href="https://help.gohighlevel.com/support/solutions/articles/48001223556-phone-system-pricing-billing-guide" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">LC Phone pricing guide</a>, <a href="https://help.gohighlevel.com/support/solutions/articles/155000004527-what-is-message-throughput-mps-" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">throughput guide</a> and <a href="https://help.gohighlevel.com/support/solutions/articles/155000005200-a2p-10dlc-messaging-fees-registration-monthly-and-carrier-costs" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">A2P fee reference</a>, and Twilio's <a href="https://help.twilio.com/articles/5377174717595-Toll-Free-Message-Verification-for-US-Canada" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">toll-free verification documentation</a>, current as of September 2026. Review times, fees and carrier rules change, so confirm in your account before deciding. Nothing here is legal advice.
               </p>
               <Link href="/" className="text-[#0E9BF0] text-xs hover:underline mt-2 inline-block">ghlscaleup.com</Link>
             </div>
