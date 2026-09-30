@@ -82,7 +82,7 @@ export default function GoHighLevelAbandonedCheckoutClient() {
   const faqs = [
     {
       q: "Does GoHighLevel have abandoned cart automation?",
-      a: "It has an Abandoned Checkout trigger, specifically tied to checkout being started and not completed after an identifiable shopper entered an email — not a general \"cart\" trigger covering earlier browsing behavior."
+      a: "It has an Abandoned Checkout trigger, specifically tied to checkout being started and not completed after an identifiable shopper entered an email not a general \"cart\" trigger covering earlier browsing behavior."
     },
     {
       q: "Does GoHighLevel work with Shopify abandoned checkout?",
@@ -94,11 +94,11 @@ export default function GoHighLevelAbandonedCheckoutClient() {
     },
     {
       q: "Can GoHighLevel send abandoned checkout emails and SMS?",
-      a: "Yes, using standard workflow actions once the Abandoned Checkout trigger has fired — email and SMS both work, subject to the contact having a valid address/number and, for SMS, proper consent."
+      a: "Yes, using standard workflow actions once the Abandoned Checkout trigger has fired email and SMS both work, subject to the contact having a valid address/number and, for SMS, proper consent."
     },
     {
       q: "How do I stop an abandoned checkout workflow after purchase?",
-      a: "Add a Goal Event with the Payment Received goal type, filtered to success, and set it to end the workflow once met — this checks continuously rather than only at one point in the sequence."
+      a: "Add a Goal Event with the Payment Received goal type, filtered to success, and set it to end the workflow once met this checks continuously rather than only at one point in the sequence."
     },
     {
       q: "Why is my GoHighLevel abandoned checkout workflow not triggering?",
@@ -106,7 +106,7 @@ export default function GoHighLevelAbandonedCheckoutClient() {
     },
     {
       q: "Does abandoned checkout work with the GoHighLevel Ecommerce Store?",
-      a: "Yes, using the same trigger with Order Source set to Store — and the native Store also sends its own automatic abandoned checkout email by default, separate from any custom workflow."
+      a: "Yes, using the same trigger with Order Source set to Store and the native Store also sends its own automatic abandoned checkout email by default, separate from any custom workflow."
     }
   ];
 
@@ -227,11 +227,11 @@ export default function GoHighLevelAbandonedCheckoutClient() {
           </div>
 
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-6xl">
-            <strong className="text-white">Yes, GoHighLevel can automate abandoned checkout recovery</strong> — where the ecommerce source you're using provides the Abandoned Checkout event, a workflow can pick it up and follow up automatically. That's true whether the checkout happened in GoHighLevel's own Ecommerce Store or in a connected Shopify store. What the workflow can actually know about that checkout, how quickly it can respond, and how to stop it the moment someone pays, depends on real trigger behavior, not assumption.
+            <strong className="text-white">Yes, GoHighLevel can automate abandoned checkout recovery</strong> where the ecommerce source you're using provides the Abandoned Checkout event, a workflow can pick it up and follow up automatically. That's true whether the checkout happened in GoHighLevel's own Ecommerce Store or in a connected Shopify store. What the workflow can actually know about that checkout, how quickly it can respond, and how to stop it the moment someone pays, depends on real trigger behavior, not assumption.
           </p>
 
           <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-6xl">
-            This article covers exactly that: how GoHighLevel detects an abandoned checkout, what data the trigger gives you, how to build the workflow, how to stop it after a purchase, how to avoid messaging the same person twice, and where the current platform's boundaries are. It's about the abandoned checkout automation itself — not whether GoHighLevel suits ecommerce generally, and not the full Shopify integration or the native Ecommerce Store, both covered elsewhere.
+            This article covers exactly that: how GoHighLevel detects an abandoned checkout, what data the trigger gives you, how to build the workflow, how to stop it after a purchase, how to avoid messaging the same person twice, and where the current platform's boundaries are. It's about the abandoned checkout automation itself not whether GoHighLevel suits ecommerce generally, and not the full Shopify integration or the native Ecommerce Store, both covered elsewhere.
           </p>
 
           <div className="flex flex-wrap gap-3">
@@ -373,10 +373,10 @@ export default function GoHighLevelAbandonedCheckoutClient() {
               What Is an Abandoned Checkout in GoHighLevel?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              An abandoned checkout is a checkout session where a shopper reached the checkout process, provided at least their email address, and didn't complete payment. That last detail matters: <strong className="text-[#1A2236]">cart</strong> and <strong className="text-[#1A2236]">checkout</strong> aren't the same event. A shopper adding an item to a cart and leaving the site has not reached checkout — there's no email captured, and GoHighLevel's Abandoned Checkout trigger has nothing to identify them by. The trigger fires when a shopper enters checkout, reaches the point of entering an email, and then doesn't finish paying within the abandonment window you configure.
+              An abandoned checkout is a checkout session where a shopper reached the checkout process, provided at least their email address, and didn't complete payment. That last detail matters: <strong className="text-[#1A2236]">cart</strong> and <strong className="text-[#1A2236]">checkout</strong> aren't the same event. A shopper adding an item to a cart and leaving the site has not reached checkout there's no email captured, and GoHighLevel's Abandoned Checkout trigger has nothing to identify them by. The trigger fires when a shopper enters checkout, reaches the point of entering an email, and then doesn't finish paying within the abandonment window you configure.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Marketers often use "abandoned cart" loosely to mean any incomplete purchase, including someone who never got past browsing. GoHighLevel's trigger doesn't work at that level — it's specifically tied to checkout, and specifically requires an identifiable shopper. If your product pages see a lot of traffic but few checkouts start, that's a different problem this automation can't see or fix.
+              Marketers often use "abandoned cart" loosely to mean any incomplete purchase, including someone who never got past browsing. GoHighLevel's trigger doesn't work at that level it's specifically tied to checkout, and specifically requires an identifiable shopper. If your product pages see a lot of traffic but few checkouts start, that's a different problem this automation can't see or fix.
             </p>
 
             {/* ============================================================
@@ -405,7 +405,7 @@ export default function GoHighLevelAbandonedCheckoutClient() {
               How Does the GoHighLevel Abandoned Checkout Trigger Detect an Abandoned Checkout?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The Abandoned Checkout trigger watches for a shopper who adds items, enters checkout, provides a valid email address, and doesn't complete payment within a duration you set in minutes. Once that window elapses without a completed payment, the trigger fires and the workflow enrolls the contact. HighLevel's own documentation frames this as a single, unified trigger — it's built to work the same way whether the checkout happened in the native Ecommerce Store or came from a connected external source like Shopify, rather than needing separate triggers for each.
+              The Abandoned Checkout trigger watches for a shopper who adds items, enters checkout, provides a valid email address, and doesn't complete payment within a duration you set in minutes. Once that window elapses without a completed payment, the trigger fires and the workflow enrolls the contact. HighLevel's own documentation frames this as a single, unified trigger it's built to work the same way whether the checkout happened in the native Ecommerce Store or came from a connected external source like Shopify, rather than needing separate triggers for each.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               Without a captured email, there's no contact for the workflow to act on, so a shopper who abandons before entering any contact information simply isn't visible to this automation. That's a hard boundary of the trigger, not a configuration choice.
@@ -416,7 +416,7 @@ export default function GoHighLevelAbandonedCheckoutClient() {
               Which Ecommerce Sources Can Trigger a GoHighLevel Abandoned Checkout Workflow?
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Two sources are currently documented for the Abandoned Checkout trigger: GoHighLevel's own native Ecommerce Store, and Shopify through the connected integration. The trigger's Order Source filter lets you choose Store (native) or External, and when External is selected, a Sub-Source filter narrows it to the specific external platform — currently Shopify. HighLevel's documentation doesn't list other external ecommerce platforms as currently supported for this trigger, so don't assume a different platform will populate it without checking current documentation first.
+              Two sources are currently documented for the Abandoned Checkout trigger: GoHighLevel's own native Ecommerce Store, and Shopify through the connected integration. The trigger's Order Source filter lets you choose Store (native) or External, and when External is selected, a Sub-Source filter narrows it to the specific external platform currently Shopify. HighLevel's documentation doesn't list other external ecommerce platforms as currently supported for this trigger, so don't assume a different platform will populate it without checking current documentation first.
             </p>
 
             {/* Section: What Data Trigger Provides */}
@@ -457,7 +457,7 @@ export default function GoHighLevelAbandonedCheckoutClient() {
               Triggering the Workflow Is Not the Same as Recovering the Sale
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              This distinction is worth stating plainly, because it's where a lot of abandoned checkout automation quietly underperforms. The trigger firing only means the workflow started. Whether the sale actually gets recovered depends on things the trigger has nothing to do with: how relevant the message is, whether it reaches a channel the customer actually checks, how much time passed before it arrived, whether a discount was necessary or counterproductive, and whether the customer had a real reason to abandon in the first place — a shipping cost surprise, a payment failure, simple distraction. GoHighLevel gives you the event and the data to act on it. The workflow design and the message are what determine whether that turns into a recovered sale.
+              This distinction is worth stating plainly, because it's where a lot of abandoned checkout automation quietly underperforms. The trigger firing only means the workflow started. Whether the sale actually gets recovered depends on things the trigger has nothing to do with: how relevant the message is, whether it reaches a channel the customer actually checks, how much time passed before it arrived, whether a discount was necessary or counterproductive, and whether the customer had a real reason to abandon in the first place a shipping cost surprise, a payment failure, simple distraction. GoHighLevel gives you the event and the data to act on it. The workflow design and the message are what determine whether that turns into a recovered sale.
             </p>
 
             {/* Section: How to Build Workflow */}
@@ -468,12 +468,12 @@ export default function GoHighLevelAbandonedCheckoutClient() {
               <li><strong className="text-[#1A2236]">Confirm the ecommerce source.</strong> Is the checkout happening in the native Ecommerce Store, or in a connected Shopify store? This decides which Order Source/Sub-Source filter you'll use.</li>
               <li><strong className="text-[#1A2236]">Create a new workflow</strong> (or open an existing one) from Automation → Workflows.</li>
               <li><strong className="text-[#1A2236]">Add the Abandoned Checkout trigger.</strong> It's listed under the Ecommerce Stores trigger category.</li>
-              <li><strong className="text-[#1A2236]">Set the abandonment duration</strong> in minutes — how long to wait after the last checkout activity before treating it as abandoned.</li>
-              <li><strong className="text-[#1A2236]">Add the filters relevant to your use case</strong> — cart value, country, products, order source/sub-source, store name — only the ones that actually change how you want to handle that checkout.</li>
+              <li><strong className="text-[#1A2236]">Set the abandonment duration</strong> in minutes how long to wait after the last checkout activity before treating it as abandoned.</li>
+              <li><strong className="text-[#1A2236]">Add the filters relevant to your use case</strong> cart value, country, products, order source/sub-source, store name only the ones that actually change how you want to handle that checkout.</li>
               <li><strong className="text-[#1A2236]">Add a wait step</strong> before the first message, rather than firing immediately (covered in the timing section below).</li>
-              <li><strong className="text-[#1A2236]">Send the first recovery message</strong> — email, SMS, or both, depending on what's available and appropriate.</li>
+              <li><strong className="text-[#1A2236]">Send the first recovery message</strong> email, SMS, or both, depending on what's available and appropriate.</li>
               <li><strong className="text-[#1A2236]">Add a Goal Event checking for completed payment</strong> so the workflow stops or branches the moment the customer pays (covered in detail below).</li>
-              <li><strong className="text-[#1A2236]">Branch or continue</strong> based on whether the goal was met — end the workflow for a completed purchase, continue the sequence for one that's still unresolved.</li>
+              <li><strong className="text-[#1A2236]">Branch or continue</strong> based on whether the goal was met end the workflow for a completed purchase, continue the sequence for one that's still unresolved.</li>
               <li><strong className="text-[#1A2236]">Publish the workflow and test it</strong> with a real abandoned checkout before relying on it for live customers.</li>
             </ol>
 
@@ -485,11 +485,11 @@ export default function GoHighLevelAbandonedCheckoutClient() {
               Each filter exists to route different abandoned checkouts into different treatment, not just to narrow the list down. Here's what each one is actually for.
             </p>
             <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">Cart/order value</strong> — A $30 cart and a $1,500 cart usually warrant different recovery logic. A store might send a simple reminder for the former and route the latter to a higher-touch sequence, or flag it for a team member. Set this too aggressively and you'll exclude smaller but still worthwhile recoveries.</li>
-              <li><strong className="text-[#1A2236]">Country</strong> — Useful when shipping cost, currency, or fulfillment differs by region and the message needs to reflect that. Overusing it can fragment a workflow into more branches than the actual difference in customer experience justifies.</li>
-              <li><strong className="text-[#1A2236]">Products (Global Products)</strong> — Lets a specific product's abandonment get product-specific messaging, rather than a generic "you left something in your cart" line. Only worth using when you actually have distinct messaging prepared for that product; otherwise it adds complexity with no payoff.</li>
-              <li><strong className="text-[#1A2236]">Order source / sub-source</strong> — Separates native Store checkouts from Shopify checkouts, which matters if the two experiences differ enough that one message doesn't fit both.</li>
-              <li><strong className="text-[#1A2236]">Store name</strong> — Relevant for accounts running multiple stores, so each store's abandoned checkouts can be handled under its own branding and logic.</li>
+              <li><strong className="text-[#1A2236]">Cart/order value</strong> A $30 cart and a $1,500 cart usually warrant different recovery logic. A store might send a simple reminder for the former and route the latter to a higher-touch sequence, or flag it for a team member. Set this too aggressively and you'll exclude smaller but still worthwhile recoveries.</li>
+              <li><strong className="text-[#1A2236]">Country</strong> Useful when shipping cost, currency, or fulfillment differs by region and the message needs to reflect that. Overusing it can fragment a workflow into more branches than the actual difference in customer experience justifies.</li>
+              <li><strong className="text-[#1A2236]">Products (Global Products)</strong> Lets a specific product's abandonment get product-specific messaging, rather than a generic "you left something in your cart" line. Only worth using when you actually have distinct messaging prepared for that product; otherwise it adds complexity with no payoff.</li>
+              <li><strong className="text-[#1A2236]">Order source / sub-source</strong> Separates native Store checkouts from Shopify checkouts, which matters if the two experiences differ enough that one message doesn't fit both.</li>
+              <li><strong className="text-[#1A2236]">Store name</strong> Relevant for accounts running multiple stores, so each store's abandoned checkouts can be handled under its own branding and logic.</li>
             </ul>
 
             {/* Section: How to Stop After Purchase */}
@@ -497,13 +497,13 @@ export default function GoHighLevelAbandonedCheckoutClient() {
               How to Stop Abandoned Checkout Messages After a Customer Purchases
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              This is the section most abandoned checkout workflows get wrong. A customer abandons, enters the recovery sequence, then completes the purchase on their own — maybe before your first message even sends. If the workflow keeps running, that customer gets a reminder to buy something they already bought, which is the fastest way to make an automation feel broken rather than helpful.
+              This is the section most abandoned checkout workflows get wrong. A customer abandons, enters the recovery sequence, then completes the purchase on their own maybe before your first message even sends. If the workflow keeps running, that customer gets a reminder to buy something they already bought, which is the fastest way to make an automation feel broken rather than helpful.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              GoHighLevel's documented mechanism for this is the <strong className="text-[#1A2236]">Goal Event workflow action</strong>. A Goal Event lets a contact jump out of a sequence the instant a condition is met, evaluated continuously rather than only at a single checkpoint the way an If/Else does. The documented Goal Event type relevant here is <strong className="text-[#1A2236]">Payment Received</strong>, which can be filtered by success or failure status and by product. Add a Goal Event checking for Payment Received success right after your trigger (or after each wait step), and set its behavior to <strong className="text-[#1A2236]">End this workflow</strong> once the goal is met — the contact exits the recovery sequence the moment payment succeeds, instead of finishing out every remaining step.
+              GoHighLevel's documented mechanism for this is the <strong className="text-[#1A2236]">Goal Event workflow action</strong>. A Goal Event lets a contact jump out of a sequence the instant a condition is met, evaluated continuously rather than only at a single checkpoint the way an If/Else does. The documented Goal Event type relevant here is <strong className="text-[#1A2236]">Payment Received</strong>, which can be filtered by success or failure status and by product. Add a Goal Event checking for Payment Received success right after your trigger (or after each wait step), and set its behavior to <strong className="text-[#1A2236]">End this workflow</strong> once the goal is met the contact exits the recovery sequence the moment payment succeeds, instead of finishing out every remaining step.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              An If/Else condition checking order or payment status is a secondary option, but it only evaluates once, at the moment the contact reaches that step — it won't catch a payment that completes while the contact is sitting in a wait step. For a continuously-checked exit condition, the Goal Event is the documented tool built for that job.
+              An If/Else condition checking order or payment status is a secondary option, but it only evaluates once, at the moment the contact reaches that step it won't catch a payment that completes while the contact is sitting in a wait step. For a continuously-checked exit condition, the Goal Event is the documented tool built for that job.
             </p>
 
             {/* Section: How to Avoid Duplicates */}
@@ -514,13 +514,13 @@ export default function GoHighLevelAbandonedCheckoutClient() {
               A few realistic scenarios can produce more than one recovery message to the same person, and it's worth designing around them rather than assuming the platform prevents all of them automatically:
             </p>
             <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
-              <li><strong className="text-[#1A2236]">The same shopper abandons more than once.</strong> If they abandon, don't purchase, and abandon again later, that's a second, legitimate trigger event — not necessarily a bug, but worth knowing your workflow's re-entry behavior for repeat abandonments.</li>
+              <li><strong className="text-[#1A2236]">The same shopper abandons more than once.</strong> If they abandon, don't purchase, and abandon again later, that's a second, legitimate trigger event not necessarily a bug, but worth knowing your workflow's re-entry behavior for repeat abandonments.</li>
               <li><strong className="text-[#1A2236]">Multiple devices or sessions.</strong> A shopper starting checkout on mobile, then finishing on desktop, can look like two separate abandonments if the first session's checkout technically timed out before the second completed.</li>
-              <li><strong className="text-[#1A2236]">Overlapping workflows.</strong> If more than one workflow is built to catch abandoned checkouts — one broad, one product-specific — the same contact can land in both simultaneously unless your filters are mutually exclusive.</li>
+              <li><strong className="text-[#1A2236]">Overlapping workflows.</strong> If more than one workflow is built to catch abandoned checkouts one broad, one product-specific the same contact can land in both simultaneously unless your filters are mutually exclusive.</li>
               <li><strong className="text-[#1A2236]">Multiple stores or integrations.</strong> An account running both a native Store and a connected Shopify store needs source/sub-source filters set deliberately, or the same customer activity could be interpreted by more than one workflow.</li>
             </ul>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              HighLevel's documentation doesn't claim the platform automatically prevents every one of these scenarios — it gives you the filters and Goal Event tools to design around them. Treat duplicate prevention as something you build, not something you get for free.
+              HighLevel's documentation doesn't claim the platform automatically prevents every one of these scenarios it gives you the filters and Goal Event tools to design around them. Treat duplicate prevention as something you build, not something you get for free.
             </p>
 
             {/* Section: Workflow Examples */}
@@ -538,7 +538,7 @@ export default function GoHighLevelAbandonedCheckoutClient() {
               </div>
               <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
                 <p className="text-sm font-bold text-[#1A2236] mb-1">Workflow B: Multi-Step Email and SMS Recovery</p>
-                <p className="text-sm text-[#5C6880]">Abandoned Checkout trigger → wait → email → wait → Goal Event check → SMS (if the contact has given SMS consent) → wait → final email → Goal Event (Payment Received) ends the workflow at any point payment is detected. Only include the SMS step if the business has a legitimate basis to message that channel — covered in the SMS section below.</p>
+                <p className="text-sm text-[#5C6880]">Abandoned Checkout trigger → wait → email → wait → Goal Event check → SMS (if the contact has given SMS consent) → wait → final email → Goal Event (Payment Received) ends the workflow at any point payment is detected. Only include the SMS step if the business has a legitimate basis to message that channel covered in the SMS section below.</p>
               </div>
               <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
                 <p className="text-sm font-bold text-[#1A2236] mb-1">Workflow C: High-Value Checkout Recovery</p>
@@ -546,7 +546,7 @@ export default function GoHighLevelAbandonedCheckoutClient() {
               </div>
               <div className="bg-white border border-[#DDE1E9] rounded-xl p-4">
                 <p className="text-sm font-bold text-[#1A2236] mb-1">Workflow D: Product-Specific Recovery</p>
-                <p className="text-sm text-[#5C6880]">Abandoned Checkout trigger filtered by Global Products → messaging written specifically for that product's objections or context, rather than generic cart-reminder language. This is the filter that makes the product-specific messaging possible in the first place — without it, you'd need a condition inside the workflow to achieve the same routing.</p>
+                <p className="text-sm text-[#5C6880]">Abandoned Checkout trigger filtered by Global Products → messaging written specifically for that product's objections or context, rather than generic cart-reminder language. This is the filter that makes the product-specific messaging possible in the first place without it, you'd need a condition inside the workflow to achieve the same routing.</p>
               </div>
             </div>
 
@@ -555,10 +555,10 @@ export default function GoHighLevelAbandonedCheckoutClient() {
               Designing Recovery Timing for a GoHighLevel Abandoned Checkout Workflow
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Timing is a design decision, not a fixed rule. Messaging immediately after abandonment can feel intrusive — some shoppers step away mid-checkout for entirely ordinary reasons and return on their own within minutes. Waiting too long loses relevance; by the next day, the shopper may have forgotten the specifics or bought elsewhere. Neither extreme is universally correct.
+              Timing is a design decision, not a fixed rule. Messaging immediately after abandonment can feel intrusive some shoppers step away mid-checkout for entirely ordinary reasons and return on their own within minutes. Waiting too long loses relevance; by the next day, the shopper may have forgotten the specifics or bought elsewhere. Neither extreme is universally correct.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              What should actually inform the wait: how considered the purchase is (a $1,500 item usually tolerates a longer wait than a $20 impulse buy), how the business's traffic behaves (a high-intent paid-ad visitor may warrant faster follow-up than organic browsing traffic), and which channels are available (an SMS reminder sent too soon can feel more aggressive than the same message by email). Any specific timings in this article's examples are illustrative starting points for testing in your own store, not benchmarks with proven conversion results — no external source in this research established a universal "best" abandonment delay, and none is claimed here.
+              What should actually inform the wait: how considered the purchase is (a $1,500 item usually tolerates a longer wait than a $20 impulse buy), how the business's traffic behaves (a high-intent paid-ad visitor may warrant faster follow-up than organic browsing traffic), and which channels are available (an SMS reminder sent too soon can feel more aggressive than the same message by email). Any specific timings in this article's examples are illustrative starting points for testing in your own store, not benchmarks with proven conversion results no external source in this research established a universal "best" abandonment delay, and none is claimed here.
             </p>
 
             {/* Section: Writing Recovery Emails */}
@@ -566,7 +566,7 @@ export default function GoHighLevelAbandonedCheckoutClient() {
               Writing Abandoned Checkout Recovery Emails in GoHighLevel
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The email's job inside this workflow is narrow: remind the shopper what they left, make it easy to get back to checkout, and address whatever might have stopped them the first time — a shipping cost question, a payment concern, simple hesitation. Product context (what they were about to buy) and a direct link back to checkout do most of the work. Reassurance or support information matters more for higher-consideration purchases than low-cost ones.
+              The email's job inside this workflow is narrow: remind the shopper what they left, make it easy to get back to checkout, and address whatever might have stopped them the first time a shipping cost question, a payment concern, simple hesitation. Product context (what they were about to buy) and a direct link back to checkout do most of the work. Reassurance or support information matters more for higher-consideration purchases than low-cost ones.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               A discount isn't a default ingredient. Offering one automatically on every abandoned checkout trains repeat customers to abandon on purpose and wait for the discount code, which erodes margin without necessarily changing behavior for shoppers who were never going to buy at full price anyway. Reserve a discount for situations where you've identified price sensitivity as an actual reason for abandonment, not as a blanket first move.
@@ -577,7 +577,7 @@ export default function GoHighLevelAbandonedCheckoutClient() {
               Using SMS for GoHighLevel Abandoned Checkout Recovery
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              SMS can work well in this sequence because of its immediacy, but it isn't a free second channel to duplicate the email into — consent and message frequency both matter. A shopper needs to have actually consented to receive SMS messages from the business, and sending SMS to US numbers involves carrier registration requirements covered separately. Sending an SMS that just repeats the email's content, rather than adding something (urgency, a direct link, a shorter nudge), tends to feel like noise rather than help. This article isn't the source for consent or messaging-law specifics — verify current requirements against authoritative regulatory sources and your own legal counsel before relying on SMS for recovery messaging, and don't treat any workflow setup as automatically compliant.
+              SMS can work well in this sequence because of its immediacy, but it isn't a free second channel to duplicate the email into consent and message frequency both matter. A shopper needs to have actually consented to receive SMS messages from the business, and sending SMS to US numbers involves carrier registration requirements covered separately. Sending an SMS that just repeats the email's content, rather than adding something (urgency, a direct link, a shorter nudge), tends to feel like noise rather than help. This article isn't the source for consent or messaging-law specifics verify current requirements against authoritative regulatory sources and your own legal counsel before relying on SMS for recovery messaging, and don't treat any workflow setup as automatically compliant.
             </p>
 
             {/* Section: What Can Be Personalized */}
@@ -585,7 +585,7 @@ export default function GoHighLevelAbandonedCheckoutClient() {
               What Can Be Personalized in a GoHighLevel Abandoned Checkout Message
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Personalization here should be built only from data the trigger and contact record actually expose: the customer's name, the specific product(s) left in the checkout, the cart or order value, which store the checkout belongs to (for multi-store accounts), and any segment or tag already on the contact from other CRM activity. Don't invent personalization fields that sound plausible — if a variable isn't confirmed available in your workflow's custom values, test it with a real checkout before writing copy that depends on it.
+              Personalization here should be built only from data the trigger and contact record actually expose: the customer's name, the specific product(s) left in the checkout, the cart or order value, which store the checkout belongs to (for multi-store accounts), and any segment or tag already on the contact from other CRM activity. Don't invent personalization fields that sound plausible if a variable isn't confirmed available in your workflow's custom values, test it with a real checkout before writing copy that depends on it.
             </p>
 
             {/* Section: How Shopify Works */}
@@ -593,7 +593,7 @@ export default function GoHighLevelAbandonedCheckoutClient() {
               How GoHighLevel Handles Shopify Abandoned Checkouts
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The path for a Shopify abandonment is: <strong className="text-[#0E9BF0]">Shopify checkout started → the connected integration's synced data → GoHighLevel's Abandoned Checkout trigger, filtered to Order Source: External and Sub-Source: Shopify → workflow → recovery action.</strong> The same unified trigger covers this, rather than a completely separate Shopify-only mechanism — HighLevel also documents a legacy "Shopify Abandoned Cart" trigger that's deprecating, so new workflows should be built on the current unified trigger, not the older Shopify-specific one.
+              The path for a Shopify abandonment is: <strong className="text-[#0E9BF0]">Shopify checkout started → the connected integration's synced data → GoHighLevel's Abandoned Checkout trigger, filtered to Order Source: External and Sub-Source: Shopify → workflow → recovery action.</strong> The same unified trigger covers this, rather than a completely separate Shopify-only mechanism HighLevel also documents a legacy "Shopify Abandoned Cart" trigger that's deprecating, so new workflows should be built on the current unified trigger, not the older Shopify-specific one.
             </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               This section only covers the abandoned-checkout-specific piece of that connection. For the full picture of what data syncs between Shopify and GoHighLevel and how the connection itself is set up, see <Link href="/blog/gohighlevel-shopify-integration" className="text-[#0E9BF0] hover:underline">GoHighLevel Shopify Integration: What It Syncs, How It Works & What You Can Automate</Link>.
@@ -604,7 +604,7 @@ export default function GoHighLevelAbandonedCheckoutClient() {
               How Abandoned Checkout Works With the GoHighLevel Ecommerce Store
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              With the native Ecommerce Store, the same Abandoned Checkout trigger applies with Order Source set to Store rather than External, and HighLevel also runs a separate, automatic abandoned checkout email by default for native Store checkouts — a single reminder email sent after a default delay, independent of any custom workflow you build. That automatic email and a custom Abandoned Checkout workflow can overlap if you're not deliberate about it, so decide whether to keep the automatic email on or rely entirely on your own workflow, rather than running both without checking how they interact. For the full detail on native Store products, checkout and orders, see <Link href="/blog/gohighlevel-ecommerce-store" className="text-[#0E9BF0] hover:underline">GoHighLevel Ecommerce Store: How It Works & Who It Fits</Link>.
+              With the native Ecommerce Store, the same Abandoned Checkout trigger applies with Order Source set to Store rather than External, and HighLevel also runs a separate, automatic abandoned checkout email by default for native Store checkouts a single reminder email sent after a default delay, independent of any custom workflow you build. That automatic email and a custom Abandoned Checkout workflow can overlap if you're not deliberate about it, so decide whether to keep the automatic email on or rely entirely on your own workflow, rather than running both without checking how they interact. For the full detail on native Store products, checkout and orders, see <Link href="/blog/gohighlevel-ecommerce-store" className="text-[#0E9BF0] hover:underline">GoHighLevel Ecommerce Store: How It Works & Who It Fits</Link>.
             </p>
 
             {/* Section: vs Other Triggers */}
@@ -637,7 +637,7 @@ export default function GoHighLevelAbandonedCheckoutClient() {
             </div>
 
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              If a workflow is meant to catch new completed orders, Abandoned Checkout is the wrong trigger for that job — it's specifically for checkouts that didn't complete.
+              If a workflow is meant to catch new completed orders, Abandoned Checkout is the wrong trigger for that job it's specifically for checkouts that didn't complete.
             </p>
 
             {/* Section: Common Problems */}
@@ -676,9 +676,9 @@ export default function GoHighLevelAbandonedCheckoutClient() {
             </h2>
             <ol className="space-y-1 mb-4 text-sm text-[#5C6880] list-decimal list-inside">
               <li><strong className="text-[#1A2236]">Use a test contact</strong> you control, ideally with no prior history in this workflow.</li>
-              <li><strong className="text-[#1A2236]">Confirm the contact is identifiable</strong> — start a real checkout and enter their email.</li>
+              <li><strong className="text-[#1A2236]">Confirm the contact is identifiable</strong> start a real checkout and enter their email.</li>
               <li><strong className="text-[#1A2236]">Deliberately don't complete the purchase.</strong></li>
-              <li><strong className="text-[#1A2236]">Wait for the actual configured duration</strong> to elapse — don't assume it fired instantly.</li>
+              <li><strong className="text-[#1A2236]">Wait for the actual configured duration</strong> to elapse don't assume it fired instantly.</li>
               <li><strong className="text-[#1A2236]">Check Enrollment History</strong> to confirm the contact actually enrolled, not just that time passed.</li>
               <li><strong className="text-[#1A2236]">Inspect the execution</strong> to see which step the contact is on and what data the trigger captured.</li>
               <li><strong className="text-[#1A2236]">Verify the message actually arrived</strong> on the channel you expect.</li>
@@ -686,7 +686,7 @@ export default function GoHighLevelAbandonedCheckoutClient() {
               <li><strong className="text-[#1A2236]">Confirm the Goal Event fires and the sequence stops or branches correctly,</strong> rather than continuing to message a customer who just paid.</li>
             </ol>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              A manually created contact is not equivalent to a real abandoned checkout — it doesn't prove the trigger's actual detection path works, only that a workflow can run once a contact exists. Test the genuine flow (real checkout, real abandonment, real wait) at least once before trusting the automation with real customers. GoHighLevel's workflow test mode compresses wait timers for quick checking, which is useful for verifying logic but isn't a substitute for testing the actual timed abandonment window live.
+              A manually created contact is not equivalent to a real abandoned checkout it doesn't prove the trigger's actual detection path works, only that a workflow can run once a contact exists. Test the genuine flow (real checkout, real abandonment, real wait) at least once before trusting the automation with real customers. GoHighLevel's workflow test mode compresses wait timers for quick checking, which is useful for verifying logic but isn't a substitute for testing the actual timed abandonment window live.
             </p>
 
             {/* Section: Limitations */}
@@ -695,11 +695,11 @@ export default function GoHighLevelAbandonedCheckoutClient() {
             </h2>
             <ul className="space-y-1 mb-4 text-sm text-[#5C6880] list-disc list-inside">
               <li><strong className="text-[#1A2236]">No captured email, no trigger.</strong> A shopper who leaves before entering an email is invisible to this automation entirely.</li>
-              <li><strong className="text-[#1A2236]">Only two documented sources</strong> — native Ecommerce Store and Shopify. Other ecommerce platforms aren't confirmed to populate this trigger.</li>
-              <li><strong className="text-[#1A2236]">Field-level data beyond the documented filters isn't confirmed</strong> — don't assume detail like discount codes or shipping method is available without testing it.</li>
-              <li><strong className="text-[#1A2236]">Duplicate prevention across multiple workflows or sessions isn't automatic</strong> — it has to be designed with filters and Goal Events.</li>
+              <li><strong className="text-[#1A2236]">Only two documented sources</strong> native Ecommerce Store and Shopify. Other ecommerce platforms aren't confirmed to populate this trigger.</li>
+              <li><strong className="text-[#1A2236]">Field-level data beyond the documented filters isn't confirmed</strong> don't assume detail like discount codes or shipping method is available without testing it.</li>
+              <li><strong className="text-[#1A2236]">Duplicate prevention across multiple workflows or sessions isn't automatic</strong> it has to be designed with filters and Goal Events.</li>
               <li><strong className="text-[#1A2236]">The automatic native-Store abandoned checkout email and a custom workflow can overlap</strong> if not deliberately coordinated.</li>
-              <li><strong className="text-[#1A2236]">The trigger only starts automation — it doesn't guarantee recovery.</strong> Message quality, timing and channel availability still determine whether the sale actually comes back.</li>
+              <li><strong className="text-[#1A2236]">The trigger only starts automation it doesn't guarantee recovery.</strong> Message quality, timing and channel availability still determine whether the sale actually comes back.</li>
             </ul>
 
             {/* Section: When to Use */}
@@ -707,7 +707,7 @@ export default function GoHighLevelAbandonedCheckoutClient() {
               When to Use GoHighLevel for Abandoned Checkout Recovery
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              This setup tends to make sense when abandoned checkout recovery needs to connect to broader CRM and workflow activity already happening in GoHighLevel — when the same contact's checkout abandonment should also update a pipeline, trigger a sales follow-up, or feed into segmentation the business already relies on GoHighLevel for. It also fits well when Shopify or the native Store is already the ecommerce source and the business wants recovery, CRM and other automation in one platform rather than a separate dedicated tool.
+              This setup tends to make sense when abandoned checkout recovery needs to connect to broader CRM and workflow activity already happening in GoHighLevel when the same contact's checkout abandonment should also update a pipeline, trigger a sales follow-up, or feed into segmentation the business already relies on GoHighLevel for. It also fits well when Shopify or the native Store is already the ecommerce source and the business wants recovery, CRM and other automation in one platform rather than a separate dedicated tool.
             </p>
 
             {/* Section: When Not to Use */}
@@ -715,7 +715,7 @@ export default function GoHighLevelAbandonedCheckoutClient() {
               When You Might Not Need GoHighLevel for Abandoned Checkout Recovery
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              If the existing ecommerce stack already has mature, purpose-built abandoned checkout recovery — Shopify's own abandoned-checkout email, or a dedicated ecommerce marketing platform — and there's no real need to connect that recovery to broader CRM workflows, adding GoHighLevel as another layer may just be extra maintenance for the same outcome. It's also worth reconsidering if the current integration genuinely can't expose the data a planned recovery strategy depends on — better to confirm that before building than after.
+              If the existing ecommerce stack already has mature, purpose-built abandoned checkout recovery Shopify's own abandoned-checkout email, or a dedicated ecommerce marketing platform and there's no real need to connect that recovery to broader CRM workflows, adding GoHighLevel as another layer may just be extra maintenance for the same outcome. It's also worth reconsidering if the current integration genuinely can't expose the data a planned recovery strategy depends on better to confirm that before building than after.
             </p>
 
             {/* Section: Core Principle */}
@@ -723,7 +723,7 @@ export default function GoHighLevelAbandonedCheckoutClient() {
               The Core Principle to Remember
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              An abandoned checkout is a specific, identifiable event — checkout started, email captured, payment not completed — and GoHighLevel's Abandoned Checkout trigger exists to catch exactly that, whether it happened in the native Ecommerce Store or a connected Shopify store. The trigger starting a workflow is the easy part. Making that workflow actually recover sales, without pestering people who already paid or duplicating messages across overlapping automations, is where the real design work is — and it depends on the Goal Event and filter tools covered here, not on the trigger doing that work for you.
+              An abandoned checkout is a specific, identifiable event checkout started, email captured, payment not completed and GoHighLevel's Abandoned Checkout trigger exists to catch exactly that, whether it happened in the native Ecommerce Store or a connected Shopify store. The trigger starting a workflow is the easy part. Making that workflow actually recover sales, without pestering people who already paid or duplicating messages across overlapping automations, is where the real design work is and it depends on the Goal Event and filter tools covered here, not on the trigger doing that work for you.
             </p>
 
             {/* Section: FAQ */}
