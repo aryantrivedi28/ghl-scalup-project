@@ -15,6 +15,28 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
       {
             icon: 'Store',
+            tag: 'Integration',
+            title: 'GoHighLevel Shopify Integration: What It Syncs & How It Works',
+            excerpt: 'What actually syncs when you connect Shopify to GoHighLevel — customers, orders, revenue — how the connection works, which Shopify events trigger workflows, and what stays in Shopify only.',
+            slug: 'gohighlevel-shopify-integration',
+            date: 'September 30, 2026',
+            readTime: '22 min read',
+            featured: true,
+            image: '/blog/gohighlevel-shopify-integration.png',
+      },
+      {
+            icon: 'ShoppingCart',
+            tag: 'Ecommerce',
+            title: 'GoHighLevel Abandoned Checkout Automation: Recover Ecommerce Sales',
+            excerpt: 'How GoHighLevel detects abandoned checkouts, what data the trigger gives you, how to build the recovery workflow, stop it after purchase, and avoid duplicate messages — for the native Store and Shopify.',
+            slug: 'gohighlevel-abandoned-checkout',
+            date: 'September 29, 2026',
+            readTime: '20 min read',
+            featured: true,
+            image: '/blog/gohighlevel-abandoned-checkout.png',
+      },
+      {
+            icon: 'Store',
             tag: 'Ecommerce',
             title: 'GoHighLevel Ecommerce Store: How It Works & Who It Fits',
             excerpt: 'What the GoHighLevel Ecommerce Store includes, how products, cart, checkout, orders and workflows connect, its limits, and when Shopify fits better.',

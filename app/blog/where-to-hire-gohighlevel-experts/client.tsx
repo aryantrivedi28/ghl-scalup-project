@@ -23,47 +23,58 @@ import {
   AlertCircle,
   Filter,
   Facebook,
-  Linkedin as LinkedInIcon,
   Trophy,
   Rocket,
   Target,
   BarChart3,
   HeartHandshake,
-  XCircle
+  XCircle,
+  Image as ImageIcon,
 } from 'lucide-react';
 import { useFaqSchema } from '@/hooks/useFaqSchema';
+import Image from 'next/image';
 
 export default function WhereToHireGHLExpertsClient() {
   const [activeId, setActiveId] = useState<string>('');
   const [showFloatingProjectHelp, setShowFloatingProjectHelp] = useState(false);
 
-  // Handle scroll detection for active section
   useEffect(() => {
+    const sections = [
+      'what-expert-does',
+      'where-to-hire',
+      'official-directory',
+      'freelance-marketplaces',
+      'facebook-groups',
+      'clutch-linkedin',
+      'specialist-agencies',
+      'direct-referral',
+      'freelancer-vs-agency',
+      'cost',
+      'how-to-evaluate',
+      'questions-to-ask',
+      'match-expert',
+      'security-access',
+      'red-flags',
+      'full-implementation-team',
+      'faq'
+    ];
+
     const handleScroll = () => {
-      const sections = [
-        'official-directory',
-        'upwork',
-        'fiverr',
-        'facebook-groups',
-        'clutch-linkedin',
-        'agencies',
-        'comparison-table',
-        'vetting-checklist',
-        'red-flags',
-        'faq'
-      ];
+      let currentSection = sections[0];
 
       for (const id of sections) {
         const element = document.getElementById(id);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 150) {
-            setActiveId(id);
-          }
+        if (!element) continue;
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= 180) {
+          currentSection = id;
+        } else {
+          break;
         }
       }
 
-      // Show floating Project Help card after scrolling past hero section
+      setActiveId(currentSection);
+
       const heroSection = document.querySelector('section.bg-\\[\\#0B1628\\]');
       if (heroSection) {
         const heroBottom = heroSection.getBoundingClientRect().bottom;
@@ -71,11 +82,11 @@ export default function WhereToHireGHLExpertsClient() {
       }
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Handle TOC click with smooth scroll
   const scrollToHeading = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -89,65 +100,118 @@ export default function WhereToHireGHLExpertsClient() {
   const faqs = [
     {
       q: "Where is the best place to hire a GoHighLevel expert?",
-      a: "The GoHighLevel Official Certified Admin Directory (directory.gohighlevel.com) is the best starting point for finding verified professionals. For defined tasks with a budget, Upwork with a Job Success Score filter of 90%+ is the most reliable freelance option. For complete system builds involving CRM, automation, AI features, and SaaS Mode, a dedicated GHL specialist agency like GHL Scale Up provides the most comprehensive delivery."
+      a: "There isn't one universal best place. HighLevel's Certified Admin Directory is a reasonable starting filter for individual specialists. Upwork or Fiverr work for small, defined tasks. A specialist agency is generally the better fit for a full, multi-system build."
     },
     {
-      q: "How much does it cost to hire a GoHighLevel expert?",
-      a: "Costs vary significantly by scope and hiring channel. Fiverr freelancers charge $50–$500 for small tasks. Upwork specialists charge $25–$150 per hour or $300–$2,500 for fixed-scope projects. Dedicated GHL agencies charge $500–$8,000+ for full builds depending on complexity. Anything below market rate for a complex build is a red flag cheap builds frequently become expensive rebuilds."
+      q: "What does it cost to hire a GoHighLevel expert?",
+      a: "It depends on scope more than on which channel you hire from. A small, single task can run roughly $50 to a few hundred dollars on a freelance marketplace. A full CRM and automation build is typically a fixed project price quoted after scoping, not an hourly estimate."
     },
     {
-      q: "What is the GoHighLevel Certified Admin Directory?",
-      a: "The GoHighLevel Certified Admin Directory at directory.gohighlevel.com is GoHighLevel's official listing of professionals who have completed their certification programme. As of 2026, 478+ certified admins are listed globally. Certification confirms platform knowledge but does not guarantee delivery quality or project management skills always apply a vetting process regardless."
+      q: "What's the best way to hire a GoHighLevel expert?",
+      a: "Match the specific skill you need, CRM architecture, automation, migration, integrations, AI, to someone who can show that exact kind of work, then run the vetting questions in this guide regardless of where you found them."
     },
     {
       q: "Is it better to hire a freelancer or an agency for GoHighLevel work?",
-      a: "Freelancers are cost-effective for small, clearly defined tasks building one funnel, setting up one workflow, configuring one integration. Agencies are more reliable for end-to-end builds, complex multi-system setups, SaaS Mode configuration, AI feature implementation, or CRM migration. Agencies bring team accountability, structured delivery, documentation, and post-delivery support that individual freelancers rarely provide."
+      a: "Freelancers suit narrow, well-defined tasks. Agencies suit multi-system builds, migrations, and anything needing architecture planning, testing and post-launch support. Neither is universally better; the mismatch between scope and hire type is what causes problems."
     },
     {
-      q: "Can I find GHL experts in Facebook Groups?",
-      a: "Yes. The GoHighLevel Official Community on Facebook is the largest and most active GHL expert community, with GoHighLevel staff participation. Other strong groups include GHL SaaS Mode Community and GoHighLevel Agency Owners. Post a detailed job description or ask for referrals from other members. Community-vetted recommendations are often more reliable than cold platform searches."
+      q: "What is HighLevel's Certified Admin Directory?",
+      a: "It's HighLevel's own public directory of professionals who have passed its certification exam, browsable by country, language and specialization. Certification confirms platform knowledge, not delivery quality or communication, so it's a filter, not a guarantee."
+    },
+    {
+      q: "Can I find GoHighLevel experts in Facebook groups?",
+      a: "Yes. Active GoHighLevel communities on Facebook are a genuine channel, particularly for referral-vetted hires, if you ask directly whether anyone has actually worked with a candidate before."
     },
     {
       q: "What should I ask before hiring a GoHighLevel expert?",
-      a: "Ask to see 2–3 recent GHL builds they have completed. Ask them to walk you through their approach to your specific project. Ask whether they have worked in your industry before. Ask what their delivery process looks like and what happens after project completion. Ask whether they can configure AI features. Any expert who avoids specific answers to these questions is not the right hire."
+      a: "Ask to see recent builds, how they'd approach your specific project, their delivery and testing process, what happens after launch, what's excluded from scope, and who owns the account and access when it's done."
     },
     {
       q: "What are the red flags when hiring a GoHighLevel expert?",
-      a: "The main red flags are: no portfolio or case studies, inability to explain how automations work in plain English, guarantees of specific results before understanding your business, pricing dramatically below market rate, slow communication before you have paid, and no mention of testing before delivery. Any one of these warrants continued due diligence. Two or more means look elsewhere."
-    },
+      a: "No portfolio, inability to explain automations in plain English, guaranteed results before a discovery call, pricing far below the going rate for the same scope, slow communication before you've paid, and no mention of testing or account access."
+    }
   ];
 
   useFaqSchema(faqs);
 
   const tocItems = [
-    { id: 'official-directory', title: '1. GoHighLevel Official Certified Admin Directory' },
-    { id: 'upwork', title: '2. Upwork Best for Vetted Freelancers' },
-    { id: 'fiverr', title: '3. Fiverr Best for Small Tasks' },
-    { id: 'facebook-groups', title: '4. Facebook Groups and GHL Community' },
-    { id: 'clutch-linkedin', title: '5. Clutch, B2B Platforms and LinkedIn' },
-    { id: 'agencies', title: '6. Dedicated GHL Specialist Agencies' },
-    { id: 'comparison-table', title: '7. Comparing All 6 Options' },
-    { id: 'vetting-checklist', title: '8. How to Vet a GHL Expert Before Hiring' },
-    { id: 'red-flags', title: '9. Red Flags to Walk Away From' },
-    { id: 'faq', title: '10. Frequently Asked Questions' },
+    { id: 'what-expert-does', title: 'What a GoHighLevel Expert Actually Does' },
+    { id: 'where-to-hire', title: 'Where Can You Hire a GoHighLevel Expert?' },
+    { id: 'official-directory', title: "1. HighLevel's Certified Admin Directory" },
+    { id: 'freelance-marketplaces', title: '2. Freelance Marketplaces (Upwork, Fiverr)' },
+    { id: 'facebook-groups', title: '3. Facebook Groups and GHL Communities' },
+    { id: 'clutch-linkedin', title: '4. Clutch, B2B Directories and LinkedIn' },
+    { id: 'specialist-agencies', title: '5. GoHighLevel Specialist Agencies' },
+    { id: 'direct-referral', title: '6. Direct Referral' },
+    { id: 'freelancer-vs-agency', title: 'Freelancer vs Agency: Which Should You Choose?' },
+    { id: 'cost', title: 'What Does It Cost to Hire a GoHighLevel Expert?' },
+    { id: 'how-to-evaluate', title: 'How to Evaluate a GoHighLevel Expert' },
+    { id: 'questions-to-ask', title: 'Questions to Ask Before Hiring' },
+    { id: 'match-expert', title: 'Match the Expert to Your Project' },
+    { id: 'security-access', title: 'Security and Account Access' },
+    { id: 'red-flags', title: 'Red Flags to Walk Away From' },
+    { id: 'full-implementation-team', title: 'When You Need a Full Implementation Team' },
+    { id: 'faq', title: 'Frequently Asked Questions' }
+  ];
+
+  const skillSets = [
+    'CRM architecture (pipelines, custom fields, tags, lead routing)',
+    'workflow automation (triggers, branching logic, testing)',
+    'funnels and websites',
+    'integrations (APIs, webhooks, third-party tools)',
+    'platform migration',
+    'AI features (voice and chat agents)',
+    'white-label SaaS configuration'
+  ];
+
+  const freelancerBullets = [
+    'The task is narrow and well-defined: one workflow, one funnel, one integration',
+    "You or someone on your team already understands GoHighLevel's architecture and just needs execution",
+    'Budget and timeline are the priority over broader planning'
+  ];
+
+  const agencyBullets = [
+    'Multiple systems are involved: CRM plus automation plus funnels, or a migration',
+    'AI features, integrations or SaaS Mode are part of the scope',
+    'You need testing, documentation and support after launch, not just a delivered build',
+    'No one on your team can specify the scope precisely, and you need someone to help define it first'
+  ];
+
+  const evaluationCriteria = [
+    { title: 'CRM architecture', detail: 'can they design pipelines, stages, custom fields, tags and lead routing around how your business actually sells, not a generic template?' },
+    { title: 'Automation', detail: 'can they build and explain triggers, branching logic, and follow-up sequences, and do they test them against real data before handover?' },
+    { title: 'Integrations', detail: 'can they work with APIs and webhooks if your project needs to connect other tools?' },
+    { title: 'Migration', detail: "if you're moving from another platform, can they map and rebuild your data and processes without downtime?" },
+    { title: 'AI features', detail: "can they configure voice or chat agents if that's part of your scope? This is a reasonable bar in 2026; someone unfamiliar with it is behind current platform capability." },
+    { title: 'Documentation and handover', detail: 'will you actually understand and be able to run what they built, or are you permanently dependent on them for basic changes?' }
   ];
 
   const vettingQuestions = [
-    { q: 'Show me 2–3 GHL systems you\'ve built recently.', why: 'Any serious GHL expert has screenshots, screen recordings, or client references they can share. No portfolio = no track record. Ask specifically for builds in your industry or similar use cases.' },
-    { q: 'Walk me through how you would approach my specific project.', why: 'A real expert asks about your sales process, client journey, and goals before suggesting tools or features. A template-pusher jumps straight to "I\'ll build you a funnel and a workflow." You want the one who asks questions first.' },
-    { q: 'Have you worked with businesses in my industry before?', why: 'A real estate GHL setup is architecturally different from a dental practice. An agency that has done your niche before moves faster and makes fewer costly assumptions.' },
-    { q: 'What does your delivery process look like?', why: 'Look for: a discovery or scoping call first, clear milestone structure, testing before handover, documentation provided. An expert with no process is a freelancer who will disappear after delivery.' },
-    { q: 'How do you handle issues after the project is complete?', why: 'Workflows break. GHL updates change behaviour. Ask what happens post-delivery. The best experts offer a support window or a clear escalation path.' },
-    { q: 'Can you configure AI features Voice Agent, Conversation AI?', why: 'In 2026, any GHL expert positioning themselves as comprehensive should be able to configure AI features. If they don\'t know what the AI Voice Agent does, they are behind the platform\'s current capability by at least 12 months.' },
-    { q: 'What is not included in your scope?', why: 'The best experts clearly define what they will not do third-party integrations, copywriting, graphic design, paid ads management. Clear exclusions prevent scope creep disputes and protect both sides.' },
+    { q: 'Show me two or three recent GoHighLevel builds.', why: 'No portfolio, no track record.' },
+    { q: "Walk me through how you'd approach my specific project.", why: 'A real expert asks about your sales process before proposing tools; a template-pusher jumps straight to "I\'ll build a funnel and a workflow."' },
+    { q: 'Have you worked with businesses like mine before?', why: 'A real estate setup is architecturally different from a dental practice.' },
+    { q: 'What does your delivery process look like?', why: 'Look for a scoping call, milestones, testing before handover, and documentation.' },
+    { q: 'How do you handle issues after the project is complete?', why: 'Workflows break and the platform changes; ask what support looks like after launch.' },
+    { q: 'What is not included in your scope?', why: 'Clear exclusions prevent scope-creep disputes later.' },
+    { q: 'Who owns the account, credentials and assets when this is done?', why: 'This should have a clear answer before work starts, not after.' }
+  ];
+
+  const matchExpertData = [
+    { need: 'Need CRM architecture (pipelines, lifecycle, lead routing)', look: 'evidence of pipeline and tagging design, not just "CRM setup" as a line item.', link: '/services/crm-setup', linkText: 'CRM setup & configuration' },
+    { need: 'Need automation', look: 'someone who can explain branching logic and testing, not just "I build workflows."', link: '/services/workflow-automation', linkText: 'workflow automation' },
+    { need: 'Need migration', look: 'platform-specific migration experience and a no-downtime process.', link: '/services/migration', linkText: 'GoHighLevel migration' },
+    { need: 'Need integrations', look: 'actual API and webhook work, not just "connects to Zapier."', link: '/services/integrations', linkText: 'integrations & API development' },
+    { need: 'Need AI voice or chat', look: 'configured, live examples, not a generic capability claim.', link: '/services/ai-voice-agent', linkText: 'AI voice agent' },
+    { need: 'Need white-label SaaS', look: 'SaaS Mode, sub-account architecture and billing experience specifically, which is a narrower skill than general GHL setup.', link: '/services/saas-setup', linkText: 'white-label SaaS setup' }
   ];
 
   const redFlags = [
-    { flag: 'They cannot explain how automations work.', cause: 'They are a "button pusher" someone who copies tutorials without understanding the underlying logic.', fix: 'Ask them to explain triggers, actions, and If/Else conditions in plain English. If they can\'t, move on.' },
-    { flag: 'They promise specific results without understanding your business.', cause: 'Overselling their capabilities or your expectations.', fix: 'No GHL expert can promise "50 new leads per month" or "3x your revenue" without a discovery call and a business audit. Anyone making guarantees before they understand your setup is not trustworthy.' },
-    { flag: 'Their pricing is dramatically below market rate.', cause: 'Cutting corners, using copy-paste templates, or planning to go silent after first payment.', fix: 'Experienced GHL experts charge $25–$75/hr on freelance platforms and $150+/hr at agency rates. Someone offering a full CRM build for $150 is a red flag.' },
-    { flag: 'They go quiet during the proposal phase.', cause: 'Poor communication habits that will continue during the build.', fix: 'If they take more than 48 hours to reply to a scoping question before you\'ve paid them, expect the same during the build. Communication speed during sales is usually the best indicator of communication speed during delivery.' },
-    { flag: 'They have no process for testing before delivery.', cause: 'Untested workflows can silently fail for weeks before anyone notices.', fix: 'Every real GHL expert tests workflows with a real contact, checks every funnel step, and confirms every integration is live before handover. If they don\'t mention testing, ask directly and if they don\'t do it, walk away.' },
+    { flag: "They can't explain how their automations work in plain English.", cause: "This usually means they're copying tutorials without understanding the logic underneath." },
+    { flag: 'They promise specific results before understanding your business.', cause: 'No one can credibly guarantee lead volume or revenue outcomes without a discovery call and an audit.' },
+    { flag: "Pricing that's dramatically below everyone else for the same scope.", cause: 'Often means corner-cutting or copy-paste templates.' },
+    { flag: 'Slow or vague communication during the proposal phase.', cause: 'This is usually the best predictor of communication quality during delivery.' },
+    { flag: 'No mention of testing before handover.', cause: 'Untested workflows can silently fail for weeks before anyone notices.' },
+    { flag: 'No clear answer on account ownership or access.', cause: 'Get this settled before, not after, work starts.' }
   ];
 
   // Reusable Project Help Card Component
@@ -177,7 +241,7 @@ export default function WhereToHireGHLExpertsClient() {
           <ArrowRight className="w-3 h-3 text-[#96A0B5]" />
           <Link href="/blog" className="hover:text-[#0E9BF0] transition-colors">Blog</Link>
           <ArrowRight className="w-3 h-3 text-[#96A0B5]" />
-          <span className="text-[#1A2236] font-medium">Where to Hire GoHighLevel Experts 2026</span>
+          <span className="text-[#1A2236] font-medium">Where to Hire GoHighLevel Experts</span>
         </div>
       </nav>
 
@@ -187,7 +251,7 @@ export default function WhereToHireGHLExpertsClient() {
         <div className="absolute -bottom-[80px] -left-[80px] w-[360px] h-[360px] bg-[radial-gradient(circle,rgba(37,201,125,0.08)_0%,transparent_70%)] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto relative z-10">
-          {/* Post Tags / Category Labels */}
+          {/* Post Tags */}
           <div className="flex flex-wrap gap-2 mb-4">
             <span className="bg-[rgba(14,155,240,0.15)] text-[#0E9BF0] text-[11px] font-semibold px-2.5 py-1 rounded-full">Hire GHL Expert</span>
             <span className="bg-[rgba(37,201,125,0.15)] text-[#25C97D] text-[11px] font-semibold px-2.5 py-1 rounded-full">Freelance Platforms</span>
@@ -195,13 +259,13 @@ export default function WhereToHireGHLExpertsClient() {
             <span className="bg-[rgba(14,155,240,0.15)] text-[#0E9BF0] text-[11px] font-semibold px-2.5 py-1 rounded-full">2026</span>
           </div>
 
-          {/* H1 Headline */}
+          {/* H1 */}
           <h1 className="text-[clamp(28px,6vw,46px)] font-extrabold leading-[1.2] md:leading-[1.15] text-white mb-4 md:mb-5 tracking-[-0.02em]">
-            Where to Hire GoHighLevel Experts in 2026:<br />
-            <span className="text-[#F8D000]">6 Best Places (+ How to Vet Them)</span>
+            Where to Hire GoHighLevel Experts:<br />
+            <span className="text-[#F8D000]">6 Places to Look and How to Vet Them</span>
           </h1>
 
-          {/* Author Byline */}
+          {/* Author */}
           <div className="flex items-center gap-3 mb-6">
             <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
               <img
@@ -212,20 +276,25 @@ export default function WhereToHireGHLExpertsClient() {
             </div>
             <div>
               <div className="text-sm font-medium text-white">GHL Scale Up Team</div>
-              <div className="text-xs text-white/50">GoHighLevel Specialists · 200+ Builds Delivered · Updated May 2026</div>
+              <div className="text-xs text-white/50">GoHighLevel Specialists · 200+ builds delivered · Verified against GoHighLevel, Clutch and freelance platform documentation, September 2026</div>
             </div>
           </div>
 
-          {/* Introductory Paragraph */}
-          <p className="text-base md:text-lg text-white/65 leading-relaxed mb-6 max-w-6xl">
-            Hundreds of people now call themselves GoHighLevel experts. Most are not.
-            Knowing where to look and more importantly, how to filter before you hire
-            is the difference between a system that runs your business and one that costs
-            you two months and needs to be rebuilt. This guide covers every channel,
-            what each one is best for, and exactly what to check before you hand over your GHL account.
-          </p>
+          {/* Quick Answer Box - ONLY IN HERO SECTION */}
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 md:p-6 mb-6">
+            <div className="flex items-center gap-2 mb-3">
+              <Zap className="w-5 h-5 text-[#F8D000]" />
+              <span className="text-xs font-bold uppercase tracking-wider text-white/60">Quick Answer</span>
+            </div>
+            <p className="text-sm text-white/70 leading-relaxed mb-3">
+              There are six real places to find a GoHighLevel expert: HighLevel's own <a href="https://directory.gohighlevel.com" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">Certified Admin Directory</a>, freelance marketplaces like Upwork and Fiverr, GoHighLevel Facebook communities, B2B directories like Clutch and LinkedIn, and dedicated GHL specialist agencies. Which one is right depends on the size of the job, not which platform has the best reputation. A single defined task, like fixing one workflow, is usually a freelancer job. A full CRM build, a migration, or anything touching AI, integrations or SaaS Mode is usually an agency job, because it needs architecture planning and testing that a one-person engagement rarely includes.
+            </p>
+            <p className="text-sm text-white/70 leading-relaxed">
+              What it costs to hire a GoHighLevel expert depends entirely on scope: a single small task can run from around $50 to a few hundred dollars on a freelance marketplace, while a full CRM and automation build is typically quoted as a fixed project price rather than an hourly rate, because the work spans multiple systems. The best way to hire one is not to search for "the best GoHighLevel expert" at all, but to match the specific skill you need, CRM architecture, automation, migration, integrations, AI, to someone who can demonstrate that exact kind of work.
+            </p>
+          </div>
 
-          {/* CTA Button 1: Hero Section */}
+          {/* CTA Buttons */}
           <div className="flex flex-wrap gap-3">
             <Link
               href="/contact"
@@ -236,7 +305,7 @@ export default function WhereToHireGHLExpertsClient() {
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
-              href="#agencies"
+              href="#specialist-agencies"
               className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20"
             >
               See Top Agencies
@@ -246,18 +315,16 @@ export default function WhereToHireGHLExpertsClient() {
         </div>
       </section>
 
-      {/* MAIN LAYOUT - Sidebar on LEFT, Content on RIGHT */}
+      {/* MAIN LAYOUT */}
       <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-10 md:py-10">
         <div className="grid lg:grid-cols-[280px_1fr] gap-8 md:gap-12 items-start">
 
           {/* ==================== LEFT COLUMN: SIDEBAR ==================== */}
           <aside className="hidden lg:block lg:sticky lg:top-20 h-fit transition-all duration-300 ease-out order-1">
-            {/* Table of Contents - Sticky */}
-
-
-            <div className="hidden lg:block mb-6">
+            <div className="mb-6">
               <ProjectHelpCard />
             </div>
+
             <nav className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="text-xs font-bold tracking-wider uppercase text-[#5C6880] mb-4 flex items-center gap-2">
                 <BookOpen className="w-3 h-3" />
@@ -285,10 +352,6 @@ export default function WhereToHireGHLExpertsClient() {
               </ul>
             </nav>
 
-            {/* CTA Card - Static in sidebar (hidden on mobile) */}
-
-
-            {/* About the Author */}
             <div className="bg-[#0B1628] rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
@@ -304,14 +367,11 @@ export default function WhereToHireGHLExpertsClient() {
                 </div>
               </div>
               <p className="text-xs text-white/60 leading-relaxed mb-3">
-                5+ years GHL experience · 200+ systems built globally. We have hired, worked alongside,
-                and evaluated hundreds of GHL freelancers and agencies. This guide is based on direct experience,
-                not affiliate incentives.
+                5+ years GHL experience · 200+ systems built globally. We have hired, worked alongside, and evaluated hundreds of GHL freelancers and agencies. This guide is based on direct experience, not affiliate incentives.
               </p>
               <Link href="https://www.ghlscaleup.com" className="text-[#0E9BF0] text-xs hover:underline">ghlscaleup.com</Link>
             </div>
 
-            {/* Share Buttons */}
             <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 mt-4">
               <div className="text-xs font-semibold text-[#5C6880] mb-3 uppercase tracking-wide">Share this guide</div>
               <div className="flex gap-2 flex-wrap">
@@ -336,37 +396,8 @@ export default function WhereToHireGHLExpertsClient() {
 
           {/* ==================== RIGHT COLUMN: BLOG CONTENT ==================== */}
           <main className="min-w-0 order-2">
-            {/* TL;DR / Quick Answer Box (BLUF) */}
-            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8">
-              <div className="flex items-center gap-2 mb-3">
-                <Zap className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-xs font-bold uppercase tracking-wider text-[#5C6880]">Quick Answer Read This First</span>
-              </div>
-              <p className="text-base md:text-lg font-semibold text-[#1A2236] mb-2">
-                The 6 best places to find GoHighLevel experts in 2026 are:
-              </p>
-              <p className="text-sm text-[#5C6880] leading-relaxed">
-                (1) GoHighLevel's official Certified Admin Directory at directory.gohighlevel.com, (2) Upwork,
-                (3) Fiverr, (4) GoHighLevel and agency Facebook Groups, (5) Clutch.co and B2B review platforms,
-                and (6) dedicated GHL specialist agencies like GHL Scale Up. For a complete, end-to-end GHL build,
-                a specialist agency is the most reliable option. For small, defined tasks, vetted freelancers on
-                Upwork are cost-effective.
-              </p>
 
-              {/* CTA Button 2: Inside TL;DR Box */}
-              <div className="mt-4 pt-4 border-t border-[#DDE1E9]">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#0E9BF0] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#0C8AD8] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
-                  <Target className="w-4 h-4" />
-                  Find Your Perfect GHL Match
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Table of Contents - Mobile Only */}
+            {/* Mobile TOC */}
             <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 md:p-6 mb-8 lg:hidden">
               <div className="flex items-center gap-2 mb-4">
                 <BookOpen className="w-4 h-4 text-[#0E9BF0]" />
@@ -385,351 +416,249 @@ export default function WhereToHireGHLExpertsClient() {
               </div>
             </div>
 
-            {/* Mobile Project Help Card - visible on mobile only */}
+            {/* Mobile Project Help Card */}
             <div className="lg:hidden mb-8">
               <ProjectHelpCard />
             </div>
 
+            
+            {/* Section: What a GHL Expert Does */}
+            <h2 id="what-expert-does" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-8 mb-4">
+              What a GoHighLevel Expert Actually Does
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              "GoHighLevel expert" gets used loosely. In practice, the work splits into a handful of distinct skill sets, and very few people are genuinely strong at all of them:
+            </p>
+            <ul className="space-y-2 mb-6 text-sm text-[#5C6880] list-disc list-inside">
+              {skillSets.map((item, idx) => (
+                <li key={idx}>{item}</li>
+              ))}
+            </ul>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Someone who is excellent at funnel design is not automatically the right person for a data migration or an API integration. Keep that distinction in mind through the rest of this guide, because it matters more than which platform you search on.
+            </p>
+
+
+            {/* 
+              ============================================================
+              🖼️ IMAGE INSERTED HERE - Full width, responsive, interactive
+              ============================================================
+            */}
+            <div className="my-8 md:my-10 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <div className="relative w-full h-auto bg-[#F8F9FB]">
+                <Image
+                  src="/blog/where-to-hire-gohighlevel-experts-infographic.png"
+                  alt="Where to Hire GoHighLevel Experts: 6 hiring channels comparison, freelancer vs agency decision matrix, and vetting checklist"
+                  width={1200}
+                  height={500}
+                  className="w-full h-auto object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                />
+              </div>
+              <div className="bg-[#F8F9FB] px-4 py-2.5 text-xs text-[#5C6880] border-t border-[#DDE1E9] flex items-center gap-2">
+                <ImageIcon className="w-3.5 h-3.5" />
+                <span>Where to Hire GoHighLevel Experts: 6 hiring channels comparison, freelancer vs agency decision matrix, and vetting checklist</span>
+              </div>
+            </div>
+
+
+            {/* Section: Where Can You Hire */}
+            <h2 id="where-to-hire" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Where Can You Hire a GoHighLevel Expert?
+            </h2>
+
             {/* Section 1: Official Directory */}
-            <h2 id="official-directory" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-8 mb-4">
-              1. GoHighLevel's Official Certified Admin Directory
-            </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-2">
-              <strong className="text-[#1A2236]">URL:</strong> directory.gohighlevel.com
-            </p>
+            <h3 id="official-directory" className="text-xl md:text-2xl font-bold text-[#1C2E4A] mt-8 mb-3">
+              1. HighLevel's Certified Admin Directory
+            </h3>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The official GoHighLevel Certified Admin Directory lists <strong className="text-[#0E9BF0]">478+ certified professionals</strong>
-              globally who have completed GoHighLevel's structured certification programme. Certification covers core platform features,
-              production-level use cases, and real-world application it is not a lightweight badge.
+              HighLevel runs its own <a href="https://directory.gohighlevel.com" target="_blank" rel="noopener noreferrer" className="text-[#0E9BF0] hover:underline">Certified Admin Directory</a>, where anyone who has passed HighLevel's certification exam can list a public profile. You can browse it by country, by language, and by specialization tags such as Certified Admin, AI Voice, HIPAA Compliance, SaaS builds, A2P 10DLC compliance, paid ads or course creation, which makes it useful for narrowing to the specific skill you actually need rather than a generic "expert" search.
             </p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Certified admins are listed with their name, specialisation, location, and a profile page.
-              GoHighLevel team members actively recommend certified professionals for client inquiries.
-            </p>
-
-            <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-4 my-4">
-              <p className="text-sm font-semibold text-[#0E9BF0] mb-2">How to use the directory:</p>
-              <ul className="space-y-1">
-                <li className="text-sm text-[#1A2236] flex items-start gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-[#0E9BF0] flex-shrink-0 mt-0.5" />Go to directory.gohighlevel.com</li>
-                <li className="text-sm text-[#1A2236] flex items-start gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-[#0E9BF0] flex-shrink-0 mt-0.5" />Use search filters: filter by country, specialisation (automation, funnels, SaaS), and service type</li>
-                <li className="text-sm text-[#1A2236] flex items-start gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-[#0E9BF0] flex-shrink-0 mt-0.5" />Open individual profiles and look for described services, case study links, how long they've been certified</li>
-              </ul>
-            </div>
-
-            <div className="bg-[#FFFBE6] border border-[rgba(248,208,0,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <AlertCircle className="w-4 h-4 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">IMPORTANT NOTE</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                Certification confirms platform knowledge not delivery quality, project management skills, or communication standards.
-                <strong className="text-[#1A2236]"> Certification is a filter, not a guarantee.</strong> Always apply the vetting checklist in Section 8 regardless of certification status.
-              </p>
-            </div>
-
-            {/* CTA Button 3: After Official Directory */}
-            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 mb-8 text-center">
-              <p className="text-white/80 text-sm mb-3">
-                <span className="font-bold text-white">Don't want to filter through 478+ profiles?</span> Let our team find the right expert for you.
-              </p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <BarChart3 className="w-4 h-4" />
-                Get Expert Matching
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-
-            {/* Section 2: Upwork */}
-            <h2 id="upwork" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              2. Upwork Best for Vetted Freelancers
-            </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-2">
-              <strong className="text-[#1A2236]">URL:</strong> upwork.com/hire/gohighlevel-experts
-            </p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Upwork is one of the strongest platforms for finding experienced GHL freelancers. The Job Success Score (JSS),
-              verified earnings history, and client reviews create a reliable quality signal.
-            </p>
-
-            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 my-4">
-              <p className="text-sm font-semibold text-[#1A2236] mb-2">What to expect on Upwork:</p>
-              <ul className="space-y-2">
-                <li className="text-sm text-[#5C6880] flex items-start gap-2"><DollarSign className="w-3.5 h-3.5 text-[#25C97D] flex-shrink-0 mt-0.5" /><strong className="text-[#1A2236]">Hourly rates:</strong> $25–$75/hr for experienced GHL freelancers. Top-rated specialists with 5+ years experience command $75–$150/hr</li>
-                <li className="text-sm text-[#5C6880] flex items-start gap-2"><Briefcase className="w-3.5 h-3.5 text-[#25C97D] flex-shrink-0 mt-0.5" /><strong className="text-[#1A2236]">Project-based pricing:</strong> Fixed-price contracts $300–$2,500 depending on scope</li>
-                <li className="text-sm text-[#5C6880] flex items-start gap-2"><Filter className="w-3.5 h-3.5 text-[#25C97D] flex-shrink-0 mt-0.5" /><strong className="text-[#1A2236]">Quality filter:</strong> Filter by Job Success Score 90%+ and minimum $10,000 earned</li>
-                <li className="text-sm text-[#5C6880] flex items-start gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-[#25C97D] flex-shrink-0 mt-0.5" /><strong className="text-[#1A2236]">Best for:</strong> Defined, scoped tasks where you can write a clear brief</li>
-                <li className="text-sm text-[#5C6880] flex items-start gap-2"><XCircle className="w-3.5 h-3.5 text-[#DC3545] flex-shrink-0 mt-0.5" /><strong className="text-[#1A2236]">Not ideal for:</strong> Ongoing strategic relationship, complex multi-system builds</li>
-              </ul>
-            </div>
-
-            {/* Section 3: Fiverr */}
-            <h2 id="fiverr" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              3. Fiverr Best for Small, Defined Tasks
-            </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-2">
-              <strong className="text-[#1A2236]">URL:</strong> fiverr.com/hire/gohighlevel
-            </p>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              Fiverr has 12+ GHL freelancers currently offering services across funnel building, workflow setup,
-              sub-account configuration, and snapshot creation. Pricing starts from as little as $50 for small tasks.
-            </p>
-
-            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 my-4">
-              <p className="text-sm font-semibold text-[#1A2236] mb-2">How to use Fiverr effectively for GHL work:</p>
-              <ul className="space-y-2">
-                <li className="text-sm text-[#5C6880] flex items-start gap-2"><Filter className="w-3.5 h-3.5 text-[#0E9BF0] flex-shrink-0 mt-0.5" /><strong className="text-[#1A2236]">Filter by seller level:</strong> Top Rated Seller or Level 2 only</li>
-                <li className="text-sm text-[#5C6880] flex items-start gap-2"><Star className="w-3.5 h-3.5 text-[#0E9BF0] flex-shrink-0 mt-0.5" /><strong className="text-[#1A2236]">Read reviews carefully:</strong> Look for reviews that describe actual work done</li>
-                <li className="text-sm text-[#5C6880] flex items-start gap-2"><Briefcase className="w-3.5 h-3.5 text-[#0E9BF0] flex-shrink-0 mt-0.5" /><strong className="text-[#1A2236]">Check their portfolio:</strong> Screenshots of builds, workflow structures, or funnel pages</li>
-                <li className="text-sm text-[#5C6880] flex items-start gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-[#25C97D] flex-shrink-0 mt-0.5" /><strong className="text-[#1A2236]">Best for:</strong> One-off tasks with clear deliverables</li>
-                <li className="text-sm text-[#5C6880] flex items-start gap-2"><XCircle className="w-3.5 h-3.5 text-[#DC3545] flex-shrink-0 mt-0.5" /><strong className="text-[#1A2236]">Not ideal for:</strong> Full system builds, SaaS Mode, AI features, CRM migration</li>
-              </ul>
-            </div>
-
-            {/* Section 4: Facebook Groups */}
-            <h2 id="facebook-groups" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              4. Facebook Groups and GHL Community
-            </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              The GoHighLevel ecosystem has some of the most active Facebook communities of any SaaS platform.
-              These groups are where agency owners, freelancers, and GHL experts spend genuine time helping each other.
-            </p>
-
-            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 my-4">
-              <p className="text-sm font-semibold text-[#1A2236] mb-2">The main groups to look in:</p>
-              <ul className="space-y-1 mb-4">
-                <li className="text-sm text-[#5C6880] flex items-start gap-2"><Facebook className="w-3.5 h-3.5 text-[#0E9BF0] flex-shrink-0 mt-0.5" />GoHighLevel Official Community</li>
-                <li className="text-sm text-[#5C6880] flex items-start gap-2"><Facebook className="w-3.5 h-3.5 text-[#0E9BF0] flex-shrink-0 mt-0.5" />GHL SaaS Mode Community</li>
-                <li className="text-sm text-[#5C6880] flex items-start gap-2"><Facebook className="w-3.5 h-3.5 text-[#0E9BF0] flex-shrink-0 mt-0.5" />GoHighLevel Agency Owners</li>
-              </ul>
-              <p className="text-sm font-semibold text-[#1A2236] mb-2">How to hire from Facebook Groups:</p>
-              <ul className="space-y-1">
-                <li className="text-sm text-[#5C6880] flex items-start gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-[#25C97D] flex-shrink-0 mt-0.5" />Post a job request describing what you need, timeline, and budget range</li>
-                <li className="text-sm text-[#5C6880] flex items-start gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-[#25C97D] flex-shrink-0 mt-0.5" />Ask for recommendations from community members</li>
-                <li className="text-sm text-[#5C6880] flex items-start gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-[#25C97D] flex-shrink-0 mt-0.5" />Check the profile of anyone who replies for a website or portfolio</li>
-              </ul>
-            </div>
-
-            <div className="bg-[#E8FAF2] border border-[rgba(37,201,125,0.2)] rounded-xl p-4 my-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Users className="w-4 h-4 text-[#25C97D]" />
-                <span className="text-sm font-bold text-[#25C97D]">Community Tip</span>
-              </div>
-              <p className="text-sm text-[#1A2236] leading-relaxed">
-                Facebook Groups are an excellent channel for finding <strong>referral-vetted experts</strong>
-                people whose work has been vouched for by other community members. Ask publicly:
-                "Has anyone worked with [name]?" before committing.
-              </p>
-            </div>
-
-            {/* CTA Button 4: After Facebook Groups */}
-            <div className="bg-gradient-to-r from-[#0E9BF0] to-[#0C8AD8] rounded-xl p-6 text-center text-white mb-8">
-              <p className="text-sm font-medium mb-2">Still looking for the right GHL expert?
-              </p>
-              <p className="text-sm text-white/80 mb-4">Skip the freelancer search. Get your CRM, workflows, funnels and integrations implemented by a specialised GoHighLevel Agency.</p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-white text-[#0E9BF0] font-bold px-6 py-2.5 rounded-lg hover:bg-[#F8F9FB] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <HeartHandshake className="w-4 h-4" />
-                Contact GHL Scale Up
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-
-            {/* Section 5: Clutch, LinkedIn */}
-            <h2 id="clutch-linkedin" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              5. Clutch, B2B Review Platforms and LinkedIn
-            </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              For agencies and larger businesses wanting to hire a GHL expert through a more structured evaluation process,
-              Clutch.co and LinkedIn are the strongest channels.
-            </p>
-
-            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 my-4">
-              <p className="text-sm font-semibold text-[#1A2236] mb-2">Clutch.co:</p>
-              <p className="text-sm text-[#5C6880] leading-relaxed mb-2">
-                Clutch lists verified B2B agencies with client reviews, project details, and verified revenue data.
-                Search: clutch.co → search 'GoHighLevel' or 'HighLevel' → filter by minimum project size and service category.
-              </p>
-              <p className="text-sm font-semibold text-[#1A2236] mb-2 mt-3">LinkedIn:</p>
-              <p className="text-sm text-[#5C6880] leading-relaxed">
-                Search: 'GoHighLevel' + 'specialist' or 'expert' in the search bar. Filter by location if needed.
-                Check their activity do they post about GHL? Do other GHL professionals engage with their content?
-              </p>
-              <p className="text-sm text-[#5C6880] leading-relaxed mt-2">
-                <strong className="text-[#1A2236]">Best for:</strong> Businesses that want professional accountability, verifiable track record, and an ongoing relationship.
-              </p>
-            </div>
-
-            {/* Section 6: Agencies */}
-            <h2 id="agencies" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              6. Dedicated GHL Specialist Agencies
-            </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
-              For businesses that need a complete GoHighLevel system not just one task a dedicated GHL specialist agency
-              is the most reliable option. Agencies bring a team of people across CRM, automation, funnel design, and AI features.
-            </p>
-
-            <div className="bg-white border border-[#DDE1E9] rounded-xl p-4 my-4">
-              <p className="text-sm font-semibold text-[#1A2236] mb-2">What a specialist agency delivers that freelancers don't:</p>
-              <ul className="space-y-2">
-                <li className="text-sm text-[#5C6880] flex items-start gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-[#25C97D] flex-shrink-0 mt-0.5" /><strong className="text-[#1A2236]">Architecture planning:</strong> Mapping your sales process before building</li>
-                <li className="text-sm text-[#5C6880] flex items-start gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-[#25C97D] flex-shrink-0 mt-0.5" /><strong className="text-[#1A2236]">End-to-end delivery:</strong> CRM, workflows, funnels, AI features, integrations</li>
-                <li className="text-sm text-[#5C6880] flex items-start gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-[#25C97D] flex-shrink-0 mt-0.5" /><strong className="text-[#1A2236]">Documentation and training:</strong> SOPs and walkthroughs for your team</li>
-                <li className="text-sm text-[#5C6880] flex items-start gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-[#25C97D] flex-shrink-0 mt-0.5" /><strong className="text-[#1A2236]">Post-delivery support:</strong> Issues after go-live are handled</li>
-              </ul>
-            </div>
-
-            <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl p-5 my-6 text-white">
-              <div className="flex items-center gap-2 mb-3">
-                <Trophy className="w-5 h-5 text-[#F8D000]" />
-                <span className="text-sm font-bold text-[#F8D000]">GHL Scale Up</span>
-              </div>
-              <p className="text-sm text-white/80 leading-relaxed mb-2">
-                <strong className="text-white">GHL Scale Up (ghlscaleup.com)</strong> is a dedicated GoHighLevel specialist agency with
-                5+ years of GHL experience and 200+ builds delivered globally. Services: CRM setup, workflow automation,
-                AI Voice Agent configuration, white-label SaaS builds, and CRM migration.
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed mb-3">
-                <strong className="text-white">Standard delivery:</strong> 5–7 business days. Full documentation and team training included.
-              </p>
-              <Link href="/contact" className="inline-flex items-center gap-2 text-[#F8D000] text-sm font-semibold hover:gap-3 transition-all">
-                → Book a free 30-minute strategy call at ghlscaleup.com/contact
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
-
-            <p className="text-sm text-[#5C6880] leading-relaxed mb-6">
-              → For a full comparison of the best GHL agencies, see our article: <Link href="/blog/best-ghl-expert-agency" className="text-[#0E9BF0] hover:underline">Best GHL Expert Agency to Hire in 2026 →</Link>
-            </p>
-
-            {/* CTA Button 5: After Agencies Section */}
-            <div className="bg-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
-              <p className="text-sm font-medium mb-2">🚀 Ready to stop searching and start building?</p>
-              <p className="text-sm text-white/80 mb-4">Get your GHL system built by experts who've done it 200+ times.</p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <Zap className="w-4 h-4" />
-                Start Your GHL Build
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-
-            {/* Section 7: Comparison Table */}
-            <h2 id="comparison-table" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              7. Comparing All 6 Options: Cost, Quality, Speed
-            </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
-              Use this table to quickly match your situation to the right hiring channel:
+              Certification, per HighLevel, confirms that someone has passed a live proctored exam and completed required training; it does not test delivery quality, project management, or communication. HighLevel's own certification page describes the badge as valid for two years and requires ongoing skills badges to stay current, so a profile is worth checking for how recently it was certified, not just whether it exists. Treat the directory as a starting filter, not a finish line: the vetting questions later in this guide still apply to every profile you find here.
             </p>
 
-            <div className="overflow-x-auto my-6">
-              <table className="w-full border-collapse text-sm">
-                <thead>
-                  <tr className="bg-[#F8F9FB] border-b border-[#DDE1E9]">
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Platform</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Typical Cost</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Quality Signal</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Speed</th>
-                    <th className="text-left py-3 px-3 font-semibold text-[#1A2236]">Best For</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="border-b border-[#DDE1E9]"><td className="py-3 px-3 font-medium text-[#1A2236]">GHL Directory</td><td className="py-3 px-3 text-[#5C6880]">Varies</td><td className="py-3 px-3 text-[#5C6880]">Certification verified</td><td className="py-3 px-3 text-[#5C6880]">Medium</td><td className="py-3 px-3 text-[#5C6880]">Certified individual experts</td></tr>
-                  <tr className="border-b border-[#DDE1E9]"><td className="py-3 px-3 font-medium text-[#1A2236]">Upwork</td><td className="py-3 px-3 text-[#5C6880]">$25–$150/hr</td><td className="py-3 px-3 text-[#5C6880]">JSS score + reviews</td><td className="py-3 px-3 text-[#5C6880]">Fast</td><td className="py-3 px-3 text-[#5C6880]">Defined tasks with brief</td></tr>
-                  <tr className="border-b border-[#DDE1E9]"><td className="py-3 px-3 font-medium text-[#1A2236]">Fiverr</td><td className="py-3 px-3 text-[#5C6880]">$50–$500+</td><td className="py-3 px-3 text-[#5C6880]">Seller level + reviews</td><td className="py-3 px-3 text-[#5C6880]">Very fast</td><td className="py-3 px-3 text-[#5C6880]">Small, specific tasks</td></tr>
-                  <tr className="border-b border-[#DDE1E9]"><td className="py-3 px-3 font-medium text-[#1A2236]">Facebook Groups</td><td className="py-3 px-3 text-[#5C6880]">Varies</td><td className="py-3 px-3 text-[#5C6880]">Community referral</td><td className="py-3 px-3 text-[#5C6880]">Medium</td><td className="py-3 px-3 text-[#5C6880]">Referral-based hires</td></tr>
-                  <tr className="border-b border-[#DDE1E9]"><td className="py-3 px-3 font-medium text-[#1A2236]">Clutch / LinkedIn</td><td className="py-3 px-3 text-[#5C6880]">$100–$250+/hr</td><td className="py-3 px-3 text-[#5C6880]">Verified client reviews</td><td className="py-3 px-3 text-[#5C6880]">Slower</td><td className="py-3 px-3 text-[#5C6880]">Larger projects</td></tr>
-                  <tr className="border-b border-[#DDE1E9]"><td className="py-3 px-3 font-medium text-[#1A2236]">Agency</td><td className="py-3 px-3 text-[#5C6880]">$500–$8,000+</td><td className="py-3 px-3 text-[#5C6880]">Track record + portfolio</td><td className="py-3 px-3 text-[#5C6880]">5–7 days</td><td className="py-3 px-3 text-[#5C6880]">Full GHL builds, AI, SaaS</td></tr>
-                </tbody>
-              </table>
-            </div>
-
-            {/* Section 8: Vetting Checklist */}
-            <h2 id="vetting-checklist" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              8. How to Vet a GoHighLevel Expert Before Hiring
-            </h2>
+            {/* Section 2: Freelance Marketplaces */}
+            <h3 id="freelance-marketplaces" className="text-xl md:text-2xl font-bold text-[#1C2E4A] mt-8 mb-3">
+              2. Freelance Marketplaces (Upwork, Fiverr)
+            </h3>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Both platforms host active GoHighLevel freelancer listings. Upwork's Job Success Score, verified earnings and client reviews give you a real quality signal if you filter for it; Fiverr works better for small, clearly scoped tasks like building one funnel or setting up one workflow, where you can judge the work from a seller's existing portfolio and reviews.
+            </p>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
-              Use these seven questions before committing to any GHL expert, regardless of which platform they came from.
+              Rates on both platforms move constantly and vary hugely by experience level and region, so this guide will not quote a fixed number as current fact. What stays true regardless of the exact figures: a small, well-defined task should cost meaningfully less than a multi-system build, and a price that looks dramatically below everyone else's for the same scope is a signal to look closer, not a bargain. Check the actual current listings and reviews rather than any number in an article, including this one.
             </p>
 
-            <div className="space-y-4 mb-6">
-              {vettingQuestions.map((item, idx) => (
-                <div key={idx} className="bg-white border border-[#DDE1E9] rounded-xl p-5">
-                  <p className="text-sm font-semibold text-[#0E9BF0] mb-2">Q{idx + 1}: {item.q}</p>
-                  <p className="text-sm text-[#5C6880] leading-relaxed"><strong className="text-[#1A2236]">Why it matters:</strong> {item.why}</p>
+            {/* Section 3: Facebook Groups */}
+            <h3 id="facebook-groups" className="text-xl md:text-2xl font-bold text-[#1C2E4A] mt-8 mb-3">
+              3. Facebook Groups and GHL Communities
+            </h3>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              The GoHighLevel ecosystem has genuinely active Facebook communities where agency owners and freelancers answer questions and take job requests. This is a useful channel specifically for referral-vetted hires: post what you need, and ask directly whether anyone has worked with a specific person before committing. Community endorsement is not the same as verified work, so still run the vetting questions below.
+            </p>
+
+            {/* Section 4: Clutch LinkedIn */}
+            <h3 id="clutch-linkedin" className="text-xl md:text-2xl font-bold text-[#1C2E4A] mt-8 mb-3">
+              4. Clutch, B2B Directories and LinkedIn
+            </h3>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Clutch.co lists agencies with client reviews and project details, and is a reasonable starting point for a more structured, higher-stakes search. On LinkedIn, searching for GoHighLevel specialists and checking whether other GHL professionals actually engage with someone's posts is a decent proxy for whether they are active in the ecosystem, as opposed to someone who added the platform to a skills list.
+            </p>
+
+            {/* Section 5: Specialist Agencies */}
+            <h3 id="specialist-agencies" className="text-xl md:text-2xl font-bold text-[#1C2E4A] mt-8 mb-3">
+              5. GoHighLevel Specialist Agencies
+            </h3>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              For a complete build, not one task, a dedicated GHL specialist agency is generally the more reliable option, because it brings architecture planning, a team across the different skill sets above, testing before handover, and documentation. GHL Scale Up is one such agency; for a fuller comparison of options in this category, see <Link href="/blog/best-ghl-expert-agency" className="text-[#0E9BF0] hover:underline">Best GHL Expert Agency to Hire</Link>.
+            </p>
+
+            {/* Section 6: Direct Referral */}
+            <h3 id="direct-referral" className="text-xl md:text-2xl font-bold text-[#1C2E4A] mt-8 mb-3">
+              6. Direct Referral
+            </h3>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              If someone in your network has had a GoHighLevel system built recently, ask who built it and whether they would use them again. A direct referral skips most of the vetting problem, provided you still confirm the referral's project was similar in scope to yours.
+            </p>
+
+            {/* Section: Freelancer vs Agency */}
+            <h2 id="freelancer-vs-agency" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Freelancer vs Agency: Which Should You Choose?
+            </h2>
+            <div className="grid md:grid-cols-2 gap-4 my-6">
+              <div className="bg-[#E8F5FE] border border-[rgba(14,155,240,0.2)] rounded-xl p-5">
+                <div className="flex items-center gap-2 mb-3">
+                  <Briefcase className="w-4 h-4 text-[#0E9BF0]" />
+                  <span className="text-sm font-bold text-[#0E9BF0]">Choose a Freelancer When</span>
+                </div>
+                <ul className="space-y-2">
+                  {freelancerBullets.map((item, idx) => (
+                    <li key={idx} className="text-sm text-[#1A2236] flex items-start gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#0E9BF0] flex-shrink-0 mt-0.5" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="bg-[#E8FAF2] border border-[rgba(37,201,125,0.2)] rounded-xl p-5">
+                <div className="flex items-center gap-2 mb-3">
+                  <Trophy className="w-4 h-4 text-[#25C97D]" />
+                  <span className="text-sm font-bold text-[#25C97D]">Choose an Agency When</span>
+                </div>
+                <ul className="space-y-2">
+                  {agencyBullets.map((item, idx) => (
+                    <li key={idx} className="text-sm text-[#1A2236] flex items-start gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#25C97D] flex-shrink-0 mt-0.5" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Neither is universally better. A freelancer for a narrow task and an agency for a multi-system build are both reasonable choices for their respective scopes; the mismatch, hiring a freelancer for architecture-level work or an agency for a five-minute fix, is what causes most of the regret people report.
+            </p>
+
+            {/* Section: Cost */}
+            <h2 id="cost" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              What Does It Cost to Hire a GoHighLevel Expert?
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Cost depends on scope far more than on which channel you hire from. A single small task on a freelance marketplace can run from roughly $50 to a few hundred dollars. A full CRM and automation build, a migration, or anything spanning multiple systems is usually quoted as a fixed project price after a scoping conversation, rather than an hourly rate, because the work does not reduce cleanly to hours. Ongoing management or support, if you want it, is typically a separate monthly arrangement on top of the initial build.
+            </p>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              The variables that actually move the price: how many systems are involved (CRM alone vs. CRM plus automation plus integrations), whether it is a migration from another platform, whether AI or SaaS Mode is in scope, and whether ongoing support is included. Get a written, itemized scope before comparing any two quotes, because "GoHighLevel setup" means very different things depending on what is actually included.
+            </p>
+
+            {/* Section: How to Evaluate */}
+            <h2 id="how-to-evaluate" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              How to Evaluate a GoHighLevel Expert
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Regardless of certification or platform reviews, evaluate on actual capability:
+            </p>
+            <div className="space-y-3 mb-6">
+              {evaluationCriteria.map((item, idx) => (
+                <div key={idx} className="bg-white border border-[#DDE1E9] rounded-xl p-4">
+                  <p className="text-sm leading-relaxed">
+                    <strong className="text-[#1A2236]">{item.title}:</strong>{' '}
+                    <span className="text-[#5C6880]">{item.detail}</span>
+                  </p>
                 </div>
               ))}
             </div>
 
-            {/* CTA Button 6: Before Red Flags */}
-            <div className="bg-gradient-to-r from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center text-white mb-8">
-              <p className="text-sm font-medium mb-2">🔍 Not sure if your shortlisted expert passes these tests?</p>
-              <p className="text-sm text-white/80 mb-4">Let us review your expert for free and tell you if they're the right fit.</p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-              >
-                <Search className="w-4 h-4" />
-                Get a Free Expert Review
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-
-            {/* Section 9: Red Flags */}
-            <h2 id="red-flags" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
-              9. Red Flags to Walk Away From
+            {/* Section: Questions to Ask */}
+            <h2 id="questions-to-ask" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Questions to Ask Before Hiring
             </h2>
-            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
-              These are the warning signs we see most often across GHL community forums, client audits, and first calls.
-            </p>
-
-            <div className="space-y-4">
-              {redFlags.map((item, idx) => (
-                <div key={idx} className="bg-[#FEF2F0] border border-[rgba(220,53,69,0.2)] rounded-xl p-5">
+            <div className="space-y-3 mb-6">
+              {vettingQuestions.map((item, idx) => (
+                <div key={idx} className="bg-white border border-[#DDE1E9] rounded-xl p-4">
                   <div className="flex items-start gap-3">
-                    <AlertTriangle className="w-5 h-5 text-[#DC3545] flex-shrink-0 mt-0.5" />
+                    <div className="w-7 h-7 rounded-full bg-[#0E9BF0] text-white flex items-center justify-center text-xs font-bold flex-shrink-0">{idx + 1}</div>
                     <div>
-                      <p className="text-sm font-semibold text-[#1A2236] mb-1">{item.flag}</p>
-                      <p className="text-sm text-[#5C6880] leading-relaxed mb-2"><strong>Cause:</strong> {item.cause}</p>
-                      <p className="text-sm text-[#25C97D] leading-relaxed"><strong>Fix:</strong> {item.fix}</p>
+                      <p className="text-sm font-semibold text-[#1A2236] mb-1">{item.q}</p>
+                      <p className="text-sm text-[#5C6880] leading-relaxed">{item.why}</p>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
 
-            {/* CTA Button 7: After Red Flags */}
-            <div className="mt-8 p-6 bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl text-center">
-              <p className="text-white font-bold text-lg mb-2">⚠️ Found a red flag in your shortlist?</p>
-              <p className="text-white/60 text-sm mb-4">Skip the risk. Work with a team that has zero red flags and 200+ happy clients.</p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
-                  <Shield className="w-4 h-4" />
-                  Hire a Trusted Team
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link
-                  href="/blog/best-ghl-expert-agency"
-                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-white/20 transition-all border border-white/20 text-sm"
-                >
-                  <Trophy className="w-4 h-4" />
-                  See Top Agencies
-                </Link>
-              </div>
+            {/* Section: Match Expert */}
+            <h2 id="match-expert" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Match the Expert to Your Project
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
+              Instead of searching for "the best" GoHighLevel expert, match the requirement:
+            </p>
+            <ul className="space-y-3 mb-6 text-sm text-[#5C6880] list-disc list-inside">
+              {matchExpertData.map((item, idx) => (
+                <li key={idx}>
+                  <strong className="text-[#1A2236]">{item.need}:</strong> look for {item.look} See <Link href={item.link} className="text-[#0E9BF0] hover:underline">{item.linkText}</Link>.
+                </li>
+              ))}
+            </ul>
+
+            {/* Section: Security and Access */}
+            <h2 id="security-access" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Security and Account Access
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              Before handing anyone access to your GoHighLevel account, settle a few things: who retains ownership of the account and any assets (snapshots, integrations, API keys) once the project ends; whether the person you're hiring gets full admin access or a scoped role appropriate to the work; and how access gets removed once the engagement is over. Do not share master credentials casually, and do not leave a freelancer or contractor with standing access to your account indefinitely after the work is finished. A legitimate expert will not push back on being asked these questions upfront.
+            </p>
+
+            {/* Section: Red Flags */}
+            <h2 id="red-flags" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              Red Flags to Walk Away From
+            </h2>
+            <div className="space-y-3 mb-6">
+              {redFlags.map((item, idx) => (
+                <div key={idx} className="bg-[#FEF2F0] border border-[rgba(220,53,69,0.2)] rounded-xl p-4">
+                  <div className="flex items-start gap-3">
+                    <AlertTriangle className="w-5 h-5 text-[#DC3545] flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="text-sm font-semibold text-[#1A2236] mb-1">{item.flag}</p>
+                      <p className="text-sm text-[#5C6880] leading-relaxed">{item.cause}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
 
-            {/* Section 10: FAQ */}
+            {/* Section: Full Implementation Team */}
+            <h2 id="full-implementation-team" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
+              When You Need a Full Implementation Team
+            </h2>
+            <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-6">
+              If what you actually need spans several of the areas above, CRM architecture plus automation plus AI or integrations, that points toward the agency side of the freelancer-vs-agency decision covered earlier, rather than piecing it together across several individual hires. That is the scope covered by <Link href="/services/hire-gohighlevel-experts" className="text-[#0E9BF0] hover:underline">hiring a GoHighLevel expert team</Link>, which walks through what a full engagement includes and how the process runs end to end.
+            </p>
+
+            {/* Section: FAQ */}
             <h2 id="faq" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-6">
-              10. Frequently Asked Questions
+              Frequently Asked Questions
             </h2>
 
             <div className="space-y-3">
@@ -744,54 +673,75 @@ export default function WhereToHireGHLExpertsClient() {
               ))}
             </div>
 
-            {/* CTA Button 8: After FAQ */}
-            <div className="mt-8 p-6 bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl text-center">
-              <p className="text-white font-bold text-lg mb-2">Still Have Questions About Hiring?</p>
-              <p className="text-white/60 text-sm mb-4">Talk to our GHL experts directly. We're here to help you find the right solution.</p>
+            {/* CTA - After FAQ */}
+            <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-xl p-6 text-center my-6">
+              <p className="text-white/80 text-sm mb-4 max-w-lg mx-auto">
+                <strong className="text-white">Still have questions about hiring GoHighLevel experts?</strong>
+              </p>
+              <p className="text-white/60 text-sm mb-4 max-w-lg mx-auto">
+                Talk to our GHL experts directly. We're here to help.
+              </p>
               <div className="flex flex-wrap justify-center gap-3">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-2.5 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105 text-sm"
-                >
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
                   <MessageCircle className="w-4 h-4" />
                   Ask an Expert
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-white/20 transition-all border border-white/20 text-sm"
-                >
+                <Link href="/contact" className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition-all border border-white/20">
                   <Phone className="w-4 h-4" />
                   Call Us
                 </Link>
               </div>
             </div>
 
-            {/* Internal Links */}
+            {/* Related Articles */}
             <div className="mt-8 pt-6 border-t border-[#DDE1E9]">
               <h3 className="text-base font-bold text-[#1A2236] mb-4">Related Articles in This Series</h3>
               <div className="flex flex-wrap gap-3">
                 <Link href="/blog/best-ghl-expert-agency" className="text-sm text-[#0E9BF0] hover:underline">Best GHL Expert Agency to Hire in 2026 →</Link>
-                <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-sm text-[#0E9BF0] hover:underline">How to Set Up GoHighLevel Workflow Automation for Beginners →</Link>
+                <Link href="/services/hire-gohighlevel-experts" className="text-sm text-[#0E9BF0] hover:underline">GHL Scale Up's Implementation Services →</Link>
+                <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-sm text-[#0E9BF0] hover:underline">How to Set Up GoHighLevel Workflow Automation →</Link>
                 <Link href="/blog/how-to-create-gohighlevel-snapshot" className="text-sm text-[#0E9BF0] hover:underline">How to Create and Use a GoHighLevel Snapshot →</Link>
                 <Link href="/blog/what-is-gohighlevel" className="text-sm text-[#0E9BF0] hover:underline">What Is GoHighLevel? Complete 2026 Guide →</Link>
                 <Link href="/services/crm-setup" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel CRM Setup Service →</Link>
+                <Link href="/services/workflow-automation" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Workflow Automation Service →</Link>
+                <Link href="/services/saas-setup" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel SaaS Mode Setup Service →</Link>
               </div>
             </div>
 
-            {/* Final CTA Section */}
+            {/* Final CTA */}
             <div className="bg-gradient-to-br from-[#0B1628] to-[#1C2E4A] rounded-2xl p-8 text-center relative overflow-hidden my-12">
               <div className="relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Already searched? Skip the guesswork.</h3>
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
-                  GHL Scale Up has built 200+ GHL systems. Yours could be next. CRM setup, workflow automation,
-                  AI Voice Agent, SaaS Mode, and GHL migrations. 5–7 business day delivery, full documentation included.
+                  GHL Scale Up has built 200+ GHL systems. Yours could be next. CRM setup, workflow automation, AI Voice Agent, SaaS Mode, and GHL migrations. 5–7 business day delivery, full documentation included.
                 </p>
                 <Link href="/contact" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all hover:shadow-lg hover:scale-105">
                   Book Your Free Call
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
+            </div>
+
+            {/* Author / Verification Section */}
+            <div className="bg-[#F8F9FB] border border-[#DDE1E9] rounded-xl p-5 my-6">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-7 h-7 overflow-hidden bg-white flex items-center justify-center">
+                  <img
+                    src="/web-app-manifest-192x192.png"
+                    alt="GHL Scale Up"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <div className="text-sm font-bold text-[#1A2236]">GHL Scale Up Team</div>
+                  <div className="text-xs text-[#5C6880]">GoHighLevel expert agency · 5+ years GHL experience · 200+ systems built globally</div>
+                </div>
+              </div>
+              <p className="text-xs text-[#5C6880] leading-relaxed">
+                This guide reflects GHL Scale Up's direct experience hiring, working alongside, and evaluating GHL freelancers and agencies, current as of September 2026. Provider positioning, pricing and offerings change; confirm current details directly before deciding.
+              </p>
+              <Link href="/" className="text-[#0E9BF0] text-xs hover:underline mt-2 inline-block">ghlscaleup.com</Link>
             </div>
           </main>
         </div>
