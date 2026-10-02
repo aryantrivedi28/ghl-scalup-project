@@ -14,10 +14,32 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'PackageCheck',
+            tag: 'Ecommerce',
+            title: 'GoHighLevel Post Purchase Automation: Workflows & Examples',
+            excerpt: 'What should happen after an ecommerce customer buys, and how GoHighLevel can automate it confirmation, fulfillment, education, reviews and upsells, built around real triggers, not a generic checklist.',
+            slug: 'gohighlevel-ecommerce-post-purchase-automation',
+            date: 'October 2, 2026',
+            readTime: '22 min read',
+            featured: true,
+            image: '/blog/gohighlevel-ecommerce-post-purchase-automation.png',
+      },
+      {
+            icon: 'Heart',
+            tag: 'Ecommerce',
+            title: 'GoHighLevel Customer Retention & Winback Automation Guide',
+            excerpt: 'How to decide when an ecommerce customer is actually inactive, what data should drive a GoHighLevel winback workflow, and how to build it — since GoHighLevel has no built-in inactivity trigger.',
+            slug: 'gohighlevel-ecommerce-customer-retention',
+            date: 'October 1, 2026',
+            readTime: '20 min read',
+            featured: true,
+            image: '/blog/gohighlevel-ecommerce-customer-retention.png',
+      },
+      {
             icon: 'Store',
             tag: 'Integration',
             title: 'GoHighLevel Shopify Integration: What It Syncs & How It Works',
-            excerpt: 'What actually syncs when you connect Shopify to GoHighLevel — customers, orders, revenue — how the connection works, which Shopify events trigger workflows, and what stays in Shopify only.',
+            excerpt: 'What actually syncs when you connect Shopify to GoHighLevel customers, orders, revenue how the connection works, which Shopify events trigger workflows, and what stays in Shopify only.',
             slug: 'gohighlevel-shopify-integration',
             date: 'September 30, 2026',
             readTime: '22 min read',
