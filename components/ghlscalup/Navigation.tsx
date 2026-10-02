@@ -217,7 +217,7 @@ const Navigation = () => {
             </li>
 
             {/* Marketing Services Mega Dropdown */}
-            <li className="relative group">
+            {/* <li className="relative group">
               <Link href="/marketing" className="text-white/75 hover:text-white text-[0.84rem] font-medium transition-colors flex items-center gap-1">
                 Marketing <ChevronDown className="h-3 w-3 mt-0.5 group-hover:rotate-180 transition-transform" />
               </Link>
@@ -240,7 +240,7 @@ const Navigation = () => {
                   )
                 })}
               </div>
-            </li>
+            </li> */}
 
 
             {/* Industry Dropdown */}
@@ -424,7 +424,7 @@ const Navigation = () => {
               </li>
 
               {/* Marketing - Mobile */}
-              <li>
+              {/* <li>
                 <details className="group">
                   <summary className="text-white text-base block py-2 cursor-pointer list-none">Marketing</summary>
                   <div className="pl-4 mt-2 flex flex-col gap-2">
@@ -435,7 +435,7 @@ const Navigation = () => {
                     ))}
                   </div>
                 </details>
-              </li>
+              </li> */}
 
               {/* Industry - Mobile */}
               <li>
