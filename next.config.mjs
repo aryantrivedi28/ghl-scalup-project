@@ -15,6 +15,11 @@ const nextConfig = {
         destination: "/blog/get-first-10-gohighlevel-saas-clients",
         permanent: true,
       },
+      {
+        source: "/services/saas-setup",
+        destination: "/services/gohighlevel-saas-mode",
+        permanent: true,
+      },
     ];
   },
 };

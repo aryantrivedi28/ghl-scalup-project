@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Star',
+            tag: 'Ecommerce',
+            title: 'GoHighLevel Ecommerce Review Automation: When to Ask',
+            excerpt: 'How to time review requests for an ecommerce store in GoHighLevel: product reviews vs business reviews, what to trigger, how to handle feedback, and where a dedicated review tool fits better.',
+            slug: 'gohighlevel-ecommerce-review-automation',
+            date: 'October 3, 2026',
+            readTime: '22 min read',
+            featured: true,
+            image: '/blog/gohighlevel-ecommerce-review-automation.png',
+      },
+      {
             icon: 'PackageCheck',
             tag: 'Ecommerce',
             title: 'GoHighLevel Post Purchase Automation: Workflows & Examples',

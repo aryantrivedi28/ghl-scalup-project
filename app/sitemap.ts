@@ -164,12 +164,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.7,
     },
-    {
-      url: `${baseUrl}/services/saas-setup`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
+    // {
+    //   url: `${baseUrl}/services/saas-setup`,
+    //   lastModified: currentDate,
+    //   changeFrequency: 'monthly',
+    //   priority: 0.8,
+    // },
     {
       url: `${baseUrl}/services/integrations`,
       lastModified: currentDate,
@@ -202,6 +202,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/services/virtual-assistant`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/services/gohighlevel-for-coaches`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/services/gohighlevel-for-real-estate`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/services/hire-gohighlevel-experts`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.7,
@@ -287,6 +305,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/blog/gohighlevel-ecommerce-review-automation`,
+      lastModified: new Date('2026-10-03'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
     {
       url: `${baseUrl}/blog/gohighlevel-ecommerce-post-purchase-automation`,
       lastModified: new Date('2026-10-02'),
