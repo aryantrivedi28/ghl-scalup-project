@@ -721,7 +721,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/gohighlevel-migration-checklist`,
+      url: `${baseUrl}/blog/gohighlevel-migration-checklist`,
       lastModified: new Date('2026-06-12'),
       changeFrequency: 'monthly',
       priority: 0.7,
