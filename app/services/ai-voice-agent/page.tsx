@@ -461,7 +461,7 @@ export default function AIVoiceAgentPage() {
         title='Stop Missing Calls.<br /><span class="hl-yellow">Let AI Answer Every One.</span>'
         description="Every call is a potential customer. Our AI voice agents answer 100% of your calls, 24/7, and book appointments while you sleep. Book your free consultation today."
         primaryText="Book Your Free Voice AI Consultation →"
-        primaryHref="/contact-us"
+        primaryHref="/book-a-call"
       />
     </>
   );

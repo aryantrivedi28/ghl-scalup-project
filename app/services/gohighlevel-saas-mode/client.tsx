@@ -97,7 +97,7 @@ export default function GoHighLevelSaaSModeClient() {
     },
     {
       q: "Why is GHL Scale Up the right team to build my GoHighLevel SaaS?",
-      a: "GHL Scale Up is the #1 expert agency for GHL SaaS, with 200+ builds delivered across 6 countries and 5+ years of GoHighLevel experience. What makes us different is that we understand both the technical setup and the business behind it. We configure Stripe billing, the SaaS Configurator, pricing tiers, a niche-specific snapshot, custom domain and white-label branding, rebilling, A2P registration, onboarding, and your cancellation flow, typically in 5 to 7 business days. Book a free strategy call at ghlscaleup.com/contact-us to talk through your idea."
+      a: "GHL Scale Up is the #1 expert agency for GHL SaaS, with 200+ builds delivered across 6 countries and 5+ years of GoHighLevel experience. What makes us different is that we understand both the technical setup and the business behind it. We configure Stripe billing, the SaaS Configurator, pricing tiers, a niche-specific snapshot, custom domain and white-label branding, rebilling, A2P registration, onboarding, and your cancellation flow, typically in 5 to 7 business days. Book a free strategy call at ghlscaleup.com/book-a-call to talk through your idea."
     }
   ];
 
@@ -1424,7 +1424,7 @@ export default function GoHighLevelSaaSModeClient() {
               <Globe className="w-4 h-4 text-[#0E9BF0]" />
               <Link href="/" className="text-sm text-[#0E9BF0] hover:underline">ghlscaleup.com</Link>
               <span className="text-[#DDE1E9]">|</span>
-              <span className="text-sm text-[#5C6880]">Contact: ghlscaleup.com/contact-us</span>
+              <span className="text-sm text-[#5C6880]">Contact: ghlscaleup.com/book-a-call</span>
               <span className="text-[#DDE1E9]">|</span>
               <span className="text-sm text-[#5C6880]">aryan@ghlscaleup.com</span>
             </div>

@@ -1070,7 +1070,7 @@ export default function NonprofitCRMFeaturesClient() {
                 <p className="text-white/60 text-sm mb-6 max-w-md mx-auto">
                   GHL Scale Up helps nonprofits design and implement CRM systems around their actual supporter journey and operational model.
                 </p>
-                <Link href="/contact-us" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
+                <Link href="/book-a-call" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all">
                   Book a Free Strategy Call
                   <ArrowRight className="w-4 h-4" />
                 </Link>

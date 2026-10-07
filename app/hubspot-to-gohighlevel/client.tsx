@@ -149,7 +149,7 @@ export default function HubspotMigrationClient() {
                 We migrate your HubSpot contacts, custom properties, deal pipelines, and full deal history into GoHighLevel then rebuild your automations, forms, and workflows natively inside GHL. The result: a fully configured GoHighLevel system that replicates everything you relied on in HubSpot, without data loss and without downtime. Standard migrations complete in 3 to 5 weeks. Fixed price. Free migration assessment to start.
               </p>
               <div className="flex gap-3.5 flex-wrap mb-9">
-                <Link href="/contact-us" className="bg-[#F8D000] text-[#0B1421] px-8 py-3.5 rounded-xl text-[15px] font-semibold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
+                <Link href="/book-a-call" className="bg-[#F8D000] text-[#0B1421] px-8 py-3.5 rounded-xl text-[15px] font-semibold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
                   Book a Free Migration Assessment → <ArrowRight size={16} />
                 </Link>
                 <Link href="#what-we-migrate" className="bg-transparent text-white px-8 py-3.5 rounded-xl text-[15px] font-medium border border-white/30 hover:border-white/50 hover:bg-white/5 transition-all">
@@ -329,7 +329,7 @@ export default function HubspotMigrationClient() {
           <p className="text-base text-white/65 max-w-[560px] mx-auto mb-3 leading-relaxed">Book a free 30-minute migration assessment. We review your HubSpot account, tell you exactly what transfers and what we rebuild, and give you a fixed price before any work begins.</p>
           <p className="text-[13px] text-white/40 mb-8">No commitment required. No automated follow-up sequence. A real conversation within a few hours.</p>
           <div className="flex gap-3.5 justify-center flex-wrap">
-            <Link href="/contact-us" className="bg-[#F8D000] text-[#0B1421] px-10 py-4 rounded-xl text-[0.92rem] font-bold hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
+            <Link href="/book-a-call" className="bg-[#F8D000] text-[#0B1421] px-10 py-4 rounded-xl text-[0.92rem] font-bold hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
               Book a Free Migration Assessment → <ArrowRight size={16} />
             </Link>
           </div>
@@ -397,7 +397,7 @@ export default function HubspotMigrationClient() {
           <p className="text-base text-white/65 max-w-[560px] mx-auto mb-3 leading-relaxed">30 minutes. We review your HubSpot account, confirm what transfers and what we rebuild, and give you a fixed-price scope document. No obligation to proceed.</p>
           <p className="text-[13px] text-white/40 mb-8">Aryan personally reviews every inquiry and responds within a few hours via phone or email, not an automated sequence.</p>
           <div className="flex gap-3.5 justify-center flex-wrap">
-            <Link href="/contact-us" className="bg-[#F8D000] text-[#0B1421] px-10 py-4 rounded-xl text-[0.92rem] font-bold hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
+            <Link href="/book-a-call" className="bg-[#F8D000] text-[#0B1421] px-10 py-4 rounded-xl text-[0.92rem] font-bold hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
               Book a Free Migration Assessment → <ArrowRight size={16} />
             </Link>
             <Link href="/services/migration" className="bg-transparent text-white px-10 py-4 rounded-xl text-[0.92rem] font-medium border border-white/15 hover:border-white/30 hover:bg-white/5 transition-all">

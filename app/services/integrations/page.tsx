@@ -456,7 +456,7 @@ export default function IntegrationsAPIPage() {
         title='Stop Copy-Pasting Data.<br /><span class="hl-yellow">Let Integrations Do the Work.</span>'
         description="Your tools should work together, not against each other. Let us connect your tech stack so data flows automatically and your team stays productive."
         primaryText="Book Your Free Integration Audit →"
-        primaryHref="/contact-us"
+        primaryHref="/book-a-call"
       />
     </>
   );

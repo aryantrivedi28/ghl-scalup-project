@@ -137,7 +137,7 @@ const PricingPage = () => {
             All plans include a 7-day free trial. No credit card required for trial.
           </p>
           <Link
-            href="/contact-us"
+            href="/book-a-call"
             className="inline-block mt-4 text-[#F8D000] text-sm hover:underline transition-all"
           >
             Need a custom plan? Contact us →

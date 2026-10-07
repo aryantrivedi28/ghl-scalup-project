@@ -464,7 +464,7 @@ export default function BestCRMForCoachesClient() {
 
           {/* CTA 1: Hero Section CTA (KEPT AS IS) */}
           <div className="mt-6">
-            <Link href="/contact-us" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all shadow-lg hover:shadow-xl">
+            <Link href="/book-a-call" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-6 py-3 rounded-lg hover:bg-[#FFE44D] transition-all shadow-lg hover:shadow-xl">
               Book a Free CRM Strategy Call
               <ArrowRight className="w-4 h-4" />
             </Link>

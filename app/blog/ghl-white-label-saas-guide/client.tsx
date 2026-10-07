@@ -1173,7 +1173,7 @@ export default function GHLWhiteLabelSaaSClient() {
                   <Globe className="w-4 h-4 text-[#0E9BF0]" />
                   <Link href="/" className="text-sm text-[#0E9BF0] hover:underline">ghlscaleup.com</Link>
                   <span className="text-[#DDE1E9]">|</span>
-                  <span className="text-sm text-[#5C6880]">Contact: ghlscaleup.com/contact-us</span>
+                  <span className="text-sm text-[#5C6880]">Contact: ghlscaleup.com/book-a-call</span>
                   <span className="text-[#DDE1E9]">|</span>
                   <span className="text-sm text-[#5C6880]">+91 98932 70210</span>
                 </div>

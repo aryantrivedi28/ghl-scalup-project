@@ -111,7 +111,7 @@ export default function GoHighLevelWhiteLabelClient() {
     },
     {
       q: "Can GHL Scale Up set up GoHighLevel white label for me?",
-      a: "Yes. GHL Scale Up configures complete GoHighLevel white label setups, including custom domain, DNS and SSL, logo and brand colours, branded notifications, onboarding snapshot, and offboarding workflows. Most builds go live in 5 to 7 business days. Book a free strategy call at ghlscaleup.com/contact-us."
+      a: "Yes. GHL Scale Up configures complete GoHighLevel white label setups, including custom domain, DNS and SSL, logo and brand colours, branded notifications, onboarding snapshot, and offboarding workflows. Most builds go live in 5 to 7 business days. Book a free strategy call at ghlscaleup.com/book-a-call."
     },
     {
       q: "What is the difference between GoHighLevel white label and SaaS Mode?",
@@ -1006,7 +1006,7 @@ export default function GoHighLevelWhiteLabelClient() {
                   <Globe className="w-4 h-4 text-[#0E9BF0]" />
                   <Link href="/" className="text-sm text-[#0E9BF0] hover:underline">ghlscaleup.com</Link>
                   <span className="text-[#DDE1E9]">|</span>
-                  <span className="text-sm text-[#5C6880]">Contact: ghlscaleup.com/contact-us</span>
+                  <span className="text-sm text-[#5C6880]">Contact: ghlscaleup.com/book-a-call</span>
                   <span className="text-[#DDE1E9]">|</span>
                   <span className="text-sm text-[#5C6880]">+91 98932 70210</span>
                 </div>

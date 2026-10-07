@@ -162,7 +162,7 @@ export default function KajabiMigrationClient() {
                 We migrate your Kajabi courses, members, contacts, automations, and funnels into GoHighLevel using GHL native Kajabi importer plus rebuild every quiz, email sequence, and checkout flow manually. We protect active member access and Stripe subscriptions throughout. 301 redirects published on day one of go-live. Fixed price. Free migration assessment to start.
               </p>
               <div className="flex gap-3.5 flex-wrap mb-8">
-                <Link href="/contact-us" className="bg-[#F8D000] text-[#0B1421] px-8 py-[14px] rounded-xl text-[15px] font-semibold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.3)] transition-all">
+                <Link href="/book-a-call" className="bg-[#F8D000] text-[#0B1421] px-8 py-[14px] rounded-xl text-[15px] font-semibold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.3)] transition-all">
                   Book a Free Migration Assessment → <ArrowRight size={16} />
                 </Link>
                 <Link href="#what-transfers" className="bg-transparent text-white px-8 py-[14px] rounded-xl text-[15px] font-medium border border-white/30 hover:border-white/50 hover:bg-white/5 transition-all">
@@ -413,7 +413,7 @@ export default function KajabiMigrationClient() {
                     <div className="flex gap-2 text-[14px] text-[#1A202C]"><span className="text-[#25C97D] text-[13px] mt-0.5">✓</span>All automations, funnels, and checkouts rebuilt in GHL</div>
                     <div className="flex gap-2 text-[14px] text-[#1A202C]"><span className="text-[#25C97D] text-[13px] mt-0.5">✓</span>Team training and handover documentation</div>
                   </div>
-                  <Link href="/contact-us" className="bg-[#F8D000] text-[#0B1421] w-full justify-center inline-flex items-center gap-2 py-4 px-8 rounded-xl text-[0.92rem] font-bold hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.3)] transition-all">
+                  <Link href="/book-a-call" className="bg-[#F8D000] text-[#0B1421] w-full justify-center inline-flex items-center gap-2 py-4 px-8 rounded-xl text-[0.92rem] font-bold hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.3)] transition-all">
                     Book a Free Migration Assessment → <ArrowRight size={16} />
                   </Link>
                 </div>
@@ -461,7 +461,7 @@ export default function KajabiMigrationClient() {
           <p className="text-base text-white/65 max-w-[520px] mx-auto mb-2 leading-relaxed">Book a free 30-minute migration assessment. We review your Kajabi account, confirm your payment path, and give you a fixed price scope document before any work begins.</p>
           <p className="text-[13px] text-white/40 mb-8">No commitment required. Aryan personally responds within a few hours.</p>
           <div className="flex gap-3.5 justify-center flex-wrap mb-7">
-            <Link href="/contact-us" className="bg-[#F8D000] text-[#0B1421] px-10 py-4 rounded-xl text-[0.92rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.3)] transition-all">
+            <Link href="/book-a-call" className="bg-[#F8D000] text-[#0B1421] px-10 py-4 rounded-xl text-[0.92rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.3)] transition-all">
               Book a Free Migration Assessment → <ArrowRight size={16} />
             </Link>
           </div>
@@ -543,7 +543,7 @@ export default function KajabiMigrationClient() {
           <p className="text-base text-white/65 max-w-[520px] mx-auto mb-2 leading-relaxed">30 minutes. We review your Kajabi account, confirm your payment path, and give you a fixed price scope document. No obligation to proceed.</p>
           <p className="text-[13px] text-white/40 mb-8">Aryan personally reviews every inquiry and responds within a few hours not an automated sequence.</p>
           <div className="flex gap-3.5 justify-center flex-wrap mb-7">
-            <Link href="/contact-us" className="bg-[#F8D000] text-[#0B1421] px-10 py-4 rounded-xl text-[0.92rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.3)] transition-all">
+            <Link href="/book-a-call" className="bg-[#F8D000] text-[#0B1421] px-10 py-4 rounded-xl text-[0.92rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.3)] transition-all">
               Book a Free Migration Assessment → <ArrowRight size={16} />
             </Link>
             <Link href="/services/migration" className="bg-transparent text-white px-10 py-4 rounded-xl text-[0.92rem] font-medium border border-white/15 hover:border-white/30 hover:bg-white/5 transition-all">

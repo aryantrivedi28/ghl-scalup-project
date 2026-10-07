@@ -104,7 +104,7 @@ export default function WhatHappensGHLSubAccountAgencyClosesClient() {
     },
     {
       q: "Can GHL Scale Up help me rebuild if I have lost my sub-account data?",
-      a: "Yes. GHL Scale Up helps businesses that have lost sub-account access get set up on their own independent GHL account quickly. If you were able to export your contacts as a CSV before losing access, we can import those into a new account and rebuild your pipelines, workflows, and automations from your documentation. If you lost everything, we can help you rebuild from scratch using your memory of how the system worked. Most fresh builds are live in 5 to 7 business days. Book a free call at ghlscaleup.com/contact-us."
+      a: "Yes. GHL Scale Up helps businesses that have lost sub-account access get set up on their own independent GHL account quickly. If you were able to export your contacts as a CSV before losing access, we can import those into a new account and rebuild your pipelines, workflows, and automations from your documentation. If you lost everything, we can help you rebuild from scratch using your memory of how the system worked. Most fresh builds are live in 5 to 7 business days. Book a free call at ghlscaleup.com/book-a-call."
     },
   ];
 
