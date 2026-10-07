@@ -430,7 +430,7 @@ export default function GoHighLevelSaaSModeClient() {
                 conversations, and the lessons we have picked up while solving these problems again and again.
               </p>
               <div className="flex gap-3.5 flex-wrap">
-                <Link href="/services/saas-setup" className="bg-[#F8D000] text-[#0B1421] px-8 py-3.5 rounded-[10px] text-[0.88rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
+                <Link href="/book-a-call" className="bg-[#F8D000] text-[#0B1421] px-8 py-3.5 rounded-[10px] text-[0.88rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.2)] transition-all">
                   Build My GHL SaaS with the No. 1 Team →
                 </Link>
                 <Link href="#faq" className="bg-transparent text-white px-8 py-3.5 rounded-[10px] text-[0.88rem] font-medium border border-white/15 hover:border-white/30 hover:bg-white/5 transition-all">
