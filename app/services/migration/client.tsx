@@ -214,7 +214,7 @@ export default function MigrationClient() {
                 We migrate businesses from HubSpot, ClickFunnels, ActiveCampaign, Kajabi, Zoho, Salesforce, Mailchimp, Keap, Pipedrive, and WordPress into GoHighLevel with zero data loss. We handle the complete migration: contact transfer and field mapping, pipeline reconstruction, trigger replication, workflow recreation, funnel imports, and team training. Both platforms run in parallel during migration so there is zero downtime. Migration projects start from $100. Free assessment to start.
               </p>
               <div className="flex gap-3.5 flex-wrap mb-8">
-                <Link href="/contact-us" className="bg-[#F8D000] text-[#0B1421] px-8 py-[14px] rounded-xl text-[15px] font-semibold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.3)] transition-all">
+                <Link href="/book-a-call" className="bg-[#F8D000] text-[#0B1421] px-8 py-[14px] rounded-xl text-[15px] font-semibold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(248,208,0,0.3)] transition-all">
                   Book a Free Migration Assessment → <ArrowRight size={16} />
                 </Link>
                 <Link href="#platforms" className="bg-transparent text-white px-8 py-[14px] rounded-xl text-[15px] font-medium border border-white/30 hover:border-white/50 hover:bg-white/5 transition-all">
