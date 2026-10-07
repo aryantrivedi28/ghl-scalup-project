@@ -503,7 +503,7 @@ export default function GoHighLevelSaaSModeClient() {
                 key={item.id}
                 onClick={() => scrollToHeading(item.id)}
                 className="text-left text-sm text-[#5C6880] hover:text-[#0E9BF0] transition-colors py-1"
-              >
+              >call
                 {item.title}
               </button>
             ))}
@@ -518,7 +518,7 @@ export default function GoHighLevelSaaSModeClient() {
           <p className="text-white/60 text-sm max-w-2xl mx-auto mb-6 leading-relaxed">
             GHL Scale Up brings the technical build and the business thinking together, so your SaaS is not just configured, but ready to sell and grow.
           </p>
-          <Link href="/services/saas-setup" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-8 py-3 rounded-lg hover:bg-[#FFE44D] transition-all shadow-lg hover:shadow-xl">
+          <Link href="/book-a-call" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-8 py-3 rounded-lg hover:bg-[#FFE44D] transition-all shadow-lg hover:shadow-xl">
             Build My GHL SaaS with the Best Team →
             <ArrowRight className="w-4 h-4" />
           </Link>
@@ -1358,7 +1358,7 @@ export default function GoHighLevelSaaSModeClient() {
           <p className="text-white/60 text-sm max-w-2xl mx-auto mb-6 leading-relaxed">
             Let the best GoHighLevel SaaS agency handle the full setup in 5 to 7 business days, with the technical details and the business model thought through.
           </p>
-          <Link href="/services/saas-setup" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-8 py-3 rounded-lg hover:bg-[#FFE44D] transition-all shadow-lg hover:shadow-xl">
+          <Link href="/book-a-call" className="inline-flex items-center gap-2 bg-[#F8D000] text-[#0B1421] font-bold px-8 py-3 rounded-lg hover:bg-[#FFE44D] transition-all shadow-lg hover:shadow-xl">
             Build My SaaS with GHL Scale Up →
             <ArrowRight className="w-4 h-4" />
           </Link>
@@ -1466,7 +1466,7 @@ export default function GoHighLevelSaaSModeClient() {
             <div className="bg-[#F8F9FB] rounded-xl p-4">
               <p className="text-xs font-bold text-[#0E9BF0] uppercase tracking-wider mb-2">Services</p>
               <ul className="space-y-1 text-xs">
-                <li><Link href="/services/saas-setup" className="text-[#4A5568] hover:text-[#0E9BF0] transition-colors">SaaS Setup Service →</Link></li>
+                <li><Link href="/services/gohighlevel-saas-mode" className="text-[#4A5568] hover:text-[#0E9BF0] transition-colors">SaaS Setup Service →</Link></li>
                 <li><Link href="/services/migration" className="text-[#4A5568] hover:text-[#0E9BF0] transition-colors">Migration Service →</Link></li>
                 <li><Link href="/services/virtual-assistant" className="text-[#4A5568] hover:text-[#0E9BF0] transition-colors">Virtual Assistant Service →</Link></li>
                 <li><Link href="/case-studies" className="text-[#4A5568] hover:text-[#0E9BF0] transition-colors">Case Studies →</Link></li>
