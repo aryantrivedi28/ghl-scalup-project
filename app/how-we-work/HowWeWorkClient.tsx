@@ -165,13 +165,14 @@ export default function HowWeWorkClient() {
                 Every project follows the same 5-step framework. <strong className="text-white/90 font-medium">Transparent timelines, fixed pricing, clear scope</strong> before any code.
               </p>
               <div className="flex flex-col sm:flex-row gap-3.5">
-                <button
-                  onClick={handleOpenBooking}
+                <Link
+                  href="/book-a-call"
+                  // onClick={handleOpenBooking}
                   className="bg-[#0E9BF0] text-white px-6 sm:px-8 py-3 rounded-[10px] text-[0.85rem] sm:text-[0.88rem] font-bold inline-flex items-center gap-2 hover:bg-[#0E9BF0]/90 hover:-translate-y-[2px] transition-all justify-center cursor-pointer"
                 >
                   <Calendar className="w-4 h-4" />
                   Book Free Strategy Call →
-                </button>
+                </Link>
                 <Link href="/contact" className="bg-[#F8D000] text-[#0B1421] px-6 sm:px-8 py-3 rounded-[10px] text-[0.85rem] sm:text-[0.88rem] font-bold inline-flex items-center gap-2 hover:bg-[#FFE44D] hover:-translate-y-[2px] transition-all justify-center">
                   Start a Project →
                 </Link>
