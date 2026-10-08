@@ -12,7 +12,8 @@ import {
   Scale, 
   Heart,
   ArrowRight,
-  CheckCircle2
+  CheckCircle2,
+  Link
 } from 'lucide-react'
 import BookingModal from '../BookingModal'
 
@@ -139,13 +140,14 @@ const Industries = () => {
 
           {/* CTA Link - Updated with onClick handler */}
           <div className="text-center mt-10 md:mt-12 fade-in">
-            <button
-              onClick={handleOpenBooking}
+            <Link
+              href="/book-a-call"
+              // onClick={handleOpenBooking}
               className="inline-flex items-center gap-2 text-[#F8D000] hover:text-[#FFE44D] transition-colors group cursor-pointer"
             >
               <span className="text-sm font-semibold">Not seeing your industry? Let's talk</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </Link>
           </div>
         </div>
       </section>

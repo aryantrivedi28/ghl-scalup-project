@@ -551,14 +551,14 @@ export default function AboutClient() {
               </p>
               
               {/* Direct Booking Button */}
-              <button
-                onClick={handleOpenBooking}
+              <Link
+                href="/book-a-call"
                 className="w-full sm:w-auto mb-4 bg-gradient-to-r from-[#0E9BF0] to-[#0878C4] text-white px-6 py-3 rounded-xl text-sm font-bold hover:from-[#0878C4] hover:to-[#0E9BF0] hover:-translate-y-0.5 transition-all shadow-xl hover:shadow-2xl flex items-center justify-center gap-2 group"
               >
                 <Calendar className="w-4 h-4 group-hover:scale-110 transition-transform" />
                 Book Your Free Strategy Call Instantly
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </Link>
               
               <p className="text-xs text-white/40 mb-6">
                 ⚡ Instant booking • 30-min free consultation • No commitment
