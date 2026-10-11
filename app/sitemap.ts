@@ -361,6 +361,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
     {
+      url: `${baseUrl}/blog/gohighlevel-ecommerce-upsell-cross-sell-automation`,
+      lastModified: new Date('2026-10-07'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/blog/highlevel-api-v1-deprecation`,
+      lastModified: new Date('2026-10-06'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/blog/gohighlevel-ecommerce-customer-segmentation`,
+      lastModified: new Date('2026-10-04'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/blog/gohighlevel-ecommerce-review-automation`,
       lastModified: new Date('2026-10-03'),
       changeFrequency: 'monthly',
