@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'GitCompare',
+            tag: 'Comparisonn',
+            title: 'GoHighLevel vs Dubsado: An Honest Comparison (2026)',
+            excerpt: 'GoHighLevel or Dubsado? Compare features, pricing and fit for solo consultants, creatives and agencies, plus when to use both or stay put.',
+            slug: 'gohighlevel-vs-dubsado',
+            date: 'October 12, 2026',
+            readTime: '25 min read',
+            featured: true,
+            image: '/blog/gohighlevel-vs-dubsado.png',
+      },
+      {
             icon: 'TrendingUp',
             tag: 'Ecommerce',
             title: 'GoHighLevel Upsell and Cross-Sell Automation for Ecommerce',
