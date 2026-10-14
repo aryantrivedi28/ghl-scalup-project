@@ -16,6 +16,17 @@ export const blogPosts: BlogPost[] = [
       {
             icon: 'GitCompare',
             tag: 'Comparisonn',
+            title: 'HoneyBook vs GoHighLevel: Honest Comparison (2026)',
+            excerpt: 'Compare HoneyBook and GoHighLevel on CRM, contracts, payments, automation, pricing and country availability, and see who should stay or switch.',
+            slug: 'honeybook-vs-gohighlevel',
+            date: 'October 14, 2026',
+            readTime: '28 min read',
+            featured: true,
+            image: '/blog/honeybook-vs-gohighlevel.png',
+      },
+      {
+            icon: 'GitCompare',
+            tag: 'Comparisonn',
             title: 'GoHighLevel vs Dubsado: An Honest Comparison (2026)',
             excerpt: 'GoHighLevel or Dubsado? Compare features, pricing and fit for solo consultants, creatives and agencies, plus when to use both or stay put.',
             slug: 'gohighlevel-vs-dubsado',
