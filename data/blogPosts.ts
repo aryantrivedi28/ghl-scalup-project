@@ -14,6 +14,28 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Crown',
+            tag: 'Ecommerce',
+            title: 'Ecommerce VIP Program: How to Build and Automate It',
+            excerpt: 'Learn how to identify your best ecommerce customers, design VIP benefits they value, and automate the program with a CRM such as GoHighLevel.',
+            slug: 'ecommerce-vip-program',
+            date: 'October 16, 2026',
+            readTime: '28 min read',
+            featured: true,
+            image: '/blog/ecommerce-vip-program.png',
+      },
+      {
+            icon: 'Package',
+            tag: 'Ecommerce',
+            title: 'GoHighLevel Order Automation: Workflows & Setup Guide',
+            excerpt: 'Learn which order events can trigger GoHighLevel workflows, what data they carry, how to set up and test them, and what needs Shopify or other tools.',
+            slug: 'gohighlevel-order-automation',
+            date: 'October 15, 2026',
+            readTime: '28 min read',
+            featured: true,
+            image: '/blog/gohighlevel-order-automation.png',
+      },
+      {
             icon: 'GitCompare',
             tag: 'Comparisonn',
             title: 'HoneyBook vs GoHighLevel: Honest Comparison (2026)',

@@ -361,6 +361,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
     {
+      url: `${baseUrl}/blog/ecommerce-vip-program`,
+      lastModified: new Date('2026-10-16'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/blog/gohighlevel-order-automation`,
+      lastModified: new Date('2026-10-15'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/blog/honeybook-vs-gohighlevel`,
       lastModified: new Date('2026-10-14'),
       changeFrequency: 'monthly',
