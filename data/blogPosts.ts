@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'ArrowLeftRight',
+            tag: 'Migration',
+            title: 'Shopify to GoHighLevel Migration: Guide & Checklist',
+            excerpt: 'Plan a Shopify to GoHighLevel migration: what data imports and syncs, what must be rebuilt, when to keep Shopify connected, plus a testing and cutover checklist.',
+            slug: 'shopify-to-gohighlevel-migration',
+            date: 'October 17, 2026',
+            readTime: '28 min read',
+            featured: true,
+            image: '/blog/shopify-to-gohighlevel-migration.png',
+      },
+      {
             icon: 'Crown',
             tag: 'Ecommerce',
             title: 'Ecommerce VIP Program: How to Build and Automate It',
