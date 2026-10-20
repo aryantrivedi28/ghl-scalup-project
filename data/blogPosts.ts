@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Bot',
+            tag: 'AI',
+            title: 'GoHighLevel: Notify a Human Without Stopping Conversation AI',
+            excerpt: 'Handover, workflow and email alerts are different controls in GoHighLevel. See which pauses Conversation AI, how to notify staff, and how to test it.',
+            slug: 'notify-human-gohighlevel-conversation-ai',
+            date: 'October 20, 2026',
+            readTime: '26 min read',
+            featured: true,
+            image: '/blog/notify-human-gohighlevel-conversation-ai.png',
+      },
+      {
             icon: 'ArrowLeftRight',
             tag: 'Migration',
             title: 'Shopify to GoHighLevel Migration: Guide & Checklist',
