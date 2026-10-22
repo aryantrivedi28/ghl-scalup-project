@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+  icon: 'Scale',
+  tag: 'Law Firms',
+  title: 'How Law Firms Can Capture More Leads and Streamline Client Intake with GoHighLevel',
+  excerpt: 'A step-by-step build for capturing inquiries, collecting the right details, routing them to staff and testing the process in GoHighLevel, with the limits a law firm needs to know.',
+  slug: 'law-firm-client-intake-gohighlevel',
+  date: 'October 22, 2026',
+  readTime: '26 min read',
+  featured: true,
+  image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&h=500&fit=crop',
+},
+      {
             icon: 'Scale',
             tag: 'Comparison',
             title: 'GoHighLevel vs Clio Grow for Law Firms: Which Is Better?',
