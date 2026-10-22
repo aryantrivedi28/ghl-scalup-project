@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Scale',
+            tag: 'Comparison',
+            title: 'GoHighLevel vs Clio Grow for Law Firms: Which Is Better?',
+            excerpt: 'GoHighLevel vs Clio Grow for law firms: compare intake, conflict checks, automation, AI, pricing and Clio integration, and see when to use one or both.',
+            slug: 'gohighlevel-vs-clio-grow',
+            date: 'October 21, 2026',
+            readTime: '26 min read',
+            featured: true,
+            image: '/blog/gohighlevel-vs-clio-grow.png',
+      },
+      {
             icon: 'Bot',
             tag: 'AI',
             title: 'GoHighLevel: Notify a Human Without Stopping Conversation AI',
