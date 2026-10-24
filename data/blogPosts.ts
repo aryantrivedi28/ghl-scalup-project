@@ -16,6 +16,17 @@ export const blogPosts: BlogPost[] = [
       {
   icon: 'Scale',
   tag: 'Law Firms',
+  title: 'Law Firm Reviews and Referrals With GoHighLevel: A Responsible Process',
+  excerpt: 'Build a responsible law firm review request and referral tracking process in GoHighLevel: workflows, source fields, safeguards, testing and metrics.',
+  slug: 'law-firm-reviews-referrals-gohighlevel',
+  date: 'October 24, 2026',
+  readTime: '26 min read',
+  featured: true,
+  image: '/blog/law-firm-reviews-referrals-gohighlevel.png',
+},
+      {
+  icon: 'Scale',
+  tag: 'Law Firms',
   title: 'Law Firm Lead Follow-Up With GoHighLevel: Inquiry to Consultation',
   excerpt: 'Build a law firm lead follow-up process in GoHighLevel: missed-call text-back, reply-aware sequences, consultation booking, reminders, testing and metrics.',
   slug: 'law-firm-lead-follow-up-gohighlevel',
