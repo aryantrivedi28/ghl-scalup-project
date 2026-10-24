@@ -16,6 +16,17 @@ export const blogPosts: BlogPost[] = [
       {
   icon: 'Scale',
   tag: 'Law Firms',
+  title: 'Law Firm Lead Follow-Up With GoHighLevel: Inquiry to Consultation',
+  excerpt: 'Build a law firm lead follow-up process in GoHighLevel: missed-call text-back, reply-aware sequences, consultation booking, reminders, testing and metrics.',
+  slug: 'law-firm-lead-follow-up-gohighlevel',
+  date: 'October 23, 2026',
+  readTime: '26 min read',
+  featured: true,
+  image: '/blog/law-firm-lead-follow-up-gohighlevel.png',
+},
+      {
+  icon: 'Scale',
+  tag: 'Law Firms',
   title: 'How Law Firms Can Capture More Leads and Streamline Client Intake with GoHighLevel',
   excerpt: 'A step-by-step build for capturing inquiries, collecting the right details, routing them to staff and testing the process in GoHighLevel, with the limits a law firm needs to know.',
   slug: 'law-firm-client-intake-gohighlevel',
