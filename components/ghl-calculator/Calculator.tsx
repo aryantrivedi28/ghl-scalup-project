@@ -33,15 +33,15 @@ export default function Calculator() {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-6 lg:gap-8 items-start pb-28 lg:pb-12 w-full max-w-[1200px] mx-auto">
+    <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-6 lg:gap-8 items-start pb-32 lg:pb-12 w-full max-w-[1200px] mx-auto overflow-hidden">
       
       {/* LEFT COLUMN - INPUTS */}
-      <div className="flex flex-col gap-6 min-w-0">
+      <div className="flex flex-col gap-5 min-w-0">
         
-        {/* Presets */}
+        {/* Presets - Scrollable on Mobile */}
         <div className="flex flex-col gap-3">
-          <div className="flex flex-wrap items-center gap-2.5" role="group" aria-label="Start from an example">
-            <span className="text-[13px] uppercase tracking-widest font-bold text-[#9FB3CC] mr-1">Start from</span>
+          <div className="flex items-center gap-2 overflow-x-auto pb-2 -mx-4 px-4 lg:mx-0 lg:px-0 lg:flex-wrap [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]" role="group" aria-label="Start from an example">
+            <span className="text-[13px] uppercase tracking-widest font-bold text-[#9FB3CC] mr-1 whitespace-nowrap">Start from</span>
             {(Object.keys(PRESETS) as PresetKey[]).map(k => (
               <button
                 key={k}
@@ -49,7 +49,7 @@ export default function Calculator() {
                 onClick={() => loadPreset(k)}
                 aria-pressed={preset === k}
                 className={
-                  "rounded-full border px-4 py-2.5 text-[14px] font-bold tracking-wide transition-all duration-300 " +
+                  "flex-none rounded-full border px-4 py-2.5 text-[14px] font-bold tracking-wide transition-all duration-300 whitespace-nowrap " +
                   (preset === k
                     ? "bg-[#FEE202] text-[#0B1B33] border-[#FEE202] shadow-[0_0_20px_-4px_rgba(254,226,2,0.5)] scale-105"
                     : "bg-[#12294A] border-[#24406B] text-[#C9D6E8] hover:border-[#1E99E7] hover:text-white hover:-translate-y-0.5 hover:shadow-lg")
@@ -59,19 +59,19 @@ export default function Calculator() {
               </button>
             ))}
           </div>
-          <p className="text-[14px] text-[#9FB3CC] min-h-[1.4em] font-medium">
+          <p className="text-[14px] text-[#9FB3CC] min-h-[1.4em] font-medium px-4 lg:px-0">
             {preset ? PRESETS[preset].note : ""}
           </p>
         </div>
 
         {/* Plan Section */}
-        <section className="flex flex-col gap-5 rounded-2xl bg-[#12294A] border border-[#24406B] p-6 shadow-xl shadow-black/10 hover:border-[#1E99E7]/40 transition-colors duration-300">
+        <section className="flex flex-col gap-5 rounded-2xl bg-[#12294A] border border-[#24406B] p-5 lg:p-6 shadow-xl shadow-black/10 hover:border-[#1E99E7]/40 transition-colors duration-300">
           <h2 className="font-display text-[20px] font-semibold m-0 text-white">Plan</h2>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-5">
             <div className="flex flex-col gap-2">
               <label className="text-[14px] font-medium text-[#C9D6E8]">GoHighLevel plan</label>
-              <div className="inline-flex bg-[#0E2140] border border-[#24406B] rounded-xl p-1.5 gap-1.5 w-full shadow-inner" role="radiogroup">
+              <div className="inline-flex bg-[#0E2140] border border-[#24406B] rounded-xl p-1.5 gap-1.5 w-full shadow-inner overflow-x-auto [&::-webkit-scrollbar]:hidden" role="radiogroup">
                 {(Object.keys(PLANS) as PlanKey[]).map(k => (
                   <button
                     key={k}
@@ -80,7 +80,7 @@ export default function Calculator() {
                     aria-checked={S.plan === k}
                     onClick={() => { set("plan", k); setPreset(null); }}
                     className={
-                      "flex-1 rounded-lg px-3 py-2.5 text-[14px] font-bold whitespace-nowrap transition-all duration-200 " +
+                      "flex-1 rounded-lg px-2 lg:px-3 py-2.5 text-[13px] lg:text-[14px] font-bold whitespace-nowrap transition-all duration-200 " +
                       (S.plan === k
                         ? "bg-[#FEE202] text-[#0B1B33] shadow-md scale-100"
                         : "bg-transparent text-[#9FB3CC] hover:text-white hover:bg-white/5 active:scale-95")
@@ -90,7 +90,7 @@ export default function Calculator() {
                   </button>
                 ))}
               </div>
-              <span className="text-[13px] text-[#9FB3CC]">${PLANS[S.plan].m}/mo. {PLANS[S.plan].note}</span>
+              <span className="text-[12px] lg:text-[13px] text-[#9FB3CC] leading-tight">${PLANS[S.plan].m}/mo. {PLANS[S.plan].note}</span>
             </div>
             
             <div className="flex flex-col gap-2">
@@ -104,7 +104,7 @@ export default function Calculator() {
                     aria-checked={S.bill === b}
                     onClick={() => { set("bill", b); setPreset(null); }}
                     className={
-                      "flex-1 rounded-lg px-3 py-2.5 text-[14px] font-bold whitespace-nowrap transition-all duration-200 " +
+                      "flex-1 rounded-lg px-3 py-2.5 text-[13px] lg:text-[14px] font-bold whitespace-nowrap transition-all duration-200 " +
                       (S.bill === b
                         ? "bg-[#FEE202] text-[#0B1B33] shadow-md scale-100"
                         : "bg-transparent text-[#9FB3CC] hover:text-white hover:bg-white/5 active:scale-95")
@@ -114,11 +114,11 @@ export default function Calculator() {
                   </button>
                 ))}
               </div>
-              <span className="text-[13px] text-[#9FB3CC]">Annual saves about 17% on the plan only.</span>
+              <span className="text-[12px] lg:text-[13px] text-[#9FB3CC] leading-tight">Annual saves about 17% on the plan only.</span>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-5 mt-2">
             {PLAN_FIELDS.map(f => (
               <Field key={f.id} field={f} value={(S as any)[f.id]} onChange={v => set(f.id as keyof CalculatorState, v as any)} />
             ))}
@@ -127,12 +127,12 @@ export default function Calculator() {
 
         {/* Input Groups */}
         {GROUPS.map(g => (
-          <section key={g.id} className="flex flex-col gap-5 rounded-2xl bg-[#12294A] border border-[#24406B] p-6 shadow-xl shadow-black/10 hover:border-[#1E99E7]/40 transition-colors duration-300">
+          <section key={g.id} className="flex flex-col gap-4 lg:gap-5 rounded-2xl bg-[#12294A] border border-[#24406B] p-5 lg:p-6 shadow-xl shadow-black/10 hover:border-[#1E99E7]/40 transition-colors duration-300">
             <div>
-              <h2 className="font-display text-[20px] font-semibold m-0 text-white">{g.title}</h2>
-              <p className="mt-1.5 mb-0 text-[14px] text-[#9FB3CC] leading-relaxed">{g.blurb}</p>
+              <h2 className="font-display text-[18px] lg:text-[20px] font-semibold m-0 text-white">{g.title}</h2>
+              <p className="mt-1.5 mb-0 text-[13px] lg:text-[14px] text-[#9FB3CC] leading-relaxed">{g.blurb}</p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-5">
               {g.fields.map(f => (
                 <Field key={f.id} field={f} value={(S as any)[f.id]} onChange={v => set(f.id as keyof CalculatorState, v as any)} />
               ))}
@@ -148,7 +148,7 @@ export default function Calculator() {
       </div>
 
       {/* RIGHT COLUMN - RESULTS */}
-      <div ref={resultsRef} className="w-full">
+      <div ref={resultsRef} className="w-full min-w-0">
         <ResultPanel c={cost} S={S} R={{ sms: R.sms, flat: R.flat }} />
       </div>
 
