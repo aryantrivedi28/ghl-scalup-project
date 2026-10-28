@@ -14,6 +14,28 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'Globe',
+            tag: 'Email Setup',
+            title: 'How to Connect a Sending Domain in GoHighLevel: DNS Steps',
+            excerpt: 'Add a sending subdomain, publish the DNS records GoHighLevel gives you, verify them, and learn what a verified status does and does not mean.',
+            slug: 'connect-sending-domain-gohighlevel',
+            date: 'October 28, 2026',
+            readTime: '22 min read',
+            featured: true,
+            image: '/blog/connect-sending-domain-gohighlevel.png',
+      },
+      {
+            icon: 'Mail',
+            tag: 'Email Setup',
+            title: 'How to Set Up Email in GoHighLevel: A Setup Roadmap',
+            excerpt: 'Choose between LC Email and custom SMTP, line up DNS access and sender details, follow the right order of work, and check readiness before you send.',
+            slug: 'how-to-set-up-email-in-gohighlevel',
+            date: 'October 27, 2026',
+            readTime: '22 min read',
+            featured: true,
+            image: '/blog/how-to-set-up-email-in-gohighlevel.png',
+      },
+      {
             icon: 'Mail',
             tag: 'Email Marketing',
             title: 'GoHighLevel Email Marketing: How It Works and Is It Worth It?',

@@ -361,6 +361,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
     {
+      url: `${baseUrl}/blog/connect-sending-domain-gohighlevel`,
+      lastModified: new Date('2026-10-28'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/blog/how-to-set-up-email-in-gohighlevel`,
+      lastModified: new Date('2026-10-27'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/blog/gohighlevel-email-marketing`,
       lastModified: new Date('2026-10-26'),
       changeFrequency: 'monthly',
