@@ -477,18 +477,6 @@ export default function GoHighLevelEmailDomainNotVerifyingClient() {
                                           The diagram follows the order this guide uses. The core idea: look at what is actually published before you change anything.
                                     </p>
 
-                                    {/* Diagram */}
-                                    <div className="my-8 rounded-2xl overflow-hidden shadow-lg border border-[#DDE1E9]">
-                                          <Image
-                                                src="/blog/gohighlevel-email-domain-verification-failed-diagram.png"
-                                                alt="Diagnosis path for a GoHighLevel sending domain that will not verify"
-                                                width={1200}
-                                                height={800}
-                                                className="w-full h-auto object-contain bg-white"
-                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-                                          />
-                                    </div>
-
                                     {/* Section: Which Sending Setup */}
                                     <h2 id="which-sending-setup" className="text-2xl md:text-3xl font-bold text-[#1C2E4A] mt-10 mb-4">
                                           Which sending setup am I verifying: LC Email, Mailgun or SMTP?

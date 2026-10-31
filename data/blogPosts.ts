@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+      icon: 'ShieldCheck',
+      tag: 'Email Setup',
+      title: 'How to Set Up SPF, DKIM and DMARC in GoHighLevel',
+      excerpt: 'What SPF, DKIM and DMARC do, where GoHighLevel users get the right values, and how to check both your DNS records and a real message\'s headers.',
+      slug: 'gohighlevel-spf-dkim-dmarc',
+      date: 'October 30, 2026',
+      readTime: '28 min read',
+      featured: true,
+      image: '/blog/gohighlevel-spf-dkim-dmarc.png',
+},
+      {
       icon: 'Globe',
       tag: 'Email Setup',
       title: 'GoHighLevel Email Domain Not Verifying? How to Fix It',
