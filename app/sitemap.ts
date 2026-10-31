@@ -361,6 +361,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
     {
+      url: `${baseUrl}/blog/gohighlevel-email-domain-verification-failed`,
+      lastModified: new Date('2026-10-29'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+},
+    {
       url: `${baseUrl}/blog/connect-sending-domain-gohighlevel`,
       lastModified: new Date('2026-10-28'),
       changeFrequency: 'monthly',

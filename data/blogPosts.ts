@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+      icon: 'Globe',
+      tag: 'Email Setup',
+      title: 'GoHighLevel Email Domain Not Verifying? How to Fix It',
+      excerpt: 'Email domain stuck on pending or unverified in GoHighLevel? Find the failing DNS record, fix it safely, and confirm it, with timing and Cloudflare notes.',
+      slug: 'gohighlevel-email-domain-verification-failed',
+      date: 'October 29, 2026',
+      readTime: '26 min read',
+      featured: true,
+      image: '/blog/gohighlevel-email-domain-verification-failed.png',
+},
+      {
             icon: 'Globe',
             tag: 'Email Setup',
             title: 'How to Connect a Sending Domain in GoHighLevel: DNS Steps',
