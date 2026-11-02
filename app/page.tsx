@@ -17,6 +17,7 @@ import { getAllTestimonialsForHomepage } from '@/lib/sanity'
 import { getVideoSchemaData } from '@/data/youtube-videos'
 import CaseStudies from '@/components/ghlscalup/CaseStudies'
 import { getCaseStudies } from '@/lib/caseStudiesData'
+import TrustBadges from '@/components/ghlscalup/TrustBadges'
 
 export default async function Home() {
   // Fetch testimonials from Sanity
@@ -108,10 +109,13 @@ export default async function Home() {
       {/* <Navigation /> */}
       <Hero />
       <StatsBar />
+
+      <TrustBadges />
+
       <Services />
       <About />
       <CaseStudies caseStudies={caseStudies} />
-      <Testimonials testimonials={testimonials} />
+      <Testimonials/>
 
       <WhyChooseUs />
       <Process />
