@@ -361,17 +361,35 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
     {
+      url: `${baseUrl}/blog/create-clickup-task-from-template-gohighlevel`,
+      lastModified: new Date('2026-11-02'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/blog/gohighlevel-email-campaign-performance`,
+      lastModified: new Date('2026-11-01'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/blog/gohighlevel-email-deliverability`,
+      lastModified: new Date('2026-10-31'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/blog/gohighlevel-spf-dkim-dmarc`,
       lastModified: new Date('2026-10-30'),
       changeFrequency: 'monthly',
       priority: 0.9,
-},
+    },
     {
       url: `${baseUrl}/blog/gohighlevel-email-domain-verification-failed`,
       lastModified: new Date('2026-10-29'),
       changeFrequency: 'monthly',
       priority: 0.9,
-},
+    },
     {
       url: `${baseUrl}/blog/connect-sending-domain-gohighlevel`,
       lastModified: new Date('2026-10-28'),
