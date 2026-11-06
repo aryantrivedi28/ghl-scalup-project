@@ -10,6 +10,9 @@ import Image from 'next/image';
 
 // ---------------------------------------------------------------------------
 // HARDCODED TESTIMONIALS — just keep adding objects here, carousel handles it
+//
+// clientImage (optional): path inside /public, e.g. '/clients/elia.jpg'
+// Drop photos into public/clients/ → uncomment the line → done.
 // ---------------------------------------------------------------------------
 export interface Testimonial {
   _id: string;
@@ -25,43 +28,11 @@ export interface Testimonial {
 
 const TESTIMONIALS: Testimonial[] = [
   {
-    _id: 't1',
-    clientName: 'Elia',
-    clientRole: 'Founder',
-    companyName: 'RiverEnergia',
-    testimonial:
-      'GHL Scale Up handled our SaaS setup and managed the entire GoHighLevel system end to end. Solid execution and great support throughout.',
-    rating: 5,
-    serviceUsed: ['GHL CRM Setup', 'White-Label SaaS', 'Full Service Package'],
-    projectOutcome: 'End-to-end GHL SaaS setup',
-  },
-  {
-    _id: 't2',
-    clientName: 'Steven',
-    clientRole: 'Founder',
-    companyName: '1 AI Secretary',
-    testimonial:
-      "Amazing work with Aryan and the GHL Scale Up team. They set up our voice agent smoothly and it's working exactly as expected. Super reliable and easy to work with.",
-    rating: 5,
-    serviceUsed: ['AI Workflow Automation', 'GHL', 'GHL CRM Setup'],
-    projectOutcome: 'AI voice agent live & reliable',
-  },
-  {
-    _id: 't3',
-    clientName: 'Shanna',
-    clientRole: 'Founder',
-    companyName: 'Therapy SEO',
-    testimonial:
-      'Aryan and his team helped us set up our website and a complete onboarding funnel for our clients. Everything was structured well and executed seamlessly.',
-    rating: 5,
-    serviceUsed: ['Funnel Development', 'SEO Strategy', 'GHL CRM Setup'],
-    projectOutcome: 'Website + onboarding funnel launched',
-  },
-  {
     _id: 't4',
     clientName: 'Sam Kabiri',
     clientRole: 'Real Estate Professional',
     companyName: 'Real Estate',
+    clientImage: '/clients/samk.jpg',
     testimonial:
       'GHL Scale Up has been a valuable partner in strengthening our online presence. Their team understands the importance of presenting our services clearly and creating a professional experience for potential homebuyers. The focus on our business needs, communication, and digital growth has made the collaboration a positive experience. I appreciate their support and commitment to helping our business grow.',
     rating: 5,
@@ -73,11 +44,120 @@ const TESTIMONIALS: Testimonial[] = [
     clientName: 'Stanley Iroegbu',
     clientRole: 'Founder & Owner',
     companyName: 'LumenGrowth.ai',
+    clientImage: '/clients/stanley.jpg',
     testimonial:
       'Working with GHL Scale Up has been a positive experience for our business. Their focus on digital solutions, automation, and improving online business processes aligns well with our growth goals. Clear communication and an understanding of our business needs are essential, and we value a practical approach to building systems that support long-term growth.',
     rating: 5,
     serviceUsed: ['AI Workflow Automation', 'GHL CRM Setup', 'Full Service Package'],
     projectOutcome: 'Scalable growth systems built',
+  },
+  {
+    _id: 't6',
+    clientName: 'Rhea Fawole',
+    clientRole: 'CEO & Principal Lawyer, Solvi',
+    companyName: 'Solvi',
+    clientImage: '/clients/rhea.jpg',
+    testimonial:
+      'Working with GHL Scale Up has been a really good experience. The team took the time to understand our requirements and provided solutions that aligned with our business needs. Communication was smooth, and they were always approachable whenever we needed support or had questions. I appreciate their professionalism, attention to detail, and commitment to delivering quality work. It has been great working with a team that genuinely cares about its clients.',
+    rating: 5,
+    serviceUsed: ['AI Workflow Automation', 'GHL CRM Setup', 'Full Service Package'],
+    projectOutcome: 'Scalable growth systems built',
+  },
+  {
+    _id: 't7',
+    clientName: 'Dr. Charlin Anthony, Ph.D',
+    clientRole: 'President & CEO, ACP Billing Services',
+    companyName: 'ACP Billing Services',
+    clientImage: '/clients/charlin.jpg',
+    testimonial:
+      'GHL Scale Up made our GoHighLevel setup and automation much easier to manage. Their team understood our requirements, communicated clearly, and provided solutions that fit our business needs. We appreciate their professionalism and ongoing support.',
+    rating: 5,
+    serviceUsed: ['AI Workflow Automation', 'GHL CRM Setup', 'Full Service Package'],
+    projectOutcome: 'Scalable growth systems built',
+  },
+  {
+    _id: 't8',
+    clientName: 'Seema Chodhary',
+    clientRole: 'Client',
+    companyName: 'ToSellBizz',
+    clientImage: '/clients/seema.jpg',
+    testimonial:
+      'Working with GHL Scale Up was a positive experience. The team understood our requirements, communicated clearly, and provided practical solutions to support our business workflows.',
+    rating: 5,
+    serviceUsed: ['GHL CRM Setup', 'Workflow Automation'],
+    projectOutcome: 'Improved business workflows',
+  },
+  {
+    _id: 't9',
+    clientName: 'Joe Rivera',
+    clientRole: 'Inspirational Speaker',
+    companyName: 'Joe Rivera',
+    clientImage: '/clients/joe.jpg',
+    testimonial:
+      'What I appreciated most about GHL Scale Up was how they turned our ideas into a working system. The setup saved us time on repetitive tasks and made managing our daily activities much easier. A great team to work with!',
+    rating: 5,
+    serviceUsed: ['GHL CRM Setup', 'Workflow Automation'],
+    projectOutcome: 'Simplified daily operations',
+  },
+  {
+  _id: 't10',
+  clientName: 'Dr. Rana Al-Falaki',
+  clientRole: 'Founder, Executive Coach & Performance Strategist',
+  companyName: 'NAIL - IT',
+  clientImage: '/clients/rana.jpg',
+  testimonial:
+    'I value solutions that give me more time to focus on my clients and strategic priorities. GHL Scale Up helped bring greater structure to our digital processes, making it easier to manage different aspects of the business without unnecessary complexity.',
+  rating: 5,
+  serviceUsed: ['GHL CRM Setup', 'Workflow Automation'],
+  projectOutcome: 'More structured business processes',
+},
+{
+  _id: 't11',
+  clientName: 'Aaron',
+  clientRole: 'Client',
+  companyName: 'Fudog Group',
+  clientImage: '/clients/aaron.jpg',
+  testimonial:
+    'GHL Scale Up helped us bring our business processes into one organized system. Having our CRM and automated workflows working together has made day-to-day management more convenient and reduced a lot of manual effort.',
+  rating: 5,
+  serviceUsed: ['GHL CRM Setup', 'Workflow Automation'],
+  projectOutcome: 'Centralized CRM and automated workflows',
+},
+  {
+    _id: 't12',
+    clientName: 'Elia',
+    clientRole: 'Founder',
+    companyName: 'RiverEnergia',
+    // clientImage: '/clients/elia.jpg',
+    testimonial:
+      'GHL Scale Up handled our SaaS setup and managed the entire GoHighLevel system end to end. Solid execution and great support throughout.',
+    rating: 5,
+    serviceUsed: ['GHL CRM Setup', 'White-Label SaaS', 'Full Service Package'],
+    projectOutcome: 'End-to-end GHL SaaS setup',
+  },
+  {
+    _id: 't13',
+    clientName: 'Steven',
+    clientRole: 'Founder',
+    companyName: '1 AI Secretary',
+    // clientImage: '/clients/steven.jpg',
+    testimonial:
+      "Amazing work with Aryan and the GHL Scale Up team. They set up our voice agent smoothly and it's working exactly as expected. Super reliable and easy to work with.",
+    rating: 5,
+    serviceUsed: ['AI Workflow Automation', 'GHL', 'GHL CRM Setup'],
+    projectOutcome: 'AI voice agent live & reliable',
+  },
+  {
+    _id: 't14',
+    clientName: 'Shanna',
+    clientRole: 'Founder',
+    companyName: 'Therapy SEO',
+    // clientImage: '/clients/shanna.jpg',
+    testimonial:
+      'Aryan and his team helped us set up our website and a complete onboarding funnel for our clients. Everything was structured well and executed seamlessly.',
+    rating: 5,
+    serviceUsed: ['Funnel Development', 'SEO Strategy', 'GHL CRM Setup'],
+    projectOutcome: 'Website + onboarding funnel launched',
   },
 ];
 
@@ -147,7 +227,6 @@ export default function Testimonials() {
 
   // Width of each card in %, accounting for the gap
   const slideWidth = 100 / cardsPerView;
-  // Translate to bring currentIndex to left edge. Gap between cards = 24px (md) / 16px (sm) → use 0 basis, gap handled by flex
   const translateX = -(currentIndex * slideWidth);
 
   return (
@@ -217,7 +296,7 @@ export default function Testimonials() {
 
         {/* Testimonials Carousel */}
         <div className="fade-in">
-          <h3 className="text-lg md:text-xl font-bold text-[#1C2E4A] mb-6 text-center">
+          <h3 className="text-xl md:text-2xl font-bold text-[#1C2E4A] mb-6 text-center">
             What Our Clients Say
           </h3>
 
@@ -272,11 +351,10 @@ export default function Testimonials() {
                     key={i}
                     onClick={() => setCurrentIndex(i)}
                     aria-label={`Go to slide ${i + 1}`}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                      i === currentIndex
+                    className={`h-2 rounded-full transition-all duration-300 ${i === currentIndex
                         ? 'w-6 bg-[#0E9BF0]'
                         : 'w-2 bg-[#CBD5E1] hover:bg-[#94A3B8]'
-                    }`}
+                      }`}
                   />
                 ))}
               </div>
