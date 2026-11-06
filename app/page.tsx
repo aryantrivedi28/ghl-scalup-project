@@ -13,20 +13,15 @@ import Blog from '@/components/ghlscalup/Blog'
 import FinalCTA from '@/components/ghlscalup/FinalCTA'
 import FAQ from '@/components/ghlscalup/FAQ'
 import FAQSchema from '@/components/ghlscalup/FAQSchema'
-import { getAllTestimonialsForHomepage } from '@/lib/sanity'
+// import { getAllTestimonialsForHomepage } from '@/lib/sanity'
 import { getVideoSchemaData } from '@/data/youtube-videos'
 import CaseStudies from '@/components/ghlscalup/CaseStudies'
 import { getCaseStudies } from '@/lib/caseStudiesData'
 import TrustBadges from '@/components/ghlscalup/TrustBadges'
+import ClientLogos from '@/components/ghlscalup/ClientLogos'
 
 export default async function Home() {
   // Fetch testimonials from Sanity
-  let testimonials = [];
-  try {
-    testimonials = await getAllTestimonialsForHomepage();
-  } catch (error) {
-    console.error('Failed to load testimonials:', error);
-  }
   
   // Get video data from separate file
   const videos = getVideoSchemaData();
@@ -111,6 +106,7 @@ export default async function Home() {
       <StatsBar />
 
       <TrustBadges />
+      <ClientLogos /> 
 
       <Services />
       <About />
