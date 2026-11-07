@@ -306,29 +306,29 @@ export default function TestimonialsPage({
     SECTION 3 — FEATURED TESTIMONIALS (all clients, alternating)
     ───────────────────────────────────────────────────────────── */}
       {testimonials.length > 0 && (
-        <section className="py-16 md:py-20 bg-white">
+        <section className="py-14 md:py-18 bg-white">
           <div className="max-w-[1200px] mx-auto px-4 md:px-8">
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <div className="inline-flex items-center gap-2.5 text-[0.68rem] font-bold tracking-[0.12em] uppercase text-[#0E9BF0] mb-3">
+            <div className="text-center max-w-2xl mx-auto mb-10 md:mb-12">
+              <div className="inline-flex items-center gap-2.5 text-[0.65rem] font-bold tracking-[0.12em] uppercase text-[#0E9BF0] mb-2.5">
                 <span className="w-[22px] h-[2px] bg-[#0E9BF0] rounded" />
                 Featured Stories
               </div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-[-0.02em] text-[#1C2E4A] mb-3">
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-extrabold tracking-[-0.02em] text-[#1C2E4A] mb-2">
                 Success Stories That Stand Out
               </h2>
-              <p className="text-[#4A5568] text-sm md:text-base">
+              <p className="text-[#4A5568] text-xs md:text-sm">
                 Real businesses. Real outcomes. Real people behind the results.
               </p>
             </div>
 
-            <div className="space-y-14 md:space-y-20">
+            <div className="space-y-10 md:space-y-14">
               {testimonials.map((t, idx) => {
                 const reversed = idx % 2 === 1;
 
                 return (
                   <div
                     key={t._id}
-                    className={`grid md:grid-cols-5 gap-6 md:gap-10 items-center ${reversed ? 'md:grid-flow-dense' : ''
+                    className={`grid md:grid-cols-5 gap-5 md:gap-8 items-center ${reversed ? 'md:grid-flow-dense' : ''
                       }`}
                   >
                     {/* ── TEXT side ── */}
@@ -336,14 +336,14 @@ export default function TestimonialsPage({
                       className={`md:col-span-3 ${reversed ? 'md:col-start-3' : ''
                         }`}
                     >
-                      <Quote className="w-9 h-9 text-[#0E9BF0]/20 mb-3" />
+                      <Quote className="w-6 h-6 text-[#0E9BF0]/20 mb-2" />
 
                       {/* Stars */}
-                      <div className="flex gap-0.5 mb-3">
+                      <div className="flex gap-0.5 mb-2.5">
                         {Array.from({ length: 5 }).map((_, i) => (
                           <Star
                             key={i}
-                            className={`w-4 h-4 ${i < t.rating
+                            className={`w-3.5 h-3.5 ${i < t.rating
                                 ? 'fill-[#F8D000] text-[#F8D000]'
                                 : 'fill-gray-200 text-gray-200'
                               }`}
@@ -351,60 +351,60 @@ export default function TestimonialsPage({
                         ))}
                       </div>
 
-                      {/* Testimonial text — full, no truncation */}
-                      <p className="text-[#1C2E4A] text-base md:text-lg leading-relaxed mb-4 font-medium">
+                      {/* Testimonial text — smaller, tighter line-height */}
+                      <p className="text-[#1C2E4A] text-sm md:text-[15px] leading-relaxed mb-3">
                         &ldquo;{t.testimonial}&rdquo;
                       </p>
 
                       {/* Project outcome */}
                       {t.projectOutcome && (
-                        <div className="inline-flex items-center gap-2 bg-[#25C97D]/10 text-[#1A9960] text-xs font-semibold px-3 py-1.5 rounded-full mb-4">
+                        <div className="inline-flex items-center gap-1.5 bg-[#25C97D]/10 text-[#1A9960] text-[0.68rem] font-semibold px-2.5 py-1 rounded-full mb-3">
                           🎯 {t.projectOutcome}
                         </div>
                       )}
 
                       {/* Services */}
                       {t.serviceUsed && t.serviceUsed.length > 0 && (
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          {t.serviceUsed.slice(0, 4).map((s) => (
+                        <div className="flex flex-wrap gap-1.5 mb-3">
+                          {t.serviceUsed.slice(0, 3).map((s) => (
                             <span
                               key={s}
-                              className="text-xs font-medium text-[#0E9BF0] bg-[#0E9BF0]/10 px-2.5 py-1 rounded-full"
+                              className="text-[0.65rem] font-medium text-[#0E9BF0] bg-[#0E9BF0]/10 px-2 py-0.5 rounded-full"
                             >
                               {s}
                             </span>
                           ))}
-                          {t.serviceUsed.length > 4 && (
-                            <span className="text-xs text-[#8A9BB0] self-center">
-                              +{t.serviceUsed.length - 4} more
+                          {t.serviceUsed.length > 3 && (
+                            <span className="text-[0.65rem] text-[#8A9BB0] self-center">
+                              +{t.serviceUsed.length - 3}
                             </span>
                           )}
                         </div>
                       )}
 
                       {/* Client row */}
-                      <div className="flex items-center gap-3.5 pt-4 border-t border-[#E8EDF4]">
+                      <div className="flex items-center gap-3 pt-3 border-t border-[#E8EDF4]">
                         {t.clientImage ? (
-                          <div className="relative w-12 h-12 rounded-full overflow-hidden ring-2 ring-[#F8D000]/40 flex-shrink-0">
+                          <div className="relative w-9 h-9 rounded-full overflow-hidden ring-2 ring-[#F8D000]/40 flex-shrink-0">
                             <Image
                               src={t.clientImage}
                               alt={t.clientName}
                               fill
-                              sizes="48px"
+                              sizes="36px"
                               quality={80}
                               className="object-cover"
                             />
                           </div>
                         ) : (
-                          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#0E9BF0] to-[#25C97D] flex items-center justify-center text-lg font-bold text-white flex-shrink-0">
+                          <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#0E9BF0] to-[#25C97D] flex items-center justify-center text-sm font-bold text-white flex-shrink-0">
                             {t.clientName.charAt(0)}
                           </div>
                         )}
                         <div className="min-w-0">
-                          <h3 className="font-bold text-[#1C2E4A] text-base truncate">
+                          <h3 className="font-semibold text-[#1C2E4A] text-sm truncate">
                             {t.clientName}
                           </h3>
-                          <p className="text-[#4A5568] text-sm truncate">
+                          <p className="text-[#4A5568] text-xs truncate">
                             {[t.clientRole, t.companyName]
                               .filter(Boolean)
                               .join(', ')}
@@ -413,29 +413,29 @@ export default function TestimonialsPage({
                       </div>
                     </div>
 
-                    {/* ── IMAGE side (fixed height, no giant photos) ── */}
+                    {/* ── IMAGE side (small, compact) ── */}
                     <div
                       className={`md:col-span-2 ${reversed ? 'md:col-start-1 md:row-start-1' : ''
                         }`}
                     >
-                      <div className="relative h-[300px] sm:h-[340px] md:h-[380px] rounded-2xl overflow-hidden bg-[#F4F7FA] shadow-[0_4px_24px_rgba(28,46,74,0.08)]">
+                      <div className="relative w-full max-w-[280px] mx-auto md:mx-0 md:ml-auto md:mr-auto h-[200px] md:h-[220px] rounded-xl overflow-hidden bg-[#F4F7FA] shadow-[0_4px_20px_rgba(28,46,74,0.08)]">
                         {t.clientImage ? (
                           <Image
                             src={t.clientImage}
                             alt={`${t.clientName}, ${t.clientRole ?? ''} at ${t.companyName}`}
                             fill
-                            sizes="(max-width: 768px) 100vw, 40vw"
+                            sizes="(max-width: 768px) 90vw, 280px"
                             quality={80}
                             className="object-cover object-center"
                           />
                         ) : (
                           <div className="absolute inset-0 bg-gradient-to-br from-[#1C2E4A] to-[#0E9BF0] flex items-center justify-center">
-                            <span className="text-white text-6xl font-extrabold opacity-40">
+                            <span className="text-white text-4xl font-extrabold opacity-40">
                               {t.clientName.charAt(0)}
                             </span>
                           </div>
                         )}
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0B1421]/30 to-transparent pointer-events-none" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0B1421]/25 to-transparent pointer-events-none" />
                       </div>
                     </div>
                   </div>
