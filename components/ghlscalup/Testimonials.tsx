@@ -80,7 +80,7 @@ const TESTIMONIALS: Testimonial[] = [
     clientName: 'Seema Chodhary',
     clientRole: 'Client',
     companyName: 'ToSellBizz',
-    clientImage: '/clients/seema.jpg',
+    // clientImage: '/clients/seema.jpg',
     testimonial:
       'Working with GHL Scale Up was a positive experience. The team understood our requirements, communicated clearly, and provided practical solutions to support our business workflows.',
     rating: 5,
@@ -100,29 +100,41 @@ const TESTIMONIALS: Testimonial[] = [
   //   projectOutcome: 'Simplified daily operations',
   // },
   {
-  _id: 't10',
-  clientName: 'Dr. Rana Al-Falaki',
-  clientRole: 'Founder, Executive Coach & Performance Strategist',
-  companyName: 'NAIL - IT',
-  clientImage: '/clients/rana.jpg',
-  testimonial:
-    'I value solutions that give me more time to focus on my clients and strategic priorities. GHL Scale Up helped bring greater structure to our digital processes, making it easier to manage different aspects of the business without unnecessary complexity.',
-  rating: 5,
-  serviceUsed: ['GHL CRM Setup', 'Workflow Automation'],
-  projectOutcome: 'More structured business processes',
-},
-// {
-//   _id: 't11',
-//   clientName: 'Aaron',
-//   clientRole: 'Client',
-//   companyName: 'Fudog Group',
-//   clientImage: '/clients/aaron.jpg',
-//   testimonial:
-//     'GHL Scale Up helped us bring our business processes into one organized system. Having our CRM and automated workflows working together has made day-to-day management more convenient and reduced a lot of manual effort.',
-//   rating: 5,
-//   serviceUsed: ['GHL CRM Setup', 'Workflow Automation'],
-//   projectOutcome: 'Centralized CRM and automated workflows',
-// },
+    _id: 't10',
+    clientName: 'Dr. Rana Al-Falaki',
+    clientRole: 'Founder, Executive Coach & Performance Strategist',
+    companyName: 'NAIL - IT',
+    clientImage: '/clients/rana.jpg',
+    testimonial:
+      'I value solutions that give me more time to focus on my clients and strategic priorities. GHL Scale Up helped bring greater structure to our digital processes, making it easier to manage different aspects of the business without unnecessary complexity.',
+    rating: 5,
+    serviceUsed: ['GHL CRM Setup', 'Workflow Automation'],
+    projectOutcome: 'More structured business processes',
+  },
+  // {
+  //   _id: 't11',
+  //   clientName: 'Aaron',
+  //   clientRole: 'Client',
+  //   companyName: 'Fudog Group',
+  //   clientImage: '/clients/aaron.jpg',
+  //   testimonial:
+  //     'GHL Scale Up helped us bring our business processes into one organized system. Having our CRM and automated workflows working together has made day-to-day management more convenient and reduced a lot of manual effort.',
+  //   rating: 5,
+  //   serviceUsed: ['GHL CRM Setup', 'Workflow Automation'],
+  //   projectOutcome: 'Centralized CRM and automated workflows',
+  // },
+  {
+    _id: 't12',
+    clientName: 'Deborah King',
+    clientRole: 'Founder',
+    companyName: 'Deborah King',
+    clientImage: '/clients/deborah.jpg',
+    testimonial:
+      'GHL Scale Up brought a thoughtful approach to our digital needs. Their ability to organize our online processes and create practical solutions made a real difference to how we manage our business. I appreciated having a team that focused on the details while keeping our bigger goals in mind.',
+    rating: 5,
+    serviceUsed: ['GHL CRM Setup', 'Workflow Automation'],
+    projectOutcome: 'More organized digital operations',
+  },
   {
     _id: 't12',
     clientName: 'Elia',
@@ -352,8 +364,8 @@ export default function Testimonials() {
                     onClick={() => setCurrentIndex(i)}
                     aria-label={`Go to slide ${i + 1}`}
                     className={`h-2 rounded-full transition-all duration-300 ${i === currentIndex
-                        ? 'w-6 bg-[#0E9BF0]'
-                        : 'w-2 bg-[#CBD5E1] hover:bg-[#94A3B8]'
+                      ? 'w-6 bg-[#0E9BF0]'
+                      : 'w-2 bg-[#CBD5E1] hover:bg-[#94A3B8]'
                       }`}
                   />
                 ))}

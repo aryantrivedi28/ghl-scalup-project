@@ -1,103 +1,78 @@
 // app/testimonials/page.tsx
-import { getAllTestimonials, getFeaturedTestimonials } from '@/lib/sanity';
-import TestimonialsPage from '@/components/testimonials/TestimonialsPage';
+import type { Metadata } from 'next';
 import Breadcrumb from '@/components/layout/Breadcrumb';
-import InfoVideo from '@/components/testimonials/InfoVideo';
+import TestimonialsPage from '@/components/testimonials/TestimonialsPage';
+import { TESTIMONIALS } from '@/components/testimonials/data/testimonialsData';
 
-interface Testimonial {
-  _id: string;
-  clientName: string;
-  clientRole: string;
-  companyName: string;
-  rating: number;
-  [key: string]: any;
-}
-
-export const metadata = {
-  title: 'GHL Scale Up Testimonials What Our Clients Say',
-  description: 'Read what GHL Scale Up clients say about their GoHighLevel builds agency owners, coaches, and service businesses across 6 countries share real outcomes.',
-  keywords: 'GHL testimonials, GoHighLevel reviews, client success stories, GHL agency reviews',
+export const metadata: Metadata = {
+  title: 'Client Testimonials — GHL Scale Up',
+  description:
+    'Read what real GHL Scale Up clients say about their GoHighLevel setups, CRM builds, and automation projects. Real clients, real experiences, real results.',
+  keywords:
+    'GHL testimonials, GoHighLevel reviews, client success stories, GHL agency reviews',
+  alternates: {
+    canonical: 'https://www.ghlscaleup.com/testimonials',
+  },
   openGraph: {
-    title: 'GHL Scale Up Testimonials What Our Clients Say',
-    description: 'Read what GHL Scale Up clients say about their GoHighLevel builds agency owners, coaches, and service businesses across 6 countries share real outcomes.',
+    title: 'Client Testimonials — GHL Scale Up',
+    description:
+      'Read what real GHL Scale Up clients say about their GoHighLevel setups, CRM builds, and automation projects.',
+    url: 'https://www.ghlscaleup.com/testimonials',
     type: 'website',
+    siteName: 'GHL Scale Up',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Client Testimonials — GHL Scale Up',
+    description:
+      'Read what real GHL Scale Up clients say about their GoHighLevel setups, CRM builds, and automation projects.',
   },
 };
 
-export default async function TestimonialsPageWrapper() {
-  const testimonials = await getAllTestimonials();
-  const featuredTestimonials = await getFeaturedTestimonials();
+export default function TestimonialsPageWrapper() {
+  // Compute stats server-side so they render instantly (no client JS needed)
+  const total = TESTIMONIALS.length;
+  const averageRating =
+    total > 0
+      ? (
+          TESTIMONIALS.reduce((sum, t) => sum + t.rating, 0) / total
+        ).toFixed(1)
+      : '0';
 
-  // Calculate average rating with proper typing
-  const totalRating = testimonials.reduce((acc: number, t: Testimonial) => acc + t.rating, 0);
-  const averageRating = testimonials.length > 0 ? (totalRating / testimonials.length).toFixed(1) : '0';
+  // BreadcrumbList schema for SEO
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://www.ghlscaleup.com/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Testimonials',
+        item: 'https://www.ghlscaleup.com/testimonials',
+      },
+    ],
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
       <Breadcrumb items={[{ label: 'Testimonials' }]} />
-      
-      {/* Hero Section with Videos */}
-      <section className="bg-gradient-to-b from-[#1C2E4A] to-[#111E30] text-white py-16 md:py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_50%_20%,rgba(14,155,240,0.1),transparent)] pointer-events-none" />
-        <div className="max-w-[1200px] mx-auto px-4 md:px-8 relative z-10">
-          <div className="text-center max-w-[800px] mx-auto mb-12">
-            <div className="inline-flex items-center gap-2 bg-[rgba(248,208,0,0.12)] border border-[rgba(248,208,0,0.2)] text-[#F8D000] text-[0.65rem] font-bold tracking-[0.12em] uppercase px-4 py-1.5 rounded-full mb-5">
-              Client Success Stories
-            </div>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-[-0.03em] leading-tight mb-4">
-              What Our <span className="text-[#F8D000]">Clients Say</span>
-            </h1>
-            <p className="text-white/60 text-base max-w-[600px] mx-auto">
-              Real results from real businesses. See how we've helped agencies and companies scale with GoHighLevel.
-            </p>
-          </div>
 
-          {/* Video Section - Two Videos Side by Side */}
-          <div className="grid md:grid-cols-2 gap-8 md:gap-10 max-w-[1000px] mx-auto">
-            {/* Video 1: Company Introduction */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20">
-              <InfoVideo
-                videoSrc="https://res.cloudinary.com/dbx1s2lib/video/upload/v1776346188/radhi29_u9molw.mp4"
-                title="How GHL Scale Up Works"
-                description="Learn about our process and success stories"
-              />
-            </div>
-
-            {/* Video 2: Client Testimonial */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20">
-              <InfoVideo
-                videoSrc="https://res.cloudinary.com/dbx1s2lib/video/upload/v1776346007/video2_afrby7.mp4"
-                title="Client Success Story"
-                description="Hear from one of our satisfied clients"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-12 bg-white border-b border-[#E8EDF4]">
-        <div className="max-w-[1200px] mx-auto px-4 md:px-8">
-          <div className="flex justify-center gap-8 md:gap-12">
-            <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-[#F8D000]">{testimonials.length}+</div>
-              <div className="text-xs text-[#8A9BB0]">Happy Clients</div>
-            </div>
-            <div className="w-px bg-[#E8EDF4]"></div>
-            <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-[#F8D000]">{averageRating}</div>
-              <div className="text-xs text-[#8A9BB0]">Average Rating</div>
-            </div>
-            <div className="w-px bg-[#E8EDF4]"></div>
-            <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-[#F8D000]">200+</div>
-              <div className="text-xs text-[#8A9BB0]">Projects Delivered</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <TestimonialsPage testimonials={testimonials} featuredTestimonials={featuredTestimonials} />
+      <TestimonialsPage
+        testimonials={TESTIMONIALS}
+        averageRating={averageRating}
+        totalClients={total}
+      />
     </>
   );
 }

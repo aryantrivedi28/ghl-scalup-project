@@ -1,14 +1,15 @@
 // components/testimonials/TestimonialCard.tsx
 'use client';
+
 import Image from 'next/image';
 
 export interface TestimonialCardProps {
   testimonial: {
     _id: string;
     clientName: string;
-    clientRole: string;
+    clientRole?: string;        // ← made optional
     companyName: string;
-    clientImage?: string;   // optional path like "/clients/john.jpg"
+    clientImage?: string;
     testimonial: string;
     rating: number;
     serviceUsed?: string[];
@@ -25,26 +26,35 @@ export default function TestimonialCard({
     return Array.from({ length: 5 }).map((_, i) => (
       <span
         key={i}
-        className={`text-xs md:text-sm ${i < rating ? 'text-[#F8D000]' : 'text-gray-200'}`}
+        className={`text-xs md:text-sm ${
+          i < rating ? 'text-[#F8D000]' : 'text-gray-200'
+        }`}
       >
         ★
       </span>
     ));
   };
 
+  // Build "Role, Company" label safely — skip role if not present
+  const roleAndCompany = [testimonial.clientRole, testimonial.companyName]
+    .filter(Boolean)
+    .join(', ');
+
   // Featured Variant
   if (variant === 'featured') {
     return (
       <div className="bg-gradient-to-br from-[#1C2E4A] to-[#111E30] rounded-xl md:rounded-2xl p-5 md:p-8 text-white relative overflow-hidden group hover:shadow-2xl transition-all duration-300">
         <div className="absolute -top-4 -right-4 text-7xl md:text-8xl opacity-5 group-hover:opacity-10 transition-opacity">
-          “
+          &ldquo;
         </div>
 
         <div className="relative z-10">
-          <div className="flex gap-0.5 mb-3 md:mb-4">{renderStars(testimonial.rating)}</div>
+          <div className="flex gap-0.5 mb-3 md:mb-4">
+            {renderStars(testimonial.rating)}
+          </div>
 
           <p className="text-white/80 leading-relaxed mb-4 md:mb-6 text-sm md:text-lg italic line-clamp-6">
-            “{testimonial.testimonial}”
+            &ldquo;{testimonial.testimonial}&rdquo;
           </p>
 
           {testimonial.projectOutcome && (
@@ -91,7 +101,7 @@ export default function TestimonialCard({
                 {testimonial.clientName}
               </h4>
               <p className="text-white/60 text-xs md:text-sm truncate">
-                {testimonial.clientRole}, {testimonial.companyName}
+                {roleAndCompany}
               </p>
             </div>
           </div>
@@ -103,10 +113,12 @@ export default function TestimonialCard({
   // Grid Variant
   return (
     <div className="bg-white border border-[#E8EDF4] rounded-xl md:rounded-2xl p-4 md:p-6 hover:shadow-[0_12px_40px_rgba(28,46,74,0.08)] hover:-translate-y-1 transition-all duration-300 h-full flex flex-col group">
-      <div className="flex gap-0.5 mb-3 md:mb-4">{renderStars(testimonial.rating)}</div>
+      <div className="flex gap-0.5 mb-3 md:mb-4">
+        {renderStars(testimonial.rating)}
+      </div>
 
       <p className="text-[#4A5568] leading-relaxed mb-4 text-sm md:text-base flex-grow line-clamp-4 group-hover:line-clamp-none transition-all duration-300">
-        “{testimonial.testimonial}”
+        &ldquo;{testimonial.testimonial}&rdquo;
       </p>
 
       {testimonial.projectOutcome && (
@@ -156,7 +168,7 @@ export default function TestimonialCard({
             {testimonial.clientName}
           </h4>
           <p className="text-[#8A9BB0] text-[0.65rem] md:text-xs truncate">
-            {testimonial.clientRole}, {testimonial.companyName}
+            {roleAndCompany}
           </p>
         </div>
       </div>
