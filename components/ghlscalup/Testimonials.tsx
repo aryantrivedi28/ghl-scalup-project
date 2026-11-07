@@ -51,18 +51,18 @@ const TESTIMONIALS: Testimonial[] = [
     serviceUsed: ['AI Workflow Automation', 'GHL CRM Setup', 'Full Service Package'],
     projectOutcome: 'Scalable growth systems built',
   },
-  {
-    _id: 't6',
-    clientName: 'Rhea Fawole',
-    clientRole: 'CEO & Principal Lawyer, Solvi',
-    companyName: 'Solvi',
-    clientImage: '/clients/rhea.jpg',
-    testimonial:
-      'Working with GHL Scale Up has been a really good experience. The team took the time to understand our requirements and provided solutions that aligned with our business needs. Communication was smooth, and they were always approachable whenever we needed support or had questions. I appreciate their professionalism, attention to detail, and commitment to delivering quality work. It has been great working with a team that genuinely cares about its clients.',
-    rating: 5,
-    serviceUsed: ['AI Workflow Automation', 'GHL CRM Setup', 'Full Service Package'],
-    projectOutcome: 'Scalable growth systems built',
-  },
+  // {
+  //   _id: 't6',
+  //   clientName: 'Rhea Fawole',
+  //   clientRole: 'CEO & Principal Lawyer, Solvi',
+  //   companyName: 'Solvi',
+  //   clientImage: '/clients/rhea.jpg',
+  //   testimonial:
+  //     'Working with GHL Scale Up has been a really good experience. The team took the time to understand our requirements and provided solutions that aligned with our business needs. Communication was smooth, and they were always approachable whenever we needed support or had questions. I appreciate their professionalism, attention to detail, and commitment to delivering quality work. It has been great working with a team that genuinely cares about its clients.',
+  //   rating: 5,
+  //   serviceUsed: ['AI Workflow Automation', 'GHL CRM Setup', 'Full Service Package'],
+  //   projectOutcome: 'Scalable growth systems built',
+  // },
   {
     _id: 't7',
     clientName: 'Dr. Charlin Anthony, Ph.D',
@@ -87,18 +87,18 @@ const TESTIMONIALS: Testimonial[] = [
     serviceUsed: ['GHL CRM Setup', 'Workflow Automation'],
     projectOutcome: 'Improved business workflows',
   },
-  {
-    _id: 't9',
-    clientName: 'Joe Rivera',
-    clientRole: 'Inspirational Speaker',
-    companyName: 'Joe Rivera',
-    clientImage: '/clients/joe.jpg',
-    testimonial:
-      'What I appreciated most about GHL Scale Up was how they turned our ideas into a working system. The setup saved us time on repetitive tasks and made managing our daily activities much easier. A great team to work with!',
-    rating: 5,
-    serviceUsed: ['GHL CRM Setup', 'Workflow Automation'],
-    projectOutcome: 'Simplified daily operations',
-  },
+  // {
+  //   _id: 't9',
+  //   clientName: 'Joe Rivera',
+  //   clientRole: 'Inspirational Speaker',
+  //   companyName: 'Joe Rivera',
+  //   clientImage: '/clients/joe.jpg',
+  //   testimonial:
+  //     'What I appreciated most about GHL Scale Up was how they turned our ideas into a working system. The setup saved us time on repetitive tasks and made managing our daily activities much easier. A great team to work with!',
+  //   rating: 5,
+  //   serviceUsed: ['GHL CRM Setup', 'Workflow Automation'],
+  //   projectOutcome: 'Simplified daily operations',
+  // },
   {
   _id: 't10',
   clientName: 'Dr. Rana Al-Falaki',
@@ -111,18 +111,18 @@ const TESTIMONIALS: Testimonial[] = [
   serviceUsed: ['GHL CRM Setup', 'Workflow Automation'],
   projectOutcome: 'More structured business processes',
 },
-{
-  _id: 't11',
-  clientName: 'Aaron',
-  clientRole: 'Client',
-  companyName: 'Fudog Group',
-  clientImage: '/clients/aaron.jpg',
-  testimonial:
-    'GHL Scale Up helped us bring our business processes into one organized system. Having our CRM and automated workflows working together has made day-to-day management more convenient and reduced a lot of manual effort.',
-  rating: 5,
-  serviceUsed: ['GHL CRM Setup', 'Workflow Automation'],
-  projectOutcome: 'Centralized CRM and automated workflows',
-},
+// {
+//   _id: 't11',
+//   clientName: 'Aaron',
+//   clientRole: 'Client',
+//   companyName: 'Fudog Group',
+//   clientImage: '/clients/aaron.jpg',
+//   testimonial:
+//     'GHL Scale Up helped us bring our business processes into one organized system. Having our CRM and automated workflows working together has made day-to-day management more convenient and reduced a lot of manual effort.',
+//   rating: 5,
+//   serviceUsed: ['GHL CRM Setup', 'Workflow Automation'],
+//   projectOutcome: 'Centralized CRM and automated workflows',
+// },
   {
     _id: 't12',
     clientName: 'Elia',
