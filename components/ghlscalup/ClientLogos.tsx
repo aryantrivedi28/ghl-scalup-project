@@ -18,6 +18,10 @@ const CLIENT_LOGOS = [
   { name: 'Nail - it', src: '/logos/nailit.jpeg' },
   { name: 'ToSellBiz', src: '/logos/tosellbiz.jpeg' },
   { name: '260 Logo', src: '/logos/260logo.png' },
+  { name: 'Jenson Usa', src: '/logos/jensonusa.png' },
+  { name: 'Deborah King', src: '/logos/deborahking.png' },
+
+
 
 
   // Add as many as you like — the marquee duplicates them automatically.
