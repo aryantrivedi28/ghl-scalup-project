@@ -20,10 +20,7 @@ const CLIENT_LOGOS = [
   { name: '260 Logo', src: '/logos/260logo.png' },
   { name: 'Jenson Usa', src: '/logos/jensonusa.png' },
   { name: 'Deborah King', src: '/logos/deborahking.png' },
-
-
-
-
+  { name: 'Chiro House', src: '/logos/chirohouse.webp' },
   // Add as many as you like — the marquee duplicates them automatically.
 ];
 
