@@ -259,7 +259,7 @@ export default function AIAppointmentBookingClient() {
                                     </div>
                                     <div>
                                           <div className="text-sm font-medium text-white">GHL Scale Up Team</div>
-                                          <div className="text-xs text-white/50">GoHighLevel Specialists · Facts from HighLevel documentation read 3 November 2026</div>
+                                          <div className="text-xs text-white/50">GoHighLevel Specialists · Facts from HighLevel documentation read 11 November 2026</div>
                                     </div>
                               </div>
 

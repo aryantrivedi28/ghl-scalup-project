@@ -21,9 +21,9 @@ export const metadata: Metadata = {
 
     type: 'article',
 
-    publishedTime: '2026-11-04T00:00:00Z',
+    publishedTime: '2026-11-03T00:00:00Z',
 
-    modifiedTime: '2026-11-04T00:00:00Z',
+    modifiedTime: '2026-11-03T00:00:00Z',
 
     authors: ['GHL Scale Up Team'],
 
@@ -88,8 +88,8 @@ export default function EmailCampaignPerformancePage() {
             image:
               'https://www.ghlscaleup.com/images/blog/gohighlevel-email-campaign-performance-og.jpg',
 
-            datePublished: '2026-11-04',
-            dateModified: '2026-11-04',
+            datePublished: '2026-11-03',
+            dateModified: '2026-11-03',
 
             author: {
               '@type': 'Organization',

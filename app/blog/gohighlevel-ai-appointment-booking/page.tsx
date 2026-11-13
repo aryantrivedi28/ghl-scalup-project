@@ -21,9 +21,9 @@ export const metadata: Metadata = {
 
     type: 'article',
 
-    publishedTime: '2026-11-03T00:00:00Z',
+    publishedTime: '2026-11-11T00:00:00Z',
 
-    modifiedTime: '2026-11-03T00:00:00Z',
+    modifiedTime: '2026-11-11T00:00:00Z',
 
     authors: ['GHL Scale Up Team'],
 
@@ -88,8 +88,8 @@ export default function AIAppointmentBookingPage() {
             image:
               'https://www.ghlscaleup.com/images/blog/gohighlevel-ai-appointment-booking-og.jpg',
 
-            datePublished: '2026-11-03',
-            dateModified: '2026-11-03',
+            datePublished: '2026-11-11',
+            dateModified: '2026-11-11',
 
             author: {
               '@type': 'Organization',

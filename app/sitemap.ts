@@ -362,25 +362,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const blogPosts: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/blog/gohighlevel-ai-appointment-booking`,
-      lastModified: new Date('2026-11-03'),
+      lastModified: new Date('2026-11-11'),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/blog/create-clickup-task-from-template-gohighlevel`,
-      lastModified: new Date('2026-11-02'),
+      lastModified: new Date('2026-11-04'),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/blog/gohighlevel-email-campaign-performance`,
-      lastModified: new Date('2026-11-01'),
+      lastModified: new Date('2026-11-03'),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/blog/gohighlevel-email-deliverability`,
-      lastModified: new Date('2026-10-31'),
+      lastModified: new Date('2026-11-02'),
       changeFrequency: 'monthly',
       priority: 0.9,
     },

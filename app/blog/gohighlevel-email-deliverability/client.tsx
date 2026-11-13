@@ -362,7 +362,7 @@ export default function EmailDeliverabilityClient() {
             </div>
             <div>
               <div className="text-sm font-medium text-white">GHL Scale Up Team</div>
-              <div className="text-xs text-white/50">GoHighLevel Specialists · Prepared 4 November 2026 · HighLevel, Google, Yahoo and Microsoft pages read 4 November 2026</div>
+              <div className="text-xs text-white/50">GoHighLevel Specialists · Prepared 2 November 2026 · HighLevel, Google, Yahoo and Microsoft pages read 2 November 2026</div>
             </div>
           </div>
 
