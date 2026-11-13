@@ -361,6 +361,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
     {
+      url: `${baseUrl}/blog/gohighlevel-ai-appointment-booking`,
+      lastModified: new Date('2026-11-03'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/blog/create-clickup-task-from-template-gohighlevel`,
       lastModified: new Date('2026-11-02'),
       changeFrequency: 'monthly',

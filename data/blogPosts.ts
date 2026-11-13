@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+            icon: 'CalendarClock',
+            tag: 'AI',
+            title: 'How to Automate Appointment Booking with GoHighLevel AI Agents',
+            excerpt: 'How GoHighLevel Voice AI and Conversation AI book appointments from your calendar, what to configure first, and the limits to plan around.',
+            slug: 'gohighlevel-ai-appointment-booking',
+            date: 'November 3, 2026',
+            readTime: '22 min read',
+            featured: true,
+            image: '/blog/gohighlevel-ai-appointment-booking.png',
+      },
+      {
             icon: 'Webhook',
             tag: 'Integration',
             title: 'How to Create ClickUp Tasks From Templates Using GoHighLevel',
