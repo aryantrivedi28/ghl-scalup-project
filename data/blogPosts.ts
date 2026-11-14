@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+  icon: 'Table',
+  tag: 'Integration',
+  title: 'How to Sync GoHighLevel Data with Google Sheets',
+  excerpt: 'Which method sends GoHighLevel contacts, opportunities and appointments to Google Sheets, how to update rows without duplicates, and where Sheets stops being enough.',
+  slug: 'sync-gohighlevel-google-sheets',
+  date: 'November 12, 2026',
+  readTime: '32 min read',
+  featured: true,
+  image: '/blog/sync-gohighlevel-google-sheets.png',
+},
+      {
             icon: 'CalendarClock',
             tag: 'AI',
             title: 'How to Automate Appointment Booking with GoHighLevel AI Agents',

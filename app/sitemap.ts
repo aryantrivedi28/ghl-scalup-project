@@ -361,6 +361,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
     {
+      url: `${baseUrl}/blog/sync-gohighlevel-google-sheets`,
+      lastModified: new Date('2026-11-12'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/blog/gohighlevel-ai-appointment-booking`,
       lastModified: new Date('2026-11-11'),
       changeFrequency: 'monthly',
