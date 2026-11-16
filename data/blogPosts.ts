@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+  icon: 'DollarSign',
+  tag: 'Cost Savings',
+  title: 'Top 7 GoHighLevel Features That Can Save Dollars for Your Business',
+  excerpt: 'Seven GoHighLevel features that can replace separate tools, with honest limits, usage costs and a simple way to work out your own saving.',
+  slug: 'gohighlevel-features-that-save-money',
+  date: 'November 16, 2026',
+  readTime: '22 min read',
+  featured: true,
+  image: '/blog/gohighlevel-features-that-save-money.png',
+},
+      {
   icon: 'Table',
   tag: 'Integration',
   title: 'How to Sync GoHighLevel Data with Google Sheets',

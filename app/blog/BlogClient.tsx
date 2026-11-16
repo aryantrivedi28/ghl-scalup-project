@@ -132,6 +132,7 @@ export default function BlogClient() {
       'Email Setup': 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]',
       'Email Deliverability': 'bg-[rgba(220,53,69,0.12)] text-[#DC3545] border-[rgba(220,53,69,0.2)]',
       'Email Marketing': 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]',
+      'Cost Savings': 'bg-[rgba(248,208,0,0.12)] text-[#F8D000] border-[rgba(248,208,0,0.2)]',
     };
     return colors[tag] || 'bg-[rgba(14,155,240,0.12)] text-[#0E9BF0] border-[rgba(14,155,240,0.2)]';
   };
