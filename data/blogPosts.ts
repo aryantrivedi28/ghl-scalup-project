@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+  icon: 'Rocket',
+  tag: 'SaaS Mode',
+  title: 'What Does a Done-For-You Team Configure in GoHighLevel SaaS Mode?',
+  excerpt: 'What does a done-for-you team configure in GoHighLevel SaaS Mode? Plans, Stripe, branding, snapshots, onboarding and testing, explained simply.',
+  slug: 'done-for-you-gohighlevel-saas-mode-setup',
+  date: 'November 18, 2026',
+  readTime: '22 min read',
+  featured: true,
+  image: '/blog/done-for-you-gohighlevel-saas-mode-setup.png',
+},
+      {
   icon: 'DollarSign',
   tag: 'Cost Savings',
   title: 'Top 7 GoHighLevel Features That Can Save Dollars for Your Business',
