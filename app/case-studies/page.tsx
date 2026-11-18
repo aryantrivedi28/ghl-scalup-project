@@ -16,6 +16,22 @@ export const metadata = {
 // All 6 hardcoded case studies with correct image paths
 const caseStudies = [
   {
+    _id: 'gohighlevel-account-migration-collective-travel-design',
+    title: 'Collective Travel Design: Full GoHighLevel Account Migration',
+    slug: { current: 'gohighlevel-account-migration-collective-travel-design' },
+    category: 'Travel',
+    excerpt: 'A full GoHighLevel migration 501 contacts, 10 automated workflows, and every compliance registration rebuilt from a third-party-controlled account into Collective Travel Design\'s own agency account in 21 business days.',
+    image: {
+      asset: {
+        url: '/case-study/collective-travel/c-a2p-registration.jpg'
+      }
+    },
+    challenge: 'CRM, calendars, forms, pipeline, workflows, email sending, and SMS compliance were all hosted inside a third-party GoHighLevel account (Ivorey) not one Collective Travel Design owned outright. No native account-to-account migration existed, and every one of 16 asset categories had to be individually audited, exported, and rebuilt.',
+    solution: 'GHL Scale Up executed a 5-phase, 21-business-day migration: full source-account audit, new agency provisioning, 501-contact CSV re-import with verified field mapping, 10 workflow rebuilds trigger-by-trigger, A2P and email sending-domain re-registration, Square/Google/Slack reconnection, and end-to-end QA before handover.',
+    featured: true,
+    publishedAt: '2026-09-15'
+  },
+  {
     _id: 'real-estate-agent-rebuild',
     title: 'Real Estate Agent: Complete GHL Rebuild & AI Voice System',
     slug: { current: 'real-estate-agent-rebuild' },
