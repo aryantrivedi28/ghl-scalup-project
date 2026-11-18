@@ -5,7 +5,7 @@ import TestimonialsPage from '@/components/testimonials/TestimonialsPage';
 import { TESTIMONIALS } from '@/components/testimonials/data/testimonialsData';
 
 export const metadata: Metadata = {
-  title: 'Client Testimonials — GHL Scale Up',
+  title: 'Client Testimonials GHL Scale Up',
   description:
     'Read what real GHL Scale Up clients say about their GoHighLevel setups, CRM builds, and automation projects. Real clients, real experiences, real results.',
   keywords:
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.ghlscaleup.com/testimonials',
   },
   openGraph: {
-    title: 'Client Testimonials — GHL Scale Up',
+    title: 'Client Testimonials GHL Scale Up',
     description:
       'Read what real GHL Scale Up clients say about their GoHighLevel setups, CRM builds, and automation projects.',
     url: 'https://www.ghlscaleup.com/testimonials',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Client Testimonials — GHL Scale Up',
+    title: 'Client Testimonials GHL Scale Up',
     description:
       'Read what real GHL Scale Up clients say about their GoHighLevel setups, CRM builds, and automation projects.',
   },

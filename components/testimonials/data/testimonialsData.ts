@@ -43,6 +43,33 @@ export const TESTIMONIALS: Testimonial[] = [
     projectOutcome: 'Scalable growth systems built',
     featured: true,
   },
+   {
+    _id: 't6',
+    clientName: 'Joe Rivera',
+    clientRole: 'Life Coach',
+    companyName: 'Joe Rivera Life Coaching',
+    clientImage: '/clients/joe.jpg',
+    // companyLogo: '/logos/joe-rivera.png',
+    testimonial:
+      'Great service from start to finish. GHL Scale Up understood my goals, set up my funnels and automations properly, and walked me through how everything works. Would recommend to any coach or business owner using GoHighLevel.',
+    rating: 5,
+    serviceUsed: ['Funnel Development', 'AI Workflow Automation', 'GHL CRM Setup'],
+    projectOutcome: 'Funnels + automations fully set up',
+    featured: true,
+  },
+  {
+    _id: 't9',
+    clientName: 'Major Marketing',
+    clientRole: 'White-Label Agency',
+    companyName: 'Major Marketing',
+    // companyLogo: '/logos/major-marketing.png',
+    testimonial:
+      'We came across GHL Scale Up online and reached out to Aryan, who was extremely accommodating and encouraging when we expressed our interest in starting our white-label business, Major Marketing. As we were completely new to the platform, Aryan kindly assigned Pavan to guide us and help us learn from scratch. Since then, we have gained considerable knowledge and continue to grow and develop Major Marketing with confidence.',
+    rating: 5,
+    serviceUsed: ['White-Label SaaS', 'Full Service Package', 'GHL CRM Setup'],
+    projectOutcome: 'White-label agency launched from scratch',
+    featured: true,
+  },
   {
     _id: 't7',
     clientName: 'Dr. Charlin Anthony, Ph.D',

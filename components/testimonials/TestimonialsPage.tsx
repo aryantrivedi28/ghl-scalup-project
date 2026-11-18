@@ -9,6 +9,7 @@ import TestimonialCard from './TestimonialCard';
 import InfoVideo from './InfoVideo';
 import type { Testimonial } from './data/testimonialsData';
 import { VIDEO_TESTIMONIALS } from './data/videoTestimonials';
+import ReviewScreenshots from './ReviewScreenshots';
 
 interface TestimonialsPageProps {
   testimonials: Testimonial[];
@@ -520,6 +521,12 @@ export default function TestimonialsPage({
           )}
         </div>
       </section>
+
+
+       {/* ─────────────────────────────────────────────────────────────
+          SECTION 4.5 — GOOGLE + CLUTCH REVIEW SCREENSHOTS  ← NEW
+          ───────────────────────────────────────────────────────────── */}
+      <ReviewScreenshots />
 
       {/* ─────────────────────────────────────────────────────────────
           SECTION 5 — TRUST STRIP

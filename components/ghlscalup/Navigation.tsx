@@ -355,6 +355,24 @@ const Navigation = () => {
                   </div>
                 </Link>
 
+                <Link
+                  href="/testimonials"
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-[#F4F7FA] transition-colors group"
+                >
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 bg-[rgba(37,201,125,0.1)]">
+                    <Briefcase className="h-4 w-4 text-[#1C2E4A]" />
+                  </div>
+
+                  <div>
+                    <div className="text-[0.8rem] font-semibold text-[#1C2E4A] leading-tight group-hover:text-[#0E9BF0] transition-colors">
+                      Testimonials
+                    </div>
+                    <div className="text-[0.68rem] font-light text-[#4A5568]">
+                      What our clients say
+                    </div>
+                  </div>
+                </Link>
+
               </div>
             </li>
           </ul>
