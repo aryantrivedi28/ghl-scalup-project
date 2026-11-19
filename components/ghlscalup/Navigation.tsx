@@ -501,6 +501,14 @@ const Navigation = () => {
                     >
                       Case Studies
                     </Link>
+
+                     <Link
+                      href="/testimonials"
+                      className="text-white/70 text-sm py-1.5 block"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Case Studies
+                    </Link>
                   </div>
                 </details>
               </li>
