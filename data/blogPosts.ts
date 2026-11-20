@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+  icon: 'TrendingUp',
+  tag: 'SaaS Mode',
+  title: 'How to Reduce Churn for a GoHighLevel SaaS Business',
+  excerpt: 'Learn why GoHighLevel SaaS customers cancel and how to build onboarding, tracking and cancellation flows that support retention, with honest limits.',
+  slug: 'reduce-churn-gohighlevel-saas',
+  date: 'November 20, 2026',
+  readTime: '28 min read',
+  featured: true,
+  image: '/blog/reduce-churn-gohighlevel-saas.png',
+},
+      {
   icon: 'Rocket',
   tag: 'SaaS Mode',
   title: 'What Does a Done-For-You Team Configure in GoHighLevel SaaS Mode?',
