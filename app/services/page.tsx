@@ -490,7 +490,7 @@ export default async function ServicesPage() {
           VIDEO TESTIMONIALS
           ============================================ */}
       <section className="py-14 md:py-20 bg-[#F4F7FA]">
-        <Testimonials testimonials={testimonials} />
+        <Testimonials />
       </section>
 
       {/* ============================================
