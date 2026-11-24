@@ -14,6 +14,17 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
       {
+  icon: 'PhoneCall',
+  tag: 'AI',
+  title: 'GoHighLevel Voice AI: What It Does, How It Is Priced and How to Set It Up',
+  excerpt: 'What GoHighLevel Voice AI does, what it costs per minute, how to set it up and where it falls short. A practical guide with cost examples.',
+  slug: 'gohighlevel-voice-ai',
+  date: 'November 24, 2026',
+  readTime: '32 min read',
+  featured: true,
+  image: '/blog/gohighlevel-voice-ai.png',
+},
+      {
   icon: 'TrendingUp',
   tag: 'SaaS Mode',
   title: 'How to Reduce Churn for a GoHighLevel SaaS Business',
