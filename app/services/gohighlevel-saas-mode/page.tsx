@@ -56,7 +56,7 @@ export default function GoHighLevelSaaSModePage() {
             },
             "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": "https://www.ghlscaleup.com/gohighlevel-saas-mode"
+              "@id": "https://www.ghlscaleup.com/services/gohighlevel-saas-mode"
             }
           })
         }}
