@@ -478,11 +478,11 @@ export default function ClientPage() {
               <p className="text-[13px] text-[#4A5568] leading-relaxed mb-3.5">The complete process for going independent from requesting the eject to what to configure first in your new account.</p>
               <span className="text-[13px] font-semibold text-[#0E9BF0] inline-flex items-center gap-1 group-hover:gap-2 transition-all">Read the step-by-step guide → <ArrowRight size={12} /></span>
             </Link>
-            <Link href="/blog/how-to-eject-ghl-sub-account" className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_20px] hover:-translate-y-1 hover:shadow-[0_8px_28px_rgba(28,46,74,0.1)] hover:border-[#0E9BF0]/30 transition-all group">
+            <Link href="/blog/how-to-transfer-ghl-sub-account" className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_20px] hover:-translate-y-1 hover:shadow-[0_8px_28px_rgba(28,46,74,0.1)] hover:border-[#0E9BF0]/30 transition-all group">
               <div className="text-[10px] font-bold tracking-[1.5px] uppercase text-[#0E9BF0] mb-2">Complete Guide</div>
-              <h3 className="text-[15px] font-bold text-[#1C2E4A] group-hover:text-[#0E9BF0] transition-colors mb-2 leading-tight">How to Eject a GoHighLevel Sub-Account: The Complete Guide for Agencies and Clients</h3>
-              <p className="text-[13px] text-[#4A5568] leading-relaxed mb-3.5">What happens technically when a sub-account is ejected, what the receiving user must do next, and what breaks in the process.</p>
-              <span className="text-[13px] font-semibold text-[#0E9BF0] inline-flex items-center gap-1 group-hover:gap-2 transition-all">Read the eject guide → <ArrowRight size={12} /></span>
+              <h3 className="text-[15px] font-bold text-[#1C2E4A] group-hover:text-[#0E9BF0] transition-colors mb-2 leading-tight">How to Transfer a GoHighLevel Sub-Account: The Complete Guide for Agencies and Clients</h3>
+              <p className="text-[13px] text-[#4A5568] leading-relaxed mb-3.5">What happens technically when a sub-account is transferred, what the receiving user must do next, and what breaks in the process.</p>
+              <span className="text-[13px] font-semibold text-[#0E9BF0] inline-flex items-center gap-1 group-hover:gap-2 transition-all">Read the transfer guide → <ArrowRight size={12} /></span>
             </Link>
             <Link href="/blog/what-happens-ghl-sub-account-agency-closes" className="bg-white border border-[#E8EDF4] rounded-2xl p-[22px_20px] hover:-translate-y-1 hover:shadow-[0_8px_28px_rgba(28,46,74,0.1)] hover:border-[#0E9BF0]/30 transition-all group">
               <div className="text-[10px] font-bold tracking-[1.5px] uppercase text-[#0E9BF0] mb-2">Urgent Scenario</div>

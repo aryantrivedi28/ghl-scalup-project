@@ -991,16 +991,6 @@ function RelatedCaseStudies() {
       href: '/case-studies/real-estate-agent-rebuild',
       tag: 'Real Estate',
     },
-    {
-      title: 'GoHighLevel Deliverability & A2P 10DLC Fix',
-      href: '/case-studies/deliverability-a2p-fix',
-      tag: 'Deliverability',
-    },
-    {
-      title: 'AI Voice Agents for Home Services: Booking Automation',
-      href: '/case-studies/home-services-ai-voice',
-      tag: 'Home Services',
-    },
   ];
 
   return (

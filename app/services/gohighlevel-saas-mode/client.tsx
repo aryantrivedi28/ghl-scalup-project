@@ -149,17 +149,17 @@ export default function GoHighLevelSaaSModeClient() {
 
   const a2pBlogs = [
     { slug: 'what-is-a2p-10dlc', title: 'What is A2P 10DLC' },
-    { slug: 'agency-a2p-registration', title: 'Agency A2P Registration' },
-    { slug: 'a2p-brand-registration', title: 'A2P Brand Registration' },
-    { slug: 'a2p-campaign-registration', title: 'A2P Campaign Registration' },
-    { slug: 'a2p-opt-in-templates', title: 'A2P Opt-In Templates' },
-    { slug: 'a2p-trust-score', title: 'A2P Trust Score' },
-    { slug: 'a2p-fees-explained', title: 'A2P Fees Explained' },
-    { slug: 'a2p-campaign-rejected', title: 'Why Your A2P Campaign Got Rejected' },
-    { slug: 'a2p-brand-rejected', title: 'A2P Brand Rejected' },
-    { slug: 'a2p-error-codes', title: 'A2P Error Codes' },
-    { slug: 'toll-free-vs-a2p', title: 'Toll-Free vs A2P' },
-    { slug: 'gohighlevel-canadian-numbers', title: 'GoHighLevel Canadian Numbers' }
+    { slug: 'a2p-registration-for-agencies', title: 'Agency A2P Registration' },
+    { slug: 'a2p-brand-registration-guide', title: 'A2P Brand Registration' },
+    { slug: 'a2p-campaign-registration-guide', title: 'A2P Campaign Registration' },
+    { slug: 'a2p-opt-in-language-templates', title: 'A2P Opt-In Templates' },
+    { slug: 'a2p-trust-score-mps', title: 'A2P Trust Score' },
+    { slug: 'a2p-10dlc-fees-explained', title: 'A2P Fees Explained' },
+    { slug: 'a2p-campaign-rejected-fix', title: 'Why Your A2P Campaign Got Rejected' },
+    { slug: 'a2p-brand-rejected-fix', title: 'A2P Brand Rejected' },
+    { slug: 'a2p-error-codes-explained', title: 'A2P Error Codes' },
+    { slug: 'toll-free-vs-a2p-10dlc-gohighlevel', title: 'Toll-Free vs A2P' },
+    { slug: 'a2p-10dlc-canadian-numbers', title: 'GoHighLevel Canadian Numbers' }
   ];
 
   // Small blog card component for related resources

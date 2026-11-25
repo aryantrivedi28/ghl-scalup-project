@@ -754,7 +754,7 @@ export default function GoHighLevelReviewClient() {
                 <Link href="/blog/gohighlevel-vs-hubspot" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel vs HubSpot: Honest Comparison →</Link>
                 <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Workflow Automation for Beginners →</Link>
                 <Link href="/services/crm-setup" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel CRM Setup Service →</Link>
-                <Link href="/services/ai-setup" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel AI Features Setup →</Link>
+                <Link href="/services/ai-chatbot" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel AI Features Setup →</Link>
               </div>
             </div>
 
