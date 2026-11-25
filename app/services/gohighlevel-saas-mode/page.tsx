@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     images: ['https://www.ghlscaleup.com/images/gohighlevel-saas-mode-og.jpg'],
   },
   alternates: {
-    canonical: 'https://www.ghlscaleup.com/gohighlevel-saas-mode',
+    canonical: 'https://www.ghlscaleup.com/services/gohighlevel-saas-mode',
   },
 };
 
