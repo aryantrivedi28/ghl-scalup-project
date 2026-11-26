@@ -36,7 +36,7 @@ const ServiceSchema = () => {
       }
     },
     "serviceType": "GoHighLevel SaaS Implementation",
-    "termsOfService": "https://www.ghlscaleup.com/terms",
+    "termsOfService": "https://www.ghlscaleup.com/terms-of-service",
     "areaServed": {
       "@type": "Country",
       "name": "United States"

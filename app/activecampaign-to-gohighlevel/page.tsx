@@ -24,14 +24,14 @@ export default function ActiveCampaignMigrationPage() {
       <ServiceSchema
         name="ActiveCampaign to GoHighLevel Migration Service"
         description="Professional ActiveCampaign to GoHighLevel migration. We export contacts with full tag history, rebuild all AC automations natively in GHL workflows, migrate deal pipelines, email templates, forms, and landing pages and include a structured email domain warm-up to protect deliverability after the switch. No data loss. Fixed price. Delivered in 3 to 5 weeks."
-        url="https://www.ghlscaleup.com/services/migration/activecampaign-to-gohighlevel"
+        url="https://www.ghlscaleup.com/activecampaign-to-gohighlevel"
         serviceType={['CRM Migration', 'ActiveCampaign Migration', 'GoHighLevel Setup', 'Email Automation Migration', 'Marketing Automation Setup']}
       />
       <BreadcrumbSchema
         items={[
-          { name: 'Home', url: 'https://www.ghlscaleup.com/' },
+          { name: 'Home', url: 'https://www.ghlscaleup.com' },
           { name: 'GHL Migration Services', url: 'https://www.ghlscaleup.com/services/migration' },
-          { name: 'ActiveCampaign to GoHighLevel Migration', url: 'https://www.ghlscaleup.com/services/migration/activecampaign-to-gohighlevel' },
+          { name: 'ActiveCampaign to GoHighLevel Migration', url: 'https://www.ghlscaleup.com/activecampaign-to-gohighlevel' },
         ]}
       />
       <SpeakableSchema cssSelector={['.bluf-block', '.faq-a']} />

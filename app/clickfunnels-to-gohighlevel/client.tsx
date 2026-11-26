@@ -1,4 +1,4 @@
-// app/services/migration/clickfunnels-to-gohighlevel/components/ClickFunnelsMigrationClient.tsx
+// app/clickfunnels-to-gohighlevel/components/ClickFunnelsMigrationClient.tsx
 'use client';
 
 import Link from 'next/link';
@@ -11,8 +11,6 @@ import {
   CheckCircle,
   XCircle,
   AlertTriangle,
-  Check,
-  X,
   Building2,
   Rocket,
   DollarSign,
@@ -511,7 +509,7 @@ export default function ClickFunnelsMigrationClient() {
             <Link href="/hubspot-to-gohighlevel" className="bg-white border border-[#E8EDF4] rounded-lg px-4 py-2 text-[13px] font-semibold text-[#1C2E4A] inline-flex items-center gap-1.5 hover:border-[#0E9BF0] hover:text-[#0E9BF0] transition-all">HubSpot to GoHighLevel →</Link>
             <Link href="/activecampaign-to-gohighlevel" className="bg-white border border-[#E8EDF4] rounded-lg px-4 py-2 text-[13px] font-semibold text-[#1C2E4A] inline-flex items-center gap-1.5 hover:border-[#0E9BF0] hover:text-[#0E9BF0] transition-all">ActiveCampaign to GoHighLevel →</Link>
             <Link href="/kajabi-to-gohighlevel" className="bg-white border border-[#E8EDF4] rounded-lg px-4 py-2 text-[13px] font-semibold text-[#1C2E4A] inline-flex items-center gap-1.5 hover:border-[#0E9BF0] hover:text-[#0E9BF0] transition-all">Kajabi to GoHighLevel →</Link>
-            <Link href="/zoho-to-gohighlevel" className="bg-white border border-[#E8EDF4] rounded-lg px-4 py-2 text-[13px] font-semibold text-[#1C2E4A] inline-flex items-center gap-1.5 hover:border-[#0E9BF0] hover:text-[#0E9BF0] transition-all">Zoho to GoHighLevel →</Link>
+            {/* <Link href="/zoho-to-gohighlevel" className="bg-white border border-[#E8EDF4] rounded-lg px-4 py-2 text-[13px] font-semibold text-[#1C2E4A] inline-flex items-center gap-1.5 hover:border-[#0E9BF0] hover:text-[#0E9BF0] transition-all">Zoho to GoHighLevel →</Link> */}
             <Link href="/salesforce-to-gohighlevel" className="bg-white border border-[#E8EDF4] rounded-lg px-4 py-2 text-[13px] font-semibold text-[#1C2E4A] inline-flex items-center gap-1.5 hover:border-[#0E9BF0] hover:text-[#0E9BF0] transition-all">Salesforce to GoHighLevel →</Link>
             <Link href="/mailchimp-to-gohighlevel" className="bg-white border border-[#E8EDF4] rounded-lg px-4 py-2 text-[13px] font-semibold text-[#1C2E4A] inline-flex items-center gap-1.5 hover:border-[#0E9BF0] hover:text-[#0E9BF0] transition-all">Mailchimp to GoHighLevel →</Link>
           </div>
