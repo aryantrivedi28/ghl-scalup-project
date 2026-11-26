@@ -1,4 +1,4 @@
-// app/services/agency-setup/client.tsx
+// app/services/ghl-agency-setup-service/client.tsx
 
 'use client';
 
@@ -128,14 +128,14 @@ export default function ClientPage() {
       <ServiceSchema
         name="GoHighLevel Agency Account Setup Service"
         description="New GoHighLevel agency account set up from scratch. CRM, pipelines, automations, and email domain. Live in 5 to 7 business days. Book a free call."
-        url="https://www.ghlscaleup.com/services/agency-setup"
+        url="https://www.ghlscaleup.com/ghl-agency-setup-service"
         serviceType={['GoHighLevel Agency Setup', 'GHL Account Configuration', 'Sub-Account Independence', 'GoHighLevel CRM Setup']}
       />
       <BreadcrumbSchema
         items={[
           { name: 'Home', url: 'https://www.ghlscaleup.com/' },
           { name: 'GHL Services', url: 'https://www.ghlscaleup.com/services' },
-          { name: 'GoHighLevel Agency Setup', url: 'https://www.ghlscaleup.com/services/agency-setup' },
+          { name: 'GoHighLevel Agency Setup', url: 'https://www.ghlscaleup.com/ghl-agency-setup-service' },
         ]}
       />
       <SpeakableSchema cssSelector={['.bluf-block', '.faq-a']} />

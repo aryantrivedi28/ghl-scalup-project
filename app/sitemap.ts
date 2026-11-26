@@ -361,6 +361,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog Posts
   const blogPosts: MetadataRoute.Sitemap = [
     {
+      url: `${baseUrl}/blog/how-much-does-it-cost-to-hire-a-gohighlevel-expert`,
+      lastModified: new Date('2026-11-26'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/blog/gohighlevel-voice-ai`,
       lastModified: new Date('2026-11-24'),
       changeFrequency: 'monthly',

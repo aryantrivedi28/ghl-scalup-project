@@ -608,7 +608,7 @@ export default function BestCRMToMigrateToGHLClient() {
             </h2>
             <p className="text-sm md:text-base text-[#5C6880] leading-relaxed mb-4">
               Read your platform-specific guide from the links above for the exact process, what transfers, and what breaks. Then work through the{' '}
-              <Link href="/gohighlevel-migration-checklist" className="text-[#0E9BF0] hover:underline">GoHighLevel migration checklist</Link> to make sure nothing gets missed regardless of platform.
+              <Link href="/blog/gohighlevel-migration-checklist" className="text-[#0E9BF0] hover:underline">GoHighLevel migration checklist</Link> to make sure nothing gets missed regardless of platform.
             </p>
 
             {/* Section 7: FAQ */}
@@ -643,7 +643,7 @@ export default function BestCRMToMigrateToGHLClient() {
                 <Link href="/blog/activecampaign-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">ActiveCampaign to GoHighLevel Migration →</Link>
                 <Link href="/blog/kajabi-to-gohighlevel-migration" className="text-sm text-[#0E9BF0] hover:underline">Kajabi to GoHighLevel Migration →</Link>
                 <Link href="/blog/ghl-migration-timeline" className="text-sm text-[#0E9BF0] hover:underline">GHL Migration Timeline: How Long Does It Take? →</Link>
-                <Link href="/gohighlevel-migration-checklist" className="text-sm text-[#0E9BF0] hover:underline">The Complete GoHighLevel Migration Checklist →</Link>
+                <Link href="/blog/gohighlevel-migration-checklist" className="text-sm text-[#0E9BF0] hover:underline">The Complete GoHighLevel Migration Checklist →</Link>
               </div>
             </div>
 

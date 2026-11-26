@@ -627,7 +627,7 @@ export default function WhatHappensGHLSubAccountAgencyClosesClient() {
                 <ArrowRight className="w-3 h-3" />
               </Link>
               <p className="text-sm text-white/60 leading-relaxed mt-3">
-                See our <Link href="/services/agency-setup" className="text-[#0E9BF0] hover:underline">GoHighLevel agency setup service at ghlscaleup.com/services/agency-setup →</Link>
+                See our <Link href="/ghl-agency-setup-service" className="text-[#0E9BF0] hover:underline">GoHighLevel agency setup service at ghlscaleup.com/ghl-agency-setup-service →</Link>
               </p>
             </div>
 
@@ -693,7 +693,7 @@ export default function WhatHappensGHLSubAccountAgencyClosesClient() {
                 <Link href="/blog/gohighlevel-for-agencies" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel for Agencies: The Complete 2026 Guide →</Link>
                 <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Workflow Automation for Beginners →</Link>
                 <Link href="/blog/gohighlevel-pricing" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Pricing: All Plans Explained →</Link>
-                <Link href="/services/agency-setup" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Agency Setup Service →</Link>
+                <Link href="/ghl-agency-setup-service" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Agency Setup Service →</Link>
                 <Link href="/services/crm-setup" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel CRM Setup Service →</Link>
               </div>
             </div>

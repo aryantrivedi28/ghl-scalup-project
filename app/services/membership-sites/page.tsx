@@ -12,8 +12,6 @@ import {
   ArrowRight,
   CheckCircle2,
   Clock,
-  BookOpen,
-  Target,
   Zap,
   BarChart3,
   Settings,
@@ -28,7 +26,7 @@ export const metadata = {
   description: 'Build fully functional membership platforms and course sites inside GoHighLevel. Drip content, gated access, payments, and student management. 50+ sites launched.',
   keywords: 'GHL training, GoHighLevel onboarding, team training, GHL certification, SOPs',
   alternates: {
-    canonical: 'https://www.ghlscaleup.com/services/training-onboarding',
+    canonical: 'https://www.ghlscaleup.com/services/membership-sites',
   },
 };
 
@@ -37,9 +35,9 @@ const ServiceSchema = () => {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "GoHighLevel Training & Onboarding",
-    "alternateName": "GHL Team Training",
-    "description": "Complete team training and onboarding for GoHighLevel including live team training sessions, custom SOPs, recorded video training, role-based training, Q&A sessions, and ongoing support. Get your team from 20% to 100% GHL usage with expert-led training.",
+    "name": "GoHighLevel Membership Sites",
+    "alternateName": "GHL Membership Sites",
+    "description": "Build fully functional membership platforms and course sites inside GoHighLevel. Drip content, gated access, payments, and student management. 50+ sites launched.",
     "provider": {
       "@type": "LocalBusiness",
       "name": "GHL Scale Up",
@@ -50,14 +48,14 @@ const ServiceSchema = () => {
         "https://x.com/GHLScaleUp"
       ]
     },
-    "serviceType": "Team Training & Onboarding",
+    "serviceType": "Membership Sites & Online Courses",
     "areaServed": {
       "@type": "Country",
       "name": "United States"
     },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Training Packages",
+      "name": "Membership Site Packages",
       "itemListElement": [
         {
           "@type": "Offer",

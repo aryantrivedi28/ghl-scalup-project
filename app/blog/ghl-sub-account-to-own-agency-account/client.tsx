@@ -536,7 +536,7 @@ export default function GHLSubAccountToOwnAccountClient() {
               </div>
               <p className="text-sm text-[#5C6880] leading-relaxed mb-2">Use this if your agency will not cooperate or has already closed.</p>
               <p className="text-sm text-[#5C6880] leading-relaxed">Sign up directly at gohighlevel.com for a $97/month Starter account or $297/month Unlimited account. Your data from the old sub-account does NOT transfer automatically. You will need to export what you can (contacts as CSV, document your workflows) and rebuild in the new account.</p>
-              <p className="text-sm text-[#0E9BF0] leading-relaxed mt-2">→ GHL Scale Up can handle this rebuild for you: <Link href="/services/agency-setup" className="text-[#0E9BF0] hover:underline">GoHighLevel agency setup service →</Link></p>
+              <p className="text-sm text-[#0E9BF0] leading-relaxed mt-2">→ GHL Scale Up can handle this rebuild for you: <Link href="/ghl-agency-setup-service" className="text-[#0E9BF0] hover:underline">GoHighLevel agency setup service →</Link></p>
             </div>
 
             {/* CTA 2 - After How to Move */}
@@ -643,7 +643,7 @@ export default function GHLSubAccountToOwnAccountClient() {
                 <ArrowRight className="w-3 h-3" />
               </Link>
               <p className="text-sm text-white/60 leading-relaxed mt-3">
-                See our <Link href="/services/agency-setup" className="text-[#0E9BF0] hover:underline">GoHighLevel agency setup service at ghlscaleup.com/services/agency-setup →</Link>
+                See our <Link href="/ghl-agency-setup-service" className="text-[#0E9BF0] hover:underline">GoHighLevel agency setup service at ghlscaleup.com/ghl-agency-setup-service →</Link>
               </p>
             </div>
 
@@ -764,7 +764,7 @@ export default function GHLSubAccountToOwnAccountClient() {
                 <Link href="/blog/gohighlevel-white-label" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel White Label: How It Works and Full Setup Guide →</Link>
                 <Link href="/blog/how-to-set-up-gohighlevel-workflow-automation" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Workflow Automation for Beginners →</Link>
                 <Link href="/blog/gohighlevel-pricing" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Pricing: All Plans Explained →</Link>
-                <Link href="/services/agency-setup" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Agency Setup Service →</Link>
+                <Link href="/ghl-agency-setup-service" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel Agency Setup Service →</Link>
                 <Link href="/services/crm-setup" className="text-sm text-[#0E9BF0] hover:underline">GoHighLevel CRM Setup Service →</Link>
               </div>
             </div>

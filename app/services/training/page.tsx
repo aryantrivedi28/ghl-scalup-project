@@ -29,7 +29,7 @@ export const metadata = {
   description: 'End-to-end GHL training and onboarding for your team CRM, automations, funnels, AI, and best practices. 200+ teams trained. Book a free training consultation.',
   keywords: 'GHL membership site, GoHighLevel course platform, online course builder, membership site setup, digital products',
   alternates: {
-    canonical: 'https://www.ghlscaleup.com/services/membership-courses',
+    canonical: 'https://www.ghlscaleup.com/services/training',
   },
 };
 
@@ -38,9 +38,9 @@ const ServiceSchema = () => {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "GoHighLevel Membership & Course Site Development",
-    "alternateName": "GHL Course Platform Builder",
-    "description": "Complete membership platform and online course site setup inside GoHighLevel including gated content areas, drip content scheduling, subscription payments via Stripe, student management, automated emails, and analytics tracking. Launch your passive income stream without expensive third-party tools.",
+    "name": "GoHighLevel Training and Onboarding",
+    "alternateName": "GHL Training Program",
+    "description": "Comprehensive training and onboarding for GoHighLevel CRM, automations, funnels, and best practices. Learn how to maximize your GHL potential with our expert-led sessions.",
     "provider": {
       "@type": "LocalBusiness",
       "name": "GHL Scale Up",
@@ -51,7 +51,7 @@ const ServiceSchema = () => {
         "https://x.com/GHLScaleUp"
       ]
     },
-    "serviceType": "Membership Platform Development",
+    "serviceType": "Training and Onboarding",
     "areaServed": {
       "@type": "Country",
       "name": "United States"
