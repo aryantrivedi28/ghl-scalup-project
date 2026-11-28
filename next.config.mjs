@@ -20,6 +20,11 @@ const nextConfig = {
         destination: "/services/gohighlevel-saas-mode",
         permanent: true,
       },
+      {
+        source: "/services/membership-sites",
+        destination: "/services/training",
+        permanent: true,
+      },
     ];
   },
 };
